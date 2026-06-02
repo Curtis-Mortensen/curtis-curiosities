@@ -2,7 +2,7 @@ UNIT = INCH
 
 CARDSIZE = 2.5, 3.5
 PAGE = 8.5, 11, PORTRAIT, HV
-LINK = cards.xlsx!Completed
+LINK = ItemCards.xlsx
 
 [all] = 1-{(Name)}
 
