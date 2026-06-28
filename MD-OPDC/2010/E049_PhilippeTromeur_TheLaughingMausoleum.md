@@ -83,16 +83,15 @@ The map is a grid-based dungeon layout. To visualize it, imagine the entrance on
     *   The map uses thin lines for open passageways and thicker lines for solid walls.
     *   "Secret doors" are indicated by small, distinct gaps or "X" markers in the walls.
     *   Water or natural obstacles are indicated by wavy lines (seen in the cavern section).
-
 title: The Laughing Mausoleum
-summary: In the old mausoleum of a fallen barony, a mad ghoul alchemist experiments on the dead and living with the help of goblins. Adventurers must navigate tombs, caves, and a laboratory to confront Heinrich in his temple of dark gods.
+summary: The heirs of the Morgensturm barons have vanished, and their mausoleum is now haunted by strange laughter. Adventurers must navigate burial chambers, goblin caves, and the lair of a ghoul alchemist to uncover the truth.
 rooms: 22
-resolutions: Combat, Diplomacy, Exploration, Roleplay, Traps
-concept_originality: 3
-mechanics_originality: 3
-interesting_details: 4
-map_quality: 3
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:19:26.448Z
+resolutions: Combat, Exploration, Roleplay, Traps, Skill Challenges
+concept_originality: 6.5
+mechanics_originality: 5.5
+interesting_details: 7.0
+map_quality: 7.0
+humor: 2.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:43:56.670Z
 model: deepseek/deepseek-v4-flash

@@ -60,16 +60,15 @@ For a player or DM using this map, visualize it as a stone structure built direc
     *   A significant portion of the floor is missing or sloped, revealing the lava beneath. 
     *   The Dark Priest is marked by an **orange dot** at the southern edge of the room. 
     *   Three additional **red markers** (the guards) are positioned near the entrance of this chamber. The path toward the Priest involves navigating around the lava hazard.
-
 title: The Last Priest of the Argent Scale
-summary: A party pursues a dark priest through his lava-based temple, facing minions and traps before confronting him in his sanctum. The final boss room features a sloped floor collapsing into lava, and the dungeon includes a bridge over molten rock and a hidden trap in a disused guest hall.
+summary: Players pursue a dark priest through a temple built over molten lava, facing minions, traps, and a final confrontation. The dungeon is a short, linear sequence of combat encounters ending with a boss fight against the priest and his guards.
 rooms: 9
 resolutions: Combat, Traps, Exploration
-concept_originality: 2
-mechanics_originality: 2
-interesting_details: 3
-map_quality: 3
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:19:25.750Z
+concept_originality: 2.5
+mechanics_originality: 2.5
+interesting_details: 3.5
+map_quality: 5.0
+humor: 1.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:43:52.768Z
 model: deepseek/deepseek-v4-flash

@@ -49,16 +49,15 @@ The tower is circular in design, with each level representing a different floor 
     *   **(M):** A hazardous room containing the Gelatinous Cube (the destination for the privies).
     *   **(N):** An empty storage room used to herd the cube.
     *   **(O):** A potential tunnel exit or cave entrance at the very bottom of the structure.
-
-title: The Sage's Keep
-summary: A naga has taken over a sage's keep, impersonating her via a hollow mannequin to trick adventurers into retrieving a legendary item. The tower features a rooftop garden, library, living quarters, and a unique waste disposal system involving a gelatinous cube.
-rooms: 7
-resolutions: Combat, Diplomacy, Puzzles, Fetch Quests, Roleplay, Traps, Exploration
-concept_originality: 4
-mechanics_originality: 4
-interesting_details: 5
-map_quality: 4
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:19:48.284Z
+title: The Sage’s Keep
+summary: The Sage’s Keep is a tower secretly taken over by the naga Askala, who impersonates the sage Ronale to lure adventurers into helping her find a legendary item. The party must navigate multiple floors, rescue Ronale, and confront the naga and her ogre and kobold minions.
+rooms: 17
+resolutions: Combat, Diplomacy, Puzzles, Roleplay, Social, Exploration
+concept_originality: 5.5
+mechanics_originality: 6.5
+interesting_details: 7.5
+map_quality: 8.0
+humor: 3.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:44:14.765Z
 model: deepseek/deepseek-v4-flash

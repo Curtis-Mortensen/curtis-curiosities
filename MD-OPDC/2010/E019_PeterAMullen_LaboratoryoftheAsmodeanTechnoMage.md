@@ -37,16 +37,15 @@ The bottom portion of the map transitions into a more structured, man-made lab e
 *   **Verticality:** The map encourages vertical play. Characters can drop down from the upper tiers to reach the laboratory, or fire arrows/spells from the high ledges at the creatures below.
 *   **Cover:** The heavy cluster of stalagmites and giant mushrooms provides excellent cover for both the players and the dungeon inhabitants.
 *   **Chokepoints:** The narrow rocky pathways between the tiers act as natural funnels, making them ideal locations for ambushes.
-
 title: Laboratory of the Asmodean Techno-Mage
-summary: A vertical slice of a subterranean dungeon combining dark sorcery and weird science, depicted as a dense OSR-style ink illustration. The map encourages vertical play and uses stalagmites and giant mushrooms as cover, with natural chokepoints between tiers.
+summary: This map depicts a vertical slice of a subterranean laboratory run by a dark techno-mage, with zones for combat, exploration, and strange alchemy. Adventurers must navigate three tiers filled with bizarre creatures and machinery.
 rooms: 6
 resolutions: Combat, Exploration
-concept_originality: 3
-mechanics_originality: 2
-interesting_details: 4
-map_quality: 4
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:18:38.064Z
+concept_originality: 6.0
+mechanics_originality: 4.0
+interesting_details: 8.0
+map_quality: 8.0
+humor: 2.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:43:06.126Z
 model: deepseek/deepseek-v4-flash

@@ -69,16 +69,15 @@ The map represents Vulture’s Crag, a multi-roomed cavern complex depicted as a
     *   **The Central Landmark (Area 11):** This is the largest, most significant chamber in the dungeon. It is a large circular room on the right side of the map with the "Tusk of Gwall" in the absolute center.
     *   **The Perimeter:** Along the bottom edge of the entire cavern system, a wavy, jagged line denotes the "Tar Pits," indicating that the entire dungeon is carved into a cliff overlooking a swampy, hazardous exterior.
 *   **Navigation:** The rooms are numbered and connected by wide hallways. There are a few specialized "caves within caves," such as the secret Area 13, tucked away behind a partition. The map uses simple line art—bold outlines for cave walls, dashed lines for ledges or changes in elevation, and symbols to represent objects like the "Tusk" or the "cage" in the Larder.
-
 title: Trolls will be Trolls
-summary: A classic troll lair beneath Vulture's Crag, led by the cunning witch Stencheye, where adventurers must navigate treacherous caves to collect a bounty and recover looted goods. The complex features unique troll variants, a holy Tusk, and hidden treasures with traps.
+summary: A one-page dungeon set in Vulture's Crag, where players must deal with a troll witch and her raiding brood. The complex features multiple factions, various threats, and hidden secrets beyond the straightforward bounty.
 rooms: 13
-resolutions: Combat, Diplomacy, Puzzles, Fetch Quests, Roleplay, Traps, Exploration, Social
-concept_originality: 3
-mechanics_originality: 4
-interesting_details: 6
-map_quality: 4
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:19:51.051Z
+resolutions: Combat, Diplomacy, Roleplay, Exploration, Skill Challenges, Traps
+concept_originality: 7.5
+mechanics_originality: 7.0
+interesting_details: 8.5
+map_quality: 7.0
+humor: 3.0
+content_rating: R
+rated_at: 2026-06-28T06:44:18.034Z
 model: deepseek/deepseek-v4-flash

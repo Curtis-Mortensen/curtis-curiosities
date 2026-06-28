@@ -57,16 +57,15 @@ The map depicts a 20x20 grid representing a ziggurat seen from a bird's-eye view
 **Key visual markers on the map:**
 *   **Numbers 1 through 5:** These are labeled on the map near their respective levels to correspond with the text descriptions.
 *   **The Inscription Box:** Located in the bottom right corner of the page, this provides the riddle/clue used to solve the dungeon.
-
 title: The Reliquary of Adin
-summary: A desert ziggurat monument houses the legendary sword Lightening-brand, which can be temporarily claimed by those who overcome a series of deadly trials. The dungeon's core twist is that the sword is hidden under the entrance pad, unlocked only after surviving all five levels and solving a cryptic riddle.
+summary: A five-tier ziggurat monument in a lost desert town houses the legendary sword Lightening-brand, which can be claimed by those who overcome its guardians and traps. Each level presents a unique challenge, from stone golems to a frictionless floor and hidden pits, culminating in a riddle that reveals the sword's location.
 rooms: 5
-resolutions: Combat, Traps, Puzzles, Skill Challenges, Exploration
-concept_originality: 3
-mechanics_originality: 3
-interesting_details: 3
-map_quality: 4
-humor: 2.5
+resolutions: Combat, Puzzles, Traps, Exploration, Skill Challenges
+concept_originality: 6.0
+mechanics_originality: 7.0
+interesting_details: 7.0
+map_quality: 6.0
+humor: 1.0
 content_rating: PG
-rated_at: 2026-06-28T06:18:20.440Z
+rated_at: 2026-06-28T06:42:32.707Z
 model: deepseek/deepseek-v4-flash

@@ -29,16 +29,15 @@ The page presents a top-down dungeon map designed for tabletop role-playing game
 *   **Bottom Center:** The Hermit. Bad mannered! But is he evil?
 *   **Bottom Left:** Culdron. Lots of jars with strange contents. Locked. Trapped.
 *   **Bottom Left:** Three witches. The home of three witches which may appear old and haggard or young and beautiful. They have magic and cursed items but not much gold. Their home invaded! They will attack and fight
-
-title: The Hermit's Cavern
-summary: A dark cave system filled with tunnels, chambers, and hazards, featuring bats, traps, undead, and a reclusive hermit. The dungeon offers a mix of classic fantasy encounters with a hermit whose morality is ambiguous and three witches that can appear old or young.
+title: Unnamed Cave Dungeon
+summary: A cave system with tunnels, traps, and various encounters including a hermit and three witches. Adventurers must navigate hazards and decide whether to fight or parley.
 rooms: 14
-resolutions: Combat, Traps, Social, Exploration
-concept_originality: 3
-mechanics_originality: 2
-interesting_details: 4
-map_quality: 2
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:18:53.148Z
+resolutions: Combat, Traps, Exploration, Roleplay
+concept_originality: 4.0
+mechanics_originality: 3.0
+interesting_details: 7.0
+map_quality: 4.0
+humor: 1.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:43:05.915Z
 model: deepseek/deepseek-v4-flash

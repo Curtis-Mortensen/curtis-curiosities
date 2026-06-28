@@ -78,16 +78,15 @@ The map is a grid-based dungeon layout composed of 13 numbered rooms. Each squar
 *   **Doors:** Most rooms are connected by doors indicated on the grid. Some are marked as "Secret Doors."
 *   **Stairwells:** Stairs are located at Area 2 (Southwest) and Area 9 (Northeast).
 *   **Navigation Tip:** The layout is a loop; you can enter through the main gate (Area 1), move into the large Hall (Area 8), and then branch out to either the living quarters (East) or the Armory/Strongroom (West). The "business" areas (Jando's chamber, the Chapel, and the Stable) are located deeper in the structure, generally to the North and East.
-
 title: The Horrible Hermitage
-summary: The Horrible Hermitage is a ruined fortress where false hermits under the sorcerer Jando capture travelers to fund the resurrection of the dark lord Scavdreen. The dungeon includes a fake bugbear attack, a talking giant spider ally, and various traps and secret doors.
+summary: A ruined fortress turned hermitage is a front for the sorcerer Jando, who is resurrecting a despot to learn the secret of the Firebirds. The party must navigate traps, monsters, and a conspiracy to stop him.
 rooms: 13
-resolutions: Combat, Diplomacy, Roleplay, Traps, Exploration
-concept_originality: 3
-mechanics_originality: 3
-interesting_details: 4
-map_quality: 2
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:18:58.446Z
+resolutions: Combat, Diplomacy, Traps, Exploration, Roleplay
+concept_originality: 6.5
+mechanics_originality: 6.5
+interesting_details: 8.0
+map_quality: 5.0
+humor: 1.5
+content_rating: PG-13
+rated_at: 2026-06-28T06:43:22.894Z
 model: deepseek/deepseek-v4-flash

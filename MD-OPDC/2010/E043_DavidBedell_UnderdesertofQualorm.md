@@ -108,16 +108,15 @@ The map represents the "Under-Desert of Qualorm" as a 60x80 mile subterranean re
     *   **11 (Clayfolk Outpost):** Centered along the very bottom edge.
     *   **12 (Buried Overland Ruins):** Located in the top-right quadrant.
 *   **Pathways:** Dotted lines form a web connecting these numbered locations, acting as the primary trade routes for travel across the desert. The terrain features "Rock upcroppings" (represented by small, shaded squares) scattered throughout the eastern side of the map, signifying more difficult terrain.
-
 title: Under-Desert of Qualorm
-summary: A subterranean desert region with multiple warring factions, trade routes, and a complex diplomacy matrix, set in a 60x80 mile OSR-style sandbox. Standout mechanics include a detailed diplomacy table for five factions, 3D navigation rules, and a traveling encounter system based on terrain and time of day.
+summary: An OSR-style hexcrawl set in a 60x80 mile subterranean desert with diverse factions (sandpeople, mudmen, hive) and trade routes. The dungeon features an isometric map, faction diplomacy, and 12 keyed locations including a sandhome hollow, hive colony, and dragon's lair.
 rooms: 12
-resolutions: Combat, Diplomacy, Traps, Exploration, Social
-concept_originality: 3
-mechanics_originality: 4
-interesting_details: 4
-map_quality: 5
-humor: 2.5
+resolutions: Combat, Diplomacy, Exploration, Traps, Roleplay, Skill Challenges
+concept_originality: 8.5
+mechanics_originality: 7.0
+interesting_details: 7.5
+map_quality: 8.5
+humor: 1.0
 content_rating: PG
-rated_at: 2026-06-28T06:19:15.285Z
+rated_at: 2026-06-28T06:43:44.108Z
 model: deepseek/deepseek-v4-flash

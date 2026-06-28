@@ -76,16 +76,15 @@ A large square representing the wooden stockade. In the top corner of the square
 
 **Map 4: Tower Ruin**
 A circular structure that has been "torn" at the edges to represent rubble. The rooms are arranged around a central core. Room 4 is a hidden chamber indicated by a secret door symbol ($) located behind the south wall where the ogre is attacking.
-
 title: Where is Margesh Blackblood?
-summary: Players track down a bandit lord across four hideouts, with the lord's location randomized. Each hideout has its own traps, monsters, and potential allies or betrayals.
+summary: Players hunt the bandit lord Margesh Blackblood across four possible hideouts, each with unique encounters and traps. The module offers nonlinear investigation and combat as players find clues to his location.
 rooms: 16
 resolutions: Combat, Traps, Exploration, Roleplay
-concept_originality: 2
-mechanics_originality: 1
-interesting_details: 3
-map_quality: 2
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:19:31.979Z
+concept_originality: 5.0
+mechanics_originality: 5.0
+interesting_details: 6.5
+map_quality: 6.0
+humor: 1.5
+content_rating: PG-13
+rated_at: 2026-06-28T06:44:06.167Z
 model: deepseek/deepseek-v4-flash

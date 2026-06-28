@@ -55,16 +55,15 @@ For a player who cannot see the maps, here is the spatial layout:
     *   **The Main Cavern (B9):** A large, irregularly shaped chamber dominating the map, filled mostly by a lake. The shore is at the far east.
     *   **The Living Quarters (B10-B14):** Situated in the southeastern corner of the underground map. This area is more structured, representing rooms where the lizard-folk live. B14 is the final room at the end of the line.
 *   **Navigation:** Remind players that the mine is dark, cramped (6 ft. ceilings), and partially flooded. Use the grid (1 square = 10 ft) to track movement, keeping in mind that some areas (like B3) require skill checks for movement, while others (B9) are primarily aquatic environments.
-
 title: Mine! Not Yours!
-summary: A classic mining settlement overrun by lizardfolk after a cave-in reveals a new passage, with the players hired to clear the mine. Tidal flooding, a kraken in an underground lake, and a hidden underwater passage requiring information from a rescued miner add environmental and investigative twists.
+summary: A mining settlement and underground mine infested with lizard-folk, featuring a kraken in a submerged lake. Players must clear the mine and rescue captured miners.
 rooms: 18
-resolutions: Combat, Diplomacy, Fetch Quests, Exploration, Skill Challenges, Roleplay
-concept_originality: 2
-mechanics_originality: 3
-interesting_details: 3
-map_quality: 3
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:18:28.200Z
+resolutions: Combat, Skill Challenges, Exploration, Roleplay, Social
+concept_originality: 4.5
+mechanics_originality: 3.0
+interesting_details: 5.0
+map_quality: 6.0
+humor: 1.5
+content_rating: PG-13
+rated_at: 2026-06-28T06:42:40.710Z
 model: deepseek/deepseek-v4-flash

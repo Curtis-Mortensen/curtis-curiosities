@@ -53,16 +53,15 @@ This final room is the most heavily decorated area of the dungeon:
 **Navigation Tips:**
 *   **Stairs:** There are stairs located at the far north-west entrance, the start of the northern cavern, and near the entrance to the southern corridor.
 *   **Dead Ends:** Most paths lead to specific points of interest (the braziers or the final altar room), making the layout fairly linear with few true "looping" paths.
-
 title: Tomb of Orcus
-summary: A classic tomb dungeon dedicated to the demon prince Orcus, featuring winding caverns, a long hall with traps, and a fortified final chamber. The dungeon uses hidden pit traps, false doors, and braziers alongside statues of Orcus to create a ritualistic atmosphere and challenge explorers.
-rooms: 5
-resolutions: Traps, Exploration
-concept_originality: 2
-mechanics_originality: 1
-interesting_details: 3
-map_quality: 3
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:18:45.427Z
+summary: A classic old-school dungeon dedicated to the demon prince Orcus, featuring a linear layout of natural caverns and architectural halls. Adventurers navigate traps, false doors, and statue-lined chambers to reach a central altar room.
+rooms: 6
+resolutions: Exploration, Traps
+concept_originality: 2.5
+mechanics_originality: 2.0
+interesting_details: 3.0
+map_quality: 3.5
+humor: 1.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:43:15.438Z
 model: deepseek/deepseek-v4-flash

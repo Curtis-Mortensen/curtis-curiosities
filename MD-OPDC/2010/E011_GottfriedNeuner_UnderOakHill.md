@@ -77,16 +77,15 @@ The map is a top-down, line-art architectural floor plan on a square grid, divid
     *   **The Connection:** A series of winding, narrow tunnels (Area 9) serves as a choke point leading to the Cellar (Area 11).
     *   **Area 10:** This is a small, standalone chamber located between the cave network and the cellar.
     *   **Area 11 (Cellar):** This is a clean, rectangular room (as opposed to the squiggly-lined caves) located directly beneath the castle ruins, acting as the transition point between the subterranean dungeon and the surface castle.
-
 title: Under Oak Hill
-summary: Under Oak Hill is a dungeon set in a ruined castle with a secret cave system, where players must stop bandits and a warlock performing dark rites. The adventure features rumors, a candle-lit sanctuary, cursed rings, and wandering dwarven ghosts.
+summary: A ruined castle occupied by bandits, a warlock, and a desecrated chapel threatens the valley, but a secret cave network offers a way in. The dungeon combines a bandit stronghold with a dwarven cave system filled with traps, monsters, and cursed treasures.
 rooms: 13
-resolutions: Combat, Puzzles, Exploration, Traps, Skill Challenges
-concept_originality: 2
-mechanics_originality: 3
-interesting_details: 4
-map_quality: 3
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:18:33.992Z
+resolutions: Combat, Exploration, Skill Challenges, Traps
+concept_originality: 5.5
+mechanics_originality: 5.5
+interesting_details: 6.5
+map_quality: 6.0
+humor: 1.5
+content_rating: PG-13
+rated_at: 2026-06-28T06:42:48.627Z
 model: deepseek/deepseek-v4-flash

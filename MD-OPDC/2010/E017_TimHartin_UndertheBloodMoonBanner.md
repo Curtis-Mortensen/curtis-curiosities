@@ -61,16 +61,15 @@ The map is a top-down, black-and-white grid layout where **1 square equals 10 fe
     *   **The Southern Cluster:** The **Defiled Shrine (9)**, **Ironbelly Brothers Quarters (10)**, and **Otoboru’s Quarters (11)** occupy the bottom center.
     *   **Hidden/Special Areas:** The **Secret Vault (12)** is tucked between the Quarters and the Slave Pen. The **Slave Pen (13)** is along the bottom, and the **Owlbear Den (14)** is located on the far right (eastern) side.
 *   **Map Features:** The map uses solid black lines for walls and clear white space for floor areas. Square symbols denote doors, and specific hatches indicate secret doors. Room numbers are placed inside circles within each room for easy identification. The "Great Hall" is noticeably larger than the other rooms, reflecting its status as the center of the complex.
-
 title: Under the Blood Moon Banner
-summary: A motley band of monsters led by an ogre mage named Otoboru raids the countryside from a cave hideout. The dungeon features a star chamber with a healing light, a howling air-tunnel room, and an invisible ogre mage who may be lurking on his throne.
+summary: A motley group of monsters led by an ogre mage, Otoboru, rages from a dungeon stronghold. The party must navigate traps, monster-packed rooms, and save captives to end the threat.
 rooms: 14
-resolutions: Combat, Traps, Exploration, Skill Challenges
-concept_originality: 2
-mechanics_originality: 2
-interesting_details: 3
-map_quality: 2
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:18:38.121Z
+resolutions: Combat, Traps, Exploration, Skill Challenges, Roleplay
+concept_originality: 3.0
+mechanics_originality: 4.0
+interesting_details: 5.5
+map_quality: 5.5
+humor: 1.0
+content_rating: R
+rated_at: 2026-06-28T06:42:54.973Z
 model: deepseek/deepseek-v4-flash

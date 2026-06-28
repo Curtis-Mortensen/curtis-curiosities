@@ -71,16 +71,15 @@ To help someone who cannot see the map visualize the dungeon, imagine a large, o
 *   **The Water Feature (Right/South):** Running from the middle-right down to the bottom is the Cold Stream (16). It acts as a natural boundary. The Fishery (15) is near the top of this stream. The Waterfall (18) is further south, leading down to the Cavefisher’s Roost (19).
 *   **The Secret Lair (Far Right):** In the bottom-right corner, isolated from the main warren, is the Dark Lake (20) and the Eerie Redoubt (21). A secret passage, the Backstair (23), snakes from this southeastern corner all the way back up to Grom’s Court (9), allowing for a flank attack or secret escape.
 *   **The Exit:** The map ends at the far right (22), a Cavern that signifies a portal to the deeper underworld.
-
 title: The Ruination of Tenamen (Grom's Undoing)
-summary: A sprawling orc hideout full of warring factions and hidden monsters, where adventurers arrive during a chaotic moment. It features a medusa lair, poisoned apples, and a one-way chute into a cage of fighters.
+summary: A band of adventurers discovers the hideout of the orc chieftain Grom, only to find it is a complex warren filled with monsters, traps, and a medusa lurking in the depths. The dungeon features a large cave system with a river, multiple levels, and secret passages.
 rooms: 23
-resolutions: Combat, Traps, Exploration, Roleplay
-concept_originality: 3
-mechanics_originality: 2
-interesting_details: 4
-map_quality: 4
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:19:49.336Z
+resolutions: Combat, Exploration, Stealth, Roleplay
+concept_originality: 4.5
+mechanics_originality: 3.0
+interesting_details: 6.0
+map_quality: 7.0
+humor: 1.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:44:32.096Z
 model: deepseek/deepseek-v4-flash

@@ -27,3 +27,15 @@ humor: 2.5
 content_rating: PG
 rated_at: 2026-06-28T06:19:38.687Z
 model: deepseek/deepseek-v4-flash
+title: The Tunnels of Turrack the Terrible
+summary: A dungeon crawl through the tunnels of the terrible Turrack, with a backstory about a ridiculed mage named Robert the Red. Includes randomized tables for dynamic gameplay events and character stats integrated into the handout.
+rooms: 10
+resolutions: Combat, Exploration
+concept_originality: 3.0
+mechanics_originality: 2.0
+interesting_details: 2.0
+map_quality: 3.0
+humor: 2.5
+content_rating: PG
+rated_at: 2026-06-28T06:44:10.030Z
+model: deepseek/deepseek-v4-flash

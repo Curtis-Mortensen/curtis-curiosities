@@ -88,16 +88,15 @@ The map is a dungeon crawl layout composed of irregularly shaped, organic cavern
 *   **Cavern #7 (Lair):** Located at the very bottom center of the map, below the main entrance area. It is a small, rounded room isolated from the rest of the complex, representing the deepest, most dangerous area.
 
 **Flow:** Players enter through the south of Cavern #1. They move through #1 and #2, then pass through a gate (the mechanically lowered wall) to reach the central arena (#3). From the arena, they can access the holding areas (#4 and #5), storage (#6), and finally, the boss lair (#7) at the bottom.
-
 title: Arena of Bloodlust
-summary: A cult operates a subterranean battle arena where victorious gladiators are sacrificed to an otherworldly being that feeds on their prowess. Players navigate social encounters, combat, and a grim twist.
+summary: A subterranean battle arena created by a cult to feed an otherworldly being, where adventurers can engage in combat, social interactions, and exploration before confronting the being in its lair. The module features seven keyed caverns with NPCs, hazards, and a final sacrifice to the entity.
 rooms: 7
-resolutions: Combat, Roleplay, Exploration, Social
-concept_originality: 3
-mechanics_originality: 2
-interesting_details: 3
-map_quality: 2
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:18:39.189Z
+resolutions: Combat, Social, Roleplay, Traps, Exploration
+concept_originality: 6.0
+mechanics_originality: 4.5
+interesting_details: 7.5
+map_quality: 5.5
+humor: 1.5
+content_rating: R
+rated_at: 2026-06-28T06:43:02.585Z
 model: deepseek/deepseek-v4-flash

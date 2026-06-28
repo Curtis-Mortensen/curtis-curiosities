@@ -71,16 +71,15 @@ The map is a grid-based sewer complex. Imagine the layout as a series of channel
     *   The exit to the street is located at the very end of the living area (Room 19c).
 
 To navigate: If you are at the main entrance, moving straight ahead (east/northeast) takes you toward the lab complex. Branching off to the North leads to the water management systems. Branching off to the East leads you into the flooded creature's lair.
-
 title: Sewers of Victorian London
-summary: In 1898 Victorian London, the party chases an aquatic hybrid creature into a sewer concealing an abandoned experimental lab used for horrific animal-human hybrids. The dungeon features a multi-lever floodgate system that dynamically changes water levels and a trap room requiring the code "MOREAU" that triggers acid damage after two wrong attempts.
+summary: In 1898 London, investigators pursue an aquatic hybrid into the sewers, discovering an abandoned lab used by a mad scientist for human-animal experiments. The party must navigate floodgates, a mutant piranha pool, and a puzzle to stop the creature and its creator's leftover chaos.
 rooms: 20
-resolutions: Combat, Diplomacy, Puzzles, Exploration, Skill Challenges, Traps
-concept_originality: 3
-mechanics_originality: 4
-interesting_details: 4
-map_quality: 3
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:19:07.003Z
+resolutions: Combat, Puzzles, Exploration, Skill Challenges
+concept_originality: 5.5
+mechanics_originality: 6.5
+interesting_details: 7.0
+map_quality: 7.5
+humor: 1.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:43:37.303Z
 model: deepseek/deepseek-v4-flash

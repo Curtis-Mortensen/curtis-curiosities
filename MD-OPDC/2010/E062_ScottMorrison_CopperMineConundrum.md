@@ -82,16 +82,15 @@ If you need to sketch this out for players, here is how the rooms are connected:
 *   A break in the wall (21) acts as a doorway into the Necromancer’s Lair.
 *   The Lair is a circuit of rooms: the Work Room (22) in the center, flanked by the Morgue (23) and the Quarters (24). 
 *   A final Locked Room (25) is accessed from the Quarters.
-
 title: Copper Mine Conundrum
-summary: A village asks adventurers to investigate a copper mine where a mad necromancer's skeletons have killed the miners and goblins have since entered the mine, creating a three-way conflict. The dungeon features a three-level mine with a destroyed elevator shaft, a collapsing floor trap, and a cowardly necromancer who flees through secret passages while commanding improved skeletons.
+summary: A village asks adventurers to investigate a copper mine where contact has been lost. They discover a three-way conflict between goblin raiders and a mad necromancer's undead, and must navigate three levels to confront the necromancer.
 rooms: 25
-resolutions: Combat, Traps, Exploration, Skill Challenges, Social
-concept_originality: 2
-mechanics_originality: 2
-interesting_details: 3
-map_quality: 3
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:19:52.227Z
+resolutions: Combat, Stealth, Traps, Exploration
+concept_originality: 6.0
+mechanics_originality: 5.0
+interesting_details: 7.0
+map_quality: 8.0
+humor: 2.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:44:27.584Z
 model: deepseek/deepseek-v4-flash

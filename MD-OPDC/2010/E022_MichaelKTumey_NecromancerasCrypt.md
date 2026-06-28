@@ -69,16 +69,15 @@ The dungeon is roughly L-shaped, composed of two main horizontal corridors conne
 *   **Secret Doors (S):** There are secret doors connecting the Cold Storage to the central hallways and hidden passages near the Entryway and Laboratory. 
 *   **Traps (X):** Hazards are marked throughout, specifically near the Gate House, the entrance to the Yeoman's Trap, and the entry to the Boneyard. 
 *   **Movement:** The map relies heavily on 5-foot hallways. The Blood Canyon acts as a massive choke point for movement in the northern section.
-
-title: Necromancer’s Crypt
-summary: A necromancer's crypt dungeon with a blood-filled ravine and skull chapel, featuring traps and secret doors. The map includes 14 keyed locations such as a boneyard, laboratory, and undying heart chamber.
-rooms: 14
-resolutions: Traps
-concept_originality: 2
-mechanics_originality: 1
-interesting_details: 3
-map_quality: 3
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:18:48.108Z
+title: Necromancer's Crypt
+summary: A sprawling underground crypt built around a blood-filled chasm, ruled by Lhessadrak the Undying Pontiff. The dungeon features a gothic layout with trap corridors, a boneyard, a skull chapel, and hidden portals connecting the wings.
+rooms: 16
+resolutions: Combat, Traps, Exploration
+concept_originality: 3.5
+mechanics_originality: 3.0
+interesting_details: 5.5
+map_quality: 6.0
+humor: 1.0
+content_rating: R
+rated_at: 2026-06-28T06:43:04.240Z
 model: deepseek/deepseek-v4-flash

@@ -79,16 +79,15 @@ The map depicts a complex, futuristic spaceship interior drawn on a grid (1 squa
     *   **The Right Wing/Aft:** This contains the Medical Lab (#16), Bio-Preserve (#17), and Observatory (#18), which seem to be the technical and research labs of the ship.
     *   **The Aft Section:** Rooms #19, #20, #21, #22, and #23 are located at the far end of the map, suggesting an engineering or cargo section.
 *   **Navigation:** Movement is generally linear through corridors, but most rooms have multiple doorways, allowing for looping paths. There is a clear distinction between the "Battlefield" (#5) and "Control/Prison" zones (#13, #14), which form the heart of the ship's defense and automation systems.
-
 title: Dungeon from a Distant Star
-summary: An OSR adventure set in a crashed alien spaceship buried underground, with still-functioning systems and a haunted pilot. Players explore the derelict saucer, contend with automated defenses, and uncover the Mirror of Life Trapping that holds the trapped crew.
-rooms: 25
-resolutions: Combat, Exploration, Puzzles, Traps, Roleplay
-concept_originality: 4
-mechanics_originality: 4
-interesting_details: 5
-map_quality: 4
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:19:16.742Z
+summary: An OSR adventure set in a crashed alien spaceship, where the surviving crew are trapped in a Phantom Prison and the pilot's restless spirit haunts the vessel. Players must navigate the ship's still-active systems and defenses to explore and survive.
+rooms: 23
+resolutions: Combat, Exploration, Puzzles, Traps
+concept_originality: 7.0
+mechanics_originality: 7.5
+interesting_details: 8.0
+map_quality: 6.0
+humor: 1.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:43:43.224Z
 model: deepseek/deepseek-v4-flash

@@ -63,16 +63,15 @@ The map is a top-down view of the **Borremose**, a swampy region represented by 
     *   **Area 7 (Bottom left):** Situated at the end of a long, separate arm of the wooden roads, furthest from the village, located in a remote corner of the swamp.
 
 To navigate the map, players must follow the lines provided. Any movement off-path into the open space surrounding the lines should be treated as dangerous "off-road" swamp movement.
-
 title: The Village of Fairfen
-summary: A dark folk-horror adventure set in a village that produces magical bog iron through ritual sacrifice, with the player characters drawn by the promise of enchanted steel. A villager asks them to kill the King of Summer.
+summary: The party visits the village of Fairfen to obtain magical bog iron, but becomes embroiled in a folk-horror tradition where the King of Summer is ritually sacrificed. The village's iron-making requires personal sacrifices, and a plot to murder the current king complicates the stay.
 rooms: 12
-resolutions: Combat, Diplomacy, Roleplay, Traps, Exploration, Skill Challenges, Social
-concept_originality: 4
-mechanics_originality: 4
-interesting_details: 5
-map_quality: 3
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:19:04.519Z
+resolutions: Combat, Diplomacy, Fetch Quests, Roleplay, Traps, Exploration, Skill Challenges, Social
+concept_originality: 7.5
+mechanics_originality: 6.5
+interesting_details: 7.5
+map_quality: 6.5
+humor: 1.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:43:32.853Z
 model: deepseek/deepseek-v4-flash

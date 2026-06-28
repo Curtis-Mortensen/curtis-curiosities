@@ -45,16 +45,15 @@ The map depicts a sophisticated, multi-purpose establishment. You can navigate t
 *   The map uses thick white lines to represent walls and a grid overlay to track player movement. 
 *   There are multiple staircases located in the top-right and bottom-right corners, suggesting the building has additional levels (up or down).
 *   The layout is designed to allow movement between all major rooms without needing to backtrack through the main halls, creating a flow that would be ideal for social encounters, stealth, or combat.
-
 title: Madam Lila's Speakeasy, Bath, and Brothel
-summary: A detailed grid map of a sophisticated multi-room establishment serving as a speakeasy, bathhouse, and brothel, designed for social and stealthy encounters. The symmetrical layout features a central bath hall, winery, wine hall, lounge, stage, and private quarters, with staircases suggesting additional levels.
+summary: A grid-based dungeon map depicting a well-organized, multi-room establishment including a bath hall, winery, wine hall, frolic room, lounges, bedrooms, and private quarters. Designed for social encounters, stealth, and exploration rather than traditional combat.
 rooms: 12
-resolutions: Exploration, Roleplay, Social
-concept_originality: 4
-mechanics_originality: 1
-interesting_details: 3
-map_quality: 3
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:18:49.799Z
+resolutions: Social, Roleplay, Exploration, Stealth
+concept_originality: 8.5
+mechanics_originality: 3.0
+interesting_details: 5.0
+map_quality: 6.0
+humor: 1.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:43:20.122Z
 model: deepseek/deepseek-v4-flash

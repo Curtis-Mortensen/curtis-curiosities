@@ -70,16 +70,15 @@ This is a long, vertical, narrow rectangular hallway.
 *   The **Exit** is at the very top (north) center of the hallway. 
 
 *Note: In the final challenge, the players need to move from the south (where the ogre is) to the north (where the winches and exit are), effectively dragging the ogre north while trying to keep it from eating them until they can engage the winches to seal it away.*
-
 title: Under the Mountain
-summary: After escaping a harpy attack, the party must find another exit through a three-level dungeon filled with centipedes, traps, and an undead ogre bound by a chain. The standout mechanic is a retracting chain that pulls the undead ogre toward the exit, forcing the party to distract it while operating winches to lock it away.
+summary: The party escapes harpies into a cave and must find another exit through three levels, facing traps and an undead ogre. They must navigate rooms with centipedes, dire rats, and a chain mechanism to lock the ogre away.
 rooms: 9
 resolutions: Combat, Puzzles, Traps, Exploration
-concept_originality: 3
-mechanics_originality: 3
-interesting_details: 3
-map_quality: 2
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:18:23.288Z
+concept_originality: 4.0
+mechanics_originality: 5.0
+interesting_details: 5.0
+map_quality: 5.0
+humor: 1.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:42:43.218Z
 model: deepseek/deepseek-v4-flash

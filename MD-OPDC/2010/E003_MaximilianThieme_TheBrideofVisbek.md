@@ -52,16 +52,15 @@ The map is hand-drawn and represents both a surface level and an underground tun
 *   **Area 5 (Inner Sanctum):** The path continues from the central chamber to a circular room on the far right. Inside this circle, there is a star symbol (a pentagram). This is where the demon of greed is located.
 
 The entire underground network is connected by tunnel passages, with the map showing a progression from the surface hole, down into the first cavern, through the blocked passage, into the central chamber, and finally into the circular treasure room.
-
 title: The Bride of Visbek
-summary: A folk-horror dungeon where a bride's vengeful spirit haunts the standing stones of Visbek, with treasure hunters disturbing her curse. The spirit animates corpses and hides in the shadows of petrified bridesmaids, leading to a final encounter with a bound demon of greed.
+summary: A folk-horror dungeon where a bride's vengeful spirit haunts a stone circle and underground tunnels, with a demon of greed guarding her lost dowry. Players must navigate from the surface stones through caverns to defeat the demon and free the tortured soul.
 rooms: 5
-resolutions: Combat, Puzzles, Exploration, Skill Challenges
-concept_originality: 3
-mechanics_originality: 3
-interesting_details: 3
-map_quality: 2
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:18:21.155Z
+resolutions: Combat, Stealth, Exploration, Puzzles
+concept_originality: 6.0
+mechanics_originality: 4.0
+interesting_details: 6.0
+map_quality: 6.0
+humor: 1.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:42:34.075Z
 model: deepseek/deepseek-v4-flash

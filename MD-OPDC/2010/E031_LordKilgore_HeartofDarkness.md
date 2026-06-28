@@ -85,16 +85,15 @@ For someone unable to see the map, it is an **isometric-style hexagonal grid** r
 
 **Gameplay Implementation:**
 To play, you would present the player with the current hex coordinate they are in. When they move into a new hex, you consult the corresponding number in the text list to determine what they encounter (e.g., "You have entered hex 0312, where a man raised by apes confronts you"). The river provides a clear, linear progression path, but the surrounding hexes allow for "side-quests" or exploration off the main water path.
-
-title: THE HEART OF DARKNESS
-summary: A hex-crawl adventure along a river into an unknown continent, with many encounter locations including a man raised by apes, a split-personality hunter, and a giant manacled fire giant king. The journey emphasizes river travel speeds and piloting checks.
-rooms: 41
-resolutions: Combat, Diplomacy, Roleplay, Exploration, Skill Challenges
-concept_originality: 4
-mechanics_originality: 2
-interesting_details: 4
-map_quality: 2
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:19:12.537Z
+title: The Heart of Darkness
+summary: A hex-crawl adventure along a treacherous river deep into an unknown continent, with diverse encounters ranging from ghoul-crewed boats to vampire monks and giant snake-men. Travel is measured in days, and the river provides a linear path through a dangerous wilderness.
+rooms: 42
+resolutions: Combat, Diplomacy, Roleplay, Exploration, Skill Challenges, Social
+concept_originality: 8.5
+mechanics_originality: 7.0
+interesting_details: 8.5
+map_quality: 9.0
+humor: 2.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:43:26.680Z
 model: deepseek/deepseek-v4-flash

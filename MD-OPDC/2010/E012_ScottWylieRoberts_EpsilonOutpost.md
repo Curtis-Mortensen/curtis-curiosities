@@ -97,16 +97,15 @@ The map is a diagram representing a modular, hexagonal-based space station.
     *   **Symbols:**
         *   There is a scale bar in the top right of the map that measures 0 to 10 metres.
         *   Hexagons **9** and **10** are not visually represented as unique rooms on the grid, but rather represent infrastructure (Crawlspaces and Laboratory) accessed via trapdoors inside the other rooms. The map uses an "X" symbol inside certain hexagons to indicate these access points to the lower levels.
-
 title: Epsilon Outpost – a Prefabricated Base in a Distant Galaxy
-summary: A modular hex-based sci-fi outpost that can be placed in space, underwater, or on a planet, raided for supplies during a viral cataclysm. It features random generation tables for inhabitants, base quirks, and room contents, with a portal chamber that can connect to fantasy settings.
+summary: A modular, hexagonal space base from a decommissioned colonial outpost is raided for supplies during a viral cataclysm. Room descriptions and random tables generate inhabitants, tech, and quirks for a sci-fi survival scenario.
 rooms: 13
-resolutions: Combat, Fetch Quests, Roleplay, Exploration
-concept_originality: 5
-mechanics_originality: 4
-interesting_details: 5
-map_quality: 4
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:18:30.597Z
+resolutions: Combat, Exploration, Roleplay, Traps, Skill Challenges
+concept_originality: 7.5
+mechanics_originality: 7.0
+interesting_details: 6.0
+map_quality: 6.5
+humor: 2.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:42:51.319Z
 model: deepseek/deepseek-v4-flash

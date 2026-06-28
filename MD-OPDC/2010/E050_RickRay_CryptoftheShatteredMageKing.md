@@ -65,16 +65,15 @@ The map is a top-down, grid-based dungeon layout composed of ten numbered rooms 
 *   **The Inner Sanctum:** To the east of Room 6 is **Room 7** (Circular Vault), a round room accessible via a locked door (`k`). This leads north into **Room 8** (Guardroom), a narrow rectangular space.
 *   **The Far End:** To the left of the Guardroom is **Room 9** (Bed Chamber). It is connected by a narrow corridor. This room has a large `a` marker (murky pool) and a secret door (`S`) leading to the final **Room 10** (Shattered Laboratory) in the top-left area. 
 *   **Navigation Notes:** Almost every room is separated by a door (`d`) or a locked door (`k`). There are several secret doors (`S`) connecting the rooms in an non-linear fashion, allowing the party to bypass certain areas if they search effectively. The map is generally oriented with the entrance at the south/bottom, with the deeper sections of the dungeon progressing toward the north and east.
-
 title: Crypt of the Shattered Mage-King
-summary: An OSR dungeon where a forgotten mage-king now roams as a lich, filled with undead and treasure. A golden dagger from the guardroom can bypass the death knight guarding the vault.
-rooms: 12
-resolutions: Combat, Diplomacy, Puzzles, Fetch Quests, Traps, Exploration
-concept_originality: 3
-mechanics_originality: 2
-interesting_details: 3
-map_quality: 2
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:19:23.262Z
+summary: A classic OSR dungeon where adventurers explore the crumbling crypt of a forgotten mage-king, now a lich, facing undead, oozes, and traps. The map is a grid of ten rooms with secret doors and a non-linear layout.
+rooms: 10
+resolutions: Combat, Traps, Exploration
+concept_originality: 2.5
+mechanics_originality: 2.0
+interesting_details: 4.0
+map_quality: 5.0
+humor: 1.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:44:02.660Z
 model: deepseek/deepseek-v4-flash

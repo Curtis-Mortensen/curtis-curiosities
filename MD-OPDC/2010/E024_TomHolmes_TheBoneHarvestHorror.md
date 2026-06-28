@@ -45,16 +45,15 @@ This is a single-page dungeon module designed for a tabletop roleplaying game. I
 * **C1: Tortured warrens** - vampiric demons try to cut out a weak party member and slay him. If they manage it, they beat into walls ethereally, then wait for others to leave before returning to feast on blood.
 * **C2: Stained hall** - stained glass windows line this hall with a great angel on either end. The windows portray scenes of haunting beauty.
 * **C3: The sanctuary** - undead cannot enter the chamber (barriers). Nothing ages in this room and wounds heal at four
-
 title: The Bone Harvest Horror
-summary: A multi-level undead dungeon featuring a zombie horde that spawns continuously, a devious crown trap, and a sanctuary that blocks undead. Players must navigate catacombs, crypts, and haunted halls to uncover the source of the bone harvest.
+summary: A three-level gothic dungeon overrun with undead, from zombie-filled catacombs to a vampiric sanctuary. Adventurers must navigate traps, ambushes, and monstrous encounters to survive.
 rooms: 25
-resolutions: Combat, Traps, Exploration, Puzzles
-concept_originality: 3
-mechanics_originality: 3
-interesting_details: 4
-map_quality: 4
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:18:48.243Z
+resolutions: Combat, Traps, Exploration
+concept_originality: 4.5
+mechanics_originality: 5.0
+interesting_details: 6.0
+map_quality: 5.0
+humor: 1.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:43:10.259Z
 model: deepseek/deepseek-v4-flash

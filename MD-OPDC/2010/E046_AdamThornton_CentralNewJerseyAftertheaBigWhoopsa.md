@@ -93,16 +93,15 @@ The map is a standard "hex crawl" grid representing Central New Jersey. It is or
 *   The "Bogs" are situated north of the Pine Barrens (Hex 505).
 *   "Acey" and "Hoboken" are located toward the lower-right (southeast) section of the map.
 *   A major road (The Turnpike) runs diagonally from the center-west toward the northeast, while the "Garden State Parkway" runs vertically along the eastern edge.
-
 title: Central New Jersey After the 'Big Whoops'
-summary: A post-apocalyptic hex crawl through Central New Jersey where adventurers navigate mutant-filled ruins, negotiate with troll tollbooth operators, and seek the head of Frank Sinatra for a Witch-Queen. The dungeon features bizarre unique monsters like the Princeton University Band amoeba, a sentient delusional jet autopilot cult, and the well-mannered Jersey Devil.
-rooms: 13
-resolutions: Combat, Diplomacy, Puzzles, Fetch Quests, Stealth, Roleplay, Exploration, Skill Challenges, Social
-concept_originality: 5
-mechanics_originality: 3
-interesting_details: 5
-map_quality: 3
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:19:33.230Z
+summary: A post-apocalyptic hex crawl set in a satirical New Jersey, featuring darkly comedic locations and monsters from the Meadowlands to the Pine Barrens. Players navigate rumors, tollbooth trolls, and the quest for Frank Sinatra's head.
+rooms: 12
+resolutions: Combat, Diplomacy, Puzzles, Fetch Quests, Stealth, Roleplay, Exploration, Social
+concept_originality: 9.0
+mechanics_originality: 7.0
+interesting_details: 9.0
+map_quality: 6.0
+humor: 5.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:43:53.909Z
 model: deepseek/deepseek-v4-flash

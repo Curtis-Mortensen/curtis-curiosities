@@ -80,16 +80,15 @@ The map is a grid-based dungeon floor plan. If you are playing, imagine a roughl
 *   **The Chasm (Eastern Edge):** The rightmost side of the map contains a significant vertical line representing the Chasm (19 and 20), which separates the entrance section from the final chambers.
 *   **The Final Area:** Past the Chasm, you reach the "Reverse Gravity" room (18), the "Animated Room" (21), and finally the "Tomb" (22) tucked in the bottom-right corner.
 *   **Navigation Notes:** Look for the "Secret door" indicators—one is located near Room 7, and another appears in the hallway leading to the Tomb area (22). There are also "Trap" indicators marked with an 'X' near the corridors connecting the primary rooms.
-
-title: The Illusionist’s Tomb
-summary: A gnome illusionist's tomb filled with practical jokes and traps, now inhabited by kobolds and an ogre mage. The dungeon relies on illusions, trickery, and traps to challenge players, with a large kobold complex and a chasm separating the final chambers.
+title: The Illusionist's Tomb
+summary: The tomb of the gnome illusionist Gimble Boddynock is a prank-filled dungeon of illusions and traps, now inhabited by kobolds and an ogre mage. Adventurers must navigate 26 keyed rooms of trickery, combat, and exploration.
 rooms: 26
-resolutions: Combat, Traps, Puzzles, Exploration
-concept_originality: 3
-mechanics_originality: 4
-interesting_details: 4
-map_quality: 3
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:19:52.800Z
+resolutions: Combat, Puzzles, Traps, Exploration, Stealth
+concept_originality: 7.0
+mechanics_originality: 8.0
+interesting_details: 7.0
+map_quality: 6.0
+humor: 3.5
+content_rating: PG-13
+rated_at: 2026-06-28T06:44:37.600Z
 model: deepseek/deepseek-v4-flash

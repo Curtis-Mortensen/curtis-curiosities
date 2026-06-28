@@ -58,16 +58,15 @@ The dungeon is laid out on a grid and is largely arranged in a "T" or cross-shap
 *   Most connections are 10-foot-wide corridors.
 *   The layout is somewhat linear, but with the Large Cave (4) acting as a massive anchor on the western side and the Catacombs (5) acting as the northern anchor.
 *   The map utilizes standard architectural symbols: thin lines for walls and small hash marks to denote doors or points of interest (like the portcullis at the entrance to Room 5).
-
 title: Dungeons of the forsaken abbey
-summary: A ruined abbey where corrupted monks were slaughtered, leaving behind traps, undead, and a lingering evil in the underground complex. Room 2's 'cold hand' that pulls characters into an extradimensional room provides a unique, DM-driven mystery twist.
+summary: The ruins of an abbey conceal corrupted catacombs and caves where monks were slaughtered. Adventurers must navigate traps, undead, and a hidden evil gem.
 rooms: 8
 resolutions: Combat, Traps, Exploration
-concept_originality: 3
-mechanics_originality: 2
-interesting_details: 3
-map_quality: 2
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:18:29.735Z
+concept_originality: 4.0
+mechanics_originality: 5.0
+interesting_details: 7.0
+map_quality: 4.0
+humor: 1.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:42:52.077Z
 model: deepseek/deepseek-v4-flash

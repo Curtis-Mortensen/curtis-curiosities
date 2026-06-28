@@ -52,16 +52,15 @@ The map is depicted as a cross-section of the hillside, allowing you to see the 
 *   **Point E (The Sage’s Home):** At the far end of the complex, reached via a final set of uneven stairs, is a 20x30 foot rectangular chamber. This is the inner sanctum where the Mad Sage resides. 
 
 To navigate, players start at the surface, "discover" the invisible stairs at Point A by piercing the illusion, and descend into the hillside. The path forces them to pass through the spider den, traverse the bat cave, and finally arrive at the Sage’s living quarters at the deepest point of the map.
-
 title: The Pit of the Mad Sage
-summary: A legendary hermit-wizard lives in a pit beneath the foothills, protected by illusions and rumors he spread himself to keep intruders away. The dungeon features a series of powerful random illusions that deter intruders, and the sage's reaction hinges on whether the party harmed his pet bats.
+summary: A high-level dungeon where adventurers must bypass a series of illusions guarding the pit of a reclusive wizard. The Mad Sage may trade his magical aid for a promise of secrecy or summon a demon if refused.
 rooms: 5
-resolutions: Combat, Diplomacy, Puzzles, Roleplay, Exploration
-concept_originality: 3
-mechanics_originality: 3
-interesting_details: 4
-map_quality: 3
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:18:24.492Z
+resolutions: Combat, Diplomacy, Puzzles, Exploration, Roleplay
+concept_originality: 6.5
+mechanics_originality: 5.0
+interesting_details: 7.0
+map_quality: 7.0
+humor: 2.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:42:47.615Z
 model: deepseek/deepseek-v4-flash

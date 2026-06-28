@@ -60,16 +60,15 @@ The map is laid out on a grid where each square equals 5 feet. You can visualize
 *   **Hallway (I):** A narrow, L-shaped corridor of stone tiles. It starts as a short stretch to the north, then turns 90 degrees to the left (west). The trap is located in the middle of this horizontal stretch.
 *   **The Doors (J):** Located at the end of the corridor, these represent a set of double doors.
 *   **The Boss Room (K):** A small square room beyond the doors. This is the final chamber where the encounter with the zombified priest occurs.
-
 title: Tower of Light, Tunnel of Stone
-summary: Adventurers must navigate a rat-infested tower and a hidden crypt, using a sun lens to solve a light-based puzzle and confront a zombified sun priest. The key mechanic is focusing sunlight through a lens onto a statue to reveal the crypt, and the final boss summons skeletons from the graves above.
+summary: A dungeon set outside a tower and in a crypt beneath, where adventurers must find a lens to focus sunlight and reveal a hidden tomb. They face giant rats, a wererat, traps, and a zombified sun priest.
 rooms: 11
-resolutions: Combat, Puzzles, Traps, Skill Challenges
-concept_originality: 2
-mechanics_originality: 2
-interesting_details: 3
-map_quality: 3
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:18:38.368Z
+resolutions: Combat, Traps, Puzzles, Exploration
+concept_originality: 6.0
+mechanics_originality: 6.0
+interesting_details: 6.5
+map_quality: 6.5
+humor: 1.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:42:59.537Z
 model: deepseek/deepseek-v4-flash

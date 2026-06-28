@@ -71,16 +71,15 @@ The map is a profile (cross-section) view of the cavern system, showing how the 
     *   **Scale:** There is a small diagram showing a "10' Torch" to indicate the scale of the rooms.
     *   **Ritual Chamber:** Level 3 is specifically labeled "RITUAL CHAMBER" in block letters.
     *   **Level 4 Label:** The bottom floor is explicitly labeled "DARK MOTHER OF A THOUSAND YOUNG."
-
 title: Raid on Black Goat Wood
-summary: A sinkhole in an old forest reveals a four-level cave system where a cult of Dark Satyrs performs rituals to the Dark Mother of a Thousand Young. The dungeon revolves around a living, unbeatable entity at the bottom, with a focus on horror, random encounters, and the transformation of prisoners into cultists.
-rooms: 5
-resolutions: Combat, Exploration, Stealth, Traps, Roleplay
-concept_originality: 3
-mechanics_originality: 2
-interesting_details: 4
-map_quality: 3
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:19:06.981Z
+summary: A sinkhole in the old forest leads to a four-level cavern system where a cult of Dark Satyrs worships the birthing chamber of Shub-Niggurath, the Dark Mother of a Thousand Young. Adventurers must survive, rescue prisoners, and seal the cave system against the eldritch horror.
+rooms: 4
+resolutions: Combat, Rescue, Exploration, Skill Challenges
+concept_originality: 8.5
+mechanics_originality: 7.0
+interesting_details: 8.0
+map_quality: 6.5
+humor: 1.0
+content_rating: R
+rated_at: 2026-06-28T06:43:31.069Z
 model: deepseek/deepseek-v4-flash

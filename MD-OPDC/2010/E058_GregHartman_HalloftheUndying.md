@@ -72,16 +72,15 @@ For a player or GM who cannot see the map, here is the spatial layout:
     *   Rooms 9, 10, 13, 14, 15, and 16 form a ring around the southern and eastern outer edges of the map.
     *   Rooms 11 and 12 are smaller, narrow chambers located along the southern edge.
 *   **Connectivity:** Most rooms are connected by doors (represented by solid black rectangles). There are several secret doors (marked with "$" signs), notably providing access to the hidden room 6/7 and connecting the dining/kitchen areas. The map is highly compartmentalized, with many dead ends and forced passage points.
-
 title: Hall of the Undying
-summary: A necromancer's hidden tomb filled with undead servants and traps, with his soul trapped in a diamond. Features a talking skull, a bargaining erinyes, and the necromancer himself pleading for freedom.
+summary: A necromancer's hidden tomb filled with undead minions and traps, accessed via a magical portal. Players explore 17 keyed rooms, encountering monsters, puzzles, and moral choices.
 rooms: 17
 resolutions: Combat, Diplomacy, Roleplay, Traps, Exploration
-concept_originality: 3
-mechanics_originality: 2
-interesting_details: 4
-map_quality: 2
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:19:43.336Z
+concept_originality: 6.5
+mechanics_originality: 7.0
+interesting_details: 7.5
+map_quality: 5.0
+humor: 1.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:44:16.027Z
 model: deepseek/deepseek-v4-flash

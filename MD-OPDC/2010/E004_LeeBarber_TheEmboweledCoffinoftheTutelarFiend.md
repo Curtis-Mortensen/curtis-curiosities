@@ -53,16 +53,15 @@ The map is rendered in an **isometric perspective**, meaning it depicts the room
 *   **The Lower Level (Rooms 6–7):** Directly beneath the upper structures is a deep, vertical shaft (the pit at Area 6). The room is illustrated as being at the very bottom of the tower's base.
 *   **Orientation:** There is a compass rose on the map indicating "N" (North) pointing toward the bottom right corner of the map.
 *   **Spatial Flow:** Players start at the high ledge (1), traverse the dangerous bridge (2), navigate around the perimeter of the central pit using the walkways (3 and 5), avoid the hydra in the moat (4), and finally drop down or descend into the deep chamber (6) to reach the final area (7).
-
 title: The Emboweled Coffin of the Tutelar Fiend
-summary: Adventurers must navigate a maddening maze and tower dungeon to destroy the dripping bones of a Tutelar Fiend and stop the rampaging power of 99 blasphemous wizards. The dungeon features an isometric map with a bridge that has a cumulative collapse chance, a transmutation cloud with random effects, and a hydra that stays in the water.
+summary: A maddening maze surrounds the ruins of a dark academy, leading to a tower dungeon where adventurers must navigate traps, monsters, and magical hazards to destroy the remains of the Tutelar Fiend and stop rampaging wizards.
 rooms: 7
-resolutions: Combat, Traps, Exploration
-concept_originality: 5
-mechanics_originality: 4
-interesting_details: 5
-map_quality: 5
+resolutions: Combat, Traps, Puzzles, Exploration
+concept_originality: 6.5
+mechanics_originality: 7.0
+interesting_details: 8.5
+map_quality: 8.0
 humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:18:24.388Z
+content_rating: PG-13
+rated_at: 2026-06-28T06:42:37.210Z
 model: deepseek/deepseek-v4-flash

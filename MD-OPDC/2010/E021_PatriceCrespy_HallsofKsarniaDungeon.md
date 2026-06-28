@@ -97,16 +97,15 @@ The map is laid out on a grid and divided into two distinct sections: the "Halls
     *   The very end of the map (17) acts as a drop-off or exit, labeled "Into the Depths," implying it leads off-page to a larger subterranean city.
 
 **Key Visual Hazard:** A large, winding, bottomless pit cuts through the center of the cave system, creating a stark divide between the northern and southern cave areas.
-
 title: Halls of Ksarnia
-summary: A classic OSR dungeon set in a snowy mountain pass where feuding factions of ice kobolds, cavemen, and troglodytes are trapped together. The dungeon features faction dynamics, hidden passages, and a horn trap that can collapse a room, along with a cursed gem and a black door to a hidden jungle.
+summary: The Halls of Ksarnia is an old-school dungeon set in a snowy mountain pass, featuring feuding factions of ice kobolds, cavemen, and troglodytes. The party must navigate traps, monster encounters, and a cursed gem to survive.
 rooms: 19
 resolutions: Combat, Traps, Exploration
-concept_originality: 3
-mechanics_originality: 3
-interesting_details: 4
-map_quality: 4
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:18:40.651Z
+concept_originality: 4.5
+mechanics_originality: 5.0
+interesting_details: 8.0
+map_quality: 6.5
+humor: 1.0
+content_rating: R
+rated_at: 2026-06-28T06:43:09.167Z
 model: deepseek/deepseek-v4-flash

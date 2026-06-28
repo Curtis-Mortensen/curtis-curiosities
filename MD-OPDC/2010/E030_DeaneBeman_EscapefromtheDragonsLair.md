@@ -84,16 +84,15 @@ Because this game relies on a tracker rather than tactical movement, the "map" i
     *   **Table 2 (Player):** Defines how you react. If the specific Dragon action on your roll is countered by your Player action (e.g., if the Dragon uses "Flame Breath" and you roll "Duck"), you succeed and move back to the start of the turn.
     *   **Table 3 (Saving Throw):** If you fail to counter the Dragon, you roll on this table to see if you lose Luck, stay even, or gain Luck.
 4.  **Tracking:** Every time the tables indicate "+1 Luck," "-1 Luck," or "-2 Luck," physically move your counter up or down the scale accordingly. Once the counter reaches 0 or 10, the game ends.
-
 title: Escape from the Dragon's Lair
-summary: A solo adventure where a lone adventurer faces a dragon in a single room, using a luck tracker and three dice tables to resolve combat. The game eschews tactical movement for a simple luck-based survival loop.
+summary: A solo RPG where a lone adventurer must survive a dragon's attacks using a luck tracker and three action tables. Victory requires reaching 10 luck or escaping the dragon's boredom.
 rooms: 1
 resolutions: Combat
-concept_originality: 2
-mechanics_originality: 2
-interesting_details: 2
-map_quality: 1
-humor: 2.5
+concept_originality: 5.5
+mechanics_originality: 6.5
+interesting_details: 3.0
+map_quality: 2.0
+humor: 2.0
 content_rating: PG
-rated_at: 2026-06-28T06:18:54.421Z
+rated_at: 2026-06-28T06:43:18.439Z
 model: deepseek/deepseek-v4-flash

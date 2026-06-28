@@ -112,16 +112,15 @@ The map depicts a square, underground level carved into four distinct corners, w
     *   **Arrows:** In the southeast (Gnomes), small arrows point down corridors to indicate trap/floor tilts.
     *   **Furniture/Objects:** Symbols like squares and circles represent thrones, fire pits, machines, and storage casks.
     *   **Shading:** Solid black represents walls, while white space represents accessible floor areas. Dense stippling (dots) represents rubble or debris, commonly found in the center "Old City" rooms.
-
 title: Four Corners
-summary: A dungeon set in an underground city block split into four faction territories: a bugbear vagabond king, a death cult, kobolds, and gnomes, surrounding a ruined old city. Features faction-specific wandering monsters, environmental traps, and quirky details like a tribute-demanding bugbear and a volatile gnomish diamond press.
+summary: An underground complex divided into four faction territories—a cultist temple, kobold warrens, a bugbear's court, and a gnomish workshop—surrounding the ruins of an old city block. Players navigate this hub-and-spoke dungeon with random encounters, environmental traps, and potential social or stealthy resolutions.
 rooms: 35
-resolutions: Combat, Diplomacy, Traps, Exploration, Social
-concept_originality: 5
-mechanics_originality: 4
-interesting_details: 6
-map_quality: 6
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:19:15.316Z
+resolutions: Combat, Diplomacy, Stealth, Traps, Exploration, Skill Challenges, Social
+concept_originality: 7.5
+mechanics_originality: 7.0
+interesting_details: 8.0
+map_quality: 8.0
+humor: 3.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:43:45.058Z
 model: deepseek/deepseek-v4-flash

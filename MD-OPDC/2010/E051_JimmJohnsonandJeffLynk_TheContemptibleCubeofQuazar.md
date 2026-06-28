@@ -83,16 +83,15 @@ The map represents a floating, 3D "Cube" structure. Imagine the cube has four pr
 *   **Cages:** Indicated by boxes with grid patterns.
 *   **Aquariums:** Indicated by a small rectangle with an 'X' or cross-hatching.
 *   **Gravity Fields:** Represented by small swirling patterns on the map floor.
-
 title: The Contemptible Cube of Quazar
-summary: A 3D cube stronghold from planet Eris crashes to Earth, trapping its wizard creator inside a spherical inner sanctum that can only be reached by collecting four metallic keys scattered across shifting gravity planes. Gravity ramps allow players to walk between cube faces, and the dungeon is filled with bizarre monsters and traps.
-rooms: 30
-resolutions: Combat, Puzzles, Exploration, Traps, Fetch Quests
-concept_originality: 4
-mechanics_originality: 5
-interesting_details: 5
-map_quality: 5
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:19:33.316Z
+summary: A classic dungeon crawl set inside a cube-shaped fortress transported to Earth by the wizard Quazar, who is trapped in his inner sanctum. Players must gather four sacred keys to free him, navigating shifting gravity, alien monsters, and malfunctioning technology.
+rooms: 29
+resolutions: Combat, Exploration, Puzzles, Skill Challenges, Stealth, Traps
+concept_originality: 7.5
+mechanics_originality: 7.0
+interesting_details: 8.0
+map_quality: 9.0
+humor: 1.5
+content_rating: PG-13
+rated_at: 2026-06-28T06:44:02.430Z
 model: deepseek/deepseek-v4-flash

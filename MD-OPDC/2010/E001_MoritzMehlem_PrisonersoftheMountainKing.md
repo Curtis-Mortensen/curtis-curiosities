@@ -73,16 +73,15 @@ The map is a grid-based, single-level dungeon layout. 1 square equals 10 feet. T
 *   **The Religious/Library Section (Rooms 10–12):** This occupies the center-right of the map. It consists of the Library (Room 10), an Antechamber filled with statues (Room 11), and the Altar Room (Room 12). These rooms are clustered together, with secret access points connecting them to the King's lair.
 *   **The Treasure Cache (Room 13):** A secluded, small, rectangular room located behind the water feature in Room 5, accessible via a secret door.
 *   **Barracks and Exit (Rooms 14–18):** These occupy the bottom (southern) area of the map. Room 14 is a large supply room/barracks. Nearby are smaller rooms for supplies (16) and a guard post (17). The far southern end of the map (Room 18) serves as the exit, marked by a gate blocking the path to the outside.
-
 title: Prisoners of the Mountain King
-summary: The player characters are captured by the kobold Mountain King and must escape his dungeon in an old dwarven mine without their starting equipment. An altar to the dwarven god Brimli grants a permanent +1 Constitution and 1500 XP to any character who speaks the god's name in Dwarvish.
+summary: The heroes, captured by a kobold king and his gang, must escape from an old dwarven mine turned dungeon. They begin unarmed in a cell and must navigate through guarded corridors, a haunted library, and hidden treasure rooms to win their freedom.
 rooms: 18
-resolutions: Combat, Puzzles, Stealth, Roleplay, Traps, Exploration
-concept_originality: 2
-mechanics_originality: 3
-interesting_details: 4
-map_quality: 2
+resolutions: Combat, Puzzles, Exploration, Roleplay
+concept_originality: 4.5
+mechanics_originality: 4.0
+interesting_details: 5.5
+map_quality: 4.0
 humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:18:17.455Z
+content_rating: PG-13
+rated_at: 2026-06-28T06:42:39.359Z
 model: deepseek/deepseek-v4-flash

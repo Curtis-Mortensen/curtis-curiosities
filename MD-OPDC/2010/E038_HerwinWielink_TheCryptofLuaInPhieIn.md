@@ -66,16 +66,15 @@ For a player who cannot see the map, this dungeon is best conceptualized as a **
         *   **Inner Ring:** Contains the Journey Room (12) and the Prize Room (13).
 *   **Hazards:** Several rooms are marked with a skull icon, indicating a trap. These are scattered primarily in the outer and middle rings.
 *   **Play Tip:** To keep track of the dungeon, the Dungeon Master should keep a separate, static "master copy" of the map and physically rotate transparent sheets or cardboard rings representing the three dungeon levels to reflect the current state of the rooms for the players. For the players, the dungeon should feel like a disorienting, shifting maze where they never know which path will lead to the exit.
-
 title: The Crypt of Luân Phiên
-summary: A three-ring rotating clockwork crypt where walls shift every five minutes, with undead guardians and treasure. The central gimmick disorients players and changes room access, aided by a magnetic pillar that fouls compass navigation.
+summary: A three-ring rotating clockwork dungeon where concentric chambers shift every five minutes, disorienting players and blocking exits. The party must navigate past guardian statues, undead hunters, and the specter of Luân himself to reach the central treasure.
 rooms: 14
-resolutions: Combat, Traps, Exploration
-concept_originality: 4
-mechanics_originality: 4
-interesting_details: 4
-map_quality: 5
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:19:09.175Z
+resolutions: Combat, Exploration, Puzzles, Traps, Roleplay
+concept_originality: 8.0
+mechanics_originality: 9.0
+interesting_details: 7.0
+map_quality: 9.0
+humor: 1.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:43:37.190Z
 model: deepseek/deepseek-v4-flash

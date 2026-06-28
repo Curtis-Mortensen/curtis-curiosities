@@ -59,16 +59,15 @@ The map is a sprawling, interconnected stone dungeon layout. To navigate, think 
 *   **The Cave Systems (Right Side):** The right side of the map represents a rougher, more organic cave system rather than finished stone. Access to this starts from the eastern portion of the dungeon. It consists of a large, winding path that moves from the **Cave of Corpses (18)** down into the **Empty Cavern (19)**. This leads into the final, high-threat zone consisting of the **Slaad’s Den (20)**, the **Slaad’s Cavern (21)**, and finally **Zerduzan’s Laboratory (22)**, which is the northernmost point of the dungeon.
 
 **Navigation Tip:** Watch for the "S" symbols on the walls—these indicate secret doors, which are essential for creating shortcuts between rooms like 2 and 3, or accessing the hidden treasures in rooms 9, 13, and 17. The "e" symbols mark where enchanted torches are mounted on the walls.
-
 title: The Vault of Zerduzan
-summary: A dungeon serving as a burial shrine for a demonologist's favored servants and companions, hidden beneath a ruined tower. Standout features include a riddle-protected entrance with a disintegration ray, secret doors triggered by pushing statues, and multiple traps like a poison needle that ages victims.
+summary: A burial shrine constructed by the demonologist Zerduzan for his favored servants, located beneath a ruined tower. The dungeon features 22 keyed areas including crypts, alcoves, and a cave system, with riddles, traps, and undead guardians.
 rooms: 22
-resolutions: Combat, Puzzles, Traps, Exploration, Roleplay
-concept_originality: 3
-mechanics_originality: 3
-interesting_details: 4
-map_quality: 4
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:19:30.856Z
+resolutions: Combat, Puzzles, Traps, Exploration
+concept_originality: 6.0
+mechanics_originality: 4.0
+interesting_details: 8.0
+map_quality: 7.0
+humor: 1.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:44:04.309Z
 model: deepseek/deepseek-v4-flash

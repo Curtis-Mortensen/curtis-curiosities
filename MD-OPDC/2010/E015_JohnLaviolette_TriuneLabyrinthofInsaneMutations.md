@@ -74,16 +74,15 @@ The dungeon is represented as a top-down view of a subterranean level. The layou
     *   **Secret/Overlapping Areas:** Indicated by dotted lines, these suggest hidden caches or rooms stacked physically over others.
     *   **Chokepoints:** Many rooms have distinct entry/exit points represented by rectangles (doors) or gaps in the walls.
     *   **The Hub:** The layout is essentially a cluster of small rooms surrounding a central arterial path, with the Grand Chamber (15) and the Culture Vat (16) acting as the main "anchor" locations in the southern/eastern wing, and the cells (8, 9, 10) acting as a wing in the north.
-
 title: Triune Labyrinth of Insane Mutations
-summary: A dungeon created by chaotic anti-druids who twist nature into bizarre mutations, serving as their testing grounds. It features a random mutation generation table for wandering monsters, a culture vat that spawns mutants, and a 5-ton golden statue that changes every time the room is entered.
+summary: A testing ground for chaotic anti-druids who twist nature, this dungeon features mutated beasts, cultists, and a culture vat that produces new mutants. The labyrinth includes multi-level chambers, traps, caches, and a ever-changing gold statue.
 rooms: 17
-resolutions: Combat, Traps, Puzzles, Exploration
-concept_originality: 4
-mechanics_originality: 4
-interesting_details: 5
-map_quality: 4
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:18:34.846Z
+resolutions: Combat, Traps, Exploration, Roleplay, Puzzles
+concept_originality: 6.0
+mechanics_originality: 7.0
+interesting_details: 8.0
+map_quality: 7.5
+humor: 2.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:42:53.513Z
 model: deepseek/deepseek-v4-flash

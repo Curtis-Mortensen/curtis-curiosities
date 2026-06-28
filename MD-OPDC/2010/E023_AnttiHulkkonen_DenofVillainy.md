@@ -94,16 +94,15 @@ This is a top-down blueprint of an underground cave network.
     *   **The Vault:** Cave 7 is located in a protected, deep part of the cavern system, accessible via a narrow tunnel from Cave 6.
     *   **Dead Ends:** Caves 9 through 13 form a cluster on the right side of the map, representing the historical pirate chambers.
     *   **Secret Paths:** Dotted lines represent hidden tunnels, such as the one connecting Cave 5 to a secret passage and the tunnel from the ceiling of Cave 1.
-
-title: Den of Villainy! (or 'Five Go Missing')
-summary: A smuggler's den on a remote island chain features a cliffside lodge and tidal caves, where four young hobbits and their dog have gone missing while searching for pirate gold. The dungeon includes rickety walkways that break underfoot, tidal flooding that changes access, a buried pirate treasure guarded by ghosts, and a novelist secretly spying on the smugglers for his stories.
-rooms: 26
-resolutions: Combat, Diplomacy, Puzzles, Fetch Quests, Stealth, Roleplay, Traps, Exploration, Skill Challenges, Social
-concept_originality: 5
-mechanics_originality: 5
-interesting_details: 6
-map_quality: 6
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:18:47.846Z
+title: Den of Villainy
+summary: A smuggler's hideout on a remote island, with a clifftop lodge and tidal caves, hides missing treasure hunters and pirate ghosts. Adventurers can infiltrate, negotiate, or raid the complex, facing rickety walkways, underwater passages, and a cunning leader.
+rooms: 25
+resolutions: Combat, Diplomacy, Stealth, Roleplay, Traps, Exploration, Skill Challenges, Social
+concept_originality: 7.5
+mechanics_originality: 8.0
+interesting_details: 8.5
+map_quality: 8.0
+humor: 3.5
+content_rating: PG-13
+rated_at: 2026-06-28T06:43:12.014Z
 model: deepseek/deepseek-v4-flash

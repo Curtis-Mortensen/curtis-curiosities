@@ -25,16 +25,15 @@ s = secret door
 The shrine in a local town has been abandoned for months because of the rumors of a haunting. After the long time priest was murdered in the shrine people began seeing his ghost in the halls. Lately people have been disappearing, mostly travelers passing through, and townsfolk blame the ghosts in the shrine.
 
 **
-
 title: The Haunted Shrine
-summary: A shrine abandoned after the murder of its priest becomes haunted and is blamed for the disappearance of travelers. The dungeon features two levels with secret doors and stairs, but lacks detailed encounter descriptions.
+summary: A shrine in a local town is haunted by the ghost of a murdered priest, and disappearances have made the townsfolk blame the supernatural. Adventurers must investigate the shrine's two levels to uncover the truth.
 rooms: 10
-resolutions: Exploration
-concept_originality: 2
-mechanics_originality: 1
-interesting_details: 2
-map_quality: 3
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:19:50.082Z
+resolutions: Combat, Exploration
+concept_originality: 3.0
+mechanics_originality: 2.0
+interesting_details: 2.5
+map_quality: 3.5
+humor: 1.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:44:19.291Z
 model: deepseek/deepseek-v4-flash

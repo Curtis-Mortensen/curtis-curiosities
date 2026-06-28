@@ -53,16 +53,15 @@ The arena is composed of a series of square and rectangular chambers (cages) arr
     *   **Solid lines (Doors)** separate the individual cages from the central area or from each other. 
 
 The structure is designed so that the players are trapped in an outer cage (D) and must navigate through the other cages or the central control hub (M) to interact with the facility's masters (P).
-
 title: Arena of Horrors
-summary: Adventurers are magically transported into a steel-cage arena and compelled to fight gladiatorial matches for the amusement of three disembodied brains in jars, who wager on the outcome. A master slave controls movement and hidden doors, offering potential subversion of the arena's masters.
+summary: The PCs are teleported against their will into a magical arena of steel cages and must survive gladiatorial combat controlled by alien Brains in Jars and a Master Slave. They navigate the cages and central hub to possibly escape or defeat the masters.
 rooms: 14
-resolutions: Combat, Exploration, Roleplay, Social
-concept_originality: 3
-mechanics_originality: 3
-interesting_details: 3
-map_quality: 2
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:19:27.459Z
+resolutions: Combat, Exploration, Puzzles
+concept_originality: 7.5
+mechanics_originality: 7.0
+interesting_details: 6.5
+map_quality: 7.0
+humor: 1.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:44:05.111Z
 model: deepseek/deepseek-v4-flash

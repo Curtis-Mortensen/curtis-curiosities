@@ -19,16 +19,15 @@ This is a single-page document formatted as an old, stained parchment, designed 
 *   **Middle Right:** "A foul stench fills the air, but nothing rotten can be found."
 *   **Middle Left:** "A passage through the book case. A cobweb choked hall. A stairwell leading up. My companion falters."
 *   **Center Box (Study description):** "Shelves of profane tomes bound in what I pray is cow hide line the walls of an immaculate study. A large fireplace occupies one
-
 title: The House of Lost and Found
-summary: A haunted house dungeon presented as a stained parchment with first-person prose, chronicling a party's eerie exploration of an abandoned mansion. The dungeon relies entirely on atmospheric narrative and environmental flavor rather than explicit mechanics, with hints of hidden doors and haunting melodies.
-rooms: 7
-resolutions: Exploration
-concept_originality: 2
-mechanics_originality: 1
-interesting_details: 3
-map_quality: 2
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:18:18.295Z
+summary: The House of Lost and Found is a haunted mansion presented as a stained parchment map with atmospheric narrative. Explorers must navigate rooms filled with eerie details and hidden passages.
+rooms: 8
+resolutions: Exploration, Puzzles
+concept_originality: 7.0
+mechanics_originality: 3.5
+interesting_details: 8.0
+map_quality: 5.0
+humor: 1.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:42:42.017Z
 model: deepseek/deepseek-v4-flash

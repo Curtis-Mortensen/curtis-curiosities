@@ -20,16 +20,15 @@ This is a scanned document containing a "One Page Dungeon" titled "Zombies, Mati
 1-3: Nothing happens
 4: Light Lurch, an easy check to remain standing
 5
-
 title: Zombies, Maties
-summary: A cross-genre dungeon set aboard a derelict vessel infested with zombies, featuring a random lurching hazard that creates environmental skill checks.
-rooms: 5
-resolutions: Combat, Skill Challenges
-concept_originality: 4
-mechanics_originality: 3
-interesting_details: 2
-map_quality: 4
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:18:55.595Z
+summary: A cross-genre one-page dungeon set on a derelict vessel that can be a frigate, power boat, or space galleon. A random lurching mechanic tilts the ship each turn, adding environmental hazards to the exploration.
+rooms: 6
+resolutions: Combat, Exploration, Traps
+concept_originality: 5.0
+mechanics_originality: 4.0
+interesting_details: 2.0
+map_quality: 4.0
+humor: 2.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:43:18.248Z
 model: deepseek/deepseek-v4-flash

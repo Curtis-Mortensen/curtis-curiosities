@@ -65,16 +65,15 @@ The map is an isometric floor plan of a multi-level warehouse structure. It uses
     *   There is a small illustration of a woman in a Victorian-style dress standing near the bottom of the map, likely a reference to the "Buxenhall party" or a character NPC.
     *   The map uses hand-written arrows to indicate the flow of movement between rooms.
     *   Certain areas (like the laboratory) are highlighted with small drawings of jars, and the mirror hallway is visually distinct due to its chaotic line work.
-
-title: Empire Trading Warehouse (Time 4 Tea)
-summary: A Victorian-era warehouse dungeon where adventurers investigate the disappearance of magical tea, uncovering strange experiments and a sunken chamber. Standout mechanics include a mirror hallway that makes reflections real, a dial-and-lever puzzle, and an underwater tunnel with a runed door.
+title: Time 4 Tea
+summary: An eerie warehouse floor plan doubles as a flyer for a tea-themed event. Investigators must navigate a multi-level complex filled with puzzles, mirrors, underwater tunnels, and strange machines to uncover secrets linked to missing tea and a missing person.
 rooms: 11
-resolutions: Puzzles, Exploration, Traps, Skill Challenges
-concept_originality: 4
-mechanics_originality: 4
-interesting_details: 5
-map_quality: 5
+resolutions: Puzzles, Exploration, Traps
+concept_originality: 7.5
+mechanics_originality: 6.5
+interesting_details: 8.5
+map_quality: 9.0
 humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:19:09.519Z
+content_rating: PG-13
+rated_at: 2026-06-28T06:43:42.567Z
 model: deepseek/deepseek-v4-flash

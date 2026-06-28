@@ -66,16 +66,15 @@ The layout is a "cross" with an extra wing.
 4.  **Right of Middle:** Room 3 (Corridor leading to boss area).
 5.  **End of Right:** Room 5 (Boss area).
 6.  **Top:** Room 6 (Lore/mural room).
-
 title: Woodland Ruins
-summary: A goblin shaman named Worsoth has unearthed an ancient tomb in the forest, seeking a powerful artifact that the nearby elven camp wants recovered. The dungeon features a poison gas trap that forces escape attempts and an interrogation scene with degrees of success that can reveal trap spoilers.
+summary: A goblin shaman named Worsoth has unearthed an ancient tomb in the forest, seeking a powerful relic. The party must navigate goblin-occupied ruins, avoid traps, and confront the shaman to secure the artifact.
 rooms: 6
-resolutions: Combat, Diplomacy, Traps, Skill Challenges
-concept_originality: 2
-mechanics_originality: 3
-interesting_details: 2
-map_quality: 1
-humor: 2.5
-content_rating: PG
-rated_at: 2026-06-28T06:19:00.458Z
+resolutions: Combat, Diplomacy, Traps, Exploration, Skill Challenges
+concept_originality: 3.5
+mechanics_originality: 3.5
+interesting_details: 4.0
+map_quality: 3.0
+humor: 1.0
+content_rating: PG-13
+rated_at: 2026-06-28T06:43:26.733Z
 model: deepseek/deepseek-v4-flash
