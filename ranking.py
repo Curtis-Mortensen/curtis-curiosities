@@ -89,10 +89,6 @@ RATING_LABELS = {
     "interesting_details": "Interesting Details",
     "map_quality": "Map Quality",
 }
-LEGACY_RATING_ALIASES = {
-    "originality": "concept_originality",
-    "mechanics": "mechanics_originality",
-}
 TEXT_FIELDS = ("title", "summary_1", "summary_2", "resolutions")
 ALL_FIELDS = TEXT_FIELDS + ("rooms",) + RATING_FIELDS
 
@@ -217,14 +213,6 @@ def find_map_section_end(content: str) -> int:
     return len(content.rstrip())
 
 
-def normalize_ranking_fields(data: dict) -> dict:
-    normalized = dict(data)
-    for legacy, current in LEGACY_RATING_ALIASES.items():
-        if current not in normalized and legacy in normalized:
-            normalized[current] = normalized[legacy]
-    return normalized
-
-
 def row_average(row: dict) -> float:
     return sum(int(row[field]) for field in RATING_FIELDS) / len(RATING_FIELDS)
 
@@ -273,8 +261,6 @@ def parse_ranking_yaml(yaml_text: str) -> dict:
     data = yaml.safe_load(yaml_text)
     if not isinstance(data, dict):
         raise ValueError("Ranking response was not a YAML mapping")
-
-    data = normalize_ranking_fields(data)
 
     missing = [field for field in ALL_FIELDS if field not in data]
     if missing:
