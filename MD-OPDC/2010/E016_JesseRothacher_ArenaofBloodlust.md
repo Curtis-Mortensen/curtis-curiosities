@@ -104,3 +104,13 @@ map_quality: 2
 rated_at: 2026-06-28T06:02:02.335Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Arena of Bloodlust
+summary: A cult operates a subterranean battle arena where victorious gladiators are sacrificed to an otherworldly being that feeds on their prowess. Players navigate social encounters, combat, and a grim twist.
+rooms: 7
+resolutions: Combat, Roleplay, Exploration, Social
+concept_originality: 3
+mechanics_originality: 2
+interesting_details: 3
+map_quality: 2
+rated_at: 2026-06-28T06:18:39.189Z
+model: deepseek/deepseek-v4-flash

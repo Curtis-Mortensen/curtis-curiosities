@@ -113,3 +113,13 @@ map_quality: 4
 rated_at: 2026-06-28T06:02:15.023Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Halls of Ksarnia
+summary: A classic OSR dungeon set in a snowy mountain pass where feuding factions of ice kobolds, cavemen, and troglodytes are trapped together. The dungeon features faction dynamics, hidden passages, and a horn trap that can collapse a room, along with a cursed gem and a black door to a hidden jungle.
+rooms: 19
+resolutions: Combat, Traps, Exploration
+concept_originality: 3
+mechanics_originality: 3
+interesting_details: 4
+map_quality: 4
+rated_at: 2026-06-28T06:18:40.651Z
+model: deepseek/deepseek-v4-flash

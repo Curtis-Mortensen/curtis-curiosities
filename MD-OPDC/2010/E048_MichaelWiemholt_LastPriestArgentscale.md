@@ -76,3 +76,13 @@ map_quality: 3
 rated_at: 2026-06-28T06:03:22.688Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: The Last Priest of the Argent Scale
+summary: A party pursues a dark priest through his lava-based temple, facing minions and traps before confronting him in his sanctum. The final boss room features a sloped floor collapsing into lava, and the dungeon includes a bridge over molten rock and a hidden trap in a disused guest hall.
+rooms: 9
+resolutions: Combat, Traps, Exploration
+concept_originality: 2
+mechanics_originality: 2
+interesting_details: 3
+map_quality: 3
+rated_at: 2026-06-28T06:19:25.750Z
+model: deepseek/deepseek-v4-flash

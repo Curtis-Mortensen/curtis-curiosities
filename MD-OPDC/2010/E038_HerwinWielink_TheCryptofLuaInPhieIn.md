@@ -82,3 +82,13 @@ map_quality: 4
 rated_at: 2026-06-28T06:02:59.267Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: The Crypt of Luân Phiên
+summary: A three-ring rotating clockwork crypt where walls shift every five minutes, with undead guardians and treasure. The central gimmick disorients players and changes room access, aided by a magnetic pillar that fouls compass navigation.
+rooms: 14
+resolutions: Combat, Traps, Exploration
+concept_originality: 4
+mechanics_originality: 4
+interesting_details: 4
+map_quality: 5
+rated_at: 2026-06-28T06:19:09.175Z
+model: deepseek/deepseek-v4-flash

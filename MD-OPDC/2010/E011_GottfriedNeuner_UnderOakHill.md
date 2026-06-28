@@ -93,3 +93,13 @@ map_quality: 3
 rated_at: 2026-06-28T06:01:55.619Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Under Oak Hill
+summary: Under Oak Hill is a dungeon set in a ruined castle with a secret cave system, where players must stop bandits and a warlock performing dark rites. The adventure features rumors, a candle-lit sanctuary, cursed rings, and wandering dwarven ghosts.
+rooms: 13
+resolutions: Combat, Puzzles, Exploration, Traps, Skill Challenges
+concept_originality: 2
+mechanics_originality: 3
+interesting_details: 4
+map_quality: 3
+rated_at: 2026-06-28T06:18:33.992Z
+model: deepseek/deepseek-v4-flash

@@ -87,3 +87,13 @@ map_quality: 4
 rated_at: 2026-06-28T06:03:59.742Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: The Ruination of Tenamen (Grom's Undoing)
+summary: A sprawling orc hideout full of warring factions and hidden monsters, where adventurers arrive during a chaotic moment. It features a medusa lair, poisoned apples, and a one-way chute into a cage of fighters.
+rooms: 23
+resolutions: Combat, Traps, Exploration, Roleplay
+concept_originality: 3
+mechanics_originality: 2
+interesting_details: 4
+map_quality: 4
+rated_at: 2026-06-28T06:19:49.336Z
+model: deepseek/deepseek-v4-flash

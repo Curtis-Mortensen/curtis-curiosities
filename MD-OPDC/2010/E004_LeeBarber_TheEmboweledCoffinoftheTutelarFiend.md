@@ -69,3 +69,13 @@ map_quality: 5
 rated_at: 2026-06-28T06:01:30.145Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: The Emboweled Coffin of the Tutelar Fiend
+summary: Adventurers must navigate a maddening maze and tower dungeon to destroy the dripping bones of a Tutelar Fiend and stop the rampaging power of 99 blasphemous wizards. The dungeon features an isometric map with a bridge that has a cumulative collapse chance, a transmutation cloud with random effects, and a hydra that stays in the water.
+rooms: 7
+resolutions: Combat, Traps, Exploration
+concept_originality: 5
+mechanics_originality: 4
+interesting_details: 5
+map_quality: 5
+rated_at: 2026-06-28T06:18:24.388Z
+model: deepseek/deepseek-v4-flash

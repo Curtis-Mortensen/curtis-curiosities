@@ -96,3 +96,13 @@ map_quality: 3
 rated_at: 2026-06-28T06:04:02.812Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: The Illusionist’s Tomb
+summary: A gnome illusionist's tomb filled with practical jokes and traps, now inhabited by kobolds and an ogre mage. The dungeon relies on illusions, trickery, and traps to challenge players, with a large kobold complex and a chasm separating the final chambers.
+rooms: 26
+resolutions: Combat, Traps, Puzzles, Exploration
+concept_originality: 3
+mechanics_originality: 4
+interesting_details: 4
+map_quality: 3
+rated_at: 2026-06-28T06:19:52.800Z
+model: deepseek/deepseek-v4-flash

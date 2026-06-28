@@ -85,3 +85,13 @@ map_quality: 4
 rated_at: 2026-06-28T06:03:52.763Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Trolls will be Trolls
+summary: A classic troll lair beneath Vulture's Crag, led by the cunning witch Stencheye, where adventurers must navigate treacherous caves to collect a bounty and recover looted goods. The complex features unique troll variants, a holy Tusk, and hidden treasures with traps.
+rooms: 13
+resolutions: Combat, Diplomacy, Puzzles, Fetch Quests, Roleplay, Traps, Exploration, Social
+concept_originality: 3
+mechanics_originality: 4
+interesting_details: 6
+map_quality: 4
+rated_at: 2026-06-28T06:19:51.051Z
+model: deepseek/deepseek-v4-flash

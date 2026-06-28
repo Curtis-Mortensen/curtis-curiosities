@@ -71,3 +71,13 @@ map_quality: 3
 rated_at: 2026-06-28T06:01:42.936Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Mine! Not Yours!
+summary: A classic mining settlement overrun by lizardfolk after a cave-in reveals a new passage, with the players hired to clear the mine. Tidal flooding, a kraken in an underground lake, and a hidden underwater passage requiring information from a rescued miner add environmental and investigative twists.
+rooms: 18
+resolutions: Combat, Diplomacy, Fetch Quests, Exploration, Skill Challenges, Roleplay
+concept_originality: 2
+mechanics_originality: 3
+interesting_details: 3
+map_quality: 3
+rated_at: 2026-06-28T06:18:28.200Z
+model: deepseek/deepseek-v4-flash

@@ -101,3 +101,13 @@ map_quality: 2
 rated_at: 2026-06-28T06:03:11.855Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: THE HEART OF DARKNESS
+summary: A hex-crawl adventure along a river into an unknown continent, with many encounter locations including a man raised by apes, a split-personality hunter, and a giant manacled fire giant king. The journey emphasizes river travel speeds and piloting checks.
+rooms: 41
+resolutions: Combat, Diplomacy, Roleplay, Exploration, Skill Challenges
+concept_originality: 4
+mechanics_originality: 2
+interesting_details: 4
+map_quality: 2
+rated_at: 2026-06-28T06:19:12.537Z
+model: deepseek/deepseek-v4-flash

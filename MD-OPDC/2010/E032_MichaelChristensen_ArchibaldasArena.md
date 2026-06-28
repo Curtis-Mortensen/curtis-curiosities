@@ -56,3 +56,13 @@ map_quality: 3
 rated_at: 2026-06-28T06:02:41.053Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Archibald's Arena
+summary: A lich named Archibald Dementinus kidnaps heroes into his trap-filled dungeon for entertainment, with hidden doors and a map of spike, blade, and fire traps. The dungeon lacks combat but offers exploration through five numbered rooms.
+rooms: 5
+resolutions: Traps, Exploration
+concept_originality: 3
+mechanics_originality: 2
+interesting_details: 3
+map_quality: 3
+rated_at: 2026-06-28T06:18:58.244Z
+model: deepseek/deepseek-v4-flash

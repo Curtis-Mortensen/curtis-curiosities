@@ -110,3 +110,13 @@ map_quality: 5
 rated_at: 2026-06-28T06:02:17.941Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Den of Villainy! (or 'Five Go Missing')
+summary: A smuggler's den on a remote island chain features a cliffside lodge and tidal caves, where four young hobbits and their dog have gone missing while searching for pirate gold. The dungeon includes rickety walkways that break underfoot, tidal flooding that changes access, a buried pirate treasure guarded by ghosts, and a novelist secretly spying on the smugglers for his stories.
+rooms: 26
+resolutions: Combat, Diplomacy, Puzzles, Fetch Quests, Stealth, Roleplay, Traps, Exploration, Skill Challenges, Social
+concept_originality: 5
+mechanics_originality: 5
+interesting_details: 6
+map_quality: 6
+rated_at: 2026-06-28T06:18:47.846Z
+model: deepseek/deepseek-v4-flash

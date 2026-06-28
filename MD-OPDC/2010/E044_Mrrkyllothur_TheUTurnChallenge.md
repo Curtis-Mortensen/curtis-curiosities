@@ -35,3 +35,13 @@ map_quality: 2
 rated_at: 2026-06-28T06:03:14.842Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: The U-Turn Challenge
+summary: A single-page dungeon where the party must navigate from one door to the other within 12 hours, using U-turns to backtrack. The dungeon features random encounters in both dungeon and cavern zones, allowing skipping of fights.
+rooms: 26
+resolutions: Combat, Stealth, Exploration, Puzzles
+concept_originality: 4
+mechanics_originality: 3
+interesting_details: 2
+map_quality: 2
+rated_at: 2026-06-28T06:19:17.484Z
+model: deepseek/deepseek-v4-flash

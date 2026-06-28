@@ -88,3 +88,13 @@ map_quality: 2
 rated_at: 2026-06-28T06:03:50.708Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Hall of the Undying
+summary: A necromancer's hidden tomb filled with undead servants and traps, with his soul trapped in a diamond. Features a talking skull, a bargaining erinyes, and the necromancer himself pleading for freedom.
+rooms: 17
+resolutions: Combat, Diplomacy, Roleplay, Traps, Exploration
+concept_originality: 3
+mechanics_originality: 2
+interesting_details: 4
+map_quality: 2
+rated_at: 2026-06-28T06:19:43.336Z
+model: deepseek/deepseek-v4-flash

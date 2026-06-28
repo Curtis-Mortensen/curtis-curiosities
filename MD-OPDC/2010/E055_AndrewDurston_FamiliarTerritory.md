@@ -87,3 +87,13 @@ map_quality: 4
 rated_at: 2026-06-28T06:03:43.983Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Familiar Territory
+summary: A dungeon crawl beneath a mountain lake formed by an explosion, leading to a miniature red dragon's lair. The adventure uses a cross-section map with climb/swim checks and a random encounter table modified by temperature zones.
+rooms: 12
+resolutions: Combat, Traps, Exploration, Skill Challenges, Roleplay
+concept_originality: 4
+mechanics_originality: 4
+interesting_details: 4
+map_quality: 5
+rated_at: 2026-06-28T06:19:43.641Z
+model: deepseek/deepseek-v4-flash

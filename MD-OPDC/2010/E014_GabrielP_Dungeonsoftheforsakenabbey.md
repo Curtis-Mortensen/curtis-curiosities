@@ -74,3 +74,13 @@ map_quality: 2
 rated_at: 2026-06-28T06:01:55.983Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Dungeons of the forsaken abbey
+summary: A ruined abbey where corrupted monks were slaughtered, leaving behind traps, undead, and a lingering evil in the underground complex. Room 2's 'cold hand' that pulls characters into an extradimensional room provides a unique, DM-driven mystery twist.
+rooms: 8
+resolutions: Combat, Traps, Exploration
+concept_originality: 3
+mechanics_originality: 2
+interesting_details: 3
+map_quality: 2
+rated_at: 2026-06-28T06:18:29.735Z
+model: deepseek/deepseek-v4-flash

@@ -95,3 +95,13 @@ map_quality: 4
 rated_at: 2026-06-28T06:03:14.673Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Dungeon from a Distant Star
+summary: An OSR adventure set in a crashed alien spaceship buried underground, with still-functioning systems and a haunted pilot. Players explore the derelict saucer, contend with automated defenses, and uncover the Mirror of Life Trapping that holds the trapped crew.
+rooms: 25
+resolutions: Combat, Exploration, Puzzles, Traps, Roleplay
+concept_originality: 4
+mechanics_originality: 4
+interesting_details: 5
+map_quality: 4
+rated_at: 2026-06-28T06:19:16.742Z
+model: deepseek/deepseek-v4-flash

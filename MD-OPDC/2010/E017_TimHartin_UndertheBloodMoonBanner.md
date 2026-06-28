@@ -77,3 +77,13 @@ map_quality: 2
 rated_at: 2026-06-28T06:02:02.244Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Under the Blood Moon Banner
+summary: A motley band of monsters led by an ogre mage named Otoboru raids the countryside from a cave hideout. The dungeon features a star chamber with a healing light, a howling air-tunnel room, and an invisible ogre mage who may be lurking on his throne.
+rooms: 14
+resolutions: Combat, Traps, Exploration, Skill Challenges
+concept_originality: 2
+mechanics_originality: 2
+interesting_details: 3
+map_quality: 2
+rated_at: 2026-06-28T06:18:38.121Z
+model: deepseek/deepseek-v4-flash

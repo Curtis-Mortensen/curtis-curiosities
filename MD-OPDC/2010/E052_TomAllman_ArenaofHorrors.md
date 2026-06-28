@@ -69,3 +69,13 @@ map_quality: 2
 rated_at: 2026-06-28T06:03:37.624Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Arena of Horrors
+summary: Adventurers are magically transported into a steel-cage arena and compelled to fight gladiatorial matches for the amusement of three disembodied brains in jars, who wager on the outcome. A master slave controls movement and hidden doors, offering potential subversion of the arena's masters.
+rooms: 14
+resolutions: Combat, Exploration, Roleplay, Social
+concept_originality: 3
+mechanics_originality: 3
+interesting_details: 3
+map_quality: 2
+rated_at: 2026-06-28T06:19:27.459Z
+model: deepseek/deepseek-v4-flash

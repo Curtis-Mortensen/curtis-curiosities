@@ -99,3 +99,13 @@ map_quality: 5
 rated_at: 2026-06-28T06:03:35.557Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: The Contemptible Cube of Quazar
+summary: A 3D cube stronghold from planet Eris crashes to Earth, trapping its wizard creator inside a spherical inner sanctum that can only be reached by collecting four metallic keys scattered across shifting gravity planes. Gravity ramps allow players to walk between cube faces, and the dungeon is filled with bizarre monsters and traps.
+rooms: 30
+resolutions: Combat, Puzzles, Exploration, Traps, Fetch Quests
+concept_originality: 4
+mechanics_originality: 5
+interesting_details: 5
+map_quality: 5
+rated_at: 2026-06-28T06:19:33.316Z
+model: deepseek/deepseek-v4-flash

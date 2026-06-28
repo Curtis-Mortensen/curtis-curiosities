@@ -89,3 +89,13 @@ map_quality: 2
 rated_at: 2026-06-28T06:01:34.536Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Prisoners of the Mountain King
+summary: The player characters are captured by the kobold Mountain King and must escape his dungeon in an old dwarven mine without their starting equipment. An altar to the dwarven god Brimli grants a permanent +1 Constitution and 1500 XP to any character who speaks the god's name in Dwarvish.
+rooms: 18
+resolutions: Combat, Puzzles, Stealth, Roleplay, Traps, Exploration
+concept_originality: 2
+mechanics_originality: 3
+interesting_details: 4
+map_quality: 2
+rated_at: 2026-06-28T06:18:17.455Z
+model: deepseek/deepseek-v4-flash

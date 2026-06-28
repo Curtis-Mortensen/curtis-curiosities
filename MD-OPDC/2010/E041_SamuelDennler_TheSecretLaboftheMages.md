@@ -84,3 +84,13 @@ map_quality: 3
 rated_at: 2026-06-28T06:03:07.280Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: The secret lab of the mages
+summary: A hidden underground laboratory where reclusive mages conduct dangerous magical research, accessible through a ruined tower. Time-dependent room occupancy and ambiguous NPCs create dynamic social and combat encounters.
+rooms: 20
+resolutions: Combat, Traps, Exploration, Roleplay, Social
+concept_originality: 3
+mechanics_originality: 3
+interesting_details: 4
+map_quality: 3
+rated_at: 2026-06-28T06:19:14.985Z
+model: deepseek/deepseek-v4-flash

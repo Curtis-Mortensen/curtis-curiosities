@@ -68,3 +68,13 @@ map_quality: 3
 rated_at: 2026-06-28T06:01:48.065Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: The Pit of the Mad Sage
+summary: A legendary hermit-wizard lives in a pit beneath the foothills, protected by illusions and rumors he spread himself to keep intruders away. The dungeon features a series of powerful random illusions that deter intruders, and the sage's reaction hinges on whether the party harmed his pet bats.
+rooms: 5
+resolutions: Combat, Diplomacy, Puzzles, Roleplay, Exploration
+concept_originality: 3
+mechanics_originality: 3
+interesting_details: 4
+map_quality: 3
+rated_at: 2026-06-28T06:18:24.492Z
+model: deepseek/deepseek-v4-flash

@@ -113,3 +113,13 @@ map_quality: 3
 rated_at: 2026-06-28T06:01:57.252Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Epsilon Outpost – a Prefabricated Base in a Distant Galaxy
+summary: A modular hex-based sci-fi outpost that can be placed in space, underwater, or on a planet, raided for supplies during a viral cataclysm. It features random generation tables for inhabitants, base quirks, and room contents, with a portal chamber that can connect to fantasy settings.
+rooms: 13
+resolutions: Combat, Fetch Quests, Roleplay, Exploration
+concept_originality: 5
+mechanics_originality: 4
+interesting_details: 5
+map_quality: 4
+rated_at: 2026-06-28T06:18:30.597Z
+model: deepseek/deepseek-v4-flash

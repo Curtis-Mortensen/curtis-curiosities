@@ -99,3 +99,13 @@ map_quality: 3
 rated_at: 2026-06-28T06:03:32.519Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: The Laughing Mausoleum
+summary: In the old mausoleum of a fallen barony, a mad ghoul alchemist experiments on the dead and living with the help of goblins. Adventurers must navigate tombs, caves, and a laboratory to confront Heinrich in his temple of dark gods.
+rooms: 22
+resolutions: Combat, Diplomacy, Exploration, Roleplay, Traps
+concept_originality: 3
+mechanics_originality: 3
+interesting_details: 4
+map_quality: 3
+rated_at: 2026-06-28T06:19:26.448Z
+model: deepseek/deepseek-v4-flash

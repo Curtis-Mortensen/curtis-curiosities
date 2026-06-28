@@ -81,3 +81,13 @@ map_quality: 2
 rated_at: 2026-06-28T06:03:33.948Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Crypt of the Shattered Mage-King
+summary: An OSR dungeon where a forgotten mage-king now roams as a lich, filled with undead and treasure. A golden dagger from the guardroom can bypass the death knight guarding the vault.
+rooms: 12
+resolutions: Combat, Diplomacy, Puzzles, Fetch Quests, Traps, Exploration
+concept_originality: 3
+mechanics_originality: 2
+interesting_details: 3
+map_quality: 2
+rated_at: 2026-06-28T06:19:23.262Z
+model: deepseek/deepseek-v4-flash

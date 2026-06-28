@@ -101,3 +101,13 @@ map_quality: 3
 rated_at: 2026-06-28T06:01:51.091Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: The Phantom Tribe's Groto
+summary: A savage halfling tribe stages raids from a hedge-maze camp, and adventurers must navigate the maze's traps and inhabitants to bring their leader to justice. The dungeon combines a wandering monster table with a special events table and a maze map dotted with snare, pit, and dart traps that punish rushing.
+rooms: 11
+resolutions: Combat, Traps, Exploration
+concept_originality: 3
+mechanics_originality: 2
+interesting_details: 3
+map_quality: 3
+rated_at: 2026-06-28T06:18:28.384Z
+model: deepseek/deepseek-v4-flash

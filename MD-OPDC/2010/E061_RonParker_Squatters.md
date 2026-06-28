@@ -84,3 +84,13 @@ map_quality: 3
 rated_at: 2026-06-28T06:03:57.225Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Squatters!
+summary: A dragon's lair long abandoned by its original owner has been successively taken over by an illusionist and then a goblin band, with the local villages still paying tribute into a magical pool trap. The central gimmick is a pool room where an illusory wall of fire hides a 20-foot drop that feather-falls items into a cage below, while secret doors and a bottomless pit add vertical intrigue.
+rooms: 19
+resolutions: Combat, Traps, Puzzles, Exploration, Stealth, Skill Challenges
+concept_originality: 3
+mechanics_originality: 4
+interesting_details: 4
+map_quality: 3
+rated_at: 2026-06-28T06:19:45.400Z
+model: deepseek/deepseek-v4-flash

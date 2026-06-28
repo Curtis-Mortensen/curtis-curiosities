@@ -79,3 +79,13 @@ map_quality: 3
 rated_at: 2026-06-28T06:02:50.927Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: The Village of Fairfen
+summary: A dark folk-horror adventure set in a village that produces magical bog iron through ritual sacrifice, with the player characters drawn by the promise of enchanted steel. A villager asks them to kill the King of Summer.
+rooms: 12
+resolutions: Combat, Diplomacy, Roleplay, Traps, Exploration, Skill Challenges, Social
+concept_originality: 4
+mechanics_originality: 4
+interesting_details: 5
+map_quality: 3
+rated_at: 2026-06-28T06:19:04.519Z
+model: deepseek/deepseek-v4-flash

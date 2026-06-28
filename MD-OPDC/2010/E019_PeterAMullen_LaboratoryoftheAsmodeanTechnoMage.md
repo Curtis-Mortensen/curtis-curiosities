@@ -53,3 +53,13 @@ map_quality: 4
 rated_at: 2026-06-28T06:02:08.275Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Laboratory of the Asmodean Techno-Mage
+summary: A vertical slice of a subterranean dungeon combining dark sorcery and weird science, depicted as a dense OSR-style ink illustration. The map encourages vertical play and uses stalagmites and giant mushrooms as cover, with natural chokepoints between tiers.
+rooms: 6
+resolutions: Combat, Exploration
+concept_originality: 3
+mechanics_originality: 2
+interesting_details: 4
+map_quality: 4
+rated_at: 2026-06-28T06:18:38.064Z
+model: deepseek/deepseek-v4-flash

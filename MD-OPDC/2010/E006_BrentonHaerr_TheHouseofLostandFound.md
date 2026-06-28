@@ -35,3 +35,13 @@ map_quality: 2
 rated_at: 2026-06-28T06:01:38.343Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: The House of Lost and Found
+summary: A haunted house dungeon presented as a stained parchment with first-person prose, chronicling a party's eerie exploration of an abandoned mansion. The dungeon relies entirely on atmospheric narrative and environmental flavor rather than explicit mechanics, with hints of hidden doors and haunting melodies.
+rooms: 7
+resolutions: Exploration
+concept_originality: 2
+mechanics_originality: 1
+interesting_details: 3
+map_quality: 2
+rated_at: 2026-06-28T06:18:18.295Z
+model: deepseek/deepseek-v4-flash

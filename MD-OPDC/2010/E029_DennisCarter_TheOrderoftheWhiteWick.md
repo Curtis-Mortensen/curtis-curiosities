@@ -82,3 +82,13 @@ map_quality: 2
 rated_at: 2026-06-28T06:02:37.615Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: The Order of the White Wick
+summary: Formerly a haven of magical study, this complex is now a decayed, monster-haunted ruin due to a spell gone wrong. A magical doorway to the Deep Ethereal and a color-gem puzzle that returns trapped explorers stand out as the dungeon's central hook.
+rooms: 24
+resolutions: Combat, Traps, Puzzles, Exploration
+concept_originality: 3
+mechanics_originality: 4
+interesting_details: 4
+map_quality: 2
+rated_at: 2026-06-28T06:18:58.961Z
+model: deepseek/deepseek-v4-flash

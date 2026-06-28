@@ -124,3 +124,13 @@ map_quality: 5
 rated_at: 2026-06-28T06:03:13.870Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Under-Desert of Qualorm
+summary: A subterranean desert region with multiple warring factions, trade routes, and a complex diplomacy matrix, set in a 60x80 mile OSR-style sandbox. Standout mechanics include a detailed diplomacy table for five factions, 3D navigation rules, and a traveling encounter system based on terrain and time of day.
+rooms: 12
+resolutions: Combat, Diplomacy, Traps, Exploration, Social
+concept_originality: 3
+mechanics_originality: 4
+interesting_details: 4
+map_quality: 5
+rated_at: 2026-06-28T06:19:15.285Z
+model: deepseek/deepseek-v4-flash

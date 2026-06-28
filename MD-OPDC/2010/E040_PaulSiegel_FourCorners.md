@@ -128,3 +128,13 @@ map_quality: 4
 rated_at: 2026-06-28T06:03:04.452Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Four Corners
+summary: A dungeon set in an underground city block split into four faction territories: a bugbear vagabond king, a death cult, kobolds, and gnomes, surrounding a ruined old city. Features faction-specific wandering monsters, environmental traps, and quirky details like a tribute-demanding bugbear and a volatile gnomish diamond press.
+rooms: 35
+resolutions: Combat, Diplomacy, Traps, Exploration, Social
+concept_originality: 5
+mechanics_originality: 4
+interesting_details: 6
+map_quality: 6
+rated_at: 2026-06-28T06:19:15.316Z
+model: deepseek/deepseek-v4-flash

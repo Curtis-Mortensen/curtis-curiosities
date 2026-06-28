@@ -36,3 +36,13 @@ map_quality: 3
 rated_at: 2026-06-28T06:02:32.394Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Zombies, Maties
+summary: A cross-genre dungeon set aboard a derelict vessel infested with zombies, featuring a random lurching hazard that creates environmental skill checks.
+rooms: 5
+resolutions: Combat, Skill Challenges
+concept_originality: 4
+mechanics_originality: 3
+interesting_details: 2
+map_quality: 4
+rated_at: 2026-06-28T06:18:55.595Z
+model: deepseek/deepseek-v4-flash

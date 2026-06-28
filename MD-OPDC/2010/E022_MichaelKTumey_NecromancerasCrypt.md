@@ -85,3 +85,13 @@ map_quality: 3
 rated_at: 2026-06-28T06:02:18.337Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Necromancer’s Crypt
+summary: A necromancer's crypt dungeon with a blood-filled ravine and skull chapel, featuring traps and secret doors. The map includes 14 keyed locations such as a boneyard, laboratory, and undying heart chamber.
+rooms: 14
+resolutions: Traps
+concept_originality: 2
+mechanics_originality: 1
+interesting_details: 3
+map_quality: 3
+rated_at: 2026-06-28T06:18:48.108Z
+model: deepseek/deepseek-v4-flash

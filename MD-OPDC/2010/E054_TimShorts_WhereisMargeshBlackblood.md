@@ -92,3 +92,13 @@ map_quality: 2
 rated_at: 2026-06-28T06:03:45.404Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Where is Margesh Blackblood?
+summary: Players track down a bandit lord across four hideouts, with the lord's location randomized. Each hideout has its own traps, monsters, and potential allies or betrayals.
+rooms: 16
+resolutions: Combat, Traps, Exploration, Roleplay
+concept_originality: 2
+mechanics_originality: 1
+interesting_details: 3
+map_quality: 2
+rated_at: 2026-06-28T06:19:31.979Z
+model: deepseek/deepseek-v4-flash

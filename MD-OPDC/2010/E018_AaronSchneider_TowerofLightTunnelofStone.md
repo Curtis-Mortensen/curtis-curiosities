@@ -76,3 +76,13 @@ map_quality: 3
 rated_at: 2026-06-28T06:02:08.542Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Tower of Light, Tunnel of Stone
+summary: Adventurers must navigate a rat-infested tower and a hidden crypt, using a sun lens to solve a light-based puzzle and confront a zombified sun priest. The key mechanic is focusing sunlight through a lens onto a statue to reveal the crypt, and the final boss summons skeletons from the graves above.
+rooms: 11
+resolutions: Combat, Puzzles, Traps, Skill Challenges
+concept_originality: 2
+mechanics_originality: 2
+interesting_details: 3
+map_quality: 3
+rated_at: 2026-06-28T06:18:38.368Z
+model: deepseek/deepseek-v4-flash

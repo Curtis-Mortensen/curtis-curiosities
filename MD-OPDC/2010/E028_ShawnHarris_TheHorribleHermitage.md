@@ -94,3 +94,13 @@ map_quality: 2
 rated_at: 2026-06-28T06:02:33.335Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: The Horrible Hermitage
+summary: The Horrible Hermitage is a ruined fortress where false hermits under the sorcerer Jando capture travelers to fund the resurrection of the dark lord Scavdreen. The dungeon includes a fake bugbear attack, a talking giant spider ally, and various traps and secret doors.
+rooms: 13
+resolutions: Combat, Diplomacy, Roleplay, Traps, Exploration
+concept_originality: 3
+mechanics_originality: 3
+interesting_details: 4
+map_quality: 2
+rated_at: 2026-06-28T06:18:58.446Z
+model: deepseek/deepseek-v4-flash

@@ -89,3 +89,13 @@ map_quality: 4
 rated_at: 2026-06-28T06:01:38.337Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: The Forgotten Tomb of the Warrior King
+summary: A classic OSR dungeon featuring a forgotten warrior king's tomb hidden beneath a burial mound, now infested with monsters and cults. The dungeon includes a sex-change illusion mirror, underwater tunnel networks, a rushing water chasm that sweeps characters north, and a hidden tomb entrance requiring noisy digging.
+rooms: 21
+resolutions: Combat, Puzzles, Traps, Exploration, Skill Challenges
+concept_originality: 2
+mechanics_originality: 3
+interesting_details: 3
+map_quality: 4
+rated_at: 2026-06-28T06:18:21.219Z
+model: deepseek/deepseek-v4-flash

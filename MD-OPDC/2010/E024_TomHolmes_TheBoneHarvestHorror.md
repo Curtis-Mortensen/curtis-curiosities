@@ -61,3 +61,13 @@ map_quality: 4
 rated_at: 2026-06-28T06:02:22.360Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: The Bone Harvest Horror
+summary: A multi-level undead dungeon featuring a zombie horde that spawns continuously, a devious crown trap, and a sanctuary that blocks undead. Players must navigate catacombs, crypts, and haunted halls to uncover the source of the bone harvest.
+rooms: 25
+resolutions: Combat, Traps, Exploration, Puzzles
+concept_originality: 3
+mechanics_originality: 3
+interesting_details: 4
+map_quality: 4
+rated_at: 2026-06-28T06:18:48.243Z
+model: deepseek/deepseek-v4-flash

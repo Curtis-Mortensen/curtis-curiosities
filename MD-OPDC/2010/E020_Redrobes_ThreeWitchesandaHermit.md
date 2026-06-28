@@ -45,3 +45,13 @@ map_quality: 2
 rated_at: 2026-06-28T06:02:16.015Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: The Hermit's Cavern
+summary: A dark cave system filled with tunnels, chambers, and hazards, featuring bats, traps, undead, and a reclusive hermit. The dungeon offers a mix of classic fantasy encounters with a hermit whose morality is ambiguous and three witches that can appear old or young.
+rooms: 14
+resolutions: Combat, Traps, Social, Exploration
+concept_originality: 3
+mechanics_originality: 2
+interesting_details: 4
+map_quality: 2
+rated_at: 2026-06-28T06:18:53.148Z
+model: deepseek/deepseek-v4-flash

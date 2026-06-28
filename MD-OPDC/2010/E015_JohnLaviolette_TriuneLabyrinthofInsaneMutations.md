@@ -90,3 +90,13 @@ map_quality: 4
 rated_at: 2026-06-28T06:02:02.233Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Triune Labyrinth of Insane Mutations
+summary: A dungeon created by chaotic anti-druids who twist nature into bizarre mutations, serving as their testing grounds. It features a random mutation generation table for wandering monsters, a culture vat that spawns mutants, and a 5-ton golden statue that changes every time the room is entered.
+rooms: 17
+resolutions: Combat, Traps, Puzzles, Exploration
+concept_originality: 4
+mechanics_originality: 4
+interesting_details: 5
+map_quality: 4
+rated_at: 2026-06-28T06:18:34.846Z
+model: deepseek/deepseek-v4-flash

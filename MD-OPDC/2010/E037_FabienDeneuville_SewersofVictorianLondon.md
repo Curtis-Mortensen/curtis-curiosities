@@ -87,3 +87,13 @@ map_quality: 3
 rated_at: 2026-06-28T06:02:58.552Z
 model: deepseek/deepseek-v4-flash
 <!-- RANKING:END -->
+title: Sewers of Victorian London
+summary: In 1898 Victorian London, the party chases an aquatic hybrid creature into a sewer concealing an abandoned experimental lab used for horrific animal-human hybrids. The dungeon features a multi-lever floodgate system that dynamically changes water levels and a trap room requiring the code "MOREAU" that triggers acid damage after two wrong attempts.
+rooms: 20
+resolutions: Combat, Diplomacy, Puzzles, Exploration, Skill Challenges, Traps
+concept_originality: 3
+mechanics_originality: 4
+interesting_details: 4
+map_quality: 3
+rated_at: 2026-06-28T06:19:07.003Z
+model: deepseek/deepseek-v4-flash
