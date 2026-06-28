@@ -1,11 +1,18 @@
 # Bulk Image Generator
 
-Generates images in bulk from a YAML prompt list using **Gemini 3.1 Flash** (Nano Banana 2) via the Google AI Studio API.
+Generates images in bulk from a YAML prompt list using **Nano Banana 2** (`gemini-3.1-flash-image`) via the Google AI Studio API.
 
 ## Requirements
 
 - Python 3.9+
+- [uv](https://docs.astral.sh/uv/) (recommended)
 - A [Google AI Studio](https://aistudio.google.com) API key
+
+Install uv:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
 
 Install dependencies with uv:
 
