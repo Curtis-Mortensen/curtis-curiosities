@@ -161,10 +161,95 @@ The numeric prefix keeps them sorted in the order they appear in the YAML.
 ```
 bulk_image_gen.py   ← bulk image generation script
 decompose_maps.py   ← D&D map transcription script
+ranking.py          ← dungeon rating + HTML compile script
 prompts.yaml        ← your prompt list
 prefix.yaml         ← optional style/prefix block
 output/             ← generated images saved here
+MD-OPDC/            ← transcribed dungeon markdown by year
 ```
+
+---
+
+# One-Page Dungeon Ranker
+
+Rates transcribed dungeon Markdown files via **DeepSeek V4 Flash** on OpenRouter, writes a standardized `## Ranking` block into each `.md`, and can compile those blocks into a self-contained HTML summary.
+
+## Usage
+
+```bash
+export OPENROUTER_API_KEY="your-key-here"
+
+# Rate every .md in a year folder
+python ranking.py MD-OPDC/2010
+
+# Rate all year folders under MD-OPDC (2010, 2011, …)
+python ranking.py MD-OPDC
+
+# Re-rate files that already have rankings
+python ranking.py MD-OPDC/2010 --force
+
+# Validate without calling the API
+python ranking.py MD-OPDC/2010 --dry-run
+
+# Compile rankings into HTML (table + card views)
+python ranking.py MD-OPDC/2010 --compile
+python ranking.py MD-OPDC --compile --output MD-OPDC/rankings.html
+```
+
+Install deps:
+
+```bash
+pip install pyyaml
+```
+
+## What it does
+
+For each `.md` file in the target folder:
+
+1. **Validates** that the file has a `## Transcription` section (i.e. it got past the thinking stage). Files stuck at `## Thinking` are skipped and listed in `errors.md` in that folder.
+2. **Removes** the `## Thinking` section from files that have a transcription.
+3. **Sends** the transcription to `deepseek/deepseek-v4-flash` via OpenRouter for scoring.
+4. **Appends** a standardized ranking block below the map description:
+
+```markdown
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Prisoners of the Mountain King
+summary_1: The party awakens stripped of gear in a kobold brigand king's repurposed dwarven mine prison.
+summary_2: A hidden gold dragon ally and Brimli's altar reward dwarven piety with permanent stat boosts.
+rooms: 18
+resolutions: Combat, Roleplay, Exploration
+originality: 3
+mechanics: 3
+map_quality: 2
+rated_at: 2026-06-28T12:00:00.000Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->
+```
+
+`--compile` scans for `<!-- RANKING:BEGIN -->` … `<!-- RANKING:END -->` blocks and writes a searchable HTML document with:
+
+- Summary stats (count, average scores)
+- Sortable table view
+- Card/list view
+- Batch/year filter (works across `MD-OPDC/2010`, `MD-OPDC/2011`, etc.)
+
+| Flag | Description |
+|---|---|
+| `--compile` | Extract rankings and write HTML instead of calling the API |
+| `--output PATH` | HTML output path for `--compile` |
+| `--force` | Re-rate even when a ranking block already exists |
+| `--workers N` | Parallel workers (default: 4) |
+| `--no-parallel` | Force sequential rating |
+| `--delay SECONDS` | Pause between files in sequential mode |
+| `--dry-run` | Report what would be rated without API calls |
+
+| Artifact | Location | Description |
+|---|---|---|
+| Ranking block | Inside each `.md` | Machine-readable YAML between HTML comment markers |
+| `errors.md` | Target folder | Files skipped because they never reached `## Transcription` |
+| `rankings.html` | Target folder (or `--output`) | Compiled summary from `--compile` |
 
 ---
 
