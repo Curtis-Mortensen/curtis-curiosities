@@ -175,8 +175,11 @@ Batch-transcribes one-page D&D dungeon maps (PDF, PNG, or JPEG) into Markdown us
 ## Usage
 
 ```bash
-# Process every PDF/PNG/JPEG in a folder
+# Process every PDF/PNG/JPEG in a folder (writes to <maps_folder>/output/)
 python decompose_maps.py /path/to/maps
+
+# Write Markdown beside the source maps instead
+python decompose_maps.py /path/to/maps --in-place
 
 # Reprocess even when a matching .md already exists
 python decompose_maps.py /path/to/maps --force
@@ -203,7 +206,7 @@ For each map file, the script:
 1. Sends the file plus this prompt to `gemini-3.1-flash-lite` at **medium** thinking level:
    > I have here a one page D&D dungeon concept. Start by describing the page, then transcribe all the written text, then describe the map with enough detail for someone who can't see it to play.
 2. Streams the response, capturing both thinking summaries and final text.
-3. Writes `<map_name>.md` beside the source file (or into `--output-dir`).
+3. Writes `<map_name>.md` to `<maps_folder>/output/` by default, or beside the source maps with `--in-place`.
 4. If output is blocked (safety, token limit, prompt block, etc.), records the block reason and any partial thinking/text, then continues to the next map.
 
 When the folder contains **more than 4 maps**, the script processes maps in parallel unless you pass `--no-parallel`.
@@ -222,10 +225,12 @@ Folders with **4 or fewer maps** run sequentially by default. Use `--no-parallel
 
 ## Output
 
-| Artifact | Location | Description |
+| Artifact | Default location | Description |
 |---|---|---|
-| Markdown transcript | `<map_name>.md` | Thinking (if streamed), transcription, and block notes |
+| Markdown transcript | `<maps_folder>/output/<map_name>.md` | Thinking (if streamed), transcription, and block notes |
 | Per-map log | `logs/<map_name>.log` | Detailed send/stream/receive timeline for that file |
 | Session log | `logs/decompose_session_<timestamp>.log` | Batch summary across all maps |
 
-Existing `.md` files are skipped unless you pass `--force`.
+Use `--in-place` to write `.md` files next to the source maps, or `--output-dir` for a custom folder.
+
+Existing `.md` files in the output location are skipped unless you pass `--force`.

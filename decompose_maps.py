@@ -36,6 +36,7 @@ from typing import Optional
 MODEL = "gemini-3.1-flash-lite"
 PARALLEL_THRESHOLD = 4
 MAX_PARALLEL_WORKERS = 4
+DEFAULT_OUTPUT_DIR_NAME = "output"
 SUPPORTED_EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg"}
 MIME_TYPES = {
     ".pdf": "application/pdf",
@@ -57,6 +58,14 @@ def resolve_workers(map_count: int, max_workers: int) -> int:
 
 def should_use_parallel(map_count: int, no_parallel: bool) -> bool:
     return not no_parallel and map_count > PARALLEL_THRESHOLD
+
+
+def resolve_output_dir(maps_folder: Path, output_dir: Optional[str], in_place: bool) -> Path:
+    if output_dir:
+        return Path(output_dir)
+    if in_place:
+        return maps_folder
+    return maps_folder / DEFAULT_OUTPUT_DIR_NAME
 
 
 BLOCKED_FINISH_REASONS = {
@@ -604,7 +613,12 @@ def main():
     parser.add_argument(
         "--output-dir",
         metavar="DIR",
-        help="Directory for Markdown output (default: same as maps_folder)",
+        help=f"Directory for Markdown output (default: <maps_folder>/{DEFAULT_OUTPUT_DIR_NAME})",
+    )
+    parser.add_argument(
+        "--in-place",
+        action="store_true",
+        help="Write Markdown files in the maps folder instead of an output subfolder",
     )
     parser.add_argument(
         "--force",
@@ -639,12 +653,16 @@ def main():
         print("[ERROR] --workers must be at least 1.")
         sys.exit(1)
 
+    if args.output_dir and args.in_place:
+        print("[ERROR] Use either --output-dir or --in-place, not both.")
+        sys.exit(1)
+
     maps_folder = Path(args.maps_folder)
     if not maps_folder.is_dir():
         print(f"[ERROR] Maps folder not found: {maps_folder}")
         sys.exit(1)
 
-    output_dir = Path(args.output_dir) if args.output_dir else maps_folder
+    output_dir = resolve_output_dir(maps_folder, args.output_dir, args.in_place)
     output_dir.mkdir(parents=True, exist_ok=True)
 
     run_stamp = utc_now().strftime("%Y%m%d_%H%M%S")
@@ -680,6 +698,7 @@ def main():
         model=MODEL,
         force=args.force,
         delay=args.delay,
+        in_place=args.in_place,
         parallel=use_parallel,
         no_parallel=args.no_parallel,
         max_workers=args.workers,
