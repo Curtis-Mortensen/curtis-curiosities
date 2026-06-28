@@ -4,22 +4,6 @@ _Source: `E001_MoritzMehlem_PrisonersoftheMountainKing.pdf`_
 _Processed: 2026-06-28T04:43:34.743Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Defining the Parameters**
-
-I've started by defining the parameters of this task. I'm focusing on analyzing the request and understanding the nature of the input, which is a D\&D dungeon map and room keys titled "Prisoners of the Mountain King." I am tasked with describing the provided page and later will transcribe data from it. I need to understand what information is requested.
-
-
-**Analyzing the Document's Content**
-
-I'm now focusing on transcribing and describing the page, especially the dungeon map and room keys. I'm noting the layout: title, map, and text. The visual style is hand-drawn, like an old-school module page. My task is to keep the description objective, mentioning specific content sections. I'm focusing on providing enough detail so someone who can't see the map can use it for gameplay. Next I'll transcribe all the text.
-
-
-**Refining the Description**
-
-I am now structuring the map description, focusing on accessibility for gameplay. I am describing the layout: a central corridor with branching rooms numbered 1-18. I'm noting features like doors, secret doors, water pools, and specific room contents (bed, altar, statues). My plan is to describe it using dimensions and the grid, plus a room flow summary, and then to elaborate on all notable features. I'm focusing on clarity for someone who cannot see the map.
-
 ## Transcription
 
 This dungeon concept, titled **"Prisoners of the Mountain King,"** is designed as a classic, old-school Dungeons & Dragons adventure module page.
@@ -89,3 +73,19 @@ The map is a grid-based, single-level dungeon layout. 1 square equals 10 feet. T
 *   **The Religious/Library Section (Rooms 10–12):** This occupies the center-right of the map. It consists of the Library (Room 10), an Antechamber filled with statues (Room 11), and the Altar Room (Room 12). These rooms are clustered together, with secret access points connecting them to the King's lair.
 *   **The Treasure Cache (Room 13):** A secluded, small, rectangular room located behind the water feature in Room 5, accessible via a secret door.
 *   **Barracks and Exit (Rooms 14–18):** These occupy the bottom (southern) area of the map. Room 14 is a large supply room/barracks. Nearby are smaller rooms for supplies (16) and a guard post (17). The far southern end of the map (Room 18) serves as the exit, marked by a gate blocking the path to the outside.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Prisoners of the Mountain King
+summary_1: The player characters are captured by the kobold Mountain King and must escape his dungeon in an old dwarven mine without their starting equipment.
+summary_2: An altar to the dwarven god Brimli grants a permanent +1 Constitution and 1500 XP to any character who speaks the god's name in Dwarvish.
+rooms: 18
+resolutions: Combat, Puzzles, Stealth, Roleplay, Traps, Exploration
+concept_originality: 2
+mechanics_originality: 3
+interesting_details: 4
+map_quality: 2
+rated_at: 2026-06-28T06:01:34.536Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

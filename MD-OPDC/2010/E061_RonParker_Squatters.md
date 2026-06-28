@@ -4,17 +4,6 @@ _Source: `E061_RonParker_Squatters.pdf`_
 _Processed: 2026-06-28T05:04:18.869Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Analyzing the Dungeon Page**
-
-I'm currently focused on dissecting the visual elements of this D&D dungeon page. I'm noting key features: room layouts, potential hazards, and any notable artwork. My aim is to extract the core visual details necessary to provide an accurate description of the setting. I am prioritizing a clear, concise visual rundown to build the foundation for further analysis.
-
-
-**Detailing the Page Elements**
-
-I've moved on to meticulously detailing the page's components. I've noted it's a "One Page Dungeon" titled "Squatters!", styled like a classic RPG module. The page layout consists of a hand-drawn map taking up roughly half the page, with two columns of text giving background, notes, and room descriptions. I've begun to transcribe the text, carefully formatting and checking the OCR for accuracy. My current focus is to describe the map in detail, focusing on accessibility for those without vision, breaking it into sections and describing their connectivity using cardinal directions.
-
 ## Transcription
 
 ### Page Description
@@ -79,3 +68,19 @@ The spiral staircase in room 6 is the main transition point, leading from the up
 *   **The East Side:** A winding set of **Tunnels (13)** leads east toward the **Back Door (14)**, which opens to the outside cliff face. 
 *   **The Lair:** Deep in the east-central section is a large, open space—the **Lair (17)**—which serves as the main barracks for the goblins. It is reached via an **Intersection (16)** where guards are stationed.
 *   **The Waterway:** At the far eastern edge of the map, a stream runs through a **Storage room (18)**, acting as a natural tunnel that terminates at the **Waterfall Cave (19)**. This cave is where the stream exits the mountain, and it serves as the final, isolated room where the mayor’s son is trapped.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Squatters!
+summary_1: A dragon's lair long abandoned by its original owner has been successively taken over by an illusionist and then a goblin band, with the local villages still paying tribute into a magical pool trap.
+summary_2: The central gimmick is a pool room where an illusory wall of fire hides a 20-foot drop that feather-falls items into a cage below, while secret doors and a bottomless pit add vertical intrigue.
+rooms: 19
+resolutions: Combat, Traps, Puzzles, Exploration, Stealth, Skill Challenges
+concept_originality: 3
+mechanics_originality: 4
+interesting_details: 4
+map_quality: 3
+rated_at: 2026-06-28T06:03:57.225Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

@@ -4,22 +4,6 @@ _Source: `E022_MichaelKTumey_NecromancerasCrypt.pdf`_
 _Processed: 2026-06-28T04:47:19.617Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Assessing the Map Image**
-
-I'm currently breaking down the request to describe the "Necromancer's Crypt" map. I've pinpointed the inputs and identified the primary task: describing the page itself, focusing on its layout and overall aesthetic. My next step will be to thoroughly examine the provided image for specific details to incorporate into a descriptive summary.
-
-
-**Detailing the Map Features**
-
-I've progressed to transcribing all the text from the image, noting the header: "Necromancer's Crypt," and the attribution, including "Lhessadrak the Undying Pontiff" and "Cartography by Michael K. Tumey." I've also detailed the legend, including notations of the map features, such as the Entry Portal, Crypt Gate, Ghoul Tunnel, and more. Notably, the misspelling of "Masoleum" is intentional in my transcription. I will proceed to crafting the accessibility-focused visual description next.
-
-
-**Expanding the Map's Details**
-
-I've continued detailing the map, now focusing on the specific locations. I've mapped the Sanctum Portal to the Undying Heart, and completed the transcription of the features. I'm also including all of the secret doors and traps. I am now incorporating the footer/key legend, including the link. Finally, I've begun to describe the map from a functional standpoint, including a breakdown of the rooms for accessibility. I'm focusing on providing directional instructions and room content details, especially for non-sighted users. I've begun to incorporate the key legend, to describe traps, secret doors, and orientation.
-
 ## Transcription
 
 ### Description of the Page
@@ -85,3 +69,19 @@ The dungeon is roughly L-shaped, composed of two main horizontal corridors conne
 *   **Secret Doors (S):** There are secret doors connecting the Cold Storage to the central hallways and hidden passages near the Entryway and Laboratory. 
 *   **Traps (X):** Hazards are marked throughout, specifically near the Gate House, the entrance to the Yeoman's Trap, and the entry to the Boneyard. 
 *   **Movement:** The map relies heavily on 5-foot hallways. The Blood Canyon acts as a massive choke point for movement in the northern section.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Necromancer’s Crypt
+summary_1: A crypt dungeon built by a necromancer pontiff, featuring a central blood-filled ravine, a skull chapel, and a hidden heart chamber.
+summary_2: The map includes multiple secret doors and trap markers, with a blood canyon acting as a major choke point.
+rooms: 14
+resolutions: Traps
+concept_originality: 2
+mechanics_originality: 1
+interesting_details: 3
+map_quality: 3
+rated_at: 2026-06-28T06:02:18.337Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

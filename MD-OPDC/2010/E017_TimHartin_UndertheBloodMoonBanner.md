@@ -4,22 +4,6 @@ _Source: `E017_TimHartin_UndertheBloodMoonBanner.pdf`_
 _Processed: 2026-06-28T04:46:21.763Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Analyzing the Document**
-
-I'm now diving into analyzing the request. My primary focus is understanding the input: a D&D dungeon module PDF, specifically "Under the Blood Moon Banner" by Tim Hartin. I'm noting the immediate tasks: visually describing the initial page.
-
-
-**Detailing the Page Elements**
-
-I've outlined the page elements. It's a typical RPG module layout, with a stylized banner title, map in the corner, and text sections: Background, Hooks, and Keyed Locations. The old-school black-and-white style is apparent. The dungeon map is practical, grid-based. I'm noting the header, sidebar, bullet points and numbered lists for organization.
-
-
-**Structuring the Layout**
-
-I am working on structuring the module. My current thought is to ensure the layout follows a logical flow: Heading, Background, Hooks, and then the Room Descriptions. I also plan to incorporate Markdown formatting for better readability.
-
 ## Transcription
 
 This document is a single-page tabletop roleplaying game module titled "Under the Blood Moon Banner," designed by Tim Hartin.
@@ -77,3 +61,19 @@ The map is a top-down, black-and-white grid layout where **1 square equals 10 fe
     *   **The Southern Cluster:** The **Defiled Shrine (9)**, **Ironbelly Brothers Quarters (10)**, and **Otoboru’s Quarters (11)** occupy the bottom center.
     *   **Hidden/Special Areas:** The **Secret Vault (12)** is tucked between the Quarters and the Slave Pen. The **Slave Pen (13)** is along the bottom, and the **Owlbear Den (14)** is located on the far right (eastern) side.
 *   **Map Features:** The map uses solid black lines for walls and clear white space for floor areas. Square symbols denote doors, and specific hatches indicate secret doors. Room numbers are placed inside circles within each room for easy identification. The "Great Hall" is noticeably larger than the other rooms, reflecting its status as the center of the complex.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Under the Blood Moon Banner
+summary_1: A motley band of monsters led by an ogre mage named Otoboru raids the countryside from a cave hideout.
+summary_2: The dungeon features a star chamber with a healing light, a howling air-tunnel room, and an invisible ogre mage who may be lurking on his throne.
+rooms: 14
+resolutions: Combat, Traps, Puzzles, Exploration, Skill Challenges
+concept_originality: 2
+mechanics_originality: 2
+interesting_details: 3
+map_quality: 2
+rated_at: 2026-06-28T06:02:02.244Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

@@ -4,22 +4,6 @@ _Source: `E050_RickRay_CryptoftheShatteredMageKing.pdf`_
 _Processed: 2026-06-28T05:03:51.701Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Visualizing the Page**
-
-I'm currently focused on visually processing the provided PDF screenshot of the D&D adventure map. My primary task is to develop a concise visual description, effectively analyzing the page elements to extract relevant visual information.
-
-
-**Analyzing the Dungeon Layout**
-
-I've moved on from the initial visual sweep and am now methodically breaking down the elements on the page. The dungeon module's layout is now clear, with a grid map dominating the top left, contrasted by the top right section containing textual information. I am also currently working on a Room Key at the bottom, and the old-school D&D style is evident.
-
-
-**Transcribing the Page Accurately**
-
-I am now focused on absolute accuracy in transcription of the map elements. I noticed that Room 10's label is cut off and will need to render it as seen. I'm focusing on preserving the visual presentation, even with imperfections. I also have moved on to creating a logical trace of the map. The Entrance (IIII) leads into Room 1, and I am currently working on tracking the map's layout methodically, room by room.
-
 ## Transcription
 
 This is a classic "OSR" (Old School Renaissance) style dungeon module, presented as a single-page flyer. It features a technical black-and-white grid map on the left and informative text columns on the right and bottom. The layout is utilitarian, designed for quick reference by a Dungeon Master.
@@ -81,3 +65,19 @@ The map is a top-down, grid-based dungeon layout composed of ten numbered rooms 
 *   **The Inner Sanctum:** To the east of Room 6 is **Room 7** (Circular Vault), a round room accessible via a locked door (`k`). This leads north into **Room 8** (Guardroom), a narrow rectangular space.
 *   **The Far End:** To the left of the Guardroom is **Room 9** (Bed Chamber). It is connected by a narrow corridor. This room has a large `a` marker (murky pool) and a secret door (`S`) leading to the final **Room 10** (Shattered Laboratory) in the top-left area. 
 *   **Navigation Notes:** Almost every room is separated by a door (`d`) or a locked door (`k`). There are several secret doors (`S`) connecting the rooms in an non-linear fashion, allowing the party to bypass certain areas if they search effectively. The map is generally oriented with the entrance at the south/bottom, with the deeper sections of the dungeon progressing toward the north and east.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Crypt of the Shattered Mage-King
+summary_1: An OSR-style dungeon containing the tomb of a forgotten mage-king who now wanders as a lich, filled with undead and treasure.
+summary_2: The lich roams the dungeon randomly, and a golden dagger from the guardroom can bypass the death knight guarding the vault.
+rooms: 12
+resolutions: Combat, Diplomacy, Puzzles, Fetch Quests, Traps, Exploration
+concept_originality: 3
+mechanics_originality: 2
+interesting_details: 3
+map_quality: 2
+rated_at: 2026-06-28T06:03:33.948Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

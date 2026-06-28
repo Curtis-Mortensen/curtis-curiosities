@@ -4,22 +4,6 @@ _Source: `E021_PatriceCrespy_HallsofKsarniaDungeon.pdf`_
 _Processed: 2026-06-28T04:47:04.449Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Analyzing the Request**
-
-Okay, I'm breaking down the task. The initial request is to analyze an image, specifically a single-page D\&D dungeon concept called "Halls of Ksarnia." My first focus is to identify the overall layout and atmosphere of this visual data.
-
-
-**Detailing the Page Elements**
-
-Now, I'm diving deeper. I've noted the OSR style, and layout: Map in the upper-left, title and blurb in the upper-right, and then the Wandering Monsters table and room descriptions. The aesthetic is black and white, gritty, evocative of a snowy mountain dungeon, and three factions are in conflict. I am carefully transcribing all the text. The title is "Halls of Ksarnia" by Patrice Crespy.
-
-
-**Mapping the Dungeon's Flow**
-
-I'm focusing now on mapping the dungeon's flow, emphasizing accessibility for a player. I'm prioritizing how areas connect to improve playability, ensuring I can describe the map without a visual. I am establishing how each room or section is linked, detailing the Entrance, Great Hall, Gallery, and other connected areas, up to the Pillared Vault. My goal is a clear, step-by-step navigation guide, focusing on a ruined fortress transitioning into a natural cave system.
-
 ## Transcription
 
 This is a classic "old-school" style dungeon module layout, designed for a tabletop roleplaying game like Dungeons & Dragons. It features a hand-drawn map at the top and a key providing tactical and atmospheric details for the dungeon master.
@@ -113,3 +97,19 @@ The map is laid out on a grid and divided into two distinct sections: the "Halls
     *   The very end of the map (17) acts as a drop-off or exit, labeled "Into the Depths," implying it leads off-page to a larger subterranean city.
 
 **Key Visual Hazard:** A large, winding, bottomless pit cuts through the center of the cave system, creating a stark divide between the northern and southern cave areas.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Halls of Ksarnia
+summary_1: A classic OSR dungeon set in a snowy mountain pass where feuding factions of ice kobolds, cavemen, and troglodytes are trapped together.
+summary_2: The dungeon features faction dynamics, hidden passages, and a horn trap that can collapse a room, along with a cursed gem and a black door to a hidden jungle.
+rooms: 19
+resolutions: Combat, Traps, Exploration
+concept_originality: 3
+mechanics_originality: 3
+interesting_details: 4
+map_quality: 4
+rated_at: 2026-06-28T06:02:15.023Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

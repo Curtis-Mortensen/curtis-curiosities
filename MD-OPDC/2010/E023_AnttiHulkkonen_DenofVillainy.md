@@ -4,22 +4,6 @@ _Source: `E023_AnttiHulkkonen_DenofVillainy.pdf`_
 _Processed: 2026-06-28T04:47:31.496Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Analyzing the Concept**
-
-I'm currently dissecting the request. It involves a one-page dungeon concept, either the "Den of Villainy" or "Five Go Missing." My focus is on understanding the input's format and the initial task of comprehending its specifics. I'm prioritizing the identification of key elements within the provided material to pave the way for a targeted response.
-
-
-**Detailing the Page Elements**
-
-I've moved on to meticulously describe the page visually. I see it's a black-and-white, old-school RPG handout with distinct map sections. The text blocks include the "Leeward Lodge" and "Tidal Caves," each with references to the three maps. I'm focusing on the overall layout: it's dense, yet organized. I'm also ensuring the title banner and intro are noted.
-
-
-**Charting the Locations**
-
-I'm now detailing each map's specific locations. Map 1, the Barnacle Islands, requires me to explain its regional nature, scale, and orientation, and identify the key features such as Bootheel Rock and the lighthouse. Map 2's cutaway view of Leeward Lodge, as well as the Tidal Caves floorplan for Map 3, are also undergoing the same scrutiny.
-
 ## Transcription
 
 This document is a classic, black-and-white tabletop role-playing game dungeon module page titled **"Den of Villainy"** (also subtitled "Five Go Missing"). 
@@ -110,3 +94,19 @@ This is a top-down blueprint of an underground cave network.
     *   **The Vault:** Cave 7 is located in a protected, deep part of the cavern system, accessible via a narrow tunnel from Cave 6.
     *   **Dead Ends:** Caves 9 through 13 form a cluster on the right side of the map, representing the historical pirate chambers.
     *   **Secret Paths:** Dotted lines represent hidden tunnels, such as the one connecting Cave 5 to a secret passage and the tunnel from the ceiling of Cave 1.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Den of Villainy! (or 'Five Go Missing')
+summary_1: A smuggler's den on a remote island chain, with a cliffside lodge and tidal caves, where four young hobbits and their dog have gone missing while searching for pirate gold.
+summary_2: The dungeon features rickety walkways that break underfoot, tidal flooding that changes access, a buried pirate treasure guarded by ghosts, and a novelist secretly spying on the smugglers for his stories.
+rooms: 26
+resolutions: Combat, Diplomacy, Puzzles, Fetch Quests, Stealth, Roleplay, Traps, Exploration, Skill Challenges, Social
+concept_originality: 4
+mechanics_originality: 5
+interesting_details: 5
+map_quality: 5
+rated_at: 2026-06-28T06:02:17.941Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

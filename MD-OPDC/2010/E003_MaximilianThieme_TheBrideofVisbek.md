@@ -4,22 +4,6 @@ _Source: `E003_MaximilianThieme_TheBrideofVisbek.pdf`_
 _Processed: 2026-06-28T04:43:51.465Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Analyzing the Request**
-
-Okay, I'm breaking down the task. Currently, I am analyzing the initial request; my main task is to describe a single-page PDF or image titled "The Bride of Visbek," which seems to be a D&D dungeon concept. The main goal here is to give a solid and clear description.
-
-
-**Detailing the Page Elements**
-
-I'm now detailing the visual elements. It's a black-and-white printout, a "zine"-like module with a title, a descriptive text block, and a hand-drawn map. I'm focusing on its rustic, old-school RPG aesthetic, including the title and a legend. I've begun drafting a description that highlights the module's mix of lore, mechanics, and the map.
-
-
-**Mapping the Layout**
-
-I am now focusing on the map itself. I've noted the underground cavern system layout, including the surface-level Room 1 with its megalithic rocks. I've also identified a tunnel leading downwards. Further, I am focusing on refining the transcription to improve readability. I've broken the information down to various rooms with specific visual characteristics.
-
 ## Transcription
 
 This is a one-page dungeon concept for a fantasy role-playing game titled "The Bride of Visbek." It follows a classic "OSR" (Old School Renaissance) style, providing a brief piece of folk-horror lore, five keyed encounter areas, and a hand-drawn map.
@@ -68,3 +52,19 @@ The map is hand-drawn and represents both a surface level and an underground tun
 *   **Area 5 (Inner Sanctum):** The path continues from the central chamber to a circular room on the far right. Inside this circle, there is a star symbol (a pentagram). This is where the demon of greed is located.
 
 The entire underground network is connected by tunnel passages, with the map showing a progression from the surface hole, down into the first cavern, through the blocked passage, into the central chamber, and finally into the circular treasure room.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: The Bride of Visbek
+summary_1: A folk-horror dungeon where a bride's vengeful spirit haunts the standing stones of Visbek, with treasure hunters disturbing her curse.
+summary_2: The spirit animates corpses and hides in the shadows of petrified bridesmaids, leading to a final encounter with a bound demon of greed.
+rooms: 5
+resolutions: Combat, Puzzles, Exploration, Skill Challenges
+concept_originality: 3
+mechanics_originality: 3
+interesting_details: 3
+map_quality: 2
+rated_at: 2026-06-28T06:01:31.285Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

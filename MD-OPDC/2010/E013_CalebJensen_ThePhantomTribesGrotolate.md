@@ -4,22 +4,6 @@ _Source: `E013_CalebJensen_ThePhantomTribesGrotolate.pdf`_
 _Processed: 2026-06-28T04:45:33.512Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Assessing the Input**
-
-I've begun analyzing the request, focusing on the image and OCR data provided. My initial assessment centers on identifying the core tasks: describing the page content and, more importantly, transcribing the text within the image. I'm prioritizing accuracy in text interpretation, and aiming to correctly identify the elements of the page.
-
-
-**Detailing the Page Elements**
-
-I'm now diving into the specific elements of the page. I've broken it down into visual and thematic components. Visually, it's a grid-based map with text blocks. The theme is a gritty wilderness dungeon, connected to a Halfling tribe. The style is black and white, with clear grid lines for orientation. I'm focusing on these specifics to ensure I capture the essence of the page.
-
-
-**Clarifying Map Details**
-
-I'm now detailing the map's layout for a vivid description. I'm focusing on the room keys (1-11) and the layout, which is an outdoor, hedge-maze style dungeon. I'm taking into consideration the 20x20 grid, and focusing on the clearings, and potential trap areas within the hedges. I'll need to remove a strange OCR error.
-
 ## Transcription
 
 This document is a "One Page Dungeon" titled **"The Phantom Tribe's Groto,"** created by Caleb Jensen for the 2010 One Page Dungeon Contest. It is a system-neutral D&D adventure module designed for a group of adventurers to infiltrate a Halfling camp set within a hedge maze.
@@ -101,3 +85,19 @@ The maze is heavily trapped to punish adventurers who rush:
 *   **X (Pit Traps):** These are placed at key junctions throughout the maze, particularly near Area 1, Area 9, and one in the southern corridor.
 *   **^ (Dart Traps):** These are found near the entrance of Area 10, the center, and the northern sections.
 *   **W (Webs):** These are primarily located near the entrances of the outer rooms, particularly near Area 1 and Area 6.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: The Phantom Tribe's Groto
+summary_1: A savage halfling tribe stages raids from a hedge-maze camp, and adventurers must navigate the maze's traps and inhabitants to bring their leader to justice.
+summary_2: The dungeon combines a wandering monster table with a special events table and a maze map dotted with snare, pit, and dart traps that punish rushing.
+rooms: 11
+resolutions: Combat, Traps, Exploration
+concept_originality: 3
+mechanics_originality: 2
+interesting_details: 3
+map_quality: 3
+rated_at: 2026-06-28T06:01:51.091Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

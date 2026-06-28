@@ -4,22 +4,6 @@ _Source: `E025_JensThuresson_TombofOrcus.pdf`_
 _Processed: 2026-06-28T04:47:53.859Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Processing the Dungeon Map**
-
-I'm currently focused on dissecting the request. The initial step involves analyzing the provided inputs: a dungeon map image alongside its OCR data (title, author, and license). I've set my sights on developing a comprehensive visual description of the page, followed by a transcription and structured storage of the details. The goal is to fully understand the provided data.
-
-
-**Analyzing the Map's Features**
-
-I'm now zeroing in on detailing the page's visual aspects. I've noted the map's title ("Tomb of Orcus") and its overall aesthetic (hand-drawn, "old school"). My focus has shifted to the layout, with the map dominating the page and a legend placed on the right. I'm moving toward a more structured description for further processing.
-
-
-**Detailing the Map Features**
-
-I'm now cataloging the map's key elements. I've compiled a list of icons with their corresponding names (Brazier, Stairs, Hidden Pit Trap, Door, False Door, Statue of Orcus, Pillar, Altar). My next move is to format this information cleanly and efficiently. I'm also planning to describe the map's layout from an accessibility and gameplay standpoint. I intend to describe the path from the player's perspective.
-
 ## Transcription
 
 ### Page Description
@@ -69,3 +53,19 @@ This final room is the most heavily decorated area of the dungeon:
 **Navigation Tips:**
 *   **Stairs:** There are stairs located at the far north-west entrance, the start of the northern cavern, and near the entrance to the southern corridor.
 *   **Dead Ends:** Most paths lead to specific points of interest (the braziers or the final altar room), making the layout fairly linear with few true "looping" paths.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Tomb of Orcus
+summary_1: A classic tomb dungeon dedicated to the demon prince Orcus, featuring winding caverns, a long hall with traps, and a fortified final chamber.
+summary_2: The dungeon uses hidden pit traps, false doors, and braziers alongside statues of Orcus to create a ritualistic atmosphere and challenge explorers.
+rooms: 5
+resolutions: Traps, Exploration
+concept_originality: 2
+mechanics_originality: 1
+interesting_details: 3
+map_quality: 3
+rated_at: 2026-06-28T06:02:28.862Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

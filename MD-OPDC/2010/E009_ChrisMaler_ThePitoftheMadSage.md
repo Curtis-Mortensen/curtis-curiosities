@@ -4,17 +4,6 @@ _Source: `E009_ChrisMaler_ThePitoftheMadSage.pdf`_
 _Processed: 2026-06-28T04:44:54.506Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Initiating Analysis Process**
-
-I'm currently dissecting the request. The core task involves describing a single-page D&D dungeon, specifically "The Pit of the Mad Sage," which is provided as a PDF, image, or OCR. I'm focused on understanding the nature of this source material and determining how best to approach its description.
-
-
-**Analyzing Page Composition**
-
-I've got a visual handle on the document now, and I'm detailing the page's structure. I've noted the title, introductory text, the central map (with lettered sections), a key/legend, the NPC stat block, and the license. I'm noting the hand-drawn, "zine" aesthetic. The next step is to clean up and format the transcribed text. I'll use the OCR as a base, and correct its formatting, spacing, and typos. I'm cross-checking the transcription.
-
 ## Transcription
 
 ### Page Description
@@ -63,3 +52,19 @@ The map is depicted as a cross-section of the hillside, allowing you to see the 
 *   **Point E (The Sage’s Home):** At the far end of the complex, reached via a final set of uneven stairs, is a 20x30 foot rectangular chamber. This is the inner sanctum where the Mad Sage resides. 
 
 To navigate, players start at the surface, "discover" the invisible stairs at Point A by piercing the illusion, and descend into the hillside. The path forces them to pass through the spider den, traverse the bat cave, and finally arrive at the Sage’s living quarters at the deepest point of the map.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: The Pit of the Mad Sage
+summary_1: A legendary hermit-wizard lives in a pit beneath the foothills, protected by illusions and rumors he spread himself to keep intruders away.
+summary_2: The dungeon features a series of powerful random illusions that deter intruders, and the sage's reaction hinges on whether the party harmed his pet bats.
+rooms: 5
+resolutions: Combat, Diplomacy, Puzzles, Roleplay, Exploration
+concept_originality: 3
+mechanics_originality: 3
+interesting_details: 4
+map_quality: 3
+rated_at: 2026-06-28T06:01:48.065Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

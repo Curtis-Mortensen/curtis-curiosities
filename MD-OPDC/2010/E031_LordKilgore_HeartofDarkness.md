@@ -4,26 +4,6 @@ _Source: `E031_LordKilgore_HeartofDarkness.pdf`_
 _Processed: 2026-06-28T04:48:58.223Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Describing the Request**
-
-I'm currently analyzing the request, focusing on the input format (PDF/image) and the specific details like the hex map's title, "The Heart of Darkness" by Lord Kilgore. I'm noting the immediate tasks: providing an overview of the page and detailing further actions, and I'll keep you updated as I delve deeper.
-
-
-**Analyzing the Visuals**
-
-I'm now diving into the page's visuals, structuring the description for accessibility. I'm focusing on the hex-grid map and its context within a TTRPG module. I'll outline the title, author, and thematic elements (river exploration). Next, I'll transcribe all written text, using the OCR output as a base. I'm already spotting OCR errors and will correct them. I've corrected a typo.
-
-
-**Refining the Text**
-
-I'm correcting the transcription, specifically addressing OCR errors. I've already fixed "followers" and "stone platform" based on the image quality. The rest of the text seems accurate for now.
-
-**Describing the Map**
-
-Now, I'm focusing on map accessibility and playability. The core structure is a hex grid with a river winding through wilderness. The river's flow is from top right to bottom left, and I'll detail the terrain types according to the legend and note the 15-mile per hex scale. "The Heart of Darkness" covers the entire region. The river is the central vein and I am focusing on the location-based hexes and other pinned points of interest.
-
 ## Transcription
 
 This document is a classic "one-page dungeon/hex-crawl" adventure module designed for tabletop role-playing games. The page is formatted with a central hexagonal grid map illustrating a treacherous river journey, flanked by a detailed legend and point-of-interest descriptions. The aesthetic is monochromatic and utilitarian, reminiscent of old-school fantasy gaming modules.
@@ -105,3 +85,19 @@ For someone unable to see the map, it is an **isometric-style hexagonal grid** r
 
 **Gameplay Implementation:**
 To play, you would present the player with the current hex coordinate they are in. When they move into a new hex, you consult the corresponding number in the text list to determine what they encounter (e.g., "You have entered hex 0312, where a man raised by apes confronts you"). The river provides a clear, linear progression path, but the surrounding hexes allow for "side-quests" or exploration off the main water path.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: THE HEART OF DARKNESS
+summary_1: A hex-crawl adventure set along a treacherous river journey into an unknown continent, featuring numerous points of interest.
+summary_2: River travel speed and piloting checks combined with a wide variety of unique encounters including a man raised by apes, a dual-personality hunter, and a giant manacled fire giant king.
+rooms: 41
+resolutions: Combat, Diplomacy, Roleplay, Exploration, Skill Challenges
+concept_originality: 4
+mechanics_originality: 2
+interesting_details: 4
+map_quality: 2
+rated_at: 2026-06-28T06:03:11.855Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

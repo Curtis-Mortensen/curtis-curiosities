@@ -4,22 +4,6 @@ _Source: `E062_ScottMorrison_CopperMineConundrum.pdf`_
 _Processed: 2026-06-28T05:04:25.361Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Analyzing the Request**
-
-Okay, I'm now zeroing in on the core of this task. I'm carefully analyzing the request, which involves breaking down the source material. My current goal is to accurately visually describe the page for D&D's Copper Mine Conundrum. I'm focusing on identifying the source material.
-
-
-**Detailing the Page Elements**
-
-I'm now describing the page's visual elements. I've broken down the layout, typography, and graphics, noting the adventure module style. The fonts and map diagrams are getting detailed attention. I've also noted that the maps are line-art, and I am describing the symbols used on those maps to make it easier for gameplay.
-
-
-**Outlining the Connections**
-
-I'm now detailing the map's room connections, focusing on how a Dungeon Master could use it. I'm prioritizing accessibility and gameplay. I'm breaking down the dungeon level-by-level, focusing on the flow of connections between rooms and their relative location. I've begun to use numbering to clarify the rooms. I'm outlining how rooms link to each other, to clarify map relations.
-
 ## Transcription
 
 This document is a single-page D&D adventure module titled "Copper Mine Conundrum," created by *politescott*. It is designed as a quick-reference guide for a Dungeon Master.
@@ -98,3 +82,19 @@ If you need to sketch this out for players, here is how the rooms are connected:
 *   A break in the wall (21) acts as a doorway into the Necromancer’s Lair.
 *   The Lair is a circuit of rooms: the Work Room (22) in the center, flanked by the Morgue (23) and the Quarters (24). 
 *   A final Locked Room (25) is accessed from the Quarters.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Copper Mine Conundrum
+summary_1: A village asks adventurers to investigate a copper mine where a mad necromancer's skeletons have killed the miners and goblins have since entered the mine, creating a three-way conflict.
+summary_2: The dungeon features a three-level mine with a destroyed elevator shaft, a collapsing floor trap, and a cowardly necromancer who flees through secret passages while commanding improved skeletons.
+rooms: 25
+resolutions: Combat, Traps, Exploration, Skill Challenges, Social
+concept_originality: 2
+mechanics_originality: 2
+interesting_details: 3
+map_quality: 3
+rated_at: 2026-06-28T06:03:59.236Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

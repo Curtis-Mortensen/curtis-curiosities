@@ -4,22 +4,6 @@ _Source: `E060_ToddHughes_TheHauntedShrine.pdf`_
 _Processed: 2026-06-28T05:04:17.754Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Analyzing the Request**
-
-I'm examining the request, focusing on the source material - that single-page PDF for "The Haunted Shrine." I've pinpointed the key tasks: understanding the map, background details, and room key. I need to make sure I grasp all elements and potential implications for crafting an effective response.
-
-
-**Detailing the Document**
-
-I've moved on to describing the document's structure. I see it's laid out like a classic RPG module, with "Level 1" and "Level 2" map grids at the top left. The right holds a "Background" text area, and below those is a "Key" list. I am noting the author's credit at the bottom and the license info at the top.
-
-
-**Mapping the Levels**
-
-I'm now detailing the level layouts, starting with their connectivity. Level 1 is a rectangular grid with a clear entrance and stairs leading to Level 2. I have clarified the specific room placements: Room 1, the entry, has rooms 3 and 4 branching off. Level 2 has room 5 as a central hub, and I've detailed the complex arrangements. I'm focusing on the spatial relationships for effective descriptions. I am working on using room numbers to clarify the maps.
-
 ## Transcription
 
 ### Page Description
@@ -41,3 +25,19 @@ s = secret door
 The shrine in a local town has been abandoned for months because of the rumors of a haunting. After the long time priest was murdered in the shrine people began seeing his ghost in the halls. Lately people have been disappearing, mostly travelers passing through, and townsfolk blame the ghosts in the shrine.
 
 **
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: The Haunted Shrine
+summary_1: A shrine abandoned after the murder of its priest becomes haunted and is blamed for the disappearance of travelers.
+summary_2: The dungeon features two levels with secret doors and stairs, but lacks detailed encounter descriptions or mechanical hooks.
+rooms: 10
+resolutions: Exploration
+concept_originality: 2
+mechanics_originality: 1
+interesting_details: 2
+map_quality: 3
+rated_at: 2026-06-28T06:03:54.276Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

@@ -4,22 +4,6 @@ _Source: `E043_DavidBedell_UnderdesertofQualorm.pdf`_
 _Processed: 2026-06-28T04:51:18.643Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Analyzing the Request**
-
-Okay, I'm now zeroing in on the core of this task. I'm breaking down the request: identifying the input as a PDF of a D&D dungeon concept. My primary focus is on describing the page, considering the physical layout and any OCR issues. I am evaluating how to process this input.
-
-
-**Detailing the Layout**
-
-I've moved on to describing the visual aspects, focusing on the single-page document's layout. It's titled "Under-Desert of Qualorm," with a map on the left and tables/descriptions on the right. The style is classic black and white line art with a hand-drawn feel, typical of old-school fantasy RPG supplements.
-
-
-**Refining the Transcription**
-
-I'm now focusing on ensuring the transcribed content accurately reflects the original document's structure and readability. Specifically, I'm concerned about the Relations table; formatting might pose a challenge. I am paying close attention to the order of transcription, including the title, legend, navigation, encounters, and general descriptions. Also, I've noted the "Others" list, suggested traveling methods, and the magic items, room key, and credits sections.
-
 ## Transcription
 
 This is a complete module handout for a Dungeons & Dragons (or similar TTRPG) setting titled **"Under-Desert of Qualorm."**
@@ -124,3 +108,19 @@ The map represents the "Under-Desert of Qualorm" as a 60x80 mile subterranean re
     *   **11 (Clayfolk Outpost):** Centered along the very bottom edge.
     *   **12 (Buried Overland Ruins):** Located in the top-right quadrant.
 *   **Pathways:** Dotted lines form a web connecting these numbered locations, acting as the primary trade routes for travel across the desert. The terrain features "Rock upcroppings" (represented by small, shaded squares) scattered throughout the eastern side of the map, signifying more difficult terrain.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Under-Desert of Qualorm
+summary_1: A subterranean desert region with multiple warring factions, trade routes, and a complex diplomacy matrix, set in a 60x80 mile OSR-style sandbox.
+summary_2: Standout mechanics include a detailed diplomacy table for five factions, 3D navigation rules, and a traveling encounter system based on terrain and time of day.
+rooms: 12
+resolutions: Combat, Diplomacy, Traps, Exploration, Social
+concept_originality: 3
+mechanics_originality: 4
+interesting_details: 4
+map_quality: 5
+rated_at: 2026-06-28T06:03:13.870Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

@@ -4,27 +4,6 @@ _Source: `E051_JimmJohnsonandJeffLynk_TheContemptibleCubeofQuazar.pdf`_
 _Processed: 2026-06-28T05:03:56.425Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Assessing the Module**
-
-I've begun dissecting the "Contemptible Cube of Quazar" PDF or image, focusing on page descriptions and translation needs. Right now, I'm parsing the input to grasp its components and identify key elements for a succinct overview, making sure nothing important is missed. The structure is quite fascinating, leading to great potential.
-
-
-**Analyzing the Components**
-
-I'm now fully immersed in the "Contemptible Cube of Quazar" page details. I've noted the sci-fi dungeon aesthetic. My focus is on the page's format, including the title, background info, wandering monster tables, and a detailed map. I'm moving toward transcription with layout reconstruction to make things readable, paying extra attention to the organization.
-
-
-**Describing the Map**
-
-I'm now detailing the map for playability. The "cube" structure, its faces and connections are coming into focus. I'm noting the isometric layout, connecting lines (ramps, portals, tunnels), and icons (stairs, doors, benches, cages, gravity fields, aquarium). I'll start with the cube's layout and then explain the connections. I'm focusing on making player movement conceptual and intuitive.
-
-
-**Clarifying the Faces**
-
-I'm now detailing the "Contemptible Cube of Quazar's" room arrangement and structural relationships. The layout details are broken down: Right face includes rooms 7-14 with the "Wizard's Study", while the left face includes rooms 15-23 with the "Cube Keeper's Quarters". The top face holds rooms 24-27 with captured soldiers, emphasizing "Gravity Ramps" for face-to-face navigation.
-
 ## Transcription
 
 This is a single-page tabletop RPG module titled "The Contemptible Cube of Quazar." It follows the layout of a classic, old-school dungeon crawl. The page is printed in black and white, featuring a complex isometric map that represents a three-dimensional cube structure, accompanied by descriptive text, a wandering monster table, and a key for numbered locations.
@@ -104,3 +83,19 @@ The map represents a floating, 3D "Cube" structure. Imagine the cube has four pr
 *   **Cages:** Indicated by boxes with grid patterns.
 *   **Aquariums:** Indicated by a small rectangle with an 'X' or cross-hatching.
 *   **Gravity Fields:** Represented by small swirling patterns on the map floor.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: The Contemptible Cube of Quazar
+summary_1: A 3D cube stronghold from planet Eris crashes to Earth, trapping its wizard creator inside a spherical inner sanctum that can only be reached by collecting four metallic keys scattered across shifting gravity planes.
+summary_2: Gravity ramps allow players to walk between cube faces, and the dungeon is filled with bizarre monsters like IOUNifiers, Tusken ogres, and a gelatinous cube that holds one of the keys.
+rooms: 30
+resolutions: Combat, Puzzles, Exploration, Traps, Fetch Quests
+concept_originality: 4
+mechanics_originality: 5
+interesting_details: 5
+map_quality: 5
+rated_at: 2026-06-28T06:03:35.557Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

@@ -4,22 +4,6 @@ _Source: `E010_SvenVogler_UndertheMountain.pdf`_
 _Processed: 2026-06-28T04:45:03.254Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Analyzing the Request**
-
-Okay, I'm breaking down the task. The initial request centers on a PDF, specifically an OCR of "Under the Mountain." My primary job is to provide a visual description of this "One Page Dungeon" by Sven Vogler. I am focusing on what's immediately apparent in the document itself.
-
-
-**Mapping the Elements**
-
-I've outlined the document's structure, recognizing the layout of the one-page dungeon as a classic design. I see the header information, the three-level map, and the encounter descriptions, battle mechanic, and footer info. The style is clean, minimalist, and black and white. Now, I'm getting started on extracting all of the text directly from the OCR, organized to match the document flow. Finally, I'm starting to think about how to describe the map for accessibility.
-
-
-**Detailing the Levels**
-
-I'm now detailing each level of the dungeon, following the provided instructions. Level 1's entrance leads to Room 1, with Rooms 2 and 3 branching off; Room 2 contains a centipede, and Room 3 a sword. Level 2 features a cross-shaped layout, a pit trap, and alcoves. Level 3 is a corridor, and now I'm thinking about how to specify "Up/Down" connections for gameplay.
-
 ## Transcription
 
 This one-page dungeon, titled **"Under the Mountain"** by Sven Vogler, is a classic RPG handout. It is structured into three distinct sections: the Header, the Maps, and the Key.
@@ -86,3 +70,19 @@ This is a long, vertical, narrow rectangular hallway.
 *   The **Exit** is at the very top (north) center of the hallway. 
 
 *Note: In the final challenge, the players need to move from the south (where the ogre is) to the north (where the winches and exit are), effectively dragging the ogre north while trying to keep it from eating them until they can engage the winches to seal it away.*
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Under the Mountain
+summary_1: After escaping a harpy attack, the party must find another exit through a three-level dungeon filled with centipedes, traps, and an undead ogre bound by a chain.
+summary_2: The standout mechanic is a retracting chain that pulls the undead ogre toward the exit, forcing the party to distract it while operating winches to lock it away.
+rooms: 9
+resolutions: Combat, Puzzles, Traps, Exploration
+concept_originality: 3
+mechanics_originality: 3
+interesting_details: 3
+map_quality: 2
+rated_at: 2026-06-28T06:01:43.240Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

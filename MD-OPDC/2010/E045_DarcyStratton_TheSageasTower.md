@@ -4,22 +4,6 @@ _Source: `E045_DarcyStratton_TheSageasTower.pdf`_
 _Processed: 2026-06-28T05:03:59.153Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Analyzing the Document**
-
-I'm currently focused on dissecting the request. My initial pass involved identifying the key input: a PDF of Darcy Stratton's "The Sage's Keep" dungeon concept. The primary tasks are to describe the layout and overall structure of the single page.
-
-
-**Defining the Aesthetic**
-
-I've homed in on the initial goal: capture the aesthetic. I've noted the document's single-page format, with floor plans on the left and descriptive text on the right and bottom. I recognize it as a D&D adventure module handout with a clear, heading-based structure. I have identified the functional purpose, and the fantasy roleplaying aesthetic of the page.
-
-
-**Detailing the Layout**
-
-I'm now diving into the specifics. I've broken down the visual elements, focusing on the order of the columns from top to bottom. I'm mapping each room and feature: the roof's rectangles, the library's square, the Sage's circular structure with its chambers, the split living quarters, the Ground Floor's entrance and halls, and the kitchen and storage layouts. I'm aiming for a descriptive narrative for each.
-
 ## Transcription
 
 This is a well-structured, single-page D&D module titled "The Sage’s Keep." Below is the description of the layout, the full transcription of the text, and a detailed breakdown of the maps for those who cannot see them.
@@ -65,3 +49,19 @@ The tower is circular in design, with each level representing a different floor 
     *   **(M):** A hazardous room containing the Gelatinous Cube (the destination for the privies).
     *   **(N):** An empty storage room used to herd the cube.
     *   **(O):** A potential tunnel exit or cave entrance at the very bottom of the structure.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: The Sage's Keep
+summary_1: A sage's keep has been secretly taken over by a naga who impersonates the sage using a hollow mannequin, seeking a legendary item through unwitting adventurers.
+summary_2: The naga's disguise, a system of privies emptying into a gelatinous cube, and the option to herd the cube via paired doors create memorable mechanical and roleplay hooks.
+rooms: 7
+resolutions: Combat, Diplomacy, Puzzles, Roleplay, Traps, Exploration
+concept_originality: 4
+mechanics_originality: 4
+interesting_details: 5
+map_quality: 4
+rated_at: 2026-06-28T06:03:25.391Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

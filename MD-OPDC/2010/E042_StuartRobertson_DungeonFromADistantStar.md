@@ -4,26 +4,6 @@ _Source: `E042_StuartRobertson_DungeonFromADistantStar.pdf`_
 _Processed: 2026-06-28T04:51:07.329Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Analyzing the Request**
-
-I'm starting by breaking down the request: I have a D&D adventure module to work with. My primary task seems to be describing it, I'm now making a mental checklist of what that entails. This includes understanding the module's format, its key elements, and how best to represent it. The initial analysis is complete, I'm beginning the process of understanding what constitutes "description".
-
-
-**Defining the Description**
-
-I've moved on to defining the description process. I've broken it down into actionable tasks: describing the visual layout of the page, transcribing the written text, and describing the map. First, I'm observing and structuring the layout: It's OSR-style, with a map, text columns, and a table. I'm noting the map style and the sections present. I'm now also readying to transcribe the text, correcting OCR errors.
-
-
-**Outlining the Module**
-
-I'm now drafting the structure of the description. I've chosen a title: "Dungeon from a Distant Star." I'm working through sections: Background, Key Locations (1-23), Random Encounters, Missed Shots Effects, Phantom Prison Contents, and Footer info. I'm focusing on the component parts and sections. I'm moving toward transcription with checks, like correcting "filll" to "fill." I'm noting the special characters in the "Phantom Prison Contents" table, which I'll transcribe as closely as possible.
-
-**Mapping the Dungeon**
-
-My focus is now describing the map for a player. I'm aiming for a mental image by starting with the ship's overall shape. I'm detailing connections, starting with Entrance (A) to the cavern (B) and the grid-like room and corridor system.
-
 ## Transcription
 
 This one-page document, titled **"Dungeon from a Distant Star,"** is an Old School Renaissance (OSR) style adventure module. 
@@ -99,3 +79,19 @@ The map depicts a complex, futuristic spaceship interior drawn on a grid (1 squa
     *   **The Right Wing/Aft:** This contains the Medical Lab (#16), Bio-Preserve (#17), and Observatory (#18), which seem to be the technical and research labs of the ship.
     *   **The Aft Section:** Rooms #19, #20, #21, #22, and #23 are located at the far end of the map, suggesting an engineering or cargo section.
 *   **Navigation:** Movement is generally linear through corridors, but most rooms have multiple doorways, allowing for looping paths. There is a clear distinction between the "Battlefield" (#5) and "Control/Prison" zones (#13, #14), which form the heart of the ship's defense and automation systems.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Dungeon from a Distant Star
+summary_1: An OSR adventure module set in a crashed alien spaceship from the Altair system, now buried underground with still-functioning systems and trapped crew.
+summary_2: Players must navigate a derelict saucer with automated defenses, a haunted pilot, and a Mirror of Life Trapping that can imprison or release characters.
+rooms: 25
+resolutions: Combat, Exploration, Puzzles, Traps, Roleplay
+concept_originality: 4
+mechanics_originality: 4
+interesting_details: 5
+map_quality: 4
+rated_at: 2026-06-28T06:03:14.673Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

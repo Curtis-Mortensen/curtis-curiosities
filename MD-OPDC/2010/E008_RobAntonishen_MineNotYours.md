@@ -4,17 +4,6 @@ _Source: `E008_RobAntonishen_MineNotYours.pdf`_
 _Processed: 2026-06-28T04:44:45.239Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Initiating the Analysis**
-
-I'm diving into this "Mine! Not Yours!" D&D module PDF, starting with a granular breakdown of the request. My initial step involves dissecting the input, which is the PDF or OCR of the module, and then clearly defining the tasks that I must complete: a detailed description of the page's contents and a full transcription of all the text it contains.
-
-
-**Detailing the Page Elements**
-
-I'm now focusing on the single-page document's elements. I've broken down the page into its core components: title, two map sections, and room keys, all in a clean, black-and-white style. I'm prioritizing the maps to ensure their content is accessible for players with visual impairments, striving for a spatial and tactical description. I'm also ensuring the text is readable by cleaning and formatting the OCR output.
-
 ## Transcription
 
 This document is a classic, single-page D&D adventure module titled **"Mine! Not Yours!"** by Rob and Harris Antonishen. It follows the standard format for an old-school tabletop RPG adventure, containing a central theme, two distinct map sections (surface and underground), and a keyed list of locations detailing encounters, loot, and environmental hazards.
@@ -66,3 +55,19 @@ For a player who cannot see the maps, here is the spatial layout:
     *   **The Main Cavern (B9):** A large, irregularly shaped chamber dominating the map, filled mostly by a lake. The shore is at the far east.
     *   **The Living Quarters (B10-B14):** Situated in the southeastern corner of the underground map. This area is more structured, representing rooms where the lizard-folk live. B14 is the final room at the end of the line.
 *   **Navigation:** Remind players that the mine is dark, cramped (6 ft. ceilings), and partially flooded. Use the grid (1 square = 10 ft) to track movement, keeping in mind that some areas (like B3) require skill checks for movement, while others (B9) are primarily aquatic environments.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Mine! Not Yours!
+summary_1: A classic mining settlement overrun by lizardfolk after a cave-in reveals a new passage, with the players hired to clear the mine.
+summary_2: Tidal flooding, a kraken in an underground lake, and a hidden underwater passage requiring information from a rescued miner add environmental and investigative twists.
+rooms: 18
+resolutions: Combat, Diplomacy, Fetch Quests, Exploration, Skill Challenges, Roleplay
+concept_originality: 2
+mechanics_originality: 3
+interesting_details: 3
+map_quality: 3
+rated_at: 2026-06-28T06:01:42.936Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

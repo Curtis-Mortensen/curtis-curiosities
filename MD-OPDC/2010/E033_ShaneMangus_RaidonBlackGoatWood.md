@@ -4,17 +4,6 @@ _Source: `E033_ShaneMangus_RaidonBlackGoatWood.pdf`_
 _Processed: 2026-06-28T04:49:21.827Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Assessing the Adventure**
-
-I'm currently focused on dissecting the request. The input is a PDF page that depicts a one-page RPG adventure called "Raid on Black Goat Wood." I'm identifying the primary tasks: visual description and task breakdown. The adventure's page needs to be visually described. Then a list of tasks is needed. I'm prioritizing the visual description first.
-
-
-**Detailing the Layout**
-
-I've moved on to meticulously detailing the page's visual layout. My focus is breaking down the document's structure: title, author, and thematic quote. The map, centered left, and its levels are defined. I'm noting the presence of text columns on the right under headings like "Rumors" and "Encounters," alongside text boxes at the bottom.
-
 ## Transcription
 
 This document is a one-page tabletop role-playing game adventure module titled "Raid on Black Goat Wood," written for "old school" fantasy systems. It is formatted in a classic minimalist style, featuring a central cross-section map of a cavern system surrounded by informational text, tables for random encounters, and setting notes.
@@ -82,3 +71,19 @@ The map is a profile (cross-section) view of the cavern system, showing how the 
     *   **Scale:** There is a small diagram showing a "10' Torch" to indicate the scale of the rooms.
     *   **Ritual Chamber:** Level 3 is specifically labeled "RITUAL CHAMBER" in block letters.
     *   **Level 4 Label:** The bottom floor is explicitly labeled "DARK MOTHER OF A THOUSAND YOUNG."
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Raid on Black Goat Wood
+summary_1: A sinkhole in an old forest reveals a four-level cave system where a cult of Dark Satyrs performs rituals to the Dark Mother of a Thousand Young.
+summary_2: The dungeon revolves around a living, unbeatable entity at the bottom, with a focus on horror, random encounters, and the transformation of prisoners into cultists.
+rooms: 5
+resolutions: Combat, Exploration, Stealth, Traps, Roleplay
+concept_originality: 3
+mechanics_originality: 2
+interesting_details: 4
+map_quality: 3
+rated_at: 2026-06-28T06:02:49.208Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

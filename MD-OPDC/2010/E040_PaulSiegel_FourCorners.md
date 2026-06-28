@@ -4,22 +4,6 @@ _Source: `E040_PaulSiegel_FourCorners.pdf`_
 _Processed: 2026-06-28T04:50:45.971Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Analyzing the Request**
-
-Okay, I'm breaking down the task, starting with the input – that "Four Corners" D&D map as a PDF. My main focus is describing the page, its layout, and any visual elements. This'll involve looking closely at structure, components, and any D&D specific formatting conventions. I'll need to figure out what data/format to extract next.
-
-
-**Detailing the Page Elements**
-
-I'm now describing the page elements. I've noted the document is a single-page dungeon crawl. I see a title block, a map, a wandering monster table, and room descriptions in columns. It has an old-school aesthetic, with hand-drawn elements. I've also identified specific sections like intro text, the map, table, and the room key details. My next steps are transcribing the text and then describing the map.
-
-
-**Mapping the Connections**
-
-I'm now detailing the structure of the map sections. I see four distinct areas: Secret Temple, Kobold Warrens, Vagabond King's Court, and Gnomish Workshop, plus a central ruin. The map's connectivity is a maze, with room numbers and visual cues like arrows, stairs, and rubble. I will describe the map's layout, shape, and key features.
-
 ## Transcription
 
 This document is a single-page tabletop RPG dungeon module titled **"Four Corners"** by Paul Siegel.
@@ -128,3 +112,19 @@ The map depicts a square, underground level carved into four distinct corners, w
     *   **Arrows:** In the southeast (Gnomes), small arrows point down corridors to indicate trap/floor tilts.
     *   **Furniture/Objects:** Symbols like squares and circles represent thrones, fire pits, machines, and storage casks.
     *   **Shading:** Solid black represents walls, while white space represents accessible floor areas. Dense stippling (dots) represents rubble or debris, commonly found in the center "Old City" rooms.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Four Corners
+summary_1: A dungeon built around an underground city block divided into four distinct faction territories—a bugbear Vagabond King, a death cult, a kobold tribe, and a gnomish workshop—surrounding a central ruined old city.
+summary_2: Faction-specific wandering monsters, environmental traps like slanted flagstones and a poisonous fog, and quirky details such as a bugbear demanding tribute and a gnomish diamond press that may explode.
+rooms: 35
+resolutions: Combat, Diplomacy, Traps, Exploration, Social
+concept_originality: 4
+mechanics_originality: 4
+interesting_details: 5
+map_quality: 4
+rated_at: 2026-06-28T06:03:04.452Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

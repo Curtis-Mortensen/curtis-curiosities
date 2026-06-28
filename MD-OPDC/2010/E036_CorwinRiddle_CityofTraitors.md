@@ -4,17 +4,6 @@ _Source: `E036_CorwinRiddle_CityofTraitors.pdf`_
 _Processed: 2026-06-28T04:49:53.207Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Defining the Input**
-
-I'm currently focused on defining the input. It's a single-page document, specifically a PDF or image, presenting a D\&D dungeon concept. The title is "Velth, City of Traitors," which provides immediate context. My task is to describe the page accurately.
-
-
-**Analyzing the Visuals**
-
-I've moved on to section one, working to describe the page's visual aspects. The handout is formatted as a TTRPG module with a title, author, and content layout: a map on the left and descriptive text on the right. The map depicts a floating city from a top-down isometric or flat perspective. On the right, I'm focusing on the narrative text, which includes sections like Background, Conditions, Points of Interest, Special Events, and a Random Encounter table.
-
 ## Transcription
 
 This document is a one-page tabletop roleplaying game (TTRPG) module titled **"Velth, City of Traitors."** It follows the classic "one-page dungeon" format, featuring a thematic background, a numbered map, keyed locations, special events, and a random encounter table.
@@ -103,3 +92,19 @@ The map depicts a floating, jagged-edged island suspended in an abyss. It is vie
     *   **Letters:** Red squares labeled A, B, C, D, and E mark specific hazard or event zones.
     *   **Terrain:** Darker grey shapes indicate buildings. Thinner lines or squiggles suggest water flow (like the canal/sewer paths) or rubble/debris.
 *   **Movement:** The map is designed as a "dungeon crawl" or "exploration" map. Players start at the bridge (1) and must navigate through the courtyards and tunnels to reach the central Tower (21). The random encounter table provides hazards that can occur anywhere on this island layout.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Velth, City of Traitors
+summary_1: A cursed city of traitors, suspended by colossal stone chains above an abyss, awaits adventurers who brave its ruins and horrors.
+summary_2: The dungeon features a web of competing factions, special events that trigger on exploration, and a sluice trap puzzle requiring a lever to disable.
+rooms: 21
+resolutions: Combat, Puzzles, Traps, Exploration, Roleplay, Stealth
+concept_originality: 3
+mechanics_originality: 3
+interesting_details: 4
+map_quality: 4
+rated_at: 2026-06-28T06:02:53.812Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

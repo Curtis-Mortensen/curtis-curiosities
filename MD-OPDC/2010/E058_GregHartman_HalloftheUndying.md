@@ -4,22 +4,6 @@ _Source: `E058_GregHartman_HalloftheUndying.pdf`_
 _Processed: 2026-06-28T05:04:15.422Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Analyzing the Request**
-
-Okay, I'm diving into this request. The core is analyzing a single PDF page – specifically an OCR of a "One-Page Dungeon" called "Hall of the Undying." My immediate task is to describe the contents of that page. I'm focusing on the format and the types of content presented.
-
-
-**Describing the Page**
-
-I've completed describing the page layout. It's a classic one-page dungeon, with sections for title, map, background, and random encounters at the top. The middle has detailed room descriptions, and the bottom contains license info. The style is black and white, featuring a technical line art map and standard text blocks.
-
-
-**Mapping the Dungeon**
-
-I'm now detailing the map specifically for accessibility. My focus is on creating a vivid mental picture, emphasizing the grid layout (one square equaling ten feet) and overall shape. The entry's a circular room in the northwest, leading to a network of corridors. I'm noting the central, large room (Area 17) and landmark symbols for rooms, walls, doors, and secret passages. I'm starting with a general layout description, then spatial relationships, and finally the landmarks.
-
 ## Transcription
 
 This document is a classic "One-Page Dungeon," a format popular in tabletop RPGs that packs an entire adventure into a single sheet of paper.
@@ -88,3 +72,19 @@ For a player or GM who cannot see the map, here is the spatial layout:
     *   Rooms 9, 10, 13, 14, 15, and 16 form a ring around the southern and eastern outer edges of the map.
     *   Rooms 11 and 12 are smaller, narrow chambers located along the southern edge.
 *   **Connectivity:** Most rooms are connected by doors (represented by solid black rectangles). There are several secret doors (marked with "$" signs), notably providing access to the hidden room 6/7 and connecting the dining/kitchen areas. The map is highly compartmentalized, with many dead ends and forced passage points.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Hall of the Undying
+summary_1: A necromancer's hidden tomb filled with undead servants and traps, where his soul remains trapped in a diamond.
+summary_2: The dungeon features a talking skull, a trapped erinyes who will bargain, and a necromancer soul that pleads for freedom.
+rooms: 17
+resolutions: Combat, Diplomacy, Roleplay, Traps, Exploration
+concept_originality: 3
+mechanics_originality: 2
+interesting_details: 4
+map_quality: 2
+rated_at: 2026-06-28T06:03:50.708Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

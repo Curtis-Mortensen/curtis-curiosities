@@ -4,22 +4,6 @@ _Source: `E037_FabienDeneuville_SewersofVictorianLondon.pdf`_
 _Processed: 2026-06-28T04:50:03.376Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Analyzing the Input**
-
-I'm currently dissecting the request. It seems I'll be working with a PDF or screenshot, specifically a D&D dungeon concept called "Sewers of Victorian London" by Fabien Deneuville. My main goal is to process and understand the provided material.
-
-
-**Detailing the Visuals**
-
-I've characterized the visual elements, noting it's a single page with a map and text in a classic RPG style. The layout features two columns: a map taking up the top left, and text across the right and bottom. Key components are a map, room key (1-20), background info, monster tables, story summary, and license information. I'm focusing on these elements to provide a thorough description.
-
-
-**Mapping the Details**
-
-I'm now detailing the "Wandering Monsters Table" and refining the room key's clarity. Next, I'm diving into map descriptions for an impaired player. I'm focusing on the sewer map, noting its grid, corridors, main entrance, and key rooms (1, 4, 10-11, 15, 17-19). I plan to describe the map as a flow, using directions, relative positioning, and references to the legend.
-
 ## Transcription
 
 This document is a single-page tabletop roleplaying game module titled **"Sewers of Victorian London,"** written by Fabien Deneuville. It features a classic, "old-school" aesthetic with a hand-drawn dungeon map on graph paper filling the left side, and columns of text providing the setting background, rules for wandering monsters, the narrative hook, and a detailed room key.
@@ -87,3 +71,19 @@ The map is a grid-based sewer complex. Imagine the layout as a series of channel
     *   The exit to the street is located at the very end of the living area (Room 19c).
 
 To navigate: If you are at the main entrance, moving straight ahead (east/northeast) takes you toward the lab complex. Branching off to the North leads to the water management systems. Branching off to the East leads you into the flooded creature's lair.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Sewers of Victorian London
+summary_1: In 1898 Victorian London, the party investigates mysterious murders near the docks and chases an aquatic hybrid creature into a sewer system that conceals an abandoned experimental water treatment lab used for horrific animal-human hybrid experiments.
+summary_2: The dungeon features a multi-lever floodgate system that dynamically changes water levels and access, plus a trap room requiring a 6-letter code ("MOREAU") that, after two wrong attempts, triggers acid damage.
+rooms: 20
+resolutions: Combat, Diplomacy, Puzzles, Exploration, Skill Challenges, Traps
+concept_originality: 3
+mechanics_originality: 4
+interesting_details: 4
+map_quality: 3
+rated_at: 2026-06-28T06:02:58.552Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

@@ -4,22 +4,6 @@ _Source: `E049_PhilippeTromeur_TheLaughingMausoleum.pdf`_
 _Processed: 2026-06-28T05:03:51.547Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Analyzing the Request Progress**
-
-I'm now diving into the task of dissecting the request. My initial focus is to pinpoint the core asks and understand the required outputs. It seems I'm supposed to give a layout description for the page. I'll need to figure out what that entails, and how to best deliver such a description.
-
-
-**Refining the Page Layout**
-
-I'm now refining the layout description, focusing on clarity for accessibility. The page has a classic "one-page dungeon" feel, with a central map and text columns. I will correct the OCR, which was provided, and organize the setting, wandering monsters, room keys, and NPC stats. I am also working on transcribing all written text and the header.
-
-
-**Mapping the Castle's Layout**
-
-I'm working on a tactile map description. It's a top-down grid with room numbers. Entry is on the left (Room 1). From there, a long hallway leads east to the Mausoleum (Rooms 2-11). Room 9 connects to the Goblin Caves (12-14), and a corridor from Room 15 links to a branching path with Room 16 as a hub. The Temple (Room 22) is isolated at the top right. My goal is to clearly describe the geography for a visually impaired user.
-
 ## Transcription
 
 This one-page dungeon, titled **"The Laughing Mausoleum,"** is a classic fantasy tabletop role-playing resource. Below is a breakdown of the layout, a clean transcription of the text, and a descriptive guide to the map.
@@ -99,3 +83,19 @@ The map is a grid-based dungeon layout. To visualize it, imagine the entrance on
     *   The map uses thin lines for open passageways and thicker lines for solid walls.
     *   "Secret doors" are indicated by small, distinct gaps or "X" markers in the walls.
     *   Water or natural obstacles are indicated by wavy lines (seen in the cavern section).
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: The Laughing Mausoleum
+summary_1: A one-page dungeon set in the mausoleum of a fallen noble family, now infested with goblins and a mad ghoul alchemist who experiments on corpses.
+summary_2: The standout twist is that the final boss, Heinrich, is a genius ghoul alchemist who flees to his temple to animate statues, and may bargain for his life.
+rooms: 22
+resolutions: Combat, Diplomacy, Exploration, Roleplay, Traps
+concept_originality: 3
+mechanics_originality: 3
+interesting_details: 4
+map_quality: 3
+rated_at: 2026-06-28T06:03:32.519Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

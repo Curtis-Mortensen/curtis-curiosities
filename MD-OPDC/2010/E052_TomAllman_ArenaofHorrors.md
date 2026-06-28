@@ -4,27 +4,6 @@ _Source: `E052_TomAllman_ArenaofHorrors.pdf`_
 _Processed: 2026-06-28T05:03:59.344Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Beginning Analysis: PDF Content**
-
-I've started by examining the request. The source is a PDF, specifically one containing a dungeon map image and text descriptions. My immediate tasks are to visually describe the page and then transcribe the text.
-
-
-**Analyzing Visual & Text**
-
-I'm now focusing on the visual aspects and text transcription. The page is clean, with a hand-drawn dungeon map on a grid at the top. Below the map, two paragraphs describe the dungeon concept, followed by links. The tone feels simple and instructional, matching the D&D/TTRPG theme. I've transcribed the title "ARENA OF HORRORS" and begun transcribing the first paragraph, capturing the Star Trek inspiration.
-
-
-**Detailing Dungeon Layout**
-
-I'm now detailing the dungeon layout, focusing on the compartments and their labels. I've noted the irregular, amoeba-like shape on a grid and the "To Surface" arrow. The interior is divided into square and rectangular compartments, and I'm currently transcribing the compartment labels. I'm focusing on "D", "P", and "M" specifically, for purposes of analysis.
-
-
-**Mapping Spatial Relations**
-
-I am now mapping the spatial relations of the dungeon layout, focusing on the key symbols and their locations. I've noted the legend symbols: hexagon for portal, circle with lines for brazier, arrow-like symbol for secret door, solid bar for door, and small empty circle for brain in jar. I'm focusing on the outer ring of cages (A-L) and the central space. Specifically, "P" is at the top with brain symbols, and "M" is in a central square room. I am also identifying the large, irregular triangular/polygonal center.
-
 ## Transcription
 
 ### Visual Description
@@ -74,3 +53,19 @@ The arena is composed of a series of square and rectangular chambers (cages) arr
     *   **Solid lines (Doors)** separate the individual cages from the central area or from each other. 
 
 The structure is designed so that the players are trapped in an outer cage (D) and must navigate through the other cages or the central control hub (M) to interact with the facility's masters (P).
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Arena of Horrors
+summary_1: A gladiatorial arena where adventurers are forcibly teleported into magical cages and compelled to fight under the watch of three brains in jars who wager on the combat.
+summary_2: Players are magically compelled to obey a master slave who controls monster and player movement, while secret doors and a control panel offer ways to subvert the arena's masters.
+rooms: 14
+resolutions: Combat, Exploration, Roleplay, Social
+concept_originality: 3
+mechanics_originality: 3
+interesting_details: 3
+map_quality: 2
+rated_at: 2026-06-28T06:03:37.624Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

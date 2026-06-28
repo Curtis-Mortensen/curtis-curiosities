@@ -4,22 +4,6 @@ _Source: `E011_GottfriedNeuner_UnderOakHill.pdf`_
 _Processed: 2026-06-28T04:45:13.048Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Initiating the Analysis**
-
-I've begun dissecting the request. The input is clear: an "Under Oak Hill" D&D module page, either PDF or image. My task is straightforward: describe the visual content and transcribe any text present. I'm focusing on the first step, analyzing the format and content.
-
-
-**Detailing the Page Elements**
-
-I'm now zeroing in on a comprehensive visual summary of the page. It's a single-page module; I've noted the map, title placement, and text columns, recognizing an OSR aesthetic. I've drafted a description that notes the black-and-white style and dungeon map in the corner. I've also identified key sections, like background information, rumors, and location descriptions. It's similar to zine-style gaming material. I'm moving toward transcription to gather all text from the module.
-
-
-**Confirming Content Accuracy**
-
-I'm verifying the initial OCR results now, line by line, confirming "Under Oak Hill by G. Neuner," the section headings ("Background," "Rumors," etc.), and individual room numbers. I'm focusing on the "In The Castle" and "Outside The Castle" sections. I'm also preparing for the map description, where I'll define "Castle Eichenstein" as a ruin with a courtyard and walls in area 12.
-
 ## Transcription
 
 ### Page Description
@@ -93,3 +77,19 @@ The map is a top-down, line-art architectural floor plan on a square grid, divid
     *   **The Connection:** A series of winding, narrow tunnels (Area 9) serves as a choke point leading to the Cellar (Area 11).
     *   **Area 10:** This is a small, standalone chamber located between the cave network and the cellar.
     *   **Area 11 (Cellar):** This is a clean, rectangular room (as opposed to the squiggly-lined caves) located directly beneath the castle ruins, acting as the transition point between the subterranean dungeon and the surface castle.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Under Oak Hill
+summary_1: A ruined castle occupied by bandits and a warlock, with a hidden cave system offering an alternate approach to stopping the dark rites and cattle killings.
+summary_2: Rumors, a candle-lit sanctuary zone, cursed rings, and a wandering ghost dwarf mix exploration with classic OSR hazards.
+rooms: 13
+resolutions: Combat, Puzzles, Exploration, Traps, Skill Challenges
+concept_originality: 2
+mechanics_originality: 3
+interesting_details: 4
+map_quality: 3
+rated_at: 2026-06-28T06:01:55.619Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

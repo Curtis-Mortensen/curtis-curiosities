@@ -4,22 +4,6 @@ _Source: `E024_TomHolmes_TheBoneHarvestHorror.pdf`_
 _Processed: 2026-06-28T04:47:44.444Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Defining the Initial Scope**
-
-My current focus is on understanding the task. I'm breaking down the request to first identify the input – an image – and the primary objectives: describing the page and transcribing its text. This foundational analysis helps me define the scope of the project.
-
-
-**Detailing the Description Components**
-
-I've outlined two distinct tasks. First, I'm providing a detailed description of the page's visuals, its black and white map with sections, and the dark, gothic tone. Second, I'm working on transcription, capturing the title, legend entries (A, B, C), and the introductory paragraph. Accuracy is paramount, paying close attention to numbers and room details. Finally, I'm now fully focused on creating the map description for accessibility purposes.
-
-
-**Mapping the Layout Structure**
-
-I am now focusing on the map's hierarchical structure. I've broken it down into three tiers (A, B, and C), detailing each with their distinct layouts and key elements like entrances, rooms, and chambers. It is a vertical layout with stairs connecting the floors, so I'm paying close attention to these connections and verifying them on the map. I've also verified that A12 leads to B, and B10 leads to C, and that this is a linear progression.
-
 ## Transcription
 
 ### Page Description
@@ -61,3 +45,19 @@ This is a single-page dungeon module designed for a tabletop roleplaying game. I
 * **C1: Tortured warrens** - vampiric demons try to cut out a weak party member and slay him. If they manage it, they beat into walls ethereally, then wait for others to leave before returning to feast on blood.
 * **C2: Stained hall** - stained glass windows line this hall with a great angel on either end. The windows portray scenes of haunting beauty.
 * **C3: The sanctuary** - undead cannot enter the chamber (barriers). Nothing ages in this room and wounds heal at four
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: The Bone Harvest Horror
+summary_1: A gothic, multi-level undead dungeon filled with ghasts, zombies, vampires, and traps, centered around a mysterious bone harvest.
+summary_2: Notable mechanics include a zombie spawn that adds 9-12 new enemies each round, an anti-magic area with a healing fountain, and a devious trap where lifting a crown collapses the floor onto spikes.
+rooms: 25
+resolutions: Combat, Traps, Exploration, Puzzles
+concept_originality: 3
+mechanics_originality: 3
+interesting_details: 4
+map_quality: 4
+rated_at: 2026-06-28T06:02:22.360Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

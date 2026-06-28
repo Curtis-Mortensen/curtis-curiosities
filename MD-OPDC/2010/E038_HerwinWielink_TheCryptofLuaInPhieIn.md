@@ -4,22 +4,6 @@ _Source: `E038_HerwinWielink_TheCryptofLuaInPhieIn.pdf`_
 _Processed: 2026-06-28T04:50:17.519Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Analyzing the Request**
-
-Okay, I'm breaking down the task. The initial request is to describe a visual element – a D&D dungeon map PDF. My primary job is to extract the visual details. I will assess what features are important to convey.
-
-
-**Defining the Dungeon Map**
-
-I've defined the scope: to summarize a dungeon map's visual elements, text, and overall impression for a visually impaired player. My focus is now on the map's initial visual summary; it's a digital handout with a high-fantasy dungeon crawl vibe, blending steampunk/clockwork with an undead/crypt theme, evident in the gears, arrows, and skulls. The layout includes a title, narrative, central map (circular and segmented), and a right-side key. The tone feels ancient, ominous, and mechanical. I'm moving on to transcription of the text now.
-
-
-**Describing the Crypt's Challenges**
-
-I'm now detailing the encounters and challenges within the dungeon. Guardian statues, undead treasure hunters, and restless spirits pose threats. There's a rotating disc mechanism causing dizziness every five minutes, and a central pillar disrupting compasses. A magic shield limits certain spells. I'm focusing on key locations: main entrance, guard halls, hidden treasure room, library, storage, back entrance, prayer room, spirit room, and hallway with afterlife items.
-
 ## Transcription
 
 This document is a single-page RPG handout titled "The Crypt of Luân Phiên," a dungeon design created by the artist Djekspek. The page features a central, circular, clockwork-themed dungeon map, flanked by narrative flavor text, gameplay mechanics, and a numbered map key. The aesthetic is monochromatic and parchment-like, emphasizing an ancient, mysterious, and mechanical feel.
@@ -82,3 +66,19 @@ For a player who cannot see the map, this dungeon is best conceptualized as a **
         *   **Inner Ring:** Contains the Journey Room (12) and the Prize Room (13).
 *   **Hazards:** Several rooms are marked with a skull icon, indicating a trap. These are scattered primarily in the outer and middle rings.
 *   **Play Tip:** To keep track of the dungeon, the Dungeon Master should keep a separate, static "master copy" of the map and physically rotate transparent sheets or cardboard rings representing the three dungeon levels to reflect the current state of the rooms for the players. For the players, the dungeon should feel like a disorienting, shifting maze where they never know which path will lead to the exit.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: The Crypt of Luân Phiên
+summary_1: A three-ring rotating clockwork crypt where the walls shift every five minutes, filled with undead guardians and treasure.
+summary_2: The dungeon's central gimmick is three concentric rings that rotate independently, disorienting players and changing room access, while a magnetic iron pillar fouls compass navigation.
+rooms: 14
+resolutions: Combat, Traps, Exploration
+concept_originality: 4
+mechanics_originality: 4
+interesting_details: 4
+map_quality: 4
+rated_at: 2026-06-28T06:02:59.267Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

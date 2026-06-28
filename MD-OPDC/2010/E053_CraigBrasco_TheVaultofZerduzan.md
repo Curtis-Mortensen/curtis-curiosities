@@ -4,17 +4,6 @@ _Source: `E053_CraigBrasco_TheVaultofZerduzan.pdf`_
 _Processed: 2026-06-28T05:04:01.049Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Initiating the Analysis**
-
-I'm now starting by analyzing the request. My initial focus is breaking down the input – a dungeon map image from "The Vault of Zerduzan" – and the tasks. I must describe the page and transcribe all the text. This will be the first and most critical stage, I believe.
-
-
-**Detailing the Description**
-
-I'm now diving deeper into the page's description. My current focus is crafting a tactile/spatial description suitable for a visually impaired user. I've begun to draft the visual observations, aiming for objectivity and professionalism. Concurrently, I've conducted a systematic transcription of all written text, including the title, intro, legend items, and key symbols. I'm verifying the accuracy of the transcription against the OCR output and correcting potential errors.
-
 ## Transcription
 
 This document is a single-page D&D adventure module titled "The Vault of Zerduzan," created by Craig Brasco in 2010. It features a dungeon map on the left, a descriptive legend for 22 keyed areas on the right and bottom, and a legend key for map symbols in the upper-right corner. The visual style is a classic, top-down black-and-white dungeon floor plan with gothic, horror-themed room descriptions.
@@ -70,3 +59,19 @@ The map is a sprawling, interconnected stone dungeon layout. To navigate, think 
 *   **The Cave Systems (Right Side):** The right side of the map represents a rougher, more organic cave system rather than finished stone. Access to this starts from the eastern portion of the dungeon. It consists of a large, winding path that moves from the **Cave of Corpses (18)** down into the **Empty Cavern (19)**. This leads into the final, high-threat zone consisting of the **Slaad’s Den (20)**, the **Slaad’s Cavern (21)**, and finally **Zerduzan’s Laboratory (22)**, which is the northernmost point of the dungeon.
 
 **Navigation Tip:** Watch for the "S" symbols on the walls—these indicate secret doors, which are essential for creating shortcuts between rooms like 2 and 3, or accessing the hidden treasures in rooms 9, 13, and 17. The "e" symbols mark where enchanted torches are mounted on the walls.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: The Vault of Zerduzan
+summary_1: A dungeon serving as a burial shrine for a demonologist's favored servants and companions, hidden beneath a ruined tower.
+summary_2: Standout features include a riddle-protected entrance with a disintegration ray, secret doors triggered by pushing statues, and multiple traps like a poison needle that ages victims.
+rooms: 22
+resolutions: Combat, Puzzles, Traps, Exploration, Roleplay
+concept_originality: 3
+mechanics_originality: 3
+interesting_details: 4
+map_quality: 4
+rated_at: 2026-06-28T06:03:38.757Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

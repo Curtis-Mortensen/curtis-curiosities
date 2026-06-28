@@ -4,27 +4,6 @@ _Source: `E063_SimonBull_TheRuinationOfTenamen.pdf`_
 _Processed: 2026-06-28T05:04:28.231Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Defining the Scope**
-
-I've begun dissecting the task. My focus is on thoroughly understanding the request's core. I'm starting by establishing the source material: a PDF document with an OCR text version, specifically "The Ruination of Tenamen (Grom's Undoing)". The first immediate sub-task, is a detailed description of the document itself.
-
-
-**Analyzing the Document's Structure**
-
-I'm now detailing the document's structure to make sure it is usable. I've broken down the project into three distinct tasks. The first, to describe the page's visual appearance, is complete. Second, the provided OCR has been drafted to prepare the text into a clean and easy format. My third focus is on the map description. The dungeon itself has been described; it is a sprawling, cave-like network.
-
-
-**Mapping the Layout**
-
-I am currently enumerating the specific features of this subterranean complex. I've begun classifying and numbering the significant locations, such as the entry, bridge, vestibule, common digs, abandoned digs, the pit, pantry, scullery, Grom's court, owlbear's pen, dungeons, the cage, water features (stream, waterfall, roost), eerie redoubt, and the cavern exit/entrance. This list provides a crucial foundation for subsequent tasks.
-
-
-**Refining the Spatial Details**
-
-I'm now integrating compass directions and geometric shapes to offer clearer path descriptions for the subterranean complex. I'm focusing on features such as the backstair, which connects the redoubt to the court. My goal is to ensure the descriptions are concise and easily understood for a D&D session. I am also working on an accessibility note to help give spatial context to the map's overall layout.
-
 ## Transcription
 
 This document is a "One Page Dungeon" titled **"The Ruination of Tenamen (Grom's Undoing)"**, designed for use in a tabletop role-playing game.
@@ -92,3 +71,19 @@ To help someone who cannot see the map visualize the dungeon, imagine a large, o
 *   **The Water Feature (Right/South):** Running from the middle-right down to the bottom is the Cold Stream (16). It acts as a natural boundary. The Fishery (15) is near the top of this stream. The Waterfall (18) is further south, leading down to the Cavefisher’s Roost (19).
 *   **The Secret Lair (Far Right):** In the bottom-right corner, isolated from the main warren, is the Dark Lake (20) and the Eerie Redoubt (21). A secret passage, the Backstair (23), snakes from this southeastern corner all the way back up to Grom’s Court (9), allowing for a flank attack or secret escape.
 *   **The Exit:** The map ends at the far right (22), a Cavern that signifies a portal to the deeper underworld.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: The Ruination of Tenamen (Grom's Undoing)
+summary_1: A sprawling orc hideout filled with warring factions, captive shepherds, and hidden monsters, where the adventurers arrive during a chaotic moment of multiple threats.
+summary_2: The dungeon features a medusa lair accessible via a secret backstair, a propped-up corpse sentry, poisoned apples, and a one-way chute that drops intruders into a cage of depraved fighters.
+rooms: 23
+resolutions: Combat, Traps, Stealth, Exploration, Roleplay
+concept_originality: 3
+mechanics_originality: 2
+interesting_details: 4
+map_quality: 4
+rated_at: 2026-06-28T06:03:59.742Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

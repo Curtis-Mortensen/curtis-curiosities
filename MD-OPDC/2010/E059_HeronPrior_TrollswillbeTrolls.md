@@ -4,22 +4,6 @@ _Source: `E059_HeronPrior_TrollswillbeTrolls.pdf`_
 _Processed: 2026-06-28T05:04:20.648Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Assessing the Input**
-
-I'm now zeroing in on the initial request. My focus is on dissecting the problem, recognizing the input as a "One-Page Dungeon" document, and identifying the required output. I'm prioritizing understanding what's demanded of me, and formulating my plan to start.
-
-
-**Detailing the Page**
-
-I'm now diving deeper into the specifics. I've noted the one-page module's layout, style, and content, focusing on the title, the map's placement and the presence of sections such as "Background," and "Common Features." My attention is on the gritty, classic D&D style and the lair's name: "Vulture's Crag." Now, I'm working to describe the map for accessibility.
-
-
-**Mapping the Dungeon**
-
-I'm now detailing the map's features for accessibility. My focus is on providing a clear visual guide: a cluster of interconnected caverns flowing left to right, with a chimney (Area 4), and the major landmark, "The Tusk," (Area 11) on the right side. I'm noting the tar pits at the bottom and numbered rooms connected by arrows.
-
 ## Transcription
 
 This is a "one-page dungeon" module for a tabletop roleplaying game, titled "Trolls will be Trolls." 
@@ -85,3 +69,19 @@ The map represents Vulture’s Crag, a multi-roomed cavern complex depicted as a
     *   **The Central Landmark (Area 11):** This is the largest, most significant chamber in the dungeon. It is a large circular room on the right side of the map with the "Tusk of Gwall" in the absolute center.
     *   **The Perimeter:** Along the bottom edge of the entire cavern system, a wavy, jagged line denotes the "Tar Pits," indicating that the entire dungeon is carved into a cliff overlooking a swampy, hazardous exterior.
 *   **Navigation:** The rooms are numbered and connected by wide hallways. There are a few specialized "caves within caves," such as the secret Area 13, tucked away behind a partition. The map uses simple line art—bold outlines for cave walls, dashed lines for ledges or changes in elevation, and symbols to represent objects like the "Tusk" or the "cage" in the Larder.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Trolls will be Trolls
+summary_1: A classic troll lair beneath Vulture's Crag, led by the cunning witch Stencheye, where adventurers must navigate treacherous caves to collect a bounty and recover looted goods.
+summary_2: Standout mechanics include a variety of unique troll types (half-trolls, devil-trolls, a giant two-headed troll), a holy Tusk that releases spirits, and multiple special items hidden behind traps and puzzles.
+rooms: 13
+resolutions: Combat, Diplomacy, Puzzles, Fetch Quests, Roleplay, Traps, Exploration, Social
+concept_originality: 3
+mechanics_originality: 4
+interesting_details: 5
+map_quality: 4
+rated_at: 2026-06-28T06:03:52.763Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

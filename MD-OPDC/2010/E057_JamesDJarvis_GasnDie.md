@@ -4,22 +4,6 @@ _Source: `E057_JamesDJarvis_GasnDie.pdf`_
 _Processed: 2026-06-28T05:04:09.752Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Assessing the Module's Layout**
-
-I've begun dissecting the "Gas-n-Die" dungeon module image. My focus is initially on deconstructing the page's design. I'm noting the general layout, identifying visual elements, and determining the placement of text and other graphics. My aim is to get a handle on the visual presentation. I'm focusing on the first task only.
-
-
-**Analyzing the Written Content**
-
-I'm systematically transcribing the text, section by section, starting with the title and author. I've now moved on to the Random Encounter Table, capturing each entry, which gives the scene a post-apocalyptic vibe. The room/location descriptions are next, with notes on each location's characteristics.
-
-
-**Mapping the Module's Layout**
-
-I'm now detailing the map's layout with an accessibility focus, outlining spatial relationships, and using directional language to assist the user. I've broken down the roadside stop complex and rooms, outlining the "Convenience Store," and the areas. I'm focusing on "Men's" and "Women's" rooms and other spaces, and am now thinking about the drafting process for the user's benefit.
-
 ## Transcription
 
 This one-page dungeon, titled **"Gas-n-Die,"** is a classic, stripped-back tabletop RPG module designed by James D. Jarvis. The layout is clean and minimalist, presented in high-contrast black-and-white. It features a technical line-drawing map on the left and organized text descriptions on the right. The aesthetic is inspired by post-apocalyptic road-trip tropes.
@@ -74,3 +58,19 @@ For someone who cannot see the map, imagine a small, single-story roadside build
 *   **Counters:** Indicated by thick, black lines within rooms (notably in the Convenience Store and the Diner).
 *   **Windows:** Indicated by rectangles with a line running through the center, found primarily along the front of the Convenience Store and the Diner.
 *   **Flow:** The map is designed with "choke points." For example, the Diner is barricaded, forcing players to navigate through the store or potentially break through windows. The internal layout is cramped, with most rooms being roughly 6–10 feet wide.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Gas-n-Die
+summary_1: A post-apocalyptic gas station dungeon where players explore a derelict roadside building, encountering mutants, cannibals, and scavengeable oddities.
+summary_2: The dungeon features a hidden entry code scribbled in graffiti and a combat android scavenging coolant, with random encounters including an explosive road runner.
+rooms: 10
+resolutions: Combat, Puzzles, Exploration, Traps
+concept_originality: 3
+mechanics_originality: 2
+interesting_details: 4
+map_quality: 2
+rated_at: 2026-06-28T06:03:47.249Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

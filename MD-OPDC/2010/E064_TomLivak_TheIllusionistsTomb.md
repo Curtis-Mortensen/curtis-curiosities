@@ -4,17 +4,6 @@ _Source: `E064_TomLivak_TheIllusionistsTomb.pdf`_
 _Processed: 2026-06-28T05:04:28.483Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Analyzing the Request**
-
-Okay, I'm now zeroing in on the core of this task. I'm breaking down the request: processing the provided text from "The Illusionist's Tomb". My primary aim is to describe the page's contents. Further actions involve transcription, but I'm focusing on the first step of the request right now: the description. I'm focusing on identifying what needs to be extracted from the provided text.
-
-
-**Defining the Module's Elements**
-
-I've outlined the module's key components, focusing on the visuals and tone. The module has a hand-drawn map in the top left, a title, a background, rumors, wandering monsters, and room descriptions. It feels like an old-school dungeon crawl, emphasizing illusions and traps, in black and white on a grid. My next step is to transcribe the text.
-
 ## Transcription
 
 This document is a one-page "dungeon module" titled **"The Illusionist’s Tomb"** by Tom Livak, published in 2010. The page is designed as a quick-reference guide for a Dungeon Master. It features a black-and-white, hand-drawn map in the top left corner, while the remainder of the page is packed with text organized into a background section, a rumors table, a wandering monsters table, and detailed room-by-room descriptions numbered 1 through 22.
@@ -91,3 +80,19 @@ The map is a grid-based dungeon floor plan. If you are playing, imagine a roughl
 *   **The Chasm (Eastern Edge):** The rightmost side of the map contains a significant vertical line representing the Chasm (19 and 20), which separates the entrance section from the final chambers.
 *   **The Final Area:** Past the Chasm, you reach the "Reverse Gravity" room (18), the "Animated Room" (21), and finally the "Tomb" (22) tucked in the bottom-right corner.
 *   **Navigation Notes:** Look for the "Secret door" indicators—one is located near Room 7, and another appears in the hallway leading to the Tomb area (22). There are also "Trap" indicators marked with an 'X' near the corridors connecting the primary rooms.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: The Illusionist’s Tomb
+summary_1: A gnome illusionist's tomb filled with practical jokes and traps, now inhabited by kobolds and an ogre mage searching for hidden treasures.
+summary_2: The dungeon relies on illusions, trickery, and traps (like fake pressure plates, illusionary foes, and an invisible bridge) to challenge players, with a large kobold complex and a chasm separating the final chambers.
+rooms: 26
+resolutions: Combat, Traps, Puzzles, Exploration
+concept_originality: 3
+mechanics_originality: 4
+interesting_details: 4
+map_quality: 3
+rated_at: 2026-06-28T06:04:02.812Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

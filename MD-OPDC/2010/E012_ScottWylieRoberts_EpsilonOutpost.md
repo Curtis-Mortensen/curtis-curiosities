@@ -4,22 +4,6 @@ _Source: `E012_ScottWylieRoberts_EpsilonOutpost.pdf`_
 _Processed: 2026-06-28T04:45:24.398Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Describing Epsilon Outpost**
-
-I'm currently focused on visually describing the "Epsilon Outpost" page. I've begun to break down its components, noting the layout and overall visual style. Next, I'll move on to a detailed description of individual elements, using as many details as possible from the provided source. This should allow a comprehensive overview of the material.
-
-
-**Detailing the Layout**
-
-I've moved on to meticulously detailing the page layout, recognizing it as a classic RPG module handout. The visual check confirms a single-page document. I've broken down the elements: a map and general info at the top, followed by room descriptions and random tables. My draft describes the document's structure and professional minimalist design. Next, I'll transcribe the written text.
-
-
-**Mapping the Outpost**
-
-I'm now describing the map's layout. It's a grid of 13 hexagons arranged in a honeycomb. I'm focusing on their positioning and the numbers within each one. The central core is hexagon 1, surrounded by main rooms 2 through 7. The entry is at 8, with 9 and 10 inside the structure and 11, 12, and 13 attached below. I'm noting the scale and using clear spatial language. My next step is to refine this spatial description.
-
 ## Transcription
 
 This document is a classic "One Page Dungeon" tabletop RPG module, designed for quick reference by a Game Master. It features a clean, professional, and utilitarian layout with a specific focus on modularity and random generation tables.
@@ -113,3 +97,19 @@ The map is a diagram representing a modular, hexagonal-based space station.
     *   **Symbols:**
         *   There is a scale bar in the top right of the map that measures 0 to 10 metres.
         *   Hexagons **9** and **10** are not visually represented as unique rooms on the grid, but rather represent infrastructure (Crawlspaces and Laboratory) accessed via trapdoors inside the other rooms. The map uses an "X" symbol inside certain hexagons to indicate these access points to the lower levels.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Epsilon Outpost – a Prefabricated Base in a Distant Galaxy
+summary_1: A modular, hex-based sci-fi outpost that can be placed in space, underwater, or on a planet, raided for supplies during a viral cataclysm.
+summary_2: Highly modular with random generation tables for inhabitants, base quirks, and room contents, plus a portal chamber that can connect to fantasy settings.
+rooms: 13
+resolutions: Combat, Fetch Quests, Roleplay, Exploration
+concept_originality: 4
+mechanics_originality: 4
+interesting_details: 4
+map_quality: 3
+rated_at: 2026-06-28T06:01:57.252Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

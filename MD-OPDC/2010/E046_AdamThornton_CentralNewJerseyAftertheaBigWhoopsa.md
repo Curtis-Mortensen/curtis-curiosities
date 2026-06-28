@@ -4,23 +4,6 @@ _Source: `E046_AdamThornton_CentralNewJerseyAftertheaBigWhoopsa.pdf`_
 _Processed: 2026-06-28T05:03:43.021Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Visualizing the Page**
-
-I'm now diving into the visual aspects. I'm imagining how to make the supplement visually compelling, considering layout and imagery to captivate the expert audience. I'm focusing on crafting a strong visual narrative.
-
-
-**Defining the Visual Elements**
-
-I'm solidifying the page's structure. The hex map's position is fixed to the left, while text organizes into two columns on the right. I'm focusing on "old school" RPG aesthetics for the style. I will be transcribing text, ensuring accuracy and readability.
-
-
-
-**Detailing the Map**
-
-I'm now detailing the map's accessibility features. It's a hex grid with visual symbols for various elements like peaks, caves, and settlements. I've noted rivers as solid lines and roads as dashed, with a North arrow for orientation. A key indicates one hex equals ten miles. I've identified the grid's structure, with rows in the 100s, 200s, etc., and columns 1-11. I'm noting key geographic points like Trenton, Fort Dix, Pine Barrens, and Southern Swamps.
-
 ## Transcription
 
 ### Page Description
@@ -110,3 +93,19 @@ The map is a standard "hex crawl" grid representing Central New Jersey. It is or
 *   The "Bogs" are situated north of the Pine Barrens (Hex 505).
 *   "Acey" and "Hoboken" are located toward the lower-right (southeast) section of the map.
 *   A major road (The Turnpike) runs diagonally from the center-west toward the northeast, while the "Garden State Parkway" runs vertically along the eastern edge.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Central New Jersey After the 'Big Whoops'
+summary_1: A post-apocalyptic hex crawl through Central New Jersey where adventurers navigate mutant-filled ruins, negotiate with troll tollbooth operators, and seek the head of Frank Sinatra for a Witch-Queen.
+summary_2: The standout is its darkly comedic, pop-culture-saturated setting featuring bizarre unique monsters like the Princeton University Band amoeba, a sentient delusional jet autopilot cult, and the well-mannered Jersey Devil.
+rooms: 15
+resolutions: Combat, Diplomacy, Puzzles, Fetch Quests, Stealth, Roleplay, Traps, Exploration, Skill Challenges, Social
+concept_originality: 5
+mechanics_originality: 3
+interesting_details: 5
+map_quality: 3
+rated_at: 2026-06-28T06:03:29.473Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

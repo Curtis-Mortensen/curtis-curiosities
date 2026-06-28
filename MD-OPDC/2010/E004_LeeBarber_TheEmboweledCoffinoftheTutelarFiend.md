@@ -4,22 +4,6 @@ _Source: `E004_LeeBarber_TheEmboweledCoffinoftheTutelarFiend.pdf`_
 _Processed: 2026-06-28T04:44:04.228Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Analyzing the Dungeon Layout**
-
-I'm currently dissecting the dungeon's layout, paying close attention to room dimensions, and the placement of doors and potential hazards. I'm focusing on the overall flow and any obvious bottlenecks or chokepoints that might suggest interesting tactical considerations for the adventurers. The goal is to identify possible challenges and encounters, and how the players could overcome them.
-
-
-**Describing the Visual Elements**
-
-I've moved on to describing the page's visual aspects. The module, black and white, presents itself like a classic RPG layout. Text occupies the left two-thirds, detailing the title, flavor text, encounter lists, and dungeon key. The right third is dedicated to an isometric, multi-level map. The aesthetic leans heavily toward the OSR style, typical of older adventures.
-
-
-**Detailing the Textual Content**
-
-I'm now focusing on transcribing the module's key textual elements: the Fiend's description, exterior maze encounters, the dungeon key, and the footer information. I'm prioritizing accuracy in matching the original formatting, including numbered lists and any text embedded within the map itself. I'm striving for a completely verbatim record.
-
 ## Transcription
 
 This is a one-page tabletop role-playing game (TTRPG) adventure module titled **"The Emboweled Coffin of the Tutelar Fiend,"** written by Lee Barber. The layout is characteristic of "OSR" (Old School Renaissance) style modules, featuring a mix of flavor text, random encounter tables, and a numbered dungeon key keyed to an isometric map.
@@ -69,3 +53,19 @@ The map is rendered in an **isometric perspective**, meaning it depicts the room
 *   **The Lower Level (Rooms 6–7):** Directly beneath the upper structures is a deep, vertical shaft (the pit at Area 6). The room is illustrated as being at the very bottom of the tower's base.
 *   **Orientation:** There is a compass rose on the map indicating "N" (North) pointing toward the bottom right corner of the map.
 *   **Spatial Flow:** Players start at the high ledge (1), traverse the dangerous bridge (2), navigate around the perimeter of the central pit using the walkways (3 and 5), avoid the hydra in the moat (4), and finally drop down or descend into the deep chamber (6) to reach the final area (7).
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: The Emboweled Coffin of the Tutelar Fiend
+summary_1: Adventurers must navigate a maddening maze and tower dungeon to destroy the dripping bones of a Tutelar Fiend and stop the rampaging power of 99 blasphemous wizards.
+summary_2: Features an isometric map with a bridge that has a cumulative collapse chance, a transmutation cloud with random effects, and a hydra that stays in the water.
+rooms: 7
+resolutions: Combat, Traps, Puzzles, Exploration
+concept_originality: 5
+mechanics_originality: 4
+interesting_details: 5
+map_quality: 5
+rated_at: 2026-06-28T06:01:30.145Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

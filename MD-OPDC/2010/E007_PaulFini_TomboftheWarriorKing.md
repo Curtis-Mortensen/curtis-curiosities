@@ -4,22 +4,6 @@ _Source: `E007_PaulFini_TomboftheWarriorKing.pdf`_
 _Processed: 2026-06-28T04:44:34.590Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Analyzing the D&D Module**
-
-I'm currently dissecting this D&D module PDF, specifically the initial page, to get a handle on its visual elements. My priority is to provide a comprehensive overview. I'm focusing on identifying key visual components to describe for you.
-
-
-**Detailing the Visuals**
-
-I've got the visual description for the first page of the D&D module locked down. I've noted the standard RPG layout, with the map in the top third, background/encounter tables to the right, and the room key below. I am also detailing the old-school indie aesthetic. Plus, I've started the transcription, making sure it's accurate. The "statute" error from the OCR has been noted.
-
-
-**Clarifying the Text**
-
-I've addressed the OCR errors in the text, preserving "leeds" and "fisher" (for "fissure") as they appear in the original module. I've confirmed that the titles and layout elements (headers, dungeon key, etc.) are present and accounted for. Now, I'm analyzing the map's structure, focusing on its spatial layout, key features, and orientation for accessibility purposes.
-
 ## Transcription
 
 This document is a one-page tabletop roleplaying game module titled "The Forgotten Tomb of the Warrior King." It follows the traditional "OSR" (Old School Renaissance) style, featuring a dense, single-page layout that includes a map, background lore, an encounter table, a key to map symbols, and a detailed numbered list of room descriptions.
@@ -89,3 +73,19 @@ The map depicts an irregular, organic dungeon layout oriented with North at the 
     *   **The Tomb (Room 20):** Located in the top-right corner. It is rectangular, indicating it is carved rather than natural. It connects to the rest of the map via a niche/passage (19) and a blocked path (21) that leads to the top.
     *   **Lairs:** Clusters of rooms like 14 and 17 indicate larger, open cave spaces where monsters (Crypt Crawlers) congregate.
 *   **Navigation:** Players moving through the map must be wary of "DOWN" markers indicating changes in elevation, and the rushing water paths which, if a player falls in, will carry them forcibly from the southern sections toward the northern sections (11 and 16).
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: The Forgotten Tomb of the Warrior King
+summary_1: A classic OSR dungeon featuring a forgotten warrior king's tomb hidden beneath a burial mound, now infested with monsters and cults.
+summary_2: The dungeon includes a sex-change illusion mirror, underwater tunnel networks, a rushing water chasm that sweeps characters north, and a hidden tomb entrance requiring noisy digging.
+rooms: 21
+resolutions: Combat, Puzzles, Traps, Exploration, Skill Challenges
+concept_originality: 2
+mechanics_originality: 3
+interesting_details: 3
+map_quality: 4
+rated_at: 2026-06-28T06:01:38.337Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

@@ -4,22 +4,6 @@ _Source: `E027_MichaelHutchinson_ZombiesMaties.pdf`_
 _Processed: 2026-06-28T04:48:10.812Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Analyzing the Request**
-
-Okay, I'm breaking down the task. I see an image of a "One Page Dungeon" labeled "Zombies, Maties." My initial goal is to describe it. Then, I need to transcribe the content, if any. I am now proceeding with the transcribing.
-
-
-**Detailing the Visuals**
-
-I've carefully described the visual layout. I've noted the scanned document aspect, and pointed out the timestamp/header. I've noted the title box, map, and room descriptions. I've observed the "One Page Dungeon" format. Now, I'm commencing with transcription.
-
-
-**Clarifying the Mechanics**
-
-I'm now focusing on the ship's listing mechanics and have transcribed the rules. I've noted the d6 roll results and their effects, from a gentle lurch to a disruptive shake. I've also incorporated the room key transcription, performing my own accurate OCR. Finally, I've made sure to capture specific numeric details related to the zombie encounters.
-
 ## Transcription
 
 This is a scanned document containing a "One Page Dungeon" titled "Zombies, Maties" by Michael Hutchinson. The page is formatted with a title block in the top right, a tactical map on the left, and a detailed room-by-room key describing the setting, mechanics, and encounters.
@@ -36,3 +20,19 @@ This is a scanned document containing a "One Page Dungeon" titled "Zombies, Mati
 1-3: Nothing happens
 4: Light Lurch, an easy check to remain standing
 5
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Zombies, Maties
+summary_1: A cross-genre dungeon set aboard a derelict small vessel infested with zombies, with random lurching hazards.
+summary_2: The ship's lurching mechanic creates environmental skill checks and adds unpredictability to combat and navigation.
+rooms: 5
+resolutions: Combat, Skill Challenges
+concept_originality: 3
+mechanics_originality: 2
+interesting_details: 2
+map_quality: 3
+rated_at: 2026-06-28T06:02:32.394Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

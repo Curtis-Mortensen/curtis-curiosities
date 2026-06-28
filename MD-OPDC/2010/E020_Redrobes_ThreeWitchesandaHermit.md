@@ -4,22 +4,6 @@ _Source: `E020_Redrobes_ThreeWitchesandaHermit.pdf`_
 _Processed: 2026-06-28T04:46:52.862Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Describing the Page**
-
-I'm now zeroing in on the request. My focus is entirely on describing the page, specifically the provided image of the D&D dungeon map titled "Three witches and a hermit." This map is the sole subject, and I am working to characterize its features. I'm prioritizing objective, accurate observations about the map itself to create the foundation.
-
-
-**Analyzing the Map's Layout**
-
-I'm now zeroing in on the map's structural features. I see a top-down view of the dungeon layout. I've begun to transcribe the written text, noting the location of "Hidden passage in cliff" and the Creative Commons/Redrobes logos. The map is set against a dark, rocky texture, with tunnels, corridors, and rooms. The bottom of the map holds the title, and the map as a whole is presented in a digital format as a single-page PDF.
-
-
-**Detailing the Map's Features**
-
-I'm now cataloging the specific features marked on the map itself. I'm noting the text descriptions around the dungeon layout, starting at the top left and moving clockwise. I've recorded the "Passage appears to end..." note and the "Rock slide" location with the treasure. I'm also capturing the "Everglowing brazier," the "Pit!" and the "Bats or Stirges" notation, and working around the central area of the map to include all descriptions.
-
 ## Transcription
 
 ### Page Description
@@ -45,3 +29,19 @@ The page presents a top-down dungeon map designed for tabletop role-playing game
 *   **Bottom Center:** The Hermit. Bad mannered! But is he evil?
 *   **Bottom Left:** Culdron. Lots of jars with strange contents. Locked. Trapped.
 *   **Bottom Left:** Three witches. The home of three witches which may appear old and haggard or young and beautiful. They have magic and cursed items but not much gold. Their home invaded! They will attack and fight
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: The Hermit's Cavern
+summary_1: A dark cave system filled with tunnels, chambers, and hazards, featuring bats, traps, undead, and a reclusive hermit.
+summary_2: The dungeon offers a mix of classic fantasy encounters—flickering shadows that attack, a trapped cauldron, and three witches that can appear old or young—with a hermit whose morality is ambiguous.
+rooms: 14
+resolutions: Combat, Traps, Social, Exploration
+concept_originality: 2
+mechanics_originality: 2
+interesting_details: 3
+map_quality: 2
+rated_at: 2026-06-28T06:02:16.015Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

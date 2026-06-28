@@ -4,32 +4,6 @@ _Source: `E039_ClarabelleChong_TimeforTea.pdf`_
 _Processed: 2026-06-28T04:50:33.702Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Analyzing the Request**
-
-Okay, I'm breaking down the task. I see a D&D dungeon concept, "TIME 4 TEA". My initial focus is to dissect the request for layout and theme details within that PDF. I'm focusing on identifying the relevant parts of the dungeon to analyze, and will then be on the lookout for any clues on how to interpret this request.
-
-
-**Detailing the Layout**
-
-I've moved on to describing the visual layout. I observed a dual-column format resembling a vintage pamphlet. The left column presents a warehouse floor plan, while the right features a promotional flyer. The style is Victorian steampunk with a dark, mysterious tone. I am currently transcribing the blueprint, which is labeled "Blueprints of the Empire Trading Warehouse" and contains notes from a leather journal. The first note mentions crates and sacks, but mentions that they are empty.
-
-
-**Exploring the Chambers**
-
-I'm now delving into specific rooms within this warehouse dungeon. I've noted a "Workmen's Pantry" with unsettling details, an office filled with cryptic writings, and a foreboding dark corridor. I'm also examining a machine room, a laboratory with disturbing specimens, a hallway of mirrors, and a room with a mysterious dial. I'm actively considering the implications of each element.
-
-
-**Unveiling the Underwater Sections**
-
-I'm now focusing on the underwater elements. I've noted a sunken chamber with a powerful unseen current and frigid swirling water. An underwater tunnel leads to a runed door and more unknown perils. Beyond that lies the secret-filled chamber. The right column continues to add layers; "TIME 4 TEA" is a game of tea, cakes and deadly secrets! It promotes an afternoon tea for all at Buxenhall Gardens with tea dancing, events and fireworks. Wizards, using alchemically-enhanced tea, are its biggest patrons, but all are welcome.
-
-
-**Gathering Key Information**
-
-I'm now collating important information from the provided text to better flesh out the setting. I am focused on the advertisements within the context of the dungeon. I am noting key elements like medicinal claims of tea, a missing notebook from Dr. Voln, a call for volunteers for medical research, and a search for Thomas Huling, last seen at the warehouse. I also see advertisements for guards, magical elixirs, and tea, alongside an invitation to a magical society, and I will be putting it all together.
-
 ## Transcription
 
 This document is a creative tabletop RPG supplement designed as a handout for players. It blends an eerie dungeon floor plan with a thematic "in-world" flyer.
@@ -91,3 +65,19 @@ The map is an isometric floor plan of a multi-level warehouse structure. It uses
     *   There is a small illustration of a woman in a Victorian-style dress standing near the bottom of the map, likely a reference to the "Buxenhall party" or a character NPC.
     *   The map uses hand-written arrows to indicate the flow of movement between rooms.
     *   Certain areas (like the laboratory) are highlighted with small drawings of jars, and the mirror hallway is visually distinct due to its chaotic line work.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Empire Trading Warehouse (Time 4 Tea)
+summary_1: A Victorian-era warehouse dungeon where adventurers investigate the disappearance of magical tea, uncovering strange experiments and a sunken chamber.
+summary_2: Standout mechanics include a mirror hallway that makes reflections real, a dial-and-lever puzzle, and an underwater tunnel with a runed door.
+rooms: 11
+resolutions: Puzzles, Exploration, Traps, Skill Challenges
+concept_originality: 4
+mechanics_originality: 4
+interesting_details: 5
+map_quality: 5
+rated_at: 2026-06-28T06:03:05.847Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

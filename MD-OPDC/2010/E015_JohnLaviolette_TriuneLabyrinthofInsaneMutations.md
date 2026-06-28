@@ -4,22 +4,6 @@ _Source: `E015_JohnLaviolette_TriuneLabyrinthofInsaneMutations.pdf`_
 _Processed: 2026-06-28T04:45:51.651Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Describing the Source**
-
-I'm currently analyzing the request to fully grasp the necessary actions. My focus is on the source material, a PDF of John Laviolette's "Triune Labyrinth of Insane Mutations," specifically understanding I need to describe the provided page.
-
-
-**Analyzing the Page's Layout**
-
-I've carefully examined the page layout now. My observations highlight a compact, functional design reminiscent of classic zine aesthetics, and I've noted a title, author info, map, monster/mechanics table, and a detailed numbered room key. Currently, I'm developing a strategy to transcribe all written text, using the provided OCR as a base but cleaning it up and formatting for readability.
-
-
-**Interpreting the Spacial Design**
-
-I'm now zeroing in on interpreting the spatial design of the map. I'm focusing on providing accessible information for a low-vision player. The plan involves breaking down the dungeon floor spatially, using compass directions to guide a mental map. I'm noting key features like corridors and choke points, and highlighting visual cues like shading for depth and dotted lines. I aim to draft a functional description, starting with the entrance and tracing a logical path.
-
 ## Transcription
 
 This document is a one-page dungeon crawl module titled "Triune Labyrinth of Insane Mutations" by John Laviolette. The page is formatted in a classic OSR (Old School Renaissance) style, featuring a dungeon floor plan at the top left, a monster encounter table at the top right, and a numbered room key occupying the bottom two-thirds of the page. It is presented in a clean, high-contrast, black-and-white layout suitable for printing.
@@ -90,3 +74,19 @@ The dungeon is represented as a top-down view of a subterranean level. The layou
     *   **Secret/Overlapping Areas:** Indicated by dotted lines, these suggest hidden caches or rooms stacked physically over others.
     *   **Chokepoints:** Many rooms have distinct entry/exit points represented by rectangles (doors) or gaps in the walls.
     *   **The Hub:** The layout is essentially a cluster of small rooms surrounding a central arterial path, with the Grand Chamber (15) and the Culture Vat (16) acting as the main "anchor" locations in the southern/eastern wing, and the cells (8, 9, 10) acting as a wing in the north.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Triune Labyrinth of Insane Mutations
+summary_1: A dungeon created by chaotic anti-druids who twist nature into bizarre mutations, serving as their testing grounds.
+summary_2: Features a random mutation generation table for wandering monsters, a culture vat that spawns mutants, and a 5-ton golden statue that changes every time the room is entered.
+rooms: 17
+resolutions: Combat, Traps, Puzzles, Exploration, Skill Challenges
+concept_originality: 4
+mechanics_originality: 4
+interesting_details: 5
+map_quality: 4
+rated_at: 2026-06-28T06:02:02.233Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

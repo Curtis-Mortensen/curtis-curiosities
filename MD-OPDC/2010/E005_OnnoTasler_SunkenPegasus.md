@@ -4,27 +4,6 @@ _Source: `E005_OnnoTasler_SunkenPegasus.pdf`_
 _Processed: 2026-06-28T04:44:12.927Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Initiating the Analysis**
-
-I'm currently dissecting the core request, focusing on the "Sunken Pegasus" source material. My initial steps involve outlining the tasks: describing the page, transcribing the text, and detailing other features. The goal is a comprehensive breakdown before diving into deeper interpretation.
-
-
-**Detailing the Supplement**
-
-I'm now fully immersed in describing the RPG supplement. I've mapped its structure: title, intro, map (three decks), and a key. The style is clear, professional, and evocative of D&D adventures. The next step is a deep dive into the text itself. I'm focusing on ensuring accurate transcription.
-
-
-**Analyzing the Map's Structure**
-
-I'm now detailing the map specifically for accessibility, excluding the OCR noise. The map is a shipwreck in three decks: Main, Second, and Hold. The Main Deck has two rooms, the Second Deck is similar, and the Hold contains three rooms, with a hull breach and storage areas. A trapdoor links each level. I'm focusing on creating a clear, top-down spatial description for readability.
-
-
-**Refining the Map Layout**
-
-I'm now iterating on the map description, ensuring clarity for a non-visual user. I've corrected a misinterpretation, realizing the decks are horizontally adjacent, not stacked. My description now emphasizes the three distinct, side-by-side oval deck plans, effectively conveying their spatial arrangement. I'm focusing on providing visual cues like, "The map shows three columns representing the ship's internal structure."
-
 ## Transcription
 
 This document is a single-page tabletop roleplaying game supplement titled "The Sunken Pegasus" by Onno Tasler. It follows the standard format for an adventure module, including an introductory hook, a top-down diagram of a sunken ship, and a keyed legend describing the contents of the various ship decks and rooms.
@@ -65,3 +44,19 @@ The map is presented as three side-by-side vertical diagrams representing the sh
     *   The "bow" or bottom tip is labeled "3" (the breach in the hull).
     *   The middle section is labeled "4" (food storage).
     *   The section closest to the bottom is labeled "5" (the treasure room containing the statue).
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: The Sunken Pegasus
+summary_1: A sunken ship wreckage at the bottom of the sea, holding a platinum statue of Pegasus stolen from Poseidon, guarded by sea zombies and a water weird.
+summary_2: Sea zombies gain automatic surprise from a layer of corpses, and the cramped, debris-filled deck creates tricky balance and cover mechanics.
+rooms: 5
+resolutions: Combat, Diplomacy, Exploration
+concept_originality: 3
+mechanics_originality: 3
+interesting_details: 4
+map_quality: 3
+rated_at: 2026-06-28T06:01:45.284Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

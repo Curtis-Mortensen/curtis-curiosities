@@ -4,22 +4,6 @@ _Source: `E035_TimMorgan_TheVillageofFairfen.pdf`_
 _Processed: 2026-06-28T04:49:41.178Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Analyzing the Request**
-
-Okay, I'm now zeroing in on the core of this task. I'm breaking down the request: a D\&D module page for description and transcription. Currently, I'm focusing on the "describe the page" aspect first, before diving into transcription. The initial analysis is complete, now I can focus on the next steps.
-
-
-**Detailing the Page Elements**
-
-Now, I'm concentrating on detailing the page's visual components. It's a single-column layout with an old-school TTRPG module vibe, a small map to the left, and a decorative font for the title "The Village of Fairfen." Sections include an introduction, bog overview ("The Borrowmose"), NPC descriptions (A-E), sacrifice rules, and numbered map locations. The whole feeling is folk-horror, rustic, and dangerous. I have a good handle on the visual layout.
-
-
-**Mapping the Visuals**
-
-I'm now zeroing in on the map description. I've visualized it as a top-down view of a swamp, with Fairfen Village situated at the bottom right. The Borrowmose, or bog, spreads across the page, connected by wooden roads to seven numbered points. The village serves as the starting point for exploration, and the roads guide you to the areas marked. Point 1 is located adjacent to the village.
-
 ## Transcription
 
 This document is a single-page D&D adventure module titled "The Village of Fairfen." It features a dark, folk-horror theme centering on a village that produces magically potent "bog iron" through rituals involving the swamp.
@@ -79,3 +63,19 @@ The map is a top-down view of the **Borremose**, a swampy region represented by 
     *   **Area 7 (Bottom left):** Situated at the end of a long, separate arm of the wooden roads, furthest from the village, located in a remote corner of the swamp.
 
 To navigate the map, players must follow the lines provided. Any movement off-path into the open space surrounding the lines should be treated as dangerous "off-road" swamp movement.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: The Village of Fairfen
+summary_1: A dark folk-horror adventure set in a village that produces magical bog iron through ritual sacrifice, with the player characters drawn by the promise of enchanted steel.
+summary_2: The standout mechanics include a sacrifice-based blessing-or-cursed steel system and a murder plot where a disgruntled villager asks the PCs to kill the King of Summer.
+rooms: 12
+resolutions: Combat, Diplomacy, Roleplay, Traps, Exploration, Skill Challenges, Social
+concept_originality: 4
+mechanics_originality: 4
+interesting_details: 5
+map_quality: 3
+rated_at: 2026-06-28T06:02:50.927Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

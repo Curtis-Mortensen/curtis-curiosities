@@ -4,22 +4,6 @@ _Source: `E047_DeForestPiper_SmugglersChantry.pdf`_
 _Processed: 2026-06-28T05:03:42.338Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Defining the Page Layout**
-
-I'm currently focused on dissecting the "Smuggler's Chantry" page. My initial task is to create an accurate description of the page layout. I'm taking notes on its physical characteristics from the provided source material. So far I'm going through the material, noting details.
-
-
-**Verifying the Text Transcription**
-
-I'm now deep into verifying the OCR text. Accuracy is paramount, so I'm cross-referencing the OCR output with the original images, and taking the time to confirm that it's all accurate and readable. I'm also ensuring the original formatting is maintained for clarity. I've begun to tackle the descriptions for the map, taking care to convey visual details for accessibility.
-
-
-**Improving Text Formatting**
-
-I'm working to enhance readability. I'm focusing on cleaning up the existing transcript to correctly mark headers, lists, and tables with markdown for clarity. I'm also addressing OCR issues, making any necessary adjustments to improve clarity while trying to keep faithfulness to the source, like fixing "sortta" and the dice notation.
-
 ## Transcription
 
 This document is a classic "Old School Renaissance" (OSR) style adventure module titled **"Smuggler’s Chantry"** by DeForest Piper. It is designed for D&D characters of levels 2 to 4.
@@ -127,3 +111,19 @@ The map consists of three separate floor plans, oriented as if moving downward f
 *   **Pillar:** Small black squares used throughout the larger rooms.
 *   **Well:** A small circle.
 *   **Narrow circular stone stairway:** A circular symbol with a center dot.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Smuggler's Chantry
+summary_1: An outlawed chaotic cult operates a fake church as a cover for smugglers, who unknowingly supply the cult with sacrifices and acolytes.
+summary_2: The twist that most smugglers are unaware the cult is real, combined with a rumor table and wandering monsters that escalate with noise, adds tension to exploration.
+rooms: 18
+resolutions: Combat, Fetch Quests, Roleplay, Social, Exploration
+concept_originality: 3
+mechanics_originality: 2
+interesting_details: 3
+map_quality: 3
+rated_at: 2026-06-28T06:03:24.206Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

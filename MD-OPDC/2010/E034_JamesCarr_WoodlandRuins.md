@@ -4,27 +4,6 @@ _Source: `E034_JamesCarr_WoodlandRuins.pdf`_
 _Processed: 2026-06-28T04:49:30.584Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Assessing the Map's Needs**
-
-I've begun to dissect the request, initially focusing on the PDF's content. Specifically, I'm aiming to detail the given dungeon map and text, which I see are key elements to address. This analysis is guiding my approach to generating a response. I'm prioritizing overall description.
-
-
-**Detailing the Page Elements**
-
-I'm now cataloging the visual elements. The single-column structure and RPG adventure module style are clear. I've noted the centered title, a "Key" box, and room descriptions beneath the map. The blue graphics are also key. The provided OCR is good, so I will focus on formatting it to match the layout's organization into headings, bullet points, and numbered lists. I'm actively drafting a transcription outline.
-
-
-**Describing the Map's Layout**
-
-I'm now fully immersed in describing the map for accessibility. I'm focusing on its grid structure and meticulously detailing each room's shape, position, and connections. I'm starting from the bottom, noting the square base of Room 1 and working my way upwards. The focus is now on spatial relationships. I will refine the descriptions to be clear and concise.
-
-
-**Refining the Room Descriptions**
-
-I'm now clarifying the spatial arrangement, identifying rooms relative to each other. Room 2 is west of Room 4 and connected to Room 1 by a door. Room 3 extends east from Room 2 to Room 5. I also note that Room 6 is north of the Room 5/Room 3 area. I'm focusing on creating a clear mental model with corrections.
-
 ## Transcription
 
 This document is a professionally formatted, one-page tabletop roleplaying game (TTRPG) adventure module titled "Woodland Ruins." The layout is clean and minimalist, utilizing a blue-on-white color scheme. It features a top section containing a grid-based dungeon map, a key, and an adventure hook, followed by a numbered list of room descriptions, and closing with author credits at the bottom.
@@ -87,3 +66,19 @@ The layout is a "cross" with an extra wing.
 4.  **Right of Middle:** Room 3 (Corridor leading to boss area).
 5.  **End of Right:** Room 5 (Boss area).
 6.  **Top:** Room 6 (Lore/mural room).
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Woodland Ruins
+summary_1: A goblin shaman named Worsoth has unearthed an ancient tomb in the forest, seeking a powerful artifact that the nearby elven camp wants recovered.
+summary_2: The dungeon features a poison gas trap that forces escape attempts and an interrogation scene with degrees of success that can reveal trap spoilers.
+rooms: 6
+resolutions: Combat, Diplomacy, Traps, Skill Challenges
+concept_originality: 2
+mechanics_originality: 3
+interesting_details: 2
+map_quality: 1
+rated_at: 2026-06-28T06:02:45.789Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

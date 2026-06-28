@@ -4,22 +4,6 @@ _Source: `E030_DeaneBeman_EscapefromtheDragonsLair.pdf`_
 _Processed: 2026-06-28T04:48:47.172Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Assessing the Input**
-
-I've begun dissecting the "Escape from the Dragon's Lair" PDF page. My initial focus is on its layout and overall visual style. The goal is to accurately describe its presentation, setting the stage for more detailed analysis. I'm noting elements like the arrangement of text, the presence of any illustrations, and the general aesthetic.
-
-
-**Detailing the Content**
-
-I'm now diving into the specifics. I've transcribed all the written text, meticulously cross-referencing it with the original PDF and OCR output to ensure accuracy. I've noted the header, table titles (Dragon, Player, Saving Throw), and the narrative/instructional sections. It's looking like a straightforward solo adventure game with clear instructions and conditions. I'm focusing on getting everything exactly right, even correcting OCR errors. Next, I'll provide a full description of the map.
-
-
-**Clarifying the Map**
-
-I've shifted my attention to the map, or rather, the "Luck Track". It's a key component for play, so I’m focused on describing it clearly. I've noted the 0-10 numbering, its L-shape, and the blacked-out areas which likely represent walls. Importantly, I'm working to clarify that it's a visual tracker, not a movement grid. I'm considering how to describe this to a player without sight, highlighting that it's a track requiring a counter.
-
 ## Transcription
 
 This is a one-page "print-and-play" solo RPG titled *Escape from the Dragon's Lair*.
@@ -100,3 +84,19 @@ Because this game relies on a tracker rather than tactical movement, the "map" i
     *   **Table 2 (Player):** Defines how you react. If the specific Dragon action on your roll is countered by your Player action (e.g., if the Dragon uses "Flame Breath" and you roll "Duck"), you succeed and move back to the start of the turn.
     *   **Table 3 (Saving Throw):** If you fail to counter the Dragon, you roll on this table to see if you lose Luck, stay even, or gain Luck.
 4.  **Tracking:** Every time the tables indicate "+1 Luck," "-1 Luck," or "-2 Luck," physically move your counter up or down the scale accordingly. Once the counter reaches 0 or 10, the game ends.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Escape from the Dragon's Lair
+summary_1: A solo adventure where a lone adventurer must survive a dragon's attacks using a luck tracker.
+summary_2: The game uses a luck track and three dice tables to simulate a combat encounter without tactical movement.
+rooms: 1
+resolutions: Combat
+concept_originality: 2
+mechanics_originality: 2
+interesting_details: 2
+map_quality: 1
+rated_at: 2026-06-28T06:02:34.318Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

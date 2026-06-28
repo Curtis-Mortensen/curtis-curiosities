@@ -4,26 +4,6 @@ _Source: `E002_EricCAlderson_ReliquaryofAdin.pdf`_
 _Processed: 2026-06-28T04:43:44.169Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Initiating the Analysis**
-
-I'm diving into this "Reliquary of Adin" PDF. My initial focus is dissecting the document, identifying key features of the D&D dungeon, and establishing the groundwork to proceed.
-
-
-**Detailing the Page Elements**
-
-I've moved on to a more granular page analysis. Now I'm focused on describing the page visually and transcribing all of the written text. I'm noting the page's layout - title, license, map, text blocks, and inscription box in detail, including the minimalist style and organization. Next, I am using the provided OCR to make text transcriptions, and I'll clean up any transcription errors for accuracy. I'm being mindful of maintaining fidelity to the original text unless a clear error exists.
-
-
-**Verifying the Text**
-
-I've been meticulously comparing the OCR output with the original text to correct any inconsistencies, especially typos. I will fix clear errors like "dessert" but retain discrepancies like "Aden's" vs "Lightening-brand" to stay true to the original. I'm focusing on clean formatting for levels 1-5 and clarifying the TMC/AUO/HSM/WTE box.
-
-**Describing the Map**
-
-Now I'm creating a clear description of the map, emphasizing its playability. I'm breaking it down level by level, starting from the outer square of Level 1 and moving inwards to the central room of Level 5, explaining the spatial relationships of the layers. I'm noting key features like entry points, granite pads, golem markers, shaded pit areas, and the stair arrows. I'm grouping the description by level, from outside to inside.
-
 ## Transcription
 
 ### Visual Description of the Page
@@ -77,3 +57,19 @@ The map depicts a 20x20 grid representing a ziggurat seen from a bird's-eye view
 **Key visual markers on the map:**
 *   **Numbers 1 through 5:** These are labeled on the map near their respective levels to correspond with the text descriptions.
 *   **The Inscription Box:** Located in the bottom right corner of the page, this provides the riddle/clue used to solve the dungeon.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: The Reliquary of Adin
+summary_1: A desert ziggurat monument houses the legendary sword Lightening-brand, which can be temporarily claimed by those who overcome a series of deadly trials.
+summary_2: The dungeon's core twist is that the sword is hidden under the entrance pad, unlocked only after surviving all five levels and solving a cryptic riddle.
+rooms: 5
+resolutions: Combat, Traps, Puzzles, Skill Challenges, Exploration
+concept_originality: 3
+mechanics_originality: 3
+interesting_details: 3
+map_quality: 4
+rated_at: 2026-06-28T06:01:30.035Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

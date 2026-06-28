@@ -4,22 +4,6 @@ _Source: `E016_JesseRothacher_ArenaofBloodlust.pdf`_
 _Processed: 2026-06-28T04:46:02.066Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Visualizing the Dungeon**
-
-I'm now zeroing in on the visual description of the dungeon page. Initial analysis of the request is complete, and I'm focusing on parsing the input PDF to extract the visual elements. I'm prioritizing understanding the layout, identifying key features like room shapes, and noting any prominent artwork or text placement to present a coherent visual narrative.
-
-
-**Analyzing the Page's Layout**
-
-I've got a firm grasp on the page's structure and aesthetic elements now. I'm focusing on dissecting the header, body and the dungeon map. The title, author, and license are easily identifiable. The two-column layout is straightforward. The hand-drawn map's placement and gridded nature are essential for understanding. I'm noting the sections (Background, Caverns, Blessings) to accurately capture all content.
-
-
-**Mapping the Spatial Connections**
-
-I'm now detailing the map's accessibility and gameplay elements. I've broken down the visual elements of the map, detailing each cavern's location. Now, I'm focusing on the spatial relationships between caverns, clarifying how entrances and exits connect to each other. I'll translate this to a clear description for someone unfamiliar with the dungeon. The grid layout is essential to capture clearly. I'm focusing on compass directions to aid visualization.
-
 ## Transcription
 
 This is a one-page tabletop RPG adventure module titled **"Arena of Bloodlust"** by Jesse Rothacher.
@@ -104,3 +88,19 @@ The map is a dungeon crawl layout composed of irregularly shaped, organic cavern
 *   **Cavern #7 (Lair):** Located at the very bottom center of the map, below the main entrance area. It is a small, rounded room isolated from the rest of the complex, representing the deepest, most dangerous area.
 
 **Flow:** Players enter through the south of Cavern #1. They move through #1 and #2, then pass through a gate (the mechanically lowered wall) to reach the central arena (#3). From the arena, they can access the holding areas (#4 and #5), storage (#6), and finally, the boss lair (#7) at the bottom.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: Arena of Bloodlust
+summary_1: A subterranean battle arena created by a cult to sacrifice victorious gladiators to an otherworldly being that grows stronger from their prowess.
+summary_2: The twist that survivors are sacrificed rather than rewarded, and the bloodlust-inducing vapors in the holding cave, add tension and a grim moral dilemma.
+rooms: 7
+resolutions: Combat, Roleplay, Exploration
+concept_originality: 3
+mechanics_originality: 2
+interesting_details: 3
+map_quality: 2
+rated_at: 2026-06-28T06:02:02.335Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->

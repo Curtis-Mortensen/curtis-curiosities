@@ -4,22 +4,6 @@ _Source: `E028_ShawnHarris_TheHorribleHermitage.pdf`_
 _Processed: 2026-06-28T04:48:25.229Z_
 _Model: `gemini-3.1-flash-lite` (medium reasoning)_
 
-## Thinking
-
-**Analyzing the Page**
-
-I'm now focused on breaking down the initial request. My primary task is to visually describe a page from a D\&D module called "The Horrible Hermitage." I need to determine how to effectively capture the visual elements in words, which is the current challenge I'm tackling.
-
-
-**Detailing the Elements**
-
-I'm now zeroing in on detailing the page's visual components. The style is classic D\&D zine: monochrome and straightforward. The layout is simple: a title, map, text columns, and a sidebar. The map uses a grid with rooms numbered 1-13; there is minimalist art with a skull icon. Transcription is proceeding, and the Room Key and Random Encounters need a final check for OCR errors. I've noted a correction to Room 7, and in the title.
-
-
-**Describing the Map**
-
-I'm now describing the map for accessibility and gameplay. The layout's a grid (around 15x12 squares). The Courtyard (Area 1) is central to the bottom, and serves as the primary entrance. Area 1 flows into the main complex, a stairwell and rooms are connected by corridors. I'm focusing on the directions of these connecting points, and will note the visual legend elements.
-
 ## Transcription
 
 This document is a one-page tabletop RPG adventure module titled **"The Horrible Hermitage"** by S.J. Harris. It is designed in a classic "zine" aesthetic: black-and-white, hand-drawn, and printed on a single page of text.
@@ -94,3 +78,19 @@ The map is a grid-based dungeon layout composed of 13 numbered rooms. Each squar
 *   **Doors:** Most rooms are connected by doors indicated on the grid. Some are marked as "Secret Doors."
 *   **Stairwells:** Stairs are located at Area 2 (Southwest) and Area 9 (Northeast).
 *   **Navigation Tip:** The layout is a loop; you can enter through the main gate (Area 1), move into the large Hall (Area 8), and then branch out to either the living quarters (East) or the Armory/Strongroom (West). The "business" areas (Jando's chamber, the Chapel, and the Stable) are located deeper in the structure, generally to the North and East.
+
+## Ranking
+
+<!-- RANKING:BEGIN -->
+title: The Horrible Hermitage
+summary_1: A group of false hermits under the sorcerer Jando lure travelers into a ruined fortress to capture them for slavery and resurrect a dark lord.
+summary_2: Features a talking giant spider ally, a false bugbear attack controlled by Jando, and a teleport trap that sends intruders to the spider stable.
+rooms: 13
+resolutions: Combat, Diplomacy, Roleplay, Traps, Exploration
+concept_originality: 3
+mechanics_originality: 3
+interesting_details: 4
+map_quality: 2
+rated_at: 2026-06-28T06:02:33.335Z
+model: deepseek/deepseek-v4-flash
+<!-- RANKING:END -->
