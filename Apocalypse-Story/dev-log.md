@@ -32,6 +32,44 @@ Research open-source repositories and academic tools for simulating epidemic-dri
 
 ### Status
 **Complete** — Question 6 research artifact ready for human review.
+## 2026-07-04 — Question 5: Definitive Predictions (Complete)
+
+### Task
+Research Question 5 from `README.md`: credible institutional predictions and frameworks for extreme crisis; rank reports and books by credibility/specificity.
+
+### Precursor / subset questions identified
+1. What counts as a "prediction" in this domain? (scenario vs. forecast)
+2. Do governments have statutory frameworks?
+3. Which bodies are best funded?
+4. Which outputs are most specific to pandemic-driven societal collapse?
+5. How do academic models differ from government reports?
+6. Which popular books shape public expectations?
+7. Can any framework be validated against real events?
+
+### Key findings
+- **No institution produces definitive point predictions** of societal collapse. Credible work uses scenario planning, reasonable worst-case analysis, stress testing, and strategic foresight.
+- **Tier 1 (highest credibility):** RAND GCR Assessment (GCRMA 2022 mandate), UK NRR 2025, RAND biodefense "silent/fast/saturating" scenarios, GPMB 2019, Clade X, Dark Winter, FEMA THIRA, US National Planning Scenarios.
+- **Tier 2:** OECD Emerging Critical Risks Framework, NIC Global Trends 2040, EU JRC NRA, UNDRR GRAF, GPMB 2025.
+- **Tier 3:** Gambhir polycrisis framework (Nature Communications 2025), Cascade Institute PCM v2.5, SPARS, RAND synthetic pandemics.
+- **For Apocalypse Story premise** (dormant 2–3 days, vomiting-stage spread, >50% mortality): RAND "silent scenario" is the closest institutional match. No Tier 1 source models 50–90% population loss in developed nations as a planning assumption.
+- **Books:** Limits to Growth (~30M copies), Diamond's Collapse, Tainter, Ord's Precipice rank highest on combined academic respect and reach.
+
+### Deliverable
+- `docs/q5-definitive-predictions.html` — self-contained research document with CSS, diagrams, ranked tables (25 reports, 25 scenario exercises, 20 books), limitations, field history, 43 references.
+
+### Assumptions
+- Ranking criteria are composite (authority + methodology + specificity + validation); another agent might weight differently.
+- Some exercises (Crimson Contagion, Event 201, Exercise Cygnus) included from secondary sources without deep primary-document review in this pass.
+- WEF Global Risks Report included despite methodological criticism because of its high visibility and funding.
+
+### Bugs / problems
+- None encountered during research or document creation.
+
+### Further research suggested (in document)
+- Classified vs. public fatality estimates
+- Reinsurance catastrophe models for pandemic tail risk
+- COG plans under extreme personnel loss
+- East Asian national risk frameworks
 # Dev Log — Apocalypse Story
 
 ## 2026-07-04 — Question 4: Breakdown of Law and Order
@@ -75,6 +113,43 @@ Research Question 4 from README: How quickly does law and order break down after
 Complete
 # Apocalypse Story — Dev Log
 
+## 2026-07-04 — Question 3: Human Inter-Reliance (Complete)
+
+### Task
+Research Question 3 from README: How many people in the US would likely die without care, medical attention, or medicine? What do disaster preparedness plans state? What has the US military and other institutions war-gamed?
+
+### Deliverable
+- `docs/question-3-human-inter-reliance.html` — self-contained research report with CSS, tiered acuity framework, 35 case studies, exercise summary table, scenario synthesis, and 67 references.
+
+### Precursor / subset questions documented
+- Definition of medical dependency (Rx vs DME vs facility vs skilled care)
+- Time horizon (hours → years without care)
+- Partial vs total infrastructure collapse
+- Informal caregiver substitution
+- Population overlap / double-counting
+
+### Key findings (synthesis)
+- No federal agency publishes a single "deaths without care" national estimate.
+- HHS emPOWER tracks ~4.6M Medicare at-risk beneficiaries (electricity-dependent DME + essential home services); ~194M US adults have ≥1 chronic condition.
+- High-acuity populations (dialysis ~517k, insulin-dependent ~2.1M+ Type 1, nursing homes ~1.24M, DME users) overlap substantially.
+- Preparedness plans (NHSS, ASPR TRACIE, FEMA functional-needs guidance) emphasize surge and continuity of care, not total-collapse mortality modeling.
+- Exercises (Dark Winter, Crimson Contagion, Clade X) model hundreds of thousands to millions of direct pathogen deaths and confirm zero surge capacity; they do not isolate care-disruption mortality.
+- Real disasters (Maria, Katrina, Irma, Uri, COVID care avoidance) repeatedly show 20–33% of excess deaths linked to interrupted care.
+- Defensible planning bracket for story work: additional 5–15% mortality among medically dependent survivors within 6 months if care/supply chains fail — highly scenario-sensitive.
+
+### Assumptions made
+- Used most recent available statistics (2022–2025 sources).
+- Scenario mortality ranges in Section 9 are author synthesis, clearly labeled, not official forecasts.
+- Living transplant recipient total (~400–500k) estimated from USRDS kidney transplant count + OPTN annual volumes; exact cumulative living recipient count not found in a single published figure.
+
+### Bugs / problems
+- None during document production.
+- Git started in detached HEAD at d6a0d12; checked out `main` before branching.
+
+### Coding decisions
+- HTML/CSS only per README agent instructions; no build tooling.
+- Placed report under `docs/` subdirectory (new) to keep README clean.
+- Did not modify README or AGENTS.md.
 ## 2026-07-04 — Question 2: Psychology Under Existential Threat (COMPLETE)
 
 ### Plan summary
