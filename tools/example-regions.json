@@ -1,0 +1,25 @@
+{
+  "dpi": 600,
+  "unit": "inch",
+  "range": "[all]",
+  "imageWidth": 1500,
+  "imageHeight": 2100,
+  "regions": [
+    {
+      "name": "illustration",
+      "kind": "image",
+      "x": 30,
+      "y": 210,
+      "width": 1440,
+      "height": 1050
+    },
+    {
+      "name": "Name",
+      "kind": "text",
+      "x": 120,
+      "y": 60,
+      "width": 1356,
+      "height": 132
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+UNIT = INCH
+
+CARDSIZE = 2.5, 3.5
+PAGE = 8.5, 11, PORTRAIT, HV
+LINK = ItemCards.xlsx
+
+[all] = 1-{(Name)}
+
+; ============================================================
+; Pre-assign spaced column names to space-free labels
+; ============================================================
+[tag1] = [Tag 1]
+[tag2] = [Tag 2]
+[tag3] = [Tag 3]
+[tag4] = [Tag 4]
+
+; ============================================================
+; TAG IMAGE LOOKUP TABLE
+; [img_] covers the empty-tag case — nanDeck validates
+; all nested labels statically, so this entry must exist.
+; Point it at a blank/transparent PNG you keep in the folder,
+; or any existing file — it is never rendered (the IF guard
+; still prevents drawing when the tag is empty at runtime).
+; ============================================================
+[img_]             = blank.png
+[img_bow]          = bow.png
+[img_finesse]       = finesse.png
+[img_fire]         = fire.png
+[img_healing]      = healing.png
+[img_ice]          = ice.png
+[img_heavy_weapon] = heavy_weapon.png
+[img_instrument]   = instrument.png
+[img_med_armor]    = med_armor.png
+[img_light]        = light.png
+[img_shield]       = shield.png
+[img_pet]          = pet.png
+[img_theft]        = theft.png
+
+; ============================================================
+; This is necessary to create nested tags for the item type
+; ============================================================
+
+[label_Basic]   = Basic Item
+[label_Rare]    = Rare Item
+[label_Instant] = Instant Item
+[label_Rare-Instant] = Rare-Instant Item
+
+; ============================================================
+; CARD ILLUSTRATION
+; ============================================================
+IMAGE = [all], [Hyperlink], 0.05, 0.35, 2.4, 1.75, 0, CN
+
+; ============================================================
+; FRAME OVERLAY
+; ============================================================
+IF = [Type] = Basic
+  IMAGE = [all], frame_basic.png, 0, 0, 2.5, 3.5, 0, N
+ENDIF
+IF = [Type] = Rare
+  IMAGE = [all], frame_rare.png, 0, 0, 2.5, 3.5, 0, N
+ENDIF
+IF = [Type] = Instant
+  IMAGE = [all], frame_instant.png, 0, 0, 2.5, 3.5, 0, N
+ENDIF
+IF = [Type] = Rare-Instant
+  IMAGE = [all], frame_rare.png, 0, 0, 2.5, 3.5, 0, N
+ENDIF
+
+; ============================================================
+; CARD NAME
+; ============================================================
+FONT = Bahnschrift SemiBold, 11, BT, #FFFFFF
+TEXT = [all], [Name], 0.2, 0.1, 2.26, 0.22, left, center
+
+; ============================================================
+; GAME TEXT
+; ============================================================
+FONT = Bahnschrift Light, 10, T, #FFFFFF
+TEXT = [all], [Game Text], 0.3, 2.15, 2, 1, left, wordwrap
+
+; ============================================================
+; FLAVOR TEXT — conditional
+; ============================================================
+IF = [Flavor Text] <> ""
+  FONT = Arial, 9, IT, #CCCCCC
+  TEXT = [all], [Flavor Text], 0.18, 2.83, 2.14, 0.26, left, wordwrap
+ENDIF
+
+; ============================================================
+; TYPE
+; ============================================================
+FONT = Bahnschrift SemiBold, 9, BT, #FFFFFF
+TEXT = [all], [label_[Type]], 0, 3.1, 2.5, 0.22, center, center
+
+; ============================================================
+; TAG ICONS
+; ============================================================
+[tag_y]  = 0.08
+[tag_w]  = 0.3
+[tag_h]  = 0.3
+[tag_x1] = 2.1
+[tag_x2] = 1.85
+[tag_x3] = 1.6
+[tag_x4] = 1.35
+
+IF = [tag1] <> ""
+  IMAGE = [all], [img_[tag1]], [tag_x1], [tag_y], [tag_w], [tag_h], 0, CP
+ENDIF
+IF = [tag2] <> ""
+  IMAGE = [all], [img_[tag2]], [tag_x2], [tag_y], [tag_w], [tag_h], 0, CP
+ENDIF
+IF = [tag3] <> ""
+  IMAGE = [all], [img_[tag3]], [tag_x3], [tag_y], [tag_w], [tag_h], 0, CP
+ENDIF
+IF = [tag4] <> ""
+  IMAGE = [all], [img_[tag4]], [tag_x4], [tag_y], [tag_w], [tag_h], 0, CP
+ENDIF
