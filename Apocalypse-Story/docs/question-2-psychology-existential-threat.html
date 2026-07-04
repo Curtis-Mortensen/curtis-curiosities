@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Human Psychology Under Existential Threat — Apocalypse Story Research (Question 2)</title>
+<style>
+  :root {
+    --bg: #0f1419;
+    --surface: #1a2332;
+    --surface2: #243044;
+    --text: #e8edf4;
+    --muted: #9aa8bc;
+    --accent: #e8a87c;
+    --accent2: #7ec8a3;
+    --danger: #e07070;
+    --link: #8ecae6;
+    --border: #2d3f56;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .container { max-width: 920px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  h1 { font-size: 2rem; line-height: 1.25; margin-bottom: 0.5rem; color: var(--accent); }
+  .subtitle { color: var(--muted); font-style: italic; font-size: 1.05rem; }
+  h2 {
+    font-size: 1.45rem;
+    color: var(--accent2);
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 { font-size: 1.15rem; color: var(--accent); margin: 1.5rem 0 0.75rem; }
+  h4 { font-size: 1rem; color: var(--muted); margin: 1rem 0 0.5rem; }
+  p { margin-bottom: 1rem; }
+  a { color: var(--link); }
+  a:hover { text-decoration: underline; }
+  .thesis-box {
+    background: var(--surface);
+    border-left: 4px solid var(--accent);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .limitation-box {
+    background: var(--surface);
+    border-left: 4px solid var(--danger);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .overview-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+  .overview-card h4 { color: var(--accent2); margin-top: 0; }
+  .diagram {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    white-space: pre;
+    color: var(--muted);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.88rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.55rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: var(--surface2); color: var(--accent2); font-weight: 600; }
+  tr:nth-child(even) { background: var(--surface); }
+  tr:nth-child(odd) { background: rgba(26,35,50,0.5); }
+  .cite { font-size: 0.82rem; color: var(--muted); }
+  .ref-list { font-size: 0.85rem; }
+  .ref-list li { margin-bottom: 0.6rem; }
+  .conclusion-box {
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+    border: 1px solid var(--accent2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--surface2);
+    color: var(--accent);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    margin-right: 0.3rem;
+    font-family: sans-serif;
+  }
+  ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  @media print {
+    body { background: white; color: black; }
+    .overview-card, .thesis-box, table { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>Human Psychology Under Existential Threat</h1>
+  <p class="subtitle">Research Report for <em>Apocalypse Story</em> — Question 2: How do humans react to existential danger, widespread panic, invasion, and flight?</p>
+  <p class="cite">Compiled July 2026. Self-contained document; no prior context required.</p>
+</header>
+
+<!-- ========== INTRODUCTION ========== -->
+<section id="introduction">
+  <h2>1. Introduction and Aims</h2>
+  <p>This document investigates how humans behave when facing existential danger — threats that could destroy communities, nations, or ways of life. It is written to inform a fictional post-apocalyptic narrative premised on a fast-moving epidemic with &gt;50% mortality, but its findings apply broadly to any scenario involving rapid population collapse, invasion, or mass casualty events in the modern United States and comparable developed nations.</p>
+
+  <div class="thesis-box">
+    <strong>Central thesis:</strong> Popular culture and much emergency planning assume that existential threats produce mass panic, antisocial violence, and chaotic flight. Six decades of systematic disaster research, supported by hundreds of field studies, finds the opposite is far more common: orderly cooperation, social solidarity, attachment-driven behavior, and rational (if imperfect) decision-making. True mass panic — irrational, selfish, antisocial flight — is rare. What <em>does</em> occur at scale is <strong>affiliative flight</strong> (moving toward family and familiar places), <strong>prosocial mutual aid</strong>, <strong>institutional failure</strong> (which creates suffering mistaken for panic), and in slow-onset invisible threats like epidemics, <strong>cognitive inertia</strong> followed by <strong>panic buying</strong> and <strong>polarized compliance</strong>.
+  </div>
+
+  <p>The research question, as assigned:</p>
+  <blockquote style="border-left:3px solid var(--border);padding-left:1rem;margin:1rem 0;color:var(--muted);font-style:italic;">
+    How do humans react in the face of existential danger? What would be the likely immediate results of widespread panic? When has that happened in recent memory (last 250 years)? How did Japanese citizens react after two of their cities were nuked? How do cities react that know they are likely to be invaded? How often do people flee, and how?
+  </blockquote>
+
+  <p>This report addresses those questions through five lenses: (1) theoretical psychology and sociology, (2) the history of disaster-behavior research as a field, (3) a catalogue of 42 historical case studies from 1755–2020, (4) patterns of flight and evacuation, and (5) implications for a rapid epidemic scenario.</p>
+</section>
+
+<!-- ========== PRECURSOR QUESTIONS ========== -->
+<section id="precursor-questions">
+  <h2>2. Precursor and Subset Questions</h2>
+  <p>Before answering the main question, several dependent and independent sub-questions must be resolved. Each shapes what "panic" means and what behavior is predictable.</p>
+
+  <div class="overview-grid">
+    <div class="overview-card">
+      <h4>Definitional</h4>
+      <p>What counts as "panic"? Media usage conflates stampedes, looting, anxiety, flight, and antisocial behavior. Sociologists define panic narrowly as "excessive alarm leading to extravagant efforts to secure safety" (Oxford English Dictionary, cited in Clarke &amp; Chess, 2008; Quarantelli, 2001).</p>
+    </div>
+    <div class="overview-card">
+      <h4>Temporal</h4>
+      <p>Is the threat sudden (bomb, invasion) or invisible/delayed (epidemic, radiation)? Sudden threats produce immediate flight or freezing; invisible threats produce denial, then compliance fatigue, then selective panic behaviors like hoarding (Crosby, 2020; Taylor, 2019).</p>
+    </div>
+    <div class="overview-card">
+      <h4>Spatial</h4>
+      <p>Is the threat localized (one city) or diffuse (nationwide epidemic)? Localized threats produce mass evacuation corridors; diffuse threats produce shelter-in-place, family clustering, and urban-to-rural migration (Huang et al., 2016; Taylor, 2019).</p>
+    </div>
+    <div class="overview-card">
+      <h4>Informational</h4>
+      <p>Do authorities provide clear, trusted information? Mistrust amplifies rumor-driven flight (Chernobyl, Kiev 1986) and reduces evacuation compliance. Trust enables orderly movement (hurricane evacuation meta-analyses; IAEA, 2005).</p>
+    </div>
+    <div class="overview-card">
+      <h4>Social</h4>
+      <p>Are attachment figures (family, neighbors) present? Mawson's social attachment model predicts that people seek familiar persons before fleeing, often delaying evacuation (Mawson, 2005; Drabek &amp; Boggs, 1968).</p>
+    </div>
+    <div class="overview-card">
+      <h4>Institutional</h4>
+      <p>Are evacuation routes, transport, and destinations organized? Spontaneous flight without infrastructure produces the deadliest outcomes (France 1940, Partition 1947), not psychological panic per se (Paxton, 2007; Dombrowski Risser, 2012).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== LIMITATIONS (THEORETICAL FIRST) ========== -->
+<section id="limitations">
+  <h2>3. Limitations of This Research</h2>
+
+  <h3>3.1 Theoretical Limitations</h3>
+  <div class="limitation-box">
+    <p><strong>Human psychology is inherently chaotic at the individual level.</strong> Aggregate patterns are statistically robust; individual behavior is not fully predictable. Terror Management Theory (TMT) demonstrates that mortality reminders produce different defenses in different people — worldview defense, denial, affiliation, or risk-taking — depending on whether death thoughts are conscious or unconscious (Pyszczynski, Greenberg &amp; Solomon, 1999; Pyszczynski et al., 2015).</p>
+    <p><strong>Cultural context is not universal.</strong> Most systematic disaster-behavior research originates in Western, industrialized societies. Findings from Hiroshima, Chernobyl, and the Partition of India suggest that authoritarian information control, communal violence, and pre-existing social fractures produce behaviors not captured by the "prosocial default" model (Lifton, 1967; IAEA, 2005; Butalia, 2000).</p>
+    <p><strong>"Panic" is a folk concept, not a scientific one.</strong> Quarantelli (2001) argued that the persistence of panic in popular imagination serves a social function — it highlights how <em>well</em> people normally behave. Measuring panic requires operational definitions that most historical accounts lack.</p>
+    <p><strong>Novel threats lack historical precedent.</strong> A blood-borne epidemic with 2–3 day dormancy and &gt;50% mortality has no exact parallel. The closest analogues (1918 influenza, COVID-19) had lower mortality and different transmission dynamics, producing different behavioral profiles (Crosby, 2020; Taylor, 2019).</p>
+  </div>
+
+  <h3>3.2 Methodological and Literature Limitations</h3>
+  <p>Disaster sociology relies heavily on post-hoc interviews and surveys, which are subject to recall bias and survivorship bias (DRC, 2021). Laboratory studies of crowd behavior cannot replicate the stakes of real existential threat (Drury &amp; Reicher, 2000). Historical accounts before ~1950 rarely include systematic behavioral data — they are journalistic, military, or administrative (Paxton, 2007). Hurricane evacuation meta-analyses (Huang, Lindell &amp; Prater, 2016; Subramanian et al., 2020) cover a specific hazard type and may not generalize to invasion or epidemic. Panic buying studies (Murphy et al., 2021; Yuen et al., 2020) measure self-reported purchasing, not physiological panic.</p>
+
+  <h3>3.3 Strength of Evidence by Sub-field</h3>
+  <table>
+    <tr><th>Field</th><th>Maturity</th><th>Evidence Strength</th><th>Key Limitation</th></tr>
+    <tr><td>Disaster sociology (panic myth)</td><td>Mature; 60+ years, 700+ field deployments</td><td><strong>Strong</strong> — replicated across cultures and hazard types</td><td>Focused on sudden, visible disasters</td></tr>
+    <tr><td>Crowd psychology (ESIM)</td><td>Mature; 30+ years</td><td><strong>Strong</strong> — experimental and field evidence</td><td>Primarily evacuation/crush contexts</td></tr>
+    <tr><td>Terror Management Theory</td><td>Mature; 30+ years, meta-analyses</td><td><strong>Moderate-Strong</strong> — lab studies robust; field application limited</td><td>Lab mortality salience ≠ real mass death</td></tr>
+    <tr><td>Social attachment model</td><td>Moderate; 20 years</td><td><strong>Moderate</strong> — supported by Katrina, Haiyan; criticized as under-specified</td><td>Limited experimental data</td></tr>
+    <tr><td>Pandemic psychology</td><td>Emerging rapidly post-COVID</td><td><strong>Moderate</strong> — COVID and 1918 data growing</td><td>COVID mortality too low to model apocalypse scenario</td></tr>
+    <tr><td>Invasion/refugee flight</td><td>Historiographic</td><td><strong>Moderate</strong> — rich narrative, thin quantitative behavioral data</td><td>Dominated by military/diplomatic history</td></tr>
+  </table>
+</section>
+
+<!-- ========== HISTORY OF THE FIELD ========== -->
+<section id="history">
+  <h2>4. History of the Fields That Answer This Question</h2>
+
+  <h3>4.1 From Le Bon to Disaster Research (1895–1963)</h3>
+  <p>The modern study of crowd behavior begins with Gustave Le Bon's <em>The Crowd: A Study of the Popular Mind</em> (1895), which portrayed crowds as irrational, suggestible, and prone to violence — a view that dominated emergency planning for half a century (Reicher, 2001; Drury &amp; Reicher, 2000). Le Bon's framework directly influenced military planners, police crowd-control doctrine, and civil defense thinking through the Cold War (Drury et al., 2019).</p>
+  <p>Charles Fritz at the National Opinion Research Center (NORC) conducted the first systematic field studies of disaster behavior in the early 1950s, examining tornado and explosion responses. Fritz found that survivors typically showed concern for others, improvised rescue, and emotional restraint — findings that contradicted Le Bon (Fritz, 1961; Quarantelli, 1987). This NORC tradition directly birthed the Disaster Research Center (DRC).</p>
+
+  <h3>4.2 The Disaster Research Center Era (1963–present)</h3>
+  <p>Founded in 1963 at Ohio State University by E.L. Quarantelli, Russell Dynes, and Eugene Haas, the DRC was the world's first center devoted to the social scientific study of disaster (DRC, 2021; Wachtendorf et al., 2021). Its original mandate — understanding civilian behavior for civil defense planning — was quickly superseded by a broader mission: replacing rumor with rigorous fieldwork. The DRC has conducted approximately 700 quick-response field deployments worldwide. Its core finding, replicated across decades: <strong>panic is a myth; prosocial behavior is the norm</strong> (Quarantelli, 2001; Tierney, Bevc &amp; Kuligowski, 2006).</p>
+  <p>Parallel work at the University of Colorado's Natural Hazards Center (founded 1976 by Gilbert White) and by Harry Estill Moore on hurricane evacuation (Moore et al., 1964; Baker, 1991) built the quantitative evacuation literature. The Protective Action Decision Model (PADM; Lindell &amp; Perry, 1992, 2004) formalized how individuals process risk information and decide to evacuate or shelter.</p>
+
+  <h3>4.3 The Social Identity Revolution (1980s–present)</h3>
+  <p>Stephen Reicher and John Drury overturned Le Bon's legacy through the Elaborated Social Identity Model (ESIM), demonstrating that crowds in emergencies develop shared social identities that produce cooperation, not selfishness (Reicher, 1996; Drury &amp; Reicher, 2000; Drury, Cocking &amp; Reicher, 2009). The 2005 London bombings became a landmark case: survivors reported mutual aid, calm, and coordinated evacuation — directly contradicting "mass panic" predictions (Drury, Cocking &amp; Reicher, 2009; Drury et al., 2019). This paradigm now informs official crowd safety guidance at major events worldwide (Drury et al., 2019).</p>
+
+  <h3>4.4 Terror Management Theory (1986–present)</h3>
+  <p>Building on Ernest Becker's <em>The Denial of Death</em> (1973), Greenberg, Solomon, and Pyszczynski developed Terror Management Theory (TMT) at the University of Arizona, proposing that awareness of mortality drives worldview defense and self-esteem striving (Greenberg, Pyszczynski &amp; Solomon, 1986; Pyszczynski et al., 2015). TMT's dual-process model distinguishes <em>proximal</em> defenses (denial, suppression — active when death is consciously salient) from <em>distal</em> defenses (worldview affirmation, self-esteem — active when death is unconsciously accessible) (Pyszczynski et al., 1999). Over 30 years and hundreds of studies, TMT explains why existential threats polarize societies, increase authoritarianism, and simultaneously motivate both risk-taking and retreat (Burke, Martens &amp; Faucher, 2010).</p>
+
+  <h3>4.5 Pandemic Psychology (1918–present)</h3>
+  <p>Behavioral research on pandemics was sparse before COVID-19. Crosby's <em>America's Forgotten Pandemic</em> (2003/2020) and Barry's <em>The Great Influenza</em> (2004) documented 1918's cognitive inertia — the failure to act despite ample warning (Crosby, 2020). Steven Taylor's <em>The Psychology of Pandemics</em> (2019), published months before COVID-19, became the foundational text. Post-2020 research on panic buying (Murphy et al., 2021; Yuen et al., 2020), mask resistance (Dolan, 2020; Taylor &amp; Asmundson, 2021), and epidemic fatigue (Petherick et al., 2021) rapidly expanded the field.</p>
+
+  <div class="diagram">TIMELINE: DISASTER BEHAVIOR RESEARCH
+─────────────────────────────────────────────────────────────────────
+1895  Le Bon — "crowds are irrational" (dominant paradigm)
+1950s Fritz/NORC — first systematic field studies; prosocial findings
+1963  Disaster Research Center founded (Quarantelli, Dynes, Haas)
+1973  Becker — <em>Denial of Death</em>; existential psychology
+1986  Terror Management Theory (Greenberg, Solomon, Pyszczynski)
+1990s ESIM / Social Identity crowd psychology (Reicher, Drury)
+2001  Quarantelli — "The Sociology of Panic" (definitive myth-debunking)
+2005  London bombings — collective resilience documented (Drury et al.)
+2005  Mawson — Social Attachment Model
+2019  Taylor — <em>Psychology of Pandemics</em>
+2020  COVID-19 — panic buying, urban exodus, compliance polarization
+2021  DRC 60th anniversary; ~700 field deployments total
+─────────────────────────────────────────────────────────────────────</div>
+</section>
+
+<!-- ========== THEORETICAL FRAMEWORKS ========== -->
+<section id="frameworks">
+  <h2>5. Theoretical Frameworks</h2>
+
+  <h3>5.1 The Panic Myth (Disaster Sociology)</h3>
+  <p>Quarantelli (2001) surveyed decades of DRC fieldwork and concluded that "panic" in the OED sense — excessive alarm producing irrational, antisocial flight — is "extremely rare" in civilian disasters and "extremely rare" even among soldiers in battle. The term is applied so broadly (to looting, anxiety, stampedes, riots, retreats, voting behavior, and orgiastic feasts) that it has lost analytical utility (Quarantelli, 2001; Clarke &amp; Chess, 2008). Clarke and Chess (2008), reviewing the literature for safety professionals, confirmed: "typical human behavior in disaster and emergency scenarios is prosocial, based on social relations and norms."</p>
+  <p>What <em>looks</em> like panic is usually: (a) rational flight from real danger, (b) crowd crush caused by architectural bottlenecks, not psychology (Helbing &amp; Mukerji, 2012; Still, 2014), or (c) media amplification of isolated antisocial acts (Tierney, Bevc &amp; Kuligowski, 2006).</p>
+
+  <h3>5.2 Social Identity and Collective Resilience (ESIM)</h3>
+  <p>When emergencies create a shared fate, strangers develop common social identities and behave cooperatively — helping injured, sharing information, coordinating evacuation (Drury, Cocking &amp; Reicher, 2009; Ntontis et al., 2018). The 2005 London bombings: 45% of survivors reported helping strangers; only 32% reported receiving help, suggesting more giving than receiving (Drury, Cocking &amp; Reicher, 2009). Typhoon Haiyan (Philippines, 2013) confirmed solidarity even among non-familiar survivors (Tokyay &amp; Ruiu, 2016).</p>
+
+  <h3>5.3 Social Attachment Model (Mawson)</h3>
+  <p>Anthony Mawson (2005, 2017) proposed that the primary disaster response is not fight-or-flight but <strong>affiliation</strong> — seeking familiar persons and places. Separation from attachment figures is a greater stressor than physical danger. This explains why people delay evacuation to find family, why evacuees move toward relatives rather than official shelters, and why keeping families together in evacuation plans reduces psychological harm (Mawson, 2005; O'Leary &amp; Mawson, 2015). Hurricane Katrina (2005) validated this: residents with strong local attachments were less likely to evacuate; forced evacuees insisted on family-unit movement (O'Leary &amp; Mawson, 2015).</p>
+
+  <h3>5.4 Terror Management Theory</h3>
+  <p>Under existential threat, TMT predicts: (1) increased worldview defense and outgroup hostility, (2) increased self-esteem striving and risk-taking in some groups, (3) denial and suppression when death is consciously salient, (4) authoritarianism and compliance when leaders frame responses as moral duty (Pyszczynski et al., 2015; Greenberg et al., 1990). The 1918 pandemic's framing as wartime duty ("dangerous slacker" for mask refusal) and COVID-19's polarization illustrate TMT's distal defenses operating at population scale (Dolan, 2020; Taylor, 2019).</p>
+
+  <h3>5.5 Bounded Rationality in Flight</h3>
+  <p>Recent evacuation modeling acknowledges that "irrationality" in escape behavior usually means <em>suboptimal</em> rather than random — people make reasonable decisions with incomplete information (Ronchi &amp; Nilsson, 2019). Flight is often socially rational: moving toward family, following neighbors, or obeying officials (Baker, 1991; Huang et al., 2016).</p>
+
+  <div class="diagram">RESPONSE TYPOLOGY (adapted from Mawson, 2005)
+                        
+         Attachment figures PRESENT          Attachment figures ABSENT
+         ─────────────────────────          ──────────────────────────
+High     │ Stay + mutual aid              │ Flight toward familiar
+danger   │ (Katrina residents;            │ persons/places
+         │  London bombings)               │ (France 1940; Chernobyl
+         │                                │  mothers → Moscow)
+         ─────────────────────────────────────────────────────────
+Low      │ Normal activity;               │ Delayed response;
+danger   │ cognitive inertia                │ information-seeking
+         │ (1918 pre-peak; pre-             │ (1918 unaffected cities;
+         │  Hiroshima calm)                 │  pre-invasion Paris cafes)
+         ─────────────────────────────────────────────────────────</div>
+</section>
+
+<!-- ========== IMMEDIATE RESULTS ========== -->
+<section id="immediate-results">
+  <h2>6. Immediate Results of Widespread Existential Threat</h2>
+  <p>Based on the synthesis of frameworks and case studies, the immediate behavioral results of large-scale existential threat follow a predictable sequence — though timing and intensity vary by threat type.</p>
+
+  <h3>6.1 Phase 1: Cognitive Inertia and Denial (hours to weeks)</h3>
+  <p>When threat is invisible or contradicts existing mental models, populations fail to act despite information. Crosby (2020) documented that American cities in 1918 received daily pandemic coverage for weeks before showing any behavioral change. Seattle's mayor predicted the flu would "be ended within five days" even as cases mounted (Bristow, 2012). Japanese civilians in Hiroshima noted B-29s flying overhead without bombing and speculated the city was spared for occupation — until August 6 (Hiroshima Peace Memorial Museum; Hersey, 1946).</p>
+
+  <h3>6.2 Phase 2: Affiliative Clustering (hours to days)</h3>
+  <p>Once threat is recognized, people seek family and familiar networks before taking protective action. Hersey (1946) described Hiroshima survivors assisting "only their relatives or immediate neighbours, for they could not comprehend or tolerate a wider circle of misery." After the London bombings, survivors' first action was contacting loved ones (Drury, Cocking &amp; Reicher, 2009).</p>
+
+  <h3>6.3 Phase 3: Flight, Evacuation, or Shelter-in-Place (days to weeks)</h3>
+  <p>When danger is spatially concentrated and imminent, mass movement occurs. Eight million French civilians fled the 1940 German invasion; 16.5 million Soviets evacuated east during Operation Barbarossa (Paxton, 2007; Kucherenko, 2011). When danger is diffuse (epidemic), movement is selective: urban-to-rural migration by those with means (COVID-19, 2020), or shelter-in-place with panic buying (Murphy et al., 2021).</p>
+
+  <h3>6.4 Phase 4: Emotional Numbing and Worldview Defense (days to years)</h3>
+  <p>Lifton (1967) documented "psychic numbing" among Hiroshima survivors — an inability to remain open to emotional experience of mass death. TMT predicts increased authoritarianism, scapegoating, and meaning-making narratives (Pyszczynski et al., 2015). Chernobyl evacuees experienced decades of anxiety, depression, and PTSD — exceeding radiation health effects (Bromet et al., 2011).</p>
+
+  <h3>6.5 What "Panic" Actually Looks Like When It Occurs</h3>
+  <p>Genuine panic-like behaviors in the historical record are specific, not general:</p>
+  <ul>
+    <li><strong>Panic buying / hoarding:</strong> COVID-19 toilet paper and food stockpiling (Murphy et al., 2021; Taylor, 2019); 1918 mask shortages (Dolan, 2020). Driven by perceived scarcity, not physical danger.</li>
+    <li><strong>Crowd crush:</strong> Architectural failures at bottlenecks — Victoria Hall 1883 (183 dead), Bethnal Green 1943 (173 dead), Hillsborough 1989 (97 dead). Victims were orderly; exits were not (Clark, 2020; Still, 2014).</li>
+    <li><strong>Rumor-driven flight:</strong> Kiev mothers pushing children through train windows after Chernobyl, without official guidance (IAEA, 2005).</li>
+    <li><strong>Communal violence during flight:</strong> Partition of India 1947 — 14–18 million displaced, est. 200,000–2 million killed in communal violence during movement (Butalia, 2000; Pandey, 2001). This is political/sectarian, not psychological panic.</li>
+    <li><strong>Compliance resistance:</strong> San Francisco Anti-Mask League 1919; COVID-19 anti-lockdown protests (Dolan, 2020; Taylor &amp; Asmundson, 2021). Driven by worldview defense (TMT), not fearlessness.</li>
+  </ul>
+</section>
+
+<!-- ========== JAPAN NUCLEAR ========== -->
+<section id="japan">
+  <h2>7. Case Study: Japan After Hiroshima and Nagasaki (1945)</h2>
+  <p>The atomic bombings represent the most concentrated existential threat in modern history — sudden, total, and unprecedented. Behavior did not match "mass panic" predictions.</p>
+
+  <h3>7.1 Immediate Response (hours)</h3>
+  <p>Survivors experienced shock, confusion, and disorientation — not running screaming. Hersey (1946) described Mr. Tanimoto running <em>into</em> the city to find his family while hundreds fled outward. The "Ghost March" — throngs of burned, silent survivors walking out of Hiroshima — was orderly, not chaotic (Asahi Shimbun hibakusha testimony, 2008). Lifton (1967) documented initial fury giving way within minutes to emotional shutdown ("people simply ceased to feel").</p>
+  <p>Medical infrastructure was destroyed (90% of Hiroshima's doctors killed), so organized response was impossible — not refused (Ishikawa &amp; Swain, 1981; Wikipedia, 2024). Survivors assisted only immediate family and neighbors — a bounded prosocial radius, not antisocial indifference (Hersey, 1946).</p>
+
+  <h3>7.2 Pre-Bombing Evacuation</h3>
+  <p>Japan's government had systematically evacuated children and reduced Hiroshima's population from 381,000 to ~340,000 before the bombing via government orders (Hiroshima City; Wikipedia, 2024). U.S. leaflets and radio broadcasts urged evacuation of major cities after Hiroshima; many who remained did so from habit, work obligation, or fatalism (OWI broadcasts, 1945).</p>
+
+  <h3>7.3 Medium-Term (weeks to months)</h3>
+  <p>Cremation of bodies became a community task. Survivors experienced "genbaku mushi" (atomic-bomb numbness syndrome) — fatigue, loss of will (Yamada &amp; Izumi, 2019). The surrender announcement (August 15) produced complex reactions: relief, shame, and continued numbing (Lifton, 1967). No mass riots, no breakdown of social order in unbombed cities.</p>
+
+  <h3>7.4 Long-Term Psychological Legacy</h3>
+  <p>Hibakusha faced decades of discrimination, health anxiety, and PTSD. The psychological toll exceeded direct radiation mortality in public health significance (Yamada &amp; Izumi, 2019). This illustrates that existential threats produce <em>chronic</em> psychological injury more reliably than <em>acute</em> panic.</p>
+</section>
+
+<!-- ========== CITIES FACING INVASION ========== -->
+<section id="invasion">
+  <h2>8. Cities Facing Invasion: Patterns of Civilian Response</h2>
+  <p>When cities face imminent military conquest, civilian behavior follows recurring patterns across five centuries of increasingly connected transport.</p>
+
+  <h3>8.1 Pre-Invasion: Denial, Then Accelerating Departure</h3>
+  <p>Paris in May–June 1940: cafes remained full despite approaching Germans until factory bombings on June 3 killed hundreds (Liebling, 1940; Paxton, 2007). A May 19 order <em>forbidding</em> civilian evacuation was ignored as reality became undeniable. By July 1940, ~8 million French refugees clogged roads (Paxton, 2007; Dombrowski Risser, 2012).</p>
+
+  <h3>8.2 Government-Organized vs. Spontaneous Flight</h3>
+  <p>Organized evacuations work when transport and destinations are pre-arranged: British child evacuation (1.5 million children, September 1939; IWM, 2024), Soviet industrial evacuation (16.5 million, 1941–42; Kucherenko, 2011), Dunkirk military evacuation (338,000 troops, May–June 1940; BBC, 2024). Spontaneous flight without infrastructure produces the worst outcomes: 20,000+ civilian deaths on French roads in May–June 1940 (BBC, 2017), Partition of India communal massacres (Butalia, 2000).</p>
+
+  <h3>8.3 Who Flees and Who Stays</h3>
+  <p>Evacuation correlates with: official warnings (2× likelihood; Baker, 1991), perceived personal risk (Huang et al., 2016), mobile home residence, presence of children, and access to transport (Lindell, Prater &amp; Wu, 2016). Those who stay: elderly, those with strong place attachment, those without transport or destination, and essential workers (Mawson, 2005; O'Leary &amp; Mawson, 2015). After Paris was declared an "open city," many who had fled unnecessarily tried to return but found destroyed infrastructure (Paxton, 2007).</p>
+
+  <h3>8.4 Transport Revolution Effects (1500–2000)</h3>
+  <p>Pre-industrial evacuation was walking-speed and local (Greek <em>ekcheō</em> — population flight before siege; Fantuzzi, 1999). Railways (WWI Belgian refugees: 1 million to Holland; Paxton, 2007), motor vehicles (France 1940), and mass transit (Soviet evacuation trains) enabled continental-scale displacement. Modern highways enable hurricane evacuation of millions but create congestion bottlenecks (Baker, 1991). Internet-enabled remote work enabled COVID-19 urban exodus without physical evacuation corridors (Ramani &amp; Bloom, 2021).</p>
+</section>
+
+<!-- ========== FLIGHT AND EVACUATION ========== -->
+<section id="flight">
+  <h2>9. Flight and Evacuation: How Often, How, and How Far</h2>
+
+  <h3>9.1 Hurricane Evacuation — Best Quantified Data</h3>
+  <p>Meta-analyses of 38+ hurricane evacuation studies (Huang, Lindell &amp; Prater, 2016; Subramanian et al., 2020) establish the strongest quantitative evidence base for flight behavior:</p>
+  <ul>
+    <li>Official evacuation orders more than double compliance (Baker, 1991).</li>
+    <li>When officials are aggressive and effective, &gt;90% of high-risk coastal residents evacuate (Baker, 1991).</li>
+    <li>Environmental cues (darkening skies, wind) and social cues (neighbors leaving) are stronger predictors than demographics (Huang et al., 2016).</li>
+    <li>People who evacuate unnecessarily once will still evacuate in future threats (Baker, 1991) — "better safe than sorry" dominates, not panic.</li>
+    <li>Barriers: pet ownership, property protection fears, income constraints, traffic anxiety (Lindell, Prater &amp; Wu, 2016).</li>
+  </ul>
+
+  <h3>9.2 Epidemic-Related Movement</h3>
+  <p>Epidemics produce different movement patterns than sudden disasters. 1918: closures and social avoidance, not mass exodus (Tomes, 2010). COVID-19: selective urban-to-suburban/rural migration by remote workers (Ramani &amp; Bloom, 2021); panic buying in 75%+ of surveyed populations but affecting a minority of product categories (Murphy et al., 2021). For a high-mortality blood-borne epidemic, expect: initial shelter-in-place, rapid panic buying of food/medicine, then family-cluster migration toward perceived safe zones once infrastructure fails.</p>
+
+  <h3>9.3 Distance and Duration</h3>
+  <p>Refugee movements in war: typically 50–500 km initially, then further if front stabilizes (France 1940: Paris to Loire Valley to southern France; USSR 1941: western republics to Central Asia; Kucherenko, 2011). Hurricane evacuations: typically 100–300 miles inland (Baker, 1991). Chernobyl: permanent relocation, 30-km exclusion zone (IAEA, 2005). Fall of Saigon: helicopter evacuation &lt;50 km to ships (Todd, 1990).</p>
+</section>
+
+<!-- ========== CASE STUDIES TABLE ========== -->
+<section id="case-studies">
+  <h2>10. Historical Case Studies (42 Examples, 1755–2020)</h2>
+  <p>The following table catalogs behavioral responses to existential threats across 265 years. "Panic" column uses the narrow OED/Quarantelli definition. Most entries show prosocial or affiliative behavior, not panic.</p>
+
+  <table>
+    <tr>
+      <th>#</th><th>Event</th><th>Year</th><th>Threat Type</th><th>Primary Behavior</th><th>Panic?</th><th>Key Source</th>
+    </tr>
+    <tr><td>1</td><td>Lisbon earthquake</td><td>1755</td><td>Natural disaster</td><td>Flight to open ground; religious processions; looting by officials</td><td>Partial</td><td>Kendrick (2015)</td></tr>
+    <tr><td>2</td><td>Victoria Hall crush, Sunderland</td><td>1883</td><td>Crowd crush</td><td>Children surged for free toys; exit bolted — architectural failure</td><td>No</td><td>BMJ (1883); Wikipedia</td></tr>
+    <tr><td>3</td><td>Brooklyn Bridge stampede</td><td>1883</td><td>Crowd crush</td><td>Bottleneck on bridge; 12 dead</td><td>No</td><td>Fruin (1993)</td></tr>
+    <tr><td>4</td><td>Khodynka tragedy, Moscow</td><td>1896</td><td>Crowd crush</td><td>Stampede for coronation gifts; 1,389 dead</td><td>No</td><td>Wikipedia; Senin (2012)</td></tr>
+    <tr><td>5</td><td>San Francisco earthquake</td><td>1906</td><td>Natural disaster</td><td>Orderly camp formation; mutual aid; army shot looters</td><td>No</td><td>Fradley (2009); DRC studies</td></tr>
+    <tr><td>6</td><td>Halley's Comet panic</td><td>1910</td><td>Perceived cosmic threat</td><td>Comet gas-mask sales; anti-comet pills; mass anxiety but no flight</td><td>Partial</td><td>Bartholomew (1998)</td></tr>
+    <tr><td>7</td><td>Liège airship bombing</td><td>1914</td><td>Aerial bombardment</td><td>First city bombing; civilian fear but organized Belgian resistance</td><td>No</td><td>Paxton (2007)</td></tr>
+    <tr><td>8</td><td>Belgian refugee exodus</td><td>1914</td><td>Invasion</td><td>~1 million fled to Holland; 250,000 to England</td><td>Flight, not panic</td><td>Paxton (2007)</td></tr>
+    <tr><td>9</td><td>WWI French civilian flight</td><td>1914</td><td>Invasion</td><td>Mass exodus from northern France; joined by local inhabitants</td><td>Flight, not panic</td><td>Paxton (2007)</td></tr>
+    <tr><td>10</td><td>Guernica bombing</td><td>1937</td><td>Aerial bombardment</td><td>Market-day bombing; strafing of fleeing civilians</td><td>Flight from real threat</td><td>Paxton (2007)</td></tr>
+    <tr><td>11</td><td>Warsaw carpet bombing</td><td>1939</td><td>Aerial bombardment</td><td>City destruction; civilian sheltering and eventual surrender</td><td>No</td><td>Paxton (2007)</td></tr>
+    <tr><td>12</td><td>Rotterdam bombing</td><td>1940</td><td>Aerial bombardment</td><td>800+ dead; triggered evacuations in other Dutch cities</td><td>Flight, not panic</td><td>Paxton (2007)</td></tr>
+    <tr><td>13</td><td>British child evacuation</td><td>1939</td><td>Anticipated bombing</td><td>1.5 million children evacuated in 3 days; orderly</td><td>No</td><td>IWM (2024)</td></tr>
+    <tr><td>14</td><td>Evacuee return ("Phoney War")</td><td>1940</td><td>Perceived false alarm</td><td>~50% of evacuees returned home when bombing didn't occur</td><td>No</td><td>IWM (2024)</td></tr>
+    <tr><td>15</td><td>Dunkirk evacuation</td><td>1940</td><td>Military encirclement</td><td>338,000 troops evacuated; 850 civilian boats; civilians also fled south</td><td>No</td><td>BBC (2024); Britannica</td></tr>
+    <tr><td>16</td><td>France 1940 exodus</td><td>1940</td><td>Invasion</td><td>~8 million refugees on roads; 20,000+ civilian deaths</td><td>Chaotic flight, not panic</td><td>Paxton (2007); Dombrowski Risser (2012)</td></tr>
+    <tr><td>17</td><td>Paris evacuation</td><td>1940</td><td>Invasion</td><td>Government ordered June 10; millions left spontaneously</td><td>Flight, not panic</td><td>Paxton (2007)</td></tr>
+    <tr><td>18</td><td>Operation Barbarossa evacuation</td><td>1941</td><td>Invasion</td><td>16.5 million Soviet civilians evacuated east</td><td>Organized flight</td><td>Kucherenko (2011)</td></tr>
+    <tr><td>19</td><td>Leningrad evacuation</td><td>1941</td><td>Siege</td><td>Children evacuated by train; many bombed en route</td><td>Organized flight</td><td>Kucherenko (2011)</td></tr>
+    <tr><td>20</td><td>Chongqing tunnel massacre</td><td>1941</td><td>Bombing</td><td>Thousands locked in shelter; 4,000+ suffocated</td><td>Institutional failure</td><td>Wikipedia</td></tr>
+    <tr><td>21</td><td>Bethnal Green shelter crush</td><td>1943</td><td>Air-raid</td><td>173 dead; shelter-seeking, not panic (rocket misidentification)</td><td>No</td><td>Clark (2020); Clark &amp; Stott (2021)</td></tr>
+    <tr><td>22</td><td>Dresden firebombing</td><td>1945</td><td>Aerial bombardment</td><td>25,000+ dead; survivors fled to riverbanks; orderly rescue efforts</td><td>Flight from real threat</td><td>Neitzel (2003)</td></tr>
+    <tr><td>23</td><td>Hiroshima atomic bombing</td><td>1945</td><td>Nuclear weapon</td><td>Shock, numbness, "Ghost March"; bounded prosocial aid</td><td>No mass panic</td><td>Hersey (1946); Lifton (1967)</td></tr>
+    <tr><td>24</td><td>Nagasaki atomic bombing</td><td>1945</td><td>Nuclear weapon</td><td>Similar to Hiroshima; medical students organized aid</td><td>No mass panic</td><td>Yamada &amp; Izumi (2019)</td></tr>
+    <tr><td>25</td><td>Partition of India</td><td>1947</td><td>Communal violence</td><td>14–18 million displaced; mass communal killing during flight</td><td>Political violence, not panic</td><td>Butalia (2000)</td></tr>
+    <tr><td>26</td><td>Cuban Missile Crisis</td><td>1962</td><td>Nuclear threat</td><td>Fallout shelter construction; supply hoarding; no mass evacuation</td><td>Anxiety, not panic</td><td>Blight &amp; Welch (1998)</td></tr>
+    <tr><td>27</td><td>Hurricane Carla evacuation</td><td>1961</td><td>Natural disaster</td><td>First major hurricane survey; 75% evacuation in high-risk zones</td><td>No</td><td>Moore et al. (1964)</td></tr>
+    <tr><td>28</td><td>Ibrox Park stadium crush</td><td>1971</td><td>Crowd crush</td><td>66 dead; exit/entry conflict, not panic</td><td>No</td><td>Fruin (1993)</td></tr>
+    <tr><td>29</td><td>Three Mile Island</td><td>1979</td><td>Nuclear accident</td><td>140,000 voluntarily evacuated; orderly but anxious</td><td>Partial anxiety</td><td>Flynn (1981)</td></tr>
+    <tr><td>30</td><td>Heysel stadium disaster</td><td>1985</td><td>Crowd crush</td><td>38 dead; riot precipitated flight into closed shutters</td><td>No</td><td>Fruin (1993)</td></tr>
+    <tr><td>31</td><td>Hillsborough disaster</td><td>1989</td><td>Crowd crush</td><td>97 dead; police failure, penned terraces — not panic</td><td>No</td><td>Taylor (1990)</td></tr>
+    <tr><td>32</td><td>Mecca tunnel tragedy</td><td>1990</td><td>Crowd crush</td><td>1,426 dead; exit blockage during Hajj</td><td>No</td><td>Helbing &amp; Mukerji (2012)</td></tr>
+    <tr><td>33</td><td>Fall of Saigon</td><td>1975</td><td>Military collapse</td><td>Helicopter evacuation; orderly military operation</td><td>No</td><td>Todd (1990)</td></tr>
+    <tr><td>34</td><td>Chernobyl Pripyat evacuation</td><td>1986</td><td>Nuclear accident</td><td>Told "3 days"; left essentials; orderly bus evacuation</td><td>No mass panic</td><td>IAEA (2005); Bromet et al. (2011)</td></tr>
+    <tr><td>35</td><td>Chernobyl Kiev exodus</td><td>1986</td><td>Radiation fear</td><td>Mothers pushed children through train windows; rumor-driven</td><td>Partial</td><td>IAEA (2005)</td></tr>
+    <tr><td>36</td><td>Spanish flu — cognitive inertia</td><td>1918</td><td>Pandemic</td><td>Weeks of no action despite daily news coverage</td><td>Inertia, not panic</td><td>Crosby (2020)</td></tr>
+    <tr><td>37</td><td>Spanish flu — Seattle</td><td>1918</td><td>Pandemic</td><td>Mixed compliance; wartime framing; no mass flight</td><td>No</td><td>Bristow (2012)</td></tr>
+    <tr><td>38</td><td>Anti-Mask League, San Francisco</td><td>1919</td><td>Pandemic</td><td>Organized resistance to mask mandate; worldview defense</td><td>Resistance, not panic</td><td>Dolan (2020)</td></tr>
+    <tr><td>39</td><td>London bombings</td><td>2005</td><td>Terrorism</td><td>Mutual aid, calm evacuation, shared identity</td><td>No</td><td>Drury, Cocking &amp; Reicher (2009)</td></tr>
+    <tr><td>40</td><td>Hurricane Katrina</td><td>2005</td><td>Natural disaster</td><td>Attachment-driven staying; family-unit evacuation; mutual aid</td><td>No (media myth)</td><td>O'Leary &amp; Mawson (2015)</td></tr>
+    <tr><td>41</td><td>Typhoon Haiyan</td><td>2013</td><td>Natural disaster</td><td>Solidarity among strangers; affiliation behavior</td><td>No</td><td>Tokyay &amp; Ruiu (2016)</td></tr>
+    <tr><td>42</td><td>COVID-19 panic buying</td><td>2020</td><td>Pandemic</td><td>Toilet paper/food hoarding; urban exodus by remote workers</td><td>Panic buying, not flight</td><td>Murphy et al. (2021); Taylor (2019)</td></tr>
+  </table>
+</section>
+
+<!-- ========== EPIDEMIC SCENARIO ========== -->
+<section id="epidemic-scenario">
+  <h2>11. Implications for a Rapid High-Mortality Epidemic Scenario</h2>
+  <p>Applying this research to the <em>Apocalypse Story</em> premise (2–3 day dormancy, blood-borne transmission, &gt;50% mortality, 5-day death after symptom onset):</p>
+
+  <div class="overview-grid">
+    <div class="overview-card">
+      <h4>Days 1–3: Invisible Threat</h4>
+      <p>Expect cognitive inertia, not panic. People continue normal routines until visible deaths accumulate (Crosby, 2020). Healthcare workers and families of early victims will act first.</p>
+    </div>
+    <div class="overview-card">
+      <h4>Days 4–7: Recognition Phase</h4>
+      <p>Panic buying of food, medicine, fuel. Affiliative clustering — families gathering. Healthcare system overwhelmed. Not mass antisocial violence but desperate competition for care (Taylor, 2019).</p>
+    </div>
+    <div class="overview-card">
+      <h4>Days 7–14: Flight Phase</h4>
+      <p>Urban-to-rural migration by those with vehicles and destinations. Family-unit movement, not individual panic flight (Mawson, 2005). Highway congestion, not stampedes.</p>
+    </div>
+    <div class="overview-card">
+      <h4>Days 14–30: Numbing Phase</h4>
+      <p>Emotional shutdown among survivors (Lifton, 1967). Worldview defense: scapegoating, authoritarianism, religious meaning-making (TMT; Pyszczynski et al., 2015). Prosocial mutual aid within surviving groups.</p>
+    </div>
+    <div class="overview-card">
+      <h4>Ongoing: Not Panic But Institutional Collapse</h4>
+      <p>The greatest behavioral risk is not mob violence but the failure of information, supply chains, and care systems — which produces suffering that observers mislabel as "panic" (Quarantelli, 2001; Tierney et al., 2006).</p>
+    </div>
+    <div class="overview-card">
+      <h4>US-Specific Factors</h4>
+      <p>High vehicle ownership enables flight. Low social trust (paranoia predicts panic buying; Murphy et al., 2021). Political polarization predicts compliance resistance (Taylor &amp; Asmundson, 2021). Gun ownership may affect perceived security vs. threat.</p>
+    </div>
+  </div>
+
+  <div class="diagram">PROJECTED BEHAVIORAL TIMELINE — HIGH-MORTALITY EPIDEMIC (US)
+─────────────────────────────────────────────────────────────────────
+Day 0-3   [Normal activity] ─── cognitive inertia, denial
+          ↓ first visible deaths in clusters
+Day 3-7   [Panic buying] ─── food, medicine, fuel hoarding
+          [Affiliative clustering] ─── families gather
+          ↓ healthcare collapse visible
+Day 7-14  [Selective flight] ─── urban→rural, family units
+          [Shelter-in-place] ─── those without transport/destinations
+          ↓ infrastructure strain
+Day 14-30 [Emotional numbing] ─── "psychic numbing" (Lifton)
+          [Worldview defense] ─── scapegoating, authoritarianism
+          [Mutual aid] ─── within surviving community groups
+          ↓ population reduction 50-90%
+Day 30+   [New social order] ─── attachment networks = survival units
+─────────────────────────────────────────────────────────────────────</div>
+</section>
+
+<!-- ========== CONCLUSION ========== -->
+<section id="conclusion">
+  <h2>12. Conclusion</h2>
+  <div class="conclusion-box">
+    <p><strong>Humans facing existential danger do not typically panic.</strong> Across 42 case studies spanning 265 years, genuine mass panic — irrational, antisocial, chaotic flight — is the exception. The norm is: cognitive inertia (when threat is invisible), affiliative clustering (seeking family), orderly or semi-orderly flight (when threat is spatially concentrated), emotional numbing (after mass death), and prosocial mutual aid within groups.</p>
+    <p>What popular culture calls "panic" is usually one of four things: (1) rational flight from real danger, (2) crowd crush from architectural failure, (3) institutional collapse mistaken for individual breakdown, or (4) politically driven violence during displacement. The Japanese response to nuclear annihilation was shock and numbness, not riot. Cities facing invasion empty out in waves — first denial, then spontaneous flight, often worsened by lack of organized transport. People flee toward family and familiar places, not randomly. Evacuation compliance is driven by official warnings, social cues, and perceived risk — not by fear alone.</p>
+    <p>For the <em>Apocalypse Story</em> epidemic scenario, the most realistic immediate behaviors are: denial and inertia (days 1–3), panic buying and family clustering (days 4–7), selective urban exodus (days 7–14), and emotional numbing with mutual aid among survivors (days 14+). The primary threat to social order is not mob violence but the collapse of care, information, and supply systems.</p>
+  </div>
+
+  <h3>12.1 Further Research Questions</h3>
+  <ol>
+    <li><strong>Threshold effects:</strong> At what mortality rate and speed does cognitive inertia break down? 1918 (~2.5% global mortality) produced inertia; what happens at 50%?</li>
+    <li><strong>Blood-borne transmission psychology:</strong> Does visible symptomology (vomiting blood) produce faster behavioral response than invisible respiratory transmission? No direct studies exist.</li>
+    <li><strong>Digital age panic:</strong> How do social media and real-time information change the inertia-to-action timeline? COVID-19 data is suggestive but mortality was too low to model (Petherick et al., 2021).</li>
+    <li><strong>Armed population dynamics:</strong> How does widespread firearm ownership (unique to US among developed nations) interact with perceived threat and mutual aid vs. defensive violence?</li>
+    <li><strong>Rural vs. urban behavioral divergence:</strong> Limited comparative data on how low-density communities respond to diffuse epidemic threats vs. concentrated urban populations.</li>
+    <li><strong>Long-term social reorganization:</strong> What new social identities and authority structures emerge among survivor groups after 50–90% population reduction? (Cross-reference with Question 1 historical parallels and Question 4 law-and-order research.)</li>
+    <li><strong>Simulation validation:</strong> Can agent-based models incorporating ESIM and social attachment parameters predict epidemic behavioral timelines better than panic-assumption models? (Cross-reference with Question 6 simulation software.)</li>
+    <li><strong>Healthcare worker behavior:</strong> How do medical professionals behave when treating a disease with &gt;50% mortality and no cure? 2014 Ebola data may be partially informative (Fowler et al., 2014).</li>
+  </ol>
+</section>
+
+<!-- ========== REFERENCES ========== -->
+<section id="references">
+  <h2>13. References</h2>
+  <ol class="ref-list">
+    <li>Asahi Shimbun. (2008). <em>Memories of Hiroshima and Nagasaki: Kazu's testimony.</em> <a href="https://www.asahi.com/hibakusha/english/shimen/kikitakatta/kiki2008-06e.html">https://www.asahi.com/hibakusha/english/</a></li>
+    <li>Baker, E.J. (1991). Hurricane evacuation behavior. <em>International Journal of Mass Emergencies and Disasters,</em> 9(2), 287–310.</li>
+    <li>Barry, J.M. (2004). <em>The Great Influenza.</em> Viking.</li>
+    <li>Bartholomew, R.E. (1998). The Halley's Comet panic of 1910. <em>Skeptical Inquirer,</em> 22(4).</li>
+    <li>BBC. (2017). Fleeing Dunkirk: A 1940 holiday in hell. <a href="https://www.bbc.co.uk/news/world-europe-40428015">https://www.bbc.co.uk/news/world-europe-40428015</a></li>
+    <li>BBC. (2024). Dunkirk evacuation. <a href="https://www.bbc.co.uk/history/events/dunkirk_evacuation">https://www.bbc.co.uk/history/events/dunkirk_evacuation</a></li>
+    <li>Blight, J.G., &amp; Welch, D.A. (Eds.). (1998). <em>Intelligence and the Cuban Missile Crisis.</em> Frank Cass.</li>
+    <li>BMJ. (1883). The Sunderland calamity. <em>British Medical Journal,</em> June 23, 1883.</li>
+    <li>Bristow, N.K. (2012). <em>American Pandemic: The Lost Worlds of the 1918 Influenza Epidemic.</em> Oxford University Press.</li>
+    <li>Bromet, E.J., et al. (2011). The 30-year mental health legacy of the Chernobyl disaster. <em>World Psychiatry,</em> 10(2), 130–131.</li>
+    <li>Burke, B.L., Martens, A., &amp; Faucher, E.H. (2010). Two decades of terror management theory: A meta-analysis of mortality salience research. <em>Personality &amp; Social Psychology Review,</em> 14(2), 155–195.</li>
+    <li>Butalia, U. (2000). <em>The Other Side of Silence: Voices from the Partition of India.</em> Duke University Press.</li>
+    <li>Clarke, L., &amp; Chess, C. (2008). Disaster psychology: Dispelling the myths of panic. <em>Professional Safety,</em> August 2008.</li>
+    <li>Clark, J. (2020). Beyond 'stampedes': Towards a new psychology of crowd crush disasters. <em>British Journal of Social Psychology,</em> 59(4).</li>
+    <li>Clark, J., &amp; Stott, C. (2021). Reconceptualising the Bethnal Green tube shelter disaster. <em>Disaster Prevention and Management.</em></li>
+    <li>Crosby, A.W. (2020). <em>America's Forgotten Pandemic</em> (2nd ed.). Cambridge University Press.</li>
+    <li>Disaster Research Center. (2021). DRC vision and history. University of Delaware. <a href="https://www.drc.udel.edu/drc-vision-history/">https://www.drc.udel.edu/drc-vision-history/</a></li>
+    <li>Dolan, B. (2020). Unmasking history: The 1918 flu pandemic and lessons for COVID-19. <em>American Journal of Public Health.</em></li>
+    <li>Dombrowski Risser, N. (2012). <em>France under Fire: German Invasion, Civilian Flight, and Family Survival during World War II.</em> Cambridge University Press.</li>
+    <li>Drabek, T.E., &amp; Boggs, K.S. (1968). Families in disaster: Reactions and relatives. <em>Journal of Marriage and the Family,</em> 30(3), 443–451.</li>
+    <li>Drury, J., Cocking, C., &amp; Reicher, S. (2009). The nature of collective resilience. <em>International Journal of Mass Emergencies and Disasters,</em> 27(1), 66–95.</li>
+    <li>Drury, J., &amp; Reicher, S. (2000). Collective action and psychological change. <em>British Journal of Social Psychology,</em> 39(4), 579–604.</li>
+    <li>Drury, J., et al. (2019). Crowds and collective behavior. <em>Oxford Research Encyclopedia of Psychology.</em></li>
+    <li>Fantuzzi, G. (1999). Population flight in Greek warfare. <em>War in History,</em> 6(2).</li>
+    <li>Flynn, C.P. (1981). <em>Three Mile Island: A Social Science Perspective.</em> University of Pittsburgh Press.</li>
+    <li>Fowler, R.A., et al. (2014). Caring for critically ill patients with Ebola virus disease. <em>JAMA,</em> 312(1).</li>
+    <li>Fruin, J.J. (1993). The causes and prevention of crowd disasters. <a href="https://www.gkstill.com/Support/crowd-flow/fruin/Fruin2.html">https://www.gkstill.com/Support/crowd-flow/fruin/Fruin2.html</a></li>
+    <li>Greenberg, J., Pyszczynski, T., &amp; Solomon, S. (1986). The causes and consequences of a need for self-esteem: A terror management theory. <em>Advances in Experimental Social Psychology,</em> 19.</li>
+    <li>Helbing, D., &amp; Mukerji, P. (2012). Crowd disasters as systemic failures. <em>EPJ Data Science,</em> 1(1).</li>
+    <li>Hersey, J. (1946). <em>Hiroshima.</em> The New Yorker, August 31, 1946.</li>
+    <li>Huang, S.K., Lindell, M.K., &amp; Prater, C.S. (2016). Who leaves and who stays? <em>Environment and Behavior,</em> 48(8), 991–1029.</li>
+    <li>IAEA. (2005). In the dark: Chernobyl and information. <em>IAEA Bulletin,</em> 47(2).</li>
+    <li>Imperial War Museums. (2024). The evacuated children of the Second World War. <a href="https://www.iwm.org.uk/history/second-world-war/home-front/the-evacuated-children-of-the-second-world-war">https://www.iwm.org.uk/</a></li>
+    <li>Kendrick, T.D. (2015). <em>The Lisbon Earthquake of 1755: Public Reactions and Prophecies.</em> Routledge.</li>
+    <li>Kucherenko, O. (2011). <em>Little Soldiers: How Soviet Children Went to War, 1941–1945.</em> Oxford University Press.</li>
+    <li>Lifton, R.J. (1967). <em>Death in Life: Survivors of Hiroshima.</em> Random House.</li>
+    <li>Lindell, M.K., &amp; Perry, R.W. (1992, 2004). <em>Communicating Environmental Risk in Multiethnic Communities.</em> Sage.</li>
+    <li>Mawson, A.R. (2005). Understanding mass panic and other collective responses to threat and disaster. <em>Psychiatry,</em> 68(2), 95–113.</li>
+    <li>Mawson, A.R. (2017). <em>Mass Panic and Social Attachment.</em> Routledge.</li>
+    <li>Moore, H.E., et al. (1964). <em>Before the Wind: A Study of the Response to Hurricane Carla.</em> University of Texas Press.</li>
+    <li>Murphy, J., et al. (2021). Pandemic buying: A psychological model of over-purchasing. <em>PLoS ONE,</em> 16(1).</li>
+    <li>Neitzel, S. (2003). Dresden as a military target. <em>Journal of Military History.</em></li>
+    <li>Ntontis, E., et al. (2018). Emergent social identities in a disaster. <em>Journal of Community &amp; Applied Social Psychology,</em> 28(1).</li>
+    <li>O'Leary, T.M., &amp; Mawson, A.R. (2015). Disaster mythology and fact: Hurricane Katrina and social attachment. <em>Prehospital and Disaster Medicine.</em></li>
+    <li>Pandey, G. (2001). <em>Remembering Partition.</em> Cambridge University Press.</li>
+    <li>Paxton, R.O. (2007). Inside the panic. <em>The New York Review of Books,</em> November 22, 2007.</li>
+    <li>Petherick, A., et al. (2021). A worldwide assessment of changes in adherence to COVID-19 protective behaviours. <em>Nature Human Behaviour,</em> 5.</li>
+    <li>Pyszczynski, T., Greenberg, J., &amp; Solomon, S. (1999). A dual-process model of defense against death-related thoughts. <em>Psychological Review,</em> 106(4), 835–845.</li>
+    <li>Pyszczynski, T., et al. (2015). Thirty years of terror management theory. <em>Advances in Experimental Social Psychology,</em> 52.</li>
+    <li>Quarantelli, E.L. (2001). The sociology of panic. DRC Preliminary Paper #283. University of Delaware.</li>
+    <li>Quarantelli, E.L. (1987). Disaster studies: An analysis of the social historical factors affecting the development of research. <em>International Journal of Mass Emergencies and Disasters,</em> 5(3).</li>
+    <li>Ramani, A., &amp; Bloom, N. (2021). The donut effect of COVID-19 on cities. <em>NBER Working Paper 28848.</em></li>
+    <li>Reicher, S. (1996). The battle of Westminster. <em>European Journal of Social Psychology,</em> 26.</li>
+    <li>Reicher, S. (2001). The psychology of crowd dynamics. <em>Blackwell Handbook of Social Psychology: Group Processes.</em></li>
+    <li>Ronchi, E., &amp; Nilsson, D. (2019). 'Rationality' in collective escape behaviour. <em>Mathematical Problems in Engineering,</em> 2019.</li>
+    <li>Still, G.K. (2014). Introduction to crowd science. CRC Press.</li>
+    <li>Subramanian, S.V., et al. (2020). Factors associated with hurricane evacuation. <em>Disaster Medicine and Public Health Preparedness.</em></li>
+    <li>Taylor, S. (2019). <em>The Psychology of Pandemics: Preparing for the Next Global Outbreak of Infectious Disease.</em> Cambridge Scholars Publishing.</li>
+    <li>Taylor, S., &amp; Asmundson, G.J.G. (2021). Negative attitudes about facemasks during the COVID-19 pandemic. <em>Cognitive Behaviour Therapy.</em></li>
+    <li>Taylor, P. (1990). <em>The Hillsborough Stadium Disaster, 15 April 1989: Inquiry.</em> HMSO.</li>
+    <li>Tierney, K., Bevc, C., &amp; Kuligowski, E. (2006). Metaphors matter. <em>Natural Hazards Review,</em> 7(3).</li>
+    <li>Todd, O. (1990). <em>Cruel April: The Fall of Saigon.</em> Norton.</li>
+    <li>Tokyay, M., &amp; Ruiu, M.L. (2016). Survivors' solidarity and attachment after Typhoon Haiyan. <em>Disaster Medicine and Public Health Preparedness.</em></li>
+    <li>Tomes, N. (2010). "Destroyer and teacher." <em>Journal of the History of Medicine and Allied Sciences.</em></li>
+    <li>Wachtendorf, T., et al. (2021). The Disaster Research Center at the University of Delaware. <em>American Behavioral Scientist.</em></li>
+    <li>Yamada, M., &amp; Izumi, S. (2019). Atomic bombings of Hiroshima and Nagasaki: Human consequences. <em>Journal for Peace and Nuclear Disarmament.</em></li>
+    <li>Yuen, K.F., et al. (2020). The determinants of panic buying during COVID-19. <em>International Journal of Environmental Research and Public Health,</em> 18(6).</li>
+  </ol>
+</section>
+
+<footer>
+  <p><em>Apocalypse Story</em> — Question 2 Research Report. This document is part of a multi-agent research project investigating societal implications of rapid population collapse. Related reports: Q1 (Historical Parallels), Q3 (Human Inter-reliance), Q4 (Law and Order), Q5 (Predictions), Q6 (Simulation Software).</p>
+  <p>Document produced July 2026. All sources accessed during research phase. HTML/CSS self-contained; no external dependencies.</p>
+</footer>
+
+</div>
+</body>
+</html>
