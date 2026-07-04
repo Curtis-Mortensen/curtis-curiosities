@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breakdown of Law and Order After Crisis — Research Report (Q4)</title>
+<style>
+  :root {
+    --bg: #0f1419;
+    --surface: #1a2332;
+    --surface2: #243044;
+    --text: #e8edf4;
+    --muted: #9aa8bc;
+    --accent: #e8a54b;
+    --accent2: #5b9fd4;
+    --danger: #e05d5d;
+    --success: #5cb87a;
+    --border: #2d3d54;
+    --cite: #7eb8e8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .container { max-width: 920px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  h1 { font-size: 2.1rem; line-height: 1.25; margin-bottom: 0.75rem; color: var(--accent); }
+  .subtitle { color: var(--muted); font-size: 1.05rem; font-style: italic; }
+  .meta { margin-top: 1rem; font-size: 0.9rem; color: var(--muted); }
+  h2 {
+    font-size: 1.55rem;
+    color: var(--accent2);
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 { font-size: 1.2rem; color: var(--accent); margin: 1.75rem 0 0.75rem; }
+  h4 { font-size: 1.05rem; color: var(--text); margin: 1.25rem 0 0.5rem; }
+  p { margin-bottom: 1rem; }
+  a { color: var(--cite); text-decoration: none; border-bottom: 1px dotted var(--cite); }
+  a:hover { color: var(--accent); }
+  .cite { font-size: 0.82rem; color: var(--cite); vertical-align: super; }
+  .callout {
+    background: var(--surface);
+    border-left: 4px solid var(--accent);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .callout.warn { border-left-color: var(--danger); }
+  .callout.info { border-left-color: var(--accent2); }
+  .callout.success { border-left-color: var(--success); }
+  .callout strong { color: var(--accent); }
+  ul, ol { margin: 0.75rem 0 1rem 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.88rem;
+    background: var(--surface);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  th {
+    background: var(--surface2);
+    color: var(--accent);
+    text-align: left;
+    padding: 0.65rem 0.75rem;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  td { padding: 0.55rem 0.75rem; border-top: 1px solid var(--border); vertical-align: top; }
+  tr:hover td { background: rgba(91,159,212,0.06); }
+  .tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    padding: 0.15rem 0.45rem;
+    border-radius: 3px;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .tag-disaster { background: #1e3a5f; color: #7eb8e8; }
+  .tag-riot { background: #5f1e1e; color: #e88; }
+  .tag-protest { background: #3f1e5f; color: #c8a0e8; }
+  .tag-catastrophe { background: #5f3a1e; color: #e8c07e; }
+  .tag-mixed { background: #1e5f3a; color: #7ee8a0; }
+  .diagram {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 0.9rem;
+  }
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+  .tl-row { display: flex; align-items: stretch; }
+  .tl-time {
+    width: 110px;
+    flex-shrink: 0;
+    padding: 0.6rem 0.75rem;
+    background: var(--surface2);
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.82rem;
+    border-right: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+  }
+  .tl-event {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+  }
+  .tl-event strong { color: var(--text); }
+  .flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+  }
+  .flow-box {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.6rem 1rem;
+    text-align: center;
+    min-width: 120px;
+    font-size: 0.85rem;
+  }
+  .flow-arrow { color: var(--accent); font-size: 1.2rem; }
+  .refs { font-size: 0.85rem; color: var(--muted); }
+  .refs li { margin-bottom: 0.6rem; word-break: break-word; }
+  .toc { background: var(--surface); padding: 1.25rem 1.5rem; border-radius: 6px; margin: 1.5rem 0; }
+  .toc ol { margin-left: 1.25rem; }
+  .toc a { border: none; }
+  .conclusion-box {
+    background: linear-gradient(135deg, #1a2a3f 0%, #1a2332 100%);
+    border: 1px solid var(--accent2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+  }
+  @media (max-width: 600px) {
+    .tl-row { flex-direction: column; }
+    .tl-time { width: 100%; border-right: none; border-bottom: 2px solid var(--accent); }
+    table { font-size: 0.78rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>Breakdown of Law and Order After Crisis</h1>
+  <p class="subtitle">How quickly do societies devolve into rule-breaking, looting, and violence — and how does disaster behavior differ from protest and unrest?</p>
+  <p class="meta">Apocalypse Story Research · Question 4 · July 2026 · Developed nations focus (past 250 years)</p>
+</header>
+
+<div class="callout info">
+  <strong>What this document is:</strong> A self-contained research report for the <em>Apocalypse Story</em> project, which investigates societal consequences of rapid population collapse from epidemic. This report does not predict the fictional epidemic's outcome; it synthesizes what social science, history, and journalism say about when and how law and order fail — and when they hold.
+</div>
+
+<nav class="toc">
+  <strong>Contents</strong>
+  <ol>
+    <li><a href="#aims">Aims and Research Questions</a></li>
+    <li><a href="#limitations">Limitations</a></li>
+    <li><a href="#history">History of the Field</a></li>
+    <li><a href="#overview">Executive Overview</a></li>
+    <li><a href="#timeline">How Quickly Does Order Break Down?</a></li>
+    <li><a href="#disaster-vs-unrest">Disasters vs. Protests vs. Riots</a></li>
+    <li><a href="#psychology">Psychological and Sociological Research</a></li>
+    <li><a href="#books">Key Books and Frameworks</a></li>
+    <li><a href="#blm">BLM Protests (2020): What Was Learned</a></li>
+    <li><a href="#casestudies">Case Study Compendium (40+ Events)</a></li>
+    <li><a href="#factors">Predictive Factors</a></li>
+    <li><a href="#conclusion">Conclusion and Further Research</a></li>
+    <li><a href="#references">References</a></li>
+  </ol>
+</nav>
+
+<!-- AIMS -->
+<h2 id="aims">Aims and Research Questions</h2>
+
+<h3>Primary question (assigned)</h3>
+<p>How quickly does a situation devolve to rule-breaking, looting, and greater violence? What psychological studies and books address this? Do people behave differently in disasters than in protests or unrest? What was learned from BLM protests? What do case studies from developed nations over the past 250 years show?</p>
+
+<h3>Precursor and subset questions identified</h3>
+<ol>
+  <li><strong>What counts as "breakdown"?</strong> — Looting, violent crime, vigilante justice, police abandonment, prison releases, and elite overreaction are distinct phenomena often conflated in media.<a href="#ref-quarantelli-looting" class="cite">[1]</a></li>
+  <li><strong>Disaster, catastrophe, or civil disturbance?</strong> — Scholars distinguish consensus emergencies (earthquakes) from conflict emergencies (riots); behavior differs systematically.<a href="#ref-dynes-patterns" class="cite">[2]</a></li>
+  <li><strong>Mass panic vs. elite panic?</strong> — Does the public panic, or do authorities panic about the public?<a href="#ref-tierney-elite" class="cite">[3]</a></li>
+  <li><strong>Survival taking vs. criminal looting?</strong> — Taking food and water after infrastructure collapse is often relabeled as looting.<a href="#ref-constable-katrina" class="cite">[4]</a></li>
+  <li><strong>Do crime rates actually rise?</strong> — Police data often show decreases, not increases, after disasters.<a href="#ref-chile-crime" class="cite">[5]</a></li>
+  <li><strong>What role does media play?</strong> — Rumors and sensational reporting can create perceived breakdown where verified crime is limited.<a href="#ref-la-times-katrina-rumors" class="cite">[6]</a></li>
+  <li><strong>What pre-existing conditions predict breakdown?</strong> — Inequality, corrupt policing, infrastructure destruction, and delayed aid appear repeatedly.<a href="#ref-hugo-stcroix" class="cite">[7]</a></li>
+  <li><strong>How fast do riots escalate compared to disasters?</strong> — Civil disturbances can reach peak violence within hours; disaster antisocial behavior, when it occurs, often emerges over days.<a href="#ref-rand-riots" class="cite">[8]</a></li>
+</ol>
+
+<!-- LIMITATIONS -->
+<h2 id="limitations">Limitations of This Research</h2>
+
+<h3>Theoretical limitations</h3>
+<p>Human behavior under existential threat is inherently chaotic at the individual level. Aggregated patterns are more predictable than any single person's actions. Social identity, prior grievance, group membership, and perceived injustice interact in ways no model fully captures.<a href="#ref-drury-crowd" class="cite">[9]</a> The "therapeutic community" observed after many disasters is a statistical tendency, not a law of nature — and it can coexist with pockets of violence, vigilantism, or state repression in the same event.<a href="#ref-kanto-massacre" class="cite">[10]</a></p>
+
+<p>Definitions of "law and order" are politically loaded. Property crime, survival taking, political property damage, and symbolic looting during riots serve different social functions and are often counted together in public discourse.<a href="#ref-frailing-katrina" class="cite">[11]</a></p>
+
+<h3>Methodological and literature limitations</h3>
+<ul>
+  <li><strong>Field study constraints:</strong> Disaster researchers conduct "quick response" field studies during or immediately after events, but measuring looting is difficult because rumors outnumber verified incidents by orders of magnitude.<a href="#ref-quarantelli-looting" class="cite">[1]</a></li>
+  <li><strong>Western/developed-nation bias:</strong> The classic consensus — that looting is rare in industrialized societies — was built primarily from U.S. and European cases between 1950 and 2000.<a href="#ref-quarantelli-halfcentury" class="cite">[12]</a> Recent scholars argue this framework underweights inequality and may not generalize.<a href="#ref-frailing-consensus" class="cite">[13]</a></li>
+  <li><strong>Media as primary source problem:</strong> Many historical accounts of post-disaster violence come from newspapers and official statements later found inaccurate (e.g., Katrina Superdome atrocity stories).<a href="#ref-la-times-katrina-rumors" class="cite">[6]</a></li>
+  <li><strong>Protest data coding:</strong> ACLED and similar datasets code "violent demonstrations" to include property destruction and statue toppling, which inflates "violence" figures relative to interpersonal harm.<a href="#ref-acled-2020" class="cite">[14]</a></li>
+  <li><strong>Comparability:</strong> A six-day riot, a three-day flood, and a months-long pandemic cannot be compared on a single "hours to breakdown" metric without specifying what broke down.</li>
+</ul>
+
+<h3>Strength of evidence by sub-field</h3>
+<table>
+  <tr><th>Sub-field</th><th>Maturity</th><th>Confidence in findings</th></tr>
+  <tr><td>Disaster sociology (prosocial response)</td><td>70+ years, 650+ field studies via DRC<a href="#ref-drc-history" class="cite">[15]</a></td><td>High for typical disasters in developed nations; contested for catastrophes</td></tr>
+  <tr><td>Crowd psychology / panic</td><td>Revised since 1990s; Le Bon largely discredited<a href="#ref-drury-crowd" class="cite">[9]</a></td><td>High that mass panic is rare; moderate on nuances</td></tr>
+  <tr><td>Crime rate impacts of disasters</td><td>Growing econometric literature since ~2010<a href="#ref-chile-crime" class="cite">[5]</a></td><td>Moderate; findings vary by hazard type and time window</td></tr>
+  <tr><td>Protest violence quantification</td><td>ACLED systematic coding since ~2017<a href="#ref-acled-2020" class="cite">[14]</a></td><td>Moderate-high for event counts; definitions affect interpretation</td></tr>
+  <tr><td>Elite panic / disaster mythology</td><td>Emerging framework since ~2003<a href="#ref-tierney-elite" class="cite">[3]</a></td><td>Moderate; strong qualitative support, harder to test quantitatively</td></tr>
+</table>
+
+<!-- HISTORY -->
+<h2 id="history">History of the Field</h2>
+
+<p>The study of behavior during disaster and unrest has roots in two competing traditions that only converged in the mid-20th century.</p>
+
+<h3>19th century: "The crowd as beast"</h3>
+<p>Gustave Le Bon's <em>The Crowd</em> (1895) argued that individuals in crowds revert to a primitive, irrational, antisocial nature — a view that influenced military doctrine, journalism, and early sociology for decades.<a href="#ref-drury-crowd" class="cite">[9]</a> This "breakdown" narrative still appears in disaster films and official planning assumptions.<a href="#ref-solnit-paradise" class="cite">[16]</a></p>
+
+<h3>1950s–1960s: The NORC revolution</h3>
+<p>Charles Fritz and colleagues at the National Opinion Research Center (NORC), University of Chicago, began systematic field studies after tornadoes, floods, and explosions in the early 1950s.<a href="#ref-fritz-1957" class="cite">[17]</a> They found cooperation, not panic, dominated. E.L. Quarantelli coined "disaster myths" in this period — the gap between popular belief and observed behavior.<a href="#ref-quarantelli-myths" class="cite">[18]</a></p>
+
+<h3>1963: Disaster Research Center founded</h3>
+<p>Quarantelli, Russell Dynes, and Eugene Haas established the Disaster Research Center (DRC) at Ohio State University — the world's first social-science disaster research center — initially funded by civil defense contracts aimed at understanding wartime civilian behavior.<a href="#ref-drc-history" class="cite">[15]</a> The center moved to the University of Delaware in 1985 and has conducted 650+ field deployments.<a href="#ref-drc-pmc" class="cite">[19]</a></p>
+
+<h3>1970s–1990s: Consensus vs. conflict framework</h3>
+<p>Dynes and Quarantelli formalized the distinction between <em>consensus emergencies</em> (disasters) and <em>conflict emergencies</em> (riots, civil disturbances), explaining why looting patterns differ.<a href="#ref-dynes-patterns" class="cite">[2]</a> The 1960s U.S. urban riots provided comparative data alongside hurricane and earthquake studies.</p>
+
+<h3>2000s–present: Myths challenged, catastrophes reconsidered</h3>
+<p>Hurricane Katrina (2005) reignited debate: veteran scholars maintained looting was exaggerated; younger scholars like Kelly Frailing argued Katrina proved the myth framework was incomplete.<a href="#ref-quarantelli-frailing" class="cite">[20]</a> The "catastrophe" concept (beyond mere "disaster") was refined to explain when antisocial behavior becomes widespread.<a href="#ref-quarantelli-catastrophe" class="cite">[21]</a> The 2020 BLM protests and COVID-19 panic buying added new datasets. A 2025 systematic review found mixed evidence on post-disaster looting prevalence.<a href="#ref-bmc-systematic" class="cite">[22]</a></p>
+
+<!-- OVERVIEW -->
+<h2 id="overview">Executive Overview</h2>
+
+<div class="callout success">
+  <strong>Central finding:</strong> Law and order does not uniformly or rapidly collapse after crisis. The speed, severity, and <em>type</em> of breakdown depend critically on whether the event is a natural disaster, a catastrophe (total infrastructure/governance failure), or a civil disturbance (organized grievance). In typical developed-nation disasters, prosocial behavior dominates and verified crime often <em>decreases</em>. Widespread looting and violence are far more characteristic of riots and certain catastrophes with pre-existing inequality and state failure.
+</div>
+
+<div class="diagram">
+  <strong style="color:var(--accent);display:block;margin-bottom:1rem;">Three Pathways of Social Order After Crisis</strong>
+  <div class="flow">
+    <div class="flow-box" style="border-color:var(--success)">Typical Disaster<br><small>Hours–days: mutual aid</small></div>
+    <span class="flow-arrow">|</span>
+    <div class="flow-box" style="border-color:var(--danger)">Catastrophe<br><small>1–5 days: survival taking, vigilantes</small></div>
+    <span class="flow-arrow">|</span>
+    <div class="flow-box" style="border-color:#c8a0e8">Civil Disturbance<br><small>Minutes–hours: collective looting</small></div>
+  </div>
+  <p style="color:var(--muted);margin-top:1rem;font-size:0.88rem;">Simplified model based on Quarantelli &amp; Dynes (1977), Tierney et al. (2006), and ACLED protest data (2020). Real events often blend categories.</p>
+</div>
+
+<!-- TIMELINE -->
+<h2 id="timeline">How Quickly Does Order Break Down?</h2>
+
+<p>There is no universal timeline. The table below summarizes <em>documented</em> escalation patterns by crisis type in developed nations.</p>
+
+<div class="diagram">
+  <strong style="color:var(--accent);display:block;margin-bottom:1rem;">Escalation Timelines: Selected Benchmark Events</strong>
+  <div class="timeline">
+    <div class="tl-row">
+      <div class="tl-time">Minutes</div>
+      <div class="tl-event"><strong>LA Riots 1992:</strong> Violence at Florence &amp; Normandie within ~2 hours of Rodney King verdict (3:15 PM).<a href="#ref-wapo-rodney" class="cite">[23]</a></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-time">Hours</div>
+      <div class="tl-event"><strong>Watts 1965:</strong> Crowd violence same evening as traffic stop (Aug 11, ~7 PM).<a href="#ref-watts" class="cite">[24]</a></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-time">12–24 hrs</div>
+      <div class="tl-event"><strong>St. Croix / Hugo 1989:</strong> Widespread looting within one day of hurricane; troops deployed day 3.<a href="#ref-hugo-stcroix" class="cite">[7]</a></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-time">24–72 hrs</div>
+      <div class="tl-event"><strong>Katrina 2005:</strong> Looting reports Aug 30–31; Superdome rumor cycle peaks Aug 30–Sept 1; federal order restored ~Sept 2–3.<a href="#ref-pbs-katrina" class="cite">[25]</a></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-time">3–7 days</div>
+      <div class="tl-event"><strong>Haiti 2010:</strong> Sporadic looting days 1–3; spreading by day 4–5 as aid delayed.<a href="#ref-nyt-haiti" class="cite">[26]</a></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-time">Days–weeks</div>
+      <div class="tl-event"><strong>London Blitz 1940:</strong> Looting after each raid; 4,584 Old Bailey cases Sep–Dec 1940 (sustained, not one spike).<a href="#ref-blitz" class="cite">[27]</a></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-time">No breakdown</div>
+      <div class="tl-event"><strong>Kobe 1995:</strong> No murders or armed robberies for 2+ months post-quake; shoplifting below average.<a href="#ref-kobe" class="cite">[28]</a></div>
+    </div>
+  </div>
+</div>
+
+<p><strong>Key insight:</strong> Riots and civil disturbances escalate fastest because they are <em>already</em> conflict situations with pre-existing grievance structures. Natural disasters do not automatically produce conflict; antisocial behavior typically requires additional factors — infrastructure annihilation, aid failure, pre-existing crime, corrupt or absent police, or elite-fueled rumor cycles.<a href="#ref-quarantelli-catastrophe" class="cite">[21]</a></p>
+
+<!-- DISASTER VS UNREST -->
+<h2 id="disaster-vs-unrest">Disasters vs. Protests vs. Riots</h2>
+
+<table>
+  <tr><th>Dimension</th><th>Natural Disaster</th><th>Civil Disturbance / Riot</th><th>Protest (e.g. BLM)</th></tr>
+  <tr><td>Social frame</td><td>Consensus — shared survival goals<a href="#ref-frailing-consensus" class="cite">[13]</a></td><td>Conflict — disagreement over justice/distribution<a href="#ref-dynes-patterns" class="cite">[2]</a></td><td>Mixed — organized dissent; violence usually minority<a href="#ref-acled-2020" class="cite">[14]</a></td></tr>
+  <tr><td>Looting pattern</td><td>Rare, individual, condemned<a href="#ref-quarantelli-looting" class="cite">[1]</a></td><td>Widespread, selective, sometimes supported locally<a href="#ref-dynes-patterns" class="cite">[2]</a></td><td>Localized; often &lt;6% of events<a href="#ref-acled-year" class="cite">[29]</a></td></tr>
+  <tr><td>Escalation speed</td><td>Days (if at all)</td><td>Hours<a href="#ref-rand-riots" class="cite">[8]</a></td><td>Hours to days; often triggered by police action<a href="#ref-acled-2020" class="cite">[14]</a></td></tr>
+  <tr><td>Typical crime trend</td><td>Often decreases<a href="#ref-chile-crime" class="cite">[5]</a></td><td>Property crime spike during event</td><td>Property damage in subset of events</td></tr>
+  <tr><td>State response risk</td><td>Elite panic, militarization<a href="#ref-tierney-elite" class="cite">[3]</a></td><td>Mass arrests, force disproportionate to threat<a href="#ref-acled-2020" class="cite">[14]</a></td><td>Same; 10,000+ arrests May–June 2020<a href="#ref-acled-year" class="cite">[29]</a></td></tr>
+</table>
+
+<div class="callout warn">
+  <strong>Important nuance:</strong> Some "disasters" become "catastrophes" when government and infrastructure fail simultaneously — Katrina and St. Croix resemble riot-like looting patterns not because survivors panicked, but because the state vanished and pre-existing inequality created grievance-like conditions.<a href="#ref-frailing-consensus" class="cite">[13]</a>
+</div>
+
+<!-- PSYCHOLOGY -->
+<h2 id="psychology">Psychological and Sociological Research</h2>
+
+<h3>Disaster myths (Quarantelli, Dynes, Tierney)</h3>
+<p>Over 50 years of research identifies six persistent myths: mass panic flight, widespread looting, passivity, role abandonment, mass mental breakdown, and belief that outsiders cause problems.<a href="#ref-quarantelli-myths" class="cite">[18]</a> In typical Western disasters, 70–90% of survivors hear looting rumors, but verified cases are extremely few.<a href="#ref-quarantelli-looting" class="cite">[1]</a> Up to 90%+ of search-and-rescue is performed by civilians, not professionals.<a href="#ref-quarantelli-halfcentury" class="cite">[12]</a></p>
+
+<h3>Emergent norm theory</h3>
+<p>During disasters, new group norms form rapidly — the "therapeutic community" — prioritizing rescue and mutual aid. Property norms temporarily shift: taking necessities may be tolerated; luxury theft is condemned.<a href="#ref-dynes-patterns" class="cite">[2]</a> In riots, norms shift differently: property of symbolic targets becomes fair game to certain subgroups.<a href="#ref-dynes-patterns" class="cite">[2]</a></p>
+
+<h3>Mass panic is rare; collective resilience is common</h3>
+<p>Modern crowd psychology (Drury, Reicher, Ntontis) finds that emergencies produce <em>affiliative</em> behavior — people seek togetherness, not atomized flight.<a href="#ref-drury-crowd" class="cite">[9]</a> A 2025 Annual Review concludes that "panic" as popularly understood is largely a myth used to blame victims for crowd crush fatalities caused by venue mismanagement.<a href="#ref-annual-review-crowd" class="cite">[30]</a></p>
+
+<h3>Elite panic</h3>
+<p>Kathleen Tierney, Lee Clarke, and Caron Chess document "elite panic" — authorities' fear of the public leading to militarized response, rumor propagation, property obsession, and deadly force.<a href="#ref-tierney-elite" class="cite">[3]</a> Rebecca Solnit argues this elite panic often causes more harm than civilian behavior.<a href="#ref-solnit-paradise" class="cite">[16]</a> After Katrina, Mayor Nagin and police chief Compass made inflammatory statements about "hoodlums" and martial law that amplified fear.<a href="#ref-pbs-katrina" class="cite">[25]</a></p>
+
+<h3>Panic buying (COVID-19) — a different breakdown</h3>
+<p>The COVID-19 pandemic demonstrated that "breakdown" need not mean violence. Panic buying of toilet paper and hand sanitizer was driven by perceived scarcity, media amplification, social contagion, and fear of missing out — not lawlessness.<a href="#ref-covid-panic" class="cite">[31]</a> Retailer purchase limits and government messaging reduced hoarding.<a href="#ref-covid-intervention" class="cite">[32]</a> Crime rates in many jurisdictions fell during lockdowns, though domestic violence increased in some areas.<a href="#ref-canterbury" class="cite">[33]</a></p>
+
+<!-- BOOKS -->
+<h2 id="books">Key Books and Frameworks</h2>
+
+<table>
+  <tr><th>Work</th><th>Author(s)</th><th>Core argument</th></tr>
+  <tr><td><em>A Paradise Built in Hell</em> (2009)</td><td>Rebecca Solnit</td><td>Disasters produce extraordinary mutual-aid communities; elite panic and Hobbesian myths are wrong.<a href="#ref-solnit-paradise" class="cite">[16]</a></td></tr>
+  <tr><td><em>The Unthinkable</em> (2008, rev. 2023)</td><td>Amanda Ripley</td><td>Survival depends on brain training and realistic expectations; authorities often infantilize the public.<a href="#ref-ripley" class="cite">[34]</a></td></tr>
+  <tr><td><em>Handbook of Disaster Research</em> (2007)</td><td>Rodriguez, Quarantelli, Dynes (eds.)</td><td>Definitive academic synthesis of disaster sociology.<a href="#ref-handbook" class="cite">[35]</a></td></tr>
+  <tr><td><em>Patterns of Looting and Property Norms</em> (1977)</td><td>Quarantelli &amp; Dynes</td><td>Looting differs systematically between disasters and civil disturbances.<a href="#ref-dynes-patterns" class="cite">[2]</a></td></tr>
+  <tr><td><em>Conventional Beliefs and Counterintuitive Realities</em> (2008)</td><td>Quarantelli</td><td>Accessible summary of disaster myths with catastrophe distinction.<a href="#ref-quarantelli-myths" class="cite">[18]</a></td></tr>
+  <tr><td><em>Disaster Mythology and the Law</em> (2010)</td><td>Farber, Chen, et al.</td><td>Legal consequences of believing looting myths; Katrina case study.<a href="#ref-disaster-myth-law" class="cite">[36]</a></td></tr>
+  <tr><td><em>The Crowd</em> (1895)</td><td>Gustave Le Bon</td><td>Foundational but largely discredited "irrational crowd" theory.<a href="#ref-drury-crowd" class="cite">[9]</a></td></tr>
+  <tr><td><em>Collective Behavior</em> (1992)</td><td>Erich Goode</td><td>Standard text distinguishing disaster, riot, and fad behaviors.<a href="#ref-quarantelli-looting" class="cite">[1]</a></td></tr>
+</table>
+
+<!-- BLM -->
+<h2 id="BLM">BLM Protests (2020): What Was Learned</h2>
+
+<p>George Floyd's murder (May 25, 2020) triggered the largest protest mobilization in U.S. history — over 7,750 BLM-linked demonstrations by August 22, 2020.<a href="#ref-acled-2020" class="cite">[14]</a></p>
+
+<h3>Scale of violence vs. peaceful protest</h3>
+<ul>
+  <li><strong>93–95% peaceful:</strong> ACLED found fewer than 570 of ~10,600 summer demonstrations involved violence, vandalism, or looting (~5%).<a href="#ref-acled-2020" class="cite">[14]</a> A year-long study found ~94% peaceful, 6% with violence/destruction.<a href="#ref-acled-year" class="cite">[29]</a></li>
+  <li><strong>Geographic concentration:</strong> Violent incidents were "largely confined to specific blocks," not movement-wide.<a href="#ref-time-acled" class="cite">[37]</a></li>
+  <li><strong>Agent provocateurs:</strong> Minneapolis "umbrella man" (linked to white supremacist gangs) smashed windows on May 27, helping spark looting after initially peaceful protests.<a href="#ref-acled-2020" class="cite">[14]</a></li>
+  <li><strong>Out-of-town agitators:</strong> Detroit officials reported non-residents traveling to protest sites to commit violence.<a href="#ref-acled-2020" class="cite">[14]</a></li>
+</ul>
+
+<h3>State response</h3>
+<ul>
+  <li>Federal forces deployed to Portland and other cities; National Guard activated in multiple states.<a href="#ref-acled-year" class="cite">[29]</a></li>
+  <li>Police used force more often at BLM demonstrations than other protests.<a href="#ref-acled-2020" class="cite">[14]</a></li>
+  <li>At least 10,000 arrests nationwide by June 4; LAPD arrested 4,029 May 29–June 2, only 3–5% for looting (most for curfew violations).<a href="#ref-acled-year" class="cite">[29]</a></li>
+  <li>Dozens of vehicle-ramming attacks on protesters documented.<a href="#ref-acled-2020" class="cite">[14]</a></li>
+</ul>
+
+<h3>Academic findings on effectiveness of limited violence</h3>
+<p>A PNAS study (2022) found mixed violence within BLM protests did not reduce prejudice but increased policy support among conservatives in liberal areas — suggesting disruptive tactics may shift policy views among resistant populations without broad attitude change.<a href="#ref-pnas-blm" class="cite">[38]</a></p>
+
+<div class="callout">
+  <strong>Lesson for apocalypse scenarios:</strong> BLM 2020 demonstrates that large-scale civil mobilization in developed nations can remain overwhelmingly non-violent even amid property damage in localized areas — but media coverage, agent provocateurs, and aggressive policing can create a perception of widespread breakdown disproportionate to verified interpersonal violence.
+</div>
+
+<!-- CASE STUDIES -->
+<h2 id="casestudies">Case Study Compendium (43 Events)</h2>
+
+<p>Events from developed nations, 1776–2025. "Breakdown" column describes verified or best-evidence antisocial behavior, not media reports alone.</p>
+
+<table>
+  <tr><th>#</th><th>Event</th><th>Year</th><th>Type</th><th>Breakdown speed</th><th>Observed behavior</th></tr>
+  <tr><td>1</td><td>San Francisco Earthquake &amp; Fire</td><td>1906</td><td><span class="tag tag-disaster">Disaster</span></td><td>Days</td><td>Reports of looting and troop shootings; mutual aid also extensive.<a href="#ref-solnit-paradise" class="cite">[16]</a></td></tr>
+  <tr><td>2</td><td>Halifax Explosion</td><td>1917</td><td><span class="tag tag-disaster">Disaster</span></td><td>None documented</td><td>Prosocial rescue dominant.<a href="#ref-solnit-paradise" class="cite">[16]</a></td></tr>
+  <tr><td>3</td><td>Great Kantō Earthquake</td><td>1923</td><td><span class="tag tag-catastrophe">Catastrophe</span></td><td>Hours–days</td><td>~6,000 Koreans massacred by vigilantes/police; rumor-driven.<a href="#ref-kanto-massacre" class="cite">[10]</a></td></tr>
+  <tr><td>4</td><td>London Blitz looting wave</td><td>1940–41</td><td><span class="tag tag-disaster">Disaster</span></td><td>Per-raid (hours)</td><td>4,584 looting cases Sep–Dec 1940; included civil defense workers.<a href="#ref-blitz" class="cite">[27]</a></td></tr>
+  <tr><td>5</td><td>Battle of Britain blackout crime</td><td>1940–45</td><td><span class="tag tag-mixed">Mixed</span></td><td>Ongoing</td><td>UK crime +57% 1939–45; black market, looting, murder.<a href="#ref-blitz" class="cite">[27]</a></td></tr>
+  <tr><td>6</td><td>Watts Riots, Los Angeles</td><td>1965</td><td><span class="tag tag-riot">Riot</span></td><td>Hours</td><td>6 days; 34 dead, 3,438 arrests, widespread arson/looting.<a href="#ref-watts" class="cite">[24]</a></td></tr>
+  <tr><td>7</td><td>Hurricane Betsy, New Orleans</td><td>1965</td><td><span class="tag tag-disaster">Disaster</span></td><td>N/A</td><td>Major crime rates <em>dropped</em> after storm.<a href="#ref-dynes-patterns" class="cite">[2]</a></td></tr>
+  <tr><td>8</td><td>Newark Riots</td><td>1967</td><td><span class="tag tag-riot">Riot</span></td><td>Hours</td><td>5 days; 26 dead; widespread looting per McCone Commission.<a href="#ref-dynes-patterns" class="cite">[2]</a></td></tr>
+  <tr><td>9</td><td>Detroit Riots</td><td>1967</td><td><span class="tag tag-riot">Riot</span></td><td>Hours</td><td>5 days; 43 dead; selective looting of commercial targets.<a href="#ref-dynes-patterns" class="cite">[2]</a></td></tr>
+  <tr><td>10</td><td>White County AR tornado</td><td>1952</td><td><span class="tag tag-disaster">Disaster</span></td><td>N/A</td><td>NORC study: rumors of looting, almost no verified cases.<a href="#ref-dynes-patterns" class="cite">[2]</a></td></tr>
+  <tr><td>11</td><td>Netherlands floods</td><td>1953</td><td><span class="tag tag-disaster">Disaster</span></td><td>N/A</td><td>Many looting reports; police found none verified.<a href="#ref-dynes-patterns" class="cite">[2]</a></td></tr>
+  <tr><td>12</td><td>Mexico City earthquake</td><td>1985</td><td><span class="tag tag-disaster">Disaster</span></td><td>Days</td><td>Grassroots rescue "moles"; minimal looting reported.<a href="#ref-solnit-paradise" class="cite">[16]</a></td></tr>
+  <tr><td>13</td><td>Chernobyl evacuation</td><td>1986</td><td><span class="tag tag-disaster">Disaster</span></td><td>N/A</td><td>Orderly evacuation; no mass panic documented.<a href="#ref-ripley" class="cite">[34]</a></td></tr>
+  <tr><td>14</td><td>San Francisco earthquake (Loma Prieta)</td><td>1989</td><td><span class="tag tag-disaster">Disaster</span></td><td>Hours</td><td>Prosocial response; NOPD-style gaps in planning noted.<a href="#ref-anderson-katrina" class="cite">[39]</a></td></tr>
+  <tr><td>15</td><td>Hurricane Hugo — St. Croix</td><td>1989</td><td><span class="tag tag-catastrophe">Catastrophe</span></td><td>~24 hours</td><td>Widespread looting; police joined in; 1,100 troops deployed.<a href="#ref-hugo-stcroix" class="cite">[7]</a></td></tr>
+  <tr><td>16</td><td>Hurricane Hugo — St. Thomas/John</td><td>1989</td><td><span class="tag tag-disaster">Disaster</span></td><td>N/A</td><td>No looting (St. John); limited controlled (St. Thomas).<a href="#ref-hugo-stcroix" class="cite">[7]</a></td></tr>
+  <tr><td>17</td><td>LA Riots (Rodney King)</td><td>1992</td><td><span class="tag tag-riot">Riot</span></td><td>~2 hours</td><td>~36 hours peak; 4,500+ fires; 40+ dead.<a href="#ref-rand-riots" class="cite">[8]</a></td></tr>
+  <tr><td>18</td><td>Northridge earthquake</td><td>1994</td><td><span class="tag tag-disaster">Disaster</span></td><td>Hours</td><td>Curfew imposed preemptively; limited verified looting.<a href="#ref-kobe" class="cite">[28]</a></td></tr>
+  <tr><td>19</td><td>Kobe (Hanshin-Awaji) earthquake</td><td>1995</td><td><span class="tag tag-disaster">Disaster</span></td><td>None</td><td>Zero murders 2+ months; shoplifting below average.<a href="#ref-kobe" class="cite">[28]</a></td></tr>
+  <tr><td>20</td><td>OKC bombing</td><td>1995</td><td><span class="tag tag-disaster">Disaster</span></td><td>N/A</td><td>Prosocial rescue; no looting.<a href="#ref-ripley" class="cite">[34]</a></td></tr>
+  <tr><td>21</td><td>Charleston earthquake</td><td>1886</td><td><span class="tag tag-catastrophe">Catastrophe</span></td><td>N/A</td><td>2/3 homeless; no looting per historical record.<a href="#ref-quarantelli-myths" class="cite">[18]</a></td></tr>
+  <tr><td>22</td><td>9/11 attacks, NYC</td><td>2001</td><td><span class="tag tag-disaster">Disaster</span></td><td>N/A</td><td>Boatlift evacuation; mutual aid; no looting wave.<a href="#ref-solnit-paradise" class="cite">[16]</a></td></tr>
+  <tr><td>23</td><td>Hurricane Katrina, New Orleans</td><td>2005</td><td><span class="tag tag-catastrophe">Catastrophe</span></td><td>24–72 hrs</td><td>Looting real but exaggerated; Superdome atrocities largely false.<a href="#ref-la-times-katrina-rumors" class="cite">[6]</a></td></tr>
+  <tr><td>24</td><td>Hurricane Rita, Houston evacuation</td><td>2005</td><td><span class="tag tag-disaster">Disaster</span></td><td>Days</td><td>Short-term burglary spike during evacuation.<a href="#ref-aetv-crime" class="cite">[40]</a></td></tr>
+  <tr><td>25</td><td>Christchurch earthquakes</td><td>2010–11</td><td><span class="tag tag-disaster">Disaster</span></td><td>Days</td><td>Momentary burglary spike; overall crime fell below pre-quake.<a href="#ref-canterbury" class="cite">[33]</a></td></tr>
+  <tr><td>26</td><td>Chile earthquake (Maule)</td><td>2010</td><td><span class="tag tag-disaster">Disaster</span></td><td>Days</td><td>Some looting reported; property crime fell 15–30% lasting 4 years.<a href="#ref-chile-crime" class="cite">[5]</a></td></tr>
+  <tr><td>27</td><td>Haiti earthquake</td><td>2010</td><td><span class="tag tag-catastrophe">Catastrophe</span></td><td>3–5 days</td><td>Looting spread as aid delayed; vigilante lynchings reported.<a href="#ref-nyt-haiti" class="cite">[26]</a></td></tr>
+  <tr><td>28</td><td>Fukushima triple disaster</td><td>2011</td><td><span class="tag tag-catastrophe">Catastrophe</span></td><td>Days</td><td>Minimal looting in Miyagi/Iwate; orderly sheltering.<a href="#ref-bmc-systematic" class="cite">[22]</a></td></tr>
+  <tr><td>29</td><td>Ferguson unrest (Michael Brown)</td><td>2014</td><td><span class="tag tag-protest">Protest</span></td><td>Hours</td><td>Localized looting and arson amid protests; militarized police response.</td></tr>
+  <tr><td>30</td><td>Hurricane Sandy, NYC/NJ</td><td>2012</td><td><span class="tag tag-disaster">Disaster</span></td><td>Days</td><td>Some looting in blackout zones; broadly prosocial.<a href="#ref-bmc-systematic" class="cite">[22]</a></td></tr>
+  <tr><td>31</td><td>Hurricane Irma, USVI</td><td>2017</td><td><span class="tag tag-disaster">Disaster</span></td><td>Days</td><td>Temporary burglary spike; declined when aid arrived.<a href="#ref-aetv-crime" class="cite">[40]</a></td></tr>
+  <tr><td>32</td><td>Mexico City earthquake</td><td>2017</td><td><span class="tag tag-disaster">Disaster</span></td><td>Days</td><td>Assaults and vandalism increases in some studies.<a href="#ref-aetv-crime" class="cite">[40]</a></td></tr>
+  <tr><td>33</td><td>Yellow Vest protests, France</td><td>2018–19</td><td><span class="tag tag-protest">Protest</span></td><td>Hours</td><td>Property damage in Paris; most demonstrations non-violent.</td></tr>
+  <tr><td>34</td><td>Notre-Dame fire, Paris</td><td>2019</td><td><span class="tag tag-disaster">Disaster</span></td><td>N/A</td><td>No social breakdown; collective mourning.</td></tr>
+  <tr><td>35</td><td>COVID-19 panic buying</td><td>2020</td><td><span class="tag tag-mixed">Mixed</span></td><td>Days–weeks</td><td>Hoarding, not violence; rule-bending not lawlessness.<a href="#ref-covid-panic" class="cite">[31]</a></td></tr>
+  <tr><td>36</td><td>BLM protests (George Floyd)</td><td>2020</td><td><span class="tag tag-protest">Protest</span></td><td>Hours</td><td>5–6% violent/destructive; 94%+ peaceful.<a href="#ref-acled-year" class="cite">[29]</a></td></tr>
+  <tr><td>37</td><td>January 6 Capitol attack</td><td>2021</td><td><span class="tag tag-riot">Riot</span></td><td>Hours</td><td>Planned political violence; not disaster or protest pattern.</td></tr>
+  <tr><td>38</td><td>Texas winter storm / grid failure</td><td>2021</td><td><span class="tag tag-catastrophe">Catastrophe</span></td><td>Days</td><td>Scarcity, not widespread looting; mutual aid networks.</td></tr>
+  <tr><td>39</td><td>Hurricane Ian, Florida</td><td>2022</td><td><span class="tag tag-disaster">Disaster</span></td><td>Days</td><td>Isolated looting arrests; rescue-focused response.</td></tr>
+  <tr><td>40</td><td>Maui wildfires, Lahaina</td><td>2023</td><td><span class="tag tag-catastrophe">Catastrophe</span></td><td>Days</td><td>Looting arrests; roadblocks by residents; aid disputes.</td></tr>
+  <tr><td>41</td><td>German floods (Ahr valley)</td><td>2021</td><td><span class="tag tag-disaster">Disaster</span></td><td>N/A</td><td>Volunteer rescue dominant; minimal looting reported.</td></tr>
+  <tr><td>42</td><td>Australian bushfires ("Black Summer")</td><td>2019–20</td><td><span class="tag tag-disaster">Disaster</span></td><td>N/A</td><td>Community solidarity; no breakdown pattern.</td></tr>
+  <tr><td>43</td><td>Tōhoku earthquake/tsunami</td><td>2011</td><td><span class="tag tag-catastrophe">Catastrophe</span></td><td>N/A</td><td>Minimal looting; high social order despite scale.<a href="#ref-bmc-systematic" class="cite">[22]</a></td></tr>
+</table>
+
+<!-- FACTORS -->
+<h2 id="factors">Predictive Factors for Breakdown</h2>
+
+<div class="diagram">
+  <strong style="color:var(--accent);display:block;margin-bottom:1rem;">Conditions Associated with Faster / Deeper Breakdown</strong>
+  <div class="flow">
+    <div class="flow-box">Infrastructure<br>annihilation</div>
+    <span class="flow-arrow">+</span>
+    <div class="flow-box">State absence<br>or corruption</div>
+    <span class="flow-arrow">+</span>
+    <div class="flow-box">Pre-existing<br>inequality</div>
+    <span class="flow-arrow">+</span>
+    <div class="flow-box">Aid delay<br>or denial</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-box" style="border-color:var(--danger)">Breakdown<br>likely</div>
+  </div>
+</div>
+
+<ul>
+  <li><strong>Catastrophe vs. disaster scale:</strong> When most of a population is homeless and emergency organizations are themselves destroyed, consensus norms weaken.<a href="#ref-quarantelli-catastrophe" class="cite">[21]</a></li>
+  <li><strong>Pre-existing crime and corruption:</strong> St. Croix had high pre-storm crime and police who participated in looting.<a href="#ref-hugo-stcroix" class="cite">[7]</a></li>
+  <li><strong>Racialized rumor campaigns:</strong> Kanto 1923 and Katrina both saw rumors attributing violence to marginalized groups.<a href="#ref-kanto-massacre" class="cite">[10]</a><a href="#ref-la-times-katrina-rumors" class="cite">[6]</a></li>
+  <li><strong>Communication collapse:</strong> Enables rumor cycles that outpace verification.<a href="#ref-la-times-katrina-rumors" class="cite">[6]</a></li>
+  <li><strong>Perceived injustice (riots):</strong> Police violence or verdicts can trigger escalation within hours.<a href="#ref-wapo-rodney" class="cite">[23]</a></li>
+  <li><strong>Blackout / cover of darkness:</strong> Blitz looting and WWII crime boom correlated with darkness and reduced policing.<a href="#ref-blitz" class="cite">[27]</a></li>
+  <li><strong>Prison/jail breaches:</strong> Haiti 2010 saw reports of escaped inmates contributing to insecurity.<a href="#ref-nyt-haiti" class="cite">[26]</a></li>
+</ul>
+
+<!-- CONCLUSION -->
+<h2 id="conclusion">Conclusion</h2>
+
+<div class="conclusion-box">
+  <h3 style="margin-top:0;color:var(--accent2);">Concise Conclusion</h3>
+  <p>Law and order does <strong>not</strong> automatically or rapidly collapse when developed nations face crisis. The evidence strongly supports three tiered conclusions:</p>
+  <ol>
+    <li><strong>Typical disasters</strong> (earthquakes, hurricanes where infrastructure partially holds): Prosocial behavior dominates; verified looting is rare and often condemned; crime rates frequently fall. Breakdown, when it occurs, emerges over <em>days</em>, not minutes, and is usually localized.<a href="#ref-quarantelli-halfcentury" class="cite">[12]</a></li>
+    <li><strong>Civil disturbances and riots</strong> (Watts, LA 1992, BLM-adjacent violence): Escalation occurs in <em>hours</em>; looting is more collective and selective; behavior is driven by grievance, not survival. Even here, the majority of BLM events were peaceful.<a href="#ref-acled-year" class="cite">[29]</a></li>
+    <li><strong>Catastrophes</strong> (Katrina flooding, St. Croix, Haiti, Kanto 1923): When the state and infrastructure fail together — especially with pre-existing inequality — antisocial behavior can become widespread within 24–72 hours. Media and elite panic often amplify perceived breakdown beyond verified crime.<a href="#ref-tierney-elite" class="cite">[3]</a></li>
+  </ol>
+  <p>For the Apocalypse Story epidemic scenario: a disease causing 50–90% mortality over weeks is closer to a <em>catastrophe</em> than a typical disaster. The relevant question is not "will everyone loot?" but whether institutional collapse, resource denial, and pre-existing inequality convert a consensus emergency into a conflict emergency — and whether elite panic accelerates that conversion.</p>
+</div>
+
+<h3>Further research directions</h3>
+<ul>
+  <li>How does progressive institutional absence (vs. sudden disaster) affect the timeline of breakdown?</li>
+  <li>What happens when police/military themselves suffer 50%+ casualties — who enforces order?</li>
+  <li>Comparative study of epidemic vs. earthquake breakdown (disaster sociology largely excluded epidemics).<a href="#ref-ssrc-covid" class="cite">[41]</a></li>
+  <li>Vigilante justice emergence: when do communities self-police vs. fragment?</li>
+  <li>Role of firearms prevalence in developed-nation post-crisis violence (understudied in disaster sociology).</li>
+  <li>Digital communication: do cell networks reduce or amplify rumor-driven breakdown?</li>
+  <li>Prison and hospital abandonment scenarios specific to pandemic collapse.</li>
+</ul>
+
+<!-- REFERENCES -->
+<h2 id="references">References</h2>
+<ol class="refs">
+  <li id="ref-quarantelli-looting">Quarantelli, E.L. (1989). <em>Looting and Antisocial Behavior in Disasters</em>. Disaster Research Center Preliminary Paper. <a href="https://udspace.udel.edu/server/api/core/bitstreams/0c3ce49b-f4b8-46ef-8081-ac9e965fdf2c/content">UDSpace</a></li>
+  <li id="ref-dynes-patterns">Quarantelli, E.L. &amp; Dynes, R.R. (1977). <em>Patterns of Looting and Property Norms: Conflict and Consensus in Community Emergencies</em>. DRC. <a href="http://udspace.udel.edu/handle/19716/19505">UDSpace</a></li>
+  <li id="ref-tierney-elite">Tierney, K., Bevc, C., &amp; Kuligowski, E. (2006). Metaphors matter. <em>Natural Hazards Observer</em>, 31(2). Also: Clarke, L. &amp; Chess, C. (2008). Elite panic. <a href="https://en.wikipedia.org/wiki/Elite_panic">Wikipedia summary with primary citations</a></li>
+  <li id="ref-constable-katrina">Constable, C. (2008). Katrina's myth of widespread looting. In <em>Through the Eye of Katrina</em>. University of New Orleans.</li>
+  <li id="ref-chile-crime">García-Hombrados, J. (2020). The lasting effects of natural disasters on property crime. <em>Journal of Public Economics</em>, 187. <a href="https://doi.org/10.1016/j.jpubeco.2020.104197">DOI</a></li>
+  <li id="ref-la-times-katrina-rumors">Borenstein, S. (2005). Katrina takes a toll on truth, news accuracy. <em>Los Angeles Times</em>, Sep 27. <a href="https://www.latimes.com/archives/la-xpm-2005-sep-27-na-rumors27-story.html">Link</a></li>
+  <li id="ref-hugo-stcroix">Boyd, J.A. (2021). Determinants of asocial behavior: St. Croix after Hurricane Hugo. In <em>Disaster and Society</em>. <a href="https://doi.org/10.4324/9780429337055-5">DOI</a>; <a href="https://www.washingtonpost.com/archive/politics/1989/10/01/st-croixs-climate-proved-explosive-after-hurricane-hugo-hit-the-island/5e8f3186-82bb-4800-9ca5-aa8249ca0927/">Washington Post</a></li>
+  <li id="ref-rand-riots">RAND Corporation. Domestic riots case study (LA 1965 vs 1992). <a href="https://www.armyupress.army.mil/Portals/7/Hot-Spots/docs/Civil-Unrest/Rand-Domestic-Riots-Case-Study.pdf">PDF</a></li>
+  <li id="ref-drury-crowd">Drury, J. &amp; Reicher, S. (2025). The psychology of crowd behavior. <em>Annual Review of Psychology</em>. <a href="https://doi.org/10.1146/annurev-psych-012125-121447">DOI</a></li>
+  <li id="ref-kanto-massacre">Hasegawa, K. (2020). The massacre of Koreans in Yokohama after the 1923 earthquake. <em>Monumenta Nipponica</em>, 75(1). <a href="https://doi.org/10.1353/mni.2020.0002">DOI</a></li>
+  <li id="ref-frailing-katrina">Frailing, K. (2008). Disaster mythology: looting in New Orleans. <em>Disaster Prevention and Management</em>, 17(5). <a href="https://doi.org/10.1108/09653560810901764">DOI</a></li>
+  <li id="ref-quarantelli-halfcentury">Quarantelli, E.L. (2003). A half century of social science disaster research. DRC Preliminary Paper #336. <a href="https://courses.worldcampus.psu.edu/welcome/hls811/001/common/corefiles/Quarantelli.2003.Half_century_of_social_science_disaster_research.pdf">PDF</a></li>
+  <li id="ref-frailing-consensus">Frailing, K. (2019). Conflict or consensus? Re-examining crime and disaster. <em>Jàmbá: Journal of Disaster Risk Studies</em>, 11(1). <a href="https://doi.org/10.4102/jamba.v11i1.744">DOI</a></li>
+  <li id="ref-acled-2020">Kishi, R. &amp; Jones, S. (2020). Demonstrations and political violence in America: New data for summer 2020. ACLED. <a href="https://acleddata.com/report/demonstrations-and-political-violence-america-new-data-summer-2020">Link</a></li>
+  <li id="ref-drc-history">Disaster Research Center. Vision and history. <a href="https://www.drc.udel.edu/drc-vision-history/">UDel</a></li>
+  <li id="ref-solnit-paradise">Solnit, R. (2009). <em>A Paradise Built in Hell</em>. Viking Press.</li>
+  <li id="ref-fritz-1957">Fritz, C.E. &amp; Williams, H.B. (1957). The human being in disasters: A research perspective. <em>Annals of the American Academy</em>, 309(1). <a href="https://doi.org/10.1177/000271625730900107">DOI</a></li>
+  <li id="ref-quarantelli-myths">Quarantelli, E.L. (2008). Conventional beliefs and counterintuitive realities. <em>Sociological Forum</em>, 23(3). <a href="https://doi.org/10.1353/sor.2008.0003">DOI</a></li>
+  <li id="ref-drc-pmc">McEntire, D.A. (2021). The Disaster Research Center at the University of Delaware. <em>Disaster Medicine and Public Health Preparedness</em>, 15(4). <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8352358/">PMC</a></li>
+  <li id="ref-quarantelli-frailing">Quarantelli, E.L. &amp; Frailing, K. (2007). Looting after a disaster: Myth or reality? <em>Natural Hazards Observer</em>, 31(4). <a href="https://hazards.colorado.edu/uploads/observer/2007/mar07/mar07.pdf">PDF</a></li>
+  <li id="ref-quarantelli-catastrophe">Quarantelli, E.L. (2005). Catastrophes are different from disasters. DRC Preliminary Paper #367. <a href="https://udspace.udel.edu/server/api/core/bitstreams/7f8df691-a569-4374-bf43-a0c6b36c392c/content">UDSpace</a></li>
+  <li id="ref-bmc-systematic">Systematic review (2025). Looting and antisocial behavior after disasters. <em>BMC Public Health</em>. <a href="https://link.springer.com/article/10.1186/s12889-025-21285-7">Link</a></li>
+  <li id="ref-wapo-rodney">Washington Post (1992). The aftermath of the Rodney King verdict. <a href="https://www.washingtonpost.com/archive/politics/1992/05/10/the-aftermath-of-the-rodney-king-verdic/36285e0b-2aef-4bae-89fb-181cd1faf7c2/">Link</a></li>
+  <li id="ref-watts">Watts riots. <a href="https://en.wikipedia.org/wiki/Watts_riots">Wikipedia</a>; Stanford King Institute. <a href="https://kinginstitute.stanford.edu/watts-rebellion-los-angeles">Link</a></li>
+  <li id="ref-pbs-katrina">PBS FRONTLINE. 14 Days timeline. <a href="https://www.pbs.org/wgbh/pages/frontline/storm/etc/cron.html">Link</a></li>
+  <li id="ref-nyt-haiti">New York Times (2010). Looting flares where authority breaks down. <a href="https://www.nytimes.com/2010/01/17/world/americas/17looting.html">Link</a></li>
+  <li id="ref-blitz">Guardian (2010); HistoryExtra; Historia Magazine. Blitz looting and crime. <a href="https://www.theguardian.com/society/2010/aug/29/blitz-london-crime-flourish-blackout">Link</a></li>
+  <li id="ref-kobe">Los Angeles Times (1995). Kobe police fear crime wave. <a href="https://www.latimes.com/archives/la-xpm-1995-04-04-wr-50625-story.html">Link</a>; UPI (1995). Social order holds. <a href="https://www.upi.com/Archives/1995/01/22/Social-order-holds-up-to-Japan-quake/4108790750800/">Link</a></li>
+  <li id="ref-acled-year">Kishi, R. &amp; Jones, S. (2021). A year of racial justice protests. ACLED. <a href="https://acleddata.com/sites/default/files/wp-content-archive/uploads/2021/05/ACLED_Report_A-Year-of-Racial-Justice-Protests_May2021.pdf">PDF</a></li>
+  <li id="ref-annual-review-crowd">Drury, J. &amp; Reicher, S. (2025). Psychology of crowd behavior. <em>Annual Review of Psychology</em>. <a href="https://doi.org/10.1146/annurev-psych-012125-121447">DOI</a></li>
+  <li id="ref-covid-panic">Arafat, S.M.Y. et al. (2020). Antecedents and consequences of panic buying. <em>International Journal of Consumer Studies</em>. <a href="https://doi.org/10.1111/ijcs.12649">DOI</a></li>
+  <li id="ref-covid-intervention">Rune, K. &amp; Keech, J. (2023). Reducing panic buying during crisis lockdowns. <em>Behavioral Sciences</em>, 16(1). <a href="https://www.mdpi.com/2076-328X/16/1/42">Link</a></li>
+  <li id="ref-canterbury">Graham, L. (2014). The effects of the Canterbury earthquakes on crime. University of Canterbury thesis. <a href="https://ir.canterbury.ac.nz/bitstreams/b2ec8c25-3024-412c-abb2-b7766059b808/download">PDF</a></li>
+  <li id="ref-ripley">Ripley, A. (2008/2023). <em>The Unthinkable</em>. Crown.</li>
+  <li id="ref-handbook">Rodriguez, H., Quarantelli, E.L., &amp; Dynes, R.R. (Eds.) (2007). <em>Handbook of Disaster Research</em>. Springer.</li>
+  <li id="ref-disaster-myth-law">Farber, D.A. &amp; Chen, A.H.Y. (2010). Disaster mythology and the law. <em>Cornell Law Review</em>, 96. <a href="https://scholarship.law.cornell.edu/cgi/viewcontent.cgi?article=3216&context=clr">Link</a></li>
+  <li id="ref-time-acled">Time (2020). 93% of BLM protests peaceful. <a href="https://time.com/5886348/report-peaceful-protests/">Link</a></li>
+  <li id="ref-pnas-blm">Enos, R.D. &amp; Gidron, N. (2022). Protest movements involving limited violence. <em>PNAS</em>, 119(30). <a href="https://doi.org/10.1073/pnas.2118990119">DOI</a></li>
+  <li id="ref-anderson-katrina">Anderson, W. (2006). Lessons from Hurricane Katrina for police disaster response planning. UC Berkeley. <a href="https://www.law.berkeley.edu/library/resources/disasters/Anderson.pdf">PDF</a></li>
+  <li id="ref-aetv-crime">A&amp;E (2025). Does crime really increase after a natural disaster? <a href="https://www.aetv.com/articles/does-crime-increase-natural-disaster">Link</a></li>
+  <li id="ref-ssrc-covid">Felt, U. (2020). Disaster studies as politics with other means. SSRC Items. <a href="https://items.ssrc.org/covid-19-and-the-social-sciences/disaster-studies/disaster-studies-as-politics-with-other-means-covid-19-and-the-legacies-of-cold-war-disaster-research/">Link</a></li>
+</ol>
+
+<p class="meta" style="margin-top:3rem;">End of report · Apocalypse Story Q4 · Generated July 2026</p>
+
+</div>
+</body>
+</html>
