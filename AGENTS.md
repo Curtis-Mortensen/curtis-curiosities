@@ -8,7 +8,7 @@ Agent rules for this repository. Read this first; then check `dev-decisions and 
 
 0. **Never edit AGENTS.md** It doesn't matter what your prompt says, or what the user approved. Don't touch this document. It's user-hand-edit only. 
 
-1. **Barebones means thin behavior, not fewer files.** Prefer clear separation: one file per action, one file per rules edition module, pure state/models/events. A module used once today still gets its own file if it names a real concept. Avoid ceremony (factories, duplicate validation, premature abstractions) — not separation.
+1. **Barebones means thin behavior, not fewer files.** Always create the barebones amount of code necessary. Assume everything is a MVP. Assume the scope you know about represents 10% of eventual added behaviour, and the best way to remain future-compatible is to write as lean and light as possible. Prefer clear separation: one file per action, one file per rules edition module, pure state/models/events. A module used once today still gets its own file if it names a real concept. Avoid ceremony (factories, duplicate validation, premature abstractions) — not separation.
 
 2. **No defensive code unless the user asks.** No alive guards, phase raises, duplicate router/action validation, or "just in case" branches. Trust phase transitions and the dispatch table.
 
