@@ -38,7 +38,31 @@ Research Question 5 from `README.md`: credible institutional predictions and fra
 - Reinsurance catastrophe models for pandemic tail risk
 - COG plans under extreme personnel loss
 - East Asian national risk frameworks
-# Dev Log — Apocalypse Story
+
+---
+
+## 2026-07-04 — Q5 Follow-Up: Extinction-Level Synthesis (Complete)
+
+### Task
+Follow-up to Q5: deep-dive RAND GCR Assessment (asteroid, nuclear, pandemic extinction risks), summarize Precipice / Silent Scenario / Dark Winter / five books, synthesize agreement and disagreement.
+
+### Deliverable
+- `docs/q5-followup-extinction-synthesis.html` — synthesis overview of 8 sources
+- README updated to mark follow-up complete
+
+### Key synthesis findings
+- RAND GCR: extinction possible from large asteroids, nuclear war, engineered pandemics; increasing risk is human-driven; asteroids best-quantified
+- Silent Scenario: presymptomatic spread = hardest pandemic; vital-worker survival is the planning frame
+- Dark Winter: healthcare/governance collapse in 13 days from moderate smallpox
+- Books split: Ord (existential probability), Limits (overshoot), Diamond (preventable choices), Tainter (complexity economics), Wallace-Wells (climate cascades)
+- Agreement: cascades matter, human decisions dominate, preparation lags
+- Disagreement: extinction likelihood, whether collapse is rational, which threat dominates
+
+### Assumptions
+- "Five books" interpreted as Precipice + Limits to Growth + Collapse + Tainter + Uninhabitable Earth (top-ranked from Q5)
+- RAND GCR PDF used via mirror (main RAND page shows "temporarily withdrawn")
+
+---
 
 ## 2026-07-04 — Question 4: Breakdown of Law and Order
 
@@ -79,7 +103,8 @@ Research Question 4 from README: How quickly does law and order break down after
 
 ### Status
 Complete
-# Apocalypse Story — Dev Log
+
+---
 
 ## 2026-07-04 — Question 2: Psychology Under Existential Threat (COMPLETE)
 

@@ -25,4 +25,5 @@ Several research questions have been identified:
 
 Follow-Up Questions for After Initial Research
 - Logistical effect of epidemics: Given the lack of physical damage associated with pandemics, how often do they result in a disruption of connectivity (internet, phone service) and electricity? How about fuel? What products/necessities most commonly are disrupted first? Could water fail? Ground in the recent history of developed nations and in wargames and theoretical predictions.
+- **Q5 Follow-Up (complete):** Synthesis of extinction-level RAND predictions (GCR Assessment), summaries of The Precipice, RAND Silent Scenario, Dark Winter, and the four other top-ranked books (Limits to Growth, Collapse, Tainter, The Uninhabitable Earth), with agreement/disagreement analysis. See `docs/q5-followup-extinction-synthesis.html`.
 
