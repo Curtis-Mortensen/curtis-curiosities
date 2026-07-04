@@ -1,0 +1,1972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Combat Balance Guide — Encounter Math &amp; Monster Stat Blocks</title>
+  <style>
+    :root {
+      --bg: #0c0f14;
+      --surface: #151b24;
+      --surface2: #1e2736;
+      --surface3: #263044;
+      --border: #334155;
+      --text: #e8edf4;
+      --muted: #8b9cb3;
+      --accent: #f59e0b;
+      --accent2: #38bdf8;
+      --success: #4ade80;
+      --warning: #fbbf24;
+      --danger: #f87171;
+      --purple: #c084fc;
+      --red-monster: #ef4444;
+      --green-party: #22c55e;
+      --font: "Segoe UI", system-ui, -apple-system, sans-serif;
+      --mono: "Cascadia Code", "Fira Code", Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .hero {
+      background: linear-gradient(145deg, #1a1208 0%, #1e293b 50%, #0c0f14 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 1.5rem 2.5rem;
+    }
+
+    .hero-inner { max-width: 960px; margin: 0 auto; }
+
+    .hero h1 {
+      font-size: clamp(1.6rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      line-height: 1.25;
+    }
+
+    .hero .subtitle { color: var(--muted); font-size: 1.05rem; max-width: 780px; }
+
+    .badge-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .badge.gold { border-color: #92400e; background: rgba(245,158,11,0.15); color: var(--accent); }
+    .badge.blue { border-color: #0369a1; background: rgba(56,189,248,0.12); color: var(--accent2); }
+    .badge.green { border-color: #166534; background: rgba(74,222,128,0.12); color: var(--success); }
+    .badge.red { border-color: #991b1b; background: rgba(248,113,113,0.12); color: var(--danger); }
+    .badge.purple { border-color: #6b21a8; background: rgba(192,132,252,0.12); color: var(--purple); }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 1.5rem 1rem;
+      border-right: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .sidebar h2 {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .sidebar a {
+      display: block;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      padding: 0.35rem 0.5rem;
+      border-radius: 6px;
+      margin-bottom: 0.15rem;
+    }
+
+    .sidebar a:hover { background: var(--surface2); color: var(--text); }
+
+    .content { padding: 2rem 2rem 4rem; min-width: 0; }
+
+    section { margin-bottom: 3.5rem; }
+
+    h2 {
+      font-size: 1.65rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    h3 { font-size: 1.2rem; margin: 1.75rem 0 0.75rem; color: var(--accent2); }
+    h4 { font-size: 1rem; margin: 1.25rem 0 0.5rem; color: var(--accent); }
+
+    p { margin-bottom: 1rem; color: var(--text); }
+    p.muted { color: var(--muted); font-size: 0.95rem; }
+
+    ul, ol { margin: 0 0 1rem 1.25rem; }
+    li { margin-bottom: 0.4rem; }
+
+    .callout {
+      background: var(--surface2);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+    }
+
+    .callout.blue { border-color: var(--accent2); }
+    .callout.green { border-color: var(--success); }
+    .callout.red { border-color: var(--danger); }
+    .callout.purple { border-color: var(--purple); }
+
+    .callout strong { display: block; margin-bottom: 0.35rem; }
+
+    .formula-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      font-family: var(--mono);
+      font-size: 0.9rem;
+      overflow-x: auto;
+    }
+
+    .formula-box .label {
+      font-family: var(--font);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .flow-diagram {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      margin: 1.25rem 0;
+      font-size: 0.88rem;
+    }
+
+    .flow-step {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem;
+      text-align: center;
+      min-width: 100px;
+    }
+
+    .flow-arrow { color: var(--muted); font-size: 1.2rem; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin: 1rem 0;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.55rem 0.65rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--surface2);
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+
+    tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+
+    td.num { text-align: right; font-family: var(--mono); font-size: 0.85rem; }
+    td.center { text-align: center; }
+
+    .hit-ok { color: var(--success); }
+    .hit-warn { color: var(--warning); }
+    .hit-low { color: var(--danger); }
+
+    .stat-block-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+
+    .stat-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .stat-block.standard { border-top: 3px solid var(--accent2); }
+    .stat-block.heavy { border-top: 3px solid var(--red-monster); }
+    .stat-block.acid { border-top: 3px solid var(--purple); }
+
+    .stat-block.group { border-top: 3px solid #2dd4bf; }
+    .stat-block.lifesteal { border-top: 3px solid #22c55e; }
+    .stat-block.splitter { border-top: 3px solid #fb923c; }
+    .badge.teal { border-color: #0f766e; background: rgba(45,212,191,0.12); color: #2dd4bf; }
+    .badge.orange { border-color: #c2410c; background: rgba(251,146,60,0.12); color: #fb923c; }
+
+    .experimental-section {
+      position: relative;
+      border: 2px dashed #fbbf24;
+      border-radius: 10px;
+      padding: 1.5rem 1.25rem 1.25rem;
+      margin-top: 2rem;
+      background: rgba(251, 191, 36, 0.04);
+    }
+
+    .caution-tape {
+      background: repeating-linear-gradient(
+        -45deg,
+        #fbbf24,
+        #fbbf24 12px,
+        #1a1a1a 12px,
+        #1a1a1a 24px
+      );
+      color: #1a1a1a;
+      font-weight: 800;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 0.45rem 1rem;
+      margin: -1.5rem -1.25rem 1.25rem;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .ai-skip-notice {
+      font-size: 0.82rem;
+      color: var(--muted);
+      border-left: 3px solid var(--warning);
+      padding: 0.6rem 0.85rem;
+      margin: 1rem 0;
+      background: rgba(251, 191, 36, 0.06);
+    }
+
+
+    .stat-header {
+      background: var(--surface2);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stat-header .title { font-weight: 700; font-size: 1rem; }
+    .stat-header .sub { font-size: 0.8rem; color: var(--muted); margin-top: 0.15rem; }
+
+    .stat-body { padding: 0.75rem 1rem; }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.3rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.88rem;
+    }
+
+    .stat-row:last-child { border-bottom: none; }
+    .stat-row .key { color: var(--muted); }
+    .stat-row .val { font-family: var(--mono); font-weight: 600; }
+
+    .stat-note {
+      font-size: 0.78rem;
+      color: var(--warning);
+      padding: 0.5rem 1rem;
+      background: rgba(251,191,36,0.08);
+      border-top: 1px solid rgba(251,191,36,0.2);
+    }
+
+    .party-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .party-tab {
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .party-tab.active {
+      background: var(--surface3);
+      color: var(--text);
+      border-color: var(--accent2);
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .alt-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .alt-card h4 { margin-top: 0; }
+
+    .compare-table td.best { background: rgba(74,222,128,0.08); }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin: 0.75rem 0;
+    }
+
+    .legend span::before {
+      content: "●";
+      margin-right: 0.35rem;
+    }
+
+    .legend .ok::before { color: var(--success); }
+    .legend .warn::before { color: var(--warning); }
+    .legend .bad::before { color: var(--danger); }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <h1>Combat Balance Guide</h1>
+    <p class="subtitle">
+      A step-by-step reference for designing balanced combat encounters. Covers the core math,
+      three monster archetypes (Standard, Heavy Hitter, Acid), and trade-offs when rounding
+      stats to clean half-point increments.
+    </p>
+    <div class="badge-row">
+      <span class="badge gold">3-Round Combat</span>
+      <span class="badge blue">Party Size 2 &amp; 3</span>
+      <span class="badge green">5 Difficulty Levels Each</span>
+      <span class="badge red">Levels 4–5 = 2 Monsters</span>
+      <span class="badge teal">Group · Lifesteal · Splitter</span>
+      <span class="badge purple">Offline-Ready</span>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar">
+    <h2>Contents</h2>
+    <a href="#overview">Overview</a>
+    <a href="#dice">Dice &amp; Hit Chance</a>
+    <a href="#assumptions">Assumptions</a>
+    <a href="#formulas">Core Formulas</a>
+    <a href="#workflow">Design Workflow</a>
+    <a href="#targets">HP Targets by Level</a>
+    <a href="#standard">Standard Monsters</a>
+    <a href="#heavy">Heavy Hitters</a>
+    <a href="#acid">Acid Damage</a>
+    <a href="#lifesteal">Lifesteal</a>
+    <a href="#splitter">Splitter</a>
+    <a href="#alternatives">Alternatives &amp; Trade-offs</a>
+    <a href="#group">Group Attack</a>
+  </nav>
+
+  <main class="content">
+
+    <!-- OVERVIEW -->
+    <section id="overview">
+      <h2>Overview</h2>
+      <p>
+        This guide describes how to build monsters that produce <strong>predictable, fair combat</strong>
+        for a party of 2 or 3 players. Most encounters are tuned to last <strong>3 rounds on average</strong> (lifesteal types use 4)
+        and leave the party at a specific HP percentage when the fight ends.
+      </p>
+      <p>
+        Each encounter has a unique <em>Encounter ID</em> — a six-digit code:
+        <strong>party size (3 digits) + level (1 digit) + archetype (2 digits)</strong>.
+        Party-of-2 fights use IDs starting with <strong>002</strong>; party-of-3 fights use <strong>003</strong>.
+        Level 1 is the easiest and level 5 is the hardest. The last two digits identify the monster archetype:
+        <strong>11</strong> Standard, <strong>12</strong> Heavy Hitter, <strong>13</strong> Acid,
+        <strong>14</strong> Group Attack, <strong>15</strong> Lifesteal, <strong>16</strong> Splitter.
+        For example, party of 2, level 1, standard = <code>002111</code>; the same fight as a splitter = <code>002116</code>.
+      </p>
+
+      <div class="callout blue">
+        <strong>What "level" means here</strong>
+        Level 1 = party ends at 60% HP. Each successive level drops that target by 25 percentage points
+        (60% → 35% → 10% → −15% → −40%). Negative values mean the monster is expected to
+        <em>overkill</em> on paper — the party would be knocked out if the fight went the full distance
+        without intervention. However, players have <strong>heal abilities</strong>, so a win is still
+        theoretically possible at these levels. They are meant to feel <strong>very challenging</strong>, not unwinnable.
+      </div>
+
+      <div class="flow-diagram">
+        <div class="flow-step">Set party size<br><small>2 or 3 players</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step">Pick difficulty<br><small>Level 1–5</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step">Calculate HP target<br><small>% remaining</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step">Set monster HP<br><small>3 rounds of party dmg</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step">Assign dice roll<br><small>closest hit %</small></div>
+      </div>
+    </section>
+
+
+    <!-- DICE & HIT CHANCE -->
+    <section id="dice">
+      <h2>Dice &amp; Hit Chance</h2>
+      <p>
+        Monster attacks are not free-floating percentages — they come from <strong>actual dice rolls</strong>.
+        Each attack rolls <strong>one die</strong> (any standard D&amp;D die: d4, d6, d8, d10, d12, or d20)
+        with a <strong>+/− modifier</strong>, then checks whether the result meets or beats the player's
+        <strong>AC of 4</strong>.
+      </p>
+
+      <div class="formula-box">
+        <div class="label">Attack roll (meets or beats)</div>
+        Roll 1dX with modifier (+/− X), where X is 4, 6, 8, 10, 12, or 20.<br>
+        <strong>(die result + modifier) ≥ 4</strong> → hit.<br><br>
+        Equivalent: the die must show ≥ (4 − modifier) on its face.
+      </div>
+
+      <div class="callout blue">
+        <strong>Example: 1d10 vs AC 4</strong>
+        No modifier means the die needs to show ≥ 4. Faces 4–10 succeed (7 of 10).
+        Probability = 7/10 = <strong>70.00%</strong>.
+      </div>
+
+      <h3>All Achievable Hit Percentages</h3>
+      <p class="muted">
+        Using one die (d4–d20) and modifiers from −5 to +5 against AC 4, these are the distinct hit rates.
+        Stat blocks pick the roll whose percentage is <strong>closest to the mathematical target</strong>
+        (ties broken by fewer sides on the die, then smaller modifier). Run <code>combat_balance_audit.py</code>
+        to verify any assignment.
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Hit %</th><th>Attack Roll</th><th>Rule</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="num">0.00%</td><td><code>1d4-1</code></td><td>Die + modifier ≥ 4</td></tr>
+          <tr><td class="num">12.50%</td><td><code>1d8-4</code></td><td>Die + modifier ≥ 4</td></tr>
+          <tr><td class="num">16.67%</td><td><code>1d6-2</code></td><td>Die + modifier ≥ 4</td></tr>
+          <tr><td class="num">20.00%</td><td><code>1d10-5</code></td><td>Die + modifier ≥ 4</td></tr>
+          <tr><td class="num">25.00%</td><td><code>1d4</code></td><td>Die + modifier ≥ 4</td></tr>
+          <tr><td class="num">30.00%</td><td><code>1d10-4</code></td><td>Die + modifier ≥ 4</td></tr>
+          <tr><td class="num">33.33%</td><td><code>1d6-1</code></td><td>Die + modifier ≥ 4</td></tr>
+          <tr><td class="num">37.50%</td><td><code>1d8-2</code></td><td>Die + modifier ≥ 4</td></tr>
+          <tr><td class="num">40.00%</td><td><code>1d10-3</code></td><td>Die + modifier ≥ 4</td></tr>
+          <tr><td class="num">41.67%</td><td><code>1d12-4</code></td><td>Die + modifier ≥ 4</td></tr>
+          <tr><td class="num">50.00%</td><td><code>1d4+1</code></td><td>Die + modifier ≥ 4</td></tr>
+          <tr><td class="num">58.33%</td><td><code>1d12-2</code></td><td>Die + modifier ≥ 4</td></tr>
+          <tr><td class="num">60.00%</td><td><code>1d10-1</code></td><td>Die + modifier ≥ 4</td></tr>
+          <tr><td class="num">62.50%</td><td><code>1d8</code></td><td>Die + modifier ≥ 4</td></tr>
+          <tr><td class="num">65.00%</td><td><code>1d20-4</code></td><td>Die + modifier ≥ 4</td></tr>
+          <tr><td class="num">66.67%</td><td><code>1d6+1</code></td><td>Die + modifier ≥ 4</td></tr>
+          <tr><td class="num">70.00%</td><td><code>1d10</code></td><td>Die + modifier ≥ 4</td></tr>
+          <tr><td class="num">75.00%</td><td><code>1d4+2</code></td><td>Die + modifier ≥ 4</td></tr>
+          <tr><td class="num">80.00%</td><td><code>1d10+1</code></td><td>Die + modifier ≥ 4</td></tr>
+          <tr><td class="num">83.33%</td><td><code>1d6+2</code></td><td>Die + modifier ≥ 4</td></tr>
+          <tr><td class="num">85.00%</td><td><code>1d20</code></td><td>Die + modifier ≥ 4</td></tr>
+          <tr><td class="num">87.50%</td><td><code>1d8+2</code></td><td>Die + modifier ≥ 4</td></tr>
+          <tr><td class="num">90.00%</td><td><code>1d10+2</code></td><td>Die + modifier ≥ 4</td></tr>
+          <tr><td class="num">91.67%</td><td><code>1d12+2</code></td><td>Die + modifier ≥ 4</td></tr>
+          <tr><td class="num">95.00%</td><td><code>1d20+2</code></td><td>Die + modifier ≥ 4</td></tr>
+          <tr><td class="num">100.00%</td><td><code>1d4+3</code></td><td>Die + modifier ≥ 4</td></tr>
+        </tbody>
+      </table>
+      <p class="muted">
+        <strong>Note:</strong> Larger dice (d10, d12, d20) give finer steps than d6 alone — e.g. 70% via
+        <code>1d10</code> vs d6's nearest options of 66.67% or 83.33%. Prefer the die type that lands
+        closest to the target hit chance.
+      </p>
+    </section>
+
+
+    <!-- ASSUMPTIONS -->
+    <section id="assumptions">
+      <h2>Assumptions</h2>
+      <p>These baseline stats are held constant across all calculations in this guide.</p>
+
+      <table>
+        <thead>
+          <tr><th>Stat</th><th>Per Player</th><th>Party of 2</th><th>Party of 3</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>HP</td>
+            <td class="num">4</td>
+            <td class="num">8</td>
+            <td class="num">12</td>
+          </tr>
+          <tr>
+            <td>Damage per turn (avg)</td>
+            <td class="num">0.75</td>
+            <td class="num">1.5</td>
+            <td class="num">2.25</td>
+          </tr>
+          <tr>
+            <td>Combat duration</td>
+            <td class="num" colspan="3">3 rounds (avg)</td>
+          </tr>
+          <tr>
+            <td>Monster HP</td>
+            <td class="num">—</td>
+            <td class="num">4.5</td>
+            <td class="num">7.0</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <strong>Why 0.75 damage per player?</strong>
+        Party damage is modeled as a mix: some members hit for 1.0, others for 0.5, averaging to 0.75.
+        Monster <strong>HP and damage</strong> are always expressed in clean <strong>0.5 increments</strong>.
+        When a duo encounter splits HP unevenly (e.g. 2.0 + 2.5), that's intentional — both values are
+        valid half-steps. This constraint sometimes forces compromises on hit chance (see Alternatives).
+      </div>
+    </section>
+
+    <!-- FORMULAS -->
+    <section id="formulas">
+      <h2>Core Formulas</h2>
+
+      <h3>Monster HP (how much the party must chew through)</h3>
+      <div class="formula-box">
+        <div class="label">Monster HP</div>
+        Monster HP = Party Damage × 3 rounds (rounded to nearest 0.5)<br>
+        &nbsp;&nbsp;= (Party Size × 0.75) × 3 → round to 0.5
+      </div>
+      <p class="muted">If the party deals 1.5 dmg/turn (size 2), the monster needs 4.5 HP to die in exactly 3 rounds.</p>
+
+      <h3>Damage the monster must deal (HP target)</h3>
+      <div class="formula-box">
+        <div class="label">Target damage dealt</div>
+        Dmg Dealt = Party HP − Remaining HP<br>
+        &nbsp;&nbsp;= Party HP × (1 − Target Remaining %)
+      </div>
+
+      <h3>Standard monster: damage per turn</h3>
+      <div class="formula-box">
+        <div class="label">Standard archetype</div>
+        Target Dmg/Round = Dmg Dealt ÷ 3<br>
+        Actual Dmg/Round = Base Damage × Monsters × Hit%<br>
+        Hit Chance = Target Dmg/Round ÷ (Base Damage × Monsters)<br><br>
+        Example: need 1.7333 dmg/round with Base 2.0 → ideal hit 86.67% → <code>1d8+2</code> at 87.50%
+        gives Actual/Rd = 1.7500 (exact over 3 rounds).
+      </div>
+      <p>
+        Pick a <strong>Base Damage</strong> (rounded to the nearest 0.5 step), then solve for the
+        hit chance that makes <strong>Actual Dmg/Round</strong> closest to the target. Standard monsters aim for
+        <strong>70% or higher</strong> hit chance.
+      </p>
+
+      <h3>Heavy hitter: high damage, low accuracy</h3>
+      <div class="formula-box">
+        <div class="label">Heavy hitter archetype</div>
+        Same formula as standard, but target hit chance = <strong>43–57%</strong> (ideally ~50%).<br>
+        Higher base damage compensates for missing more often.
+      </div>
+
+      <h3>Acid damage: two hits per successful attack</h3>
+      <div class="formula-box">
+        <div class="label">Acid archetype</div>
+        Each successful hit deals Base Damage <em>now</em> + Base Damage <em>next turn</em> (acid tick).<br><br>
+        Over 3 attack rounds:<br>
+        &nbsp;&nbsp;• Round 1 hit → immediate dmg + acid on round 2<br>
+        &nbsp;&nbsp;• Round 2 hit → immediate dmg + acid on round 3<br>
+        &nbsp;&nbsp;• Round 3 hit → immediate dmg only (acid would land after combat)<br><br>
+        Expected total = 5 × Base Damage × Hit Chance<br>
+        Hit Chance = Dmg Dealt ÷ (5 × Base Damage)
+      </div>
+      <p class="muted">
+        Acid monsters deal less per swing but get a "free" follow-up hit. The ×5 multiplier (instead of ×3)
+        means they need lower base damage — but also makes low-level tuning harder.
+      </p>
+
+      <h3>Group attack: damage to every player</h3>
+      <div class="formula-box">
+        <div class="label">Group attack archetype</div>
+        3 × Hit% × (Dmg per player) × Party Size = Target Dmg Dealt<br>
+        Per-player damage is lower than standard base damage — the party size multiplier does the work.
+      </div>
+
+      <h3>Lifesteal: 4-round fights with fixed healing</h3>
+      <div class="formula-box">
+        <div class="label">Lifesteal archetype</div>
+        Heal on hit = <strong>0.5 HP</strong> (fixed — does not scale with damage dealt)<br>
+        Expected healing = 4 rounds × Monsters × Hit% × 0.5<br>
+        Listed HP = Standard HP + Party Dmg − Expected Healing − Difficulty<br>
+        &nbsp;&nbsp;• Standard HP = Party Dmg × 3 (same baseline as other archetypes)<br>
+        &nbsp;&nbsp;• Extra round = +1 × Party Dmg (fight lasts 4 rounds, not 3)<br>
+        &nbsp;&nbsp;• Difficulty = 0.5 at 75% hit, +3 per 10% above 75% (slightly harder than neutral)<br><br>
+        Example @ 75% hit, party of 2: 4.5 + 1.5 − 1.5 − 0.5 = <strong>4.0 HP</strong><br>
+        Example @ 85% hit, party of 2: 4.5 + 1.5 − 1.7 − 0.8 = <strong>3.5 HP</strong>
+      </div>
+
+      <h3>Splitter: divide at 50% HP</h3>
+      <div class="formula-box">
+        <div class="label">Splitter archetype</div>
+        Total HP pool is <em>simulated</em> (lower than standard) because damage splits across bodies.<br>
+        At 50% max HP, one monster becomes two (each ≥ 0.5 HP). Levels 4–5 start with 2 → 4 bodies.
+      </div>
+    </section>
+
+    <!-- WORKFLOW -->
+    <section id="workflow">
+      <h2>Design Workflow</h2>
+      <ol>
+        <li><strong>Determine party size</strong> (2 or 3) and difficulty level (1–5).</li>
+        <li><strong>Look up the HP target</strong> — what % of party HP should remain?</li>
+        <li><strong>Calculate Dmg Dealt</strong> — how much total damage must the monster(s) inflict?</li>
+        <li><strong>Set Monster HP</strong> — always Party Dmg × 3 (split between 2 monsters at levels 4–5).</li>
+        <li><strong>Choose archetype</strong> — Standard, Heavy Hitter, or Acid.</li>
+        <li><strong>Pick Base Damage</strong> in 0.5 increments, then solve for ideal hit chance.</li>
+        <li><strong>Assign a dice roll</strong> — choose the single 1dX±M roll whose hit % is closest to the target.</li>
+        <li><strong>Validate</strong> — hit chance within target range? Damage output matches? Rounds = 3?</li>
+      </ol>
+
+      <div class="callout green">
+        <strong>Two monsters at levels 4 and 5</strong>
+        At the hardest two levels in each block, encounters use <strong>2 monsters</strong> instead of 1.
+        Total HP and total base damage are split evenly between them. Each monster has half the HP
+        and half the base damage, but both attack each round — so combined output is unchanged.
+      </div>
+    </section>
+
+    <!-- TARGETS -->
+    <section id="targets">
+      <h2>HP Targets by Level</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Level</th>
+            <th>Base ID (Party 2)</th>
+            <th>Base ID (Party 3)</th>
+            <th>Party HP Remaining</th>
+            <th>Party 2: Dmg Dealt</th>
+            <th>Party 3: Dmg Dealt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="center">1</td>
+            <td class="center"><code>0021</code></td>
+            <td class="center"><code>0031</code></td>
+            <td class="center">60%</td>
+            <td class="num">3.2</td>
+            <td class="num">4.8</td>
+          </tr>
+          <tr>
+            <td class="center">2</td>
+            <td class="center"><code>0022</code></td>
+            <td class="center"><code>0032</code></td>
+            <td class="center">35%</td>
+            <td class="num">5.2</td>
+            <td class="num">7.8</td>
+          </tr>
+          <tr>
+            <td class="center">3</td>
+            <td class="center"><code>0023</code></td>
+            <td class="center"><code>0033</code></td>
+            <td class="center">10%</td>
+            <td class="num">7.2</td>
+            <td class="num">10.8</td>
+          </tr>
+          <tr>
+            <td class="center">4</td>
+            <td class="center"><code>0024</code></td>
+            <td class="center"><code>0034</code></td>
+            <td class="center">−15%</td>
+            <td class="num">9.2</td>
+            <td class="num">13.8</td>
+          </tr>
+          <tr>
+            <td class="center">5</td>
+            <td class="center"><code>0025</code></td>
+            <td class="center"><code>0035</code></td>
+            <td class="center">−40%</td>
+            <td class="num">11.2</td>
+            <td class="num">16.8</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="muted">
+        Append an archetype suffix to the base ID for the full encounter code:
+        <strong>11</strong> Standard, <strong>12</strong> Heavy Hitter, <strong>13</strong> Acid,
+        <strong>14</strong> Group Attack, <strong>15</strong> Lifesteal, <strong>16</strong> Splitter.
+        Level 1 party-of-2 standard = <code>002111</code>; the same difficulty as lifesteal = <code>002115</code>.
+      </p>
+      <p class="muted">
+        Negative remaining HP means mathematical overkill — the party would be eliminated without healing.
+        Because players have heal abilities, these levels are still winnable but demand strong play.
+        Think "very challenging" rather than "unwinnable."
+      </p>
+    </section>
+
+    <!-- STANDARD MONSTERS -->
+    <section id="standard">
+      <h2>Standard Monsters</h2>
+      <p>
+        The baseline archetype. Reliable attackers with <strong>70%+ hit chance</strong>.
+        Damage is moderate; accuracy is high. Hit rates come from dice rolls in the table below — not arbitrary percentages.
+      </p>
+
+      <div class="legend">
+        <span class="ok">Hit ≥ 70%</span>
+        <span class="warn">Hit 65–69%</span>
+        <span class="bad">Hit &lt; 65%</span>
+      </div>
+
+      <h3>Party of 2 — Levels 1–5 (<code>0021</code>–<code>0025</code>)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Lvl</th><th>ID</th><th># Mon</th><th>HP ea.</th><th>Base Dmg</th><th>Attack Roll</th><th>Hit %</th><th>Target/Rd</th><th>Actual/Rd</th><th>Dmg Dealt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="center">1</td><td class="center"><code>002111</code></td><td class="center">1</td><td class="num">4.5</td><td class="num">1.5</td><td><code>1d10</code></td><td class="num hit-ok">70.00%</td><td class="num">1.0667</td><td class="num">1.0500</td><td class="num">3.2</td></tr>
+          <tr><td class="center">2</td><td class="center"><code>002211</code></td><td class="center">1</td><td class="num">4.5</td><td class="num">2.0</td><td><code>1d8+2</code></td><td class="num hit-ok">87.50%</td><td class="num">1.7333</td><td class="num">1.7500</td><td class="num">5.2</td></tr>
+          <tr><td class="center">3</td><td class="center"><code>002311</code></td><td class="center">1</td><td class="num">4.5</td><td class="num">3.0</td><td><code>1d10+1</code></td><td class="num hit-ok">80.00%</td><td class="num">2.4000</td><td class="num">2.4000</td><td class="num">7.2</td></tr>
+          <tr><td class="center">4</td><td class="center"><code>002411</code></td><td class="center">2</td><td class="num">2.0 / 2.5</td><td class="num">2.0 ea.</td><td><code>1d4+2</code></td><td class="num hit-ok">75.00%</td><td class="num">3.0667</td><td class="num">3.0000</td><td class="num">9.2</td></tr>
+          <tr><td class="center">5</td><td class="center"><code>002511</code></td><td class="center">2</td><td class="num">2.0 / 2.5</td><td class="num">2.5 ea.</td><td><code>1d4+2</code></td><td class="num hit-ok">75.00%</td><td class="num">3.7333</td><td class="num">3.7500</td><td class="num">11.2</td></tr>
+        </tbody>
+      </table>
+
+      <div class="stat-block-grid">
+        <div class="stat-block standard">
+          <div class="stat-header"><div class="title">Standard — Level 1</div><div class="sub">ID 002111 · Party of 2</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">1</span></div>
+            <div class="stat-row"><span class="key">HP</span><span class="val">4.5</span></div>
+            <div class="stat-row"><span class="key">Base Dmg</span><span class="val">1.5</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d10</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">70.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">1.0667</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">1.0500</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">3.2</span></div>
+          </div>
+        </div>
+        <div class="stat-block standard">
+          <div class="stat-header"><div class="title">Standard — Level 3</div><div class="sub">ID 002311 · Party of 2</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">1</span></div>
+            <div class="stat-row"><span class="key">HP</span><span class="val">4.5</span></div>
+            <div class="stat-row"><span class="key">Base Dmg</span><span class="val">3.0</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d10+1</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">80.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">2.4000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">2.4000</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">7.2</span></div>
+          </div>
+        </div>
+        <div class="stat-block standard">
+          <div class="stat-header"><div class="title">Standard — Level 5</div><div class="sub">ID 002511 · Party of 2 · Duo</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">2</span></div>
+            <div class="stat-row"><span class="key">HP each</span><span class="val">2.0 & 2.5</span></div>
+            <div class="stat-row"><span class="key">Base Dmg each</span><span class="val">2.5</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d4+2</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">75.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">3.7333</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">3.7500</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">11.2</span></div>
+          </div>
+        </div>
+      </div>
+
+
+      <h3>Party of 3 — Levels 1–5 (<code>0031</code>–<code>0035</code>)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Lvl</th><th>ID</th><th># Mon</th><th>HP ea.</th><th>Base Dmg</th><th>Attack Roll</th><th>Hit %</th><th>Target/Rd</th><th>Actual/Rd</th><th>Dmg Dealt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="center">1</td><td class="center"><code>003111</code></td><td class="center">1</td><td class="num">7.0</td><td class="num">2.0</td><td><code>1d10+1</code></td><td class="num hit-ok">80.00%</td><td class="num">1.6000</td><td class="num">1.6000</td><td class="num">4.8</td></tr>
+          <tr><td class="center">2</td><td class="center"><code>003211</code></td><td class="center">1</td><td class="num">7.0</td><td class="num">3.0</td><td><code>1d8+2</code></td><td class="num hit-ok">87.50%</td><td class="num">2.6000</td><td class="num">2.6250</td><td class="num">7.8</td></tr>
+          <tr><td class="center">3</td><td class="center"><code>003311</code></td><td class="center">1</td><td class="num">7.0</td><td class="num">4.5</td><td><code>1d10+1</code></td><td class="num hit-ok">80.00%</td><td class="num">3.6000</td><td class="num">3.6000</td><td class="num">10.8</td></tr>
+          <tr><td class="center">4</td><td class="center"><code>003411</code></td><td class="center">2</td><td class="num">3.5 / 3.5</td><td class="num">3.0 ea.</td><td><code>1d4+2</code></td><td class="num hit-ok">75.00%</td><td class="num">4.6000</td><td class="num">4.5000</td><td class="num">13.8</td></tr>
+          <tr><td class="center">5</td><td class="center"><code>003511</code></td><td class="center">2</td><td class="num">3.5 / 3.5</td><td class="num">3.5 ea.</td><td><code>1d10+1</code></td><td class="num hit-ok">80.00%</td><td class="num">5.6000</td><td class="num">5.6000</td><td class="num">16.8</td></tr>
+        </tbody>
+      </table>
+
+      <div class="stat-block-grid">
+        <div class="stat-block standard">
+          <div class="stat-header"><div class="title">Standard — Level 1</div><div class="sub">ID 003111 · Party of 3</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">1</span></div>
+            <div class="stat-row"><span class="key">HP</span><span class="val">7.0</span></div>
+            <div class="stat-row"><span class="key">Base Dmg</span><span class="val">2.0</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d10+1</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">80.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">1.6000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">1.6000</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">4.8</span></div>
+          </div>
+        </div>
+        <div class="stat-block standard">
+          <div class="stat-header"><div class="title">Standard — Level 3</div><div class="sub">ID 003311 · Party of 3</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">1</span></div>
+            <div class="stat-row"><span class="key">HP</span><span class="val">7.0</span></div>
+            <div class="stat-row"><span class="key">Base Dmg</span><span class="val">4.5</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d10+1</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">80.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">3.6000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">3.6000</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">10.8</span></div>
+          </div>
+        </div>
+        <div class="stat-block standard">
+          <div class="stat-header"><div class="title">Standard — Level 5</div><div class="sub">ID 003511 · Party of 3 · Duo</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">2</span></div>
+            <div class="stat-row"><span class="key">HP each</span><span class="val">3.5 & 3.5</span></div>
+            <div class="stat-row"><span class="key">Base Dmg each</span><span class="val">3.5</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d10+1</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">80.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">5.6000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">5.6000</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">16.8</span></div>
+          </div>
+        </div>
+      </div>
+
+
+    </section>
+
+    <!-- HEAVY HITTERS -->
+    <section id="heavy">
+      <h2>Heavy Hitters</h2>
+      <p>
+        Slow, devastating attackers. They swing hard but miss often. Target hit chance is
+        <strong>43–57%</strong> (centered around 50%). Same HP targets and 3-round duration as standard
+        monsters — only the damage/hit trade-off changes.
+      </p>
+
+      <div class="callout red">
+        <strong>Design feel</strong>
+        Heavy hitters create swingy, tense fights. Players see big numbers but also lots of misses.
+        A lucky streak can wipe the party; a miss streak gives breathing room.
+      </div>
+
+      <h3>Party of 2 — Levels 1–5 (<code>0021</code>–<code>0025</code>)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Lvl</th><th>ID</th><th># Mon</th><th>HP ea.</th><th>Base Dmg</th><th>Attack Roll</th><th>Hit %</th><th>Target/Rd</th><th>Actual/Rd</th><th>Dmg Dealt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="center">1</td><td class="center"><code>002112</code></td><td class="center">1</td><td class="num">4.5</td><td class="num">2.0</td><td><code>1d4+1</code></td><td class="num hit-ok">50.00%</td><td class="num">1.0667</td><td class="num">1.0000</td><td class="num">3.2</td></tr>
+          <tr><td class="center">2</td><td class="center"><code>002212</code></td><td class="center">1</td><td class="num">4.5</td><td class="num">3.5</td><td><code>1d4+1</code></td><td class="num hit-ok">50.00%</td><td class="num">1.7333</td><td class="num">1.7500</td><td class="num">5.2</td></tr>
+          <tr><td class="center">3</td><td class="center"><code>002312</code></td><td class="center">1</td><td class="num">4.5</td><td class="num">5.0</td><td><code>1d4+1</code></td><td class="num hit-ok">50.00%</td><td class="num">2.4000</td><td class="num">2.5000</td><td class="num">7.2</td></tr>
+          <tr><td class="center">4</td><td class="center"><code>002412</code></td><td class="center">2</td><td class="num">2.0 / 2.5</td><td class="num">3.0 ea.</td><td><code>1d4+1</code></td><td class="num hit-ok">50.00%</td><td class="num">3.0667</td><td class="num">3.0000</td><td class="num">9.2</td></tr>
+          <tr><td class="center">5</td><td class="center"><code>002512</code></td><td class="center">2</td><td class="num">2.0 / 2.5</td><td class="num">3.5 ea.</td><td><code>1d4+1</code></td><td class="num hit-ok">50.00%</td><td class="num">3.7333</td><td class="num">3.5000</td><td class="num">11.2</td></tr>
+        </tbody>
+      </table>
+
+      <div class="stat-block-grid">
+        <div class="stat-block heavy">
+          <div class="stat-header"><div class="title">Heavy Hitter — Level 1</div><div class="sub">ID 002112 · Party of 2</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">1</span></div>
+            <div class="stat-row"><span class="key">HP</span><span class="val">4.5</span></div>
+            <div class="stat-row"><span class="key">Base Dmg</span><span class="val">2.0</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d4+1</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">50.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">1.0667</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">1.0000</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">3.2</span></div>
+          </div>
+        </div>
+        <div class="stat-block heavy">
+          <div class="stat-header"><div class="title">Heavy Hitter — Level 3</div><div class="sub">ID 002312 · Party of 2</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">1</span></div>
+            <div class="stat-row"><span class="key">HP</span><span class="val">4.5</span></div>
+            <div class="stat-row"><span class="key">Base Dmg</span><span class="val">5.0</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d4+1</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">50.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">2.4000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">2.5000</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">7.2</span></div>
+          </div>
+        </div>
+        <div class="stat-block heavy">
+          <div class="stat-header"><div class="title">Heavy Hitter — Level 5</div><div class="sub">ID 002512 · Party of 2 · Duo</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">2</span></div>
+            <div class="stat-row"><span class="key">HP each</span><span class="val">2.0 & 2.5</span></div>
+            <div class="stat-row"><span class="key">Base Dmg each</span><span class="val">3.5</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d4+1</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">50.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">3.7333</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">3.5000</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">11.2</span></div>
+          </div>
+        </div>
+      </div>
+
+
+      <h3>Party of 3 — Levels 1–5 (<code>0031</code>–<code>0035</code>)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Lvl</th><th>ID</th><th># Mon</th><th>HP ea.</th><th>Base Dmg</th><th>Attack Roll</th><th>Hit %</th><th>Target/Rd</th><th>Actual/Rd</th><th>Dmg Dealt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="center">1</td><td class="center"><code>003112</code></td><td class="center">1</td><td class="num">7.0</td><td class="num">3.0</td><td><code>1d4+1</code></td><td class="num hit-ok">50.00%</td><td class="num">1.6000</td><td class="num">1.5000</td><td class="num">4.8</td></tr>
+          <tr><td class="center">2</td><td class="center"><code>003212</code></td><td class="center">1</td><td class="num">7.0</td><td class="num">5.0</td><td><code>1d4+1</code></td><td class="num hit-ok">50.00%</td><td class="num">2.6000</td><td class="num">2.5000</td><td class="num">7.8</td></tr>
+          <tr><td class="center">3</td><td class="center"><code>003312</code></td><td class="center">1</td><td class="num">7.0</td><td class="num">7.0</td><td><code>1d4+1</code></td><td class="num hit-ok">50.00%</td><td class="num">3.6000</td><td class="num">3.5000</td><td class="num">10.8</td></tr>
+          <tr><td class="center">4</td><td class="center"><code>003412</code></td><td class="center">2</td><td class="num">3.5 / 3.5</td><td class="num">4.5 ea.</td><td><code>1d4+1</code></td><td class="num hit-ok">50.00%</td><td class="num">4.6000</td><td class="num">4.5000</td><td class="num">13.8</td></tr>
+          <tr><td class="center">5</td><td class="center"><code>003512</code></td><td class="center">2</td><td class="num">3.5 / 3.5</td><td class="num">5.5 ea.</td><td><code>1d4+1</code></td><td class="num hit-ok">50.00%</td><td class="num">5.6000</td><td class="num">5.5000</td><td class="num">16.8</td></tr>
+        </tbody>
+      </table>
+
+      <div class="stat-block-grid">
+        <div class="stat-block heavy">
+          <div class="stat-header"><div class="title">Heavy Hitter — Level 1</div><div class="sub">ID 003112 · Party of 3</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">1</span></div>
+            <div class="stat-row"><span class="key">HP</span><span class="val">7.0</span></div>
+            <div class="stat-row"><span class="key">Base Dmg</span><span class="val">3.0</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d4+1</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">50.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">1.6000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">1.5000</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">4.8</span></div>
+          </div>
+        </div>
+        <div class="stat-block heavy">
+          <div class="stat-header"><div class="title">Heavy Hitter — Level 3</div><div class="sub">ID 003312 · Party of 3</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">1</span></div>
+            <div class="stat-row"><span class="key">HP</span><span class="val">7.0</span></div>
+            <div class="stat-row"><span class="key">Base Dmg</span><span class="val">7.0</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d4+1</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">50.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">3.6000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">3.5000</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">10.8</span></div>
+          </div>
+        </div>
+        <div class="stat-block heavy">
+          <div class="stat-header"><div class="title">Heavy Hitter — Level 5</div><div class="sub">ID 003512 · Party of 3 · Duo</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">2</span></div>
+            <div class="stat-row"><span class="key">HP each</span><span class="val">3.5 & 3.5</span></div>
+            <div class="stat-row"><span class="key">Base Dmg each</span><span class="val">5.5</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d4+1</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">50.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">5.6000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">5.5000</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">16.8</span></div>
+          </div>
+        </div>
+      </div>
+
+
+    </section>
+
+    <!-- ACID DAMAGE -->
+    <section id="acid">
+      <h2>Acid Damage Monsters</h2>
+      <p>
+        These monsters deal damage in <strong>two pulses</strong>: immediate impact plus an acid tick
+        on the following turn for the same amount. Over a 3-round fight, each monster gets 3 attack
+        opportunities but only the first two also produce acid ticks within combat.
+      </p>
+
+      <div class="formula-box">
+        <div class="label">Acid damage timeline (single monster, 3 rounds)</div>
+        Round 1: [hit?] → immediate dmg + schedule acid<br>
+        Round 2: [acid from R1] + [hit?] → immediate dmg + schedule acid<br>
+        Round 3: [acid from R2] + [hit?] → immediate dmg only<br><br>
+        Expected output = 5 × Base × Hit% &nbsp;(not 3 × Base × Hit%)
+      </div>
+
+      <div class="callout purple">
+        <strong>Lower base, higher hit — but not always</strong>
+        Acid's ×5 multiplier means monsters need less base damage than standard types.
+        Hit rates still come from real dice rolls — see the <a href="#dice">dice table</a> for all
+        achievable percentages.
+      </div>
+
+      <h3>Party of 2 — Levels 1–5 (<code>0021</code>–<code>0025</code>)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Lvl</th><th>ID</th><th># Mon</th><th>HP ea.</th><th>Base Dmg</th><th>Attack Roll</th><th>Hit %</th><th>Target/Rd</th><th>Actual/Rd</th><th>Acid/turn</th><th>Dmg Dealt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="center">1</td><td class="center"><code>002113</code></td><td class="center">1</td><td class="num">4.5</td><td class="num">1.0</td><td><code>1d20-4</code></td><td class="num hit-warn">65.00%</td><td class="num">1.0667</td><td class="num">1.0833</td><td class="num">1.0</td><td class="num">3.2</td></tr>
+          <tr><td class="center">2</td><td class="center"><code>002213</code></td><td class="center">1</td><td class="num">4.5</td><td class="num">1.5</td><td><code>1d10</code></td><td class="num hit-ok">70.00%</td><td class="num">1.7333</td><td class="num">1.7500</td><td class="num">1.5</td><td class="num">5.2</td></tr>
+          <tr><td class="center">3</td><td class="center"><code>002313</code></td><td class="center">1</td><td class="num">4.5</td><td class="num">2.0</td><td><code>1d10</code></td><td class="num hit-ok">70.00%</td><td class="num">2.4000</td><td class="num">2.3333</td><td class="num">2.0</td><td class="num">7.2</td></tr>
+          <tr><td class="center">4</td><td class="center"><code>002413</code></td><td class="center">2</td><td class="num">2.0 / 2.5</td><td class="num">1.0 ea.</td><td><code>1d12+2</code></td><td class="num hit-ok">91.67%</td><td class="num">3.0667</td><td class="num">3.0556</td><td class="num">1.0</td><td class="num">9.2</td></tr>
+          <tr><td class="center">5</td><td class="center"><code>002513</code></td><td class="center">2</td><td class="num">2.0 / 2.5</td><td class="num">1.5 ea.</td><td><code>1d4+2</code></td><td class="num hit-ok">75.00%</td><td class="num">3.7333</td><td class="num">3.7500</td><td class="num">1.5</td><td class="num">11.2</td></tr>
+        </tbody>
+      </table>
+
+      <div class="stat-block-grid">
+        <div class="stat-block acid">
+          <div class="stat-header"><div class="title">Acid — Level 1</div><div class="sub">ID 002113 · Party of 2</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">1</span></div>
+            <div class="stat-row"><span class="key">HP</span><span class="val">4.5</span></div>
+            <div class="stat-row"><span class="key">Base Dmg</span><span class="val">1.0</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d20-4</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-warn">65.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">1.0667</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">1.0833</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">3.2</span></div>
+          </div>
+          <div class="stat-note">Ideal hit 64% — closest single die: <code>1d20-4</code> (65.00%)</div>
+        </div>
+        <div class="stat-block acid">
+          <div class="stat-header"><div class="title">Acid — Level 3</div><div class="sub">ID 002313 · Party of 2</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">1</span></div>
+            <div class="stat-row"><span class="key">HP</span><span class="val">4.5</span></div>
+            <div class="stat-row"><span class="key">Base Dmg</span><span class="val">2.0</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d10</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">70.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">2.4000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">2.3333</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">7.2</span></div>
+          </div>
+        </div>
+        <div class="stat-block acid">
+          <div class="stat-header"><div class="title">Acid — Level 5</div><div class="sub">ID 002513 · Party of 2 · Duo</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">2</span></div>
+            <div class="stat-row"><span class="key">HP each</span><span class="val">2.0 & 2.5</span></div>
+            <div class="stat-row"><span class="key">Base Dmg each</span><span class="val">1.5</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d4+2</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">75.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">3.7333</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">3.7500</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">11.2</span></div>
+          </div>
+        </div>
+      </div>
+
+
+      <h3>Party of 3 — Levels 1–5 (<code>0031</code>–<code>0035</code>)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Lvl</th><th>ID</th><th># Mon</th><th>HP ea.</th><th>Base Dmg</th><th>Attack Roll</th><th>Hit %</th><th>Target/Rd</th><th>Actual/Rd</th><th>Acid/turn</th><th>Dmg Dealt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="center">1</td><td class="center"><code>003113</code></td><td class="center">1</td><td class="num">7.0</td><td class="num">1.0</td><td><code>1d20+2</code></td><td class="num hit-ok">95.00%</td><td class="num">1.6000</td><td class="num">1.5833</td><td class="num">1.0</td><td class="num">4.8</td></tr>
+          <tr><td class="center">2</td><td class="center"><code>003213</code></td><td class="center">1</td><td class="num">7.0</td><td class="num">2.0</td><td><code>1d10+1</code></td><td class="num hit-ok">80.00%</td><td class="num">2.6000</td><td class="num">2.6667</td><td class="num">2.0</td><td class="num">7.8</td></tr>
+          <tr><td class="center">3</td><td class="center"><code>003313</code></td><td class="center">1</td><td class="num">7.0</td><td class="num">3.0</td><td><code>1d10</code></td><td class="num hit-ok">70.00%</td><td class="num">3.6000</td><td class="num">3.5000</td><td class="num">3.0</td><td class="num">10.8</td></tr>
+          <tr><td class="center">4</td><td class="center"><code>003413</code></td><td class="center">2</td><td class="num">3.5 / 3.5</td><td class="num">1.5 ea.</td><td><code>1d12+2</code></td><td class="num hit-ok">91.67%</td><td class="num">4.6000</td><td class="num">4.5833</td><td class="num">1.5</td><td class="num">13.8</td></tr>
+          <tr><td class="center">5</td><td class="center"><code>003513</code></td><td class="center">2</td><td class="num">3.5 / 3.5</td><td class="num">2.0 ea.</td><td><code>1d6+2</code></td><td class="num hit-ok">83.33%</td><td class="num">5.6000</td><td class="num">5.5556</td><td class="num">2.0</td><td class="num">16.8</td></tr>
+        </tbody>
+      </table>
+
+      <div class="stat-block-grid">
+        <div class="stat-block acid">
+          <div class="stat-header"><div class="title">Acid — Level 1</div><div class="sub">ID 003113 · Party of 3</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">1</span></div>
+            <div class="stat-row"><span class="key">HP</span><span class="val">7.0</span></div>
+            <div class="stat-row"><span class="key">Base Dmg</span><span class="val">1.0</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d20+2</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">95.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">1.6000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">1.5833</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">4.8</span></div>
+          </div>
+        </div>
+        <div class="stat-block acid">
+          <div class="stat-header"><div class="title">Acid — Level 3</div><div class="sub">ID 003313 · Party of 3</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">1</span></div>
+            <div class="stat-row"><span class="key">HP</span><span class="val">7.0</span></div>
+            <div class="stat-row"><span class="key">Base Dmg</span><span class="val">3.0</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d10</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">70.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">3.6000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">3.5000</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">10.8</span></div>
+          </div>
+        </div>
+        <div class="stat-block acid">
+          <div class="stat-header"><div class="title">Acid — Level 5</div><div class="sub">ID 003513 · Party of 3 · Duo</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">2</span></div>
+            <div class="stat-row"><span class="key">HP each</span><span class="val">3.5 & 3.5</span></div>
+            <div class="stat-row"><span class="key">Base Dmg each</span><span class="val">2.0</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d6+2</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">83.33%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">5.6000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">5.5556</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">16.8</span></div>
+          </div>
+        </div>
+      </div>
+
+
+    </section>
+
+    <!-- LIFESTEAL -->
+    <section id="lifesteal">
+      <h2>Lifesteal Monsters</h2>
+      <p>Combat lasts <strong>4 rounds</strong> on average. On every successful hit, the monster heals <strong>0.5 HP</strong> — regardless of how much damage it dealt. Listed HP is set lower than a standard monster to account for that healing; the penalty scales with hit chance (more hits = more healing = lower starting HP).</p>
+      <div class="formula-box">
+        <div class="label">Lifesteal HP &amp; healing (4-round fights)</div>
+        Heal on hit = <strong>0.5 HP</strong> (fixed)<br>
+        Expected healing = 4 × Monsters × Hit% × 0.5<br>
+        Listed HP = Standard HP + Party Dmg − Expected Healing − Difficulty<br>
+        Difficulty = 0.5 at 75% hit, +0.3 per 5% above 75% (tuned slightly harder than neutral)<br><br>
+        Tune attack damage and hit chance normally (4 × Base × Hit% ≈ Target Dmg Dealt). HP follows from the hit%.
+      </div>
+      <div class="callout green">
+        <strong>Why HP varies with hit chance</strong>
+        A monster that hits 85% of the time heals more over 4 rounds than one at 75%, so it needs less listed HP
+        to stay balanced. At 75% hit the offset is about −0.5 from standard; at 85% it's about −1.0.
+        Duo monsters heal twice as fast (two attackers), so their per-monster HP drops accordingly.
+      </div>
+      <h3>Party of 2 — Levels 1–5 (<code>0021</code>–<code>0025</code>)</h3>
+      <table>
+        <thead>
+          <tr><th>Lvl</th><th>ID</th><th># Mon</th><th>HP ea.</th><th>4-Rd Budget</th><th>Base Dmg</th><th>Attack Roll</th><th>Hit %</th><th>Target/Rd</th><th>Actual/Rd</th><th>Heal/Hit</th><th>Dmg Dealt</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="center">1</td><td class="center"><code>002115</code></td><td class="center">1</td><td class="num">4.5</td><td class="num">6.0</td><td class="num">1.5 ea.</td><td><code>1d4+1</code></td><td class="num hit-low">50.00%</td><td class="num">0.8000</td><td class="num">0.7500</td><td class="num">0.5</td><td class="num">3.2</td></tr>
+          <tr><td class="center">2</td><td class="center"><code>002215</code></td><td class="center">1</td><td class="num">4</td><td class="num">6.0</td><td class="num">2.0 ea.</td><td><code>1d20-4</code></td><td class="num hit-warn">65.00%</td><td class="num">1.3000</td><td class="num">1.3000</td><td class="num">0.5</td><td class="num">5.2</td></tr>
+          <tr><td class="center">3</td><td class="center"><code>002315</code></td><td class="center">1</td><td class="num">4.5</td><td class="num">6.0</td><td class="num">3.5 ea.</td><td><code>1d4+1</code></td><td class="num hit-low">50.00%</td><td class="num">1.8000</td><td class="num">1.7500</td><td class="num">0.5</td><td class="num">7.2</td></tr>
+          <tr><td class="center">4</td><td class="center"><code>002415</code></td><td class="center">2</td><td class="num">2 / 2.5</td><td class="num">6.0</td><td class="num">4.0 ea.</td><td><code>1d10-4</code></td><td class="num hit-low">30.00%</td><td class="num">2.3000</td><td class="num">2.4000</td><td class="num">0.5</td><td class="num">9.2</td></tr>
+          <tr><td class="center">5</td><td class="center"><code>002515</code></td><td class="center">2</td><td class="num">2 / 2.5</td><td class="num">6.0</td><td class="num">4.5 ea.</td><td><code>1d10-4</code></td><td class="num hit-low">30.00%</td><td class="num">2.8000</td><td class="num">2.7000</td><td class="num">0.5</td><td class="num">11.2</td></tr>
+        </tbody>
+      </table>
+
+      <div class="stat-block-grid">
+        <div class="stat-block lifesteal">
+          <div class="stat-header"><div class="title">Lifesteal — Level 1</div><div class="sub">ID 002115 · Party of 2</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">1</span></div>
+            <div class="stat-row"><span class="key">HP</span><span class="val">4.5</span></div>
+            <div class="stat-row"><span class="key">4-Round Budget</span><span class="val">6</span></div>
+            <div class="stat-row"><span class="key">Heal on Hit</span><span class="val">0.5</span></div>
+            <div class="stat-row"><span class="key">Base Dmg</span><span class="val">1.5</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d4+1</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-low">50.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">0.8000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">0.7500</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">3.2</span></div>
+          </div>
+        </div>
+        <div class="stat-block lifesteal">
+          <div class="stat-header"><div class="title">Lifesteal — Level 3</div><div class="sub">ID 002315 · Party of 2</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">1</span></div>
+            <div class="stat-row"><span class="key">HP</span><span class="val">4.5</span></div>
+            <div class="stat-row"><span class="key">4-Round Budget</span><span class="val">6</span></div>
+            <div class="stat-row"><span class="key">Heal on Hit</span><span class="val">0.5</span></div>
+            <div class="stat-row"><span class="key">Base Dmg</span><span class="val">3.5</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d4+1</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-low">50.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">1.8000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">1.7500</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">7.2</span></div>
+          </div>
+        </div>
+        <div class="stat-block lifesteal">
+          <div class="stat-header"><div class="title">Lifesteal — Level 5</div><div class="sub">ID 002515 · Party of 2 · Duo</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">2</span></div>
+            <div class="stat-row"><span class="key">HP each</span><span class="val">2 & 2.5</span></div>
+            <div class="stat-row"><span class="key">4-Round Budget</span><span class="val">6</span></div>
+            <div class="stat-row"><span class="key">Heal on Hit</span><span class="val">0.5</span></div>
+            <div class="stat-row"><span class="key">Base Dmg each</span><span class="val">4.5</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d10-4</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-low">30.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">2.8000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">2.7000</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">11.2</span></div>
+          </div>
+        </div>
+      </div>
+      <h3>Party of 3 — Levels 1–5 (<code>0031</code>–<code>0035</code>)</h3>
+      <table>
+        <thead>
+          <tr><th>Lvl</th><th>ID</th><th># Mon</th><th>HP ea.</th><th>4-Rd Budget</th><th>Base Dmg</th><th>Attack Roll</th><th>Hit %</th><th>Target/Rd</th><th>Actual/Rd</th><th>Heal/Hit</th><th>Dmg Dealt</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="center">1</td><td class="center"><code>003115</code></td><td class="center">1</td><td class="num">7.5</td><td class="num">9.0</td><td class="num">2.0 ea.</td><td><code>1d10-1</code></td><td class="num hit-low">60.00%</td><td class="num">1.2000</td><td class="num">1.2000</td><td class="num">0.5</td><td class="num">4.8</td></tr>
+          <tr><td class="center">2</td><td class="center"><code>003215</code></td><td class="center">1</td><td class="num">7.5</td><td class="num">9.0</td><td class="num">3.0 ea.</td><td><code>1d20-4</code></td><td class="num hit-warn">65.00%</td><td class="num">1.9500</td><td class="num">1.9500</td><td class="num">0.5</td><td class="num">7.8</td></tr>
+          <tr><td class="center">3</td><td class="center"><code>003315</code></td><td class="center">1</td><td class="num">7.5</td><td class="num">9.0</td><td class="num">4.0 ea.</td><td><code>1d6+1</code></td><td class="num hit-warn">66.67%</td><td class="num">2.7000</td><td class="num">2.6667</td><td class="num">0.5</td><td class="num">10.8</td></tr>
+          <tr><td class="center">4</td><td class="center"><code>003415</code></td><td class="center">2</td><td class="num">3.5 / 3.5</td><td class="num">9.0</td><td class="num">4.0 ea.</td><td><code>1d12-4</code></td><td class="num hit-low">41.67%</td><td class="num">3.4500</td><td class="num">3.3333</td><td class="num">0.5</td><td class="num">13.8</td></tr>
+          <tr><td class="center">5</td><td class="center"><code>003515</code></td><td class="center">2</td><td class="num">3.5 / 3.5</td><td class="num">9.0</td><td class="num">4.5 ea.</td><td><code>1d4+1</code></td><td class="num hit-low">50.00%</td><td class="num">4.2000</td><td class="num">4.5000</td><td class="num">0.5</td><td class="num">16.8</td></tr>
+        </tbody>
+      </table>
+
+      <div class="stat-block-grid">
+        <div class="stat-block lifesteal">
+          <div class="stat-header"><div class="title">Lifesteal — Level 1</div><div class="sub">ID 003115 · Party of 3</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">1</span></div>
+            <div class="stat-row"><span class="key">HP</span><span class="val">7.5</span></div>
+            <div class="stat-row"><span class="key">4-Round Budget</span><span class="val">9</span></div>
+            <div class="stat-row"><span class="key">Heal on Hit</span><span class="val">0.5</span></div>
+            <div class="stat-row"><span class="key">Base Dmg</span><span class="val">2.0</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d10-1</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-low">60.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">1.2000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">1.2000</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">4.8</span></div>
+          </div>
+        </div>
+        <div class="stat-block lifesteal">
+          <div class="stat-header"><div class="title">Lifesteal — Level 3</div><div class="sub">ID 003315 · Party of 3</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">1</span></div>
+            <div class="stat-row"><span class="key">HP</span><span class="val">7.5</span></div>
+            <div class="stat-row"><span class="key">4-Round Budget</span><span class="val">9</span></div>
+            <div class="stat-row"><span class="key">Heal on Hit</span><span class="val">0.5</span></div>
+            <div class="stat-row"><span class="key">Base Dmg</span><span class="val">4.0</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d6+1</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-warn">66.67%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">2.7000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">2.6667</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">10.8</span></div>
+          </div>
+        </div>
+        <div class="stat-block lifesteal">
+          <div class="stat-header"><div class="title">Lifesteal — Level 5</div><div class="sub">ID 003515 · Party of 3 · Duo</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">2</span></div>
+            <div class="stat-row"><span class="key">HP each</span><span class="val">3.5 & 3.5</span></div>
+            <div class="stat-row"><span class="key">4-Round Budget</span><span class="val">9</span></div>
+            <div class="stat-row"><span class="key">Heal on Hit</span><span class="val">0.5</span></div>
+            <div class="stat-row"><span class="key">Base Dmg each</span><span class="val">4.5</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d4+1</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-low">50.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">4.2000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">4.5000</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">16.8</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPLITTER -->
+    <section id="splitter">
+      <h2>Splitter Monsters</h2>
+      <p>When a monster drops to <strong>50% HP</strong>, it splits into two copies (each at half current HP, minimum 0.5). Levels 1–3: 1→2 bodies. Levels 4–5: 2→4 bodies.</p>
+      <div class="formula-box">
+        <div class="label">Splitter HP (simulated)</div>
+        Total HP pool is <em>lower</em> than standard monsters because splitting spreads party damage.<br>
+        Assumption: party damage is split evenly across all living bodies each round.<br>
+        Split only occurs when half of current HP is ≥ 0.5. Pools tuned to ~3 rounds via simulation.
+      </div>
+      <div class="callout">
+        <strong>Split trigger</strong>
+        Levels 1–3: 1 monster splits into 2. Levels 4–5: 2 monsters each split into 2 (4 total).
+      </div>
+      <h3>Party of 2 — Levels 1–5 (<code>0021</code>–<code>0025</code>)</h3>
+      <table>
+        <thead><tr><th>Lvl</th><th>ID</th><th>Bodies</th><th>HP ea.</th><th>Total HP</th><th>Base Dmg</th><th>Attack Roll</th><th>Hit %</th><th>Target/Rd</th><th>Actual/Rd</th><th>Dmg Dealt</th></tr></thead>
+        <tbody>
+          <tr><td class="center">1</td><td class="center"><code>002116</code></td><td class="center">1→2</td><td class="num">4.0</td><td class="num">4.0</td><td class="num">1.5 ea.</td><td><code>1d10</code></td><td class="num hit-ok">70.00%</td><td class="num">1.0667</td><td class="num">1.0500</td><td class="num">3.2</td></tr>
+          <tr><td class="center">2</td><td class="center"><code>002216</code></td><td class="center">1→2</td><td class="num">4.0</td><td class="num">4.0</td><td class="num">2.0 ea.</td><td><code>1d8+2</code></td><td class="num hit-ok">87.50%</td><td class="num">1.7333</td><td class="num">1.7500</td><td class="num">5.2</td></tr>
+          <tr><td class="center">3</td><td class="center"><code>002316</code></td><td class="center">1→2</td><td class="num">4.0</td><td class="num">4.0</td><td class="num">3.0 ea.</td><td><code>1d10+1</code></td><td class="num hit-ok">80.00%</td><td class="num">2.4000</td><td class="num">2.4000</td><td class="num">7.2</td></tr>
+          <tr><td class="center">4</td><td class="center"><code>002416</code></td><td class="center">2→4</td><td class="num">2.5 / 2.5</td><td class="num">5.0</td><td class="num">2.0 ea.</td><td><code>1d4+2</code></td><td class="num hit-ok">75.00%</td><td class="num">3.0667</td><td class="num">3.0000</td><td class="num">9.2</td></tr>
+          <tr><td class="center">5</td><td class="center"><code>002516</code></td><td class="center">2→4</td><td class="num">2.5 / 2.5</td><td class="num">5.0</td><td class="num">2.5 ea.</td><td><code>1d4+2</code></td><td class="num hit-ok">75.00%</td><td class="num">3.7333</td><td class="num">3.7500</td><td class="num">11.2</td></tr>
+        </tbody>
+      </table>
+      <div class="stat-block-grid">
+        <div class="stat-block splitter">
+          <div class="stat-header"><div class="title">Splitter — Level 1</div><div class="sub">ID 002116 · Party of 2</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">1</span></div>
+            <div class="stat-row"><span class="key">HP each</span><span class="val">4.0</span></div>
+            <div class="stat-row"><span class="key">Max Bodies</span><span class="val">2</span></div>
+            <div class="stat-row"><span class="key">Total HP Pool</span><span class="val">4.0</span></div>
+            <div class="stat-row"><span class="key">Base Dmg each</span><span class="val">1.5</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d10</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">70.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">1.0667</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">1.0500</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">3.2</span></div>
+          </div>
+        </div>
+        <div class="stat-block splitter">
+          <div class="stat-header"><div class="title">Splitter — Level 3</div><div class="sub">ID 002316 · Party of 2</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">1</span></div>
+            <div class="stat-row"><span class="key">HP each</span><span class="val">4.0</span></div>
+            <div class="stat-row"><span class="key">Max Bodies</span><span class="val">2</span></div>
+            <div class="stat-row"><span class="key">Total HP Pool</span><span class="val">4.0</span></div>
+            <div class="stat-row"><span class="key">Base Dmg each</span><span class="val">3.0</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d10+1</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">80.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">2.4000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">2.4000</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">7.2</span></div>
+          </div>
+        </div>
+        <div class="stat-block splitter">
+          <div class="stat-header"><div class="title">Splitter — Level 5</div><div class="sub">ID 002516 · Party of 2 · Duo</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">2</span></div>
+            <div class="stat-row"><span class="key">HP each</span><span class="val">2.5 & 2.5</span></div>
+            <div class="stat-row"><span class="key">Max Bodies</span><span class="val">4</span></div>
+            <div class="stat-row"><span class="key">Total HP Pool</span><span class="val">5.0</span></div>
+            <div class="stat-row"><span class="key">Base Dmg each</span><span class="val">2.5</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d4+2</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">75.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">3.7333</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">3.7500</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">11.2</span></div>
+          </div>
+        </div>
+      </div>
+      <h3>Party of 3 — Levels 1–5 (<code>0031</code>–<code>0035</code>)</h3>
+      <table>
+        <thead><tr><th>Lvl</th><th>ID</th><th>Bodies</th><th>HP ea.</th><th>Total HP</th><th>Base Dmg</th><th>Attack Roll</th><th>Hit %</th><th>Target/Rd</th><th>Actual/Rd</th><th>Dmg Dealt</th></tr></thead>
+        <tbody>
+          <tr><td class="center">1</td><td class="center"><code>003116</code></td><td class="center">1→2</td><td class="num">5.0</td><td class="num">5.0</td><td class="num">2.0 ea.</td><td><code>1d10+1</code></td><td class="num hit-ok">80.00%</td><td class="num">1.6000</td><td class="num">1.6000</td><td class="num">4.8</td></tr>
+          <tr><td class="center">2</td><td class="center"><code>003216</code></td><td class="center">1→2</td><td class="num">5.0</td><td class="num">5.0</td><td class="num">3.0 ea.</td><td><code>1d8+2</code></td><td class="num hit-ok">87.50%</td><td class="num">2.6000</td><td class="num">2.6250</td><td class="num">7.8</td></tr>
+          <tr><td class="center">3</td><td class="center"><code>003316</code></td><td class="center">1→2</td><td class="num">5.0</td><td class="num">5.0</td><td class="num">4.5 ea.</td><td><code>1d10+1</code></td><td class="num hit-ok">80.00%</td><td class="num">3.6000</td><td class="num">3.6000</td><td class="num">10.8</td></tr>
+          <tr><td class="center">4</td><td class="center"><code>003416</code></td><td class="center">2→4</td><td class="num">2.5 / 2.5</td><td class="num">5.0</td><td class="num">3.0 ea.</td><td><code>1d4+2</code></td><td class="num hit-ok">75.00%</td><td class="num">4.6000</td><td class="num">4.5000</td><td class="num">13.8</td></tr>
+          <tr><td class="center">5</td><td class="center"><code>003516</code></td><td class="center">2→4</td><td class="num">2.5 / 2.5</td><td class="num">5.0</td><td class="num">3.5 ea.</td><td><code>1d10+1</code></td><td class="num hit-ok">80.00%</td><td class="num">5.6000</td><td class="num">5.6000</td><td class="num">16.8</td></tr>
+        </tbody>
+      </table>
+      <div class="stat-block-grid">
+        <div class="stat-block splitter">
+          <div class="stat-header"><div class="title">Splitter — Level 1</div><div class="sub">ID 003116 · Party of 3</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">1</span></div>
+            <div class="stat-row"><span class="key">HP each</span><span class="val">5.0</span></div>
+            <div class="stat-row"><span class="key">Max Bodies</span><span class="val">2</span></div>
+            <div class="stat-row"><span class="key">Total HP Pool</span><span class="val">5.0</span></div>
+            <div class="stat-row"><span class="key">Base Dmg each</span><span class="val">2.0</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d10+1</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">80.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">1.6000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">1.6000</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">4.8</span></div>
+          </div>
+        </div>
+        <div class="stat-block splitter">
+          <div class="stat-header"><div class="title">Splitter — Level 3</div><div class="sub">ID 003316 · Party of 3</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">1</span></div>
+            <div class="stat-row"><span class="key">HP each</span><span class="val">5.0</span></div>
+            <div class="stat-row"><span class="key">Max Bodies</span><span class="val">2</span></div>
+            <div class="stat-row"><span class="key">Total HP Pool</span><span class="val">5.0</span></div>
+            <div class="stat-row"><span class="key">Base Dmg each</span><span class="val">4.5</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d10+1</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">80.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">3.6000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">3.6000</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">10.8</span></div>
+          </div>
+        </div>
+        <div class="stat-block splitter">
+          <div class="stat-header"><div class="title">Splitter — Level 5</div><div class="sub">ID 003516 · Party of 3 · Duo</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">2</span></div>
+            <div class="stat-row"><span class="key">HP each</span><span class="val">2.5 & 2.5</span></div>
+            <div class="stat-row"><span class="key">Max Bodies</span><span class="val">4</span></div>
+            <div class="stat-row"><span class="key">Total HP Pool</span><span class="val">5.0</span></div>
+            <div class="stat-row"><span class="key">Base Dmg each</span><span class="val">3.5</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d10+1</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">80.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">5.6000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">5.6000</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">16.8</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALTERNATIVES -->
+    <section id="alternatives">
+      <h2>Alternatives &amp; Trade-offs</h2>
+      <p>
+        The tables above represent the <em>recommended</em> stat blocks. Each hit percentage is the closest match from the <a href="#dice">dice table</a> — the best balance of clean
+        numbers, target hit rates, and accurate damage output. In practice, the 0.5-increment constraint
+        and competing goals often leave you choosing between imperfect options. This section documents
+        those forks.
+      </p>
+
+      <div class="callout">
+        <strong>Guiding principle</strong>
+        Target hit chances (70%+ standard, 43–57% heavy, 70%+ acid) are <em>ideals</em>, not hard laws.
+        A stat block that hits 64% but deals exactly the right damage is often better than one that
+        hits 70% but overkills by 10%.
+      </div>
+
+      <h3>Archetype Duration Summary</h3>
+      <table>
+        <thead>
+          <tr><th>Archetype</th><th>Combat Rounds</th><th>Key HP Rule</th><th>Damage Twist</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Standard / Heavy / Acid</td><td class="num">3</td><td>Party Dmg × 3</td><td>Varies by type</td></tr>
+          <tr><td>Group Attack</td><td class="num">3</td><td>Same total HP as standard</td><td>Hits all players — dmg/player × party size</td></tr>
+          <tr><td>Lifesteal</td><td class="num">4</td><td>Standard HP + 1 round − healing (scales with hit%)</td><td>Heals 0.5 HP per hit (fixed)</td></tr>
+          <tr><td>Splitter</td><td class="num">~3 (simulated)</td><td>Lower pool — split spreads damage</td><td>Splits at 50% HP</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Dice Roll Assignment — When Closest Isn't Best</h3>
+      <p>
+        The stat tables pick the dice roll whose percentage is nearest the mathematical target. Sometimes
+        two rolls are nearly tied — prefer the one with the smaller modifier unless it
+        shifts damage output significantly.
+      </p>
+
+      <div class="alt-card">
+        <h4>Example: Standard P2 Level 1 — ideal 71.1%</h4>
+        <table class="compare-table">
+          <thead>
+            <tr><th>Roll</th><th>Hit %</th><th>Δ from ideal</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr class="best">
+              <td><code>1d6+1</code></td>
+              <td class="num">66.67%</td>
+              <td class="num">4.43%</td>
+              <td><strong>Chosen</strong> — closest match</td>
+            </tr>
+            <tr>
+              <td><code>1d6+2</code></td>
+              <td class="num">83.33%</td>
+              <td class="num">12.23%</td>
+              <td>Higher hit rate — more damage output</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alt-card">
+        <h4>Example: Acid P2 Level 1 — ideal 64%</h4>
+        <table class="compare-table">
+          <thead>
+            <tr><th>Roll</th><th>Hit %</th><th>Δ from ideal</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr class="best">
+              <td><code>1d6+1</code></td>
+              <td class="num">66.67%</td>
+              <td class="num">2.67%</td>
+              <td><strong>Chosen</strong> — only viable option above 50%</td>
+            </tr>
+            <tr>
+              <td><code>1d6</code></td>
+              <td class="num">50%</td>
+              <td class="num">14%</td>
+              <td>Too low — under-delivers on damage</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Standard Monsters — Base Damage Rounding</h3>
+      <p>
+        When converting raw monster damage to a 0.5-increment base, the spreadsheet uses:
+        round <em>up</em> to the nearest 0.5, then bump further if hit chance exceeds ~87% (single
+        monster) or ~80% (duo encounters). This keeps hit rates in a satisfying 70–87% band.
+      </p>
+
+      <div class="alt-card">
+        <h4>Example: Party 2, Level 3 (<code>002311</code>)</h4>
+        <p>Raw monster dmg = 7.2 ÷ 3 = <strong>2.4</strong>. Two clean options:</p>
+        <table class="compare-table">
+          <thead>
+            <tr><th>Base Dmg</th><th>Hit %</th><th>Feel</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="num">2.5</td>
+              <td class="num">96%</td>
+              <td>Almost always hits — reliable but less exciting</td>
+            </tr>
+            <tr class="best">
+              <td class="num">3.0</td>
+              <td class="num">80.00% (<code>1d10+1</code>)</td>
+              <td><strong>Chosen.</strong> Bigger swings, still hits often enough</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alt-card">
+        <h4>Example: Party 2, Level 1 (<code>002111</code>)</h4>
+        <p>Raw = 1.067. Round up to 1.5 (not 1.0):</p>
+        <table class="compare-table">
+          <thead>
+            <tr><th>Base Dmg</th><th>Hit %</th><th>Issue</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="num">1.0</td>
+              <td class="num">107%</td>
+              <td>Impossible — would need &gt;100% hit to deal enough damage</td>
+            </tr>
+            <tr class="best">
+              <td class="num">1.5</td>
+              <td class="num">70.00% (<code>1d10</code>)</td>
+              <td><strong>Chosen.</strong> Lowest base that works with a real dice roll</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Party Damage: 0.75 Average vs. Mixed 1.0 / 0.5</h3>
+      <p>
+        Party damage of 0.75 assumes a mix of attackers (some deal 1.0, some 0.5). This affects
+        monster HP because HP = party dmg × 3.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Party Dmg Model</th><th>Party 2 HP</th><th>Party 3 HP</th><th>Effect</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>All members @ 0.75</td>
+            <td class="num">4.5</td>
+            <td class="num">7.0</td>
+            <td>Baseline — current tables</td>
+          </tr>
+          <tr>
+            <td>All members @ 1.0</td>
+            <td class="num">6.0</td>
+            <td class="num">9.0</td>
+            <td>Monsters live 1 extra round on avg — fights run long</td>
+          </tr>
+          <tr>
+            <td>All members @ 0.5</td>
+            <td class="num">3.0</td>
+            <td class="num">4.5</td>
+            <td>Monsters die faster — fights run short</td>
+          </tr>
+          <tr>
+            <td>One @ 1.0, rest @ 0.5 (2-player)</td>
+            <td class="num">3.75</td>
+            <td class="num">—</td>
+            <td>Slightly shorter than 0.75 avg</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="muted">
+        If your actual party composition differs from the 0.75 assumption, adjust monster HP
+        proportionally. The damage/hit tuning for HP <em>targets</em> stays the same.
+      </p>
+
+      <h3>Heavy Hitters — Damage vs. Hit Trade-off</h3>
+      <p>
+        Heavy hitters have more room to maneuver within the 43–57% band because higher base damage
+        naturally pushes hit chance down. At most levels, several bases land in range:
+      </p>
+
+      <div class="alt-card">
+        <h4>Example: Party 2, Level 2 (<code>002211</code>) — Dmg Dealt = 5.2</h4>
+        <table class="compare-table">
+          <thead>
+            <tr><th>Base Dmg</th><th>Hit %</th><th>In Range?</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="num">3.0</td><td class="num">57.8%</td><td>Yes — high end</td></tr>
+            <tr class="best"><td class="num">3.5</td><td class="num">49.5%</td><td><strong>Chosen</strong> — near center</td></tr>
+            <tr><td class="num">4.0</td><td class="num">43.3%</td><td>Yes — low end</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alt-card">
+        <h4>Example: Party 3, Level 5 (<code>003511</code>) — Duo, Dmg Dealt = 16.8</h4>
+        <table class="compare-table">
+          <thead>
+            <tr><th>Total Base</th><th>Per Monster</th><th>Hit %</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="num">10.0</td><td class="num">5.0 ea.</td><td class="num">56.0%</td></tr>
+            <tr class="best"><td class="num">11.0</td><td class="num">5.5 ea.</td><td class="num">50.9%</td></tr>
+            <tr><td class="num">12.0</td><td class="num">6.0 ea.</td><td class="num">46.7%</td></tr>
+          </tbody>
+        </table>
+        <p class="muted">All three are valid. The middle option best matches the ~50% design target.</p>
+      </div>
+
+      <h3>Acid Damage — The 70% Floor Problem</h3>
+      <p>
+        Acid's ×5 multiplier creates a tension: low base damage is needed for correct output, but
+        low base means high required hit chance. At early levels with party size 2, no 0.5-increment
+        base can both deal exact damage <em>and</em> hit ≥70%.
+      </p>
+
+      <div class="alt-card">
+        <h4>Party 2, Level 1 (<code>002111</code>) — Dmg Dealt = 3.2</h4>
+        <table class="compare-table">
+          <thead>
+            <tr><th>Base</th><th>Exact Hit %</th><th>At 70% Hit: Output</th><th>At 100% Hit: Output</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="num">0.5</td>
+              <td class="num hit-low">128% ✗</td>
+              <td class="num">1.75</td>
+              <td class="num">2.5</td>
+            </tr>
+            <tr class="best">
+              <td class="num">1.0</td>
+              <td class="num hit-warn">64%</td>
+              <td class="num">3.5</td>
+              <td class="num">5.0</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><strong>Chosen: Base 1.0 @ <code>1d20-4</code> (65.00%).</strong> Closest single-die match to 64% ideal.</p>
+        <p class="muted">
+          <strong>Alternative:</strong> <code>1d4+1</code> at 50% — under-delivers on damage but stays below the 70% floor concern.
+        </p>
+      </div>
+
+      <div class="alt-card">
+        <h4>Party 2, Level 2 (<code>002211</code>) — Dmg Dealt = 5.2</h4>
+        <table class="compare-table">
+          <thead>
+            <tr><th>Base</th><th>Exact Hit %</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="num">1.0</td>
+              <td class="num hit-low">104% ✗</td>
+              <td>Cannot deal enough damage at any hit rate</td>
+            </tr>
+            <tr class="best">
+              <td class="num">1.5</td>
+              <td class="num hit-warn">69.3%</td>
+              <td><strong>Chosen.</strong> 0.7% below floor — negligible</td>
+            </tr>
+            <tr>
+              <td class="num">2.0</td>
+              <td class="num hit-ok">52%</td>
+              <td>Valid but feels like a heavy hitter, not acid</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Acid at Duo Levels — High Hit Rates</h3>
+      <p>
+        When acid encounters split into 2 monsters (levels 4–5), per-monster base damage drops and
+        required hit chance climbs above 90%. This is mathematically correct but may feel like
+        "auto-hit" acid stacks. Options:
+      </p>
+      <ul>
+        <li><strong>Accept high hit rates</strong> — acid's delayed damage is dodgeable/healable in your game system, so guaranteed application isn't as scary as immediate damage.</li>
+        <li><strong>Increase base, lower hit</strong> — e.g., Party 2 Level 4 with 1.5 base each (total 3.0) gives 61% hit. Deals same damage on average but more swingy.</li>
+        <li><strong>Reduce acid tick to 0.5× base</strong> — changes the formula to expected = 3×base×hit + 2×0.5×base×hit = 4×base×hit. Opens more tuning room but changes the archetype feel.</li>
+      </ul>
+
+      <h3>Two-Monster Splitting — Rounding Per-Monster Stats</h3>
+      <p>
+        When halving total base damage for duo encounters, per-monster values don't always divide
+        evenly into 0.5 steps:
+      </p>
+      <div class="alt-card">
+        <h4>Party 2, Level 5 — Total HP 4.5, split for duo</h4>
+        <table class="compare-table">
+          <thead>
+            <tr><th>Per Monster</th><th>Total</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="num">2.0 ea.</td>
+              <td class="num">4.0</td>
+              <td>Round down — fight ends ~0.3 rounds early</td>
+            </tr>
+            <tr class="best">
+              <td class="num">2.0 + 2.5</td>
+              <td class="num">4.5</td>
+              <td><strong>Chosen</strong> — exact total, both in 0.5 steps</td>
+            </tr>
+            <tr>
+              <td class="num">2.5 ea.</td>
+              <td class="num">5.0</td>
+              <td>Round up — fight runs ~0.3 rounds long</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alt-card">
+        <h4>Party 3 — Total HP 7.0 (rounded from 6.75)</h4>
+        <p>
+          Raw math gives 6.75 HP (2.25 dmg × 3 rounds), but monster HP must land on 0.5 increments.
+          Rounding to <strong>7.0</strong> keeps fights at roughly 3.1 rounds for a party of 3.
+          Duo splits as <strong>3.5 + 3.5</strong>.
+        </p>
+      </div>
+
+      <div class="alt-card">
+        <h4>Party 2, Level 5 — Total raw base = 3.73 (standard)</h4>
+        <table class="compare-table">
+          <thead>
+            <tr><th>Per Monster</th><th>Total</th><th>Hit %</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="num">2.0 ea.</td>
+              <td class="num">4.0</td>
+              <td class="num">93.3%</td>
+              <td>Round down — too accurate for standard</td>
+            </tr>
+            <tr class="best">
+              <td class="num">2.5 ea.</td>
+              <td class="num">5.0</td>
+              <td class="num">74.7%</td>
+              <td><strong>Chosen</strong> — good hit band</td>
+            </tr>
+            <tr>
+              <td class="num">3.0 ea.</td>
+              <td class="num">6.0</td>
+              <td class="num">62.2%</td>
+              <td>Works for heavy hitters, low for standard</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Quick Reference: Archetype Comparison at Level 3</h3>
+      <p>Party of 2, <code>002311</code> — Dmg Dealt = 7.2, Monster HP = 4.5</p>
+      <table>
+        <thead>
+          <tr><th>Archetype</th><th>Base Dmg</th><th>Attack Roll</th><th>Hit %</th><th>Player Experience</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Standard</td>
+            <td class="num">3.0</td>
+            <td><code>1d6+2</code></td>
+            <td class="num">83.33%</td>
+            <td>Steady pressure — hits often, moderate chunks</td>
+          </tr>
+          <tr>
+            <td>Heavy Hitter</td>
+            <td class="num">5.0</td>
+            <td><code>1d6</code></td>
+            <td class="num">50%</td>
+            <td>Coin-flip bombs — terrifying when they connect</td>
+          </tr>
+          <tr>
+            <td>Acid</td>
+            <td class="num">2.0</td>
+            <td><code>1d6+1</code></td>
+            <td class="num">66.67%</td>
+            <td>Death by attrition — damage keeps coming next turn</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout green">
+        <strong>Simulator tip</strong>
+        When building your combat simulator, run Monte Carlo trials (10,000+ fights) per stat block
+        to verify: (1) mean combat length ≈ 3 rounds, (2) mean party HP remaining matches target %,
+        and (3) variance feels right for the archetype. The averages in this guide are analytically
+        exact — randomness will spread actual outcomes around them.
+      </div>
+    </section>
+
+    <!-- GROUP ATTACK (experimental — do not tune) -->
+    <section id="group" class="experimental-section">
+      <div class="caution-tape">⚠ Experimental — Broken for Large Groups</div>
+      <h2>Group Attack Monsters</h2>
+      <div class="ai-skip-notice">
+        <strong>Note to future AI agents:</strong> Do <em>not</em> update, rebalance, or attempt to fix this section.
+        Group attack math does not scale cleanly beyond small parties and is intentionally left as-is.
+        Focus tuning effort on Standard, Heavy, Acid, Lifesteal, and Splitter archetypes instead.
+      </div>
+      <p>Hits <strong>every player</strong> on a successful attack. Per-player damage is lower, but total party damage scales with party size — dangerous for large groups.</p>
+      <div class="formula-box">
+        <div class="label">Group attack damage</div>
+        Expected party damage over 3 rounds:<br>
+        &nbsp;&nbsp;3 × Hit% × (Damage per player) × Party Size = Target Dmg Dealt<br><br>
+        Per-player damage is intentionally <em>lower</em> than a standard monster's base damage,
+        because it multiplies across the whole party.
+      </div>
+      <h3>Party of 2 — Levels 1–5 (<code>0021</code>–<code>0025</code>)</h3>
+      <table>
+        <thead>
+          <tr><th>Lvl</th><th>ID</th><th># Mon</th><th>HP ea.</th><th>Dmg/Player</th><th>Attack Roll</th><th>Hit %</th><th>Target/Rd</th><th>Actual/Rd</th><th>Dmg Dealt</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="center">1</td><td class="center"><code>002114</code></td><td class="center">1</td><td class="num">4.5</td><td class="num">1.0 ea.</td><td><code>1d4+1</code></td><td class="num hit-low">50.00%</td><td class="num">1.0667</td><td class="num">1.0000</td><td class="num">3.2</td></tr>
+          <tr><td class="center">2</td><td class="center"><code>002214</code></td><td class="center">1</td><td class="num">4.5</td><td class="num">1.0 ea.</td><td><code>1d8+2</code></td><td class="num hit-ok">87.50%</td><td class="num">1.7333</td><td class="num">1.7500</td><td class="num">5.2</td></tr>
+          <tr><td class="center">3</td><td class="center"><code>002314</code></td><td class="center">1</td><td class="num">4.5</td><td class="num">1.5 ea.</td><td><code>1d10+1</code></td><td class="num hit-ok">80.00%</td><td class="num">2.4000</td><td class="num">2.4000</td><td class="num">7.2</td></tr>
+          <tr><td class="center">4</td><td class="center"><code>002414</code></td><td class="center">2</td><td class="num">2.0 / 2.5</td><td class="num">2.0 ea.</td><td><code>1d4+2</code></td><td class="num hit-ok">75.00%</td><td class="num">3.0667</td><td class="num">6.0000</td><td class="num">9.2</td></tr>
+          <tr><td class="center">5</td><td class="center"><code>002514</code></td><td class="center">2</td><td class="num">2.0 / 2.5</td><td class="num">2.5 ea.</td><td><code>1d4+2</code></td><td class="num hit-ok">75.00%</td><td class="num">3.7333</td><td class="num">7.5000</td><td class="num">11.2</td></tr>
+        </tbody>
+      </table>
+
+      <div class="stat-block-grid">
+        <div class="stat-block group">
+          <div class="stat-header"><div class="title">Group Attack — Level 1</div><div class="sub">ID 002114 · Party of 2</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">1</span></div>
+            <div class="stat-row"><span class="key">HP</span><span class="val">4.5</span></div>
+            <div class="stat-row"><span class="key">Dmg / Player</span><span class="val">1.0</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d4+1</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-low">50.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">1.0667</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">1.0000</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">3.2</span></div>
+          </div>
+        </div>
+        <div class="stat-block group">
+          <div class="stat-header"><div class="title">Group Attack — Level 3</div><div class="sub">ID 002314 · Party of 2</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">1</span></div>
+            <div class="stat-row"><span class="key">HP</span><span class="val">4.5</span></div>
+            <div class="stat-row"><span class="key">Dmg / Player</span><span class="val">1.5</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d10+1</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">80.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">2.4000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">2.4000</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">7.2</span></div>
+          </div>
+        </div>
+        <div class="stat-block group">
+          <div class="stat-header"><div class="title">Group Attack — Level 5</div><div class="sub">ID 002514 · Party of 2 · Duo</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">2</span></div>
+            <div class="stat-row"><span class="key">HP each</span><span class="val">2.0 & 2.5</span></div>
+            <div class="stat-row"><span class="key">Dmg / Player</span><span class="val">2.5</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d4+2</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">75.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">3.7333</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">7.5000</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">11.2</span></div>
+          </div>
+        </div>
+      </div>
+      <h3>Party of 3 — Levels 1–5 (<code>0031</code>–<code>0035</code>)</h3>
+      <table>
+        <thead>
+          <tr><th>Lvl</th><th>ID</th><th># Mon</th><th>HP ea.</th><th>Dmg/Player</th><th>Attack Roll</th><th>Hit %</th><th>Target/Rd</th><th>Actual/Rd</th><th>Dmg Dealt</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="center">1</td><td class="center"><code>003114</code></td><td class="center">1</td><td class="num">7.0</td><td class="num">1.0</td><td><code>1d4+1</code></td><td class="num hit-low">50.00%</td><td class="num">1.6000</td><td class="num">1.5000</td><td class="num">4.8</td></tr>
+          <tr><td class="center">2</td><td class="center"><code>003214</code></td><td class="center">1</td><td class="num">7.0</td><td class="num">1.0 ea.</td><td><code>1d8+2</code></td><td class="num hit-ok">87.50%</td><td class="num">2.6000</td><td class="num">2.6250</td><td class="num">7.8</td></tr>
+          <tr><td class="center">3</td><td class="center"><code>003314</code></td><td class="center">1</td><td class="num">7.0</td><td class="num">1.5 ea.</td><td><code>1d10+1</code></td><td class="num hit-ok">80.00%</td><td class="num">3.6000</td><td class="num">3.6000</td><td class="num">10.8</td></tr>
+          <tr><td class="center">4</td><td class="center"><code>003414</code></td><td class="center">2</td><td class="num">3.5 / 3.5</td><td class="num">2.0 ea.</td><td><code>1d4+2</code></td><td class="num hit-ok">75.00%</td><td class="num">4.6000</td><td class="num">9.0000</td><td class="num">13.8</td></tr>
+          <tr><td class="center">5</td><td class="center"><code>003514</code></td><td class="center">2</td><td class="num">3.5 / 3.5</td><td class="num">2.5 ea.</td><td><code>1d4+2</code></td><td class="num hit-ok">75.00%</td><td class="num">5.6000</td><td class="num">11.2500</td><td class="num">16.8</td></tr>
+        </tbody>
+      </table>
+
+      <div class="stat-block-grid">
+        <div class="stat-block group">
+          <div class="stat-header"><div class="title">Group Attack — Level 1</div><div class="sub">ID 003114 · Party of 3</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">1</span></div>
+            <div class="stat-row"><span class="key">HP</span><span class="val">7.0</span></div>
+            <div class="stat-row"><span class="key">Dmg / Player</span><span class="val">1.0</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d4+1</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-low">50.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">1.6000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">1.5000</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">4.8</span></div>
+          </div>
+        </div>
+        <div class="stat-block group">
+          <div class="stat-header"><div class="title">Group Attack — Level 3</div><div class="sub">ID 003314 · Party of 3</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">1</span></div>
+            <div class="stat-row"><span class="key">HP</span><span class="val">7.0</span></div>
+            <div class="stat-row"><span class="key">Dmg / Player</span><span class="val">1.5</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d10+1</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">80.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">3.6000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">3.6000</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">10.8</span></div>
+          </div>
+        </div>
+        <div class="stat-block group">
+          <div class="stat-header"><div class="title">Group Attack — Level 5</div><div class="sub">ID 003514 · Party of 3 · Duo</div></div>
+          <div class="stat-body">
+            <div class="stat-row"><span class="key">Monsters</span><span class="val">2</span></div>
+            <div class="stat-row"><span class="key">HP each</span><span class="val">3.5 & 3.5</span></div>
+            <div class="stat-row"><span class="key">Dmg / Player</span><span class="val">2.5</span></div>
+            <div class="stat-row"><span class="key">Attack Roll</span><span class="val"><code>1d4+2</code></span></div>
+            <div class="stat-row"><span class="key">Hit Chance</span><span class="val hit-ok">75.00%</span></div>
+            <div class="stat-row"><span class="key">Target/Rd</span><span class="val">5.6000</span></div>
+            <div class="stat-row"><span class="key">Actual/Rd</span><span class="val">11.2500</span></div>
+            <div class="stat-row"><span class="key">Target Dmg</span><span class="val">16.8</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  Combat Balance Guide — self-contained, works offline. Generated for encounter design &amp; simulation.
+</footer>
+
+</body>
+</html>
