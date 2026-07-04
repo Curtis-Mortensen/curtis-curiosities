@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question 6: Simulation Software for Epidemic and Societal Collapse Scenarios</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --surface: #1a2332;
+      --surface2: #243044;
+      --text: #e8edf4;
+      --muted: #9aa8bc;
+      --accent: #5eb3f5;
+      --accent2: #7dd3a8;
+      --warn: #f0b429;
+      --border: #2d3d54;
+      --link: #7ec8ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: linear-gradient(135deg, #1a2a3f 0%, #0f1a28 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 1.5rem 2rem;
+    }
+    header h1 { margin: 0 0 0.5rem; font-size: 1.9rem; font-weight: 700; }
+    header .subtitle { color: var(--muted); font-size: 1.05rem; max-width: 52rem; }
+    main { max-width: 58rem; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+    h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.4rem;
+      margin-top: 2.5rem;
+      font-size: 1.45rem;
+    }
+    h3 { color: var(--accent2); margin-top: 1.8rem; font-size: 1.15rem; }
+    p, li { font-size: 0.98rem; }
+    a { color: var(--link); }
+    .callout {
+      background: var(--surface);
+      border-left: 4px solid var(--accent);
+      padding: 1rem 1.2rem;
+      margin: 1.2rem 0;
+      border-radius: 0 6px 6px 0;
+    }
+    .callout.warn { border-left-color: var(--warn); }
+    .diagram {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem;
+      margin: 1.5rem 0;
+      overflow-x: auto;
+      font-family: ui-monospace, monospace;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      white-space: pre;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.2rem 0 2rem;
+      font-size: 0.82rem;
+      background: var(--surface);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th {
+      background: var(--surface2);
+      text-align: left;
+      padding: 0.65rem 0.55rem;
+      border-bottom: 2px solid var(--border);
+      position: sticky;
+      top: 0;
+    }
+    td {
+      padding: 0.55rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tr:hover td { background: rgba(94, 179, 245, 0.06); }
+    .tag {
+      display: inline-block;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.1rem 0.4rem;
+      font-size: 0.72rem;
+      margin: 0.1rem 0.15rem 0.1rem 0;
+    }
+    .refs { font-size: 0.85rem; color: var(--muted); }
+    .refs li { margin-bottom: 0.35rem; }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+    @media (max-width: 700px) {
+      table { font-size: 0.72rem; }
+      th, td { padding: 0.4rem 0.3rem; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Simulation Software for Epidemic and Post-Collapse Scenarios</h1>
+  <p class="subtitle">Research report for <em>Apocalypse Story</em>, Question 6 — surveying open-source repositories and academic simulation tools relevant to rapid population loss, epidemic spread, infrastructure failure, and societal breakdown in developed nations (especially the US).</p>
+</header>
+
+<main>
+
+<section id="aims">
+  <h2>1. Aims of This Document</h2>
+  <p>This report inventories software that could support research into the Apocalypse Story premise: a blood-borne epidemic with a 2–3 day latent period, &gt;50% mortality, and rapid US population reduction over weeks to months — with the focus on <em>societal</em> consequences rather than virology itself.<sup><a href="#ref-1">1</a></sup></p>
+  <p>Question 6 asks three things:</p>
+  <ol>
+    <li>What <strong>open-source repositories</strong> exist for simulating these scenarios?</li>
+    <li>What <strong>papers and technical analyses</strong> underpin them?</li>
+    <li>What <strong>technology stacks</strong> do they use?</li>
+  </ol>
+  <p>The deliverable is two comparison tables — one for open repos, one for academic tools and methods — plus context on how these tools relate to the project's research goals.</p>
+
+  <div class="callout">
+    <strong>Scope boundary.</strong> No single open-source project today simulates the full chain from a novel hemorrhagic epidemic through medical-system collapse, law-and-order breakdown, fuel disruption, and long-horizon demographic recovery. Tools cluster into <em>epidemic transmission</em>, <em>infrastructure/disaster resilience</em>, and <em>emergent social/civilization</em> simulation. This report maps those clusters and notes where integration would be required for Apocalypse Story–style modeling.
+  </div>
+</section>
+
+<section id="limitations">
+  <h2>2. Limitations</h2>
+
+  <h3>2.1 Theoretical limitations</h3>
+  <ul>
+    <li><strong>Human behavior is chaotic.</strong> Panic, rumor, trust in institutions, and culturally specific responses cannot be fully encoded. Even LLM-driven "generative agents" extrapolate from training data, not from unprecedented collapse.<sup><a href="#ref-2">2</a></sup><sup><a href="#ref-3">3</a></sup></li>
+    <li><strong>Models are not predictions.</strong> George Box's aphorism — "all models are wrong, but some are useful" — is cited repeatedly in epidemic policy tooling; usefulness depends on whether the model illuminates the decision at hand.<sup><a href="#ref-4">4</a></sup></li>
+    <li><strong>Coupling scales is hard.</strong> Microscopic agent decisions, regional infrastructure graphs, and national mobility each require different abstractions; hybrid ABM–ODE methods are an active research area, not a solved integration problem.<sup><a href="#ref-5">5</a></sup><sup><a href="#ref-6">6</a></sup></li>
+    <li><strong>Collapse is path-dependent.</strong> Monte Carlo civilization simulators (e.g., Civilis) explore distributions of outcomes but cannot validate against ground truth for novel scenarios.<sup><a href="#ref-7">7</a></sup></li>
+  </ul>
+
+  <h3>2.2 Methodological and literature limitations</h3>
+  <ul>
+    <li><strong>COVID-19 bias.</strong> A 2023 scoping review of 200+ COVID modeling studies found agent-based models were the most common method, but nearly all target SARS-CoV-2 parameters and NPIs, not hemorrhagic filovirus-like dynamics.<sup><a href="#ref-8">8</a></sup></li>
+    <li><strong>US-centric synthetic populations.</strong> FRED and Covasim ship US census-based populations; global tools (GLEAM, STEM) use different demographic pipelines.<sup><a href="#ref-9">9</a></sup><sup><a href="#ref-10">10</a></sup><sup><a href="#ref-11">11</a></sup></li>
+    <li><strong>Maintenance drift.</strong> Several influential academic codebases (EMOD, public FRED) are archived or superseded by commercial forks; stars and commit dates are not quality metrics.<sup><a href="#ref-12">12</a></sup><sup><a href="#ref-13">13</a></sup></li>
+    <li><strong>Repository discovery.</strong> This survey used web search, GitHub organization pages, peer-reviewed software papers, and government/NIST documentation (July 2026). Niche lab tools without public repos are underrepresented.</li>
+  </ul>
+
+  <h3>2.3 Strength of evidence by subfield</h3>
+  <table>
+    <thead>
+      <tr><th>Subfield</th><th>Maturity</th><th>Evidence quality</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Compartmental epidemic models (SIR/SEIR)</td><td>~100 years; textbook methods</td><td>High for aggregate dynamics; low for behavioral heterogeneity<sup><a href="#ref-14">14</a></sup></td></tr>
+      <tr><td>Agent-based epidemic ABM</td><td>Rapid growth since 2000s; COVID surge</td><td>Moderate–high for intervention timing; validation often retrospective<sup><a href="#ref-15">15</a></sup><sup><a href="#ref-16">16</a></sup></td></tr>
+      <tr><td>HPC graph epidemic sim (EpiSimdemics)</td><td>2008–present; petascale demos</td><td>High for scalability claims; less accessible to general researchers<sup><a href="#ref-17">17</a></sup><sup><a href="#ref-18">18</a></sup></td></tr>
+      <tr><td>Infrastructure interdependency</td><td>2010s–present; post-Sandy/Harvey interest</td><td>Moderate; case-study driven (InfraRisk, IN-CORE)<sup><a href="#ref-19">19</a></sup><sup><a href="#ref-20">20</a></sup></td></tr>
+      <tr><td>LLM social / civilization sim</td><td>2023–present; experimental</td><td>Low–moderate; promising for behavior, costly and unvalidated at scale<sup><a href="#ref-2">2</a></sup><sup><a href="#ref-21">21</a></sup></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="history">
+  <h2>3. History of the Field</h2>
+  <p>Epidemic simulation evolved from deterministic compartmental ordinary differential equations (Kermack–McKendrick, 1927) through stochastic and network extensions, to individual-based microsimulation on synthetic populations.<sup><a href="#ref-14">14</a></sup><sup><a href="#ref-22">22</a></sup></p>
+
+  <div class="diagram">TIMELINE (simplified)
+
+1927 ─── Kermack-McKendrick SIR compartmental theory
+1990s ─── Individual-based / microsimulation (e.g., EpiSimdemics lineage)
+2008 ─── EpiSimdemics: 280M-node US contact network on HPC (Barrett et al.)
+2011 ─── GLEAMviz released: global mobility + compartmental engine (Broeck et al.)
+2013 ─── FRED open-sourced: census synthetic populations (Grefenstette et al.)
+2013 ─── STEM/Eclipse: modular spatiotemporal epidemiology (Ford et al.)
+2018 ─── EpiModel JSS paper: network ERGM epidemic models in R (Jenness et al.)
+2020 ─── COVID-19 modeling explosion: Covasim, OpenABM-Covid19, CovidSim, COMOKIT
+2021 ─── Covasim PLOS Comp Bio; Epiabm re-implements CovidSim pedagogy
+2023 ─── Starsim generalizes IDM disease suite; hybrid ABM-ODE papers proliferate
+2023 ─── Generative Agents (Stanford): LLM-driven social simulation
+2024 ─── GEMS (Julia ABM); SAGESim (GPU Python); CDC IXA-EPI-COVID (Rust)
+2025 ─── NHERI SimCenter platform paper; pyrecodes LLM household agents</div>
+
+  <p>Parallel tracks developed for <strong>disaster resilience</strong>: NIST's community resilience planning framework (2015+) led to IN-CORE; the NHERI SimCenter (NSF) integrated R2D, pelicun, and pyrecodes for regional natural-hazard workflows.<sup><a href="#ref-20">20</a></sup><sup><a href="#ref-23">23</a></sup><sup><a href="#ref-24">24</a></sup></p>
+  <p><strong>Agent-based modeling platforms</strong> (NetLogo 1999, Repast 2000, MASON 2003, Mesa 2015) provided general simulation kernels; epidemic-specific tools increasingly build on Python scientific stacks (NumPy, SciPy, JAX) rather than custom DSLs.<sup><a href="#ref-25">25</a></sup><sup><a href="#ref-26">26</a></sup></p>
+</section>
+
+<section id="taxonomy">
+  <h2>4. Conceptual Taxonomy</h2>
+  <div class="diagram">                    ┌─────────────────────────────────────┐
+                    │   APOCALYPSE STORY RESEARCH NEED    │
+                    │  epidemic → care collapse → society │
+                    └─────────────────┬───────────────────┘
+                                      │
+          ┌───────────────────────────┼───────────────────────────┐
+          ▼                           ▼                           ▼
+   EPIDEMIC LAYER              INFRASTRUCTURE LAYER          SOCIAL LAYER
+   (who gets sick/dies)        (power, water, transport)     (panic, migration, order)
+          │                           │                           │
+   Covasim, Starsim,            IN-CORE, pyrecodes,           Mesa examples,
+   OpenABM, FRED, EMOD,         InfraRisk, SIRA, R2D          generative_agents,
+   GLEAM, EpiModel, GEMS        pelicun                       GABM-Epidemic, Civilis
+          │                           │                           │
+          └───────────────────────────┴───────────────────────────┘
+                                      │
+                         GAP: few integrated open pipelines</div>
+
+  <p>Three modeling paradigms recur in the literature:<sup><a href="#ref-15">15</a></sup><sup><a href="#ref-27">27</a></sup></p>
+  <ul>
+    <li><strong>Compartmental (ODE/PDE):</strong> fast, population-aggregated; weak on individual behavior and spatial detail.</li>
+    <li><strong>Agent-based (ABM):</strong> explicit individuals, contacts, interventions; computationally expensive.</li>
+    <li><strong>Metapopulation / hybrid:</strong> patches or regions as compartments with ABM inside hotspots; increasingly used for scalability.<sup><a href="#ref-5">5</a></sup><sup><a href="#ref-6">6</a></sup></li>
+  </ul>
+</section>
+
+<section id="open-repos">
+  <h2>5. Table 1 — Open-Source Repositories</h2>
+  <p>Forty-two repositories grouped by primary domain. "Apocalypse fit" rates how directly each tool addresses rapid epidemic + societal consequence modeling (★★★ = strong partial fit).</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Project</th>
+        <th>Repository / URL</th>
+        <th>License</th>
+        <th>Stack</th>
+        <th>Model type</th>
+        <th>Scale</th>
+        <th>Apocalypse fit</th>
+        <th>Key paper / doc</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- EPIDEMIC ABM -->
+      <tr><td>1</td><td><strong>Covasim</strong></td><td><a href="https://github.com/starsimhub/covasim">starsimhub/covasim</a></td><td>MIT</td><td>Python 3, SciPy, NumPy</td><td>Stochastic ABM; household/school/work layers</td><td>City to nation</td><td>★★★</td><td>Kerr et al. 2021, <em>PLOS Comp Biol</em><sup><a href="#ref-10">10</a></sup></td></tr>
+      <tr><td>2</td><td><strong>Starsim</strong></td><td><a href="https://github.com/starsimhub/starsim">starsimhub/starsim</a></td><td>MIT</td><td>Python (+ Rust/Julia hooks)</td><td>Multi-disease ABM framework</td><td>Flexible</td><td>★★★</td><td>docs.starsim.org<sup><a href="#ref-28">28</a></sup></td></tr>
+      <tr><td>3</td><td><strong>OpenABM-Covid19</strong></td><td><a href="https://github.com/BDI-pathogens/OpenABM-Covid19">BDI-pathogens/OpenABM-Covid19</a></td><td>GPL-3.0</td><td>C</td><td>ABM; digital contact tracing</td><td>City</td><td>★★☆</td><td>Fraser group reports<sup><a href="#ref-29">29</a></sup></td></tr>
+      <tr><td>4</td><td><strong>CovidSim</strong></td><td><a href="https://github.com/mrc-ide/covid-sim">mrc-ide/covid-sim</a></td><td>GPL-3.0</td><td>C++</td><td>Spatial microsimulation</td><td>National (UK-focused)</td><td>★★☆</td><td>Imperial College model<sup><a href="#ref-30">30</a></sup></td></tr>
+      <tr><td>5</td><td><strong>Epiabm</strong></td><td><a href="https://github.com/SABS-R3-Epidemiology/epiabm">SABS-R3-Epidemiology/epiabm</a></td><td>BSD-3</td><td>Python + C++</td><td>SEIR ABM (CovidSim reimplementation)</td><td>Toy → national (C++)</td><td>★★☆</td><td>Gallagher et al. 2023, <em>JORS</em><sup><a href="#ref-31">31</a></sup></td></tr>
+      <tr><td>6</td><td><strong>FRED</strong> (public)</td><td><a href="https://github.com/PublicHealthDynamicsLab/FRED">PublicHealthDynamicsLab/FRED</a></td><td>Custom OSS</td><td>C++</td><td>Census-based ABM</td><td>US states/counties</td><td>★★★</td><td>Grefenstette et al. 2013, <em>BMC Public Health</em><sup><a href="#ref-9">9</a></sup></td></tr>
+      <tr><td>7</td><td><strong>EMOD</strong></td><td><a href="https://github.com/EMOD-Hub/EMOD">EMOD-Hub/EMOD</a></td><td>MIT</td><td>C++</td><td>Agent-based; malaria/HIV/generic</td><td>Large populations</td><td>★★☆</td><td>emod.idmod.org<sup><a href="#ref-12">12</a></sup></td></tr>
+      <tr><td>8</td><td><strong>EMOD-Generic</strong></td><td><a href="https://github.com/EMOD-Hub/EMOD-Generic">EMOD-Hub/EMOD-Generic</a></td><td>MIT</td><td>C++</td><td>Measles/rubio/polio-class ABM</td><td>Configurable</td><td>★★☆</td><td>EMOD-Generic docs<sup><a href="#ref-32">32</a></sup></td></tr>
+      <tr><td>9</td><td><strong>GEMS</strong></td><td><a href="https://github.com/IMMIDD/GEMS">IMMIDD/GEMS</a></td><td>GPL-3.0</td><td>Julia</td><td>Geo-referential epidemic ABM</td><td>~1 GB RAM / 1M agents</td><td>★★★</td><td>Ponge et al. 2024, IEEE WSC<sup><a href="#ref-33">33</a></sup></td></tr>
+      <tr><td>10</td><td><strong>SAGESim</strong></td><td><a href="https://github.com/ORNL/SAGESim">ORNL/SAGESim</a></td><td>MIT</td><td>Python, MPI, GPU</td><td>General ABM; SIR example</td><td>Millions of agents</td><td>★★☆</td><td>ORNL docs<sup><a href="#ref-34">34</a></sup></td></tr>
+      <tr><td>11</td><td><strong>IXA-EPI-COVID</strong></td><td><a href="https://github.com/CDCgov/ixa-epi-covid">CDCgov/ixa-epi-covid</a></td><td>Apache-2.0</td><td>Rust, Python</td><td>CDC CFA transmission ABM</td><td>1M–10M agents</td><td>★★☆</td><td>CDC CFA framework<sup><a href="#ref-35">35</a></sup></td></tr>
+      <tr><td>12</td><td><strong>PatchSim</strong></td><td><a href="https://github.com/dsih-artpark/patchsim">dsih-artpark/patchsim</a></td><td>GPL-3.0</td><td>Python</td><td>Metapopulation SIR/SEIR</td><td>Multi-disease patches</td><td>★★☆</td><td>patchsim.readthedocs.io<sup><a href="#ref-36">36</a></sup></td></tr>
+      <tr><td>13</td><td><strong>COMOKIT</strong></td><td><a href="https://github.com/COMOKIT/COMOKIT-Model">COMOKIT/COMOKIT-Model</a></td><td>GPL</td><td>GAML (GAMA platform)</td><td>Spatial COVID ABM; micro/meso/macro</td><td>Building → world</td><td>★★☆</td><td>Taillandier et al. 2020<sup><a href="#ref-37">37</a></sup></td></tr>
+      <tr><td>14</td><td><strong>GAMA Platform</strong></td><td><a href="https://github.com/gama-platform/gama">gama-platform/gama</a></td><td>GPL-3.0</td><td>Java, Eclipse RCP</td><td>General spatial ABM IDE</td><td>Millions of agents</td><td>★★☆</td><td>Drogoul et al.; COMOKIT base<sup><a href="#ref-38">38</a></sup></td></tr>
+      <tr><td>15</td><td><strong>GABM-Epidemic</strong></td><td><a href="https://github.com/bear96/GABM-Epidemic">bear96/GABM-Epidemic</a></td><td>—</td><td>Python, GPT-3.5 API</td><td>LLM agent epidemic ABM</td><td>Small populations</td><td>★★★</td><td>arXiv:2307.04986<sup><a href="#ref-21">21</a></sup></td></tr>
+      <!-- COMPARTMENTAL / BAYESIAN -->
+      <tr><td>16</td><td><strong>epimodels</strong></td><td><a href="https://github.com/RaphaLevy/epimodels">RaphaLevy/epimodels</a></td><td>—</td><td>Python, SciPy, JAX/diffrax</td><td>27 compartmental models</td><td>Population ODE</td><td>★☆☆</td><td>PyPI / GitHub README<sup><a href="#ref-39">39</a></sup></td></tr>
+      <tr><td>17</td><td><strong>summer2</strong></td><td><a href="https://github.com/monash-emu/summer2">monash-emu/summer2</a></td><td>BSD-2</td><td>Python</td><td>Compartmental framework</td><td>Flexible strata</td><td>★☆☆</td><td>Monash EMU docs<sup><a href="#ref-40">40</a></sup></td></tr>
+      <tr><td>18</td><td><strong>Episia</strong></td><td><a href="https://github.com/Xcept-Health/episia">Xcept-Health/episia</a></td><td>MIT</td><td>Python, Plotly</td><td>SIR/SEIR/SEIRD + reports</td><td>Outbreak analytics</td><td>★☆☆</td><td>xcept-health.github.io/episia<sup><a href="#ref-41">41</a></sup></td></tr>
+      <tr><td>19</td><td><strong>PyRenew</strong></td><td><a href="https://github.com/CDCgov/PyRenew">CDCgov/PyRenew</a></td><td>Apache-2.0</td><td>Python, JAX, NumPyro</td><td>Bayesian renewal models</td><td>Multi-signal forecasting</td><td>★☆☆</td><td>CDC PyRenew docs<sup><a href="#ref-42">42</a></sup></td></tr>
+      <!-- GENERAL ABM -->
+      <tr><td>20</td><td><strong>Mesa</strong></td><td><a href="https://github.com/mesa/mesa">mesa/mesa</a></td><td>Apache-2.0</td><td>Python, Solara viz</td><td>General ABM framework</td><td>Research-scale</td><td>★★☆</td><td>ter Hoeven et al. 2025, <em>JOSS</em><sup><a href="#ref-26">26</a></sup></td></tr>
+      <tr><td>21</td><td><strong>generative_agents</strong></td><td><a href="https://github.com/joonspk-research/generative_agents">joonspk-research/generative_agents</a></td><td>Apache-2.0</td><td>Python, LLM APIs</td><td>Believable social agents</td><td>~25 agents demo</td><td>★★☆</td><td>Park et al. UIST 2023<sup><a href="#ref-2">2</a></sup></td></tr>
+      <tr><td>22</td><td><strong>flood_abm</strong></td><td><a href="https://github.com/uofs-simlab/flood_abm">uofs-simlab/flood_abm</a></td><td>MIT</td><td>Python, Mesa-Geo</td><td>Flood disaster ABM</td><td>Community</td><td>★★☆</td><td><em>Int J Disaster Risk Reduction</em> 2025<sup><a href="#ref-43">43</a></sup></td></tr>
+      <tr><td>23</td><td><strong>humanitarian_aid_distribution</strong></td><td><a href="https://github.com/mesa/mesa-examples/tree/main/examples/humanitarian_aid_distribution">mesa/mesa-examples</a></td><td>Apache-2.0</td><td>Python, Mesa</td><td>Crisis aid triage ABM</td><td>Toy</td><td>★★☆</td><td>Mesa examples<sup><a href="#ref-44">44</a></sup></td></tr>
+      <!-- INFRASTRUCTURE / RESILIENCE -->
+      <tr><td>24</td><td><strong>pyrecodes</strong></td><td><a href="https://github.com/NikolaBlagojevic/pyrecodes">NikolaBlagojevic/pyrecodes</a></td><td>—</td><td>Python</td><td>Regional recovery; iRe-CoDeS</td><td>Built environment</td><td>★★★</td><td>ETH iRe-CoDeS; Blagojevic docs<sup><a href="#ref-45">45</a></sup></td></tr>
+      <tr><td>25</td><td><strong>InfraRisk</strong></td><td><a href="https://github.com/ebrahimrahimi/InfraRisk">ebrahimrahimi/InfraRisk</a></td><td>—</td><td>Python, wntr, pandapower</td><td>Power–water–transport coupled</td><td>Urban networks</td><td>★★★</td><td>Rahimi &amp; Gioulekas 2022<sup><a href="#ref-19">19</a></sup></td></tr>
+      <tr><td>26</td><td><strong>SIRA</strong></td><td><a href="https://github.com/GeoscienceAustralia/sira">GeoscienceAustralia/sira</a></td><td>Apache-2.0</td><td>Python, graph theory</td><td>Lifeline infrastructure resilience</td><td>Facility + network</td><td>★★☆</td><td>GA SIRA docs<sup><a href="#ref-46">46</a></sup></td></tr>
+      <tr><td>27</td><td><strong>IN-CORE / pyIncore</strong></td><td><a href="https://github.com/IN-CORE/pyincore">IN-CORE/pyincore</a></td><td>MPL-2.0</td><td>Python; Java services</td><td>Community resilience platform</td><td>Regional US cases</td><td>★★★</td><td>van de Lindt et al. 2023<sup><a href="#ref-20">20</a></sup></td></tr>
+      <tr><td>28</td><td><strong>R2DTool</strong></td><td><a href="https://github.com/NHERI-SimCenter/R2DTool">NHERI-SimCenter/R2DTool</a></td><td>BSD-3</td><td>Qt/C++, rWHALE workflow</td><td>Regional disaster damage/loss</td><td>Multi-hazard regional</td><td>★★☆</td><td>NHERI SimCenter 2025<sup><a href="#ref-23">23</a></sup></td></tr>
+      <tr><td>29</td><td><strong>pelicun</strong></td><td><a href="https://github.com/NHERI-SimCenter/pelicun">NHERI-SimCenter/pelicun</a></td><td>BSD-like</td><td>Python, NumPy, Pandas</td><td>Probabilistic damage &amp; loss</td><td>Asset portfolios</td><td>★★☆</td><td>FEMA P-58 extension<sup><a href="#ref-47">47</a></sup></td></tr>
+      <!-- CIVILIZATION / COLLAPSE -->
+      <tr><td>30</td><td><strong>Civilis</strong></td><td><a href="https://github.com/michaelsboost/Civilis">michaelsboost/Civilis</a></td><td>OSS</td><td>JavaScript (PWA)</td><td>Monte Carlo collapse / Kardashev</td><td>Long-horizon scenarios</td><td>★★☆</td><td>GitHub README<sup><a href="#ref-7">7</a></sup></td></tr>
+      <tr><td>31</td><td><strong>world-genesis</strong></td><td><a href="https://github.com/GeoLambdaAI/world-genesis">GeoLambdaAI/world-genesis</a></td><td>—</td><td>Python, NumPy/PyTorch</td><td>Civilization + climate ODE</td><td>70k-year scale</td><td>★☆☆</td><td>GitHub README<sup><a href="#ref-48">48</a></sup></td></tr>
+      <tr><td>32</td><td><strong>Aurelia</strong></td><td><a href="https://github.com/ousiaresearch/aurelia">ousiaresearch/aurelia</a></td><td>—</td><td>Python, Cloudflare</td><td>Causal civilization engine</td><td>Multi-world years</td><td>★★☆</td><td>Ousia Research docs<sup><a href="#ref-49">49</a></sup></td></tr>
+      <tr><td>33</td><td><strong>Fundamental-Ava</strong></td><td><a href="https://github.com/TianhangZhuzth/Fundamental-Ava">TianhangZhuzth/Fundamental-Ava</a></td><td>—</td><td>Python</td><td>Many-agent civilization emergence</td><td>Large agent counts</td><td>★★☆</td><td>GitHub README<sup><a href="#ref-50">50</a></sup></td></tr>
+      <!-- IDM SUITE / SPECIALIZED -->
+      <tr><td>34</td><td><strong>HPVsim</strong></td><td><a href="https://github.com/starsimhub/hpvsim">starsimhub/hpvsim</a></td><td>MIT</td><td>Python</td><td>Disease-specific ABM</td><td>—</td><td>★☆☆</td><td>hpvsim.org<sup><a href="#ref-51">51</a></sup></td></tr>
+      <tr><td>35</td><td><strong>tbsim</strong></td><td><a href="https://github.com/starsimhub/tbsim">starsimhub/tbsim</a></td><td>MIT</td><td>Python</td><td>Tuberculosis Starsim module</td><td>—</td><td>★☆☆</td><td>StarsimHub<sup><a href="#ref-28">28</a></sup></td></tr>
+      <tr><td>36</td><td><strong>FPsim</strong></td><td><a href="https://github.com/starsimhub/fpsim">starsimhub/fpsim</a></td><td>MIT</td><td>Python</td><td>Family planning / demographics</td><td>—</td><td>★☆☆</td><td>fpsim.org<sup><a href="#ref-52">52</a></sup></td></tr>
+      <tr><td>37</td><td><strong>rstarsim</strong></td><td><a href="https://github.com/starsimhub/rstarsim">starsimhub/rstarsim</a></td><td>MIT</td><td>R</td><td>R bindings for Starsim</td><td>—</td><td>★☆☆</td><td>StarsimHub<sup><a href="#ref-28">28</a></sup></td></tr>
+      <tr><td>38</td><td><strong>EpiModel</strong></td><td><a href="https://github.com/EpiModel/EpiModel">EpiModel/EpiModel</a></td><td>GPL-3.0</td><td>R, Statnet ERGM</td><td>DCM, ICM, network epidemic models</td><td>Research</td><td>★★☆</td><td>Jenness et al. 2018, <em>JSS</em><sup><a href="#ref-53">53</a></sup></td></tr>
+      <tr><td>39</td><td><strong>STEM</strong></td><td><a href="https://github.com/eclipse/stem">eclipse/stem</a></td><td>EPL</td><td>Java, Eclipse</td><td>Modular spatiotemporal epidemiology</td><td>Global/regional</td><td>★★☆</td><td>Ford et al. 2019<sup><a href="#ref-11">11</a></sup></td></tr>
+      <tr><td>40</td><td><strong>idmtools</strong></td><td><a href="https://github.com/EMOD-Hub/idmtools">EMOD-Hub/idmtools</a></td><td>MIT</td><td>Python</td><td>HPC workflow for EMOD</td><td>HPC clusters</td><td>★☆☆</td><td>emod.idmod.org<sup><a href="#ref-12">12</a></sup></td></tr>
+      <tr><td>41</td><td><strong>pyrenew-covid-wastewater</strong></td><td><a href="https://github.com/CDCgov/pyrenew-covid-wastewater">CDCgov/pyrenew-covid-wastewater</a></td><td>Apache-2.0</td><td>Python, JAX</td><td>Wastewater + hospital signals</td><td>Forecasting</td><td>★☆☆</td><td>CDC CFA<sup><a href="#ref-42">42</a></sup></td></tr>
+      <tr><td>42</td><td><strong>covasim_webapp</strong></td><td><a href="https://github.com/covasim/covasim_webapp">covasim/covasim_webapp</a></td><td>MIT</td><td>Python, Vue.js, Flask</td><td>Web UI for Covasim</td><td>Policy demos</td><td>★★☆</td><td>Covasim paper Fig. 7<sup><a href="#ref-10">10</a></sup></td></tr>
+    </tbody>
+  </table>
+
+  <h3>5.1 Technology patterns in open repos</h3>
+  <ul>
+    <li><strong>Python dominance:</strong> Covasim, Starsim, Mesa, pyrecodes, InfraRisk, Episia, epimodels — all leverage NumPy/SciPy ecosystems.<sup><a href="#ref-10">10</a></sup><sup><a href="#ref-26">26</a></sup></li>
+    <li><strong>Performance backends:</strong> C/C++ (OpenABM, CovidSim, FRED, EMOD, cEpiabm), Rust (IXA-EPI-COVID), Julia (GEMS), GPU+MPI (SAGESim).<sup><a href="#ref-33">33</a></sup><sup><a href="#ref-34">34</a></sup><sup><a href="#ref-35">35</a></sup></li>
+    <li><strong>LLM integration (emerging):</strong> generative_agents, GABM-Epidemic, pyrecodes household agents — behavior via API calls, not mechanistic psychology.<sup><a href="#ref-21">21</a></sup><sup><a href="#ref-45">45</a></sup></li>
+    <li><strong>Spatial platforms:</strong> GAMA/GAML for COMOKIT; Mesa-Geo for hazard ABMs.<sup><a href="#ref-37">37</a></sup><sup><a href="#ref-43">43</a></sup></li>
+  </ul>
+</section>
+
+<section id="academic-tools">
+  <h2>6. Table 2 — Academic Tools and Methods</h2>
+  <p>Twenty-eight established research tools and methodological families. Several are also open source (Table 1); this table emphasizes institutional pedigree, methods papers, and typical use in policy or HPC research.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Tool / method</th>
+        <th>Institution / lineage</th>
+        <th>Paradigm</th>
+        <th>Technology</th>
+        <th>Typical scale</th>
+        <th>Open?</th>
+        <th>Seminal reference</th>
+        <th>Apocalypse relevance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td><strong>GLEAM / GLEAMviz</strong></td><td>ISI Foundation / Northeastern</td><td>Stochastic metapopulation + mobility</td><td>Java client; server engine</td><td>Global</td><td>Free client<sup><a href="#ref-54">54</a></sup></td><td>Broeck et al. 2011, <em>BMC Public Health</em><sup><a href="#ref-54">54</a></sup></td><td>Pandemic spatial spread; not societal collapse</td></tr>
+      <tr><td>2</td><td><strong>STEM</strong></td><td>IBM Research / Eclipse</td><td>Modular compartmental + spatial</td><td>Java, Eclipse RCP</td><td>Global/regional</td><td>Yes<sup><a href="#ref-11">11</a></sup></td><td>Ford et al. 2019<sup><a href="#ref-11">11</a></sup></td><td>Multi-disease; plug-in architecture</td></tr>
+      <tr><td>3</td><td><strong>EpiModel</strong></td><td>University of Washington / Statnet</td><td>DCM, ICM, network ERGM</td><td>R</td><td>Research networks</td><td>Yes<sup><a href="#ref-53">53</a></sup></td><td>Jenness et al. 2018<sup><a href="#ref-53">53</a></sup></td><td>Behavioral network epidemics; NME course standard</td></tr>
+      <tr><td>4</td><td><strong>EpiSimdemics</strong></td><td>Virginia Tech / Illinois (Charm++)</td><td>Graph contagion on social networks</td><td>C++, Charm++, MPI</td><td>10⁸ agents (HPC)</td><td>Research-only<sup><a href="#ref-17">17</a></sup></td><td>Barrett et al. 2008; Bisset et al. 2017<sup><a href="#ref-17">17</a></sup><sup><a href="#ref-18">18</a></sup></td><td>Gold standard for US-scale contact networks</td></tr>
+      <tr><td>5</td><td><strong>FRED</strong></td><td>U Pittsburgh PHDL; Epistemix (commercial)</td><td>Census microsimulation ABM</td><td>C++</td><td>US national</td><td>Public fork<sup><a href="#ref-9">9</a></sup></td><td>Grefenstette et al. 2013<sup><a href="#ref-9">9</a></sup></td><td>US synthetic populations; school/work mixing</td></tr>
+      <tr><td>6</td><td><strong>EMOD</strong></td><td>IDM / Gates Foundation</td><td>Agent-based transmission</td><td>C++, Python config</td><td>Large</td><td>Yes (archived)<sup><a href="#ref-12">12</a></sup></td><td>IDM docs<sup><a href="#ref-12">12</a></sup></td><td>Malaria/HIV; generic branch for measles-class</td></tr>
+      <tr><td>7</td><td><strong>Covasim / Starsim</strong></td><td>IDM, Burnet, Copenhagen</td><td>Stochastic ABM</td><td>Python</td><td>City–nation</td><td>Yes<sup><a href="#ref-10">10</a></sup></td><td>Kerr et al. 2021<sup><a href="#ref-10">10</a></sup></td><td>COVID-era policy tool; generalizing via Starsim</td></tr>
+      <tr><td>8</td><td><strong>OpenABM-Covid19</strong></td><td>Oxford BDI / IBM</td><td>City-scale ABM</td><td>C</td><td>City</td><td>Yes<sup><a href="#ref-29">29</a></sup></td><td>Hinch et al. 2021<sup><a href="#ref-55">55</a></sup></td><td>Contact tracing efficacy studies</td></tr>
+      <tr><td>9</td><td><strong>CovidSim</strong></td><td>Imperial College MRC</td><td>Spatial microsimulation</td><td>C++</td><td>UK / exportable</td><td>Yes<sup><a href="#ref-30">30</a></sup></td><td>Ferguson group reports<sup><a href="#ref-30">30</a></sup></td><td>Lockdown policy inflection point (2020)</td></tr>
+      <tr><td>10</td><td><strong>COMOKIT / GAMA</strong></td><td>IRD Vietnam, INRAE</td><td>Spatial activity-based ABM</td><td>GAML, Java</td><td>Building → global</td><td>Yes<sup><a href="#ref-37">37</a></sup></td><td>Taillandier et al. 2020<sup><a href="#ref-37">37</a></sup></td><td>Intervention comparison at city scale</td></tr>
+      <tr><td>11</td><td><strong>Epiabm</strong></td><td>Oxford SABS:R3 CDT</td><td>Pedagogical + HPC ABM</td><td>Python, C++</td><td>Toy → UK-scale</td><td>Yes<sup><a href="#ref-31">31</a></sup></td><td>Gallagher et al. 2023<sup><a href="#ref-31">31</a></sup></td><td>Transparent CovidSim alternative</td></tr>
+      <tr><td>12</td><td><strong>GEMS</strong></td><td>BMBF OptimAgent / IMMIDD</td><td>Geo ABM</td><td>Julia</td><td>Millions (Germany default)</td><td>Yes<sup><a href="#ref-33">33</a></sup></td><td>Ponge et al. 2024<sup><a href="#ref-33">33</a></sup></td><td>NPI standardization framework</td></tr>
+      <tr><td>13</td><td><strong>IXA / PyRenew (CDC CFA)</strong></td><td>CDC Center for Forecasting</td><td>ABM + Bayesian renewal</td><td>Rust, JAX</td><td>US states</td><td>Yes<sup><a href="#ref-35">35</a></sup><sup><a href="#ref-42">42</a></sup></td><td>CDC GitHub docs</td><td>Operational outbreak analytics</td></tr>
+      <tr><td>14</td><td><strong>IN-CORE</strong></td><td>NIST CoE / Colorado State</td><td>Physics + socio-economic coupling</td><td>Java services, pyIncore</td><td>Community</td><td>Yes<sup><a href="#ref-20">20</a></sup></td><td>van de Lindt et al. 2023<sup><a href="#ref-20">20</a></sup></td><td>Post-disaster recovery; not epidemic-native</td></tr>
+      <tr><td>15</td><td><strong>NHERI SimCenter stack</strong></td><td>NSF / UC Berkeley et al.</td><td>Workflow: hazard → damage → recovery</td><td>Qt, Python, OpenSees</td><td>Regional</td><td>Yes<sup><a href="#ref-23">23</a></sup></td><td>McKenna et al. 2025<sup><a href="#ref-23">23</a></sup></td><td>Earthquake/hurricane; extensible to other hazards</td></tr>
+      <tr><td>16</td><td><strong>InfraRisk</strong></td><td>ETH Zurich</td><td>Sequential interdependency simulation</td><td>Python</td><td>Urban CI networks</td><td>Yes<sup><a href="#ref-19">19</a></sup></td><td>Rahimi &amp; Gioulekas 2022<sup><a href="#ref-19">19</a></sup></td><td>Power/water/transport cascade</td></tr>
+      <tr><td>17</td><td><strong>pyrecodes / iRe-CoDeS</strong></td><td>ETH Zurich</td><td>Recovery resource flow</td><td>Python</td><td>Regional built env.</td><td>Yes<sup><a href="#ref-45">45</a></sup></td><td>Blagojevic et al.; iRe-CoDeS thesis</td><td>Recovery timelines; LLM household displacement</td></tr>
+      <tr><td>18</td><td><strong>RHEA</strong></td><td>University of Pittsburgh</td><td>Healthcare ecosystem ABM</td><td>Java</td><td>Regional healthcare</td><td>Academic<sup><a href="#ref-56">56</a></sup></td><td>Lee et al.; cited in ABM review<sup><a href="#ref-56">56</a></sup></td><td>Hospital capacity / HAIs — relevant to care collapse</td></tr>
+      <tr><td>19</td><td><strong>Hybrid ABM–ODE coupling</strong></td><td>Multiple (2024–)</td><td>Spatial/temporal hybridization</td><td>Python, C++</td><td>Multi-scale</td><td>Papers + code fragments</td><td>Schulte et al. 2024; hybrid arXiv 2407<sup><a href="#ref-5">5</a></sup><sup><a href="#ref-6">6</a></sup></td><td>Efficiency for large populations with local detail</td></tr>
+      <tr><td>20</td><td><strong>Multilevel epidemic optimization</strong></td><td>RIemann/ML (GitHub)</td><td>ABM + ODE policy optimization</td><td>Python</td><td>Research</td><td>Partial<sup><a href="#ref-57">57</a></sup></td><td>Journal of Computational Science 2024<sup><a href="#ref-57">57</a></sup></td><td>Intervention design under compute limits</td></tr>
+      <tr><td>21</td><td><strong>EpiPolicy</strong></td><td>UIUC Huda Lab</td><td>Agent-based intervention planning</td><td>Custom</td><td>Policy exploration</td><td>Research<sup><a href="#ref-4">4</a></sup></td><td>EpiPolicy paper<sup><a href="#ref-4">4</a></sup></td><td>Compares STEM, GLEAMviz, EMOD, FRED, CovidSim</td></tr>
+      <tr><td>22</td><td><strong>NetLogo</strong></td><td>Northwestern CCL</td><td>Educational ABM</td><td>NetLogo DSL, Java</td><td>Small–medium</td><td>Free<sup><a href="#ref-25">25</a></sup></td><td>Wilensky 1999; widespread teaching use</td><td>Prototyping; epidemic library models</td></tr>
+      <tr><td>23</td><td><strong>Repast Suite</strong></td><td>Argonne / academic consortium</td><td>General ABM</td><td>Java, C++ (HPC)</td><td>Large (Repast HPC)</td><td>Yes</td><td>North &amp; Macal; ABM platform surveys</td><td>Legacy HPC ABM; less epidemic-specific today</td></tr>
+      <tr><td>24</td><td><strong>MASON</strong></td><td>George Mason University</td><td>Multi-agent simulation</td><td>Java</td><td>Research</td><td>Yes</td><td>Luke et al. 2005</td><td>General; epidemic examples exist</td></tr>
+      <tr><td>25</td><td><strong>AnyLogic</strong></td><td>The AnyLogic Company</td><td>Hybrid DES + ABM + SD</td><td>Java, proprietary</td><td>Industry + academia</td><td>No (commercial)</td><td>Borshchev &amp; Filippov 2004</td><td>Often used in papers; not open</td></tr>
+      <tr><td>26</td><td><strong>LASER</strong></td><td>IDM</td><td>Light spatial ABM</td><td>Python</td><td>Spatial eradication</td><td>Yes<sup><a href="#ref-51">51</a></sup></td><td>idmod.org</td><td>Spatial disease elimination</td></tr>
+      <tr><td>27</td><td><strong>Generative Agents / GABM</strong></td><td>Stanford HAI; independent</td><td>LLM-driven ABM</td><td>Python, LLM APIs</td><td>Small (10–10³)</td><td>Yes<sup><a href="#ref-2">2</a></sup><sup><a href="#ref-21">21</a></sup></td><td>Park et al. 2023; GABM arXiv<sup><a href="#ref-21">21</a></sup></td><td>Social prototyping; epidemic behavior extension</td></tr>
+      <tr><td>28</td><td><strong>Sun et al. simulation taxonomy</strong></td><td>Meta-analysis</td><td>Method classification</td><td>—</td><td>200+ COVID studies</td><td>Review<sup><a href="#ref-8">8</a></sup></td><td>Sun et al. 2023, <em>J Biomed Inform</em><sup><a href="#ref-8">8</a></sup></td><td>Maps ABM vs DES vs SD vs hybrid prevalence</td></tr>
+    </tbody>
+  </table>
+
+  <h3>6.1 Methods comparison (technical)</h3>
+  <table>
+    <thead>
+      <tr><th>Method family</th><th>Representative tools</th><th>Strengths for collapse research</th><th>Weaknesses</th><th>Compute profile</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Compartmental ODE</td><td>epimodels, summer2, STEM modules</td><td>Fast scenario sweeps; R₀ analytics</td><td>No explicit panic, looting, or grid failure</td><td>Seconds</td></tr>
+      <tr><td>Agent-based epidemic</td><td>Covasim, FRED, OpenABM, GEMS</td><td>Hospital demand, NPIs, age structure</td><td>Parameter burden; COVID-tuned defaults</td><td>Minutes–hours</td></tr>
+      <tr><td>HPC graph epidemic</td><td>EpiSimdemics</td><td>Continental contact networks</td><td>Access barrier; limited public repo</td><td>HPC hours</td></tr>
+      <tr><td>Infrastructure graph</td><td>InfraRisk, IN-CORE, pyrecodes</td><td>Power/water/transport cascades</td><td>Usually decoupled from disease</td><td>Hours</td></tr>
+      <tr><td>LLM social ABM</td><td>generative_agents, GABM-Epidemic</td><td>Rich behavior narratives</td><td>Cost, scale, validation</td><td>API $; small N</td></tr>
+      <tr><td>Monte Carlo civilization</td><td>Civilis</td><td>Long-horizon collapse distributions</td><td>Abstract; not US-grounded</td><td>Browser-scale</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="papers">
+  <h2>7. Key Papers and Technical Analyses</h2>
+  <p>Beyond per-tool citations, these cross-cutting analyses inform software choice:</p>
+  <ul>
+    <li><strong>Compartmental vs ABM philosophy:</strong> Velasco &amp; Casal (2021) compare strengths for prediction, explanation, and intervention — arguing case-by-case preference rather than universal superiority.<sup><a href="#ref-27">27</a></sup></li>
+    <li><strong>ABM platform survey:</strong> Abar et al. compared 85 ABM platforms (cited in Li 2025 review) — design guidelines for tool selection.<sup><a href="#ref-56">56</a></sup></li>
+    <li><strong>Computational epidemiology pipeline:</strong> Barrett et al. (2021) survey population synthesis, social networks, and simulation software as integrated methodology.<sup><a href="#ref-22">22</a></sup></li>
+    <li><strong>COVID simulation scoping review:</strong> Sun et al. (2023) — ABM most frequent among 200+ studies.<sup><a href="#ref-8">8</a></sup></li>
+    <li><strong>Hybrid green computing:</strong> Schulte et al. (2024) — up to 98% CO₂ reduction and 50× speedup via metapopulation ABM hybridization.<sup><a href="#ref-6">6</a></sup></li>
+    <li><strong>NHERI platform:</strong> SimCenter (2025) — modular open-source natural-hazard workflow as template for reproducible regional simulation.<sup><a href="#ref-23">23</a></sup></li>
+  </ul>
+</section>
+
+<section id="apocalypse-mapping">
+  <h2>8. Mapping Tools to the Apocalypse Story Premise</h2>
+  <p>For a hemorrhagic epidemic with 2–3 day latency, blood-borne spread, &gt;50% mortality, and 5-day fatal course post-symptom onset, researchers would need to <em>reparameterize</em> existing engines rather than find a turnkey model:</p>
+  <table>
+    <thead>
+      <tr><th>Research question (Apocalypse Story)</th><th>Best starting tools</th><th>Gap</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Speed of infection across US regions</td><td>Covasim/Starsim, FRED, GLEAMviz, EpiSimdemics (if accessible)</td><td>Blood-borne vs respiratory contact networks</td></tr>
+      <tr><td>Hospital / ICU overwhelm</td><td>Covasim (built-in hospital layers), RHEA</td><td>Staff absenteeism, supply chain for blood products</td></tr>
+      <tr><td>Who dies without care (Q3 overlap)</td><td>Custom SEIRD compartments; IN-CORE health impacts</td><td>Chronic disease dependency not standard in epidemic ABMs</td></tr>
+      <tr><td>Power / water / telecom failure</td><td>InfraRisk, IN-CORE, pyrecodes</td><td>Trigger = workforce loss, not earthquake</td></tr>
+      <tr><td>Panic, migration, lawlessness (Q2/Q4 overlap)</td><td>GABM-Epidemic, Mesa custom models, generative_agents</td><td>No validated "collapse" calibration data</td></tr>
+      <tr><td>Long-term demographic recovery</td><td>FPsim + epidemic module; Civilis (abstract)</td><td>Fertility/migration feedback under trauma</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <strong>Recommended integration architecture (not yet implemented as single OSS project):</strong>
+    (1) Starsim or FRED for disease + hospital occupancy →
+    (2) export workforce reduction curves →
+    (3) InfraRisk or pyrecodes for infrastructure derating →
+    (4) Mesa or LLM-ABM for behavioral layer. Each coupling is a research project.
+  </div>
+</section>
+
+<section id="conclusion">
+  <h2>9. Conclusion</h2>
+  <p>The open-source ecosystem for epidemic and disaster simulation is <strong>rich but fragmented</strong>. The COVID-19 pandemic produced a durable foundation of Python ABMs (Covasim → Starsim), Oxford/Imperial microsimulations, and Julia/GPU next-generation frameworks (GEMS, SAGESim). Parallel disaster-resilience stacks (IN-CORE, NHERI SimCenter, InfraRisk, pyrecodes) model infrastructure and recovery but rarely ingest epidemic-driven workforce loss. Emerging LLM-agent models (Generative Agents, GABM-Epidemic) offer a novel behavioral layer at small scale.</p>
+  <p><strong>For Apocalypse Story programmatic simulation goals</strong>, the highest-leverage starting points are:</p>
+  <ol>
+    <li><strong>Starsim or Covasim</strong> — reparameterize disease natural history; extract hospital and mortality trajectories.<sup><a href="#ref-10">10</a></sup><sup><a href="#ref-28">28</a></sup></li>
+    <li><strong>FRED</strong> — US census-grounded mixing groups if national heterogeneity matters.<sup><a href="#ref-9">9</a></sup></li>
+    <li><strong>pyrecodes or IN-CORE</strong> — downstream societal/infrastructure consequences once population and workforce shocks are defined.<sup><a href="#ref-20">20</a></sup><sup><a href="#ref-45">45</a></sup></li>
+    <li><strong>Mesa + custom modules or GABM-Epidemic</strong> — exploratory behavior under unprecedented mortality.<sup><a href="#ref-21">21</a></sup><sup><a href="#ref-26">26</a></sup></li>
+  </ol>
+  <p>No surveyed repository implements the full Apocalypse Story chain out of the box. The most credible near-term path is a <em>loosely coupled pipeline</em> rather than a monolithic "collapse simulator."</p>
+</section>
+
+<section id="further-research">
+  <h2>10. Further Research Questions</h2>
+  <ul>
+    <li>Which existing synthetic US populations (RTI, FRED, Covasim) best support blood-borne vs aerosol transmission refits?</li>
+    <li>Can hybrid ABM–ODE frameworks (2024 literature) run at US scale with hospital-bed constraints and worker absenteeism?</li>
+    <li>What workforce-to-infrastructure derating functions does IN-CORE or InfraRisk support, and can they be epidemic-triggered?</li>
+    <li>What is the minimum viable coupling between Starsim mortality output and pyrecodes recovery models?</li>
+    <li>How do LLM-agent epidemic models (GABM) compare to rule-based panic models on historical disaster behavior datasets?</li>
+    <li>Are EpiSimdemics contact networks obtainable for non-HPC researchers, and under what licenses?</li>
+    <li>What wargame outputs from Question 5 (government frameworks) reference specific simulators from Table 2?</li>
+    <li>Could Civilis-style Monte Carlo collapse metrics be calibrated against historical population-loss events (Question 1)?</li>
+  </ul>
+</section>
+
+<section id="references">
+  <h2>References</h2>
+  <ol class="refs">
+    <li id="ref-1">Apocalypse Story README, Question 6 scope. <a href="https://github.com/">Repository: Apocalypse-Story/README.md</a></li>
+    <li id="ref-2">Park, J. S., O'Brien, J. C., Cai, C. J., Morris, M. R., Liang, P., &amp; Bernstein, M. S. (2023). Generative Agents: Interactive Simulacra of Human Behavior. <em>UIST '23</em>. <a href="https://arxiv.org/abs/2304.03442">arXiv:2304.03442</a></li>
+    <li id="ref-3">Stanford HAI. (2023). Computational Agents Exhibit Believable Humanlike Behavior. <a href="https://hai.stanford.edu/news/computational-agents-exhibit-believable-humanlike-behavior">hai.stanford.edu</a></li>
+    <li id="ref-4">EpiPolicy authors. Planning Epidemic Interventions with EpiPolicy. <a href="https://huda-lab.github.io/papers/epipolicy.pdf">huda-lab.github.io</a></li>
+    <li id="ref-5">Integrating Agent-Based and Compartmental Models for Infectious Disease Modeling. <a href="https://doi.org/10.48550/arxiv.2407.20993">arXiv:2407.20993</a></li>
+    <li id="ref-6">Schulte et al. (2024). Hybrid metapopulation agent-based epidemiological models. <em>SoftwareX</em>. <a href="https://doi.org/10.48550/arxiv.2406.04386">arXiv:2406.04386</a></li>
+    <li id="ref-7">Civilis civilization simulator. <a href="https://github.com/michaelsboost/Civilis">github.com/michaelsboost/Civilis</a></li>
+    <li id="ref-8">Sun, Z. L., Bai, R. H., &amp; Bai, Z. G. (2023). Application of simulation methods during COVID-19: scoping review. <em>J. Biomed. Inform.</em>, 148. <a href="https://doi.org/10.1016/j.jbi.2023.104543">doi:10.1016/j.jbi.2023.104543</a></li>
+    <li id="ref-9">Grefenstette, J. J., et al. (2013). FRED: open-source epidemic dynamics framework. <em>BMC Public Health</em>, 13, 940. <a href="https://doi.org/10.1186/1471-2458-13-940">doi:10.1186/1471-2458-13-940</a></li>
+    <li id="ref-10">Kerr, C. C., et al. (2021). Covasim: agent-based model of COVID-19. <em>PLOS Comput. Biol.</em>, 17(7), e1009149. <a href="https://doi.org/10.1371/journal.pcbi.1009149">doi:10.1371/journal.pcbi.1009149</a></li>
+    <li id="ref-11">Ford, D. A., et al. (2019). STEM: An Open Source Tool for Disease Modeling. <em>Health Security</em>. <a href="https://doi.org/10.1089/hs.2018.0095">PMC6708268</a></li>
+    <li id="ref-12">EMOD-Hub. EMOD documentation. <a href="https://emod.idmod.org/">emod.idmod.org</a></li>
+    <li id="ref-13">FRED Web. About FRED. <a href="https://fred.publichealth.pitt.edu/about">fred.publichealth.pitt.edu</a></li>
+    <li id="ref-14">Kermack, W. O., &amp; McKendrick, A. G. (1927). Contribution to the mathematical theory of epidemics. <em>Proc. R. Soc. Edinb.</em></li>
+    <li id="ref-15">Li, Y. (2025). Agent-Based Modeling of Epidemics. <em>Technologies</em>, 13(7), 272. <a href="https://doi.org/10.3390/technologies13070272">doi:10.3390/technologies13070272</a></li>
+    <li id="ref-16">Velasco, P., &amp; Casal, J. (2021). Epidemiological models and COVID-19: comparative view. <em>Hist. Philos. Life Sci.</em> <a href="https://doi.org/10.1007/s40656-021-00457-9">doi:10.1007/s40656-021-00457-9</a></li>
+    <li id="ref-17">Barrett, C. L., et al. (2008). EpiSimdemics. <em>IEEE SC</em>. <a href="http://ppl.cs.illinois.edu/research/episim">ppl.cs.illinois.edu</a></li>
+    <li id="ref-18">Bisset, K., et al. (2017). Massively parallel epidemic simulations. <em>IEEE CCGrid</em>. <a href="https://doi.org/10.1109/ccgrid.2017.141">doi:10.1109/ccgrid.2017.141</a></li>
+    <li id="ref-19">Rahimi, E., &amp; Gioulekas, P. (2022). InfraRisk platform. <em>Sustainable Cities and Society</em>. <a href="https://doi.org/10.1016/j.scs.2022.104283">doi:10.1016/j.scs.2022.104283</a></li>
+    <li id="ref-20">van de Lindt, J., et al. (2023). IN-CORE platform. <em>Resilient Cities and Structures</em>. <a href="https://doi.org/10.1016/j.rcs.2023.100039">doi:10.1016/j.rcs.2023.100039</a></li>
+    <li id="ref-21">GABM-Epidemic. Epidemic modelling with Generative Agents. <a href="https://arxiv.org/abs/2307.04986">arXiv:2307.04986</a></li>
+    <li id="ref-22">Barrett, C. L., et al. (2021). Agent-Based Computational Epidemiological Modeling. <em>Handbook of Networks and Systems Biology</em>. PMC8490969</li>
+    <li id="ref-23">NHERI SimCenter. (2025). Open-source simulation platform for natural hazards. <em>Front. Built Environ.</em> <a href="https://doi.org/10.3389/fbuil.2025.1590479">doi:10.3389/fbuil.2025.1590479</a></li>
+    <li id="ref-24">NIST. Center of Excellence &amp; IN-CORE. <a href="https://www.nist.gov/community-resilience/center-excellence">nist.gov</a></li>
+    <li id="ref-25">Wilensky, U. (1999). NetLogo. Northwestern Center for Connected Learning.</li>
+    <li id="ref-26">ter Hoeven, E., et al. (2025). Mesa 3. <em>JOSS</em>, 10(107), 7668. <a href="https://doi.org/10.21105/joss.07668">doi:10.21105/joss.07668</a></li>
+    <li id="ref-27">Velasco &amp; Casal (2021). See ref-16.</li>
+    <li id="ref-28">Starsim documentation. <a href="https://docs.starsim.org/">docs.starsim.org</a></li>
+    <li id="ref-29">OpenABM-Covid19. <a href="https://github.com/BDI-pathogens/OpenABM-Covid19">GitHub</a></li>
+    <li id="ref-30">CovidSim. <a href="https://github.com/mrc-ide/covid-sim">mrc-ide/covid-sim</a></li>
+    <li id="ref-31">Gallagher, K., et al. (2023). Epiabm. <em>JORS</em>. <a href="https://doi.org/10.5334/jors.449">doi:10.5334/jors.449</a></li>
+    <li id="ref-32">EMOD-Generic. <a href="https://emod.idmod.org/EMOD-Generic/">emod.idmod.org/EMOD-Generic</a></li>
+    <li id="ref-33">Ponge, J., et al. (2024). GEMS framework. IEEE WSC. <a href="https://github.com/IMMIDD/GEMS">IMMIDD/GEMS</a></li>
+    <li id="ref-34">SAGESim. ORNL. <a href="https://github.com/ORNL/SAGESim">github.com/ORNL/SAGESim</a></li>
+    <li id="ref-35">CDC IXA-EPI-COVID. <a href="https://github.com/CDCgov/ixa-epi-covid">CDCgov/ixa-epi-covid</a></li>
+    <li id="ref-36">PatchSim. <a href="https://github.com/dsih-artpark/patchsim">dsih-artpark/patchsim</a></li>
+    <li id="ref-37">Taillandier, P., et al. (2020). COMOKIT. <em>Front. Public Health</em>. <a href="https://doi.org/10.3389/fpubh.2020.563247">doi:10.3389/fpubh.2020.563247</a></li>
+    <li id="ref-38">GAMA Platform. <a href="https://gama-platform.org/">gama-platform.org</a></li>
+    <li id="ref-39">epimodels. <a href="https://github.com/RaphaLevy/epimodels">RaphaLevy/epimodels</a></li>
+    <li id="ref-40">summer2. <a href="https://github.com/monash-emu/summer2">monash-emu/summer2</a></li>
+    <li id="ref-41">Episia. <a href="https://github.com/Xcept-Health/episia">Xcept-Health/episia</a></li>
+    <li id="ref-42">PyRenew. <a href="https://github.com/CDCgov/PyRenew">CDCgov/PyRenew</a></li>
+    <li id="ref-43">Flood-ABM. <a href="https://doi.org/10.1016/j.ijdrr.2025.105698">doi:10.1016/j.ijdrr.2025.105698</a></li>
+    <li id="ref-44">Mesa humanitarian aid example. <a href="https://github.com/mesa/mesa-examples">mesa/mesa-examples</a></li>
+    <li id="ref-45">pyrecodes. <a href="https://github.com/NikolaBlagojevic/pyrecodes">NikolaBlagojevic/pyrecodes</a></li>
+    <li id="ref-46">SIRA. Geoscience Australia. <a href="https://geoscienceaustralia.github.io/sira/">geoscienceaustralia.github.io/sira</a></li>
+    <li id="ref-47">pelicun. <a href="https://github.com/NHERI-SimCenter/pelicun">NHERI-SimCenter/pelicun</a></li>
+    <li id="ref-48">world-genesis. <a href="https://github.com/GeoLambdaAI/world-genesis">GeoLambdaAI/world-genesis</a></li>
+    <li id="ref-49">Aurelia. <a href="https://github.com/ousiaresearch/aurelia">ousiaresearch/aurelia</a></li>
+    <li id="ref-50">Fundamental-Ava. <a href="https://github.com/TianhangZhuzth/Fundamental-Ava">TianhangZhuzth/Fundamental-Ava</a></li>
+    <li id="ref-51">IDM tools. <a href="https://www.idmod.org/">idmod.org</a></li>
+    <li id="ref-52">FPsim. <a href="https://fpsim.org/">fpsim.org</a></li>
+    <li id="ref-53">Jenness, S. M., Goodreau, S. M., &amp; Morris, M. (2018). EpiModel. <em>JSS</em>, 84(8). <a href="https://doi.org/10.18637/jss.v084.i08">doi:10.18637/jss.v084.i08</a></li>
+    <li id="ref-54">Broeck, W., et al. (2011). GLEaMviz. <em>BMC Public Health</em>, 11, 877. <a href="https://www.gleamviz.org/">gleamviz.org</a></li>
+    <li id="ref-55">Hinch, R., et al. (2021). OpenABM-Covid19 analyses. Fraser group publications.</li>
+    <li id="ref-56">Li (2025) ABM review — cites Abar platform survey, RHEA, OpenABM, Covasim. See ref-15.</li>
+    <li id="ref-57">Multilevel optimization for policy design with agent-based epidemic models. <em>J. Comput. Sci.</em> 77 (2024). <a href="https://doi.org/10.1016/j.jocs.2024.102242">doi:10.1016/j.jocs.2024.102242</a></li>
+  </ol>
+</section>
+
+</main>
+
+<footer>
+  Apocalypse Story — Question 6 Research Report · Agent-generated July 2026 · Independent silo per README instructions
+</footer>
+</body>
+</html>
