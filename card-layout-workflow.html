@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Layout Workflow — Image to nanDeck</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --panel: #1a2332;
+      --border: #2d3a4f;
+      --text: #e7ecf3;
+      --muted: #9aa8bc;
+      --accent: #5b9fd4;
+      --accent-2: #7bc96f;
+      --danger: #e06c75;
+      --mono: "SF Mono", "Cascadia Code", Consolas, monospace;
+      --sans: "Segoe UI", system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 2rem 2rem 1rem;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, #162030, var(--bg));
+    }
+
+    header h1 {
+      margin: 0 0 0.5rem;
+      font-size: 1.75rem;
+      font-weight: 600;
+    }
+
+    header p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(280px, 340px) 1fr;
+      min-height: calc(100vh - 120px);
+    }
+
+    nav {
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      background: var(--panel);
+    }
+
+    nav a {
+      display: block;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.35rem 0;
+      font-size: 0.92rem;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    article {
+      padding: 2rem;
+      max-width: 960px;
+    }
+
+    section {
+      margin-bottom: 3rem;
+      scroll-margin-top: 1rem;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      margin: 0 0 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin: 1.5rem 0 0.75rem;
+      color: var(--accent);
+    }
+
+    p, li { color: #d4dce8; }
+
+    code, pre {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+    }
+
+    pre {
+      background: #0b1018;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      overflow-x: auto;
+      color: #c8d3e0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin: 1rem 0;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.5rem 0.75rem;
+      text-align: left;
+    }
+
+    th { background: #121a26; color: var(--muted); }
+
+    .flow {
+      background: #121a26;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      white-space: pre;
+      overflow-x: auto;
+      color: #b8c7d9;
+    }
+
+    .tool-panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    input, select, button {
+      font: inherit;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #0f1724;
+      color: var(--text);
+      padding: 0.45rem 0.6rem;
+    }
+
+    button {
+      cursor: pointer;
+      background: #1e3a5f;
+      border-color: #2f5f96;
+    }
+
+    button:hover { background: #264b78; }
+
+    button.danger {
+      background: #4a2228;
+      border-color: #7a3a44;
+    }
+
+    .dropzone {
+      border: 2px dashed var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .dropzone.dragover {
+      border-color: var(--accent);
+      background: rgba(91, 159, 212, 0.08);
+      color: var(--text);
+    }
+
+    .canvas-wrap {
+      position: relative;
+      overflow: auto;
+      max-height: 70vh;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #080c12;
+    }
+
+    canvas {
+      display: block;
+      cursor: crosshair;
+      image-rendering: pixelated;
+    }
+
+    .region-list {
+      margin-top: 1rem;
+      max-height: 220px;
+      overflow-y: auto;
+      font-size: 0.82rem;
+      font-family: var(--mono);
+    }
+
+    .region-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.5rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: center;
+    }
+
+    .region-item span { color: var(--muted); }
+
+    .export-box {
+      margin-top: 1rem;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 160px;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      background: #0b1018;
+      color: #c8d3e0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem;
+      resize: vertical;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #1e3348;
+      color: var(--accent-2);
+      font-size: 0.75rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    @media (max-width: 900px) {
+      main { grid-template-columns: 1fr; }
+      nav {
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Card Layout Workflow <span class="badge">600 DPI</span></h1>
+    <p>
+      Drop a playing-card design, measure UI regions in exact pixels, convert to
+      physical units, and write nanDeck scripts. This document describes the
+      pipeline and the job of an agent maintaining scripts like <code>cards.nde</code>.
+    </p>
+  </header>
+
+  <main>
+    <nav>
+      <strong style="color: var(--text); display:block; margin-bottom: 0.75rem;">Contents</strong>
+      <a href="#overview">Overview</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#sizes">Target sizes &amp; DPI</a>
+      <a href="#nandeck">nanDeck essentials</a>
+      <a href="#existing-script">Existing cards.nde</a>
+      <a href="#agent">Agent responsibilities</a>
+      <a href="#tool">Region picker tool</a>
+      <a href="#cli">CLI helper script</a>
+    </nav>
+
+    <article>
+      <section id="overview">
+        <h2>Overview</h2>
+        <p>
+          Board-game card art is usually designed in Photoshop, Figma, or Affinity at a
+          known print resolution. nanDeck then places dynamic content — names, rules text,
+          icons, spreadsheet-driven images — on top of frame artwork using a text script
+          (<code>.nde</code>). The hard part is translating “put the name here on the mockup”
+          into exact coordinates nanDeck understands.
+        </p>
+        <p>
+          This project standardizes that translation at <strong>600 DPI</strong> (high-quality
+          print) while supporting other physical sizes such as poker cards (2.5″×3.5″) and
+          US Letter sheets (8.5″×11″).
+        </p>
+      </section>
+
+      <section id="workflow">
+        <h2>Image → Pixel Locations → nanDeck</h2>
+        <div class="flow">Design image (PNG/JPG)
+    │
+    ▼
+Region picker — mark rectangles on the art
+    │  outputs: x, y, width, height in pixels
+    ▼
+Unit conversion — pixels ÷ DPI → inches (or cm/mm)
+    │  poker @ 600 DPI: 1500 × 2100 px = 2.5 × 3.5 in
+    ▼
+nanDeck script — IMAGE / TEXT / RECTANGLE directives
+    │  UNIT=INCH, DPI=600, CARDSIZE=2.5,3.5
+    ▼
+nanDeck build — preview, iterate, export print PDF/PNG</div>
+
+        <h3>Coordinate convention (both tools)</h3>
+        <ul>
+          <li>Origin <code>(0, 0)</code> is the <strong>top-left</strong> of the card.</li>
+          <li>Regions are axis-aligned rectangles: <code>x, y, width, height</code>.</li>
+          <li>nanDeck accepts inches, cm, or mm via <code>UNIT</code>; this repo uses inches.</li>
+          <li>Formula: <code>inches = pixels / DPI</code></li>
+        </ul>
+      </section>
+
+      <section id="sizes">
+        <h2>Target sizes at 600 DPI</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Format</th>
+              <th>Physical size</th>
+              <th>Pixels @ 600 DPI</th>
+              <th>nanDeck</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Poker / standard card</td>
+              <td>2.5″ × 3.5″</td>
+              <td>1500 × 2100</td>
+              <td><code>CARDSIZE = 2.5, 3.5</code></td>
+            </tr>
+            <tr>
+              <td>Tarot</td>
+              <td>2.75″ × 4.75″</td>
+              <td>1650 × 2850</td>
+              <td><code>CARDSIZE = 2.75, 4.75</code></td>
+            </tr>
+            <tr>
+              <td>Mini card</td>
+              <td>1.75″ × 2.5″</td>
+              <td>1050 × 1500</td>
+              <td><code>CARDSIZE = 1.75, 2.5</code></td>
+            </tr>
+            <tr>
+              <td>US Letter page</td>
+              <td>8.5″ × 11″</td>
+              <td>5100 × 6600</td>
+              <td><code>PAGE = 8.5, 11, PORTRAIT, HV</code></td>
+            </tr>
+            <tr>
+              <td>A4 page</td>
+              <td>8.27″ × 11.69″</td>
+              <td>4962 × 7014</td>
+              <td><code>PAGE = 8.27, 11.69, PORTRAIT, HV</code></td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          If your mockup was exported at 300 DPI, either re-export at 600 or measure in the
+          picker and enable <em>Scale regions to target card size</em> so coordinates map to the
+          physical card regardless of source resolution.
+        </p>
+      </section>
+
+      <section id="nandeck">
+        <h2>nanDeck essentials</h2>
+        <p>
+          nanDeck is a Windows scripting tool for generating card decks from a text script.
+          Each line is a directive. Scripts are rerun per card; ranged directives (e.g.
+          <code>1-18</code>) only apply to matching cards. See the
+          <a href="https://www.nandeck.com/wp-content/uploads/2022/05/nandeck-manual.pdf" style="color: var(--accent);">official manual</a>
+          and <a href="https://nandeck.com/examples" style="color: var(--accent);">getting started guide</a>.
+        </p>
+
+        <h3>Core directives</h3>
+        <pre>UNIT = INCH
+DPI = 600
+CARDSIZE = 2.5, 3.5
+PAGE = 8.5, 11, PORTRAIT, HV
+LINK = ItemCards.xlsx
+
+IMAGE = 1-10, "frame.png", 0, 0, 2.5, 3.5, 0, N
+FONT = Arial, 11, BT, #FFFFFF
+TEXT  = 1-10, [Name], 0.2, 0.1, 2.26, 0.22, left, center</pre>
+
+        <h3>Positioning parameters</h3>
+        <table>
+          <thead>
+            <tr><th>Directive</th><th>Position params</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>IMAGE</code></td>
+              <td>x, y, width, height, angle, flags</td>
+              <td><code>N</code> = no resize; <code>CN</code> = center; <code>CP</code> = center preserve aspect</td>
+            </tr>
+            <tr>
+              <td><code>TEXT</code></td>
+              <td>x, y, width, height, h-align, v-align</td>
+              <td><code>wordwrap</code> for body text; <code>FONT</code> line precedes each block</td>
+            </tr>
+            <tr>
+              <td><code>RECTANGLE</code></td>
+              <td>x, y, width, height, color</td>
+              <td>Useful for debug overlays while tuning layout</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Spreadsheet-driven cards</h3>
+        <p>
+          <code>LINK = file.xlsx</code> loads one row per card. Column names in square brackets
+          become fields: <code>[Name]</code>, <code>[Game Text]</code>. Nested labels like
+          <code>[label_[Type]]</code> resolve at runtime. Conditional blocks use
+          <code>IF</code> / <code>ENDIF</code>.
+        </p>
+      </section>
+
+      <section id="existing-script">
+        <h2>Write-up: existing <code>cards.nde</code></h2>
+        <p>
+          The repo currently contains a single nanDeck script for item cards. It targets
+          standard poker size on US Letter, pulls rows from <code>ItemCards.xlsx</code>, and
+          layers artwork and text in a fixed z-order.
+        </p>
+
+        <h3>Global setup</h3>
+        <pre>UNIT = INCH
+CARDSIZE = 2.5, 3.5
+PAGE = 8.5, 11, PORTRAIT, HV
+LINK = ItemCards.xlsx
+[all] = 1-{(Name)}</pre>
+        <p>
+          One card is generated per spreadsheet row that has a <code>Name</code>. The page
+          directive tiles cards in a horizontal-vertical grid on letter paper.
+        </p>
+
+        <h3>Layout zones (inches → pixels @ 600 DPI)</h3>
+        <table>
+          <thead>
+            <tr><th>Element</th><th>x</th><th>y</th><th>w</th><th>h</th><th>@ 600 DPI (px)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Illustration</td><td>0.05</td><td>0.35</td><td>2.4</td><td>1.75</td><td>30, 210, 1440, 1050</td></tr>
+            <tr><td>Frame overlay</td><td>0</td><td>0</td><td>2.5</td><td>3.5</td><td>0, 0, 1500, 2100</td></tr>
+            <tr><td>Card name</td><td>0.2</td><td>0.1</td><td>2.26</td><td>0.22</td><td>120, 60, 1356, 132</td></tr>
+            <tr><td>Game text</td><td>0.3</td><td>2.15</td><td>2</td><td>1</td><td>180, 1290, 1200, 600</td></tr>
+            <tr><td>Flavor text</td><td>0.18</td><td>2.83</td><td>2.14</td><td>0.26</td><td>108, 1698, 1284, 156</td></tr>
+            <tr><td>Type label</td><td>0</td><td>3.1</td><td>2.5</td><td>0.22</td><td>0, 1860, 1500, 132</td></tr>
+            <tr><td>Tag icons (×4)</td><td>1.35–2.1</td><td>0.08</td><td>0.3</td><td>0.3</td><td>right-aligned row, 180×180 each</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Patterns worth preserving</h3>
+        <ul>
+          <li><strong>Tag lookup table</strong> — <code>[img_bow] = bow.png</code> plus a blank fallback for static validation.</li>
+          <li><strong>Type-based frames</strong> — <code>IF = [Type] = Basic</code> selects <code>frame_basic.png</code>, etc.</li>
+          <li><strong>Reusable variables</strong> — <code>[tag_x1]</code>…<code>[tag_x4]</code> for icon positions.</li>
+          <li><strong>Conditional flavor text</strong> — only rendered when the column is non-empty.</li>
+          <li><strong>Dynamic type label</strong> — <code>[label_[Type]]</code> maps type to display string.</li>
+        </ul>
+        <p>
+          When updating layout from a new design mockup, re-measure these zones (or any new
+          zones) in the region picker, then patch the inch values in <code>cards.nde</code>.
+          Add <code>DPI = 600</code> near the top if you want nanDeck to render at print resolution
+          (default is 300).
+        </p>
+      </section>
+
+      <section id="agent">
+        <h2>Agent job description</h2>
+        <p>An agent working on this project should be able to:</p>
+        <ol>
+          <li>
+            <strong>Ingest a design image</strong> — accept a dropped PNG/JPG, confirm its
+            pixel dimensions, and determine whether it matches the target card or page size at
+            the configured DPI.
+          </li>
+          <li>
+            <strong>Measure regions</strong> — use the region picker (below) or
+            <code>tools/pixels-to-nandeck.py</code> to produce exact pixel rectangles for each
+            UI slot: illustration, title, body text, icons, type strip, etc.
+          </li>
+          <li>
+            <strong>Convert coordinates</strong> — translate pixels to inches (or cm) and round
+            sensibly (typically 2–4 decimal places for inches).
+          </li>
+          <li>
+            <strong>Edit nanDeck scripts</strong> — update <code>IMAGE</code> and <code>TEXT</code>
+            lines in <code>cards.nde</code> (or new <code>.nde</code> files), preserving existing
+            patterns: <code>IF</code> blocks, lookup tables, <code>FONT</code> lines, and spreadsheet
+            column references.
+          </li>
+          <li>
+            <strong>Validate output</strong> — suggest adding temporary <code>RECTANGLE</code>
+            debug overlays, compare nanDeck preview against the source mockup, and iterate until
+            alignment is within ~1–2 px at 600 DPI (~0.0017″).
+          </li>
+          <li>
+            <strong>Support multiple formats</strong> — switch <code>CARDSIZE</code> and
+            <code>PAGE</code> when the user targets tarot cards, mini cards, or full letter
+            layouts; rescale all regions proportionally when only the card size changes.
+          </li>
+          <li>
+            <strong>Document changes</strong> — leave comments in the <code>.nde</code> file for
+            non-obvious layout decisions and update this HTML if the workflow changes.
+          </li>
+        </ol>
+      </section>
+
+      <section id="tool">
+        <h2>Region picker tool</h2>
+        <p>
+          Drop a card design below. Click and drag to draw rectangles. Each region reports
+          pixel coordinates and inch equivalents at the selected DPI. Export JSON for the Python
+          CLI or copy nanDeck snippets directly.
+        </p>
+
+        <div class="tool-panel">
+          <div id="dropzone" class="dropzone">
+            Drop an image here or <label style="display:inline; color: var(--accent); cursor:pointer;">
+              choose file<input id="fileInput" type="file" accept="image/*" hidden>
+            </label>
+          </div>
+
+          <div class="controls">
+            <label>DPI
+              <input id="dpi" type="number" value="600" min="72" step="1">
+            </label>
+            <label>Target preset
+              <select id="preset">
+                <option value="poker">Poker 2.5×3.5″</option>
+                <option value="tarot">Tarot 2.75×4.75″</option>
+                <option value="mini">Mini 1.75×2.5″</option>
+                <option value="letter">US Letter 8.5×11″</option>
+                <option value="custom">Custom (use image size)</option>
+              </select>
+            </label>
+            <label>Region kind
+              <select id="regionKind">
+                <option value="image">IMAGE</option>
+                <option value="text">TEXT</option>
+                <option value="rectangle">RECTANGLE (debug)</option>
+              </select>
+            </label>
+            <label>Region name
+              <input id="regionName" type="text" placeholder="illustration" value="region_1">
+            </label>
+            <label>Scale to target
+              <select id="scaleMode">
+                <option value="native">Native image pixels</option>
+                <option value="scaled">Scale to target size</option>
+              </select>
+            </label>
+            <label>Zoom
+              <input id="zoom" type="range" min="0.1" max="2" step="0.05" value="0.5">
+            </label>
+          </div>
+
+          <div class="controls">
+            <button id="undoBtn" type="button">Undo last region</button>
+            <button id="clearBtn" type="button" class="danger">Clear all</button>
+            <button id="exportJsonBtn" type="button">Export JSON</button>
+            <button id="copyNdeBtn" type="button">Copy nanDeck lines</button>
+          </div>
+
+          <div class="canvas-wrap">
+            <canvas id="canvas" width="800" height="600"></canvas>
+          </div>
+
+          <div id="imageInfo" style="font-size: 0.85rem; color: var(--muted); margin-top: 0.75rem;"></div>
+
+          <div class="region-list" id="regionList"></div>
+
+          <div class="export-box">
+            <label style="color: var(--muted);">nanDeck output
+              <textarea id="ndeOutput" readonly></textarea>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section id="cli">
+        <h2>CLI helper: <code>tools/pixels-to-nandeck.py</code></h2>
+        <p>
+          For automated agent runs, export regions as JSON from the picker above, then:
+        </p>
+        <pre>python tools/pixels-to-nandeck.py regions.json --dpi 600 --unit inch
+python tools/pixels-to-nandeck.py regions.json --scale-to-card --card-size poker
+python tools/pixels-to-nandeck.py regions.json --json</pre>
+        <p>
+          The script emits a nanDeck header (<code>UNIT</code>, <code>DPI</code>,
+          <code>CARDSIZE</code>, optional <code>PAGE</code>) plus one directive per measured
+          region. Use <code>--scale-to-card</code> when the source image dimensions do not match
+          the target pixel size at the chosen DPI.
+        </p>
+      </section>
+    </article>
+  </main>
+
+  <script>
+    (function () {
+      const PRESETS = {
+        poker: { wIn: 2.5, hIn: 3.5, label: "Poker" },
+        tarot: { wIn: 2.75, hIn: 4.75, label: "Tarot" },
+        mini: { wIn: 1.75, hIn: 2.5, label: "Mini" },
+        letter: { wIn: 8.5, hIn: 11, label: "US Letter" },
+        custom: null,
+      };
+
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+      const dropzone = document.getElementById("dropzone");
+      const fileInput = document.getElementById("fileInput");
+      const dpiInput = document.getElementById("dpi");
+      const presetSelect = document.getElementById("preset");
+      const regionKind = document.getElementById("regionKind");
+      const regionName = document.getElementById("regionName");
+      const scaleMode = document.getElementById("scaleMode");
+      const zoomInput = document.getElementById("zoom");
+      const regionList = document.getElementById("regionList");
+      const ndeOutput = document.getElementById("ndeOutput");
+      const imageInfo = document.getElementById("imageInfo");
+
+      let image = null;
+      let regions = [];
+      let dragStart = null;
+      let currentRect = null;
+      let regionCounter = 1;
+
+      function getDpi() {
+        return Math.max(1, Number(dpiInput.value) || 600);
+      }
+
+      function getTargetPx() {
+        const preset = PRESETS[presetSelect.value];
+        const dpi = getDpi();
+        if (!preset || presetSelect.value === "custom") {
+          return image
+            ? { w: image.naturalWidth, h: image.naturalHeight, wIn: image.naturalWidth / dpi, hIn: image.naturalHeight / dpi }
+            : { w: 1500, h: 2100, wIn: 2.5, hIn: 3.5 };
+        }
+        return {
+          w: preset.wIn * dpi,
+          h: preset.hIn * dpi,
+          wIn: preset.wIn,
+          hIn: preset.hIn,
+        };
+      }
+
+      function pxToIn(px) {
+        return px / getDpi();
+      }
+
+      function formatIn(value) {
+        return Number(value.toFixed(4)).toString();
+      }
+
+      function scaleFactor() {
+        if (!image) return { sx: 1, sy: 1 };
+        const target = getTargetPx();
+        if (scaleMode.value === "scaled") {
+          return {
+            sx: target.w / image.naturalWidth,
+            sy: target.h / image.naturalHeight,
+          };
+        }
+        return { sx: 1, sy: 1 };
+      }
+
+      function mapRect(rect) {
+        const { sx, sy } = scaleFactor();
+        return {
+          x: rect.x * sx,
+          y: rect.y * sy,
+          width: rect.width * sx,
+          height: rect.height * sy,
+        };
+      }
+
+      function canvasCoords(evt) {
+        const rect = canvas.getBoundingClientRect();
+        const zoom = Number(zoomInput.value);
+        return {
+          x: (evt.clientX - rect.left) / zoom,
+          y: (evt.clientY - rect.top) / zoom,
+        };
+      }
+
+      function resizeCanvas() {
+        if (!image) return;
+        const zoom = Number(zoomInput.value);
+        canvas.width = Math.round(image.naturalWidth * zoom);
+        canvas.height = Math.round(image.naturalHeight * zoom);
+        draw();
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const zoom = Number(zoomInput.value);
+
+        if (image) {
+          ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+        } else {
+          ctx.fillStyle = "#111820";
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.fillStyle = "#4a5a70";
+          ctx.font = "16px sans-serif";
+          ctx.fillText("Drop a card design image to begin", 24, 40);
+        }
+
+        const colors = ["#5b9fd4", "#7bc96f", "#e5c07b", "#c678dd", "#e06c75", "#56b6c2"];
+        regions.forEach((region, index) => {
+          const color = colors[index % colors.length];
+          ctx.strokeStyle = color;
+          ctx.lineWidth = 2;
+          ctx.strokeRect(
+            region.x * zoom,
+            region.y * zoom,
+            region.width * zoom,
+            region.height * zoom
+          );
+          ctx.fillStyle = color + "33";
+          ctx.fillRect(
+            region.x * zoom,
+            region.y * zoom,
+            region.width * zoom,
+            region.height * zoom
+          );
+          ctx.fillStyle = color;
+          ctx.font = "12px monospace";
+          ctx.fillText(region.name, region.x * zoom + 4, region.y * zoom + 14);
+        });
+
+        if (currentRect) {
+          ctx.strokeStyle = "#ffffff";
+          ctx.setLineDash([6, 4]);
+          ctx.strokeRect(
+            currentRect.x * zoom,
+            currentRect.y * zoom,
+            currentRect.width * zoom,
+            currentRect.height * zoom
+          );
+          ctx.setLineDash([]);
+        }
+      }
+
+      function updateInfo() {
+        if (!image) {
+          imageInfo.textContent = "";
+          return;
+        }
+        const target = getTargetPx();
+        const dpi = getDpi();
+        imageInfo.textContent =
+          `Image: ${image.naturalWidth}×${image.naturalHeight} px · ` +
+          `Target: ${Math.round(target.w)}×${Math.round(target.h)} px ` +
+          `(${formatIn(target.wIn)}×${formatIn(target.hIn)} in @ ${dpi} DPI)`;
+      }
+
+      function rectToNde(region, mapped) {
+        const x = formatIn(pxToIn(mapped.x));
+        const y = formatIn(pxToIn(mapped.y));
+        const w = formatIn(pxToIn(mapped.width));
+        const h = formatIn(pxToIn(mapped.height));
+        if (region.kind === "text") {
+          return `TEXT = [all], [${region.name}], ${x}, ${y}, ${w}, ${h}, left, wordwrap`;
+        }
+        if (region.kind === "rectangle") {
+          return `RECTANGLE = [all], ${x}, ${y}, ${w}, ${h}, #FF00FF`;
+        }
+        return `IMAGE = [all], ${region.name}.png, ${x}, ${y}, ${w}, ${h}, 0, CN`;
+      }
+
+      function refreshUI() {
+        updateInfo();
+        regionList.innerHTML = regions
+          .map((region, index) => {
+            const mapped = mapRect(region);
+            const px = `x=${Math.round(mapped.x)} y=${Math.round(mapped.y)} ` +
+              `w=${Math.round(mapped.width)} h=${Math.round(mapped.height)}`;
+            const inch = `${formatIn(pxToIn(mapped.x))}, ${formatIn(pxToIn(mapped.y))}, ` +
+              `${formatIn(pxToIn(mapped.width))}, ${formatIn(pxToIn(mapped.height))} in`;
+            return `<div class="region-item">
+              <div><strong>${region.name}</strong> <span>(${region.kind})</span><br>
+              <span>${px}</span><br><span>${inch}</span></div>
+              <button type="button" data-index="${index}" class="danger" style="font-size:0.75rem;">Delete</button>
+            </div>`;
+          })
+          .join("");
+
+        regionList.querySelectorAll("button[data-index]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            regions.splice(Number(btn.dataset.index), 1);
+            refreshUI();
+            draw();
+          });
+        });
+
+        const target = getTargetPx();
+        const header = [
+          "UNIT = INCH",
+          `DPI = ${getDpi()}`,
+          `CARDSIZE = ${formatIn(target.wIn)}, ${formatIn(target.hIn)}`,
+          "",
+          "; --- measured regions ---",
+        ];
+        const body = regions.map((region) => rectToNde(region, mapRect(region)));
+        ndeOutput.value = header.concat(body).join("\n");
+      }
+
+      function loadImage(file) {
+        const url = URL.createObjectURL(file);
+        const img = new Image();
+        img.onload = () => {
+          image = img;
+          URL.revokeObjectURL(url);
+          resizeCanvas();
+          refreshUI();
+        };
+        img.src = url;
+      }
+
+      function addRegion(rect) {
+        const name = regionName.value.trim() || `region_${regionCounter}`;
+        regionCounter += 1;
+        regions.push({
+          name,
+          kind: regionKind.value,
+          x: rect.x,
+          y: rect.y,
+          width: rect.width,
+          height: rect.height,
+        });
+        regionName.value = `region_${regionCounter}`;
+        refreshUI();
+      }
+
+      function exportJson() {
+        const target = getTargetPx();
+        const payload = {
+          dpi: getDpi(),
+          unit: "inch",
+          range: "[all]",
+          preset: presetSelect.value,
+          imageWidth: image ? image.naturalWidth : 0,
+          imageHeight: image ? image.naturalHeight : 0,
+          targetWidthPx: target.w,
+          targetHeightPx: target.h,
+          scaleMode: scaleMode.value,
+          regions: regions.map((region) => {
+            const mapped = mapRect(region);
+            return {
+              name: region.name,
+              kind: region.kind,
+              x: Math.round(mapped.x),
+              y: Math.round(mapped.y),
+              width: Math.round(mapped.width),
+              height: Math.round(mapped.height),
+            };
+          }),
+        };
+        const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "regions.json";
+        a.click();
+        URL.revokeObjectURL(a.href);
+      }
+
+      dropzone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropzone.classList.add("dragover");
+      });
+      dropzone.addEventListener("dragleave", () => dropzone.classList.remove("dragover"));
+      dropzone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dropzone.classList.remove("dragover");
+        const file = e.dataTransfer.files[0];
+        if (file && file.type.startsWith("image/")) loadImage(file);
+      });
+      fileInput.addEventListener("change", () => {
+        const file = fileInput.files[0];
+        if (file) loadImage(file);
+      });
+
+      canvas.addEventListener("mousedown", (e) => {
+        if (!image) return;
+        dragStart = canvasCoords(e);
+        currentRect = { ...dragStart, width: 0, height: 0 };
+      });
+      canvas.addEventListener("mousemove", (e) => {
+        if (!dragStart) return;
+        const pos = canvasCoords(e);
+        currentRect = {
+          x: Math.min(dragStart.x, pos.x),
+          y: Math.min(dragStart.y, pos.y),
+          width: Math.abs(pos.x - dragStart.x),
+          height: Math.abs(pos.y - dragStart.y),
+        };
+        draw();
+      });
+      canvas.addEventListener("mouseup", () => {
+        if (!currentRect || currentRect.width < 3 || currentRect.height < 3) {
+          dragStart = null;
+          currentRect = null;
+          draw();
+          return;
+        }
+        addRegion(currentRect);
+        dragStart = null;
+        currentRect = null;
+        draw();
+      });
+
+      document.getElementById("undoBtn").addEventListener("click", () => {
+        regions.pop();
+        refreshUI();
+        draw();
+      });
+      document.getElementById("clearBtn").addEventListener("click", () => {
+        regions = [];
+        refreshUI();
+        draw();
+      });
+      document.getElementById("exportJsonBtn").addEventListener("click", exportJson);
+      document.getElementById("copyNdeBtn").addEventListener("click", async () => {
+        await navigator.clipboard.writeText(ndeOutput.value);
+      });
+
+      [dpiInput, presetSelect, scaleMode].forEach((el) => {
+        el.addEventListener("change", () => {
+          refreshUI();
+          draw();
+        });
+      });
+      zoomInput.addEventListener("input", resizeCanvas);
+
+      refreshUI();
+      draw();
+    })();
+  </script>
+</body>
+</html>
