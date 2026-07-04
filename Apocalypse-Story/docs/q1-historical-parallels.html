@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historical Parallels of Dramatic Population Loss — Apocalypse Story Research Q1</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #242836;
+      --text: #e8eaef;
+      --muted: #9aa3b2;
+      --accent: #c97b5a;
+      --accent2: #5a9ec9;
+      --danger: #c95a5a;
+      --warn: #c9a85a;
+      --success: #5ac98a;
+      --border: #2e3444;
+      --font: "Segoe UI", system-ui, -apple-system, sans-serif;
+      --mono: "Cascadia Code", "Fira Code", Consolas, monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+    header {
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+    .subtitle { color: var(--muted); font-size: 1.05rem; }
+    .meta { margin-top: 1rem; font-size: 0.85rem; color: var(--muted); }
+    h2 {
+      font-size: 1.45rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--accent);
+    }
+    h3 { font-size: 1.15rem; margin: 1.5rem 0 0.75rem; color: var(--accent2); }
+    h4 { font-size: 1rem; margin: 1rem 0 0.5rem; }
+    p { margin-bottom: 0.85rem; }
+    ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+    li { margin-bottom: 0.35rem; }
+    a { color: var(--accent2); }
+    a:hover { text-decoration: underline; }
+    .lead {
+      font-size: 1.1rem;
+      color: var(--muted);
+      border-left: 3px solid var(--accent);
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 1rem 0;
+    }
+    .card.warn { border-left: 4px solid var(--warn); }
+    .card.danger { border-left: 4px solid var(--danger); }
+    .card.info { border-left: 4px solid var(--accent2); }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+    .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-right: 0.3rem;
+    }
+    .tag-pandemic { background: #3d2a4a; color: #d4a5f5; }
+    .tag-war { background: #4a2a2a; color: #f5a5a5; }
+    .tag-famine { background: #4a3d2a; color: #f5d4a5; }
+    .tag-colonial { background: #2a3d4a; color: #a5d4f5; }
+    .tag-natural { background: #2a4a3d; color: #a5f5d4; }
+    .tag-complex { background: #3d3d2a; color: #e8e8a5; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      margin: 1rem 0;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.5rem 0.6rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: var(--surface2); font-weight: 600; position: sticky; top: 0; }
+    tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+    .table-wrap { overflow-x: auto; max-height: 600px; overflow-y: auto; border: 1px solid var(--border); border-radius: 6px; }
+    .cite { font-size: 0.78rem; color: var(--muted); }
+    .cite a { color: var(--muted); }
+  .footnote { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
+    .diagram {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      overflow-x: auto;
+    }
+    .bar-chart { display: flex; flex-direction: column; gap: 0.5rem; }
+    .bar-row { display: flex; align-items: center; gap: 0.75rem; }
+    .bar-label { width: 200px; font-size: 0.78rem; flex-shrink: 0; text-align: right; color: var(--muted); }
+    .bar-track { flex: 1; height: 22px; background: var(--surface2); border-radius: 3px; position: relative; }
+    .bar-fill { height: 100%; border-radius: 3px; display: flex; align-items: center; padding-left: 6px; font-size: 0.7rem; font-weight: 600; min-width: 2px; }
+    .bar-fill.high { background: linear-gradient(90deg, #8b2e2e, var(--danger)); }
+    .bar-fill.med { background: linear-gradient(90deg, #8b5a2e, var(--warn)); }
+    .bar-fill.low { background: linear-gradient(90deg, #2e5a8b, var(--accent2)); }
+    .timeline { position: relative; padding-left: 2rem; margin: 1rem 0; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0.5rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .timeline-item { position: relative; margin-bottom: 1.25rem; }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -1.65rem;
+      top: 0.45rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+    }
+    .timeline-year { font-weight: 700; color: var(--accent); font-size: 0.9rem; }
+    .evidence-meter {
+      display: flex;
+      gap: 3px;
+      margin-top: 0.25rem;
+    }
+    .evidence-meter span {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      background: var(--surface2);
+    }
+    .evidence-meter span.on { background: var(--success); }
+    .conclusion-box {
+      background: linear-gradient(135deg, #1a2530 0%, #1a1d27 100%);
+      border: 1px solid var(--accent2);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+    .toc { background: var(--surface); border-radius: 8px; padding: 1.25rem; margin: 1.5rem 0; }
+    .toc ol { margin-left: 1.25rem; }
+    .toc a { text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+    sup { font-size: 0.7em; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>Historical Parallels of Dramatic Population Loss</h1>
+  <p class="subtitle">Research Question 1 for the Apocalypse Story project — cataloging major instances of rapid demographic collapse across human history</p>
+  <p class="meta">Prepared: July 2026 &nbsp;|&nbsp; Scope: Global, all recorded history &nbsp;|&nbsp; Target: 50–90% population reduction within weeks to months (societal-collapse scenario)</p>
+</header>
+
+<section id="intro">
+  <h2>1. Introduction and Aims</h2>
+  <p class="lead">This document surveys historical instances in which human populations suffered dramatic losses — not exclusively from pandemics, but also from war, famine, drought, colonization, and compound crises — to identify fertile parallels for a fictional post-apocalyptic epidemic scenario set in the contemporary United States.</p>
+
+  <p>The <em>Apocalypse Story</em> project investigates a hypothetical disease that is dormant for 2–3 days, then causes vomiting blood with &gt;50% mortality, killing victims within five days of symptom onset. The epidemic itself is a narrative device; the research focus is on <strong>societal consequences of losing 50–90% of a population within weeks to months</strong>.<sup><a href="#src-readme">1</a></sup></p>
+
+  <p>This report therefore pursues four aims:</p>
+  <ol>
+    <li><strong>Catalog</strong> as many well-documented cases of dramatic population loss as practicable (target: 40+), spanning cause types and eras.</li>
+    <li><strong>Classify</strong> each case by magnitude, speed, geographic scope, selectivity, and evidentiary quality.</li>
+    <li><strong>Identify fertile research areas</strong> — combinations of cause, speed, and institutional context most relevant to a modern US collapse scenario.</li>
+    <li><strong>Map scholarly debates</strong> about how population catastrophes are measured, disputed, and interpreted.</li>
+  </ol>
+
+  <div class="toc card info">
+    <strong>Contents</strong>
+    <ol>
+      <li><a href="#precursor">Precursor and Subset Questions</a></li>
+      <li><a href="#limitations">Limitations of This Research</a></li>
+      <li><a href="#field-history">History of the Relevant Fields</a></li>
+      <li><a href="#taxonomy">Taxonomy of Population Catastrophes</a></li>
+      <li><a href="#catalog">Catalog of 48 Historical Cases</a></li>
+      <li><a href="#analysis">Cross-Cutting Analysis</a></li>
+      <li><a href="#relevance">Relevance to the Apocalypse Scenario</a></li>
+      <li><a href="#conclusion">Conclusion and Further Research</a></li>
+      <li><a href="#sources">Sources</a></li>
+    </ol>
+  </div>
+</section>
+
+<section id="precursor">
+  <h2>2. Precursor and Subset Questions</h2>
+  <p>Before surveying cases, this research decomposed Question 1 into answerable sub-questions:</p>
+
+  <div class="grid-2">
+    <div class="card">
+      <h4>Definitional</h4>
+      <ul>
+        <li>What counts as "dramatic" loss? (Threshold: ≥20% regional decline; flag ≥50% as severe.)</li>
+        <li>Population loss vs. excess mortality vs. census-record decline — how do these differ?</li>
+        <li>How do emigration, fertility collapse, and administrative failure inflate or mask true death tolls?</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Temporal</h4>
+      <ul>
+        <li>How fast did losses occur? (Days, months, years, decades?)</li>
+        <li>Which events approached the project's 2–5 week acute mortality window?</li>
+        <li>What is the typical lag between peak mortality and institutional breakdown?</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Causal</h4>
+      <ul>
+        <li>Single-cause vs. compound crises (drought + disease + war)?</li>
+        <li>Indiscriminate vs. selective mortality (age, ethnicity, class)?</li>
+        <li>Physical infrastructure damage vs. "invisible" epidemic damage?</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Comparative</h4>
+      <ul>
+        <li>Pre-industrial vs. industrial vs. modern developed-nation contexts?</li>
+        <li>Urban vs. rural vulnerability patterns?</li>
+        <li>Recovery trajectories: decades, centuries, or permanent depopulation?</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="limitations">
+  <h2>3. Limitations of This Research</h2>
+
+  <h3>3.1 Theoretical Limitations</h3>
+  <div class="card warn">
+    <p>Human societies under existential stress exhibit <strong>path-dependent, non-linear behavior</strong>. A 40% mortality event in 14th-century Florence and a 40% mortality event in 21st-century Denver would not produce equivalent social outcomes, because institutions, technology, population density, economic interdependence, and cultural memory differ fundamentally.<sup><a href="#src-benedictow">2</a></sup></p>
+    <p>Historical parallels inform <em>plausibility ranges</em>, not predictions. Psychology, logistics, and institutional resilience (covered in sibling research questions) mediate every outcome.</p>
+  </div>
+
+  <h3>3.2 Methodological and Literature Limitations</h3>
+  <ul>
+    <li><strong>Pre-modern census data is unreliable.</strong> Many "population declines" reflect tax-registration collapse, not verified body counts.<sup><a href="#src-anlushan">3</a></sup></li>
+    <li><strong>Estimates vary by orders of magnitude.</strong> The Congo Free State is variously cited as losing 1–10 million people; the 1918 flu between 17 and 100 million.<sup><a href="#src-congo">4</a></sup><sup><a href="#src-spreeuwenberg">5</a></sup></li>
+    <li><strong>Compound causation is the norm.</strong> War, famine, and disease are rarely separable; attributing a percentage to one cause is often impossible.<sup><a href="#src-franz">6</a></sup></li>
+    <li><strong>Survivorship bias in sources.</strong> Chroniclers exaggerate enemy atrocities; colonial administrators undercount indigenous deaths; totalitarian regimes conceal famine mortality.<sup><a href="#src-koch">6</a></sup></li>
+    <li><strong>Recent revisionism.</strong> The Justinianic Plague's demographic impact has been substantially downgraded by multi-proxy studies (2019–2020), demonstrating that scholarly consensus can shift rapidly.<sup><a href="#src-mordechai">7</a></sup></li>
+  </ul>
+
+  <h3>3.3 Strength of the Evidence Base</h3>
+  <p><strong>Historical demography</strong> is a mature but contested field. High-confidence estimates exist for:</p>
+  <ul>
+    <li>Medieval and early modern Europe (parish registers, manorial records, plague pits)<sup><a href="#src-benedictow">2</a></sup><sup><a href="#src-dewitte">8</a></sup></li>
+    <li>19th–20th century famines with partial civil registration (Ireland, Ukraine, China)<sup><a href="#src-ograda">9</a></sup></li>
+    <li>20th-century genocides with demographic surveys (Rwanda, Cambodia)<sup><a href="#src-andre">10</a></sup></li>
+  </ul>
+  <p>Low-confidence estimates dominate for:</p>
+  <ul>
+    <li>Pre-Columbian Americas (extrapolation from post-contact tribute records)<sup><a href="#src-koch">6</a></sup></li>
+    <li>Mongol conquests (chronicle inflation)<sup><a href="#src-biran">11</a></sup></li>
+    <li>Ancient and Bronze Age collapses (archaeological proxy data)<sup><a href="#src-murray">12</a></sup></li>
+  </ul>
+</section>
+
+<section id="field-history">
+  <h2>4. History of the Fields That Address This Question</h2>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-year">1662 — Foundations of Demography</div>
+      <p>John Graunt's <em>Natural and Political Observations Made upon the Bills of Mortality</em> pioneered systematic mortality analysis from London parish registers, establishing that plague deaths could be quantified.<sup><a href="#src-graunt">13</a></sup></p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">18th–19th c. — Malthus and Vital Statistics</div>
+      <p>Thomas Malthus (1798) framed famine as population-pressure phenomenon; later challenged by Amartya Sen's entitlement theory (1981), which emphasized market failure and political economy over absolute food shortage.<sup><a href="#src-sen">14</a></sup></p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1940s–1960s — Systematic War Demography</div>
+      <p>Günther Franz's synthesis of German local records during the Thirty Years' War (1940) set the template for regional demographic-loss accounting.<sup><a href="#src-franz">6</a></sup> Henry Dobyns (1966) proposed dramatically higher pre-Columbian population estimates, igniting decades of debate.<sup><a href="#src-denevan">15</a></sup></p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1970s–1990s — Historical Demography Matures</div>
+      <p>The Cambridge Group for the History of Population and Social Structure, the French <em>École des Annales</em>, and Ole J. Benedictow's plague syntheses (~300 local studies) produced the modern high-mortality consensus for the Black Death.<sup><a href="#src-benedictow">2</a></sup></p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1980s–2000s — Paleodemography</div>
+      <p>Skeletal analysis of catastrophic vs. attritional cemeteries (e.g., East Smithfield plague pit, London) allowed direct testing of indiscriminate epidemic mortality.<sup><a href="#src-dewitte">8</a></sup> The "Rostock Manifesto" (2002) standardized age-estimation methods.<sup><a href="#src-hoppa">16</a></sup></p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2010s–2020s — Interdisciplinary Revisionism</div>
+      <p>aDNA confirmed Yersinia pestis in Justinianic and Black Death contexts; Koch et al. (2019) synthesized 119 regional estimates for the "Great Dying"; Mordechai et al. (2019) challenged maximalist plague narratives using coins, pollen, and papyri.<sup><a href="#src-koch">6</a></sup><sup><a href="#src-mordechai">7</a></sup></p>
+    </div>
+  </div>
+</section>
+
+<section id="taxonomy">
+  <h2>5. Taxonomy of Population Catastrophes</h2>
+
+  <div class="diagram">
+    <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:700px;display:block;margin:0 auto;">
+      <rect x="250" y="10" width="200" height="40" rx="6" fill="#242836" stroke="#c97b5a" stroke-width="2"/>
+      <text x="350" y="35" text-anchor="middle" fill="#e8eaef" font-size="13" font-family="Segoe UI, sans-serif">Population Catastrophe</text>
+      <!-- branches -->
+      <line x1="350" y1="50" x2="120" y2="90" stroke="#2e3444" stroke-width="2"/>
+      <line x1="350" y1="50" x2="280" y2="90" stroke="#2e3444" stroke-width="2"/>
+      <line x1="350" y1="50" x2="420" y2="90" stroke="#2e3444" stroke-width="2"/>
+      <line x1="350" y1="50" x2="580" y2="90" stroke="#2e3444" stroke-width="2"/>
+      <!-- level 2 -->
+      <rect x="40" y="90" width="160" height="36" rx="5" fill="#3d2a4a" stroke="#d4a5f5"/>
+      <text x="120" y="113" text-anchor="middle" fill="#d4a5f5" font-size="12">Pandemic / Epidemic</text>
+      <rect x="220" y="90" width="120" height="36" rx="5" fill="#4a2a2a" stroke="#f5a5a5"/>
+      <text x="280" y="113" text-anchor="middle" fill="#f5a5a5" font-size="12">War / Conquest</text>
+      <rect x="360" y="90" width="120" height="36" rx="5" fill="#4a3d2a" stroke="#f5d4a5"/>
+      <text x="420" y="113" text-anchor="middle" fill="#f5d4a5" font-size="12">Famine / Drought</text>
+      <rect x="500" y="90" width="160" height="36" rx="5" fill="#2a3d4a" stroke="#a5d4f5"/>
+      <text x="580" y="113" text-anchor="middle" fill="#a5d4f5" font-size="12">Colonial / Genocide</text>
+      <!-- examples -->
+      <text x="120" y="155" text-anchor="middle" fill="#9aa3b2" font-size="10">Black Death, 1918 flu,</text>
+      <text x="120" y="170" text-anchor="middle" fill="#9aa3b2" font-size="10">Great Dying, cocoliztli</text>
+      <text x="280" y="155" text-anchor="middle" fill="#9aa3b2" font-size="10">30 Years' War, Mongols,</text>
+      <text x="280" y="170" text-anchor="middle" fill="#9aa3b2" font-size="10">Taiping, Leningrad</text>
+      <text x="420" y="155" text-anchor="middle" fill="#9aa3b2" font-size="10">Bengal 1770, Holodomor,</text>
+      <text x="420" y="170" text-anchor="middle" fill="#9aa3b2" font-size="10">Great Leap Forward</text>
+      <text x="580" y="155" text-anchor="middle" fill="#9aa3b2" font-size="10">Congo, Rwanda,</text>
+      <text x="580" y="170" text-anchor="middle" fill="#9aa3b2" font-size="10">Khmer Rouge</text>
+      <!-- cross-cutting -->
+      <rect x="150" y="210" width="400" height="50" rx="6" fill="#242836" stroke="#5a9ec9" stroke-width="1.5" stroke-dasharray="6,3"/>
+      <text x="350" y="232" text-anchor="middle" fill="#5a9ec9" font-size="11" font-weight="bold">Compound / Multi-causal (most common in practice)</text>
+      <text x="350" y="250" text-anchor="middle" fill="#9aa3b2" font-size="10">War + famine + disease + institutional collapse (e.g., Thirty Years' War, colonization)</text>
+      <line x1="120" y1="180" x2="220" y2="210" stroke="#2e3444" stroke-width="1" stroke-dasharray="4"/>
+      <line x1="280" y1="126" x2="300" y2="210" stroke="#2e3444" stroke-width="1" stroke-dasharray="4"/>
+      <line x1="420" y1="126" x2="400" y2="210" stroke="#2e3444" stroke-width="1" stroke-dasharray="4"/>
+      <line x1="580" y1="126" x2="500" y2="210" stroke="#2e3444" stroke-width="1" stroke-dasharray="4"/>
+      <!-- speed axis -->
+      <text x="350" y="295" text-anchor="middle" fill="#c97b5a" font-size="11">Speed spectrum: hours (genocide) → weeks (local epidemics) → years (pandemics) → decades (colonization)</text>
+    </svg>
+  </div>
+
+  <p>Most historical "catastrophes" are not single-cause events. The Thirty Years' War's ~40% German demographic loss included battle deaths, famine, plague, displacement, and birth-rate decline.<sup><a href="#src-franz">6</a></sup> Similarly, indigenous American population collapse combined virgin-soil epidemics, warfare, encomienda labor exploitation, and famine.<sup><a href="#src-acuna">17</a></sup></p>
+</section>
+
+<section id="catalog">
+  <h2>6. Catalog of 48 Historical Cases</h2>
+  <p>Each entry lists estimated population loss (%), approximate timeframe, primary cause(s), geographic scope, and a 5-point evidence-quality score (1 = highly speculative; 5 = strong demographic data).</p>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Event</th>
+        <th>Period</th>
+        <th>Region</th>
+        <th>Est. Loss</th>
+        <th>Speed</th>
+        <th>Cause(s)</th>
+        <th>Evidence</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td><strong>Black Death</strong> (bubonic plague)</td><td>1347–1353</td><td>Europe, Middle East</td><td>30–60% (Europe); ~50M dead</td><td>Months–4 yrs</td><td><span class="tag tag-pandemic">Pandemic</span></td><td>★★★★★</td></tr>
+      <tr><td>2</td><td><strong>Great Dying</strong> (post-1492 Americas)</td><td>1492–1600</td><td>Americas</td><td>87–92% (~56M dead)</td><td>Decades</td><td><span class="tag tag-complex">Epidemic+Colonial</span></td><td>★★★☆☆</td></tr>
+      <tr><td>3</td><td><strong>Cocoliztli epidemic</strong> (1st)</td><td>1545–1548</td><td>Mexico</td><td>Up to 80% indigenous</td><td>~3 years</td><td><span class="tag tag-complex">Hemorrhagic fever+drought</span></td><td>★★★☆☆</td></tr>
+      <tr><td>4</td><td><strong>Cocoliztli epidemic</strong> (2nd)</td><td>1576–1578</td><td>Mexico</td><td>~50% of survivors</td><td>~2 years</td><td><span class="tag tag-complex">Disease+drought</span></td><td>★★★☆☆</td></tr>
+      <tr><td>5</td><td><strong>Justinianic Plague</strong></td><td>541–750 CE</td><td>Mediterranean</td><td>0.1–60% (hotly disputed)</td><td>Centuries</td><td><span class="tag tag-pandemic">Pandemic</span></td><td>★★☆☆☆</td></tr>
+      <tr><td>6</td><td><strong>Antonine Plague</strong></td><td>165–180 CE</td><td>Roman Empire</td><td>~25–33% (disputed)</td><td>~15 years</td><td><span class="tag tag-pandemic">Pandemic</span></td><td>★★☆☆☆</td></tr>
+      <tr><td>7</td><td><strong>Plague of Cyprian</strong></td><td>249–262 CE</td><td>Roman Empire</td><td>~5,000/day in Rome; % unclear</td><td>Years</td><td><span class="tag tag-pandemic">Pandemic</span></td><td>★★☆☆☆</td></tr>
+      <tr><td>8</td><td><strong>1918 Influenza ("Spanish flu")</strong></td><td>1918–1920</td><td>Global</td><td>1–5.4% global; 0.64% US</td><td>Months</td><td><span class="tag tag-pandemic">Pandemic</span></td><td>★★★★☆</td></tr>
+      <tr><td>9</td><td><strong>Thirty Years' War</strong></td><td>1618–1648</td><td>Central Europe</td><td>~40% Germany; 27% Czech lands</td><td>30 years</td><td><span class="tag tag-complex">War+famine+plague</span></td><td>★★★★☆</td></tr>
+      <tr><td>10</td><td><strong>Mongol conquest of Iran plateau</strong></td><td>1219–1221</td><td>Persia, Khwarazm</td><td>Up to 75% (disputed)</td><td>Years</td><td><span class="tag tag-war">War+famine</span></td><td>★★☆☆☆</td></tr>
+      <tr><td>11</td><td><strong>Mongol conquest of China</strong> (census drop)</td><td>1200s–1300s</td><td>North China</td><td>120M→60M (administrative; ~50%)</td><td>Decades</td><td><span class="tag tag-complex">War+famine+plague</span></td><td>★★☆☆☆</td></tr>
+      <tr><td>12</td><td><strong>An Lushan Rebellion</strong></td><td>755–763</td><td>Tang China</td><td>Census −67%; ~13–36M deaths est.</td><td>8 years</td><td><span class="tag tag-war">Civil war+famine</span></td><td>★★★☆☆</td></tr>
+      <tr><td>13</td><td><strong>Taiping Rebellion</strong></td><td>1850–1864</td><td>China</td><td>20–70M (5–25% of China)</td><td>14 years</td><td><span class="tag tag-war">Civil war+famine</span></td><td>★★★☆☆</td></tr>
+      <tr><td>14</td><td><strong>Great Irish Famine</strong></td><td>1845–1852</td><td>Ireland</td><td>20–25% immediate; 50% by 1911</td><td>7 years acute</td><td><span class="tag tag-famine">Famine+emigration</span></td><td>★★★★★</td></tr>
+      <tr><td>15</td><td><strong>Bengal Famine</strong></td><td>1769–1770</td><td>Bengal, India</td><td>25–33% (7–10M dead)</td><td>~1 year</td><td><span class="tag tag-famine">Famine+drought</span></td><td>★★★☆☆</td></tr>
+      <tr><td>16</td><td><strong>Bengal Famine</strong></td><td>1943–1944</td><td>Bengal, India</td><td>~3–4% (~3M dead)</td><td>~1 year</td><td><span class="tag tag-famine">Famine+war</span></td><td>★★★★☆</td></tr>
+      <tr><td>17</td><td><strong>Holodomor</strong></td><td>1932–1933</td><td>Ukraine</td><td>13.3% (3.9M excess deaths)</td><td>~2 years</td><td><span class="tag tag-famine">Famine (state-caused)</span></td><td>★★★★☆</td></tr>
+      <tr><td>18</td><td><strong>Great Chinese Famine</strong></td><td>1959–1961</td><td>China</td><td>2–5% national; 15–55M dead</td><td>3 years</td><td><span class="tag tag-famine">Famine (policy)</span></td><td>★★★★☆</td></tr>
+      <tr><td>19</td><td><strong>Finnish Famine ("Great Hunger")</strong></td><td>1696–1697</td><td>Finland/Sweden</td><td>25–37%</td><td>2 years</td><td><span class="tag tag-famine">Famine</span></td><td>★★★★☆</td></tr>
+      <tr><td>20</td><td><strong>North Korean Famine</strong></td><td>1994–1998</td><td>North Korea</td><td>~5% (240K–3.5M est.)</td><td>4 years</td><td><span class="tag tag-famine">Famine</span></td><td>★★☆☆☆</td></tr>
+      <tr><td>21</td><td><strong>Orissa Famine</strong></td><td>1866</td><td>India</td><td>~25% of province (~1M)</td><td>1 year</td><td><span class="tag tag-famine">Famine</span></td><td>★★★☆☆</td></tr>
+      <tr><td>22</td><td><strong>Chinese Northern Famine</strong></td><td>1876–1879</td><td>North China</td><td>9–13M dead (~2–3%)</td><td>3 years</td><td><span class="tag tag-famine">Famine+drought</span></td><td>★★★☆☆</td></tr>
+      <tr><td>23</td><td><strong>Great Persian Famine</strong></td><td>1870–1871</td><td>Iran</td><td>10–20% (~1.5–2M)</td><td>2 years</td><td><span class="tag tag-famine">Famine</span></td><td>★★★☆☆</td></tr>
+      <tr><td>24</td><td><strong>Siege of Leningrad</strong></td><td>1941–1944</td><td>Leningrad, USSR</td><td>30–47% of pre-siege pop.</td><td>872 days</td><td><span class="tag tag-complex">Siege+starvation</span></td><td>★★★★☆</td></tr>
+      <tr><td>25</td><td><strong>WWII Soviet Union</strong> (total)</td><td>1941–1945</td><td>USSR</td><td>~14% of 1940 population</td><td>4 years</td><td><span class="tag tag-war">War</span></td><td>★★★★☆</td></tr>
+      <tr><td>26</td><td><strong>Rwandan Genocide</strong></td><td>Apr–Jul 1994</td><td>Rwanda</td><td>~500K–800K; ~86% of Tutsi</td><td>~100 days</td><td><span class="tag tag-colonial">Genocide</span></td><td>★★★★☆</td></tr>
+      <tr><td>27</td><td><strong>Cambodian Genocide</strong> (Khmer Rouge)</td><td>1975–1979</td><td>Cambodia</td><td>21–24% (~1.7–2M)</td><td>4 years</td><td><span class="tag tag-colonial">Genocide+famine</span></td><td>★★★★☆</td></tr>
+      <tr><td>28</td><td><strong>Congo Free State</strong></td><td>1885–1908</td><td>Congo Basin</td><td>10–50% (1–10M; highly disputed)</td><td>23 years</td><td><span class="tag tag-colonial">Colonial violence</span></td><td>★★☆☆☆</td></tr>
+      <tr><td>29</td><td><strong>Caribbean indigenous collapse</strong></td><td>1492–1600</td><td>Caribbean islands</td><td>90–99% on many islands</td><td>Decades</td><td><span class="tag tag-complex">Epidemic+violence</span></td><td>★★★☆☆</td></tr>
+      <tr><td>30</td><td><strong>Hawaiian population collapse</strong></td><td>1778–1876</td><td>Hawaiʻi</td><td>~90% (300K→40K)</td><td>~1 century</td><td><span class="tag tag-complex">Epidemic+colonial</span></td><td>★★★☆☆</td></tr>
+      <tr><td>31</td><td><strong>Tasmanian Aboriginal population</strong></td><td>1803–1876</td><td>Tasmania</td><td>~83–95%</td><td>Decades</td><td><span class="tag tag-colonial">Violence+disease</span></td><td>★★★☆☆</td></tr>
+      <tr><td>32</td><td><strong>Bronze Age collapse</strong> (Aegean)</td><td>~1200–1000 BCE</td><td>Eastern Mediterranean</td><td>40–60% Greece; variable</td><td>Centuries</td><td><span class="tag tag-complex">Multi-causal</span></td><td>★★☆☆☆</td></tr>
+      <tr><td>33</td><td><strong>Fall of Western Rome</strong> (population decline)</td><td>400–600 CE</td><td>Western Europe</td><td>Significant urban decline</td><td>Centuries</td><td><span class="tag tag-complex">War+disease+economic</span></td><td>★★☆☆☆</td></tr>
+      <tr><td>34</td><td><strong>Magdeburg</strong> (Thirty Years' War)</td><td>1631</td><td>Magdeburg, Germany</td><td>~90% (25K→2.5K)</td><td>Days–weeks</td><td><span class="tag tag-war">Sack+massacre</span></td><td>★★★☆☆</td></tr>
+      <tr><td>35</td><td><strong>Franche-Comté</strong> (Thirty Years' War)</td><td>1635–1643</td><td>Eastern France</td><td>55–60%</td><td>8 years</td><td><span class="tag tag-war">War+famine</span></td><td>★★★☆☆</td></tr>
+      <tr><td>36</td><td><strong>Lorraine</strong> (Thirty Years' War)</td><td>1618–1648</td><td>Lorraine</td><td>~60.5%</td><td>30 years</td><td><span class="tag tag-war">War</span></td><td>★★★☆☆</td></tr>
+      <tr><td>37</td><td><strong>Baghdad sack</strong> (Mongol)</td><td>1258</td><td>Baghdad</td><td>200K–2M killed; city devastated</td><td>Days</td><td><span class="tag tag-war">Massacre</span></td><td>★★☆☆☆</td></tr>
+      <tr><td>38</td><td><strong>Yangzhou massacre</strong></td><td>1645</td><td>Yangzhou, China</td><td>~80% of city (~80K dead)</td><td>Days</td><td><span class="tag tag-war">Massacre</span></td><td>★★☆☆☆</td></tr>
+      <tr><td>39</td><td><strong>Plague of Athens</strong></td><td>430–426 BCE</td><td>Athens</td><td>~25–30% of city</td><td>~4 years</td><td><span class="tag tag-pandemic">Epidemic</span></td><td>★★☆☆☆</td></tr>
+      <tr><td>40</td><td><strong>Great Famine of 1315–1317</strong></td><td>1315–1317</td><td>Northwestern Europe</td><td>10–25% in worst areas</td><td>2 years</td><td><span class="tag tag-famine">Famine</span></td><td>★★★☆☆</td></tr>
+      <tr><td>41</td><td><strong>Irish Famine of 1740–41</strong> ("Bliain an Áir")</td><td>1740–1741</td><td>Ireland</td><td>~15–20%</td><td>2 years</td><td><span class="tag tag-famine">Famine+weather</span></td><td>★★★☆☆</td></tr>
+      <tr><td>42</td><td><strong>1876–1878 Madras Famine</strong></td><td>1876–1878</td><td>South India</td><td>~5.5M dead (~3%)</td><td>2 years</td><td><span class="tag tag-famine">Famine+drought</span></td><td>★★★☆☆</td></tr>
+      <tr><td>43</td><td><strong>Atlantic slave trade demographic impact</strong></td><td>1500s–1800s</td><td>West/Central Africa</td><td>Regional losses 20–50% in slave-export zones</td><td>Centuries</td><td><span class="tag tag-colonial">Enslavement+war</span></td><td>★★☆☆☆</td></tr>
+      <tr><td>44</td><td><strong>Haitian Revolution demographic impact</strong></td><td>1791–1804</td><td>Haiti</td><td>~30–50% (war+ disease)</td><td>13 years</td><td><span class="tag tag-complex">War+disease</span></td><td>★★☆☆☆</td></tr>
+      <tr><td>45</td><td><strong>Native California mission period</strong></td><td>1769–1834</td><td>California</td><td>~80–90% indigenous</td><td>Decades</td><td><span class="tag tag-complex">Disease+colonial</span></td><td>★★★☆☆</td></tr>
+      <tr><td>46</td><td><strong>Amazonian contact epidemics</strong></td><td>20th c. ongoing</td><td>Amazon basin</td><td>50–90% per contacted group</td><td>Weeks–years</td><td><span class="tag tag-pandemic">Epidemic</span></td><td>★★★☆☆</td></tr>
+      <tr><td>47</td><td><strong>COVID-19</strong> (for modern baseline)</td><td>2020–2023</td><td>Global</td><td>~0.09% global excess mortality</td><td>Years</td><td><span class="tag tag-pandemic">Pandemic</span></td><td>★★★★★</td></tr>
+      <tr><td>48</td><td><strong>HIV/AIDS peak impact</strong> (Botswana)</td><td>1990s–2000s</td><td>Botswana</td><td>~20% adult prevalence; life expectancy −20 yrs</td><td>Decade</td><td><span class="tag tag-pandemic">Pandemic</span></td><td>★★★★☆</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="footnote">Evidence scale: ★★★★★ = civil registration / large-scale demographic synthesis; ★★★★☆ = strong partial records; ★★★☆☆ = mixed sources with scholarly debate; ★★☆☆☆ = chronicle/archaeological extrapolation with wide error bars.</p>
+</section>
+
+<section id="analysis">
+  <h2>7. Cross-Cutting Analysis</h2>
+
+  <h3>7.1 Magnitude Distribution</h3>
+  <p>True ≥50% population loss is rare at national or continental scale but common at local/regional scale during concentrated crises.</p>
+
+  <div class="diagram">
+    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1rem;">Estimated peak regional population loss (%) — selected high-magnitude cases</p>
+    <div class="bar-chart">
+      <div class="bar-row"><div class="bar-label">Caribbean islands (post-1492)</div><div class="bar-track"><div class="bar-fill high" style="width:95%">90–99%</div></div></div>
+      <div class="bar-row"><div class="bar-label">Great Dying (Americas)</div><div class="bar-track"><div class="bar-fill high" style="width:90%">87–92%</div></div></div>
+      <div class="bar-row"><div class="bar-label">Cocoliztli 1545 (Mexico)</div><div class="bar-track"><div class="bar-fill high" style="width:80%">~80%</div></div></div>
+      <div class="bar-row"><div class="bar-label">Magdeburg 1631</div><div class="bar-track"><div class="bar-fill high" style="width:90%">~90%</div></div></div>
+      <div class="bar-row"><div class="bar-label">Rwandan Tutsi (1994)</div><div class="bar-track"><div class="bar-fill high" style="width:86%">~86%</div></div></div>
+      <div class="bar-row"><div class="bar-label">Black Death (Europe avg.)</div><div class="bar-track"><div class="bar-fill med" style="width:55%">30–60%</div></div></div>
+      <div class="bar-row"><div class="bar-label">Thirty Years' War (Germany)</div><div class="bar-track"><div class="bar-fill med" style="width:40%">~40%</div></div></div>
+      <div class="bar-row"><div class="bar-label">Holodomor (Ukraine)</div><div class="bar-track"><div class="bar-fill med" style="width:27%">13.3%</div></div></div>
+      <div class="bar-row"><div class="bar-label">Irish Famine (immediate)</div><div class="bar-track"><div class="bar-fill med" style="width:23%">20–25%</div></div></div>
+      <div class="bar-row"><div class="bar-label">1918 Flu (global)</div><div class="bar-track"><div class="bar-fill low" style="width:5%">1–5%</div></div></div>
+      <div class="bar-row"><div class="bar-label">COVID-19 (global)</div><div class="bar-track"><div class="bar-fill low" style="width:1%">~0.09%</div></div></div>
+    </div>
+    <p class="cite" style="margin-top:1rem;">Sources: catalog entries above; Koch et al. 2019; Benedictow 2004; Spreeuwenberg et al. 2018; Andre & Uvin 2019.<sup><a href="#src-koch">6</a></sup><sup><a href="#src-benedictow">2</a></sup><sup><a href="#src-andre">10</a></sup></p>
+  </div>
+
+  <h3>7.2 Speed of Population Loss</h3>
+  <div class="card danger">
+    <p><strong>Critical finding for the Apocalypse scenario:</strong> Population losses of 50–90% within a few <em>weeks</em> are virtually unprecedented at any large geographic scale. The closest parallels are:</p>
+    <ul>
+      <li><strong>Selective genocide:</strong> Rwandan Tutsi (~86% in ~100 days) — but targeted one ethnic group, not entire population.<sup><a href="#src-epidemiol-rwanda">18</a></sup></li>
+      <li><strong>City-scale sack/massacre:</strong> Magdeburg 1631 (~90% in days), Yangzhou 1645 (~80%).<sup><a href="#src-thirty">19</a></sup></li>
+      <li><strong>Isolated contact epidemics:</strong> Amazonian and Pacific Island groups losing 50–90% upon first exposure to Eurasian diseases — typically over weeks to months in small populations.<sup><a href="#src-denevan">15</a></sup></li>
+      <li><strong>Localized hemorrhagic epidemics:</strong> Cocoliztli in specific Mexican regions (80% over ~3 years, not weeks).<sup><a href="#src-acuna">17</a></sup></li>
+    </ul>
+    <p>Even the Black Death — the canonical "rapid pandemic" — killed ~45–50% of England over <em>four years</em>, with some cities losing 50% in months but continental averages unfolding over 1–4 years.<sup><a href="#src-oxford">20</a></sup></p>
+  </div>
+
+  <h3>7.3 Cause-Type Patterns</h3>
+  <div class="grid-2">
+    <div class="card">
+      <h4>Pandemics</h4>
+      <p>Produce the most geographically diffuse mortality but rarely exceed 60% even at peak (Black Death). Modern pandemics (1918, COVID-19) show much lower total mortality (1–5% and &lt;0.1% respectively) due to partial immunity, lower virulence, and public health.<sup><a href="#src-spreeuwenberg">5</a></sup><sup><a href="#src-owid">21</a></sup></p>
+    </div>
+    <div class="card">
+      <h4>War</h4>
+      <p>Produces extreme <em>local</em> losses (cities, provinces) but rarely &gt;40% nationally. Non-combat mortality (famine, disease from troop movements) typically exceeds battle deaths.<sup><a href="#src-franz">6</a></sup></p>
+    </div>
+    <div class="card">
+      <h4>Famine</h4>
+      <p>Can reach 25–33% regionally in a single year (Bengal 1770, Ireland) but modern totalitarian famines show 2–13% at national scale.<sup><a href="#src-huri">22</a></sup><sup><a href="#src-ograda">9</a></sup></p>
+    </div>
+    <div class="card">
+      <h4>Colonial/Genocide</h4>
+      <p>Achieve the highest <em>cumulative</em> losses (90% Americas) over decades, or highest <em>selective</em> speed (Rwanda). Often combine epidemic vulnerability with institutional violence.<sup><a href="#src-koch">6</a></sup></p>
+    </div>
+  </div>
+
+  <h3>7.4 Recovery Trajectories</h3>
+  <ul>
+    <li><strong>Centuries to recover:</strong> Post-Black Death Europe did not regain 1348 population levels until the 16th–18th centuries.<sup><a href="#src-benedictow">2</a></sup></li>
+    <li><strong>Permanent depopulation:</strong> Ireland halved by 1920; Caribbean indigenous societies effectively destroyed.<sup><a href="#src-owid-famine">23</a></sup></li>
+    <li><strong>Rapid rebound:</strong> Cambodia's population recovered within a generation (1980s baby boom).<sup><a href="#src-heuveline">24</a></sup></li>
+    <li><strong>Structural transformation without full recovery:</strong> Post-plague Western Europe saw labor scarcity, wage increases, and feudal system weakening — demographic loss drove social change even as population eventually recovered.<sup><a href="#src-ehnet">25</a></sup></li>
+  </ul>
+
+  <h3>7.5 Fertile Areas for Further Investigation</h3>
+  <p>Ranked by relevance to a modern US epidemic losing 50–90% in weeks:</p>
+  <ol>
+    <li><strong>Compound epidemic + institutional failure</strong> — Great Dying, cocoliztli, Thirty Years' War (disease + breakdown of food distribution and governance).</li>
+    <li><strong>First-contact epidemic dynamics</strong> — speed of virgin-soil outbreak in immunologically naive populations (closest analog to a novel hemorrhagic pathogen).</li>
+    <li><strong>Urban concentration effects</strong> — Black Death cities (Florence 80% in four months), Leningrad siege (starvation+disease in dense urban core).<sup><a href="#src-benedictow">2</a></sup><sup><a href="#src-leningrad">26</a></sup></li>
+    <li><strong>Selective vs. indiscriminate mortality</strong> — paleodemographic evidence that plague killed proportionally across age groups (catastrophic profile), unlike attritional mortality.<sup><a href="#src-dewitte">8</a></sup></li>
+    <li><strong>Post-catastrophe labor and institutional gaps</strong> — what functions ceased when 40–60% of skilled adults died (Black Death, Ireland).</li>
+  </ol>
+</section>
+
+<section id="relevance">
+  <h2>8. Relevance to the Apocalypse Story Scenario</h2>
+
+  <div class="card info">
+    <h4>Scenario parameters (from project brief)</h4>
+    <ul>
+      <li>2–3 day dormant period, then vomiting blood (transmission vector)</li>
+      <li>&gt;50% mortality after symptom onset; death within 5 days of vomiting stage</li>
+      <li>Target outcome: 50–90% US population loss within weeks to months</li>
+      <li>Focus: societal implications, not disease biology</li>
+    </ul>
+  </div>
+
+  <h3>8.1 Where History Supports Plausibility</h3>
+  <ul>
+    <li><strong>50–90% loss is historically attested</strong> at local/regional scale (Caribbean, Mexican epidemics, city sieges, selective genocide).</li>
+    <li><strong>Rapid indiscriminate mortality</strong> is documented in plague (catastrophic age profiles) and virgin-soil epidemics.</li>
+    <li><strong>Compound crises</strong> — disease plus supply-chain and governance failure — reliably produce worse outcomes than disease alone.</li>
+    <li><strong>Survivor societies undergo deep structural change</strong> regardless of whether population recovers numerically.</li>
+  </ul>
+
+  <h3>8.2 Where the Scenario Exceeds Historical Precedent</h3>
+  <ul>
+    <li><strong>National-scale 50–90% loss in weeks</strong> has no clear historical equivalent in a developed, continent-sized population. The closest (Great Dying) took a century and involved repeated epidemic waves.<sup><a href="#src-koch">6</a></sup></li>
+    <li><strong>&gt;50% case fatality with short incubation</strong> exceeds even the Black Death (~40–60% over months) and far exceeds 1918 flu (~2–3% CFR).<sup><a href="#src-benedictow">2</a></sup></li>
+    <li><strong>Modern US dependency chains</strong> (electricity, JIT logistics, pharmaceuticals) have no pre-industrial parallel; historical famines suggest infrastructure failure amplifies mortality beyond direct deaths (addressed in sibling Q3 and follow-up questions).</li>
+  </ul>
+
+  <h3>8.3 Recommended Parallel "Lenses" for Story Development</h3>
+  <table>
+    <tr><th>Story element</th><th>Best historical lens</th><th>Why</th></tr>
+    <tr><td>Speed of die-off in cities</td><td>Black Death (Florence, Paris); Amazon contact epidemics</td><td>Documented months-scale urban collapse from disease</td></tr>
+    <tr><td>Magnitude of loss</td><td>Great Dying; Caribbean depopulation</td><td>Only precedents for 80–90% loss</td></tr>
+    <tr><td>Institutional collapse</td><td>Thirty Years' War; post-An Lushan Tang China</td><td>Governance and census systems fail under stress</td></tr>
+    <tr><td>Food/supply failure</td><td>Leningrad; Bengal 1770; Great Leap Forward</td><td>Indirect mortality from broken distribution</td></tr>
+    <tr><td>Survivor psychology &amp; social reordering</td><td>Post-Black Death Europe; post-Irish Famine</td><td>Long-term demographic and economic restructuring</td></tr>
+    <tr><td>Selective targeting / violence</td><td>Rwanda 1994; Cambodia 1975–79</td><td>Rapid mortality concentrated in identifiable groups</td></tr>
+  </table>
+</section>
+
+<section id="conclusion">
+  <h2>9. Conclusion</h2>
+  <div class="conclusion-box">
+    <p>Human history contains dozens of instances in which populations lost 20% or more, and a substantial subset in which losses approached or exceeded 50%. These events cluster into five broad cause types — pandemic, war, famine, colonial violence, and compound crises — but the most devastating outcomes almost always involve <strong>multiple simultaneous stressors</strong> acting on already vulnerable populations.</p>
+    <p>For the Apocalypse Story's target scenario (50–90% US population loss in weeks to months from a hemorrhagic epidemic), history offers strong parallels for <em>magnitude</em> and <em>societal consequence</em> but no exact precedent for <em>speed at national scale</em> in a modern developed nation. The most instructive cases are the Great Dying of the Americas (magnitude), the Black Death (pandemic speed and indiscriminate mortality), the Thirty Years' War (institutional and economic compound collapse), virgin-soil contact epidemics (immunological naïveté), and the Siege of Leningrad (modern urban infrastructure failure under mortality stress).</p>
+    <p>Scholars increasingly emphasize that population catastrophe estimates are unstable — the Justinianic Plague revision (2019) demonstrates that even well-established narratives can be overturned by new evidence. Any fictional scenario drawing on these parallels should treat historical numbers as <em>ranges and patterns</em>, not predictions.</p>
+  </div>
+
+  <h3>Further Research Questions</h3>
+  <ol>
+    <li>Which of the cataloged cases involved <em>minimal physical infrastructure damage</em> — the closest analog to an epidemic that leaves buildings intact? (Bridges to follow-up question on connectivity.)</li>
+    <li>How did age-structure changes (killing working-age adults preferentially vs. indiscriminately) affect recovery in each case?</li>
+    <li>What is the relationship between pre-crisis population density and mortality percentage?</li>
+    <li>How did literate vs. non-literate societies record and remember demographic catastrophes — relevant to post-collapse knowledge preservation?</li>
+    <li>Can agent-based epidemiological models calibrated on Black Death or 1918 data be stress-tested at 50–90% CFR? (Bridges to Q6: Simulation Software.)</li>
+    <li>Comparative study of <em>failed recoveries</em> (Ireland, Caribbean) vs. <em>successful rebounds</em> (Cambodia, post-WWII Europe) — what variables predict each path?</li>
+  </ol>
+</section>
+
+<section id="sources">
+  <h2>10. Sources</h2>
+  <ol class="cite">
+    <li id="src-readme">Apocalypse Story Project README. <a href="https://github.com/">Apocalypse-Story/README.md</a> (project repository).</li>
+    <li id="src-benedictow">Benedictow, O. J. (2004). <em>The Black Death 1346–1353: The Complete History</em>. Boydell Press. Synthesis of ~300 local demographic studies; estimates 60% European mortality. <a href="https://www.cambridge.org/core/books/complete-history-of-the-black-death/">Cambridge Core</a>.</li>
+    <li id="src-anlushan">Wikipedia contributors. An Lushan Rebellion. Census decline from 52.9M to 16.9M (755–764); scholars attribute much to administrative failure. <a href="https://en.wikipedia.org/wiki/An_Lushan_rebellion">en.wikipedia.org/wiki/An_Lushan_rebellion</a>.</li>
+    <li id="src-congo">Wikipedia contributors. Congo Free State. Population estimates 11.5M (1885) to 10M (1908); debate over 1–10M deaths. <a href="https://en.wikipedia.org/wiki/Congo_Free_State">en.wikipedia.org/wiki/Congo_Free_State</a>.</li>
+    <li id="src-spreeuwenberg">Spreeuwenberg, P., et al. (2018). Reassessing the Global Mortality Burden of the 1918 Influenza Pandemic. <em>American Journal of Epidemiology</em>, 187(12), 2561–2567. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7314216/">PMC7314216</a>.</li>
+    <li id="src-franz">Franz, G. (1940/1960). <em>Der Dreißigjährige Krieg und das Deutsche Volk</em>. Cited in Wikipedia, Thirty Years' War; Outram (2001), <em>Medical History</em>. ~40% German demographic loss.</li>
+    <li id="src-mordechai">Mordechai, L., et al. (2019). The Justinianic Plague: An inconsequential pandemic? <em>PNAS</em>, 116(51), 25546–25554. <a href="https://www.pnas.org/doi/10.1073/pnas.1903797116">PNAS</a>.</li>
+    <li id="src-dewitte">DeWitte, S. (2010). Age Patterns of Mortality During the Black Death in London, A.D. 1349–1350. <em>Journal of Archaeological Science</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3094018/">PMC3094018</a>.</li>
+    <li id="src-ograda">Ó Gráda, C. Famine: A Short History. Princeton University Press. Cited in Our World in Data, Association for Asian Studies. <a href="https://ourworldindata.org/do-famines-curb-population-growth">ourworldindata.org</a>.</li>
+    <li id="src-andre">Andre, C., & Uvin, P. (2019). Contested Counting: Toward a Rigorous Estimate of the Death Toll in the Rwandan Genocide. <em>Journal of Genocide Research</em>. <a href="https://doi.org/10.1080/14623528.2019.1703252">doi.org/10.1080/14623528.2019.1703252</a>.</li>
+    <li id="src-biran">Biran, M. <em>The Empire of the Qara Khitai in Eurasian History</em>. Cited in Ward (2009) on Mongol Iran mortality; up to 75% on Iranian Plateau (disputed).</li>
+    <li id="src-murray">Murray, S. (2017). <em>The Collapse of the Mycenaean Economy</em>. Cambridge University Press. 40–60% Aegean population decline, late 13th–11th c. BCE.</li>
+    <li id="src-graunt">Graunt, J. (1662). <em>Natural and Political Observations Made upon the Bills of Mortality</em>.</li>
+    <li id="src-sen">Sen, A. (1981). <em>Poverty and Famines: An Essay on Entitlement and Deprivation</em>. Oxford University Press. Entitlement theory of famine.</li>
+    <li id="src-denevan">Denevan, W. (1992). The Native Population of the Americas in 1492. 2nd ed. University of Wisconsin Press. Consensus ~54M pre-contact.</li>
+    <li id="src-hoppa">Hoppa, R. D., & Vaupel, J. W. (2002). <em>Paleodemography: Age Distributions from Skeletal Samples</em>. Cambridge University Press.</li>
+    <li id="src-acuna">Acuña-Soto, R., et al. (2002). Megadrought and Megadeath in 16th Century Mexico. <em>Emerging Infectious Diseases</em>, 8(4). <a href="https://wwwnc.cdc.gov/eid/article/8/4/01-0175_article">CDC EID</a>.</li>
+    <li id="src-epidemiol-rwanda">Schönfelder, S., et al. (2022). An Epidemiological Perspective on the Investigation of Genocide. <em>Frontiers in Epidemiology</em>. Tutsi survival probability 0.14 after 3 months. <a href="https://doi.org/10.3389/fepid.2022.844895">doi.org/10.3389/fepid.2022.844895</a>.</li>
+    <li id="src-thirty">History Learning Site. Population and the Thirty Years War. <a href="https://historylearning.com/the-thirty-years-war0/social-economic-thirty-years/population-thirty-years-war/">historylearning.com</a>. Magdeburg 25,000→2,464.</li>
+    <li id="src-oxford">University of Oxford Faculty of History. The Black Death and European Expansion. England 4.8M→2.6M (1348–1351). <a href="https://www.history.ox.ac.uk/black-death-and-european-expansion">history.ox.ac.uk</a>.</li>
+    <li id="src-owid">Roser, M. The Spanish flu: the global impact of the largest influenza pandemic in history. Our World in Data. <a href="https://ourworldindata.org/spanish-flu-largest-influenza-pandemic-in-history">ourworldindata.org</a>.</li>
+    <li id="src-huri">Ptoukha Institute / Harvard MAPA. Demographic Research: Holodomor. 3.9M excess deaths, 13.3% of Ukraine. <a href="https://www.gis.huri.harvard.edu/demographic-research">gis.huri.harvard.edu</a>.</li>
+    <li id="src-owid-famine">Our World in Data. Do famines curb population growth? Ireland 8.5M→4.4M by 1901. <a href="https://ourworldindata.org/do-famines-curb-population-growth">ourworldindata.org</a>.</li>
+    <li id="src-heuveline">Heuveline, P. (1998, 2015). The Phoenix Population: Demographic Crisis and Rebound in Cambodia. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3922767/">PMC3922767</a>.</li>
+    <li id="src-ehnet">Routt, D. The Economic Impact of the Black Death. EH.net Encyclopedia. <a href="https://eh.net/encyclopedia/the-economic-impact-of-the-black-death/">eh.net</a>.</li>
+    <li id="src-leningrad">Wikipedia contributors. Siege of Leningrad. 1–1.5M deaths from ~3.2M pre-war population. <a href="https://en.wikipedia.org/wiki/Siege_of_Leningrad">en.wikipedia.org/wiki/Siege_of_Leningrad</a>.</li>
+    <li id="src-koch">Koch, A., Brierley, C., Maslin, M. M., & Lewis, S. L. (2019). Earth system impacts of the European arrival and Great Dying in the Americas after 1492. <em>Quaternary Science Reviews</em>, 207, 51–70. <a href="https://theconversation.com/european-colonisation-of-the-americas-killed-10-of-world-population-and-caused-global-cooling-110549">The Conversation summary</a>.</li>
+    <li>Additional catalog sources: Britannica (Great Famine, Congo); Banglapedia (Bengal 1770); Hanlon, G. Wartime mortality in Italy's Thirty Years' War; Gierok (2024) EHS Working Paper on Thirty Years' War urban decline; Kiernan, B. (1996) on Cambodia; Thornton, R. on indigenous North America; Ward, S. (2009) on Mongol Iran.</li>
+  </ol>
+</section>
+
+</div>
+</body>
+</html>
