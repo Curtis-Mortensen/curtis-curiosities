@@ -111,7 +111,8 @@ Research Question 4 from README: How quickly does law and order break down after
 
 ### Status
 Complete
-# Apocalypse Story — Dev Log
+
+---
 
 ## 2026-07-04 — Question 3: Human Inter-Reliance (Complete)
 
@@ -181,3 +182,35 @@ Research and document how humans react to existential danger, widespread panic, 
 
 ### Bugs / problems
 - None during research or document creation
+
+### Status
+Complete
+
+---
+
+## 2026-07-04 — Question 4.1: Medium-Term Catastrophe Law and Order
+
+### Task
+Follow-up to Q4: medium/long-term breakdown and re-establishment of law and order after catastrophe; Haiti 2010 deep case study; violence under resource competition; prosocial factors; group consolidation dynamics. Cross-reference Q1 (pending) and Q4.
+
+### Deliverables
+- `docs/q4-1-catastrophe-law-order-medium-term.html` — full Q4.1 report
+- Updated `README.md` follow-ups section
+- Cross-link added in Q4 doc
+
+### Key findings
+- Five-phase model: Shock → Vacuum → Fragmentation → Competing authority → Reconsolidation/collapse
+- Haiti: literal state collapse (27/28 govt buildings); 90%+ aid bypassed ministries; baz → gangs → federations → de facto rulers by 2021–24
+- Prosocial behavior real but erodes 12–18 months without prosecution, fair aid, and state security
+- Violence escalates when armed groups capture distribution, impunity total, political patrons arm factions
+- Re-establishment requires legitimate monopoly on force — external intervention alone insufficient (MINUSTAH 2004–2017 failed to consolidate)
+
+### Q1 cross-reference
+Linked to `docs/q1-historical-parallels.html` — compound catastrophe lens; Haitian Revolution (#44), Thirty Years' War, Caribbean collapse parallels noted in Q4.1 comparative table.
+
+### Assumptions
+- Medium-term = months to 15+ years
+- Haiti treated as primary catastrophe case despite not being "developed nation" — most complete modern dataset for state physical destruction + long follow-up
+
+### Status
+Complete

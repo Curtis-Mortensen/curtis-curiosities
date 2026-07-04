@@ -25,4 +25,5 @@ Several research questions have been identified:
 
 Follow-Up Questions for After Initial Research
 - Logistical effect of epidemics: Given the lack of physical damage associated with pandemics, how often do they result in a disruption of connectivity (internet, phone service) and electricity? How about fuel? What products/necessities most commonly are disrupted first? Could water fail? Ground in the recent history of developed nations and in wargames and theoretical predictions.
+- **4.1 Medium-term catastrophe order (answered):** In situations of catastrophe, how does law and order break down over the medium to long term, and how is it re-established if the previous government / ruling party falls? Case study: Haiti 2010. See `docs/q4-1-catastrophe-law-order-medium-term.html`. Cross-references Q4 (immediate breakdown) and Q1 (`docs/q1-historical-parallels.html`).
 
