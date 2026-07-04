@@ -39,8 +39,8 @@ Research Question 4 from README: How quickly does law and order break down after
 
 ### Status
 Complete
-<<<<<<< HEAD
-# Apocalypse Story — Dev Log
+
+---
 
 ## 2026-07-04 — Question 2: Psychology Under Existential Threat (COMPLETE)
 
@@ -73,7 +73,9 @@ Research and document how humans react to existential danger, widespread panic, 
 
 ### Bugs / problems
 - None during research or document creation
-=======
+
+### Status
+Complete
 
 ---
 
@@ -95,7 +97,7 @@ Follow-up to Q4: medium/long-term breakdown and re-establishment of law and orde
 - Re-establishment requires legitimate monopoly on force — external intervention alone insufficient (MINUSTAH 2004–2017 failed to consolidate)
 
 ### Q1 cross-reference
-Q1 report not yet in repo; thematic links to Ming collapse (~40% depopulation), Black Death governance shifts, societal collapse literature noted in Q4.1 comparative table.
+Linked to `docs/q1-historical-parallels.html` — compound catastrophe lens; Haitian Revolution (#44), Thirty Years' War, Caribbean collapse parallels noted in Q4.1 comparative table.
 
 ### Assumptions
 - Medium-term = months to 15+ years
@@ -103,4 +105,3 @@ Q1 report not yet in repo; thematic links to Ming collapse (~40% depopulation), 
 
 ### Status
 Complete
->>>>>>> 91046e5 (Add Q4.1: medium-term catastrophe law and order (Haiti 2010))
