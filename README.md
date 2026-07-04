@@ -1,3 +1,9 @@
+# Curtis Curiosities
+
+A repo full of lots of different, independent small projects
+
+## Current Projects List
+
 # Bulk Image Generator
 
 Generates images in bulk from a YAML prompt list using **Nano Banana 2** (`gemini-3.1-flash-image`) via the Google AI Studio API.
