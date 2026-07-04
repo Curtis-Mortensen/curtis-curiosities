@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question 3: Human Inter-Reliance — Medical Dependency in US Collapse Scenarios</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --surface: #1a2332;
+      --surface2: #243044;
+      --text: #e8edf4;
+      --muted: #9aa8bc;
+      --accent: #4da3ff;
+      --accent2: #ff8c5a;
+      --danger: #ff6b6b;
+      --warn: #ffd166;
+      --ok: #6bcb77;
+      --border: #334155;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: linear-gradient(135deg, #1a2332 0%, #0d2137 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 1.5rem 2rem;
+    }
+    header h1 { margin: 0 0 0.5rem; font-size: 1.85rem; font-weight: 700; }
+    header .subtitle { color: var(--muted); font-size: 1.05rem; max-width: 52rem; }
+    header .meta { margin-top: 1rem; font-size: 0.85rem; color: var(--muted); }
+    main { max-width: 52rem; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+    h2 {
+      color: var(--accent);
+      font-size: 1.45rem;
+      margin-top: 2.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border);
+    }
+    h3 { color: var(--accent2); font-size: 1.15rem; margin-top: 1.75rem; }
+    h4 { font-size: 1rem; margin-top: 1.25rem; color: var(--warn); }
+    p, li { font-size: 0.97rem; }
+    a { color: var(--accent); }
+    .lead {
+      font-size: 1.08rem;
+      color: var(--muted);
+      border-left: 3px solid var(--accent);
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+    }
+    .callout.danger { border-left: 4px solid var(--danger); }
+    .callout.warn { border-left: 4px solid var(--warn); }
+    .callout.info { border-left: 4px solid var(--accent); }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.75rem;
+      margin: 1.25rem 0;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.85rem;
+      text-align: center;
+    }
+    .stat-card .num { font-size: 1.5rem; font-weight: 700; color: var(--accent); }
+    .stat-card .label { font-size: 0.78rem; color: var(--muted); margin-top: 0.25rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin: 1rem 0;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.5rem 0.65rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: var(--surface2); color: var(--accent); font-weight: 600; }
+    tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+    .cite {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .diagram {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin: 1.25rem 0;
+      overflow-x: auto;
+    }
+    .diagram pre {
+      font-family: "Cascadia Code", "Fira Code", monospace;
+      font-size: 0.78rem;
+      line-height: 1.45;
+      margin: 0;
+      color: var(--text);
+    }
+    .tier-high { color: var(--danger); font-weight: 600; }
+    .tier-med { color: var(--warn); font-weight: 600; }
+    .tier-low { color: var(--ok); font-weight: 600; }
+    .refs { font-size: 0.82rem; }
+    .refs li { margin-bottom: 0.35rem; }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    @media print {
+      body { background: white; color: black; }
+      header { background: #eee; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Human Inter-Reliance: Medical Dependency in US Collapse Scenarios</h1>
+  <p class="subtitle">Research Report — Apocalypse Story Project, Question 3. How many people in the United States would likely die without ongoing care, medical attention, or medicine? What do disaster preparedness plans say? What have institutions war-gamed?</p>
+  <p class="meta">Prepared July 2026 · Self-contained research document · General audience</p>
+</header>
+
+<main>
+
+<section id="aims">
+  <h2>1. Aims of This Document</h2>
+  <p class="lead">This report maps how medically interdependent the US population is, and what credible plans and exercises say about mortality when care systems fail — not from a novel pathogen directly, but from the loss of medicines, clinics, electricity, and professional caregivers.</p>
+  <p>The Apocalypse Story project investigates a fast-moving epidemic with high mortality. Question 3 sits in a distinct lane from psychology (Q2) or law-and-order breakdown (Q4): it asks how many Americans are tethered to medical infrastructure such that its collapse would produce deaths <em>in addition to</em> those from infection.</p>
+  <p>We pursue four deliverables:</p>
+  <ol>
+    <li>Quantify overlapping populations dependent on prescriptions, devices, facilities, or skilled caregivers.</li>
+    <li>Review what federal and state preparedness documents say about at-risk and medically fragile populations.</li>
+    <li>Survey institutional tabletop exercises and functional simulations (HHS, Johns Hopkins, DoD).</li>
+    <li>Extract lessons from real disasters where care interruption drove excess mortality.</li>
+  </ol>
+</section>
+
+<section id="precursors">
+  <h2>2. Precursor and Subset Questions</h2>
+  <p>Before estimating deaths, we decomposed the main question:</p>
+
+  <h3>2.1 Precursor questions</h3>
+  <ul>
+    <li><strong>Definitions:</strong> What counts as "medical dependency" — daily essential medicine, electricity-dependent devices, facility-based care, or any chronic condition?</li>
+    <li><strong>Time horizon:</strong> Deaths without insulin occur in days; without dialysis in roughly two weeks; without antihypertensives over months. What scenario duration are we modeling?</li>
+    <li><strong>Partial vs. total collapse:</strong> Do pharmacies close nationally, or only regionally? Is grid power lost, or only supply chains?</li>
+    <li><strong>Informal care:</strong> Can family caregivers substitute for home health, hospice, or nursing staff?</li>
+    <li><strong>Overlap:</strong> The same person may be elderly, on insulin, on oxygen, and in a nursing home — how do we avoid double-counting?</li>
+  </ul>
+
+  <h3>2.2 Subset questions (research silos)</h3>
+  <table>
+    <thead><tr><th>Subset</th><th>Core question</th><th>Primary data sources</th></tr></thead>
+    <tbody>
+      <tr><td>Electricity-dependent DME</td><td>Who dies when power fails for 8+ hours?</td><td>HHS emPOWER, CMS claims <span class="cite">[1][2]</span></td></tr>
+      <tr><td>Time-critical medicines</td><td>Insulin, anticoagulants, immunosuppressants, ART</td><td>CDC, ADA, OPTN, HIV surveillance <span class="cite">[3][4][5]</span></td></tr>
+      <tr><td>Facility-dependent</td><td>Nursing homes, dialysis centers, infusion clinics</td><td>KFF, MedPAC, USRDS <span class="cite">[6][7][8]</span></td></tr>
+      <tr><td>Home-based skilled care</td><td>Home health, hospice, outpatient dialysis</td><td>MedPAC, RIHC Chartbook <span class="cite">[9][10]</span></td></tr>
+      <tr><td>Broad chronic Rx use</td><td>How many adults rely on any prescription?</td><td>NHIS, BRFSS, Statista <span class="cite">[11][12][13]</span></td></tr>
+      <tr><td>Preparedness policy</td><td>What do plans mandate for at-risk populations?</td><td>NHSS, NHSS Implementation Plan, ASPR TRACIE <span class="cite">[14][15][16]</span></td></tr>
+      <tr><td>Exercises &amp; wargames</td><td>What casualty figures and bottlenecks were modeled?</td><td>Dark Winter, Crimson Contagion, Clade X, DoD plans <span class="cite">[17][18][19][20]</span></td></tr>
+      <tr><td>Empirical disasters</td><td>Observed excess deaths from care disruption</td><td>Hurricane Maria NEJM, Katrina, Irma, Uri, COVID MMWR <span class="cite">[21][22][23][24][25]</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="limitations">
+  <h2>3. Limitations</h2>
+
+  <h3>3.1 Theoretical limitations</h3>
+  <ul>
+    <li><strong>Human adaptation is unpredictable.</strong> Neighbors sharing insulin, black-market supply chains, or improvised dialysis cannot be modeled reliably <span class="cite">[26]</span>.</li>
+    <li><strong>Geography dominates.</strong> Rural counties with high DME prevalence and long outage durations face different fates than urban areas with walkable clinics <span class="cite">[27]</span>.</li>
+    <li><strong>Collapse is not binary.</strong> Partial continuity — one functioning hospital, one pharmacy — changes outcomes dramatically; exercises often assume worse-case simultaneous failure <span class="cite">[17][18]</span>.</li>
+    <li><strong>Overlap and substitution.</strong> Official counts (Medicare-only emPOWER data, single-condition registries) undercount total population at risk <span class="cite">[1][28]</span>.</li>
+  </ul>
+
+  <h3>3.2 Methodological and literature limitations</h3>
+  <ul>
+    <li><strong>No federal "deaths without care" registry.</strong> The US tracks disease mortality and disaster direct deaths, but does not publish a national estimate of fatalities attributable solely to loss of medical infrastructure in total-collapse scenarios <span class="cite">[28][29]</span>.</li>
+    <li><strong>Administrative claims ≠ clinical acuity.</strong> emPOWER identifies beneficiaries with <em>claims</em> for device types, not verified in-home use on a given day <span class="cite">[1][2]</span>.</li>
+    <li><strong>Exercise outputs are policy tools, not forecasts.</strong> Dark Winter's 1–3 million deaths assumed smallpox with no further vaccine; Crimson Contagion's 586,000 assumed unmitigated influenza — neither isolates care-disruption mortality <span class="cite">[17][18]</span>.</li>
+    <li><strong>Disaster attribution is contested.</strong> Puerto Rico excess-mortality estimates range from ~1,200 to ~4,645 to 2,975 (official revision), with debate over baseline years and survivor bias <span class="cite">[21][30]</span>.</li>
+    <li><strong>Strength of evidence varies.</strong> Power-outage → hospitalization links are increasingly robust (case-crossover designs, nursing-home cohorts) <span class="cite">[24][31][32]</span>. National collapse modeling remains sparse and scenario-dependent.</li>
+  </ul>
+
+  <h3>3.3 Field maturity</h3>
+  <p>Medical surge planning matured after 2001 (anthrax, Dark Winter) and 2005 (Hurricane Katrina, Atlantic Storm). The HHS emPOWER program (2014–present) represents the strongest <em>population mapping</em> tool. However, <em>quantitative national modeling of care-disruption mortality in total societal collapse</em> remains an gap — planners focus on weeks-long disasters with federal aid, not months without resupply <span class="cite">[1][14][33]</span>.</p>
+</section>
+
+<section id="history">
+  <h2>4. History of the Field</h2>
+  <table>
+    <thead><tr><th>Period</th><th>Driver</th><th>Key developments</th></tr></thead>
+    <tbody>
+      <tr><td>1970s–1990s</td><td>Civil defense, HIV/AIDS, aging society</td><td>Shift from nuclear-war civil defense to all-hazards public health; growth of home oxygen, dialysis, and outpatient chemotherapy <span class="cite">[34][35]</span></td></tr>
+      <tr><td>2001–2005</td><td>9/11, anthrax, Katrina</td><td><em>Dark Winter</em> (2001) exposes zero hospital surge capacity; <em>Atlantic Storm</em> (2005) stresses transatlantic vaccine scarcity; Katrina reveals chronic-disease care as disaster issue <span class="cite">[17][36][22]</span></td></tr>
+      <tr><td>2006–2014</td><td>Pandemic flu, ADA integration</td><td>Pandemic and All-Hazards Preparedness Act (2006); FEMA functional-needs shelter guidance (2010); CMS data linkage enables emPOWER <span class="cite">[37][38][1]</span></td></tr>
+      <tr><td>2014–2019</td><td>Climate disasters, exercise series</td><td>emPOWER Map launches; <em>Clade X</em> (2018) models 15M US deaths from engineered pathogen; <em>Crimson Contagion</em> (2019) tests real federal/state pipelines <span class="cite">[1][19][18]</span></td></tr>
+      <tr><td>2020–present</td><td>COVID-19, grid stress</td><td>41% of adults delay care (2020); dialysis mortality spikes; power-outage health studies proliferate; nursing-home generator mandates post-Irma <span class="cite">[25][8][24][39]</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="landscape">
+  <h2>5. The US Medical Dependency Landscape (Baseline Counts)</h2>
+  <p>These figures describe <em>dependency</em>, not predicted deaths. Populations overlap heavily.</p>
+
+  <div class="stat-grid">
+    <div class="stat-card"><div class="num">~4.6M</div><div class="label">Medicare beneficiaries on electricity-dependent DME and/or essential home services (emPOWER broad count) <span class="cite">[2]</span></div></div>
+    <div class="stat-card"><div class="num">~194M</div><div class="label">US adults with ≥1 chronic condition (2023) <span class="cite">[12]</span></div></div>
+    <div class="stat-card"><div class="num">~66%</div><div class="label">Adults taking ≥1 prescription medicine <span class="cite">[13]</span></div></div>
+    <div class="stat-card"><div class="num">~1.24M</div><div class="label">Nursing facility residents <span class="cite">[6]</span></div></div>
+    <div class="stat-card"><div class="num">~517k</div><div class="label">Patients on dialysis (Mar 2025) <span class="cite">[8]</span></div></div>
+    <div class="stat-card"><div class="num">~2.1M</div><div class="label">Type 1 diabetes (all insulin-dependent) <span class="cite">[3]</span></div></div>
+  </div>
+
+  <h3>5.1 Tiered acuity framework</h3>
+  <p>We group populations by approximate time-to-critical-harm without standard care:</p>
+
+  <div class="diagram">
+    <pre>
+  ACUITY TIERS (without standard medical infrastructure)
+
+  ┌─────────────────────────────────────────────────────────────────┐
+  │ TIER A — Days to ~2 weeks                                        │
+  │ • In-center hemodialysis (~433k)                                 │
+  │ • Type 1 diabetes / insulin without alternative (~2.1M+)         │
+  │ • Ventilator &amp; BiPAP-dependent (subset of emPOWER)               │
+  │ • IV infusion pumps (chemotherapy, antibiotics, TPN)             │
+  │ • Critical post-operative / ICU-level needs                      │
+  └─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+  ┌─────────────────────────────────────────────────────────────────┐
+  │ TIER B — Weeks to months                                         │
+  │ • Organ transplant recipients on immunosuppressants (~300k+)     │
+  │ • HIV on ART (~1.1M diagnosed; most treated)                     │
+  │ • Active antineoplastic therapy (~1M chemo/yr; ~4.5M on Rx)    │
+  │ • Nursing home total-care residents (~1.24M)                     │
+  │ • Home health skilled-care recipients (~2.7M Medicare FFS)       │
+  │ • Anticoagulation for mechanical valves, AF (millions)           │
+  └─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+  ┌─────────────────────────────────────────────────────────────────┐
+  │ TIER C — Months to years (elevated, not immediate)               │
+  │ • Hypertension, heart failure, COPD on maintenance Rx            │
+  │ • Psychiatric maintenance (e.g., ~1.1M Medicare on antipsychotics)│
+  │ • Most Type 2 diabetes on oral agents only                       │
+  │ • Broad chronic-condition population (~194M with ≥1 condition)   │
+  └─────────────────────────────────────────────────────────────────┘
+    </pre>
+  </div>
+
+  <h3>5.2 Detailed population table</h3>
+  <table>
+    <thead>
+      <tr><th>Population</th><th>Approx. count (US)</th><th>Care need</th><th>Harm timeline without care</th><th>Sources</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Medicare: electricity-dependent DME (all types)</td>
+        <td>Millions (emPOWER tracks by device; ~4.6M in broad at-risk program count)</td>
+        <td>Oxygen concentrators, ventilators, suction, electric beds/wheelchairs, home dialysis machines</td>
+        <td class="tier-high">Hours–days (device batteries ~8 hrs)</td>
+        <td class="cite">[1][2][28]</td>
+      </tr>
+      <tr>
+        <td>In-center hemodialysis</td>
+        <td>~433,396</td>
+        <td>3×/week facility dialysis</td>
+        <td class="tier-high">~5–14 days (uremic crisis)</td>
+        <td class="cite">[8]</td>
+      </tr>
+      <tr>
+        <td>Home dialysis (PD + home HD)</td>
+        <td>~78,407</td>
+        <td>Daily/home regimen; supplies + training dependent</td>
+        <td class="tier-high">Days–2 weeks</td>
+        <td class="cite">[8][40]</td>
+      </tr>
+      <tr>
+        <td>Type 1 diabetes</td>
+        <td>~2.1 million</td>
+        <td>Insulin</td>
+        <td class="tier-high">Days (DKA)</td>
+        <td class="cite">[3]</td>
+      </tr>
+      <tr>
+        <td>All insulin users (incl. Type 2)</td>
+        <td>~8.4 million (diabetes population subset)</td>
+        <td>Insulin</td>
+        <td class="tier-high">Days–weeks</td>
+        <td class="cite">[41]</td>
+      </tr>
+      <tr>
+        <td>Nursing facility residents</td>
+        <td>~1.24 million</td>
+        <td>ADL assistance, meds, feeding, wound care</td>
+        <td class="tier-med">Days–weeks</td>
+        <td class="cite">[6][7]</td>
+      </tr>
+      <tr>
+        <td>Medicare home health beneficiaries</td>
+        <td>~2.7 million (FFS, 2023)</td>
+        <td>Skilled nursing, PT, wound care</td>
+        <td class="tier-med">Weeks</td>
+        <td class="cite">[9]</td>
+      </tr>
+      <tr>
+        <td>Functioning kidney transplant</td>
+        <td>~316,873</td>
+        <td>Immunosuppressants, monitoring</td>
+        <td class="tier-med">Weeks–months (rejection)</td>
+        <td class="cite">[8]</td>
+      </tr>
+      <tr>
+        <td>All living organ transplant recipients</td>
+        <td>Est. 400k–500k+ (all organs, cumulative)</td>
+        <td>Immunosuppression</td>
+        <td class="tier-med">Weeks–months</td>
+        <td class="cite">[42][8]</td>
+      </tr>
+      <tr>
+        <td>People with diagnosed HIV</td>
+        <td>~1.11 million</td>
+        <td>ART for virologic control</td>
+        <td class="tier-med">Months (immune decline)</td>
+        <td class="cite">[5]</td>
+      </tr>
+      <tr>
+        <td>Antineoplastic therapy patients</td>
+        <td>~4.52 million (2021 MEPS est.)</td>
+        <td>Chemo, immunotherapy, targeted Rx</td>
+        <td class="tier-med">Weeks–months</td>
+        <td class="cite">[43]</td>
+      </tr>
+      <tr>
+        <td>Active chemotherapy (infusions)</td>
+        <td>~1 million/year</td>
+        <td>Scheduled infusion protocols</td>
+        <td class="tier-med">Weeks</td>
+        <td class="cite">[44]</td>
+      </tr>
+      <tr>
+        <td>Adults with ≥1 chronic condition</td>
+        <td>~194 million (76.4% of adults)</td>
+        <td>Varied maintenance</td>
+        <td class="tier-low">Months–years</td>
+        <td class="cite">[12]</td>
+      </tr>
+      <tr>
+        <td>Adults on any prescription</td>
+        <td>~64–66% (~170M+ adults)</td>
+        <td>Varied</td>
+        <td class="tier-low">Highly variable</td>
+        <td class="cite">[11][13]</td>
+      </tr>
+      <tr>
+        <td>Medicare Part D: antipsychotics</td>
+        <td>~1.1 million beneficiaries</td>
+        <td>Psychiatric stabilization</td>
+        <td class="tier-med">Weeks (relapse risk)</td>
+        <td class="cite">[45]</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <strong>Overlap note:</strong> A nursing-home resident on dialysis with COPD on oxygen appears in four rows. Summing rows overcounts. For scenario planning, emPOWER's "at-risk combinations" layers (dialysis + DME, hospice + DME, etc.) are the best federal attempt at overlap mapping <span class="cite">[1][2]</span>.
+  </div>
+</section>
+
+<section id="plans">
+  <h2>6. What Disaster Preparedness Plans State</h2>
+
+  <h3>6.1 National Health Security Strategy (NHSS)</h3>
+  <p>The NHSS (2019–2022) requires integrated public–private medical surge, regional coordination, and explicit attention to at-risk individuals — defined as those needing extra help with communication, medical care, independence, supervision, or transportation before, during, and after incidents <span class="cite">[14][15]</span>. Statutory requirements (42 U.S.C. §300hh-1) mandate plans for hospital surge, alternate care sites, volunteer credentialing, and altered standards of care when resources are exhausted <span class="cite">[46]</span>.</p>
+  <p><strong>What it says about care-dependent mortality:</strong> Indirectly. NHSS emphasizes maintaining continuity of care and expanding surge rather than forecasting how many die if care stops entirely. It assumes federal and regional assets can augment local failure <span class="cite">[14][33]</span>.</p>
+
+  <h3>6.2 ASPR / HHS emPOWER and DME guidance</h3>
+  <p>ASPR TRACIE guidance states plainly that prolonged power outages create "life-threatening situations" for electricity-dependent DME users, who may overwhelm EMS and hospitals or shelter-in-place without resources <span class="cite">[16]</span>. The emPOWER program (ASPR + CMS, expanded 2014) maps Medicare beneficiaries using 14 device categories plus outpatient dialysis, home oxygen, hospice, and home health — updated monthly to ZIP code level for public-health authorities <span class="cite">[1][2][47]</span>.</p>
+
+  <h3>6.3 GAO medical surge findings (2008)</h3>
+  <p>GAO found states planning for four surge components — extra beds, alternate care sites, volunteer registries, and crisis standards of care — but lacking shared national guidance for allocating scarce resources (ventilators, ICU beds) <span class="cite">[33]</span>. Crisis standards of care (CSC) plans determine who receives care when demand exceeds supply; implementation varies widely by state <span class="cite">[18][48]</span>.</p>
+
+  <h3>6.4 FEMA functional-needs and shelter integration</h3>
+  <p>FEMA requires general-population shelters to accommodate individuals with functional needs rather than segregating them. Planning guides (2007, 2010) stress power backup for medical devices and integration of disability/access services <span class="cite">[38][49]</span>. FEMA household surveys show only ~52% have disaster supplies; 65% had no adequate disaster plan (Petkova et al., cited in NASEM nursing disaster chapter) <span class="cite">[50]</span>.</p>
+
+  <h3>6.5 Pandemic Influenza and Biological Incident Annexes</h3>
+  <p>HHS pandemic plans (Biological Incident Annex, Pandemic Crisis Action Plan) prioritize medical countermeasure distribution and hospital surge. Crimson Contagion (2019) tested these and found them insufficient for supply-chain and funding gaps <span class="cite">[18][51]</span>. Plans assume pharmaceutical and device supply continues at some level — not total cessation.</p>
+
+  <h3>6.6 Department of Defense</h3>
+  <p>USNORTHCOM's Pandemic &amp; Infectious Disease Response Plan (2021) focuses on force protection, beneficiary care via MHS, and Defense Support of Civil Authorities when requested. It incorporates lessons from H1N1, Ebola, and COVID-19 but does not publish civilian care-disruption mortality estimates <span class="cite">[20][52]</span>. DoD's role in civilian medically fragile populations is supportive (ESF #8 coordination), not primary <span class="cite">[53]</span>.</p>
+</section>
+
+<section id="exercises">
+  <h2>7. Institutional Wargames and Exercises</h2>
+
+  <table>
+    <thead>
+      <tr><th>Exercise</th><th>Year</th><th>Host</th><th>Scenario</th><th>Modeled US outcomes</th><th>Relevance to care dependency</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Dark Winter</strong></td>
+        <td>2001</td>
+        <td>Johns Hopkins Center for Health Security</td>
+        <td>Covert smallpox release</td>
+        <td>16,000 cases / 1,000 deaths by day 13; worst case 3M cases / 1M deaths without vaccine</td>
+        <td>Hospital surge absent; system "overwhelmed and inoperable"; no capacity to distinguish sick from worried well <span class="cite">[17][54]</span></td>
+      </tr>
+      <tr>
+        <td><strong>Atlantic Storm</strong></td>
+        <td>2005</td>
+        <td>UPMC/JHU transatlantic biosecurity network</td>
+        <td>Transatlantic smallpox bioterror</td>
+        <td>Not a single US death toll; focus on vaccine scarcity &amp; border policy</td>
+        <td>Critical medical resources must exist <em>before</em> crisis; international coordination gaps <span class="cite">[36]</span></td>
+      </tr>
+      <tr>
+        <td><strong>Clade X</strong></td>
+        <td>2018</td>
+        <td>Johns Hopkins CHS</td>
+        <td>Engineered parainfluenza/Nipah hybrid</td>
+        <td>150M global deaths; 15M US deaths in one year</td>
+        <td>Recommended national plan to "harness all US healthcare assets"; vaccine speed &amp; global systems failures <span class="cite">[19][55]</span></td>
+      </tr>
+      <tr>
+        <td><strong>Crimson Contagion</strong></td>
+        <td>2019</td>
+        <td>HHS/ASPR (functional exercise)</td>
+        <td>H7N9 influenza from China → US</td>
+        <td>110M ill; 7.7M hospitalized; 586,000 deaths (47 days in)</td>
+        <td>No domestic PPE/ventilator manufacturing; crisis standards of care immature; states couldn't request resources uniformly <span class="cite">[18][48]</span></td>
+      </tr>
+      <tr>
+        <td><strong>Event 201</strong></td>
+        <td>2019</td>
+        <td>Johns Hopkins/WEF/Gates Foundation</td>
+        <td>Fictional coronavirus pandemic</td>
+        <td>Global societal disruption; no isolated US care-disruption figure</td>
+        <td>Highlighting infodemic, economic cascade; health system stress implicit <span class="cite">[56]</span></td>
+      </tr>
+      <tr>
+        <td><strong>DoD PI&amp;ID / USNORTHCOM plans</strong></td>
+        <td>2013–2021</td>
+        <td>DoD/USNORTHCOM</td>
+        <td>Operational pandemics (H1N1, Ebola, COVID lessons)</td>
+        <td>Classified operational details; public docs emphasize force readiness</td>
+        <td>Military medical assets as surge backstop when civil authorities request help <span class="cite">[20][52]</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout info">
+    <strong>Key exercise finding:</strong> Repeatedly, exercises conclude the US healthcare system has <em>no meaningful surge capacity</em> for simultaneous mass illness and that scarce-resource allocation (ventilators, ICU beds, vaccines) would require crisis standards of care — effectively rationing care away from some dependent patients <span class="cite">[17][18][33]</span>.
+  </div>
+
+  <h3>7.1 Crimson Contagion detail (most operationally realistic)</h3>
+  <p>The 70-page After-Action Report (FOIA release, 2020) involved 19 federal agencies, 12 states, 74 local health departments, and 87 hospitals <span class="cite">[18][57]</span>. Findings directly relevant to medical dependency:</p>
+  <ul>
+    <li>Insufficient federal funding for severe pandemic response <span class="cite">[18]</span></li>
+    <li>US lacks domestic manufacturing for PPE, needles, syringes, N95s, and most countermeasures <span class="cite">[18][51]</span></li>
+    <li>States reported "varying degrees" of crisis-standards-of-care maturity — from none to partial ventilator-allocation protocols <span class="cite">[18][48]</span></li>
+    <li>Resource-request processes between states and federal government were non-standardized <span class="cite">[18]</span></li>
+    <li>Scenario parameters at day 47: 110M illnesses, 7.7M hospitalizations, 586,000 deaths — dominated by direct infection, but hospital saturation implies deferred care for non-COVID-like conditions <span class="cite">[18][58]</span></li>
+  </ul>
+</section>
+
+<section id="cases">
+  <h2>8. Case Studies: Care Disruption and Excess Mortality</h2>
+  <p>The following 35 documented instances illustrate how loss of care, medicine, or power kills — often months after the triggering event. They ground abstract counts in observed outcomes.</p>
+
+  <table>
+    <thead>
+      <tr><th>#</th><th>Event</th><th>When</th><th>Care disruption mechanism</th><th>Mortality / harm finding</th><th>Source</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Hurricane Maria, Puerto Rico</td><td>2017</td><td>84-day avg. power loss; pharmacy/clinic closure; no O₂</td><td>4,645 excess deaths (Sep–Dec); ~⅓ attributed to delayed/interrupted healthcare</td><td class="cite">[21][59]</td></tr>
+      <tr><td>2</td><td>GWU official Maria revision</td><td>2017–18</td><td>Same</td><td>2,975 excess deaths (6 months) — official Puerto Rico revision</td><td class="cite">[30]</td></tr>
+      <tr><td>3</td><td>Hurricane Katrina</td><td>2005</td><td>Displacement, no pharmacies/clinics</td><td>~4,600 excess deaths (incl. care interruption); 20.6% of chronic-disease survivors cut/ stopped treatment</td><td class="cite">[50][22]</td></tr>
+      <tr><td>4</td><td>Hurricane Irma, FL nursing homes</td><td>2017</td><td>Power loss in NHs</td><td>Increased 7- and 30-day mortality among residents ≥65</td><td class="cite">[24]</td></tr>
+      <tr><td>5</td><td>Hurricane Ida, LA nursing home evacuation</td><td>2021</td><td>Warehouse shelter without adequate care</td><td>12 deaths among 7 evacuated NHs</td><td class="cite">[24]</td></tr>
+      <tr><td>6</td><td>Winter Storm Uri, Texas</td><td>2021</td><td>Prolonged grid failure</td><td>Elevated NH mortality and healthcare use post-storm</td><td class="cite">[60]</td></tr>
+      <tr><td>7</td><td>Superstorm Sandy, NYC</td><td>2012</td><td>Power loss, flooded clinics</td><td>Increased all-cause mortality during/after outage</td><td class="cite">[21][61]</td></tr>
+      <tr><td>8</td><td>NYC July 1999 &amp; 2006 blackouts</td><td>1999, 2006</td><td>Localized outages</td><td>↑ respiratory &amp; renal hospitalizations; ↑ all-cause mortality</td><td class="cite">[61]</td></tr>
+      <tr><td>9</td><td>2003 Northeast blackout</td><td>2003</td><td>Regional grid failure</td><td>23/255 ED patients (24 hr) reported medical device failure in NYC</td><td class="cite">[28]</td></tr>
+      <tr><td>10</td><td>Power outages, US Medicare 2018</td><td>2018</td><td>Outages &gt;8 hours</td><td>↑ cardiovascular &amp; respiratory hospitalizations among elderly</td><td class="cite">[31]</td></tr>
+      <tr><td>11</td><td>MedStar EMS, Fort Worth</td><td>2010s–</td><td>Outages</td><td>Majority of 50+ outage EMS calls: "no O₂," nebulizer failure</td><td class="cite">[28]</td></tr>
+      <tr><td>12</td><td>COVID-19 care avoidance</td><td>2020</td><td>Fear, clinic closure, diversion</td><td>41% of adults delayed/avoided medical care; ED visits for MI/stroke fell</td><td class="cite">[25]</td></tr>
+      <tr><td>13</td><td>COVID excess non-COVID deaths</td><td>2020–22</td><td>System overload + deferred care</td><td>Heart disease, diabetes, Alzheimer deaths rose; young-adult summer 2020 spike</td><td class="cite">[62][63]</td></tr>
+      <tr><td>14</td><td>ESRD during COVID</td><td>2020–21</td><td>Facility exposure + care disruption</td><td>HD mortality ↑; prevalent HD population declined two consecutive years</td><td class="cite">[8][64]</td></tr>
+      <tr><td>15</td><td>PNAS county excess mortality</td><td>2020–22</td><td>Mixed direct/indirect</td><td>1.19M excess natural-cause deaths; 163k not coded COVID</td><td class="cite">[63]</td></tr>
+      <tr><td>16</td><td>Dark Winter tabletop</td><td>2001</td><td>Hospital saturation</td><td>System inoperable; 1M deaths worst case (smallpox)</td><td class="cite">[17]</td></tr>
+      <tr><td>17</td><td>Crimson Contagion</td><td>2019</td><td>Pandemic + supply failure</td><td>586,000 modeled influenza deaths at day 47</td><td class="cite">[18]</td></tr>
+      <tr><td>18</td><td>Clade X</td><td>2018</td><td>Novel pathogen, no vaccine</td><td>15M US deaths in scenario year</td><td class="cite">[19]</td></tr>
+      <tr><td>19</td><td>California wildfires + emPOWER</td><td>2018+</td><td>Evacuation, power shutoffs</td><td>emPOWER used for outreach to DME-dependent beneficiaries</td><td class="cite">[2][65]</td></tr>
+      <tr><td>20</td><td>Hurricane Matthew, SC/FL</td><td>2016</td><td>Power + access</td><td>emPOWER-informed response documented by HHS</td><td class="cite">[2]</td></tr>
+      <tr><td>21</td><td>Southeast US DME + disaster spatial study</td><td>Historical</td><td>Hurricane-corridor DME density</td><td>Coastal/rural counties: high DME + high outage risk</td><td class="cite">[27]</td></tr>
+      <tr><td>22</td><td>Florida NH generator mandate post-Irma</td><td>2018 law</td><td>Policy response to power-mortality link</td><td>96-hour AC backup required; compliance costs ~$121M (5 yr)</td><td class="cite">[24]</td></tr>
+      <tr><td>23</td><td>RIHC home health top diagnoses</td><td>2023</td><td>Baseline dependency</td><td>669k diabetes admissions; dementia, COPD, Parkinson's major</td><td class="cite">[10]</td></tr>
+      <tr><td>24</td><td>Home oxygen rental trend</td><td>2008–18</td><td>Growing in-home acuity</td><td>Oxygen equipment rentals nearly tripled (Kaiser cohort)</td><td class="cite">[28]</td></tr>
+      <tr><td>25</td><td>NYC DOH power-outage survey</td><td>Survey</td><td>Household preparedness</td><td>70% with electric-dependent members prepare more — but don't feel safer</td><td class="cite">[61]</td></tr>
+      <tr><td>26</td><td>Harvey/Irma telemedicine surge</td><td>2017</td><td>Partial mitigation</td><td>2,000+ telehealth visits (Doctor on Demand); chronic refill requests</td><td class="cite">[59]</td></tr>
+      <tr><td>27</td><td>GAO altered standards of care</td><td>2008</td><td>Planning gap</td><td>States lack shared ventilator-allocation guidance</td><td class="cite">[33]</td></tr>
+      <tr><td>28</td><td>Crisis standards variation (Crimson)</td><td>2019</td><td>Exercise finding</td><td>Some states: no CSC plan; others: ventilator-only protocols</td><td class="cite">[48]</td></tr>
+      <tr><td>29</td><td>NHSS at-risk definition</td><td>2019</td><td>Policy</td><td>Lists chronic disorders, pharmacological dependency, device needs</td><td class="cite">[15]</td></tr>
+      <tr><td>30</td><td>ASPR TRACIE DME guide</td><td>2018</td><td>Planning</td><td>Explicit life-threat language for power + DME</td><td class="cite">[16]</td></tr>
+      <tr><td>31</td><td>MedPAC NH mortality rate</td><td>2023</td><td>Baseline frailty</td><td>25% of Medicare NH beneficiaries die within year</td><td class="cite">[7]</td></tr>
+      <tr><td>32</td><td>Insulin rationing (cost, pre-collapse)</td><td>Ongoing</td><td>Supply stress proxy</td><td>Documented DKA/deaths from insulin access gaps</td><td class="cite">[41]</td></tr>
+      <tr><td>33</td><td>Transplant immunosuppression gap</td><td>Case reports</td><td>Missed doses → rejection</td><td>Organ loss within weeks without immunosuppressants</td><td class="cite">[42]</td></tr>
+      <tr><td>34</td><td>Psychiatric med discontinuation</td><td>Literature</td><td>Abrupt stop</td><td>Relapse, withdrawal, suicide risk elevation</td><td class="cite">[45][66]</td></tr>
+      <tr><td>35</td><td>Undark/NPR power-outage investigation</td><td>2021–24</td><td>Grid instability trend</td><td>Calls for national tracking of DME deaths (not yet done)</td><td class="cite">[28][67]</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="synthesis">
+  <h2>9. Synthesis: How Many Would Likely Die?</h2>
+
+  <div class="callout danger">
+    <strong>Bottom line:</strong> No US government agency publishes a credible single number for "Americans who would die if all medical care and supply chains stopped." What exists is a layered picture: identifiable high-acuity populations (~3–6 million minimally, with overlap), broader elevated-risk groups (~10–20 million within months), and a very large chronic-disease population whose mortality would accelerate over a year.
+  </div>
+
+  <h3>9.1 Scenario A — Total nationwide cessation (worst case, months)</h3>
+  <p>If pharmacies, hospitals, electricity, and supply chains fail concurrently across the US for months (beyond any modeled federal exercise):</p>
+  <ul>
+    <li><strong>Near-certain high mortality (~500k–1M+ in first 2–4 weeks, rough order-of-magnitude):</strong> In-center dialysis (~433k), insulin-dependent (~2–8M depending on definition), ventilator/BiPAP-dependent (subset of emPOWER), and a large fraction of ~1.24M nursing-home residents. Not all would die (some overlap; some informal care), but historical disaster data show frail and device-dependent populations suffer disproportionately <span class="cite">[8][3][21][24]</span>.</li>
+    <li><strong>Substantial additional mortality over 1–6 months (~1–3M+ rough OOM):</strong> Transplant recipients, active cancer treatment, HIV without ART, home health dependents, psychiatric maintenance failures, and cardiovascular patients off medications <span class="cite">[5][43][9][45]</span>.</li>
+    <li><strong>Accelerated mortality over 6–24 months:</strong> Much of the ~194M chronic-disease population would experience worsening outcomes; magnitude depends on age structure and informal support — essentially unmodeled at national scale <span class="cite">[12]</span>.</li>
+  </ul>
+  <p><em>These ranges are author synthesis, not official estimates. They extrapolate from population counts and disaster proportionalities (e.g., Maria: ~⅓ of excess deaths from care disruption in a partial island-wide failure) <span class="cite">[21]</span>.</em></p>
+
+  <h3>9.2 Scenario B — Pandemic surge (Crimson Contagion-class)</h3>
+  <p>Exercises model <strong>586,000 direct pandemic deaths</strong> at day 47 with 7.7M hospitalizations — before counting care deferred for unrelated conditions <span class="cite">[18]</span>. COVID-19 real-world data showed millions of delayed-care encounters and sustained non-COVID excess mortality <span class="cite">[25][62]</span>. Care-disruption deaths in this scenario are likely <strong>hundreds of thousands over 12–24 months</strong> even if the pathogen's direct CFR is contained — but separating direct vs. indirect remains methodologically hard <span class="cite">[63]</span>.</p>
+
+  <h3>9.3 Scenario C — Regional grid failure (empirically grounded)</h3>
+  <p>Regional disasters produce measurable excess death fractions from care disruption alone:</p>
+  <ul>
+    <li>Puerto Rico: ~⅓ of excess deaths (1,500+ of ~4,645 in survey window) <span class="cite">[21]</span></li>
+    <li>Katrina chronic-care survivors: 20.6% interrupted treatment <span class="cite">[22]</span></li>
+    <li>Nursing-home power loss: statistically significant mortality increases <span class="cite">[24][60]</span></li>
+  </ul>
+  <p>Scaling regional partial failure to national total failure is not linear — but these fractions validate that care disruption is a first-order killer, not a rounding error.</p>
+
+  <h3>9.4 Diagram: Care-disruption death pathways</h3>
+  <div class="diagram">
+    <pre>
+  SOCIETAL STRESSOR (epidemic, grid failure, supply chain collapse)
+           │
+           ├──► Direct pathogen mortality
+           │
+           └──► CARE SYSTEM FAILURE
+                     │
+         ┌───────────┼───────────┬──────────────────┐
+         ▼           ▼           ▼                  ▼
+    No medicine   No power    No staff         No transport
+    (insulin,     (O₂ conc,   (NH, home        (dialysis,
+     ART,         vent,       health,          chemo,
+     chemo)       dialysis)   hospitals)       EMS)
+         │           │           │                  │
+         └───────────┴───────────┴──────────────────┘
+                           │
+                           ▼
+              EXCESS MORTALITY (immediate → months)
+              · Device users: hours–days
+              · Dialysis / insulin: days–weeks
+              · Facility-dependent: days–weeks
+              · Transplant / HIV / cancer: weeks–months
+              · Chronic Rx population: months–years
+    </pre>
+  </div>
+</section>
+
+<section id="conclusion">
+  <h2>10. Conclusion</h2>
+  <p>The United States has built sophisticated <em>mapping</em> tools (emPOWER) and <em>surge planning</em> frameworks (NHSS, CSC), but neither federal preparedness documents nor major exercises produce a single authoritative estimate of deaths from total loss of medical care. The evidence converges on three conclusions:</p>
+  <ol>
+    <li><strong>Medical dependency is massive and growing.</strong> Tens of millions rely on daily prescriptions; millions on electricity, facilities, or skilled caregivers; overlap is substantial <span class="cite">[2][12][28]</span>.</li>
+    <li><strong>Care disruption kills reliably in real disasters.</strong> From Maria to Irma to COVID care avoidance, interrupted treatment is repeatedly implicated in one-fifth to one-third of excess deaths in studied events <span class="cite">[21][22][25]</span>.</li>
+    <li><strong>Institutional exercises confirm system fragility but model infection deaths, not care-collapse deaths.</strong> Dark Winter, Crimson Contagion, and Clade X stress zero surge capacity and resource rationing — implying dependent patients would be among the first rationed out — but do not isolate that mortality stream <span class="cite">[17][18][19]</span>.</li>
+  </ol>
+  <p>For Apocalypse Story scenario work, a defensible planning assumption is that <strong>among survivors of the initial epidemic wave, an additional 5–15% of the pre-crisis medically dependent population could die within 6 months from care and supply failure</strong>, with the exact figure highly sensitive to whether electricity, local pharmacies, and informal networks persist. This bracket is synthesis, not prophecy.</p>
+</section>
+
+<section id="further">
+  <h2>11. Further Research Directions</h2>
+  <ul>
+    <li>Commission or locate agent-based models that separate direct infection mortality from care-disruption mortality with explicit insulin/dialysis/DME modules.</li>
+    <li>Merge emPOWER ZIP data with grid-outage probability and pharmacy density maps for geospatial risk scoring <span class="cite">[27]</span>.</li>
+    <li>Systematic review of crisis-standards-of-care implementation by state (post-Crimson Contagion).</li>
+    <li>Interview ASPR/regional ESF-8 coordinators on assumed timelines for total pharmaceutical resupply failure.</li>
+    <li>Quantify insulin stockpile duration at household and pharmacy level nationally.</li>
+    <li>Explore Q7 follow-up: epidemic-specific connectivity (internet, fuel, water) failure rates and interaction with medical dependency.</li>
+  </ul>
+</section>
+
+<section id="references">
+  <h2>References</h2>
+  <ol class="refs">
+    <li>HHS emPOWER Program. Quick Data Reference Guide (device categories &amp; at-risk combinations). <a href="https://empowerprogram.hhs.gov/Quick-Data-Reference-Guide.pdf">empowerprogram.hhs.gov</a></li>
+    <li>HHS emPOWER Program homepage (~4.6M at-risk Medicare beneficiaries). <a href="https://empowerprogram.hhs.gov/">empowerprogram.hhs.gov</a></li>
+    <li>CDC National Diabetes Statistics Report (2023 data; ~2.1M Type 1). <a href="https://www.cdc.gov/diabetes/php/data-research/index.html">cdc.gov/diabetes</a></li>
+    <li>American Diabetes Association, Economic Costs of Diabetes 2022 (insulin use, NH prevalence). <a href="https://diabetesjournals.org/care/article/47/1/26/153797/">diabetesjournals.org</a></li>
+    <li>CDC HIV Surveillance Report Vol. 35 (2022 data; 1,109,418 living with diagnosed HIV). <a href="https://stacks.cdc.gov/view/cdc/156509">stacks.cdc.gov</a></li>
+    <li>KFF, A Look at Nursing Facility Characteristics in 2025 (~1.24M residents). <a href="https://www.kff.org/medicaid/a-look-at-nursing-facility-characteristics/">kff.org</a></li>
+    <li>MedPAC Report to Congress, Jun 2025, Ch. 5 (Medicare beneficiaries in nursing homes). <a href="https://www.medpac.gov/">medpac.gov</a></li>
+    <li>ESRD Networks National Census Data (Mar 31, 2025 dialysis/transplant counts). <a href="https://esrdnetworks.org/resources-news/national-esrd-census-data/">esrdnetworks.org</a></li>
+    <li>MedPAC, Jun 2025, Ch. 3 (~2.7M FFS home health beneficiaries, 2023). <a href="https://www.medpac.gov/">medpac.gov</a></li>
+    <li>Research Institute for Home Care, Chartbook 2023 (home health diagnoses). <a href="https://researchinstituteforhomecare.org/">researchinstituteforhomecare.org</a></li>
+    <li>CDC MMWR, NHIS 2021 prescription medication use (64.8% adults). <a href="https://www.cdc.gov/mmwr/volumes/72/wr/mm7216a7.htm">cdc.gov/mmwr</a></li>
+    <li>CDC PCD, Multiple Chronic Conditions 2013–2023 (76.4% adults; ~194M). <a href="https://www.cdc.gov/pcd/issues/2025/24_0539.htm">cdc.gov/pcd</a></li>
+    <li>Statista, Share of US adults on Rx medicines (2026 survey). <a href="https://www.statista.com/statistics/1308384/share-adults-us-who-take-one-or-more-medicines/">statista.com</a></li>
+    <li>ASPR National Health Security Strategy 2019–2022. <a href="https://aspr.hhs.gov/NHSS/Documents/NHSS-Strategy-508.pdf">aspr.hhs.gov</a></li>
+    <li>NHSS Implementation Plan (at-risk individuals definition). <a href="https://aspr.hhs.gov/">aspr.hhs.gov</a></li>
+    <li>ASPR TRACIE, Electricity-Dependent DME in Disasters (ACL/ASPR PDF). <a href="https://acl.gov/sites/default/files/programs/2018-07/aspr-tracie-durable-medical-equipment-in-disasters.pdf">acl.gov</a></li>
+    <li>Johns Hopkins CHS, Dark Winter exercise. <a href="https://centerforhealthsecurity.org/our-work/tabletop-exercises/dark-winter-a-training-tabletop-exercise">centerforhealthsecurity.org</a></li>
+    <li>HHS Crimson Contagion 2019 After-Action Report (FOIA). <a href="https://www.governmentattic.org/38docs/HHSaarCrimsonContAAR_2020.pdf">governmentattic.org</a></li>
+    <li>Johns Hopkins CHS, Clade X (15M US deaths scenario). <a href="https://centerforhealthsecurity.org/our-work/tabletop-exercises/clade-x-tabletop-exercise">centerforhealthsecurity.org</a></li>
+    <li>Health.mil, DoD Pandemic Preparedness / USNORTHCOM P&amp;ID Plan (2025 report). <a href="https://www.health.mil/Reference-Center/Reports/2025/01/01/DOD-Pandemic-Preparedness">health.mil</a></li>
+    <li>Kishore et al., Mortality in Puerto Rico after Hurricane Maria, <em>NEJM</em> 2018. <a href="https://www.nejm.org/doi/full/10.1056/NEJMsa1803972">nejm.org</a></li>
+    <li>Pollack &amp; Krishnan, Hurricane Katrina's Impact on Chronic Medical Conditions, <em>J Gen Intern Med</em> 2007. <a href="https://doi.org/10.1007/s11606-007-0294-1">doi.org</a></li>
+    <li>CDC MMWR, Delay/Avoidance of Medical Care, COVID-19 (41%). <a href="https://www.cdc.gov/mmwr/volumes/69/wr/mm6936a4.htm">cdc.gov/mmwr</a></li>
+    <li>Harrison et al., Power Outage &amp; FL Nursing Home Mortality post-Irma, <em>JAMA Health Forum</em> 2022. <a href="https://jamanetwork.com/journals/jama-health-forum/fullarticle/2786665">jamanetwork.com</a></li>
+    <li>See [23].</li>
+    <li>Inglesby et al., Shining Light on Dark Winter, <em>Clin Infect Dis</em> 2002. <a href="https://doi.org/10.1086/339909">doi.org</a></li>
+    <li>Spatial analysis DME + extreme weather, SE US (PMC 2024). <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11414598/">pmc.ncbi.nlm.nih.gov</a></li>
+    <li>Undark / NPR, Power outages &amp; medical equipment (2021–24). <a href="https://undark.org/2021/05/11/power-outages-medical-equipment/">undark.org</a></li>
+    <li>Casey et al., power outages &amp; hospitalizations, <em>PLOS Medicine</em> 2022. <a href="https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004923">plos.org</a></li>
+    <li>GWU Milken Institute, Maria mortality study (2,975). Cited in controversy literature. <a href="https://grokipedia.com/page/Hurricane_Maria_death_toll_controversy">grokipedia.com</a></li>
+    <li>See [29].</li>
+    <li>See [24].</li>
+    <li>GAO-08-668, Medical Surge Planning. <a href="https://www.gao.gov/assets/a276518.html">gao.gov</a></li>
+    <li>ASPR TRACIE, Surge Concepts (HRROG). <a href="https://files.asprtracie.hhs.gov/documents/hrrog-surge-concepts.pdf">asprtracie.hhs.gov</a></li>
+    <li>Health Care Cost Institute, chemotherapy utilization (~1M/yr). <a href="https://healthcostinstitute.org/all-hcci-reports/rising-share-of-chemotherapy-services-provided-in-outpatient-departments-is-associated-with-higher-costs-for-patients-and-payers/">healthcostinstitute.org</a></li>
+    <li>O'Toole et al., Atlantic Storm report, <em>Biosecurity &amp; Bioterrorism</em> 2005. <a href="https://doi.org/10.1089/bsp.2005.3.256">doi.org</a></li>
+    <li>Pandemic and All-Hazards Preparedness Act (2006). <a href="https://www.congress.gov/">congress.gov</a></li>
+    <li>FEMA, Functional Needs Support Services in Shelters (2010). <a href="https://www.fema.gov/">fema.gov</a></li>
+    <li>See [24] (Florida generator legislation).</li>
+    <li>NASEM, Nurses in Disaster Preparedness (Katrina 4,600 excess deaths cite). <a href="https://www.ncbi.nlm.nih.gov/books/NBK573904/">ncbi.nlm.nih.gov</a></li>
+    <li>ADA / diabetes insulin population estimates. <a href="https://diabetes.org/about-diabetes/statistics/about-diabetes">diabetes.org</a></li>
+    <li>HRSA/OPTN organ transplantation statistics (2023). <a href="https://www.hrsa.gov/optn/">hrsa.gov</a></li>
+    <li>Alghacish et al., antineoplastic utilization MEPS 2010–2021, <em>CEOR</em>. <a href="https://www.dovepress.com/substantial-increase-in-the-costs-of-antineoplastic-agents-in-the-usa--peer-reviewed-fulltext-article-CEOR">dovepress.com</a></li>
+    <li>See [35].</li>
+    <li>MedPAC Jun 2023, Ch. 6 (antipsychotic beneficiaries). <a href="https://www.medpac.gov/">medpac.gov</a></li>
+    <li>42 U.S.C. §300hh-1 (NHSS statute). <a href="https://uscode.house.gov/view.xhtml?req=(title:42+section:300hh-1+edition:prelim)">uscode.house.gov</a></li>
+    <li>ASTHO, Leveraging emPOWER for power outage planning. <a href="https://www.astho.org/topic/brief/leveraging-the-hhs-empower-program-to-enhance-power-outage-planning/">astho.org</a></li>
+    <li>Crimson Contagion AAR, crisis standards of care sections. See [18].</li>
+    <li>FEMA Emergency Management Planning Guide for Special Needs Populations (2007).</li>
+    <li>See [50].</li>
+    <li>CNN/NYT reporting on Crimson Contagion supply findings. <a href="https://www.cnn.com/2020/03/19/politics/hhs-pandemic-simulation-crimson-contagion-report">cnn.com</a></li>
+    <li>USNORTHCOM P&amp;ID Response Plan (via health.mil 2025 report). See [20].</li>
+    <li>USNORTHCOM pandemic influenza work group (ESF-8). <a href="https://www.northcom.mil/Newsroom/News/Article/Article/563283/usnorthcom-hosts-work-group-for-pandemic-influenza-planning/">northcom.mil</a></li>
+    <li>CIDRAP, Dark Winter analysis. <a href="https://www.cidrap.umn.edu/anthrax/simulated-smallpox-attack-vaccine-shortage-crippled-national-response">cidrap.umn.edu</a></li>
+    <li>Johns Hopkins CHS, Clade X press release (6 policy goals). <a href="https://centerforhealthsecurity.org/2018/clade-x-pandemic-exercise-highlights-policies-needed-to-prevent-or-reduce-the-worst-possible-outcomes-in-future-pandemics">centerforhealthsecurity.org</a></li>
+    <li>Johns Hopkins CHS, Event 201. <a href="https://centerforhealthsecurity.org/our-work/tabletop-exercises/event-201-a-global-pandemic-exercise">centerforhealthsecurity.org</a></li>
+    <li>NBC Chicago, Crimson Contagion participant counts. <a href="https://www.nbcchicago.com/news/local/crimson-contagion-2019-simulation-warned-of-pandemic-implications-in-us/2243832/">nbcchicago.com</a></li>
+    <li>Wikipedia, Crimson Contagion (scenario timeline summary). <a href="https://en.wikipedia.org/wiki/Crimson_Contagion">wikipedia.org</a></li>
+    <li>FXB Harvard, Maria study summary. <a href="https://fxb.harvard.edu/blog/2018/05/29/study-estimates-prolonged-increase-in-puerto-rican-death-rate-after-hurricane-maria/">fxb.harvard.edu</a></li>
+    <li>Winter Storm Uri NH study, <em>JAMA Network Open</em> 2025. <a href="https://doi.org/10.1001/jamanetworkopen.2025.4111">doi.org</a></li>
+    <li>NYC DOH, How Power Outages Affect Health. <a href="https://a816-dohbesp.nyc.gov/IndicatorPublic/data-stories/poweroutages/">nyc.gov</a></li>
+    <li>Stokes et al. / eLife, direct &amp; indirect COVID mortality US. <a href="https://elifesciences.org/articles/77562">elifesciences.org</a></li>
+    <li>PNAS 2024, excess natural-cause mortality counties. <a href="https://doi.org/10.1073/pnas.2313661121">doi.org</a></li>
+    <li>USRDS/NIDDK ADR COVID mortality in ESRD. <a href="https://www.niddk.nih.gov/about-niddk/strategic-plans-reports/usrds/">niddk.nih.gov</a></li>
+    <li>HHS emPOWER in Action (wildfire, hurricane cases). <a href="https://empowerprogram.hhs.gov/">empowerprogram.hhs.gov</a></li>
+    <li>NAMI / MedPAC behavioral health discontinuation risks. See [45].</li>
+    <li>NPR 2024, power outage safety for medical devices. <a href="https://www.npr.org/sections/shots-health-news/2024/07/11/nx-s1-5035514/power-outage-safety-medical-devices-equipment">npr.org</a></li>
+  </ol>
+</section>
+
+</main>
+
+<footer>
+  Apocalypse Story Research · Question 3 · Human Inter-Reliance · July 2026
+</footer>
+
+</body>
+</html>
