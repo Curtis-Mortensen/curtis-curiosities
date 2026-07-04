@@ -1,23 +1,25 @@
 # Dev log — Business-Forecasting
 
-## 2026-07-04 — Forecasting approaches research doc
+## 2026-07-04 — Forecasting workbench research (rewrite)
 
 ### Task
-User requested a thorough research document (not software) comparing pricing structures, revenue/cost/growth models, and three forecasting approaches: roll-your-own script architecture vs. two open-source tools. Focus: subscription retention, viral growth, churn, win-back.
+Rewrite research doc with data-science framing: experimental workbench for scenario number-crunching in ~1 week with **no existing data**. Plug in competitor/case-study benchmarks, test retention curve fit, compare Python vs R libraries. Open source as toolbelt, not monolithic adoption.
 
 ### Deliverable
-- `forecasting-approaches.html` — self-contained HTML review (no external JS/CSS deps)
+- `forecasting-approaches.html` — reframed around workbench architecture, week-1 plan, benchmark YAML, fit testing
 
-### Approaches documented
-1. **Custom forecasting script** — cohort state machine architecture with module breakdown and monthly loop pseudocode
-2. **Theseus Growth** — MIT Python library for retention profiles and forward DAU/cohort projection
-3. **Tidemill** — subscription analytics engine (MRR, churn, retention, LTV) from Stripe/billing events
+### Key changes from v1
+- **Theseus**: corrected to original `ESeufert/theseus_growth` (~214 stars); deep dive on strengths, weaknesses, completion, learning curve; warned about unrelated facebookresearch/theseus and stale fork
+- **Tidemill**: demoted — 0 stars, wrong phase (needs billing data)
+- **Python toolbelt**: pandas, theseus_growth, scipy, pymc-marketing, lifetimes/btyd, lifelines, lucius-ltv, streamlit
+- **R toolbelt**: BTYD, BTYDplus, CLVTools, survival/flexsurv, Shiny
+- **LOC estimates**: ~300–450 LOC with libraries vs ~450–650 from scratch
+- **OSS projects** reframed as inspiration to steal patterns from, not adopt
 
 ### Assumptions
-- No `Business-Forecasting` folder existed; created new project folder per user request
-- User explicitly said not to implement forecasting software — research HTML only
-- Honorable mentions included (Burnless, lucius-ltv, etc.) but not as primary comparison pillars
+- User wants predictions/scenarios before having product telemetry
+- Week-1 UI = Jupyter first, optional Streamlit
+- Benchmark sources = public SaaS reports, S-1s, Seufert/Mobile Dev Memo retention points
 
-### Open questions for user
-- Which billing system (if any) is in use — affects whether Tidemill is the right backward-looking layer
-- Whether viral loops are product-native (invites) or marketing-only (word of mouth lumped into organic)
+### Next step (when user asks to build)
+- Scaffold `workbench/` with YAML benchmarks, fit_retention.py, simulate_monthly.py, run_scenario.py, notebook

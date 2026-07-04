@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Subscription Forecasting — Pricing, Growth Models &amp; Tool Comparison</title>
+  <title>Subscription Forecasting Workbench — Research &amp; Toolbelt</title>
   <style>
     :root {
       --bg: #0c0f14;
@@ -49,7 +49,7 @@
       line-height: 1.25;
     }
 
-    .hero .subtitle { color: var(--muted); font-size: 1.05rem; max-width: 820px; }
+    .hero .subtitle { color: var(--muted); font-size: 1.05rem; max-width: 860px; }
 
     .badge-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
 
@@ -71,7 +71,7 @@
 
     .layout {
       display: grid;
-      grid-template-columns: 260px 1fr;
+      grid-template-columns: 270px 1fr;
       max-width: 1240px;
       margin: 0 auto;
     }
@@ -127,7 +127,7 @@
     h3 { font-size: 1.15rem; margin: 1.5rem 0 0.75rem; color: var(--accent2); }
     h4 { font-size: 1rem; margin: 1.25rem 0 0.5rem; color: var(--accent); }
 
-    p { margin-bottom: 1rem; color: var(--text); }
+    p { margin-bottom: 1rem; }
     p.muted { color: var(--muted); font-size: 0.95rem; }
 
     ul, ol { margin: 0 0 1rem 1.25rem; }
@@ -145,6 +145,7 @@
     .callout.warn { border-left-color: var(--warning); }
     .callout.success { border-left-color: var(--success); }
     .callout.purple { border-left-color: var(--purple); }
+    .callout.gold { border-left-color: var(--accent); }
 
     .callout strong { display: block; margin-bottom: 0.35rem; }
 
@@ -152,7 +153,7 @@
       width: 100%;
       border-collapse: collapse;
       margin: 1rem 0 1.5rem;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
     }
 
     th, td {
@@ -211,7 +212,7 @@
 
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1rem;
       margin: 1.25rem 0;
     }
@@ -226,57 +227,21 @@
     .card h4 { margin-top: 0; color: var(--text); }
     .card p:last-child { margin-bottom: 0; }
 
-    .approach-header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1rem;
-    }
-
-    .approach-num {
-      width: 2.5rem;
-      height: 2.5rem;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.1rem;
-      flex-shrink: 0;
-    }
-
-    .approach-num.custom { background: rgba(245,158,11,0.2); color: var(--accent); border: 2px solid var(--accent); }
-    .approach-num.theseus { background: rgba(56,189,248,0.15); color: var(--accent2); border: 2px solid var(--accent2); }
-    .approach-num.tidemill { background: rgba(192,132,252,0.15); color: var(--purple); border: 2px solid var(--purple); }
-
-    .verdict {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 0.75rem;
-      margin: 1.5rem 0;
-    }
-
-    @media (max-width: 700px) {
-      .verdict { grid-template-columns: 1fr; }
-    }
-
-    .verdict-item {
-      padding: 1rem;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      font-size: 0.9rem;
-    }
-
-    .verdict-item h5 {
+    .rating {
+      display: inline-block;
       font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 0.5rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      margin-left: 0.25rem;
     }
 
-    .refs { font-size: 0.88rem; color: var(--muted); }
+    .rating.high { background: rgba(74,222,128,0.15); color: var(--success); }
+    .rating.med { background: rgba(251,191,36,0.15); color: var(--warning); }
+    .rating.low { background: rgba(248,113,113,0.15); color: var(--danger); }
+
     .refs a { color: var(--accent2); }
+    .refs { font-size: 0.88rem; color: var(--muted); }
 
     footer {
       border-top: 1px solid var(--border);
@@ -293,898 +258,895 @@
 
 <header class="hero">
   <div class="hero-inner">
-    <h1>Subscription Business Forecasting</h1>
+    <h1>Subscription Forecasting Workbench</h1>
     <p class="subtitle">
-      Research document: pricing structures, revenue and cost models, growth mechanics
-      (retention, churn, viral coefficient, win-back), and a comparison of three approaches —
-      a roll-your-own forecasting script, <strong>Theseus Growth</strong>, and <strong>Tidemill</strong>.
-      No implementation included; this is architecture and tooling research only.
+      Research document for building an <strong>experimental number-crunching workbench</strong> —
+      not adopting a monolithic product. You have <strong>no billing data yet</strong>; the goal is
+      scenarios and predictions within a week by plugging in competitor benchmarks, case-study
+      retention curves, and your own assumptions. Open-source libraries are tools in the belt;
+      the workbench glue is what you write.
     </p>
     <div class="badge-row">
-      <span class="badge gold">Research only</span>
-      <span class="badge blue">Subscription SaaS</span>
-      <span class="badge green">Cohort models</span>
-      <span class="badge purple">Open source comparison</span>
-      <span class="badge red">Churn &amp; win-back</span>
+      <span class="badge gold">Week-1 scenarios</span>
+      <span class="badge blue">No data yet</span>
+      <span class="badge green">Benchmark fitting</span>
+      <span class="badge purple">Python vs R</span>
+      <span class="badge red">Build, don't buy</span>
     </div>
   </div>
 </header>
 
 <div class="layout">
   <nav class="sidebar">
-    <h2>Contents</h2>
-    <a href="#overview">Overview</a>
-    <a href="#pricing">Pricing structures</a>
-    <a href="#metrics">Core metrics</a>
-    <a href="#growth-model">Unified growth model</a>
-    <a href="#scenarios">Scenario dimensions</a>
-    <a href="#approach-custom">① Custom script</a>
-    <a href="#approach-theseus">② Theseus Growth</a>
-    <a href="#approach-tidemill">③ Tidemill</a>
-    <a href="#comparison">Comparison matrix</a>
-    <a href="#decision">Decision guide</a>
+    <h2>Start here</h2>
+    <a href="#problem">The actual problem</a>
+    <a href="#week1">Week-1 plan</a>
+    <a href="#workbench">Workbench architecture</a>
+
+    <h2>Models</h2>
+    <a href="#growth-accounting">Growth accounting</a>
+    <a href="#pricing">Pricing levers</a>
+    <a href="#no-data">Working without data</a>
+    <a href="#benchmark-fit">Benchmark fitting</a>
+
+    <h2>Toolbelt</h2>
+    <a href="#python-libs">Python libraries</a>
+    <a href="#r-libs">R libraries</a>
+    <a href="#python-vs-r">Python vs R</a>
+    <a href="#loc-estimates">Lines of code</a>
+    <a href="#theseus">Theseus deep dive</a>
+    <a href="#oss-inspiration">OSS inspiration</a>
+
+    <h2>Decide</h2>
+    <a href="#recommended-stack">Recommended stack</a>
     <a href="#references">References</a>
   </nav>
 
   <main>
 
-    <section id="overview">
-      <h2>Overview</h2>
+    <section id="problem">
+      <h2>The Actual Problem</h2>
       <p>
-        Forecasting a subscription business means projecting how customers move through states —
-        trial, active, upgraded, downgraded, churned, win-back — and translating those movements
-        into recurring revenue, cash, and operating costs. The model you choose depends on whether
-        you are <em>exploring futures</em> (scenario planning) or <em>measuring the past</em>
-        (analytics from billing events).
+        You are not trying to deploy a billing analytics platform. You are trying to answer:
+        <em>“If retention looks like Company X, pricing looks like Y, and we spend Z on acquisition,
+        what does MRR and burn look like in 12–36 months — and how sensitive is that to churn,
+        viral growth, and win-back?”</em>
       </p>
       <p>
-        This document covers three complementary approaches:
+        That is a <strong>scenario engine + curve-fitting workbench</strong>, not a Stripe dashboard.
+        Tools like Tidemill (0-star billing-ingest engine) solve a different problem — reconciling
+        historical MRR from live subscriptions. Skip those until you have customers and need
+        actuals reconciliation.
       </p>
-      <ol>
-        <li><strong>Custom forecasting script</strong> — a lightweight cohort state machine you design and own end-to-end.</li>
-        <li><strong><a href="https://github.com/egecakiroglu/theseus_growth" style="color:var(--accent2)">Theseus Growth</a></strong> — MIT-licensed Python library for retention curves and forward user projections.</li>
-        <li><strong><a href="https://github.com/ondraz/tidemill" style="color:var(--accent2)">Tidemill</a></strong> — open-source subscription analytics engine that computes MRR, churn, retention, and LTV from billing data.</li>
-      </ol>
 
-      <div class="callout">
-        <strong>What this document is not</strong>
-        It does not ship runnable forecasting software. It defines the math, data shapes, and
-        architectural seams so you can evaluate build vs. adopt before writing code.
+      <div class="callout gold">
+        <strong>Reframe</strong>
+        Open source = libraries and reference implementations you import or study.
+        The deliverable = a small repo of notebooks/scripts where you load benchmark YAML,
+        fit retention, sweep levers, and compare scenarios side-by-side.
       </div>
+    </section>
+
+    <section id="week1">
+      <h2>Week-1 Plan (No Existing Data)</h2>
+      <p>A realistic path to first predictions without waiting for product telemetry:</p>
+
+      <table>
+        <thead>
+          <tr><th>Day</th><th>Output</th><th>What you're doing</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1</strong></td>
+            <td>Benchmark library (YAML)</td>
+            <td>Encode 5–10 public retention/cost benchmarks (competitors, verticals, case studies) as named scenario presets</td>
+          </tr>
+          <tr>
+            <td><strong>2</strong></td>
+            <td>Retention fit layer</td>
+            <td>Take sparse benchmark points → fitted curve (Theseus or scipy) → monthly retention vector</td>
+          </tr>
+          <tr>
+            <td><strong>3</strong></td>
+            <td>Cohort simulation core</td>
+            <td>Monthly loop: paid acquisition + viral + win-back in, retention decay, MRR out</td>
+          </tr>
+          <tr>
+            <td><strong>4</strong></td>
+            <td>Scenario sweeps</td>
+            <td>Run base / optimistic / pessimistic; tornado chart on churn, K, CAC, ARPU</td>
+          </tr>
+          <tr>
+            <td><strong>5</strong></td>
+            <td>Workbench UI</td>
+            <td>Jupyter for exploration OR Streamlit for sliders; export CSV of all runs</td>
+          </tr>
+          <tr>
+            <td><strong>6–7</strong></td>
+            <td>Fit testing</td>
+            <td>Compare your chosen curve against benchmark points (RMSE); document which competitor each scenario resembles</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="muted">
+        This is deliberately thin — a data scientist's MVP is a notebook that runs, not a platform.
+        Polish comes after you've argued about assumptions, not before.
+      </p>
+    </section>
+
+    <section id="workbench">
+      <h2>Workbench Architecture</h2>
+      <p>
+        The workbench is three layers: <strong>presets</strong> (what you believe),
+        <strong>fitters</strong> (how curves are inferred), and <strong>simulator</strong> (what happens month by month).
+      </p>
+
+      <div class="diagram">
+        <pre>
+  benchmarks/                    engine/                      outputs/
+  ├── competitor_spotify.yaml    ├── fit_retention.py         ├── scenarios/
+  ├── vertical_b2b_saas.yaml     ├── simulate_monthly.py      │   ├── base_36mo.csv
+  ├── case_study_mobile.yaml     ├── revenue.py               │   └── pessimistic_36mo.csv
+  └── my_assumptions.yaml        ├── acquisition.py           ├── fits/
+                                 │   (paid, viral K, winback) │   └── spotify_rmse.json
+                                 └── compare_fit.py           └── charts/ (optional)
+                                           │
+                    ┌──────────────────────┼──────────────────────┐
+                    ▼                      ▼                      ▼
+              theseus_growth          scipy / lifelines      pymc-marketing
+              (curve fit)             (alt fitters)          (Bayesian sBG, later)
+        </pre>
+      </div>
+
+      <h3>File responsibilities</h3>
+      <table>
+        <thead>
+          <tr><th>File / folder</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>benchmarks/*.yaml</code></td>
+            <td>Named presets: sparse retention points, ARPU, CAC, K-factor, win-back rate, OpEx. One file per competitor or vertical.</td>
+          </tr>
+          <tr>
+            <td><code>fit_retention.py</code></td>
+            <td>Sparse points → full monthly R(m) curve. Reports fit error vs benchmark.</td>
+          </tr>
+          <tr>
+            <td><code>simulate_monthly.py</code></td>
+            <td>The cohort state machine. Pure pandas/numpy; no magic.</td>
+          </tr>
+          <tr>
+            <td><code>run_scenario.py</code></td>
+            <td>CLI: <code>python run_scenario.py benchmarks/vertical_b2b_saas.yaml --months 36</code></td>
+          </tr>
+          <tr>
+            <td><code>workbench.ipynb</code> or <code>app.py</code></td>
+            <td>Interactive exploration — pick benchmark, tweak sliders, re-run.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Example benchmark YAML shape</h3>
+      <pre>name: "B2B SaaS — OpenView median-ish"
+source: "OpenView 2024 SaaS benchmarks (illustrative)"
+pricing:
+  model: per_seat
+  arpu_monthly: 85
+  annual_mix_pct: 40
+retention_benchmark:
+  months: [1, 3, 6, 12, 24]
+  logo_retention_pct: [92, 85, 78, 68, 55]   # sparse — fitter interpolates
+acquisition:
+  monthly_paid_new: 40
+  cac: 1200
+  viral_k: 0.15
+  viral_cycle_months: 2
+winback:
+  monthly_reactivation_rate: 0.02   # of churned pool
+  churned_pool_start: 0
+costs:
+  monthly_fixed_opex: 25000
+  cogs_pct_of_revenue: 0.12</pre>
+    </section>
+
+    <section id="growth-accounting">
+      <h2>Growth Accounting (What the Simulator Computes)</h2>
+      <p>
+        Every scenario engine, whether you write it or wrap libraries, should decompose subscriber
+        change into inspectable flows. This is the minimum physics:
+      </p>
+      <pre>Active(t) = Active(t-1) + PaidNew(t) + ViralNew(t) + Reactivated(t) - Churned(t)
+
+ViralNew(t) = Active(t-1) × K / viral_cycle_months
+Churned(t)  = Active(t-1) × (1 - R(1))   # or apply full cohort retention matrix
+
+MRR(t) = Active(t) × ARPU(t) + Expansion(t) - Contraction(t)
+
+ChurnedPool(t) = ChurnedPool(t-1) + Churned(t) - Reactivated(t)
+Reactivated(t) = ChurnedPool(t-1) × winback_rate</pre>
+
+      <h3>Metrics the workbench should output each month</h3>
+      <ul>
+        <li>Active subscribers, new logos, churned logos, reactivated logos</li>
+        <li>MRR, ARR, net new MRR (waterfall components)</li>
+        <li>Churned pool size</li>
+        <li>CAC spend, viral contribution %, win-back contribution %</li>
+        <li>Gross profit, burn, months of runway (if cash balance provided)</li>
+      </ul>
     </section>
 
     <section id="pricing">
-      <h2>Pricing Structures &amp; Revenue Mechanics</h2>
+      <h2>Pricing Structures as Scenario Levers</h2>
       <p>
-        Your pricing model determines which state variables the forecast must track. Most subscription
-        businesses use one or a hybrid of the structures below.
+        Without data, pricing enters the model as <strong>assumed ARPU and expansion rates</strong>,
+        not as inferred behaviour. Encode the pricing model in YAML so you can swap structures:
       </p>
-
       <table>
         <thead>
-          <tr>
-            <th>Structure</th>
-            <th>How revenue is earned</th>
-            <th>Forecast must track</th>
-            <th>Typical churn signal</th>
-          </tr>
+          <tr><th>Model</th><th>YAML knobs</th><th>Scenario question it answers</th></tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Flat subscription</strong><br><span class="muted">$X / month per account</span></td>
-            <td>Fixed MRR per active subscriber</td>
-            <td>Active count by plan tier</td>
-            <td>Logo churn at renewal</td>
+            <td>Flat subscription</td>
+            <td><code>arpu_monthly</code></td>
+            <td>“What if we're $29/mo like Competitor A?”</td>
           </tr>
           <tr>
-            <td><strong>Per-seat</strong><br><span class="muted">$X × seats</span></td>
-            <td>MRR scales with seat count</td>
-            <td>Accounts × seats; expansion/contraction events</td>
-            <td>Seat reduction before full cancel</td>
+            <td>Per-seat</td>
+            <td><code>arpu_monthly</code>, <code>seats_per_account</code>, <code>expansion_rate</code></td>
+            <td>“Does land-and-expand save us if logo churn is high?”</td>
           </tr>
           <tr>
-            <td><strong>Usage-based</strong><br><span class="muted">$X per unit consumed</span></td>
-            <td>Variable monthly bill</td>
-            <td>Usage distribution per cohort; overage tiers</td>
-            <td>Usage decay → downgrade → churn</td>
+            <td>Freemium</td>
+            <td><code>free_to_paid_pct</code>, <code>paid_arpu</code></td>
+            <td>“Can viral K compensate for low conversion?”</td>
           </tr>
           <tr>
-            <td><strong>Freemium → paid</strong></td>
-            <td>Conversion from free to paid tier</td>
-            <td>Free users, trial starts, conversion rate, time-to-convert</td>
-            <td>Never-converted free users; paid churn</td>
+            <td>Annual prepay</td>
+            <td><code>annual_mix_pct</code>, <code>annual_discount_pct</code></td>
+            <td>“Cash upfront vs cliff churn at renewal”</td>
           </tr>
           <tr>
-            <td><strong>Tiered plans</strong><br><span class="muted">Basic / Pro / Enterprise</span></td>
-            <td>ARPU mix shifts with upgrades</td>
-            <td>Plan mix per cohort; upgrade/downgrade flows</td>
-            <td>Downgrade as leading indicator</td>
-          </tr>
-          <tr>
-            <td><strong>Annual prepay</strong><br><span class="muted">discount for yearly</span></td>
-            <td>Cash upfront; revenue recognized monthly</td>
-            <td>Billing interval; deferred revenue; renewal cliff</td>
-            <td>Cliff churn at annual renewal</td>
+            <td>Usage-based</td>
+            <td><code>arpu_monthly</code>, <code>usage_variance</code> (σ)</td>
+            <td>Sensitivity band on revenue, not point estimate</td>
           </tr>
         </tbody>
       </table>
+    </section>
 
-      <h3>Revenue waterfall (MRR movement)</h3>
+    <section id="no-data">
+      <h2>Working Without Your Own Data</h2>
       <p>
-        Regardless of pricing shape, subscription revenue forecasting usually decomposes monthly
-        recurring revenue (MRR) into a waterfall. This is the lingua franca of SaaS finance:
-      </p>
-      <pre>MRR(t) = MRR(t-1)
-       + New_MRR(t)          ← brand-new customers
-       + Expansion_MRR(t)    ← upgrades, seat adds, usage growth
-       - Contraction_MRR(t)  ← downgrades, seat removals
-       - Churned_MRR(t)      ← lost revenue from cancellations
-       + Reactivation_MRR(t) ← win-back of previously churned customers</pre>
-
-      <p>
-        <strong>Net Revenue Retention (NRR)</strong> captures expansion minus churn on the existing base:
-        <span class="formula">NRR = (Starting MRR + Expansion − Contraction − Churn) / Starting MRR</span>.
-        NRR above 100% means the existing customer base grows even with zero new logos.
+        A data scientist without data still works — by anchoring on <strong>external benchmarks</strong>
+        and making uncertainty explicit. Your week-1 inputs are:
       </p>
 
-      <h3>Costs &amp; expenditures</h3>
       <div class="card-grid">
         <div class="card">
-          <h4>Variable (scale with customers)</h4>
-          <p>Payment processing (~2–3%), hosting per active user, support tickets, referral credits, win-back discounts, sales commissions on new ARR.</p>
+          <h4>Published retention curves</h4>
+          <p>Eric Seufert / Mobile Dev Memo publishes sparse retention benchmarks (Facebook, etc.) — the same shape Theseus examples use. QuantMar threads and growth essays often cite point-in-time retention at D1/D7/D30.</p>
         </div>
         <div class="card">
-          <h4>Semi-variable (step functions)</h4>
-          <p>Customer success headcount bands, infra tiers, marketing spend tied to acquisition targets.</p>
+          <h4>SaaS benchmark reports</h4>
+          <p>OpenView, KeyBanc SaaS Survey, ChartMogul/Paddle reports: median churn, NRR, CAC payback by ARR band. Use as scenario presets, not gospel.</p>
         </div>
         <div class="card">
-          <h4>Fixed (time-based)</h4>
-          <p>Salaries, office, core platform R&amp;D, legal. Often modeled as monthly burn independent of subscriber count in early-stage forecasts.</p>
+          <h4>Competitor S-1 / investor decks</h4>
+          <p>Public companies disclose churn, NRR, ARPU, customer counts at a point in time. Enough to bound a scenario (“at least as good as X”, “worse than Y”).</p>
+        </div>
+        <div class="card">
+          <h4>Synthetic stress tests</h4>
+          <p>Generate cohort matrices with known parameters to verify your simulator matches theory before trusting real benchmarks.</p>
         </div>
       </div>
-
-      <p>
-        A complete forecast links the subscriber model to a simple P&amp;L:
-        <span class="formula">Gross Profit = Revenue − COGS</span>,
-        <span class="formula">Operating Income = Gross Profit − OpEx</span>,
-        <span class="formula">Cash = prior Cash + Collections − Expenses − CAC spend</span>.
-      </p>
-    </section>
-
-    <section id="metrics">
-      <h2>Core Metrics &amp; Formulas</h2>
-
-      <table>
-        <thead>
-          <tr><th>Metric</th><th>Definition</th><th>Forecasting role</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Logo churn rate</strong></td>
-            <td>% of customers who cancel in period</td>
-            <td>Input assumption or cohort-derived; drives active count</td>
-          </tr>
-          <tr>
-            <td><strong>Revenue churn rate</strong></td>
-            <td>% of MRR lost (may differ from logo churn if downgrades happen first)</td>
-            <td>More accurate for MRR waterfall</td>
-          </tr>
-          <tr>
-            <td><strong>Retention curve R(m)</strong></td>
-            <td>% of a signup cohort still active at month m</td>
-            <td>Foundation of cohort projections</td>
-          </tr>
-          <tr>
-            <td><strong>ARPU / ARPA</strong></td>
-            <td>Average revenue per user/account</td>
-            <td>Converts active subscribers → MRR</td>
-          </tr>
-          <tr>
-            <td><strong>LTV</strong></td>
-            <td><span class="formula">ARPU / monthly_churn</span> (simple); or discounted sum of retained revenue</td>
-            <td>Sanity-check CAC payback and win-back ROI</td>
-          </tr>
-          <tr>
-            <td><strong>CAC</strong></td>
-            <td>Sales &amp; marketing spend / new customers acquired</td>
-            <td>Feeds acquisition budget constraint</td>
-          </tr>
-          <tr>
-            <td><strong>Viral coefficient K</strong></td>
-            <td><span class="formula">K = invites_per_user × invite_conversion_rate</span></td>
-            <td>Organic acquisition multiplier; K &gt; 1 is self-sustaining (rare long-term)</td>
-          </tr>
-          <tr>
-            <td><strong>Viral cycle time t</strong></td>
-            <td>Days from signup to referred signup</td>
-            <td>Same K, shorter t → faster compounding</td>
-          </tr>
-          <tr>
-            <td><strong>Reactivation rate</strong></td>
-            <td>% of churned pool returning per period</td>
-            <td>Win-back channel; often 5–15% per campaign wave</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>Retention</h3>
-      <p>
-        <strong>Cohort retention</strong> is the most honest way to model subscription decay. You group
-        customers by signup month and measure what fraction remain active at month 1, 2, 3, …
-        Retention typically follows a decay curve (log, power, or Weibull fit) rather than a flat
-        monthly churn rate — though flat churn is a common simplifying assumption.
-      </p>
-      <p>
-        <strong>Gross Revenue Retention (GRR)</strong> excludes expansion; it answers “did we keep the
-        dollars we had last year?” <strong>NRR</strong> includes expansion and is the headline metric
-        for B2B SaaS health (median benchmarks often land around 90% GRR and 100–110% NRR depending
-        on segment).
-      </p>
-
-      <h3>Viral growth</h3>
-      <p>
-        Viral growth is not magic — it is a second acquisition channel with near-zero marginal CAC.
-        Model it explicitly rather than folding it into “organic new signups”:
-      </p>
-      <pre>Viral_new(t) = Active(t) × invites_per_active × invite_conversion_rate
-             = Active(t) × K   (when measured per cycle)
-
-Total_new(t) = Paid_new(t) + Viral_new(t) + Reactivated(t)</pre>
-      <p class="muted">
-        K usually decays as markets saturate. Scenario planning should include a “viral fade”
-        assumption (e.g. K × (1 − penetration)) rather than assuming K &gt; 1 forever.
-      </p>
-
-      <h3>Churn &amp; win-back (reactivation)</h3>
-      <p>
-        Churned customers are not gone — they are in a <em>latent pool</em>. Industry data suggests
-        a meaningful share of “new” subscriptions are actually returning customers (Recurly’s 2026
-        benchmark: roughly 1 in 4 new sign-ups from returning subscribers across their merchant base).
-        Reactivation CAC is typically far below cold acquisition because you already have email,
-        product familiarity, and often saved payment methods.
-      </p>
-      <p>Model win-back as a separate flow from the churned pool:</p>
-      <pre>Churned_pool(t) = Churned_pool(t-1) + Churned(t) - Reactivated(t)
-
-Reactivated(t) = Churned_pool(t-1) × reactivation_rate(t)
-               × eligible_fraction</pre>
-      <p>
-        Segment reactivation by <strong>cancel reason</strong> (price, missing feature, temporary need,
-        payment failure) because each segment has different rates and incentive costs. A win-back
-        campaign only makes economic sense when
-        <span class="formula">expected_LTV × reactivation_rate &gt; outreach_cost + discount_cost</span>.
-      </p>
-    </section>
-
-    <section id="growth-model">
-      <h2>Unified Growth Accounting Model</h2>
-      <p>
-        Before choosing a tool, it helps to see the shared mental model all three approaches
-        converge on. This is <strong>growth accounting</strong>: decompose net subscriber change
-        into inspectable levers.
-      </p>
-
-      <div class="diagram">
-        <pre>
-  ┌─────────────────────────────────────────────────────────────────────────┐
-  │                     MONTHLY SUBSCRIBER STATE MACHINE                     │
-  └─────────────────────────────────────────────────────────────────────────┘
-
-      ┌──────────┐     paid + viral      ┌──────────┐
-      │  TRIAL   │ ───────────────────►  │  ACTIVE  │◄──── reactivation ────┐
-      │ (optional)│     conversion       │          │                       │
-      └──────────┘                       └────┬─────┘                       │
-           │                                  │                             │
-           │ expire                           │ churn                       │
-           ▼                                  ▼                             │
-      ┌──────────┐                       ┌──────────┐                       │
-      │  LOST    │                       │ CHURNED  │ ──────────────────────┘
-      │ (never   │                       │  POOL    │      win-back campaigns
-      │  converted)│                      └──────────┘
-      └──────────┘
-
-  Active(t) = Active(t-1) + New(t) + Reactivated(t) - Churned(t)
-
-  MRR(t) = Σ subs ∈ Active(t)  price(plan, seats, usageₜ)
-        </pre>
-      </div>
-
-      <h3>Cohort matrix representation</h3>
-      <p>
-        The workhorse data structure is a <strong>cohort retention matrix</strong>: rows are signup
-        cohorts, columns are months since signup, cells are retained subscribers (or retained revenue).
-        Forward projection fills future columns using a retention curve, then sums across cohorts for
-        total actives and MRR.
-      </p>
-      <pre>         M0    M1    M2    M3   ...
-Cohort A  100   85    72    65
-Cohort B   50   44    39    —
-Cohort C  120  102    —     —
-─────────────────────────────────
-Total     270  231   111    65  →  sum columns for active count each month</pre>
-
-      <h3>Minimum data inputs for any forecast</h3>
-      <table>
-        <thead>
-          <tr><th>Input</th><th>Source</th><th>Used for</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Historical cohort retention table</td><td>Product analytics or billing</td><td>Retention curve fitting</td></tr>
-          <tr><td>Plan pricing &amp; mix</td><td>Billing / CRM</td><td>ARPU, expansion, contraction</td></tr>
-          <tr><td>Acquisition plan (paid budget)</td><td>Marketing plan</td><td>New cohort sizes</td></tr>
-          <tr><td>K-factor &amp; cycle time</td><td>Referral / invite analytics</td><td>Viral new users</td></tr>
-          <tr><td>Churned pool size &amp; age</td><td>Billing cancellations</td><td>Win-back opportunity</td></tr>
-          <tr><td>Reactivation rates by segment</td><td>Email / campaign history</td><td>Reactivation flow</td></tr>
-          <tr><td>OpEx &amp; COGS assumptions</td><td>Finance</td><td>P&amp;L and cash</td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section id="scenarios">
-      <h2>Scenario Dimensions</h2>
-      <p>
-        A useful forecast exposes levers you can sweep for sensitivity analysis. Below are the
-        dimensions most relevant to subscription retention, viral growth, churn, and win-back.
-      </p>
-
-      <table>
-        <thead>
-          <tr><th>Scenario lever</th><th>Low case</th><th>Base case</th><th>High case</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Monthly logo churn</td>
-            <td>8% (consumer)</td>
-            <td>4%</td>
-            <td>2% (enterprise)</td>
-          </tr>
-          <tr>
-            <td>NRR</td>
-            <td>85%</td>
-            <td>100%</td>
-            <td>120%</td>
-          </tr>
-          <tr>
-            <td>Viral K</td>
-            <td>0.1</td>
-            <td>0.35</td>
-            <td>0.7+ (rare sustained)</td>
-          </tr>
-          <tr>
-            <td>Reactivation rate (monthly, eligible pool)</td>
-            <td>1%</td>
-            <td>3%</td>
-            <td>8% (strong win-back program)</td>
-          </tr>
-          <tr>
-            <td>Paid CAC</td>
-            <td>Rising with competition</td>
-            <td>Flat</td>
-            <td>Falling with brand / SEO</td>
-          </tr>
-          <tr>
-            <td>Price change</td>
-            <td>−10% (promo)</td>
-            <td>Flat</td>
-            <td>+15% (value add)</td>
-          </tr>
-        </tbody>
-      </table>
 
       <div class="callout warn">
-        <strong>Worked example (illustrative numbers only)</strong>
-        Suppose 1,000 actives at $30 ARPU ($30k MRR), 4% monthly churn, 50 paid new/month at $200 CAC,
-        K = 0.3 (30 viral signups/month), and 2% monthly reactivation from a 2,000-person churned pool
-        (40 win-backs). Net subscriber change ≈ 50 + 30 + 40 − 40 = +80/month before expansion.
-        MRR grows if ARPU holds and expansion offsets any downgrades. This is the level of arithmetic
-        a custom script should make transparent and editable.
+        <strong>Honest uncertainty</strong>
+        With no data, outputs are <em>scenario comparisons</em>, not predictions.
+        The workbench should always show: (1) which benchmark was assumed,
+        (2) fit error on retention points, (3) which levers move the outcome most.
       </div>
     </section>
 
-    <!-- APPROACH 1 -->
-    <section id="approach-custom">
-      <div class="approach-header">
-        <div class="approach-num custom">1</div>
-        <h2 style="border:none;margin:0;padding:0;">Roll-Your-Own Forecasting Script</h2>
-      </div>
-
+    <section id="benchmark-fit">
+      <h2>Benchmark Fitting (Competitor &amp; Case Study Numbers)</h2>
       <p>
-        Building your own script trades integration work for total control. The architecture below
-        is intentionally barebones — thin behavior, clear files — matching an MVP that can grow
-        without rewriting.
+        “Test fit” means: given sparse public retention points for a competitor, how well does
+        your chosen curve reproduce those points, and what 36-month forecast does that imply?
       </p>
 
-      <h3>Recommended architecture</h3>
-      <div class="diagram">
-        <pre>
-  ┌─────────────┐    ┌──────────────┐    ┌─────────────────┐
-  │  inputs/    │    │   engine/    │    │   outputs/      │
-  │  YAML or    │───►│  monthly     │───►│  CSV / JSON /   │
-  │  CSV params │    │  simulation  │    │  HTML report    │
-  └─────────────┘    └──────┬───────┘    └─────────────────┘
-                            │
-         ┌──────────────────┼──────────────────┐
-         ▼                  ▼                  ▼
-   retention.py      acquisition.py     revenue.py
-   (cohort curves)   (paid + viral K)     (MRR waterfall)
-         │                  │                  │
-         └──────── churn.py ─┴── reactivation.py ┘
-                            │
-                       costs.py → pnl.py
-        </pre>
-      </div>
+      <h3>Fit workflow</h3>
+      <ol>
+        <li>Encode sparse points in <code>benchmarks/competitor_x.yaml</code></li>
+        <li>Fit with one or more methods (Theseus best-fit, scipy Weibull, power law)</li>
+        <li>Compute RMSE / max error at observed months</li>
+        <li>Project R(m) for m = 1..36</li>
+        <li>Run full simulation; tag output <code>fitted_from: competitor_x</code></li>
+        <li>Compare multiple competitors side-by-side in a single dataframe</li>
+      </ol>
 
-      <h3>Suggested module responsibilities</h3>
+      <h3>Goodness-of-fit metrics to report</h3>
       <table>
         <thead>
-          <tr><th>Module</th><th>Responsibility</th><th>Key outputs</th></tr>
+          <tr><th>Metric</th><th>What it tells you</th></tr>
         </thead>
         <tbody>
           <tr>
-            <td><code>models/assumptions.py</code></td>
-            <td>Typed dataclass or dict schema for all scenario levers (churn, K, prices, OpEx)</td>
-            <td>Validated config object</td>
+            <td>RMSE on retention points</td>
+            <td>Overall curve accuracy at benchmark months</td>
           </tr>
           <tr>
-            <td><code>models/cohort.py</code></td>
-            <td>Cohort matrix: new signups per period, retention curve application</td>
-            <td>Active users by month</td>
+            <td>Max absolute error</td>
+            <td>Worst month miss — catches bad tail fit</td>
           </tr>
           <tr>
-            <td><code>engine/acquisition.py</code></td>
-            <td>Paid new from budget/CAC; viral new from K × actives; optional caps</td>
-            <td>New cohort sizes per month</td>
+            <td>Implied monthly churn @ M12</td>
+            <td>Sanity check vs published SaaS medians (~0.5–2% monthly for B2B)</td>
           </tr>
           <tr>
-            <td><code>engine/churn.py</code></td>
-            <td>Apply retention or churn rate; route exits to churned pool</td>
-            <td>Churned count, churned pool size</td>
-          </tr>
-          <tr>
-            <td><code>engine/reactivation.py</code></td>
-            <td>Win-back from churned pool by segment and rate</td>
-            <td>Reactivated count (feeds acquisition)</td>
-          </tr>
-          <tr>
-            <td><code>engine/revenue.py</code></td>
-            <td>Plan mix, ARPU, expansion/contraction; MRR waterfall</td>
-            <td>MRR, ARR, NRR components</td>
-          </tr>
-          <tr>
-            <td><code>engine/costs.py</code></td>
-            <td>COGS %, fixed OpEx, CAC spend, win-back incentives</td>
-            <td>Expense lines</td>
-          </tr>
-          <tr>
-            <td><code>run_forecast.py</code></td>
-            <td>Loop months 1..N; call modules in order; append rows</td>
-            <td>Time series DataFrame</td>
-          </tr>
-          <tr>
-            <td><code>report.py</code> (optional)</td>
-            <td>Emit charts/tables — or export CSV for Sheets/Excel</td>
-            <td>Human-readable scenario comparison</td>
+            <td>Implied LTV = ARPU / churn</td>
+            <td>Compare to competitor-disclosed or inferred unit economics</td>
           </tr>
         </tbody>
       </table>
 
-      <h3>Monthly simulation loop (pseudocode)</h3>
-      <pre>for month in range(1, horizon + 1):
-    paid_new   = acquisition.paid(month, assumptions)
-    viral_new  = acquisition.viral(active_prev, assumptions.K)
-    reactivated = reactivation.from_pool(churned_pool, assumptions)
+      <pre># compare_fit.py — conceptual
+def fit_quality(observed_months, observed_retention, fitted_fn):
+    predicted = [fitted_fn(m) for m in observed_months]
+    rmse = (sum((o - p)**2 for o, p in zip(observed_retention, predicted)) / len(observed_months)) ** 0.5
+    return {"rmse": rmse, "max_err": max(abs(o - p) for o, p in zip(observed_retention, predicted))}</pre>
+    </section>
 
-    new_total  = paid_new + viral_new + reactivated
-    cohorts.add(month, new_total)
+    <section id="python-libs">
+      <h2>Python Toolbelt</h2>
+      <p>
+        If you write your own script, these are the libraries worth importing — grouped by what
+        you'd otherwise have to implement by hand.
+      </p>
 
-    active     = cohorts.sum_retained(month, retention_curve)
-    churned    = active_prev + new_total - active - reactivated  # reconciliation
-    churned_pool += churned - reactivated
+      <table>
+        <thead>
+          <tr>
+            <th>Library</th>
+            <th>Role in workbench</th>
+            <th>Saves you from writing</th>
+            <th>When to reach for it</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>pandas + numpy</strong></td>
+            <td>Scenario tables, monthly loops, exports</td>
+            <td>— (foundation)</td>
+            <td>Always</td>
+          </tr>
+          <tr>
+            <td><strong><a href="https://github.com/ESeufert/theseus_growth">theseus_growth</a></strong></td>
+            <td>Sparse retention → fitted curve → cohort DAU projection</td>
+            <td>~100 LOC curve fitting + cohort matrix math</td>
+            <td>Week 1: benchmark fitting &amp; forward projection</td>
+          </tr>
+          <tr>
+            <td><strong>scipy.optimize + scipy.stats</strong></td>
+            <td>Weibull / power-law fit to retention points</td>
+            <td>~60 LOC custom MLE</td>
+            <td>When you want transparent, single-function fits</td>
+          </tr>
+          <tr>
+            <td><strong><a href="https://github.com/pymc-labs/pymc-marketing">pymc-marketing</a></strong></td>
+            <td>Shifted Beta-Geometric (sBG) for contractual subscriptions; Bayesian CLV</td>
+            <td>~200+ LOC of statistical model code</td>
+            <td>Week 2+: credible intervals, “what if churn is uncertain?”</td>
+          </tr>
+          <tr>
+            <td><strong><a href="https://github.com/CamDavidsonPilon/lifetimes">lifetimes</a> / <a href="https://btyd.readthedocs.io/">btyd</a></strong></td>
+            <td>BG/NBD, Gamma-Gamma for non-contractual repeat purchase</td>
+            <td>BTYD math stack</td>
+            <td>If business model is repeat purchase, not pure subscription</td>
+          </tr>
+          <tr>
+            <td><strong><a href="https://github.com/CamDavidsonPilon/lifelines">lifelines</a></strong></td>
+            <td>Kaplan-Meier, Weibull AFT survival regression</td>
+            <td>Survival model implementations</td>
+            <td>When you later have customer-level tenure data</td>
+          </tr>
+          <tr>
+            <td><strong><a href="https://github.com/plexagon/lucius-ltv">lucius-ltv</a></strong></td>
+            <td>Bayesian sBG via PyMC on cohort matrix</td>
+            <td>PyMC model boilerplate</td>
+            <td>Alternative to pymc-marketing for sBG purists</td>
+          </tr>
+          <tr>
+            <td><strong>pydantic</strong></td>
+            <td>Validate benchmark YAML schemas</td>
+            <td>Ad-hoc dict checking</td>
+            <td>Once you have 5+ benchmark files</td>
+          </tr>
+          <tr>
+            <td><strong>matplotlib / plotly</strong></td>
+            <td>Retention curves, scenario overlays, tornado charts</td>
+            <td>—</td>
+            <td>Day 4+</td>
+          </tr>
+          <tr>
+            <td><strong>streamlit</strong> or <strong>marimo</strong></td>
+            <td>Slider workbench UI</td>
+            <td>Custom web frontend</td>
+            <td>When notebook isn't enough for stakeholders</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
 
-    mrr        = revenue.mrr(active, plan_mix, assumptions)
-    expenses   = costs.compute(mrr, new_total, paid_new, reactivated, assumptions)
+    <section id="r-libs">
+      <h2>R Toolbelt</h2>
+      <p>
+        R is stronger for classical marketing science (Fader/Hardie BTYD models) and has decades
+        of cohort/CLV tooling. The tradeoff is ecosystem friction if the rest of your stack is Python.
+      </p>
 
-    record(month, active, mrr, expenses, churned_pool, ...)</pre>
+      <table>
+        <thead>
+          <tr>
+            <th>Package</th>
+            <th>Role</th>
+            <th>Strengths</th>
+            <th>Weaknesses for your case</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong><a href="https://cran.r-project.org/package=BTYD">BTYD</a></strong></td>
+            <td>BG/NBD, Pareto/NBD, Gamma-Gamma CLV</td>
+            <td>Gold standard for non-contractual; excellent vignettes</td>
+            <td>Needs transaction-level or RFM summary data — awkward with pure benchmark points</td>
+          </tr>
+          <tr>
+            <td><strong><a href="https://cran.r-project.org/package=BTYDplus">BTYDplus</a></strong></td>
+            <td>Extended BTYD models (MBG/NBD, CNBD-k, etc.)</td>
+            <td>More model flexibility</td>
+            <td>Same data requirements; steeper API</td>
+          </tr>
+          <tr>
+            <td><strong><a href="https://www.clvtools.com/">CLVTools</a></strong></td>
+            <td>Modern S4 framework for CLV; Pareto/NBD + spending</td>
+            <td>Clean API; good docs; actively maintained feel</td>
+            <td>Overkill for week-1 scenario YAML with no transactions</td>
+          </tr>
+          <tr>
+            <td><strong>survival + flexsurv</strong></td>
+            <td>Parametric survival regression (Weibull, Gompertz)</td>
+            <td>Proper censored-data handling when you have tenure</td>
+            <td>Not designed for sparse benchmark-point fitting out of the box</td>
+          </tr>
+          <tr>
+            <td><strong>Shiny</strong></td>
+            <td>Interactive workbench UI</td>
+            <td>Fast slider dashboards for executives</td>
+            <td>Another deployment surface to maintain</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
 
-      <h3>Strengths &amp; weaknesses</h3>
-      <div class="card-grid">
-        <div class="card">
-          <h4>Strengths</h4>
-          <ul>
-            <li>Exact fit to your pricing quirks and win-back logic</li>
-            <li>Full transparency — every formula is yours to audit</li>
-            <li>No vendor lock-in; runs in a notebook or CI</li>
-            <li>Easy to add scenario sweeps (Monte Carlo later if needed)</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h4>Weaknesses</h4>
-          <ul>
-            <li>You maintain billing-ingest and metric definitions yourself</li>
-            <li>Retention curve fitting is easy to get wrong without validation</li>
-            <li>No built-in Stripe/Lago connector — you build ETL</li>
-            <li>Reporting and dashboards are extra work</li>
-          </ul>
-        </div>
-      </div>
+    <section id="python-vs-r">
+      <h2>Python vs R for This Workbench</h2>
+
+      <table>
+        <thead>
+          <tr><th>Dimension</th><th>Python</th><th>R</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Week-1 scenario engine (no data)</strong></td>
+            <td><span class="rating high">Better</span> — simple loops, YAML, Streamlit/Jupyter native</td>
+            <td><span class="rating med">Fine</span> — but BTYD packages want transaction shapes you don't have</td>
+          </tr>
+          <tr>
+            <td><strong>Sparse benchmark curve fitting</strong></td>
+            <td><span class="rating high">Better</span> — Theseus built exactly for this</td>
+            <td><span class="rating med">Manual</span> — nls() / flexsurv on hand-rolled points</td>
+          </tr>
+          <tr>
+            <td><strong>Contractual subscription CLV (sBG)</strong></td>
+            <td><span class="rating high">Good</span> — pymc-marketing</td>
+            <td><span class="rating med">Limited</span> — fewer native sBG implementations</td>
+          </tr>
+          <tr>
+            <td><strong>Non-contractual BTYD / RFM</strong></td>
+            <td><span class="rating med">Good</span> — lifetimes, btyd, pymc-marketing</td>
+            <td><span class="rating high">Better</span> — BTYD, BTYDplus, CLVTools are reference implementations</td>
+          </tr>
+          <tr>
+            <td><strong>When you eventually have billing exports</strong></td>
+            <td><span class="rating high">Good</span> — pandas pipeline + lifelines</td>
+            <td><span class="rating high">Good</span> — BTYD event log → CBS pipeline</td>
+          </tr>
+          <tr>
+            <td><strong>Integration with app/product code</strong></td>
+            <td><span class="rating high">Better</span> if product is Python/TS</td>
+            <td><span class="rating low">Friction</span> — R as sidecar or reticulate bridge</td>
+          </tr>
+        </tbody>
+      </table>
 
       <div class="callout success">
-        <strong>Best when</strong>
-        You are in early-stage scenario planning, have non-standard pricing, or need win-back and
-        viral levers modeled exactly how you think about the business — and you are willing to
-        invest a few hundred lines of Python rather than adopt a framework.
+        <strong>Recommendation for your situation</strong>
+        Python for the week-1 workbench. Import <code>theseus_growth</code> for retention fitting,
+        write ~150 lines of simulation yourself, add pymc-marketing later if you want Bayesian
+        uncertainty bands. Use R packages as <em>methodology references</em> (read BTYD vignettes
+        to understand what your Python code should approximate) unless you're already an R shop.
       </div>
     </section>
 
-    <!-- APPROACH 2 -->
-    <section id="approach-theseus">
-      <div class="approach-header">
-        <div class="approach-num theseus">2</div>
-        <h2 style="border:none;margin:0;padding:0;">Theseus Growth (Open Source Library)</h2>
-      </div>
-
+    <section id="loc-estimates">
+      <h2>How Much Code? Build vs Retrofit</h2>
       <p>
-        <strong>Repository:</strong>
-        <a href="https://github.com/egecakiroglu/theseus_growth" style="color:var(--accent2)">github.com/egecakiroglu/theseus_growth</a>
-        · <strong>License:</strong> MIT · <strong>Install:</strong> <code>pip install theseus_growth</code>
-      </p>
-      <p>
-        Theseus is a Python library created by Eric Benjamin Seufert (Heracles / Mobile Dev Memo)
-        for cohort analysis and growth projections. It is explicitly designed for marketing budget
-        planning, scenario analysis, and forward user projections — not full P&amp;L or billing ingest.
+        Rough honest estimates for a solo data scientist building the week-1 workbench.
+        “LOC” = meaningful lines, not boilerplate.
       </p>
 
-      <h3>What it does well</h3>
-      <ul>
-        <li><strong>Retention profiles</strong> — fit log, exp, linear, quad, Weibull, power, or interpolate curves to sparse retention data points.</li>
-        <li><strong>Forward DAU/MAU projection</strong> — <code>project_cohorted_DAU</code> combines new-user cohorts with a retention profile to project active users over time.</li>
-        <li><strong>Age segmentation</strong> — <code>project_aged_DAU</code> splits users by tenure (useful for monetization timing).</li>
-        <li><strong>Export</strong> — <code>to_excel</code> and <code>to_json</code> for downstream reporting.</li>
-      </ul>
-
-      <h3>Architecture (library-centric)</h3>
-      <div class="diagram">
-        <pre>
-  Your notebook / script
-         │
-         ▼
-  ┌──────────────────────────────────────┐
-  │  theseus_growth                      │
-  │  ├── create_profile(days, retention) │──► best-fit curve + projection
-  │  ├── project_cohorted_DAU(...)       │──► pandas DataFrame of actives
-  │  ├── project_aged_DAU(...)           │──► tenure-segmented actives
-  │  └── plot_retention / to_excel       │
-  └──────────────────────────────────────┘
-         │
-         ▼
-  You multiply actives × ARPU, add viral cohorts externally,
-  layer churned-pool win-back in your own wrapper script
-        </pre>
-      </div>
-
-      <h3>Mapping to your concerns</h3>
       <table>
         <thead>
-          <tr><th>Concern</th><th>Theseus support</th><th>Gap you fill manually</th></tr>
+          <tr>
+            <th>Component</th>
+            <th>From scratch</th>
+            <th>With libraries</th>
+            <th>What you import</th>
+          </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Subscription retention</td>
-            <td>Core strength — retention profiles and cohort projections</td>
-            <td>Map DAU/MAU to paying subscribers if not 1:1</td>
+            <td>YAML benchmark loader + schema</td>
+            <td>~40 LOC</td>
+            <td>~25 LOC</td>
+            <td>pydantic</td>
           </tr>
           <tr>
-            <td>Viral growth</td>
-            <td>Not built-in — you supply cohort sizes (can compute K × actives yourself)</td>
-            <td>Viral loop and K decay model</td>
+            <td>Retention curve fitting</td>
+            <td>~80–120 LOC</td>
+            <td>~15–30 LOC</td>
+            <td>theseus_growth or scipy</td>
           </tr>
           <tr>
-            <td>Churn</td>
-            <td>Implicit via retention curve (churn = 1 − retention)</td>
-            <td>Explicit churned pool accounting</td>
+            <td>Fit quality / compare competitors</td>
+            <td>~50 LOC</td>
+            <td>~50 LOC</td>
+            <td>(you write this — libraries don't compare scenarios)</td>
           </tr>
           <tr>
-            <td>Win-back</td>
-            <td>Not built-in</td>
-            <td>Add reactivation cohorts to the <code>cohorts</code> input list</td>
+            <td>Monthly cohort simulator</td>
+            <td>~120–180 LOC</td>
+            <td>~100–150 LOC</td>
+            <td>theseus for user projection OR your loop; revenue layer always yours</td>
           </tr>
           <tr>
-            <td>Revenue &amp; costs</td>
-            <td>Not included — user/projections only</td>
-            <td>ARPU, MRR waterfall, OpEx in wrapper</td>
+            <td>MRR waterfall + costs</td>
+            <td>~60–80 LOC</td>
+            <td>~60–80 LOC</td>
+            <td>No library knows your pricing</td>
+          </tr>
+          <tr>
+            <td>Scenario runner (base/up/down)</td>
+            <td>~40 LOC</td>
+            <td>~40 LOC</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Plots</td>
+            <td>~60 LOC</td>
+            <td>~40 LOC</td>
+            <td>matplotlib / plotly</td>
+          </tr>
+          <tr>
+            <td>Streamlit slider UI (optional)</td>
+            <td>—</td>
+            <td>~80–120 LOC</td>
+            <td>streamlit</td>
+          </tr>
+          <tr>
+            <td><strong>Total MVP</strong></td>
+            <td><strong>~450–650 LOC</strong></td>
+            <td><strong>~300–450 LOC</strong></td>
+            <td>~30–40% reduction; biggest save is retention fitting</td>
+          </tr>
+          <tr>
+            <td>+ Bayesian uncertainty (phase 2)</td>
+            <td>~300+ LOC</td>
+            <td>~50–80 LOC glue</td>
+            <td>pymc-marketing sBG</td>
           </tr>
         </tbody>
       </table>
 
-      <h3>Typical usage pattern</h3>
+      <p class="muted">
+        Adopting a full OSS “scenario engine” repo (e.g. saas-scenario-engine) might look like 0 LOC,
+        but retrofitting their assumptions to your pricing, win-back logic, and benchmark library
+        often costs 2–3 days of archaeology. Building thin glue on top of Theseus + your simulator
+        is usually faster for week-1.
+      </p>
+    </section>
+
+    <section id="theseus">
+      <h2>Theseus Growth — Deep Dive</h2>
+      <p>
+        Use the <strong>original repo</strong>:
+        <a href="https://github.com/ESeufert/theseus_growth">github.com/ESeufert/theseus_growth</a>
+        (~214 stars, 29 forks, MIT license, created Jan 2020).
+        The <code>egecakiroglu/theseus_growth</code> fork is a stale copy with 0 stars — install from PyPI
+        (<code>pip install theseus_growth</code>) which tracks the ESeufert package.
+      </p>
+      <p class="muted">
+        Do not confuse with <code>facebookresearch/theseus</code> — that is a PyTorch nonlinear
+        optimization library for robotics, completely unrelated.
+      </p>
+
+      <h3>What it actually does</h3>
+      <ul>
+        <li>Takes sparse retention observations (e.g. day 1, 7, 30, 90) as percentages</li>
+        <li>Fits log, exp, linear, quad, Weibull, power, or interpolate — picks lowest error automatically</li>
+        <li>Projects retention to arbitrary horizon</li>
+        <li>Builds forward DAU/MAU from cohort sizes + retention profile</li>
+        <li>Age-segments users by tenure (<code>project_aged_DAU</code>)</li>
+        <li>Exports to Excel/JSON</li>
+      </ul>
+
+      <h3>Strengths</h3>
+      <table>
+        <thead>
+          <tr><th>Strength</th><th>Why it matters for you</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Purpose-built for your week-1 problem</td>
+            <td>Sparse benchmark points → forward projection is literally the README example</td>
+          </tr>
+          <tr>
+            <td>Created by Eric Benjamin Seufert</td>
+            <td>Author is a recognized growth/UA thinker; library encodes mobile/growth industry practice</td>
+          </tr>
+          <tr>
+            <td>Automatic curve family selection</td>
+            <td>Lets you compare competitor fits without committing to Weibull vs power law upfront</td>
+          </tr>
+          <tr>
+            <td>Lightweight dependency</td>
+            <td>scipy/pandas/numpy stack — installs in seconds, no MCMC sampler</td>
+          </tr>
+          <tr>
+            <td>MIT license</td>
+            <td>Use commercially, fork freely</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Weaknesses</h3>
+      <table>
+        <thead>
+          <tr><th>Weakness</th><th>Impact</th><th>Mitigation</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Explicitly beta</strong> (author's warning)</td>
+            <td>Bugs in edge cases; API may change</td>
+            <td>Pin version; wrap behind your <code>fit_retention()</code> interface</td>
+          </tr>
+          <tr>
+            <td>Documentation is a QuantMar forum thread, not ReadTheDocs</td>
+            <td>Learning curve for advanced features</td>
+            <td>README examples cover 80% of use; read source if stuck (~1k LOC)</td>
+          </tr>
+          <tr>
+            <td>Last meaningful activity ~2020–2021 era project</td>
+            <td>Not abandoned but not fast-moving</td>
+            <td>Stable enough for curve fitting; don't depend on new features</td>
+          </tr>
+          <tr>
+            <td>User counts, not revenue</td>
+            <td>No MRR, pricing, win-back, viral K</td>
+            <td>Your simulator wraps it — multiply by ARPU, add flows</td>
+          </tr>
+          <tr>
+            <td>Retention as % 0–100, day-based by default</td>
+            <td>Monthly subscription models need month indexing</td>
+            <td>Map month m → day m×30 or fit directly on monthly points</td>
+          </tr>
+          <tr>
+            <td>No uncertainty intervals</td>
+            <td>Point estimates only</td>
+            <td>Add pymc-marketing later for credible bands</td>
+          </tr>
+          <tr>
+            <td>Black-box best-fit selection</td>
+            <td>Hard to explain to investors which curve family won</td>
+            <td>Log the <code>best_fit</code> field; override with <code>form='weibull'</code> for reproducibility</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Degree of completion</h3>
+      <table>
+        <thead>
+          <tr><th>Capability</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Retention profile fitting</td><td><span class="rating high">Complete</span></td></tr>
+          <tr><td>Forward cohort DAU projection</td><td><span class="rating high">Complete</span></td></tr>
+          <tr><td>Age segmentation</td><td><span class="rating high">Complete</span></td></tr>
+          <tr><td>Plotting</td><td><span class="rating med">Basic</span> matplotlib wrappers</td></tr>
+          <tr><td>Revenue / subscription semantics</td><td><span class="rating low">Out of scope</span></td></tr>
+          <tr><td>Viral K / win-back</td><td><span class="rating low">Out of scope</span></td></tr>
+          <tr><td>Tests / CI</td><td><span class="rating low">Minimal</span></td></tr>
+        </tbody>
+      </table>
+
+      <h3>Learning curve</h3>
+      <p>
+        <strong>~2–4 hours</strong> to first useful output if you know Python and pandas.
+        <strong>~1 day</strong> to wrap it cleanly behind your benchmark YAML loader and produce
+        a 36-month projection. The steepest part is understanding that Theseus projects
+        <em>users</em> and you must own the translation to <em>subscribers/revenue</em>.
+      </p>
+
       <pre>import theseus_growth as th
 
-profile = th.create_profile(days=[1,7,30,90], retention_values=[80,55,30,12])
-cohorts = [100, 120, 150, ...]  # new users per period; include win-backs as positive entries
-dau_df  = th.project_cohorted_DAU(profile, periods=36, cohorts=cohorts, start_date=1)
+# Benchmark points from a competitor case study (monthly retention %)
+profile = th.create_profile(
+    days=[30, 90, 180, 365],
+    retention_values=[85, 70, 58, 45],
+    form='weibull'   # pin curve family for reproducible competitor fits
+)
 
-# Your layer:
-mrr = dau_df.sum(axis=0) * arpu_assumption</pre>
+# Your wrapper: extract R(m) at monthly intervals, hand to simulate_monthly()</pre>
+    </section>
+
+    <section id="oss-inspiration">
+      <h2>OSS Inspiration (Toolbelt, Not Turnkey)</h2>
+      <p>
+        These projects are worth reading or stealing patterns from — not adopting wholesale
+        when you have no data and a one-week deadline.
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Project</th><th>Stars (approx)</th><th>Steal this idea</th><th>Skip because</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://github.com/guramolsingh/saas-scenario-engine">saas-scenario-engine</a></td>
+            <td>low</td>
+            <td>Separate math engine from narrative; deterministic pandas for scenarios</td>
+            <td>React+FastAPI stack is heavy for week-1 solo work</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/satyamsjha/runwayx">runwayx</a></td>
+            <td>low</td>
+            <td>Streamlit what-if UI; Monte Carlo structure</td>
+            <td>Enterprise FP&amp;A scope; wants uploaded financials</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/mfidalgomartins/revenue-unit-economics-system">revenue-unit-economics-system</a></td>
+            <td>low</td>
+            <td>Metric registry pattern; cohort retention pipeline design</td>
+            <td>Assumes transaction CSVs exist</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/hoaxnerd/burnless">burnless</a></td>
+            <td>growing</td>
+            <td>Dependency-graph forecast lines; full P&amp;L thinking</td>
+            <td>Full FP&amp;A product; overkill before you have a scenario loop</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/ondraz/tidemill">tidemill</a></td>
+            <td>~0</td>
+            <td>SQL-transparent MRR metric definitions</td>
+            <td>Needs live billing; wrong problem phase</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/plexagon/lucius-ltv">lucius-ltv</a></td>
+            <td>low</td>
+            <td>Bayesian sBG on cohort matrix</td>
+            <td>Needs cohort matrix data; PyMC3 era</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/ShreyasDasari/churnguard-ai">churnguard-ai</a></td>
+            <td>low</td>
+            <td>Stripe ingest patterns</td>
+            <td>ML churn classification, not scenario forecasting</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="recommended-stack">
+      <h2>Recommended Stack for Your Constraints</h2>
 
       <div class="callout purple">
-        <strong>Best when</strong>
-        You want statistically sensible retention curve fitting and cohort-based user projections
-        without building scipy curve-fit plumbing — and you are comfortable wrapping the library
-        with your own revenue, viral, and win-back logic (essentially Approach ① with Theseus as
-        the retention engine).
-      </div>
-    </section>
-
-    <!-- APPROACH 3 -->
-    <section id="approach-tidemill">
-      <div class="approach-header">
-        <div class="approach-num tidemill">3</div>
-        <h2 style="border:none;margin:0;padding:0;">Tidemill (Open Source Analytics Engine)</h2>
+        <strong>Constraints recap</strong>
+        No existing data · predictions/scenarios in ~1 week · plug competitor/case-study numbers ·
+        test fit · experimental workbench · open source as toolbelt
       </div>
 
-      <p>
-        <strong>Repository:</strong>
-        <a href="https://github.com/ondraz/tidemill" style="color:var(--accent2)">github.com/ondraz/tidemill</a>
-        · Python · FastAPI · PostgreSQL · Stripe / Lago / Kill Bill integrations
-      </p>
-      <p>
-        Tidemill is an open-source <em>subscription analytics engine</em> — transparent, SQL-backed
-        metric computation from billing events. It answers “what happened?” with auditable MRR,
-        churn, retention, LTV, and trial metrics. Forward forecasting is not its primary job; you
-        would use its historical outputs as calibrated inputs to a forecaster (Approach ① or ②).
-      </p>
-
-      <h3>Architecture</h3>
-      <div class="diagram">
-        <pre>
-  Stripe webhooks / backfill ──► event ingestion ──► PostgreSQL
-  Lago / Kill Bill DB ─────────►   (Kafka path)         │
-                                                         ▼
-                                              ┌──────────────────┐
-                                              │  Metric registry │
-                                              │  (composable SQL)│
-                                              └────────┬─────────┘
-                                                       │
-                    ┌──────────────────────────────────┼──────────────────────┐
-                    ▼                  ▼               ▼                      ▼
-                 MRR / ARR        Churn rates    Cohort retention      LTV / ARPU
-                 waterfall        logo + revenue   NRR / GRR             trial funnel
-                    │                  │               │                      │
-                    └──────────────────┴───────────────┴──────────────────────┘
-                                       │
-                              FastAPI / CLI / notebooks
-                                       │
-                                       ▼
-                         Your forecast script (future scenarios)
-        </pre>
-      </div>
-
-      <h3>Implemented metrics (as of project docs)</h3>
+      <h3>Phase 1 — this week</h3>
       <table>
         <thead>
-          <tr><th>Metric area</th><th>Capabilities</th></tr>
+          <tr><th>Layer</th><th>Choice</th><th>Rationale</th></tr>
         </thead>
         <tbody>
           <tr>
-            <td>MRR</td>
-            <td>Monthly recurring revenue, ARR, net new MRR breakdown, MRR waterfall</td>
+            <td>Language</td>
+            <td>Python 3.11+</td>
+            <td>Fastest path to YAML scenarios + notebooks</td>
           </tr>
           <tr>
-            <td>Churn</td>
-            <td>Logo churn rate, revenue churn rate</td>
+            <td>Retention fitting</td>
+            <td><code>theseus_growth</code> (ESeufert)</td>
+            <td>Sparse benchmark points → curve; exactly your use case</td>
           </tr>
           <tr>
-            <td>Retention</td>
-            <td>Cohort retention matrix, NRR, GRR</td>
+            <td>Simulation</td>
+            <td>~150 LOC pandas loop you write</td>
+            <td>Viral K, win-back, MRR waterfall are business-specific</td>
           </tr>
           <tr>
-            <td>LTV</td>
-            <td>LTV (ARPU/churn), ARPU, cohort LTV</td>
+            <td>Config</td>
+            <td>YAML benchmarks per competitor/vertical</td>
+            <td>Swap scenarios without code changes</td>
           </tr>
           <tr>
-            <td>Trials</td>
-            <td>Trial conversion rate, funnel, monthly series</td>
+            <td>Exploration UI</td>
+            <td>Jupyter first, Streamlit if needed</td>
+            <td>Notebook for speed; Streamlit when you want sliders</td>
+          </tr>
+          <tr>
+            <td>Fit testing</td>
+            <td>RMSE + overlay plots</td>
+            <td>Prove which competitor curve you're actually assuming</td>
           </tr>
         </tbody>
       </table>
 
-      <h3>Mapping to your concerns</h3>
-      <table>
-        <thead>
-          <tr><th>Concern</th><th>Tidemill support</th><th>Notes</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Subscription retention</td>
-            <td>Native cohort retention matrices, NRR/GRR</td>
-            <td>Pull historical curves into forecast assumptions</td>
-          </tr>
-          <tr>
-            <td>Viral growth</td>
-            <td>Not product analytics — billing only</td>
-            <td>Combine with product analytics or manual K input</td>
-          </tr>
-          <tr>
-            <td>Churn</td>
-            <td>Logo and revenue churn with dimensional breakdowns (plan, country)</td>
-            <td>Strong for calibrating churn assumptions by segment</td>
-          </tr>
-          <tr>
-            <td>Win-back</td>
-            <td>Reactivation appears in MRR waterfall as reactivation MRR if billing events capture it</td>
-            <td>Depends on Stripe subscription re-create events being ingested</td>
-          </tr>
-          <tr>
-            <td>Forward forecast</td>
-            <td>Not built-in</td>
-            <td>Export metrics → feed custom script or Theseus</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>Deployment profile</h3>
-      <p>
-        Tidemill is heavier than a notebook script: PostgreSQL, optional Kafka for webhook
-        ingestion, FastAPI service. The payoff is a single auditable source of truth for
-        subscription metrics that finance and product can agree on — reducing the “two spreadsheets
-        don’t match” problem before you forecast forward.
-      </p>
-
-      <div class="callout success">
-        <strong>Best when</strong>
-        You already have (or will have) Stripe or an open-source billing system and need trustworthy
-        historical MRR/churn/retention before layering scenario models. Pair Tidemill (backward-looking)
-        with a custom or Theseus-based forecaster (forward-looking).
-      </div>
-    </section>
-
-    <section id="comparison">
-      <h2>Comparison Matrix</h2>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Dimension</th>
-            <th>① Custom script</th>
-            <th>② Theseus Growth</th>
-            <th>③ Tidemill</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Primary purpose</strong></td>
-            <td>Forward scenario modeling</td>
-            <td>Retention curves &amp; user projections</td>
-            <td>Historical subscription analytics</td>
-          </tr>
-          <tr>
-            <td><strong>Retention / cohorts</strong></td>
-            <td>You implement</td>
-            <td>Core library feature</td>
-            <td>Computed from billing events</td>
-          </tr>
-          <tr>
-            <td><strong>Viral K modeling</strong></td>
-            <td>Full control</td>
-            <td>Manual (external to library)</td>
-            <td>Out of scope</td>
-          </tr>
-          <tr>
-            <td><strong>Win-back / reactivation</strong></td>
-            <td>Full control</td>
-            <td>Manual (inject as cohorts)</td>
-            <td>Observes reactivation MRR if in billing data</td>
-          </tr>
-          <tr>
-            <td><strong>MRR waterfall</strong></td>
-            <td>You implement</td>
-            <td>You implement</td>
-            <td>Native</td>
-          </tr>
-          <tr>
-            <td><strong>P&amp;L / OpEx / cash</strong></td>
-            <td>You implement</td>
-            <td>Out of scope</td>
-            <td>Out of scope</td>
-          </tr>
-          <tr>
-            <td><strong>Billing integration</strong></td>
-            <td>DIY ETL</td>
-            <td>None</td>
-            <td>Stripe, Lago, Kill Bill</td>
-          </tr>
-          <tr>
-            <td><strong>Infra footprint</strong></td>
-            <td>None (notebook/script)</td>
-            <td>pip install</td>
-            <td>Postgres + API (+ optional Kafka)</td>
-          </tr>
-          <tr>
-            <td><strong>License</strong></td>
-            <td>Yours</td>
-            <td>MIT</td>
-            <td>Open source (check repo for exact license)</td>
-          </tr>
-          <tr>
-            <td><strong>Auditability</strong></td>
-            <td>High if you document formulas</td>
-            <td>Medium — curve fit is a black box unless inspected</td>
-            <td>High — SQL-visible metric definitions</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>Hybrid pattern (often the pragmatic choice)</h3>
-      <div class="diagram">
-        <pre>
-   BILLING DATA                    FORECAST LAYER
-  ┌─────────────┐                ┌─────────────────────────┐
-  │  Tidemill   │── historical ─►│ Assumptions: churn, NRR, │
-  │  (actuals)  │   cohorts,     │ K, win-back rates, OpEx  │
-  └─────────────┘   ARPU, churn  └───────────┬─────────────┘
-                                             │
-                              ┌──────────────┴──────────────┐
-                              ▼                             ▼
-                    ┌─────────────────┐           ┌─────────────────┐
-                    │ Theseus engine  │           │ Custom revenue  │
-                    │ (user projection)│           │ + cost modules  │
-                    └────────┬────────┘           └────────┬────────┘
-                             └──────────────┬───────────────┘
-                                            ▼
-                                   Scenario outputs (12–36 mo)
-        </pre>
-      </div>
-    </section>
-
-    <section id="decision">
-      <h2>Decision Guide</h2>
-
-      <div class="verdict">
-        <div class="verdict-item" style="border-color: var(--accent);">
-          <h5 style="color: var(--accent);">Build custom (①)</h5>
-          Pre-product or spreadsheet replacement; non-standard pricing; win-back and viral logic are central to your narrative; no billing volume yet.
-        </div>
-        <div class="verdict-item" style="border-color: var(--accent2);">
-          <h5 style="color: var(--accent2);">Add Theseus (②)</h5>
-          You have sparse retention benchmarks and want credible cohort projections without writing curve-fit code; revenue layer stays yours.
-        </div>
-        <div class="verdict-item" style="border-color: var(--purple);">
-          <h5 style="color: var(--purple);">Deploy Tidemill (③)</h5>
-          Stripe-backed subscriptions are live; leadership needs trusted MRR/churn/retention before trusting any forward model.
-        </div>
-      </div>
-
-      <h3>Other open-source options (honorable mentions)</h3>
-      <p class="muted">
-        Not one of the three primary approaches, but worth knowing during research:
-      </p>
-      <ul class="refs">
-        <li><a href="https://github.com/hoaxnerd/burnless">Burnless</a> — self-hosted FP&amp;A with dependency-graph forecasting, cap table, full P&amp;L (broader than subscription cohorts).</li>
-        <li><a href="https://github.com/plexagon/lucius-ltv">lucius-ltv</a> — Bayesian sBG model for LTV projection from cohort matrices (PyMC).</li>
-        <li><a href="https://github.com/stephenvelasquez/retention-cohort-analyzer">retention-cohort-analyzer</a> — lightweight cohort tables and LTV from event data.</li>
-        <li><a href="https://github.com/ShreyasDasari/churnguard-ai">ChurnGuard AI</a> — ML churn <em>prediction</em> (who will leave), not forward revenue forecasting.</li>
+      <h3>Phase 2 — when you have real customers</h3>
+      <ul>
+        <li><strong>pymc-marketing</strong> sBG or cohort Bayesian model for uncertainty bands</li>
+        <li><strong>lifelines</strong> on customer-level tenure exports</li>
+        <li>Replace benchmark YAML assumptions with fitted parameters from actuals</li>
+        <li>Consider reading BTYD/CLVTools vignettes if repeat-purchase dynamics appear</li>
       </ul>
 
-      <h3>Suggested research next steps</h3>
-      <ol>
-        <li>Write down your pricing structure and which subscriber states matter (trial? seats? usage?).</li>
-        <li>List data you already have vs. assumptions you will guess (retention curve, K, win-back rate).</li>
-        <li>If billing is live, prototype Tidemill against a Stripe test export to see metric reconciliation.</li>
-        <li>Sketch a 12-month scenario in a spreadsheet using the growth accounting formula; that becomes the spec for Approach ①.</li>
-        <li>Decide whether viral and win-back are first-class model flows or sensitivity-only levers.</li>
-      </ol>
+      <h3>What not to do in week 1</h3>
+      <ul>
+        <li>Deploy Tidemill or any billing-ingest analytics engine</li>
+        <li>Train ML churn classifiers (no labels, no users)</li>
+        <li>Adopt a full FP&amp;A monorepo and retrofit it</li>
+        <li>Let an LLM do the arithmetic (use it to narrate CSV outputs only)</li>
+      </ul>
+
+      <h3>Next step when you're ready to build</h3>
+      <p>
+        Scaffold <code>Business-Forecasting/workbench/</code> with the file layout in the
+        Workbench Architecture section: three benchmark YAMLs, <code>fit_retention.py</code>,
+        <code>simulate_monthly.py</code>, <code>run_scenario.py</code>, and a starter notebook.
+        That is the experimental workbench — not a product launch.
+      </p>
     </section>
 
     <section id="references">
-      <h2>References &amp; Further Reading</h2>
+      <h2>References</h2>
       <ul class="refs">
-        <li>Theseus Growth library — <a href="https://github.com/egecakiroglu/theseus_growth">github.com/egecakiroglu/theseus_growth</a></li>
-        <li>Theseus documentation thread — <a href="https://quantmar.com/529/How-can-use-the-theseus-python-library-to-do-cohort-analysis">QuantMar cohort analysis guide</a></li>
-        <li>Tidemill — <a href="https://github.com/ondraz/tidemill">github.com/ondraz/tidemill</a></li>
-        <li>Viral coefficient (K-factor) — <a href="https://www.wallstreetprep.com/knowledge/viral-coefficient/">Wall Street Prep</a></li>
-        <li>Growth accounting framework — <a href="https://www.thevccorner.com/p/growth-accounting-virality-model">The VC Corner</a></li>
-        <li>Win-back / reactivation — <a href="https://www.subscriptionindex.com/guides/win-back-campaigns">Subscription Index win-back guide</a></li>
-        <li>Fader &amp; Hardie — “How to Project Customer Retention” (sBG model, basis for lucius-ltv)</li>
+        <li>Theseus Growth (original) — <a href="https://github.com/ESeufert/theseus_growth">github.com/ESeufert/theseus_growth</a></li>
+        <li>Theseus docs — <a href="https://quantmar.com/529/How-can-use-the-theseus-python-library-to-do-cohort-analysis">QuantMar thread</a></li>
+        <li>PyMC-Marketing — <a href="https://github.com/pymc-labs/pymc-marketing">github.com/pymc-labs/pymc-marketing</a></li>
+        <li>PyMC cohort retention guide — <a href="https://www.pymc-labs.com/blog-posts/cohort-revenue-retention">pymc-labs.com blog</a></li>
+        <li>Lifetimes (legacy CLV) — <a href="https://github.com/CamDavidsonPilon/lifetimes">github.com/CamDavidsonPilon/lifetimes</a></li>
+        <li>BTYD R package — <a href="https://cran.r-project.org/package=BTYD">CRAN BTYD</a></li>
+        <li>CLVTools — <a href="https://www.clvtools.com/">clvtools.com</a></li>
+        <li>Fader &amp; Hardie — “How to Project Customer Retention” (sBG model foundation)</li>
+        <li>Win-back economics — <a href="https://www.subscriptionindex.com/guides/win-back-campaigns">Subscription Index</a></li>
+        <li>Viral K-factor — <a href="https://www.wallstreetprep.com/knowledge/viral-coefficient/">Wall Street Prep</a></li>
       </ul>
     </section>
 
@@ -1192,8 +1154,7 @@ mrr = dau_df.sum(axis=0) * arpu_assumption</pre>
 </div>
 
 <footer>
-  Business-Forecasting research document · July 2026 · Research only — no forecasting software included.
-  Open in any browser; no external dependencies required.
+  Business-Forecasting workbench research · July 2026 · Research only — no software shipped in this doc.
 </footer>
 
 </body>
