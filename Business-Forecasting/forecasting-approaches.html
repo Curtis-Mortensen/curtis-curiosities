@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscription Forecasting Workbench — Research &amp; Toolbelt</title>
+  <style>
+    :root {
+      --bg: #0c0f14;
+      --surface: #151b24;
+      --surface2: #1e2736;
+      --surface3: #263044;
+      --border: #334155;
+      --text: #e8edf4;
+      --muted: #8b9cb3;
+      --accent: #f59e0b;
+      --accent2: #38bdf8;
+      --success: #4ade80;
+      --warning: #fbbf24;
+      --danger: #f87171;
+      --purple: #c084fc;
+      --font: "Segoe UI", system-ui, -apple-system, sans-serif;
+      --mono: "Cascadia Code", "Fira Code", Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .hero {
+      background: linear-gradient(145deg, #0a1628 0%, #1a2744 45%, #0c0f14 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 1.5rem 2.5rem;
+    }
+
+    .hero-inner { max-width: 960px; margin: 0 auto; }
+
+    .hero h1 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      line-height: 1.25;
+    }
+
+    .hero .subtitle { color: var(--muted); font-size: 1.05rem; max-width: 860px; }
+
+    .badge-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .badge.gold { border-color: #92400e; background: rgba(245,158,11,0.15); color: var(--accent); }
+    .badge.blue { border-color: #0369a1; background: rgba(56,189,248,0.12); color: var(--accent2); }
+    .badge.green { border-color: #166534; background: rgba(74,222,128,0.12); color: var(--success); }
+    .badge.purple { border-color: #6b21a8; background: rgba(192,132,252,0.12); color: var(--purple); }
+    .badge.red { border-color: #991b1b; background: rgba(248,113,113,0.12); color: var(--danger); }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 270px 1fr;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 1.5rem 1rem 2rem;
+      border-right: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .sidebar h2 {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin: 1.25rem 0 0.5rem;
+    }
+
+    .sidebar h2:first-child { margin-top: 0; }
+
+    .sidebar a {
+      display: block;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      padding: 0.3rem 0.5rem;
+      border-radius: 6px;
+      margin-bottom: 0.1rem;
+    }
+
+    .sidebar a:hover { color: var(--text); background: var(--surface2); }
+
+    main { padding: 2rem 2rem 4rem; min-width: 0; }
+
+    section { margin-bottom: 3rem; scroll-margin-top: 1rem; }
+
+    h2 {
+      font-size: 1.55rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h3 { font-size: 1.15rem; margin: 1.5rem 0 0.75rem; color: var(--accent2); }
+    h4 { font-size: 1rem; margin: 1.25rem 0 0.5rem; color: var(--accent); }
+
+    p { margin-bottom: 1rem; }
+    p.muted { color: var(--muted); font-size: 0.95rem; }
+
+    ul, ol { margin: 0 0 1rem 1.25rem; }
+    li { margin-bottom: 0.4rem; }
+
+    .callout {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent2);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+    }
+
+    .callout.warn { border-left-color: var(--warning); }
+    .callout.success { border-left-color: var(--success); }
+    .callout.purple { border-left-color: var(--purple); }
+    .callout.gold { border-left-color: var(--accent); }
+
+    .callout strong { display: block; margin-bottom: 0.35rem; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.6rem 0.75rem;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--surface2);
+      font-weight: 600;
+      color: var(--accent2);
+    }
+
+    tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+
+    code, .formula {
+      font-family: var(--mono);
+      font-size: 0.88em;
+      background: var(--surface3);
+      padding: 0.15em 0.4em;
+      border-radius: 4px;
+    }
+
+    pre {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+      margin: 1rem 0 1.5rem;
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: #c8d4e8;
+    }
+
+    .diagram {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin: 1.25rem 0;
+      overflow-x: auto;
+    }
+
+    .diagram pre {
+      background: transparent;
+      border: none;
+      margin: 0;
+      padding: 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+
+    .card h4 { margin-top: 0; color: var(--text); }
+    .card p:last-child { margin-bottom: 0; }
+
+    .rating {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      margin-left: 0.25rem;
+    }
+
+    .rating.high { background: rgba(74,222,128,0.15); color: var(--success); }
+    .rating.med { background: rgba(251,191,36,0.15); color: var(--warning); }
+    .rating.low { background: rgba(248,113,113,0.15); color: var(--danger); }
+
+    .refs a { color: var(--accent2); }
+    .refs { font-size: 0.88rem; color: var(--muted); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <h1>Subscription Forecasting Workbench</h1>
+    <p class="subtitle">
+      Research document for building an <strong>experimental number-crunching workbench</strong> —
+      not adopting a monolithic product. You have <strong>no billing data yet</strong>; the goal is
+      scenarios and predictions within a week by plugging in competitor benchmarks, case-study
+      retention curves, and your own assumptions. Open-source libraries are tools in the belt;
+      the workbench glue is what you write.
+    </p>
+    <div class="badge-row">
+      <span class="badge gold">Week-1 scenarios</span>
+      <span class="badge blue">No data yet</span>
+      <span class="badge green">Benchmark fitting</span>
+      <span class="badge purple">Python vs R</span>
+      <span class="badge red">Build, don't buy</span>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar">
+    <h2>Start here</h2>
+    <a href="#problem">The actual problem</a>
+    <a href="#week1">Week-1 plan</a>
+    <a href="#workbench">Workbench architecture</a>
+
+    <h2>Models</h2>
+    <a href="#growth-accounting">Growth accounting</a>
+    <a href="#pricing">Pricing levers</a>
+    <a href="#no-data">Working without data</a>
+    <a href="#benchmark-fit">Benchmark fitting</a>
+
+    <h2>Toolbelt</h2>
+    <a href="#python-libs">Python libraries</a>
+    <a href="#r-libs">R libraries</a>
+    <a href="#python-vs-r">Python vs R</a>
+    <a href="#loc-estimates">Lines of code</a>
+    <a href="#theseus">Theseus deep dive</a>
+    <a href="#oss-inspiration">OSS inspiration</a>
+
+    <h2>Decide</h2>
+    <a href="#recommended-stack">Recommended stack</a>
+    <a href="#references">References</a>
+  </nav>
+
+  <main>
+
+    <section id="problem">
+      <h2>The Actual Problem</h2>
+      <p>
+        You are not trying to deploy a billing analytics platform. You are trying to answer:
+        <em>“If retention looks like Company X, pricing looks like Y, and we spend Z on acquisition,
+        what does MRR and burn look like in 12–36 months — and how sensitive is that to churn,
+        viral growth, and win-back?”</em>
+      </p>
+      <p>
+        That is a <strong>scenario engine + curve-fitting workbench</strong>, not a Stripe dashboard.
+        Tools like Tidemill (0-star billing-ingest engine) solve a different problem — reconciling
+        historical MRR from live subscriptions. Skip those until you have customers and need
+        actuals reconciliation.
+      </p>
+
+      <div class="callout gold">
+        <strong>Reframe</strong>
+        Open source = libraries and reference implementations you import or study.
+        The deliverable = a small repo of notebooks/scripts where you load benchmark YAML,
+        fit retention, sweep levers, and compare scenarios side-by-side.
+      </div>
+    </section>
+
+    <section id="week1">
+      <h2>Week-1 Plan (No Existing Data)</h2>
+      <p>A realistic path to first predictions without waiting for product telemetry:</p>
+
+      <table>
+        <thead>
+          <tr><th>Day</th><th>Output</th><th>What you're doing</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1</strong></td>
+            <td>Benchmark library (YAML)</td>
+            <td>Encode 5–10 public retention/cost benchmarks (competitors, verticals, case studies) as named scenario presets</td>
+          </tr>
+          <tr>
+            <td><strong>2</strong></td>
+            <td>Retention fit layer</td>
+            <td>Take sparse benchmark points → fitted curve (Theseus or scipy) → monthly retention vector</td>
+          </tr>
+          <tr>
+            <td><strong>3</strong></td>
+            <td>Cohort simulation core</td>
+            <td>Monthly loop: paid acquisition + viral + win-back in, retention decay, MRR out</td>
+          </tr>
+          <tr>
+            <td><strong>4</strong></td>
+            <td>Scenario sweeps</td>
+            <td>Run base / optimistic / pessimistic; tornado chart on churn, K, CAC, ARPU</td>
+          </tr>
+          <tr>
+            <td><strong>5</strong></td>
+            <td>Workbench UI</td>
+            <td>Jupyter for exploration OR Streamlit for sliders; export CSV of all runs</td>
+          </tr>
+          <tr>
+            <td><strong>6–7</strong></td>
+            <td>Fit testing</td>
+            <td>Compare your chosen curve against benchmark points (RMSE); document which competitor each scenario resembles</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="muted">
+        This is deliberately thin — a data scientist's MVP is a notebook that runs, not a platform.
+        Polish comes after you've argued about assumptions, not before.
+      </p>
+    </section>
+
+    <section id="workbench">
+      <h2>Workbench Architecture</h2>
+      <p>
+        The workbench is three layers: <strong>presets</strong> (what you believe),
+        <strong>fitters</strong> (how curves are inferred), and <strong>simulator</strong> (what happens month by month).
+      </p>
+
+      <div class="diagram">
+        <pre>
+  benchmarks/                    engine/                      outputs/
+  ├── competitor_spotify.yaml    ├── fit_retention.py         ├── scenarios/
+  ├── vertical_b2b_saas.yaml     ├── simulate_monthly.py      │   ├── base_36mo.csv
+  ├── case_study_mobile.yaml     ├── revenue.py               │   └── pessimistic_36mo.csv
+  └── my_assumptions.yaml        ├── acquisition.py           ├── fits/
+                                 │   (paid, viral K, winback) │   └── spotify_rmse.json
+                                 └── compare_fit.py           └── charts/ (optional)
+                                           │
+                    ┌──────────────────────┼──────────────────────┐
+                    ▼                      ▼                      ▼
+              theseus_growth          scipy / lifelines      pymc-marketing
+              (curve fit)             (alt fitters)          (Bayesian sBG, later)
+        </pre>
+      </div>
+
+      <h3>File responsibilities</h3>
+      <table>
+        <thead>
+          <tr><th>File / folder</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>benchmarks/*.yaml</code></td>
+            <td>Named presets: sparse retention points, ARPU, CAC, K-factor, win-back rate, OpEx. One file per competitor or vertical.</td>
+          </tr>
+          <tr>
+            <td><code>fit_retention.py</code></td>
+            <td>Sparse points → full monthly R(m) curve. Reports fit error vs benchmark.</td>
+          </tr>
+          <tr>
+            <td><code>simulate_monthly.py</code></td>
+            <td>The cohort state machine. Pure pandas/numpy; no magic.</td>
+          </tr>
+          <tr>
+            <td><code>run_scenario.py</code></td>
+            <td>CLI: <code>python run_scenario.py benchmarks/vertical_b2b_saas.yaml --months 36</code></td>
+          </tr>
+          <tr>
+            <td><code>workbench.ipynb</code> or <code>app.py</code></td>
+            <td>Interactive exploration — pick benchmark, tweak sliders, re-run.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Example benchmark YAML shape</h3>
+      <pre>name: "B2B SaaS — OpenView median-ish"
+source: "OpenView 2024 SaaS benchmarks (illustrative)"
+pricing:
+  model: per_seat
+  arpu_monthly: 85
+  annual_mix_pct: 40
+retention_benchmark:
+  months: [1, 3, 6, 12, 24]
+  logo_retention_pct: [92, 85, 78, 68, 55]   # sparse — fitter interpolates
+acquisition:
+  monthly_paid_new: 40
+  cac: 1200
+  viral_k: 0.15
+  viral_cycle_months: 2
+winback:
+  monthly_reactivation_rate: 0.02   # of churned pool
+  churned_pool_start: 0
+costs:
+  monthly_fixed_opex: 25000
+  cogs_pct_of_revenue: 0.12</pre>
+    </section>
+
+    <section id="growth-accounting">
+      <h2>Growth Accounting (What the Simulator Computes)</h2>
+      <p>
+        Every scenario engine, whether you write it or wrap libraries, should decompose subscriber
+        change into inspectable flows. This is the minimum physics:
+      </p>
+      <pre>Active(t) = Active(t-1) + PaidNew(t) + ViralNew(t) + Reactivated(t) - Churned(t)
+
+ViralNew(t) = Active(t-1) × K / viral_cycle_months
+Churned(t)  = Active(t-1) × (1 - R(1))   # or apply full cohort retention matrix
+
+MRR(t) = Active(t) × ARPU(t) + Expansion(t) - Contraction(t)
+
+ChurnedPool(t) = ChurnedPool(t-1) + Churned(t) - Reactivated(t)
+Reactivated(t) = ChurnedPool(t-1) × winback_rate</pre>
+
+      <h3>Metrics the workbench should output each month</h3>
+      <ul>
+        <li>Active subscribers, new logos, churned logos, reactivated logos</li>
+        <li>MRR, ARR, net new MRR (waterfall components)</li>
+        <li>Churned pool size</li>
+        <li>CAC spend, viral contribution %, win-back contribution %</li>
+        <li>Gross profit, burn, months of runway (if cash balance provided)</li>
+      </ul>
+    </section>
+
+    <section id="pricing">
+      <h2>Pricing Structures as Scenario Levers</h2>
+      <p>
+        Without data, pricing enters the model as <strong>assumed ARPU and expansion rates</strong>,
+        not as inferred behaviour. Encode the pricing model in YAML so you can swap structures:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Model</th><th>YAML knobs</th><th>Scenario question it answers</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Flat subscription</td>
+            <td><code>arpu_monthly</code></td>
+            <td>“What if we're $29/mo like Competitor A?”</td>
+          </tr>
+          <tr>
+            <td>Per-seat</td>
+            <td><code>arpu_monthly</code>, <code>seats_per_account</code>, <code>expansion_rate</code></td>
+            <td>“Does land-and-expand save us if logo churn is high?”</td>
+          </tr>
+          <tr>
+            <td>Freemium</td>
+            <td><code>free_to_paid_pct</code>, <code>paid_arpu</code></td>
+            <td>“Can viral K compensate for low conversion?”</td>
+          </tr>
+          <tr>
+            <td>Annual prepay</td>
+            <td><code>annual_mix_pct</code>, <code>annual_discount_pct</code></td>
+            <td>“Cash upfront vs cliff churn at renewal”</td>
+          </tr>
+          <tr>
+            <td>Usage-based</td>
+            <td><code>arpu_monthly</code>, <code>usage_variance</code> (σ)</td>
+            <td>Sensitivity band on revenue, not point estimate</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="no-data">
+      <h2>Working Without Your Own Data</h2>
+      <p>
+        A data scientist without data still works — by anchoring on <strong>external benchmarks</strong>
+        and making uncertainty explicit. Your week-1 inputs are:
+      </p>
+
+      <div class="card-grid">
+        <div class="card">
+          <h4>Published retention curves</h4>
+          <p>Eric Seufert / Mobile Dev Memo publishes sparse retention benchmarks (Facebook, etc.) — the same shape Theseus examples use. QuantMar threads and growth essays often cite point-in-time retention at D1/D7/D30.</p>
+        </div>
+        <div class="card">
+          <h4>SaaS benchmark reports</h4>
+          <p>OpenView, KeyBanc SaaS Survey, ChartMogul/Paddle reports: median churn, NRR, CAC payback by ARR band. Use as scenario presets, not gospel.</p>
+        </div>
+        <div class="card">
+          <h4>Competitor S-1 / investor decks</h4>
+          <p>Public companies disclose churn, NRR, ARPU, customer counts at a point in time. Enough to bound a scenario (“at least as good as X”, “worse than Y”).</p>
+        </div>
+        <div class="card">
+          <h4>Synthetic stress tests</h4>
+          <p>Generate cohort matrices with known parameters to verify your simulator matches theory before trusting real benchmarks.</p>
+        </div>
+      </div>
+
+      <div class="callout warn">
+        <strong>Honest uncertainty</strong>
+        With no data, outputs are <em>scenario comparisons</em>, not predictions.
+        The workbench should always show: (1) which benchmark was assumed,
+        (2) fit error on retention points, (3) which levers move the outcome most.
+      </div>
+    </section>
+
+    <section id="benchmark-fit">
+      <h2>Benchmark Fitting (Competitor &amp; Case Study Numbers)</h2>
+      <p>
+        “Test fit” means: given sparse public retention points for a competitor, how well does
+        your chosen curve reproduce those points, and what 36-month forecast does that imply?
+      </p>
+
+      <h3>Fit workflow</h3>
+      <ol>
+        <li>Encode sparse points in <code>benchmarks/competitor_x.yaml</code></li>
+        <li>Fit with one or more methods (Theseus best-fit, scipy Weibull, power law)</li>
+        <li>Compute RMSE / max error at observed months</li>
+        <li>Project R(m) for m = 1..36</li>
+        <li>Run full simulation; tag output <code>fitted_from: competitor_x</code></li>
+        <li>Compare multiple competitors side-by-side in a single dataframe</li>
+      </ol>
+
+      <h3>Goodness-of-fit metrics to report</h3>
+      <table>
+        <thead>
+          <tr><th>Metric</th><th>What it tells you</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>RMSE on retention points</td>
+            <td>Overall curve accuracy at benchmark months</td>
+          </tr>
+          <tr>
+            <td>Max absolute error</td>
+            <td>Worst month miss — catches bad tail fit</td>
+          </tr>
+          <tr>
+            <td>Implied monthly churn @ M12</td>
+            <td>Sanity check vs published SaaS medians (~0.5–2% monthly for B2B)</td>
+          </tr>
+          <tr>
+            <td>Implied LTV = ARPU / churn</td>
+            <td>Compare to competitor-disclosed or inferred unit economics</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <pre># compare_fit.py — conceptual
+def fit_quality(observed_months, observed_retention, fitted_fn):
+    predicted = [fitted_fn(m) for m in observed_months]
+    rmse = (sum((o - p)**2 for o, p in zip(observed_retention, predicted)) / len(observed_months)) ** 0.5
+    return {"rmse": rmse, "max_err": max(abs(o - p) for o, p in zip(observed_retention, predicted))}</pre>
+    </section>
+
+    <section id="python-libs">
+      <h2>Python Toolbelt</h2>
+      <p>
+        If you write your own script, these are the libraries worth importing — grouped by what
+        you'd otherwise have to implement by hand.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Library</th>
+            <th>Role in workbench</th>
+            <th>Saves you from writing</th>
+            <th>When to reach for it</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>pandas + numpy</strong></td>
+            <td>Scenario tables, monthly loops, exports</td>
+            <td>— (foundation)</td>
+            <td>Always</td>
+          </tr>
+          <tr>
+            <td><strong><a href="https://github.com/ESeufert/theseus_growth">theseus_growth</a></strong></td>
+            <td>Sparse retention → fitted curve → cohort DAU projection</td>
+            <td>~100 LOC curve fitting + cohort matrix math</td>
+            <td>Week 1: benchmark fitting &amp; forward projection</td>
+          </tr>
+          <tr>
+            <td><strong>scipy.optimize + scipy.stats</strong></td>
+            <td>Weibull / power-law fit to retention points</td>
+            <td>~60 LOC custom MLE</td>
+            <td>When you want transparent, single-function fits</td>
+          </tr>
+          <tr>
+            <td><strong><a href="https://github.com/pymc-labs/pymc-marketing">pymc-marketing</a></strong></td>
+            <td>Shifted Beta-Geometric (sBG) for contractual subscriptions; Bayesian CLV</td>
+            <td>~200+ LOC of statistical model code</td>
+            <td>Week 2+: credible intervals, “what if churn is uncertain?”</td>
+          </tr>
+          <tr>
+            <td><strong><a href="https://github.com/CamDavidsonPilon/lifetimes">lifetimes</a> / <a href="https://btyd.readthedocs.io/">btyd</a></strong></td>
+            <td>BG/NBD, Gamma-Gamma for non-contractual repeat purchase</td>
+            <td>BTYD math stack</td>
+            <td>If business model is repeat purchase, not pure subscription</td>
+          </tr>
+          <tr>
+            <td><strong><a href="https://github.com/CamDavidsonPilon/lifelines">lifelines</a></strong></td>
+            <td>Kaplan-Meier, Weibull AFT survival regression</td>
+            <td>Survival model implementations</td>
+            <td>When you later have customer-level tenure data</td>
+          </tr>
+          <tr>
+            <td><strong><a href="https://github.com/plexagon/lucius-ltv">lucius-ltv</a></strong></td>
+            <td>Bayesian sBG via PyMC on cohort matrix</td>
+            <td>PyMC model boilerplate</td>
+            <td>Alternative to pymc-marketing for sBG purists</td>
+          </tr>
+          <tr>
+            <td><strong>pydantic</strong></td>
+            <td>Validate benchmark YAML schemas</td>
+            <td>Ad-hoc dict checking</td>
+            <td>Once you have 5+ benchmark files</td>
+          </tr>
+          <tr>
+            <td><strong>matplotlib / plotly</strong></td>
+            <td>Retention curves, scenario overlays, tornado charts</td>
+            <td>—</td>
+            <td>Day 4+</td>
+          </tr>
+          <tr>
+            <td><strong>streamlit</strong> or <strong>marimo</strong></td>
+            <td>Slider workbench UI</td>
+            <td>Custom web frontend</td>
+            <td>When notebook isn't enough for stakeholders</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="r-libs">
+      <h2>R Toolbelt</h2>
+      <p>
+        R is stronger for classical marketing science (Fader/Hardie BTYD models) and has decades
+        of cohort/CLV tooling. The tradeoff is ecosystem friction if the rest of your stack is Python.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Package</th>
+            <th>Role</th>
+            <th>Strengths</th>
+            <th>Weaknesses for your case</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong><a href="https://cran.r-project.org/package=BTYD">BTYD</a></strong></td>
+            <td>BG/NBD, Pareto/NBD, Gamma-Gamma CLV</td>
+            <td>Gold standard for non-contractual; excellent vignettes</td>
+            <td>Needs transaction-level or RFM summary data — awkward with pure benchmark points</td>
+          </tr>
+          <tr>
+            <td><strong><a href="https://cran.r-project.org/package=BTYDplus">BTYDplus</a></strong></td>
+            <td>Extended BTYD models (MBG/NBD, CNBD-k, etc.)</td>
+            <td>More model flexibility</td>
+            <td>Same data requirements; steeper API</td>
+          </tr>
+          <tr>
+            <td><strong><a href="https://www.clvtools.com/">CLVTools</a></strong></td>
+            <td>Modern S4 framework for CLV; Pareto/NBD + spending</td>
+            <td>Clean API; good docs; actively maintained feel</td>
+            <td>Overkill for week-1 scenario YAML with no transactions</td>
+          </tr>
+          <tr>
+            <td><strong>survival + flexsurv</strong></td>
+            <td>Parametric survival regression (Weibull, Gompertz)</td>
+            <td>Proper censored-data handling when you have tenure</td>
+            <td>Not designed for sparse benchmark-point fitting out of the box</td>
+          </tr>
+          <tr>
+            <td><strong>Shiny</strong></td>
+            <td>Interactive workbench UI</td>
+            <td>Fast slider dashboards for executives</td>
+            <td>Another deployment surface to maintain</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="python-vs-r">
+      <h2>Python vs R for This Workbench</h2>
+
+      <table>
+        <thead>
+          <tr><th>Dimension</th><th>Python</th><th>R</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Week-1 scenario engine (no data)</strong></td>
+            <td><span class="rating high">Better</span> — simple loops, YAML, Streamlit/Jupyter native</td>
+            <td><span class="rating med">Fine</span> — but BTYD packages want transaction shapes you don't have</td>
+          </tr>
+          <tr>
+            <td><strong>Sparse benchmark curve fitting</strong></td>
+            <td><span class="rating high">Better</span> — Theseus built exactly for this</td>
+            <td><span class="rating med">Manual</span> — nls() / flexsurv on hand-rolled points</td>
+          </tr>
+          <tr>
+            <td><strong>Contractual subscription CLV (sBG)</strong></td>
+            <td><span class="rating high">Good</span> — pymc-marketing</td>
+            <td><span class="rating med">Limited</span> — fewer native sBG implementations</td>
+          </tr>
+          <tr>
+            <td><strong>Non-contractual BTYD / RFM</strong></td>
+            <td><span class="rating med">Good</span> — lifetimes, btyd, pymc-marketing</td>
+            <td><span class="rating high">Better</span> — BTYD, BTYDplus, CLVTools are reference implementations</td>
+          </tr>
+          <tr>
+            <td><strong>When you eventually have billing exports</strong></td>
+            <td><span class="rating high">Good</span> — pandas pipeline + lifelines</td>
+            <td><span class="rating high">Good</span> — BTYD event log → CBS pipeline</td>
+          </tr>
+          <tr>
+            <td><strong>Integration with app/product code</strong></td>
+            <td><span class="rating high">Better</span> if product is Python/TS</td>
+            <td><span class="rating low">Friction</span> — R as sidecar or reticulate bridge</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout success">
+        <strong>Recommendation for your situation</strong>
+        Python for the week-1 workbench. Import <code>theseus_growth</code> for retention fitting,
+        write ~150 lines of simulation yourself, add pymc-marketing later if you want Bayesian
+        uncertainty bands. Use R packages as <em>methodology references</em> (read BTYD vignettes
+        to understand what your Python code should approximate) unless you're already an R shop.
+      </div>
+    </section>
+
+    <section id="loc-estimates">
+      <h2>How Much Code? Build vs Retrofit</h2>
+      <p>
+        Rough honest estimates for a solo data scientist building the week-1 workbench.
+        “LOC” = meaningful lines, not boilerplate.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Component</th>
+            <th>From scratch</th>
+            <th>With libraries</th>
+            <th>What you import</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>YAML benchmark loader + schema</td>
+            <td>~40 LOC</td>
+            <td>~25 LOC</td>
+            <td>pydantic</td>
+          </tr>
+          <tr>
+            <td>Retention curve fitting</td>
+            <td>~80–120 LOC</td>
+            <td>~15–30 LOC</td>
+            <td>theseus_growth or scipy</td>
+          </tr>
+          <tr>
+            <td>Fit quality / compare competitors</td>
+            <td>~50 LOC</td>
+            <td>~50 LOC</td>
+            <td>(you write this — libraries don't compare scenarios)</td>
+          </tr>
+          <tr>
+            <td>Monthly cohort simulator</td>
+            <td>~120–180 LOC</td>
+            <td>~100–150 LOC</td>
+            <td>theseus for user projection OR your loop; revenue layer always yours</td>
+          </tr>
+          <tr>
+            <td>MRR waterfall + costs</td>
+            <td>~60–80 LOC</td>
+            <td>~60–80 LOC</td>
+            <td>No library knows your pricing</td>
+          </tr>
+          <tr>
+            <td>Scenario runner (base/up/down)</td>
+            <td>~40 LOC</td>
+            <td>~40 LOC</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Plots</td>
+            <td>~60 LOC</td>
+            <td>~40 LOC</td>
+            <td>matplotlib / plotly</td>
+          </tr>
+          <tr>
+            <td>Streamlit slider UI (optional)</td>
+            <td>—</td>
+            <td>~80–120 LOC</td>
+            <td>streamlit</td>
+          </tr>
+          <tr>
+            <td><strong>Total MVP</strong></td>
+            <td><strong>~450–650 LOC</strong></td>
+            <td><strong>~300–450 LOC</strong></td>
+            <td>~30–40% reduction; biggest save is retention fitting</td>
+          </tr>
+          <tr>
+            <td>+ Bayesian uncertainty (phase 2)</td>
+            <td>~300+ LOC</td>
+            <td>~50–80 LOC glue</td>
+            <td>pymc-marketing sBG</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="muted">
+        Adopting a full OSS “scenario engine” repo (e.g. saas-scenario-engine) might look like 0 LOC,
+        but retrofitting their assumptions to your pricing, win-back logic, and benchmark library
+        often costs 2–3 days of archaeology. Building thin glue on top of Theseus + your simulator
+        is usually faster for week-1.
+      </p>
+    </section>
+
+    <section id="theseus">
+      <h2>Theseus Growth — Deep Dive</h2>
+      <p>
+        Use the <strong>original repo</strong>:
+        <a href="https://github.com/ESeufert/theseus_growth">github.com/ESeufert/theseus_growth</a>
+        (~214 stars, 29 forks, MIT license, created Jan 2020).
+        The <code>egecakiroglu/theseus_growth</code> fork is a stale copy with 0 stars — install from PyPI
+        (<code>pip install theseus_growth</code>) which tracks the ESeufert package.
+      </p>
+      <p class="muted">
+        Do not confuse with <code>facebookresearch/theseus</code> — that is a PyTorch nonlinear
+        optimization library for robotics, completely unrelated.
+      </p>
+
+      <h3>What it actually does</h3>
+      <ul>
+        <li>Takes sparse retention observations (e.g. day 1, 7, 30, 90) as percentages</li>
+        <li>Fits log, exp, linear, quad, Weibull, power, or interpolate — picks lowest error automatically</li>
+        <li>Projects retention to arbitrary horizon</li>
+        <li>Builds forward DAU/MAU from cohort sizes + retention profile</li>
+        <li>Age-segments users by tenure (<code>project_aged_DAU</code>)</li>
+        <li>Exports to Excel/JSON</li>
+      </ul>
+
+      <h3>Strengths</h3>
+      <table>
+        <thead>
+          <tr><th>Strength</th><th>Why it matters for you</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Purpose-built for your week-1 problem</td>
+            <td>Sparse benchmark points → forward projection is literally the README example</td>
+          </tr>
+          <tr>
+            <td>Created by Eric Benjamin Seufert</td>
+            <td>Author is a recognized growth/UA thinker; library encodes mobile/growth industry practice</td>
+          </tr>
+          <tr>
+            <td>Automatic curve family selection</td>
+            <td>Lets you compare competitor fits without committing to Weibull vs power law upfront</td>
+          </tr>
+          <tr>
+            <td>Lightweight dependency</td>
+            <td>scipy/pandas/numpy stack — installs in seconds, no MCMC sampler</td>
+          </tr>
+          <tr>
+            <td>MIT license</td>
+            <td>Use commercially, fork freely</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Weaknesses</h3>
+      <table>
+        <thead>
+          <tr><th>Weakness</th><th>Impact</th><th>Mitigation</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Explicitly beta</strong> (author's warning)</td>
+            <td>Bugs in edge cases; API may change</td>
+            <td>Pin version; wrap behind your <code>fit_retention()</code> interface</td>
+          </tr>
+          <tr>
+            <td>Documentation is a QuantMar forum thread, not ReadTheDocs</td>
+            <td>Learning curve for advanced features</td>
+            <td>README examples cover 80% of use; read source if stuck (~1k LOC)</td>
+          </tr>
+          <tr>
+            <td>Last meaningful activity ~2020–2021 era project</td>
+            <td>Not abandoned but not fast-moving</td>
+            <td>Stable enough for curve fitting; don't depend on new features</td>
+          </tr>
+          <tr>
+            <td>User counts, not revenue</td>
+            <td>No MRR, pricing, win-back, viral K</td>
+            <td>Your simulator wraps it — multiply by ARPU, add flows</td>
+          </tr>
+          <tr>
+            <td>Retention as % 0–100, day-based by default</td>
+            <td>Monthly subscription models need month indexing</td>
+            <td>Map month m → day m×30 or fit directly on monthly points</td>
+          </tr>
+          <tr>
+            <td>No uncertainty intervals</td>
+            <td>Point estimates only</td>
+            <td>Add pymc-marketing later for credible bands</td>
+          </tr>
+          <tr>
+            <td>Black-box best-fit selection</td>
+            <td>Hard to explain to investors which curve family won</td>
+            <td>Log the <code>best_fit</code> field; override with <code>form='weibull'</code> for reproducibility</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Degree of completion</h3>
+      <table>
+        <thead>
+          <tr><th>Capability</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Retention profile fitting</td><td><span class="rating high">Complete</span></td></tr>
+          <tr><td>Forward cohort DAU projection</td><td><span class="rating high">Complete</span></td></tr>
+          <tr><td>Age segmentation</td><td><span class="rating high">Complete</span></td></tr>
+          <tr><td>Plotting</td><td><span class="rating med">Basic</span> matplotlib wrappers</td></tr>
+          <tr><td>Revenue / subscription semantics</td><td><span class="rating low">Out of scope</span></td></tr>
+          <tr><td>Viral K / win-back</td><td><span class="rating low">Out of scope</span></td></tr>
+          <tr><td>Tests / CI</td><td><span class="rating low">Minimal</span></td></tr>
+        </tbody>
+      </table>
+
+      <h3>Learning curve</h3>
+      <p>
+        <strong>~2–4 hours</strong> to first useful output if you know Python and pandas.
+        <strong>~1 day</strong> to wrap it cleanly behind your benchmark YAML loader and produce
+        a 36-month projection. The steepest part is understanding that Theseus projects
+        <em>users</em> and you must own the translation to <em>subscribers/revenue</em>.
+      </p>
+
+      <pre>import theseus_growth as th
+
+# Benchmark points from a competitor case study (monthly retention %)
+profile = th.create_profile(
+    days=[30, 90, 180, 365],
+    retention_values=[85, 70, 58, 45],
+    form='weibull'   # pin curve family for reproducible competitor fits
+)
+
+# Your wrapper: extract R(m) at monthly intervals, hand to simulate_monthly()</pre>
+    </section>
+
+    <section id="oss-inspiration">
+      <h2>OSS Inspiration (Toolbelt, Not Turnkey)</h2>
+      <p>
+        These projects are worth reading or stealing patterns from — not adopting wholesale
+        when you have no data and a one-week deadline.
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Project</th><th>Stars (approx)</th><th>Steal this idea</th><th>Skip because</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://github.com/guramolsingh/saas-scenario-engine">saas-scenario-engine</a></td>
+            <td>low</td>
+            <td>Separate math engine from narrative; deterministic pandas for scenarios</td>
+            <td>React+FastAPI stack is heavy for week-1 solo work</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/satyamsjha/runwayx">runwayx</a></td>
+            <td>low</td>
+            <td>Streamlit what-if UI; Monte Carlo structure</td>
+            <td>Enterprise FP&amp;A scope; wants uploaded financials</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/mfidalgomartins/revenue-unit-economics-system">revenue-unit-economics-system</a></td>
+            <td>low</td>
+            <td>Metric registry pattern; cohort retention pipeline design</td>
+            <td>Assumes transaction CSVs exist</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/hoaxnerd/burnless">burnless</a></td>
+            <td>growing</td>
+            <td>Dependency-graph forecast lines; full P&amp;L thinking</td>
+            <td>Full FP&amp;A product; overkill before you have a scenario loop</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/ondraz/tidemill">tidemill</a></td>
+            <td>~0</td>
+            <td>SQL-transparent MRR metric definitions</td>
+            <td>Needs live billing; wrong problem phase</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/plexagon/lucius-ltv">lucius-ltv</a></td>
+            <td>low</td>
+            <td>Bayesian sBG on cohort matrix</td>
+            <td>Needs cohort matrix data; PyMC3 era</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/ShreyasDasari/churnguard-ai">churnguard-ai</a></td>
+            <td>low</td>
+            <td>Stripe ingest patterns</td>
+            <td>ML churn classification, not scenario forecasting</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="recommended-stack">
+      <h2>Recommended Stack for Your Constraints</h2>
+
+      <div class="callout purple">
+        <strong>Constraints recap</strong>
+        No existing data · predictions/scenarios in ~1 week · plug competitor/case-study numbers ·
+        test fit · experimental workbench · open source as toolbelt
+      </div>
+
+      <h3>Phase 1 — this week</h3>
+      <table>
+        <thead>
+          <tr><th>Layer</th><th>Choice</th><th>Rationale</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Language</td>
+            <td>Python 3.11+</td>
+            <td>Fastest path to YAML scenarios + notebooks</td>
+          </tr>
+          <tr>
+            <td>Retention fitting</td>
+            <td><code>theseus_growth</code> (ESeufert)</td>
+            <td>Sparse benchmark points → curve; exactly your use case</td>
+          </tr>
+          <tr>
+            <td>Simulation</td>
+            <td>~150 LOC pandas loop you write</td>
+            <td>Viral K, win-back, MRR waterfall are business-specific</td>
+          </tr>
+          <tr>
+            <td>Config</td>
+            <td>YAML benchmarks per competitor/vertical</td>
+            <td>Swap scenarios without code changes</td>
+          </tr>
+          <tr>
+            <td>Exploration UI</td>
+            <td>Jupyter first, Streamlit if needed</td>
+            <td>Notebook for speed; Streamlit when you want sliders</td>
+          </tr>
+          <tr>
+            <td>Fit testing</td>
+            <td>RMSE + overlay plots</td>
+            <td>Prove which competitor curve you're actually assuming</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Phase 2 — when you have real customers</h3>
+      <ul>
+        <li><strong>pymc-marketing</strong> sBG or cohort Bayesian model for uncertainty bands</li>
+        <li><strong>lifelines</strong> on customer-level tenure exports</li>
+        <li>Replace benchmark YAML assumptions with fitted parameters from actuals</li>
+        <li>Consider reading BTYD/CLVTools vignettes if repeat-purchase dynamics appear</li>
+      </ul>
+
+      <h3>What not to do in week 1</h3>
+      <ul>
+        <li>Deploy Tidemill or any billing-ingest analytics engine</li>
+        <li>Train ML churn classifiers (no labels, no users)</li>
+        <li>Adopt a full FP&amp;A monorepo and retrofit it</li>
+        <li>Let an LLM do the arithmetic (use it to narrate CSV outputs only)</li>
+      </ul>
+
+      <h3>Next step when you're ready to build</h3>
+      <p>
+        Scaffold <code>Business-Forecasting/workbench/</code> with the file layout in the
+        Workbench Architecture section: three benchmark YAMLs, <code>fit_retention.py</code>,
+        <code>simulate_monthly.py</code>, <code>run_scenario.py</code>, and a starter notebook.
+        That is the experimental workbench — not a product launch.
+      </p>
+    </section>
+
+    <section id="references">
+      <h2>References</h2>
+      <ul class="refs">
+        <li>Theseus Growth (original) — <a href="https://github.com/ESeufert/theseus_growth">github.com/ESeufert/theseus_growth</a></li>
+        <li>Theseus docs — <a href="https://quantmar.com/529/How-can-use-the-theseus-python-library-to-do-cohort-analysis">QuantMar thread</a></li>
+        <li>PyMC-Marketing — <a href="https://github.com/pymc-labs/pymc-marketing">github.com/pymc-labs/pymc-marketing</a></li>
+        <li>PyMC cohort retention guide — <a href="https://www.pymc-labs.com/blog-posts/cohort-revenue-retention">pymc-labs.com blog</a></li>
+        <li>Lifetimes (legacy CLV) — <a href="https://github.com/CamDavidsonPilon/lifetimes">github.com/CamDavidsonPilon/lifetimes</a></li>
+        <li>BTYD R package — <a href="https://cran.r-project.org/package=BTYD">CRAN BTYD</a></li>
+        <li>CLVTools — <a href="https://www.clvtools.com/">clvtools.com</a></li>
+        <li>Fader &amp; Hardie — “How to Project Customer Retention” (sBG model foundation)</li>
+        <li>Win-back economics — <a href="https://www.subscriptionindex.com/guides/win-back-campaigns">Subscription Index</a></li>
+        <li>Viral K-factor — <a href="https://www.wallstreetprep.com/knowledge/viral-coefficient/">Wall Street Prep</a></li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  Business-Forecasting workbench research · July 2026 · Research only — no software shipped in this doc.
+</footer>
+
+</body>
+</html>

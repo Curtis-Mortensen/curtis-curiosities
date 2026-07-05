@@ -1,5 +1,37 @@
 # Apocalypse Story — Dev Log
 
+## 2026-07-04 — Question 6: Simulation Software (complete)
+
+### Plan summary
+Research open-source repositories and academic tools for simulating epidemic-driven societal collapse scenarios per README Question 6. Deliver self-contained HTML with two comparison tables, limitations, field history, and citations.
+
+### Precursor / subset questions identified
+1. What modeling paradigms exist (compartmental vs ABM vs hybrid vs infrastructure graph)?
+2. Which tools are US-population-grounded vs global?
+3. Which tools couple disease to infrastructure or social behavior?
+4. What technology stacks dominate (Python/SciPy, C++/HPC, Julia, Rust, LLM APIs)?
+5. What peer-reviewed software papers and surveys exist post-COVID?
+
+### Changes made
+- Created `docs/question-06-simulation-software.html` — full research report with:
+  - Table 1: 42 open-source repositories compared
+  - Table 2: 28 academic tools/methods compared
+  - Taxonomy diagram, limitations, field history, Apocalypse Story mapping
+  - 57 numbered references
+
+### Coding decisions and assumptions
+- **Scope:** Included epidemic ABMs, disaster/resilience platforms, and emerging civilization/LLM social sims because no single repo covers full collapse chain; noted integration gap explicitly.
+- **Apocalypse fit ratings:** Subjective ★ scale based on US relevance, mortality/hospital modeling, and infrastructure/behavior coupling — documented as editorial judgment.
+- **EpiSimdemics:** Listed in academic table as research/HPC tool without public GitHub repo (lab distribution).
+- **Commercial tools:** AnyLogic noted in academic table only (not open source).
+- **Stars/currency:** GitHub star counts mentioned only where stable; prioritized peer-reviewed citations over popularity.
+
+### Bugs / problems
+- None during document creation.
+- Detached HEAD at conversation start; branched from `main` for PR.
+
+### Status
+**Complete** — Question 6 research artifact ready for human review.
 ## 2026-07-04 — Question 5: Definitive Predictions (Complete)
 
 ### Task
@@ -106,6 +138,45 @@ Complete
 
 ---
 
+---
+
+## 2026-07-04 — Question 3: Human Inter-Reliance (Complete)
+
+### Task
+Research Question 3 from README: How many people in the US would likely die without care, medical attention, or medicine? What do disaster preparedness plans state? What has the US military and other institutions war-gamed?
+
+### Deliverable
+- `docs/question-3-human-inter-reliance.html` — self-contained research report with CSS, tiered acuity framework, 35 case studies, exercise summary table, scenario synthesis, and 67 references.
+
+### Precursor / subset questions documented
+- Definition of medical dependency (Rx vs DME vs facility vs skilled care)
+- Time horizon (hours → years without care)
+- Partial vs total infrastructure collapse
+- Informal caregiver substitution
+- Population overlap / double-counting
+
+### Key findings (synthesis)
+- No federal agency publishes a single "deaths without care" national estimate.
+- HHS emPOWER tracks ~4.6M Medicare at-risk beneficiaries (electricity-dependent DME + essential home services); ~194M US adults have ≥1 chronic condition.
+- High-acuity populations (dialysis ~517k, insulin-dependent ~2.1M+ Type 1, nursing homes ~1.24M, DME users) overlap substantially.
+- Preparedness plans (NHSS, ASPR TRACIE, FEMA functional-needs guidance) emphasize surge and continuity of care, not total-collapse mortality modeling.
+- Exercises (Dark Winter, Crimson Contagion, Clade X) model hundreds of thousands to millions of direct pathogen deaths and confirm zero surge capacity; they do not isolate care-disruption mortality.
+- Real disasters (Maria, Katrina, Irma, Uri, COVID care avoidance) repeatedly show 20–33% of excess deaths linked to interrupted care.
+- Defensible planning bracket for story work: additional 5–15% mortality among medically dependent survivors within 6 months if care/supply chains fail — highly scenario-sensitive.
+
+### Assumptions made
+- Used most recent available statistics (2022–2025 sources).
+- Scenario mortality ranges in Section 9 are author synthesis, clearly labeled, not official forecasts.
+- Living transplant recipient total (~400–500k) estimated from USRDS kidney transplant count + OPTN annual volumes; exact cumulative living recipient count not found in a single published figure.
+
+### Bugs / problems
+- None during document production.
+- Git started in detached HEAD at d6a0d12; checked out `main` before branching.
+
+### Coding decisions
+- HTML/CSS only per README agent instructions; no build tooling.
+- Placed report under `docs/` subdirectory (new) to keep README clean.
+- Did not modify README or AGENTS.md.
 ## 2026-07-04 — Question 2: Psychology Under Existential Threat (COMPLETE)
 
 ### Plan summary
@@ -137,3 +208,35 @@ Research and document how humans react to existential danger, widespread panic, 
 
 ### Bugs / problems
 - None during research or document creation
+
+### Status
+Complete
+
+---
+
+## 2026-07-04 — Question 4.1: Medium-Term Catastrophe Law and Order
+
+### Task
+Follow-up to Q4: medium/long-term breakdown and re-establishment of law and order after catastrophe; Haiti 2010 deep case study; violence under resource competition; prosocial factors; group consolidation dynamics. Cross-reference Q1 (pending) and Q4.
+
+### Deliverables
+- `docs/q4-1-catastrophe-law-order-medium-term.html` — full Q4.1 report
+- Updated `README.md` follow-ups section
+- Cross-link added in Q4 doc
+
+### Key findings
+- Five-phase model: Shock → Vacuum → Fragmentation → Competing authority → Reconsolidation/collapse
+- Haiti: literal state collapse (27/28 govt buildings); 90%+ aid bypassed ministries; baz → gangs → federations → de facto rulers by 2021–24
+- Prosocial behavior real but erodes 12–18 months without prosecution, fair aid, and state security
+- Violence escalates when armed groups capture distribution, impunity total, political patrons arm factions
+- Re-establishment requires legitimate monopoly on force — external intervention alone insufficient (MINUSTAH 2004–2017 failed to consolidate)
+
+### Q1 cross-reference
+Linked to `docs/q1-historical-parallels.html` — compound catastrophe lens; Haitian Revolution (#44), Thirty Years' War, Caribbean collapse parallels noted in Q4.1 comparative table.
+
+### Assumptions
+- Medium-term = months to 15+ years
+- Haiti treated as primary catastrophe case despite not being "developed nation" — most complete modern dataset for state physical destruction + long follow-up
+
+### Status
+Complete

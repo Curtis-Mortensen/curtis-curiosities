@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catastrophe Law &amp; Order: Medium-Term Breakdown and Re-establishment (Q4.1)</title>
+<style>
+  :root {
+    --bg: #0f1419; --surface: #1a2332; --surface2: #243044; --text: #e8edf4;
+    --muted: #9aa8bc; --accent: #e8a54b; --accent2: #5b9fd4; --danger: #e05d5d;
+    --success: #5cb87a; --border: #2d3d54; --cite: #7eb8e8; --purple: #c8a0e8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 17px; }
+  .container { max-width: 920px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  header { border-bottom: 2px solid var(--accent); padding-bottom: 2rem; margin-bottom: 2.5rem; }
+  h1 { font-size: 2rem; color: var(--accent); line-height: 1.25; margin-bottom: 0.75rem; }
+  .subtitle { color: var(--muted); font-style: italic; }
+  .meta { margin-top: 1rem; font-size: 0.9rem; color: var(--muted); }
+  h2 { font-size: 1.5rem; color: var(--accent2); margin: 2.5rem 0 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; }
+  h3 { font-size: 1.2rem; color: var(--accent); margin: 1.75rem 0 0.75rem; }
+  h4 { font-size: 1.05rem; margin: 1.25rem 0 0.5rem; }
+  p { margin-bottom: 1rem; }
+  a { color: var(--cite); text-decoration: none; border-bottom: 1px dotted var(--cite); }
+  .cite { font-size: 0.82rem; color: var(--cite); vertical-align: super; }
+  .callout { background: var(--surface); border-left: 4px solid var(--accent); padding: 1.25rem 1.5rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
+  .callout.warn { border-left-color: var(--danger); }
+  .callout.info { border-left-color: var(--accent2); }
+  .callout.success { border-left-color: var(--success); }
+  .callout.xref { border-left-color: var(--purple); }
+  ul, ol { margin: 0.75rem 0 1rem 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.88rem; background: var(--surface); border-radius: 6px; overflow: hidden; }
+  th { background: var(--surface2); color: var(--accent); text-align: left; padding: 0.65rem 0.75rem; font-family: 'Segoe UI', sans-serif; font-size: 0.82rem; text-transform: uppercase; }
+  td { padding: 0.55rem 0.75rem; border-top: 1px solid var(--border); vertical-align: top; }
+  .diagram { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; font-family: 'Segoe UI', sans-serif; font-size: 0.9rem; }
+  .phase-bar { display: flex; margin: 1rem 0; border-radius: 6px; overflow: hidden; font-size: 0.78rem; }
+  .phase { flex: 1; padding: 0.75rem 0.5rem; text-align: center; color: #fff; }
+  .p1 { background: #3a5a8a; } .p2 { background: #5a3a6a; } .p3 { background: #6a3a3a; }
+  .p4 { background: #5a4a2a; } .p5 { background: #2a4a3a; }
+  .toc { background: var(--surface); padding: 1.25rem 1.5rem; border-radius: 6px; margin: 1.5rem 0; }
+  .toc ol { margin-left: 1.25rem; }
+  .conclusion-box { background: linear-gradient(135deg, #1a2a3f, #1a2332); border: 1px solid var(--accent2); border-radius: 8px; padding: 1.5rem; margin-top: 2rem; }
+  .refs { font-size: 0.85rem; color: var(--muted); }
+  .refs li { margin-bottom: 0.6rem; }
+  .factor-yes { color: var(--success); } .factor-no { color: var(--danger); }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>Catastrophe Law &amp; Order: Medium-Term Breakdown and Re-establishment</h1>
+  <p class="subtitle">Question 4.1 — When governments fall, how does order degrade over months and years, and what brings it back?</p>
+  <p class="meta">Apocalypse Story Research · Follow-up to <a href="q4-breakdown-law-and-order.html">Q4</a> · July 2026</p>
+</header>
+
+<div class="callout xref">
+  <strong>Cross-references:</strong>
+  <ul style="margin-top:0.5rem;margin-bottom:0;">
+    <li><strong><a href="q4-breakdown-law-and-order.html">Q4</a></strong> — immediate breakdown (hours to days): disasters vs. riots, elite panic, 43 short-term case studies.</li>
+    <li><strong><a href="q1-historical-parallels.html">Q1 (Historical Parallels)</a></strong> — catalogs 44+ instances of rapid population loss. Q4.1 applies Q1's <em>compound catastrophe</em> lens: Haiti's 2010 shock atop centuries of institutional weakness parallels Thirty Years' War (war+famine+disease), Caribbean indigenous collapse, and Haitian Revolution demographic impact (Q1 case #44).<a href="#ref-q1" class="cite">[R1]</a> Q1 notes that true 50–90% loss in weeks is historically rare; Haiti's governance collapse is instructive for <em>institutional</em> rather than demographic annihilation.</li>
+  </ul>
+</div>
+
+<div class="callout info">
+  <strong>What this document is:</strong> A follow-up to Q4 examining the <em>medium- to long-term</em> arc of law and order after catastrophe — not the first 72 hours, but months to decades. It centers on Haiti 2010 as a primary case study, with comparative examples and research on group consolidation, resource competition, and prosocial persistence under extreme conditions.
+</div>
+
+<nav class="toc">
+  <strong>Contents</strong>
+  <ol>
+    <li><a href="#aims">Aims and Subset Questions</a></li>
+    <li><a href="#limitations">Limitations</a></li>
+    <li><a href="#framework">Framework: Phases of Order After Catastrophe</a></li>
+    <li><a href="#reestablish">How Law and Order Is Re-established (or Not)</a></li>
+    <li><a href="#violence">Violence Under Resource Competition</a></li>
+    <li><a href="#prosocial">What Enables and Blocks Prosocial Behavior</a></li>
+    <li><a href="#groups">Group Consolidation and Dynamics</a></li>
+    <li><a href="#haiti">Haiti 2010 Case Study</a></li>
+    <li><a href="#comparative">Comparative Medium-Term Examples</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#references">References</a></li>
+  </ol>
+</nav>
+
+<h2 id="aims">Aims and Subset Questions</h2>
+<p><strong>Assigned question (4.1):</strong> In catastrophes, how does law and order break down over the medium to long term, and how is it re-established if the previous government or ruling party falls? Examine Haiti 2010. Assess willingness to resort to violence when survival and resource competition are at stake. Identify factors that do and do not sustain prosocial behavior. Analyze consolidation into groups and post-catastrophe group dynamics.</p>
+
+<h3>Subset questions</h3>
+<ol>
+  <li>What distinguishes short-term antisocial spikes (days) from structural insecurity (years)?</li>
+  <li>When a state literally collapses — buildings, personnel, prisons — who provides order?</li>
+  <li>Can foreign peacekeeping substitute for domestic legitimacy?</li>
+  <li>Do emergent mutual-aid groups persist or morph into armed factions?</li>
+  <li>Under scarcity, when does cooperation flip to parochialism or predation?</li>
+  <li>What happens when the ruling party survives physically but loses legitimacy?</li>
+</ol>
+
+<h2 id="limitations">Limitations</h2>
+<h3>Theoretical</h3>
+<p>Medium-term order is a political economy problem, not purely a psychology problem. The same population may be prosocial in camp mutual aid and predatory in gang extortion simultaneously — different group identities, different norms.<a href="#ref-drury-identity" class="cite">[1]</a> "Law and order" itself is contested: gangs in Haiti function as de facto governance for some residents while terrorizing others.<a href="#ref-crisis-gangs" class="cite">[2]</a></p>
+<h3>Methodological</h3>
+<p>Haiti data is fragmented across NGO reports, UN Security Council documents, and journalism; crime statistics are unreliable where most violence goes unreported.<a href="#ref-amnesty-camps" class="cite">[3]</a> Comparative catastrophe studies overweight natural disasters and underweight epidemic-driven collapse (the Apocalypse Story scenario).<a href="#ref-ssrc-epidemic" class="cite">[4]</a></p>
+
+<h2 id="framework">Framework: Phases of Order After Catastrophe</h2>
+<p>Building on Quarantelli's disaster/catastrophe distinction from <a href="q4-breakdown-law-and-order.html">Q4</a> and Rotberg's failed-state typology,<a href="#ref-rotberg" class="cite">[5]</a> medium-term order can be modeled in phases:</p>
+
+<div class="diagram">
+  <strong style="color:var(--accent);">Five-Phase Model of Post-Catastrophe Order</strong>
+  <div class="phase-bar">
+    <div class="phase p1">1. Shock<br><small>0–2 wks</small></div>
+    <div class="phase p2">2. Vacuum<br><small>2 wks–6 mo</small></div>
+    <div class="phase p3">3. Fragmentation<br><small>6 mo–5 yr</small></div>
+    <div class="phase p4">4. Competing authority<br><small>5–15 yr</small></div>
+    <div class="phase p5">5. Reconsolidation or collapse<br><small>15+ yr</small></div>
+  </div>
+  <table>
+    <tr><th>Phase</th><th>Order provider</th><th>Law character</th></tr>
+    <tr><td>Shock</td><td>Survivors, neighbors, foreign military/NGOs</td><td>Ad hoc; survival norms; rumor-driven violence</td></tr>
+    <tr><td>Vacuum</td><td>Peacekeepers, NGOs, vigilante baz</td><td>Parallel systems; weak prosecution</td></tr>
+    <tr><td>Fragmentation</td><td>Gangs, corrupt police, international contractors</td><td>Territorial; extortion as "taxation"</td></tr>
+    <tr><td>Competing authority</td><td>Gang federations, political patrons, UN missions</td><td>Political violence; kidnapping economy</td></tr>
+    <tr><td>Reconsolidation / collapse</td><td>State, warlords, or external administration</td><td>Either renewed monopoly on force or permanent failed state</td></tr>
+  </table>
+  <p style="color:var(--muted);font-size:0.88rem;margin-top:0.75rem;">Synthesized from Quarantelli (2005), Rotberg (2003), Bolton (2011), Echebarria (2023), Crisis Group (2024).</p>
+</div>
+
+<h2 id="reestablish">How Law and Order Is Re-established (or Not)</h2>
+<p>When a government falls or is physically destroyed, three pathways dominate the literature:<a href="#ref-rotberg" class="cite">[5]</a><a href="#ref-malejacq" class="cite">[6]</a></p>
+
+<h3>Pathway A: Victor's army / revolutionary consolidation</h3>
+<p>The armed group that wins the crisis becomes the state. Rare after natural catastrophe unless catastrophe triggers revolution (e.g., Ming peasant rebellions after famine and plague).<a href="#ref-ming" class="cite">[7]</a></p>
+
+<h3>Pathway B: External intervention and hollow state</h3>
+<p>Foreign peacekeepers and NGOs provide services while nominally supporting a surviving government. Haiti 2010 is the archetype: MINUSTAH (already present since 2004) expanded by 3,500 personnel via UNSCR 1908;<a href="#ref-minustah" class="cite">[8]</a> U.S. Operation Unified Response deployed 22,000 personnel.<a href="#ref-jfsc-haiti" class="cite">[9]</a> Over 90% of aid bypassed Haitian ministries.<a href="#ref-claremont" class="cite">[10]</a> Result: a "hollowed out" state — elections continued, but real protection came from gangs, UN police, or not at all.<a href="#ref-bolton" class="cite">[11]</a></p>
+
+<h3>Pathway C: Warlord / gang governance</h3>
+<p>Non-state armed actors fill the vacuum. Citizens "are more likely to turn to a gangleader, warlord, private security firm or multinational peacekeeping force, than to the security services of their own state."<a href="#ref-bolton" class="cite">[11]</a> Warlords "shape-shift" and adapt rather than disappear under intervention.<a href="#ref-malejacq" class="cite">[6]</a> In Haiti, baz self-defense groups formed after 2010 were overtaken by younger, more violent gangs by 2012.<a href="#ref-gitoc" class="cite">[12]</a></p>
+
+<h3>Requirements for successful re-establishment</h3>
+<table>
+  <tr><th>Factor</th><th>Effect</th><th>Haiti 2010 evidence</th></tr>
+  <tr><td>Legitimate monopoly on force</td><td>Essential for durable order</td><td>HNP remained underfunded (~$2.50/person/year); 3,000 officers lost.<a href="#ref-echebarria" class="cite">[13]</a></td></tr>
+  <tr><td>Prosecution capacity</td><td>Deters violence</td><td>Courts destroyed; rape rarely prosecuted.<a href="#ref-amnesty-camps" class="cite">[3]</a></td></tr>
+  <tr><td>Resource delivery through state</td><td>Builds trust</td><td>NGO bypass eroded legitimacy: "The UN feeds us. The government is just a ghost."<a href="#ref-claremont" class="cite">[10]</a></td></tr>
+  <tr><td>Political consensus</td><td>Enables institution-building</td><td>Flawed 2010 elections; Martelly (2011–2016) linked to gang patronage.<a href="#ref-gitoc" class="cite">[12]</a></td></tr>
+  <tr><td>Exit strategy for foreign forces</td><td>Prevents dependency</td><td>MINUSTAH 2004–2017; cholera introduced 2010; trust destroyed.<a href="#ref-echebarria" class="cite">[13]</a></td></tr>
+</table>
+
+<h2 id="violence">Violence Under Resource Competition</h2>
+<p>When survival goods — food, water, shelter, medicine — are scarce, violence is not automatic but becomes rational for actors who can capture distribution chains.<a href="#ref-scarcity-review" class="cite">[14]</a></p>
+
+<h3>Scarcity → violence pathways</h3>
+<ul>
+  <li><strong>Distribution capture:</strong> Armed groups control aid convoys, ports, and markets. G9 held up fuel trucks at Port-au-Prince port (2021).<a href="#ref-gitoc-timeline" class="cite">[15]</a></li>
+  <li><strong>Predation on the vulnerable:</strong> Displacement camps: 250+ rapes reported in first 150 days; armed men roaming camps after dark.<a href="#ref-amnesty-camps" class="cite">[3]</a></li>
+  <li><strong>Prison breach:</strong> ~4,000 escaped inmates increased predatory capacity immediately.<a href="#ref-bolton" class="cite">[11]</a></li>
+  <li><strong>Survival sex economy:</strong> Women traded sex for food; pregnancy rates in camps 3× urban pre-quake norms.<a href="#ref-hrw-camps" class="cite">[16]</a></li>
+  <li><strong>Parochialism under loss:</strong> Cyclone Pam study: property damage decreased prosocial giving; seeing others' distress increased it.<a href="#ref-vanuatu" class="cite">[17]</a></li>
+</ul>
+
+<h3>When groups choose violence vs. cooperation</h3>
+<table>
+  <tr><th>Condition</th><th>Tendency</th><th>Source</th></tr>
+  <tr><td>Perceived zero-sum resources</td><td>Competition, hoarding, parochialism</td><td>Scarcity review<a href="#ref-scarcity-review" class="cite">[14]</a></td></tr>
+  <tr><td>Visible others suffering (empathy cue)</td><td>Increased prosociality</td><td>Vanuatu dictator games<a href="#ref-vanuatu" class="cite">[17]</a></td></tr>
+  <tr><td>Personal property loss without social support</td><td>Decreased generosity</td><td>Vanuatu<a href="#ref-vanuatu" class="cite">[17]</a></td></tr>
+  <tr><td>Strong pre-existing social capital</td><td>Mutual aid, lower looting</td><td>Aldrich; BMC review<a href="#ref-bmc-looting" class="cite">[18]</a></td></tr>
+  <tr><td>State weakness + inequality</td><td>Distrust, increased looting</td><td>BMC review<a href="#ref-bmc-looting" class="cite">[18]</a></td></tr>
+  <tr><td>Political sponsorship of armed groups</td><td>Sustained organized violence</td><td>Crisis Group<a href="#ref-crisis-gangs" class="cite">[2]</a></td></tr>
+  <tr><td>Impunity (no prosecution)</td><td>Escalating sexual/gang violence</td><td>Amnesty; HRW<a href="#ref-amnesty-camps" class="cite">[3]</a></td></tr>
+</table>
+
+<h2 id="prosocial">What Enables and Blocks Prosocial Behavior in Extreme Catastrophe</h2>
+
+<h3 class="factor-yes">Factors that sustain prosocial behavior</h3>
+<ul>
+  <li><strong>Shared fate / common identity:</strong> Emergent social identities form around shared disaster experience, enabling mutual aid even among strangers.<a href="#ref-drury-identity" class="cite">[1]</a></li>
+  <li><strong>Catastrophe compassion:</strong> Documented altruism spikes under crisis; belief in others' benevolence facilitates cooperation.<a href="#ref-zaki" class="cite">[19]</a></li>
+  <li><strong>Pre-existing community bonds:</strong> Social capital and "informal insurance" networks speed recovery.<a href="#ref-aldrich" class="cite">[20]</a></li>
+  <li><strong>Visible coordination success:</strong> Observing others help increases helping behavior (especially for indirectly affected).<a href="#ref-drury-identity" class="cite">[1]</a></li>
+  <li><strong>Faith and grassroots organizations:</strong> Churches and community groups in Haiti coordinated shelter and food when state absent.<a href="#ref-bmc-looting" class="cite">[18]</a></li>
+  <li><strong>External aid arrival:</strong> Burglary spikes in USVI after Irma declined once humanitarian aid flowed — need-based theft stopped.<a href="#ref-aetv" class="cite">[21]</a></li>
+</ul>
+
+<h3 class="factor-no">Factors that block or erode prosocial behavior</h3>
+<ul>
+  <li><strong>Perceived unequal aid distribution:</strong> Emergent groups dissolve when members feel unfairly treated.<a href="#ref-emergent-decline" class="cite">[22]</a></li>
+  <li><strong>Secondary stressors persisting:</strong> Ongoing camp conditions, not the quake itself, erode solidarity over 12–18 months.<a href="#ref-emergent-decline" class="cite">[22]</a></li>
+  <li><strong>State absence beyond ~6 months:</strong> Without prosecution and services, predation becomes normalized.</li>
+  <li><strong>Political manipulation of armed groups:</strong> Baz morph from defense to offense when politicians arm them.<a href="#ref-gitoc" class="cite">[12]</a></li>
+  <li><strong>Material loss without emotional social contact:</strong> Property damage alone reduces prosocial allocations.<a href="#ref-vanuatu" class="cite">[17]</a></li>
+  <li><strong>Rumor and scapegoating:</strong> Kanto 1923 pattern — false attribution of looting to minorities produced massacre.<a href="#ref-q4-kanto" class="cite">[23]</a></li>
+  <li><strong>International bypass of local institutions:</strong> Signals state irrelevance; "Build Back Better" without local ownership failed.<a href="#ref-echebarria" class="cite">[13]</a></li>
+</ul>
+
+<h2 id="groups">Group Consolidation and Post-Catastrophe Dynamics</h2>
+<p>After catastrophe, individuals rarely remain atomized — they consolidate into groups with distinct functions. Social identity theory predicts these formations; Haiti illustrates the full spectrum from therapeutic community to armed federation.<a href="#ref-drury-identity" class="cite">[1]</a></p>
+
+<h3>Types of post-catastrophe groups</h3>
+<table>
+  <tr><th>Group type</th><th>Function</th><th>Typical lifespan</th><th>Example</th></tr>
+  <tr><td>Emergent mutual-aid</td><td>Rescue, shelter, food sharing</td><td>Weeks to ~18 months</td><td>Camp committees, church groups<a href="#ref-emergent-decline" class="cite">[22]</a></td></tr>
+  <tr><td>Self-defense (baz)</td><td>Camp/neighborhood protection</td><td>Can persist years if armed</td><td>Haiti post-2010 baz → gangs<a href="#ref-gitoc" class="cite">[12]</a></td></tr>
+  <tr><td>NGO / international</td><td>Service delivery</td><td>Project cycle; often exits</td><td>Thousands of NGOs post-quake<a href="#ref-bolton" class="cite">[11]</a></td></tr>
+  <tr><td>Peacekeeping contingent</td><td>Area security, patrol</td><td>Mandate-limited</td><td>MINUSTAH 2004–2017<a href="#ref-minustah" class="cite">[8]</a></td></tr>
+  <tr><td>Criminal / gang</td><td>Extortion, kidnapping, territory</td><td>Years to decades</td><td>G9, G-Pep, 400 Mawozo<a href="#ref-crisis-gangs" class="cite">[2]</a></td></tr>
+  <tr><td>Political-military patron networks</td><td>Election violence, smuggling</td><td>Decades</td><td>PHTK–gang alliances<a href="#ref-insightcrime" class="cite">[24]</a></td></tr>
+</table>
+
+<h3>Group evolution pattern (Haiti model)</h3>
+<div class="diagram">
+  <p style="text-align:center;line-height:2;">
+    <strong>Community baz</strong> (defense) → <strong>armed gang</strong> (territory) → <strong>political instrument</strong> (patron) → <strong>autonomous federation</strong> (G9) → <strong>state challenger</strong> (blocks fuel, demands PM resignation)
+  </p>
+  <p style="color:var(--muted);font-size:0.88rem;">After Moïse assassination (2021), gangs decoupled from patrons and became "overlords of Haiti."<a href="#ref-crisis-gangs" class="cite">[2]</a> By 2023–24, rival federations merged for offensives.<a href="#ref-crisis-gangs" class="cite">[2]</a></p>
+</div>
+
+<h3>Group dynamics that shape the landscape</h3>
+<ul>
+  <li><strong>Identity shift:</strong> From "earthquake survivors" to "camp residents" to "gang territory residents" — each identity carries different norms.<a href="#ref-emergent-decline" class="cite">[22]</a></li>
+  <li><strong>Youth recruitment:</strong> ~200 armed groups by 2023; structural poverty supplies recruits.<a href="#ref-fp-haiti" class="cite">[25]</a></li>
+  <li><strong>Federation logic:</strong> Gangs ally for turf wars, then negotiate truces to preserve resources.<a href="#ref-crisis-gangs" class="cite">[2]</a></li>
+  <li><strong>Gendered violence as group strategy:</strong> Sexual violence in camps served to terrorize and control, not merely individual crime.<a href="#ref-amnesty-camps" class="cite">[3]</a></li>
+  <li><strong>Decline of emergent prosocial groups:</strong> Without institutional support, mutual-aid groups fade by 12–18 months unless secondary stressors maintain common fate.<a href="#ref-emergent-decline" class="cite">[22]</a></li>
+</ul>
+
+<h2 id="haiti">Haiti 2010: Detailed Case Study</h2>
+
+<h3>Pre-existing fragility (context)</h3>
+<p>Haiti in January 2010 was not a blank slate. MINUSTAH had occupied since 2004. Armed baz dated to Aristide's 1990s patronage networks.<a href="#ref-gitoc" class="cite">[12]</a> 170,000–220,000 illegal weapons circulated.<a href="#ref-bolton" class="cite">[11]</a> Cite Soleil was already a "black hole" of insecurity.<a href="#ref-bolton" class="cite">[11]</a> The earthquake did not create fragility — it annihilated what little state capacity remained.</p>
+
+<h3>Literal state collapse (January 2010)</h3>
+<ul>
+  <li>~230,000 dead; 1.5 million displaced; damage ~120% of GDP.<a href="#ref-echebarria" class="cite">[13]</a></li>
+  <li>27 of 28 federal buildings destroyed; National Palace in ruins.<a href="#ref-bolton" class="cite">[11]</a></li>
+  <li>~20% of federal employees killed.<a href="#ref-bolton" class="cite">[11]</a></li>
+  <li>~4,000 prisoners escaped.<a href="#ref-bolton" class="cite">[11]</a></li>
+  <li>101 UN personnel killed including mission leadership.<a href="#ref-minustah" class="cite">[8]</a></li>
+</ul>
+
+<h3>Timeline: medium- to long-term order</h3>
+<table>
+  <tr><th>Period</th><th>Security situation</th><th>Governance</th></tr>
+  <tr><td><strong>Jan–Mar 2010</strong></td><td>MINUSTAH + U.S. forces restore basic security; Day 3 violence at food distribution; rubber bullets fired.<a href="#ref-jfsc-haiti" class="cite">[9]</a> Sporadic looting; vigilante lynchings.<a href="#ref-q4-haiti" class="cite">[23]</a></td><td>Préval govt paralyzed; NGOs flood in; IHRC created.</td></tr>
+  <tr><td><strong>2010–2011</strong></td><td>1,300+ IDP camps; sexual violence epidemic; 250+ rapes in 150 days.<a href="#ref-amnesty-camps" class="cite">[3]</a> UN reports crime comparable to 2009 but camps lawless.<a href="#ref-unsg-2010" class="cite">[26]</a></td><td>Flawed Nov 2010 elections; Martelly elected 2011.</td></tr>
+  <tr><td><strong>2011–2016</strong></td><td>Baz → younger gangs; MINUSTAH cholera (Oct 2010) kills ~10,000; trust in UN collapses.<a href="#ref-echebarria" class="cite">[13]</a></td><td>"Reconstruction" aid drops from 25% to &lt;5% of GNI by 2019.<a href="#ref-echebarria" class="cite">[13]</a> State institutions deteriorate.</td></tr>
+  <tr><td><strong>2017–2020</strong></td><td>MINUSTAH exits; gang proliferation; G9 federation formed (2020).<a href="#ref-gitoc" class="cite">[12]</a></td><td>Moïse governs by decree; PetroCaribe protests; patronage to G9 alleged.</td></tr>
+  <tr><td><strong>2021</strong></td><td>Moïse assassinated Jul 7; Ariel Henry PM; gangs as de facto authorities.<a href="#ref-gitoc-timeline" class="cite">[15]</a></td><td>No parliament; no elected officials; 14% trust govt (2023).<a href="#ref-claremont" class="cite">[10]</a></td></tr>
+  <tr><td><strong>2022–2024</strong></td><td>~75% of Port-au-Prince gang-controlled; 200+ groups; kidnapping economy.<a href="#ref-fp-haiti" class="cite">[25]</a> Kenya-led mission deployed 2024.</td><td>Transitional council; gang federations merge; state absent in capital.</td></tr>
+</table>
+
+<h3>Why "Build Back Better" failed to restore order</h3>
+<p>Echebarria (2023) identifies six structural failures:<a href="#ref-echebarria" class="cite">[13]</a></p>
+<ol>
+  <li>Reconstruction and development objectives combined with insufficient resources</li>
+  <li>Security built on unsustainable model — weak, underfunded HNP</li>
+  <li>Divisive politics never addressed as root cause</li>
+  <li>Deep mistrust between Haitian authorities and donors</li>
+  <li>State-building failed; institutions deteriorated further</li>
+  <li>Project-by-project donor approach dispersed effort</li>
+</ol>
+<p>The earthquake "did not serve as a catalyst to unite the nation."<a href="#ref-echebarria" class="cite">[13]</a> International community "contributing to the pernicious cycle of sidelining country institutions and eroding state capacity."<a href="#ref-echebarria" class="cite">[13]</a></p>
+
+<h3>Prosocial strands that persisted (and faded)</h3>
+<ul>
+  <li><strong>Immediate:</strong> Neighbors dug survivors from rubble; Argentine field hospital operated; Haitian diaspora remittances surged.<a href="#ref-jfsc-haiti" class="cite">[9]</a></li>
+  <li><strong>Medium:</strong> Camp committees organized; women's groups (KOFAVIK) documented violence.<a href="#ref-madre" class="cite">[27]</a></li>
+  <li><strong>Fade:</strong> By 2016, ~62,600 still in camps; solidarity eroded under chronic insecurity, unequal aid, and gang recruitment of youth.<a href="#ref-manchester-camps" class="cite">[28]</a></li>
+</ul>
+
+<h2 id="comparative">Comparative Medium-Term Examples (18 cases)</h2>
+<table>
+  <tr><th>Event</th><th>State fate</th><th>Medium-term order</th><th>Re-establishment</th></tr>
+  <tr><td>Great Kanto Earthquake 1923</td><td>Survived</td><td>Vigilante massacre of ~6,000 Koreans</td><td>State reasserted; perpetrators lightly punished<a href="#ref-q4-kanto" class="cite">[23]</a></td></tr>
+  <tr><td>San Francisco 1906</td><td>Survived</td><td>Martial law; troops shot looters</td><td>City govt restored within months</td></tr>
+  <tr><td>Germany 1945</td><td>Collapsed</td><td>Allied occupation; black market</td><td>West/East partition; new states<a href="#ref-q1" class="cite">[R1]</a></td></tr>
+  <tr><td>Somalia 1991</td><td>Collapsed</td><td>Warlord fiefdoms</td><td>Never fully reconsolidated<a href="#ref-rotberg" class="cite">[5]</a></td></tr>
+  <tr><td>Afghanistan 2001–2021</td><td>Intervention then collapse</td><td>Warlords integrated then Taliban return</td><td>Failed consolidation<a href="#ref-malejacq" class="cite">[6]</a></td></tr>
+  <tr><td>Katrina 2005</td><td>Survived (federal rescue)</td><td>Crime normalization; NOPD corruption</td><td>Federal order ~2 weeks; long-term inequality<a href="#ref-q4" class="cite">[Q4]</a></td></tr>
+  <tr><td>St. Croix / Hugo 1989</td><td>Territory; U.S. intervened</td><td>1,100 troops; order ~1 week</td><td>Federal restoration<a href="#ref-q4" class="cite">[Q4]</a></td></tr>
+  <tr><td>Chile earthquake 2010</td><td>Survived</td><td>Property crime fell 15–30% for 4 years</td><td>State + social capital<a href="#ref-chile" class="cite">[29]</a></td></tr>
+  <tr><td>Christchurch 2010–11</td><td>Survived</td><td>Crime below pre-quake by 2013</td><td>NZ institutions held<a href="#ref-christchurch" class="cite">[30]</a></td></tr>
+  <tr><td>Syria earthquake 2023</td><td>War + disaster</td><td>Competing authorities (Assad, rebels, Turkey)</td><td>Fragmented<a href="#ref-q1" class="cite">[R1]</a></td></tr>
+  <tr><td>Liberia civil war end 2003</td><td>Collapsed then rebuilt</td><td>UNMIL 2003–2018</td><td>Gradual; gangs → politics</td></tr>
+  <tr><td>Sierra Leone post-war</td><td>Collapsed then rebuilt</td><td>UK intervention; DDR programs</td><td>Partial consolidation</td></tr>
+  <tr><td>Ming collapse 1644</td><td>Overthrown</td><td>Famine, plague, rebellion; ~40% depopulation</td><td>Qing conquest<a href="#ref-ming" class="cite">[7]</a></td></tr>
+  <tr><td>Black Death Europe</td><td>Fragmented feudal order</td><td>Labor scarcity shifted power</td><td>Gradual institutional adaptation<a href="#ref-q1" class="cite">[R1]</a></td></tr>
+  <tr><td>Rwanda post-1994</td><td>RPF victory</td><td>Gacaca courts; authoritarian stability</td><td>Victor's justice model</td></tr>
+  <tr><td>Lebanon post-2020 blast</td><td>Weak state persists</td><td>Militia welfare; banking collapse</td><td>No reconsolidation</td></tr>
+  <tr><td>Puerto Rico / Maria 2017</td><td>Territory</td><td>Federal aid; corruption scandals</td><td>U.S. federal umbrella</td></tr>
+  <tr><td>Haiti 2010</td><td>Physically destroyed, nominally survived</td><td>Gang governance; chronic insecurity</td><td><strong>Failed</strong> — primary case<a href="#ref-echebarria" class="cite">[13]</a></td></tr>
+</table>
+
+<h2 id="conclusion">Conclusion</h2>
+<div class="conclusion-box">
+  <h3 style="margin-top:0;color:var(--accent2);">Concise Conclusion</h3>
+  <p>Medium- to long-term law and order after catastrophe follows a different logic than the first 72 hours studied in <a href="q4-breakdown-law-and-order.html">Q4</a>. Immediate prosocial behavior is real but <em>temporary</em>. Whether order re-establishes depends on whether a legitimate monopoly on force emerges — through state rebuilding, victor consolidation, or sustained external intervention.</p>
+  <p><strong>Haiti 2010 teaches that catastrophe atop a weak state does not produce renewal; it accelerates fragmentation.</strong> The government survived nominally but lost physical capacity, legitimacy, and the monopoly on violence. NGOs and peacekeepers filled service gaps but could not substitute for prosecution, political consensus, or equitable resource distribution. Self-defense groups consolidated into gangs; gangs consolidated into federations; federations became de facto rulers.</p>
+  <p><strong>Prosocial behavior persists when:</strong> common identity is maintained, aid is perceived as fair, the state (or a trusted alternative) provides security, and secondary stressors are resolved.</p>
+  <p><strong>Violence escalates when:</strong> resources are captured by armed groups, impunity is total, political elites arm factions, and international actors bypass local institutions.</p>
+  <p><strong>For the Apocalypse Story epidemic scenario:</strong> A 50–90% population loss over weeks resembles Haiti's institutional annihilation more than Japan's Kobe earthquake. The critical medium-term variables are: who controls food and medicine distribution, whether emergent mutual-aid groups are armed and politicized, and whether any surviving authority can prosecute predation. Without those, prosocial "catastrophe compassion" erodes within 12–18 months — and group consolidation favors whoever offers protection, however violently.</p>
+</div>
+
+<h3>Further research (4.2+)</h3>
+<ul>
+  <li>Epidemic-specific catastrophe: no building collapse but identical institutional death toll</li>
+  <li>U.S.-specific medium-term models: federalism, National Guard, private security industry</li>
+  <li>When do emergent groups successfully <em>become</em> the new state (positive consolidation)?</li>
+  <li>Cross-read with <a href="q1-historical-parallels.html">Q1</a>: plague-driven governance collapse parallels</li>
+</ul>
+
+<h2 id="references">References</h2>
+<ol class="refs">
+  <li id="ref-drury-identity">Drury, J. et al. (2016–2019). Emergent social identity and collective resilience. <em>European Journal of Social Psychology</em>; <em>BJSP</em>; <em>Frontiers in Public Health</em>. <a href="https://doi.org/10.1002/ejsp.2146">DOI</a></li>
+  <li id="ref-crisis-gangs">International Crisis Group (2024). Undoing Haiti's deadly gang alliance. <a href="https://www.crisisgroup.org/rpt/latin-america-caribbean/haiti/110-undoing-haitis-deadly-gang-alliance">Link</a></li>
+  <li id="ref-amnesty-camps">Amnesty International (2011). Aftershocks: Women speak out against sexual violence in Haiti's camps. <a href="https://www.amnesty.org/en/documents/amr36/001/2011/en/">Link</a></li>
+  <li id="ref-ssrc-epidemic">Felt, U. (2020). Disaster studies and Covid-19 legacies. SSRC Items. <a href="https://items.ssrc.org/covid-19-and-the-social-sciences/disaster-studies/disaster-studies-as-politics-with-other-means-covid-19-and-the-legacies-of-cold-war-disaster-research/">Link</a></li>
+  <li id="ref-rotberg">Rotberg, R. (2003). Failed states, collapsed states. Brookings. <a href="https://www.brookings.edu/wp-content/uploads/2016/07/statefailureandstateweaknessinatimeofterror_chapter.pdf">PDF</a></li>
+  <li id="ref-malejacq">Malejacq, R. (2016). Warlord survival. Cornell UP; PRIO review. <a href="https://doi.org/10.1080/09636412.2016.1134191">DOI</a></li>
+  <li id="ref-ming">Xu, Z. (2022). Climate change, epidemics, fiscal breakdown, and the collapse of the Great Ming. <a href="https://doi.org/10.31235/osf.io/rwe32">OSF</a></li>
+  <li id="ref-minustah">UN Security Council (2010). S/2010/200 MINUSTAH report. <a href="https://reliefweb.int/report/haiti/report-secretary-general-united-nations-stabilization-mission-haiti-s2010200">ReliefWeb</a></li>
+  <li id="ref-jfsc-haiti">JFSC (2010). Haiti HADR case study. <a href="https://jfsc.ndu.edu/portals/72/documents/jc2ios/additional_reading/4a_haiti_hadr_case_study_revnov10.pdf">PDF</a></li>
+  <li id="ref-claremont">Claremont Journal (2024). Rebuilding Haiti: constitutional fragility and gang rule. <a href="https://claremontlawjournal.sites.pomona.edu/?p=463">Link</a></li>
+  <li id="ref-bolton">Bolton, M. (2011). Global governance in post-earthquake Haiti. LSE. <a href="https://researchonline.lse.ac.uk/id/eprint/32167/">Link</a></li>
+  <li id="ref-gitoc">Global Initiative (2022). Gangs of Haiti. <a href="https://globalinitiative.net/wp-content/uploads/2022/10/GITOC-Gangs-of-Haiti.pdf">PDF</a></li>
+  <li id="ref-echebarria">Echebarria, K. (2023). Haiti's failed quest for stability after the 2010 earthquake. CGD Policy Paper 312. <a href="https://www.cgdev.org/publication/haitis-failed-quest-stability-and-development-after-2010-earthquake-why-did-it-go-wrong">Link</a></li>
+  <li id="ref-scarcity-review">Bialek, M. et al. (2024). Scarcity and prosocial behaviour review. <em>Current Opinion in Psychology</em>. <a href="https://doi.org/10.1016/j.copsyc.2024.101234">DOI</a></li>
+  <li id="ref-gitoc-timeline">Global Initiative (2022). Gangs of Haiti timeline. <a href="https://globalinitiative.net/wp-content/uploads/2022/10/GITOC-Gangs-of-Haiti-Timeline.pdf">PDF</a></li>
+  <li id="ref-hrw-camps">Human Rights Watch (2011). Nobody remembers us. <a href="https://www.hrw.org/report/2011/08/19/nobody-remembers-us/failure-protect-womens-and-girls-right-health-and-security">Link</a></li>
+  <li id="ref-vanuatu">Pisor, A. et al. (2019). Property damage and exposure to distress predict prosocial behavior. <em>Psychological Science</em>. <a href="https://doi.org/10.1177/0956797619826972">DOI</a></li>
+  <li id="ref-bmc-looting">BMC Public Health (2025). Looting and antisocial behavior systematic review. <a href="https://link.springer.com/article/10.1186/s12889-025-21285-7">Link</a></li>
+  <li id="ref-zaki">Zaki, J. (2020). Catastrophe compassion. <em>Trends in Cognitive Sciences</em>. <a href="https://doi.org/10.1016/j.tics.2020.01.006">DOI</a></li>
+  <li id="ref-aldrich">Aldrich, D. (2012). <em>Building Resilience</em>. University of Chicago Press.</li>
+  <li id="ref-aetv">A&amp;E (2025). Crime after natural disaster. <a href="https://www.aetv.com/articles/does-crime-increase-natural-disaster">Link</a></li>
+  <li id="ref-emergent-decline">Ntontis, E. et al. (2020). Endurance or decline of emergent groups after flood. <em>Journal of Community &amp; Applied Social Psychology</em>. <a href="https://doi.org/10.1002/casp.2329">DOI</a></li>
+  <li id="ref-q4-haiti">See <a href="q4-breakdown-law-and-order.html">Q4</a> case study #27; NYT (2010). <a href="https://www.nytimes.com/2010/01/17/world/americas/17looting.html">Link</a></li>
+  <li id="ref-insightcrime">InSight Crime (2023). Haiti sanctions and patronage system. <a href="https://insightcrime.org/news/international-sanctions-seek-to-weaken-haitis-patronage-system-between-politicians-gangs/">Link</a></li>
+  <li id="ref-fp-haiti">Foreign Policy (2023). Haiti faces home-grown state failure. <a href="https://foreignpolicy.com/2023/02/17/haiti-crisis-corruption-criminal-gangs-violence-humanitarian-assistance-state-failure-sanctions/">Link</a></li>
+  <li id="ref-unsg-2010">UN SG Report S/2010/446. <a href="https://www.securitycouncilreport.org/atf/cf/%7B65BFCF9B-6D27-4E9C-8CD3-CF6E4FF96FF9%7D/Haiti%20S%202010%20446%20SG%20Report.pdf">PDF</a></li>
+  <li id="ref-madre">MADRE et al. (2011). Gender-based violence in IDP camps. <a href="https://mouka.ht/document/gender-based-violence-against-haitian-women-girls-international-displacement-camps">Link</a></li>
+  <li id="ref-manchester-camps">Manchester HCRI (2021). Sexual violence after disaster. <a href="https://blogs.manchester.ac.uk/hcri/2021/05/25/sexual-violence-in-the-aftermath-of-disaster/">Link</a></li>
+  <li id="ref-chile">García-Hombrados, J. (2020). Chile earthquake and property crime. <a href="https://doi.org/10.1016/j.jpubeco.2020.104197">DOI</a></li>
+  <li id="ref-christchurch">Graham, L. (2014). Canterbury earthquakes and crime. U. Canterbury. <a href="https://ir.canterbury.ac.nz/bitstreams/b2ec8c25-3024-412c-abb2-b7766059b808/download">PDF</a></li>
+  <li id="ref-q4">Apocalypse Story Q4 report. <a href="q4-breakdown-law-and-order.html">q4-breakdown-law-and-order.html</a></li>
+  <li id="ref-q4-kanto">See Q4 case study #3; Hasegawa (2020). <a href="https://doi.org/10.1353/mni.2020.0002">DOI</a></li>
+  <li id="ref-q1">Apocalypse Story Q1 report. <a href="q1-historical-parallels.html">q1-historical-parallels.html</a></li>
+</ol>
+
+<p class="meta" style="margin-top:3rem;">End of report · Apocalypse Story Q4.1 · July 2026</p>
+</div>
+</body>
+</html>
