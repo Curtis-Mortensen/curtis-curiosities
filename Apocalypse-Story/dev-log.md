@@ -1,5 +1,26 @@
 # Apocalypse Story — Dev Log
 
+## 2026-07-05 — Mesa Fireworks Viewing Guide (complete, updated for July 4 MST)
+
+### Plan summary
+User in Mesa, AZ asked where to drive tonight to see fireworks in Mesa, Tempe, Apache Junction, or Phoenix — ranked by display scale and parking difficulty. Initial draft used UTC date (July 5); user corrected that it is still July 4, ~8 PM in Arizona.
+
+### Key finding
+All major city-sponsored fireworks are happening TONIGHT (Saturday, July 4, 2026). At 8 PM MST from Mesa, best options: downtown Mesa Celebration of Freedom (fireworks 9:35 PM) or Tempe Diablo Stadium (~9:15 PM). Apache Junction (8:30 PM) and Hurricane Harbor (~8:45 PM) likely too late.
+
+### Changes made
+- Created `docs/mesa-fireworks-july-4-2026.html` — full research brief with go-now urgency guide at 8 PM, ranked catalog, venue profiles, drive times, 20 citations.
+- Updated from July 5 "shows already over" to July 4 "leave now" guidance.
+
+### Assumptions
+- User departure point: central Mesa. Drive times are estimates.
+- Fireworks/parking scores are editorial judgments from official sources and local media.
+
+### Bugs / problems
+- Initial version incorrectly assumed July 5 due to UTC/server timezone. Corrected per user feedback.
+
+---
+
 ## 2026-07-04 — Question 6: Simulation Software (complete)
 
 ### Plan summary
