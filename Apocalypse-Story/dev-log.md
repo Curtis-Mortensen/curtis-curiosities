@@ -1,5 +1,26 @@
 # Apocalypse Story — Dev Log
 
+## 2026-07-05 — Mesa Fireworks Viewing Guide (complete)
+
+### Plan summary
+User in Mesa, AZ asked where to drive tonight (July 5, 2026) to see fireworks in Mesa, Tempe, Apache Junction, or Phoenix — ranked by display scale and parking difficulty. Deliver detailed research doc in Apocalypse Story docs style.
+
+### Key finding
+All major city-sponsored fireworks in the four requested cities ran July 4, 2026. No municipal shows scheduled for July 5. Tonight's realistic options: neighborhood/legal consumer fireworks (permitted through July 6) or an uncertain community meetup at Paseo Highlands Park (Hurricane Harbor rain-date unlikely).
+
+### Changes made
+- Created `docs/mesa-fireworks-july-5-2026.html` — full research brief with tonight's options, ranked July 4 catalog (7 venues), scoring methodology, drive times from Mesa, venue profiles, and 20 citations.
+
+### Assumptions
+- User departure point: central Mesa. Drive times are estimates.
+- Fireworks/parking scores are editorial judgments from official sources and local media, documented in methodology section.
+- Hurricane Harbor July 5 show treated as unlikely (park closes 7 PM, July 4 weather was clear).
+
+### Bugs / problems
+- None during document creation.
+
+---
+
 ## 2026-07-04 — Question 6: Simulation Software (complete)
 
 ### Plan summary
