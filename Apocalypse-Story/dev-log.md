@@ -1,23 +1,23 @@
 # Apocalypse Story — Dev Log
 
-## 2026-07-05 — Mesa Fireworks Viewing Guide (complete)
+## 2026-07-05 — Mesa Fireworks Viewing Guide (complete, updated for July 4 MST)
 
 ### Plan summary
-User in Mesa, AZ asked where to drive tonight (July 5, 2026) to see fireworks in Mesa, Tempe, Apache Junction, or Phoenix — ranked by display scale and parking difficulty. Deliver detailed research doc in Apocalypse Story docs style.
+User in Mesa, AZ asked where to drive tonight to see fireworks in Mesa, Tempe, Apache Junction, or Phoenix — ranked by display scale and parking difficulty. Initial draft used UTC date (July 5); user corrected that it is still July 4, ~8 PM in Arizona.
 
 ### Key finding
-All major city-sponsored fireworks in the four requested cities ran July 4, 2026. No municipal shows scheduled for July 5. Tonight's realistic options: neighborhood/legal consumer fireworks (permitted through July 6) or an uncertain community meetup at Paseo Highlands Park (Hurricane Harbor rain-date unlikely).
+All major city-sponsored fireworks are happening TONIGHT (Saturday, July 4, 2026). At 8 PM MST from Mesa, best options: downtown Mesa Celebration of Freedom (fireworks 9:35 PM) or Tempe Diablo Stadium (~9:15 PM). Apache Junction (8:30 PM) and Hurricane Harbor (~8:45 PM) likely too late.
 
 ### Changes made
-- Created `docs/mesa-fireworks-july-5-2026.html` — full research brief with tonight's options, ranked July 4 catalog (7 venues), scoring methodology, drive times from Mesa, venue profiles, and 20 citations.
+- Created `docs/mesa-fireworks-july-4-2026.html` — full research brief with go-now urgency guide at 8 PM, ranked catalog, venue profiles, drive times, 20 citations.
+- Updated from July 5 "shows already over" to July 4 "leave now" guidance.
 
 ### Assumptions
 - User departure point: central Mesa. Drive times are estimates.
-- Fireworks/parking scores are editorial judgments from official sources and local media, documented in methodology section.
-- Hurricane Harbor July 5 show treated as unlikely (park closes 7 PM, July 4 weather was clear).
+- Fireworks/parking scores are editorial judgments from official sources and local media.
 
 ### Bugs / problems
-- None during document creation.
+- Initial version incorrectly assumed July 5 due to UTC/server timezone. Corrected per user feedback.
 
 ---
 
