@@ -10,7 +10,8 @@ This is a repo dedicated to research
 - After the aims, note the limitations of the research - give theoretical limitations first (human psychology is inhently chaotic, as an example) before diving into methodoloy and literature limitations. Note the strength of the evidence by giving some commentary on that area of study and where it is as a field (and the history of the field). In fact, add a section on the history of the fields that attempt to answer that question.
 - Report documents shouldn't be afraid to dive into technical detail but should be very thorough in citing sources. Almost every sentance or fact or statement should have sources. Treat this as a research paper. While keeping overviews and headings and thesis readable, give as much info as possible.
 - When researching questions that want examples, find as many examples as possible - 20-50 is appropriate.
-- At the end of the document, present a consice conclusion. Identify further potential research questions and directions for interesting additional study. 
+- At the end of the document, present a consice conclusion. Identify further potential research questions and directions for interesting additional study.
+- Although the AGENTS.md specifies that docs should typically go in docs/, that isn't true for this folder. One-time questions are kept here, in the base folder, and series of questions are grouped by topic, like Apocalypse-Story. Don't create a docs folder, or any other folders. The user will organize the reports into folders. 
 
 ## Apocalypse Story
 
