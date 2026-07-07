@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Management Theory &amp; Organizational Science — Management Sim Research (Q1)</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #21262d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #d4a853;
+    --accent2: #58a6ff;
+    --danger: #f85149;
+    --success: #3fb950;
+    --link: #79c0ff;
+    --border: #30363d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  h1 { font-size: 2rem; line-height: 1.25; margin-bottom: 0.5rem; color: var(--accent); }
+  .subtitle { color: var(--muted); font-style: italic; font-size: 1.05rem; }
+  h2 {
+    font-size: 1.45rem;
+    color: var(--accent2);
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 { font-size: 1.15rem; color: var(--accent); margin: 1.5rem 0 0.75rem; }
+  h4 { font-size: 1rem; color: var(--muted); margin: 1rem 0 0.5rem; }
+  p { margin-bottom: 1rem; }
+  a { color: var(--link); }
+  a:hover { text-decoration: underline; }
+  .thesis-box {
+    background: var(--surface);
+    border-left: 4px solid var(--accent);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .limitation-box {
+    background: var(--surface);
+    border-left: 4px solid var(--danger);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .overview-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+  .overview-card h4 { color: var(--accent2); margin-top: 0; }
+  .diagram {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    white-space: pre;
+    color: var(--muted);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.86rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.55rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: var(--surface2); color: var(--accent2); font-weight: 600; }
+  tr:nth-child(even) { background: var(--surface); }
+  tr:nth-child(odd) { background: rgba(22,27,34,0.5); }
+  .cite { font-size: 0.82rem; color: var(--muted); }
+  .ref-list { font-size: 0.85rem; }
+  .ref-list li { margin-bottom: 0.6rem; }
+  .conclusion-box {
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+    border: 1px solid var(--accent2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--surface2);
+    color: var(--accent);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    margin-right: 0.3rem;
+    font-family: sans-serif;
+  }
+  ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  @media print {
+    body { background: white; color: black; }
+    .overview-card, .thesis-box, table { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>Management Theory &amp; Organizational Science</h1>
+  <p class="subtitle">Research Report for <em>Management Sim</em> — Question 1: What are the main theories of business and organizational management, how has the field evolved, what does an MBA teach, and what does research say about good vs. poor management?</p>
+  <p class="cite">Compiled July 2026. Self-contained document; no prior context required.</p>
+</header>
+
+<!-- ========== INTRODUCTION ========== -->
+<section id="introduction">
+  <h2>1. Introduction and Aims</h2>
+  <p>This document surveys the intellectual foundations of business and organizational management — the theories, books, curricula, and empirical research that underpin how modern firms are designed, led, and operated. It is written to inform a <strong>management simulation video game</strong> in which players make structural, personnel, and strategic decisions and observe their consequences on productivity, morale, innovation, and survival.</p>
+
+  <div class="thesis-box">
+    <strong>Central thesis:</strong> Management is neither pure art nor pure science, but a <em>contingent applied discipline</em> that has evolved through five broad eras — pre-industrial craft, classical efficiency, human relations, systems/contingency, and data-driven modern practice. No single "best way" to manage exists; outcomes depend on fit between organizational design, leadership behavior, workforce capability, and environmental turbulence. However, <strong>decades of rigorous research confirm that management quality is a first-order determinant of firm performance</strong> — often larger than capital, technology, or industry effects within a given competitive set (Bloom &amp; Van Reenen, 2007; Lazear, Shaw &amp; Stanton, 2015; Gallup, 2015).
+  </div>
+
+  <p>The research questions addressed:</p>
+  <blockquote style="border-left:3px solid var(--border);padding-left:1rem;margin:1rem 0;color:var(--muted);font-style:italic;">
+    What are the main theories of business and organizational management? What are the most influential books? How has management evolved historically? What does a typical MBA curriculum cover? What does science say about effective management and leadership? What are ongoing debates — especially around flat organizations and the reduction of middle management? What studies demonstrate the difference between good and poor management in achieving outcomes?
+  </blockquote>
+
+  <p>This report addresses those questions through eight lenses: (1) precursor and definitional questions, (2) limitations and evidence strength, (3) the history of management as a field, (4) major theoretical schools, (5) leadership theory, (6) the MBA curriculum, (7) influential books, (8) empirical research on management quality and organizational design, and (9) implications for game design.</p>
+</section>
+
+<!-- ========== PRECURSOR QUESTIONS ========== -->
+<section id="precursor-questions">
+  <h2>2. Precursor and Subset Questions</h2>
+  <p>Before surveying theories, several definitional and scope questions must be resolved. Each shapes what "management" means in both scholarship and gameplay.</p>
+
+  <div class="overview-grid">
+    <div class="overview-card">
+      <h4>Management vs. Leadership</h4>
+      <p>Kotter (1990) distinguished <em>management</em> (planning, budgeting, organizing, controlling) from <em>leadership</em> (setting direction, aligning people, motivating). Mintzberg (1973) found managers spend most time in interpersonal, informational, and decisional roles — not the rational planning model textbooks describe. For a game, both are levers: structural design (management) and inspirational behavior (leadership).</p>
+    </div>
+    <div class="overview-card">
+      <h4>Organization vs. Firm</h4>
+      <p>Management theory applies to any coordinated group — corporations, hospitals, armies, NGOs, startups. Theories differ in emphasis: classical theory targeted factories; contingency theory addressed diversified conglomerates; modern theory includes platform firms and remote teams (Daft, 2015).</p>
+    </div>
+    <div class="overview-card">
+      <h4>Universal vs. Contingent</h4>
+      <p>Classical and "best practice" schools (Taylor, Fayol, Peters &amp; Waterman) claim universal principles. Contingency theory (Lawrence &amp; Lorsch, 1967; Burns &amp; Stalker, 1961) argues optimal structure depends on environment, technology, and size. This tension is central to game design: should one strategy dominate, or should context matter?</p>
+    </div>
+    <div class="overview-card">
+      <h4>Prescriptive vs. Descriptive</h4>
+      <p>Many canonical texts are prescriptive ("do this"). Academic research is increasingly descriptive and causal (randomized trials, natural experiments). A simulation should distinguish player advice (which may be wrong) from ground-truth mechanics (what research supports).</p>
+    </div>
+    <div class="overview-card">
+      <h4>Outcome Metrics</h4>
+      <p>"Good management" can mean productivity, profitability, survival, employee wellbeing, innovation rate, or ethical conduct. Different theories optimize different outcomes. Research typically measures productivity, profitability, Tobin's Q, survival, and employee engagement (Bloom &amp; Van Reenen, 2007; Gallup, 2015).</p>
+    </div>
+    <div class="overview-card">
+      <h4>Level of Analysis</h4>
+      <p>Theories operate at individual (motivation), team (group dynamics), organizational (structure), and institutional (industry, regulation) levels. A management sim must decide which levels are player-controllable and which are environmental constraints.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== LIMITATIONS ========== -->
+<section id="limitations">
+  <h2>3. Limitations of This Research</h2>
+
+  <h3>3.1 Theoretical Limitations</h3>
+  <div class="limitation-box">
+    <p><strong>Organizations are open, adaptive systems.</strong> Unlike physics, management lacks universal laws. Findings from manufacturing plants in the 1920s may not transfer to software teams in 2026 (Lawrence &amp; Lorsch, 1967; Perrow, 1970).</p>
+    <p><strong>Publication and survivorship bias.</strong> Famous case studies (GE, Toyota, Enron) are cherry-picked. "Excellence" books profile successful firms retrospectively; many "excellent" firms later failed (Byrne, 2003; Rosenzweig, 2007).</p>
+    <p><strong>Western and corporate bias.</strong> Most canonical theory originates in American and European industrial contexts. Cross-cultural management (Hofstede, 1980; House et al., 2004 GLOBE study) reveals significant variation in authority, communication, and motivation norms.</p>
+    <p><strong>Leadership is endogenous.</strong> Firms that are already succeeding attract and retain better managers, confounding causality. Randomized experiments (Bloom et al., 2013 India RCT) are rare but growing.</p>
+    <p><strong>Management fashion cycles.</strong> TQM, reengineering, Holacracy, and "radical transparency" rise and fall. What is "cutting edge" in one decade becomes discredited or absorbed into baseline practice in the next (Abrahamson, 1996).</p>
+  </div>
+
+  <h3>3.2 Methodological and Literature Limitations</h3>
+  <p>Management research relies heavily on surveys, case studies, and correlational analyses. The World Management Survey (WMS) pioneered structured interview scoring but still measures self-reported practices (Bloom &amp; Van Reenen, 2007). Laboratory leadership studies lack ecological validity. Historical accounts of Taylor, Mayo, and Drucker are often hagiographic. MBA curricula vary enormously across schools; this report synthesizes US-centric full-time programs (HBS, 2025; Wharton, 2025; AACSB, 2024).</p>
+
+  <h3>3.3 Strength of Evidence by Sub-field</h3>
+  <table>
+    <tr><th>Field</th><th>Maturity</th><th>Evidence Strength</th><th>Key Limitation</th></tr>
+    <tr><td>Scientific management / operations</td><td>Mature; 110+ years</td><td><strong>Strong</strong> for task efficiency; weak for worker wellbeing</td><td>Context-specific to routinized work</td></tr>
+    <tr><td>Human relations / motivation</td><td>Mature; contested foundations</td><td><strong>Moderate</strong> — social factors matter; Hawthorne mythology overstated</td><td>Hawthorne effect itself is disputed (Parsons, 1974)</td></tr>
+    <tr><td>Contingency / org design</td><td>Mature; 50+ years</td><td><strong>Moderate-Strong</strong> — environment-structure fit replicated</td><td>Hard to operationalize in practice</td></tr>
+    <tr><td>Management practices &amp; productivity (WMS)</td><td>Mature; 15+ years</td><td><strong>Strong</strong> — correlational and causal (India RCT)</td><td>Focuses on monitoring, targets, incentives</td></tr>
+    <tr><td>Manager quality (boss effects)</td><td>Growing; firm-level data</td><td><strong>Strong</strong> — Lazear et al. (2015) with granular output data</td><td>Single firm/industry studies</td></tr>
+    <tr><td>Transformational leadership</td><td>Mature; 40+ years</td><td><strong>Moderate</strong> — meta-analyses positive but endogeneity concerns</td><td>Heroic leader narrative; measurement overlap</td></tr>
+    <tr><td>Flat organizations / span of control</td><td>Emerging</td><td><strong>Weak-Moderate</strong> — trend documented; causal productivity evidence thin</td><td>Confounded with layoffs, tech change</td></tr>
+    <tr><td>MBA curriculum effectiveness</td><td>Contested</td><td><strong>Weak</strong> for individual career ROI; moderate for network/credential</td><td>Piper (1995) HBS study; varied outcomes</td></tr>
+  </table>
+</section>
+
+<!-- ========== HISTORY ========== -->
+<section id="history">
+  <h2>4. History of Management as a Field</h2>
+
+  <h3>4.1 Pre-Industrial and Proto-Management (Ancient–1800)</h3>
+  <p>Organized administration predates industrial capitalism. Sun Tzu's <em>Art of War</em> (circa 5th century BCE) addressed strategy, logistics, and morale. Kautilya's <em>Arthashastra</em> (circa 3rd century BCE) described state bureaucracy, taxation, and espionage. Roman military organization, Venetian merchant guilds, and the Dutch East India Company's joint-stock governance all practiced proto-management — but without systematic theory (Wren &amp; Bedeian, 2018).</p>
+  <p>Adam Smith's <em>Wealth of Nations</em> (1776) introduced division of labor and pin-factory specialization — ideas later operationalized by Taylor. The Industrial Revolution (1760–1840) created the factory system, urban wage labor, and the management problem at scale: how to coordinate hundreds of workers producing standardized goods (Chandler, 1977).</p>
+
+  <h3>4.2 Classical Management Era (1880–1940)</h3>
+  <p><strong>Frederick Winslow Taylor</strong> (1856–1915) pioneered <em>scientific management</em> at Midvale Steel and Bethlehem Steel. His 1911 <em>Principles of Scientific Management</em> argued every task has "one best way," discovered through time-and-motion study, with workers selected and trained scientifically and managers responsible for planning while workers execute (Taylor, 1911; Wren &amp; Bedeian, 2018). Taylorism spread globally, influencing Ford's assembly line and Soviet Stakhanovite campaigns — but also provoked worker resistance and union opposition (Kanigel, 1997).</p>
+  <p><strong>Henri Fayol</strong> (1841–1925), a French mining executive, articulated <em>administrative theory</em> in <em>General and Industrial Management</em> (1916, English 1949). He defined five functions — planning, organizing, commanding, coordinating, controlling (POCCC) — and fourteen principles including unity of command, scalar chain, and esprit de corps (Fayol, 1949). Where Taylor focused on the shop floor, Fayol addressed the entire organization.</p>
+  <p><strong>Max Weber</strong> (1864–1920) analyzed <em>bureaucracy</em> as the rational-legal ideal type: hierarchical authority, written rules, impersonal relationships, specialized roles, and merit-based appointment (Weber, 1922/1947). Weber saw bureaucracy as technically superior but warned of an "iron cage" of rationalization. Together, Taylor, Fayol, and Weber form the <strong>classical school</strong> — efficiency, hierarchy, and rationality (Wren &amp; Bedeian, 2018).</p>
+  <p>Parallel contributions: <strong>Frank and Lillian Gilbreth</strong> advanced motion study and ergonomics; <strong>Henry Gantt</strong> developed the Gantt chart and incentive wage systems; <strong>Harrington Emerson</strong> promoted efficiency engineering (Wren &amp; Bedeian, 2018).</p>
+
+  <h3>4.3 Human Relations and Behavioral Era (1924–1970)</h3>
+  <p>The <strong>Hawthorne Studies</strong> (1924–1933) at Western Electric's Hawthorne Works near Chicago transformed management thought. Initially testing lighting's effect on productivity, researchers (including Elton Mayo from Harvard Business School) found that social attention, group norms, and supervisory style mattered as much as physical conditions (Roethlisberger &amp; Dickson, 1939; Baker Library, HBS). The "Hawthorne effect" — improved performance from being observed — became legendary, though later scholars argue the effect was overstated and methodologically flawed (Parsons, 1974; Wickström &amp; Bendix, 2000).</p>
+  <p>Regardless of methodological disputes, the <strong>human relations movement</strong> shifted focus from task efficiency to social psychology. <strong>Abraham Maslow</strong> (1943) proposed the hierarchy of needs. <strong>Douglas McGregor</strong> (1960) contrasted Theory X (workers are lazy, need coercion) with Theory Y (workers are self-motivated, seek responsibility). <strong>Frederick Herzberg</strong> (1959) distinguished hygiene factors from motivators. <strong>Chris Argyris</strong> (1957) critiqued formal organizations for creating employee immaturity (Wren &amp; Bedeian, 2018).</p>
+  <p><strong>Chester Barnard</strong>'s <em>Functions of the Executive</em> (1938) bridged classical and behavioral thought, arguing organizations are cooperative systems held together by communication and shared purpose — a precursor to systems theory (Barnard, 1938).</p>
+
+  <h3>4.4 Quantitative and Operations Era (1940–1970)</h3>
+  <p>World War II accelerated <strong>operations research</strong>: linear programming (Dantzig), game theory (von Neumann &amp; Morgenstern), and statistical quality control (Shewhart, Deming). Post-war, <strong>management science</strong> applied mathematical models to production, inventory (EOQ), and decision analysis. <strong>Herbert Simon</strong> (1947) introduced <em>bounded rationality</em> — decision-makers satisfice rather than optimize. <strong>James March and Herbert Simon</strong>'s <em>Organizations</em> (1958) founded organizational behavior as an academic discipline (March &amp; Simon, 1958).</p>
+
+  <h3>4.5 Systems and Contingency Era (1950–1980)</h3>
+  <p><strong>General systems theory</strong> (Bertalanffy, 1950) and <strong>open systems</strong> models (Katz &amp; Kahn, 1966) treated organizations as entities exchanging resources with environments. <strong>Joan Woodward</strong> (1965) found technology type (unit, mass, process production) correlated with optimal structure. <strong>Tom Burns and G.M. Stalker</strong> (1961) distinguished <em>mechanistic</em> (stable environments) from <em>organic</em> (dynamic environments) systems.</p>
+  <p><strong>Paul Lawrence and Jay Lorsch</strong> (1967) demonstrated that firms in turbulent environments require greater differentiation between departments <em>and</em> stronger integrating mechanisms — the foundational <strong>contingency theory</strong> finding. <strong>Jay Galbraith</strong> (1973, 1977) developed information-processing models of organization design. <strong>Henry Mintzberg</strong> (1973, 1979) empirically described managerial work as fragmented, interrupted, and reactive — challenging rational planning models (Mintzberg, 1973).</p>
+
+  <h3>4.6 Strategy, Quality, and Excellence Era (1980–2000)</h3>
+  <p><strong>Michael Porter</strong>'s <em>Competitive Strategy</em> (1980) introduced industry structure analysis (five forces) and generic strategies (cost leadership, differentiation, focus). <strong>Tom Peters and Robert Waterman</strong>'s <em>In Search of Excellence</em> (1982) sold millions, identifying eight attributes of "excellent" companies — though many profiled firms later underperformed (Byrne, 2003). <strong>W. Edwards Deming</strong> and <strong>Joseph Juran</strong> brought Japanese-quality lessons to the West; <strong>Total Quality Management</strong> (TQM) became a global movement. <strong>James Womack and Daniel Jones</strong> (1990) popularized <em>lean manufacturing</em> from Toyota Production System studies (Womack, Jones &amp; Roos, 1990).</p>
+  <p><strong>Peter Drucker</strong> (1909–2005) — the most prolific and influential management thinker — wrote 39 books including <em>The Practice of Management</em> (1954), <em>The Effective Executive</em> (1967), and <em>Innovation and Entrepreneurship</em> (1985). He coined "knowledge worker," "management by objectives," and "privatization," and advised leaders from Alfred Sloan to Jack Welch (Beatty, 2016; Collins, 2009).</p>
+  <p><strong>Jim Collins and Jerry Porras</strong>' <em>Built to Last</em> (1994) and Collins' <em>Good to Great</em> (2001) studied long-run corporate performance. <strong>Clayton Christensen</strong>'s <em>Innovator's Dilemma</em> (1997) explained disruptive innovation. <strong>Peter Senge</strong>'s <em>Fifth Discipline</em> (1990) promoted learning organizations.</p>
+
+  <h3>4.7 Modern Era: Data, Agility, and Post-Hierarchy (2000–present)</h3>
+  <p>Management science has become increasingly empirical. The <strong>World Management Survey</strong> (Bloom &amp; Van Reenen, 2007) quantified management practices across 35 countries. <strong>Google's Project Oxygen</strong> (2008–) used internal data to identify effective manager behaviors. <strong>Gallup</strong>'s engagement research linked managers to 70% of engagement variance (Gallup, 2015). <strong>Agile</strong>, <strong>OKRs</strong> (Doerr, 2018), and <strong>platform/ecosystem</strong> strategy (Parker, Van Alstyne &amp; Choudary, 2016) reshaped practice.</p>
+  <p>Simultaneously, a counter-movement pushed <strong>flat organizations</strong>: Zappos' Holacracy experiment (2013–2020), Spotify's squad model, Valve's handbook, and Elon Musk's directives at Tesla and SpaceX to bypass hierarchy and delete middle management (Hsieh, 2010; Musk, 2018; Groth, 2011). Research suggests flat structures improve idea generation but risk execution failures without alternative coordination mechanisms (Lee &amp; Edmondson, 2021; SI Labs, 2026).</p>
+  <p>Post-COVID, <strong>remote and hybrid work</strong> management, <strong>AI-augmented decision-making</strong>, and debates over <strong>stakeholder capitalism</strong> (Business Roundtable, 2019) continue reshaping the field (Bloom et al., 2021; De Cremer et al., 2025).</p>
+
+  <div class="diagram">TIMELINE: MANAGEMENT THEORY &amp; PRACTICE
+──────────────────────────────────────────────────────────────────────────────
+1776   Adam Smith — division of labor (<em>Wealth of Nations</em>)
+1880s  Frederick Taylor — scientific management begins
+1911   Taylor — <em>Principles of Scientific Management</em>
+1916   Fayol — administrative theory (14 principles, 5 functions)
+1922   Weber — bureaucracy as ideal type
+1924–33 Hawthorne Studies — human relations movement born
+1938   Barnard — <em>Functions of the Executive</em> (cooperative systems)
+1943   Maslow — hierarchy of needs
+1947   Simon — bounded rationality
+1954   Drucker — <em>The Practice of Management</em>
+1958   March &amp; Simon — <em>Organizations</em>
+1959   Herzberg — two-factor theory
+1960   McGregor — Theory X and Theory Y
+1961   Burns &amp; Stalker — mechanistic vs. organic
+1966   Katz &amp; Kahn — open systems theory
+1967   Lawrence &amp; Lorsch — contingency theory (differentiation/integration)
+1973   Mintzberg — <em>The Nature of Managerial Work</em>
+1978   Burns — transformational leadership (political); Bass (1985) → management
+1980   Porter — <em>Competitive Strategy</em> (five forces)
+1982   Peters &amp; Waterman — <em>In Search of Excellence</em>
+1986   Deming — <em>Out of the Crisis</em> (TQM in West)
+1990   Senge — <em>The Fifth Discipline</em>; Womack &amp; Jones — lean
+1994   Collins &amp; Porras — <em>Built to Last</em>
+1997   Christensen — <em>The Innovator's Dilemma</em>
+2001   Collins — <em>Good to Great</em>
+2007   Bloom &amp; Van Reenen — World Management Survey
+2008   Google — Project Oxygen begins
+2013   Bloom et al. — India management RCT (causal evidence)
+2015   Lazear, Shaw &amp; Stanton — "The Value of Bosses"
+2018   Musk — Tesla flattening directive; Zappos Holacracy struggles
+2020+  Remote work, AI management, "Great Flattening" (Gallup, 2025)
+──────────────────────────────────────────────────────────────────────────────</div>
+</section>
+
+<!-- ========== THEORETICAL FRAMEWORKS ========== -->
+<section id="frameworks">
+  <h2>5. Major Theoretical Schools</h2>
+
+  <h3>5.1 Classical Management (Scientific + Administrative + Bureaucratic)</h3>
+  <p><span class="tag">1880–1940</span> <span class="tag">Efficiency</span> <span class="tag">Hierarchy</span></p>
+  <p>The classical school treats work as analyzable, decomposable, and optimizable. Core assumptions: workers are economic rational actors; conflict is resolved through clear authority; specialization increases output.</p>
+  <table>
+    <tr><th>Thinker</th><th>Key Contribution</th><th>Core Mechanism</th><th>Game-Relevant Variable</th></tr>
+    <tr><td>Taylor (1911)</td><td>Scientific management</td><td>Time-motion study, standardization, piece-rate incentives</td><td>Task efficiency, workflow design</td></tr>
+    <tr><td>Fayol (1916)</td><td>Administrative principles</td><td>POCCC functions, unity of command, scalar chain</td><td>Org hierarchy depth, role clarity</td></tr>
+    <tr><td>Weber (1922)</td><td>Bureaucracy</td><td>Rules, impersonality, merit appointment, hierarchy</td><td>Formalization, rule compliance</td></tr>
+    <tr><td>Gilbreths</td><td>Motion study</td><td>Eliminate wasteful movement</td><td>Process optimization minigame</td></tr>
+    <tr><td>Gantt</td><td>Scheduling</td><td>Visual planning, bonus systems</td><td>Timeline/project management UI</td></tr>
+  </table>
+  <p><strong>Limitations:</strong> Treats workers as interchangeable; ignores motivation, culture, and innovation. Scientific management's legacy survives in lean, Six Sigma, and operations research (Wren &amp; Bedeian, 2018).</p>
+
+  <h3>5.2 Human Relations and Behavioral School</h3>
+  <p><span class="tag">1930–1970</span> <span class="tag">Motivation</span> <span class="tag">Groups</span></p>
+  <p>Workers are social beings whose attitudes, group membership, and sense of being valued affect performance. Management must address psychological needs, not just economic incentives.</p>
+  <table>
+    <tr><th>Thinker</th><th>Key Contribution</th><th>Core Mechanism</th><th>Game-Relevant Variable</th></tr>
+    <tr><td>Mayo / Hawthorne</td><td>Human relations</td><td>Social attention, group norms, supervisory style</td><td>Morale, team cohesion</td></tr>
+    <tr><td>Maslow (1943)</td><td>Hierarchy of needs</td><td>Physiological → safety → belonging → esteem → self-actualization</td><td>Employee need satisfaction meter</td></tr>
+    <tr><td>McGregor (1960)</td><td>Theory X / Theory Y</td><td>Manager assumptions shape treatment → self-fulfilling outcomes</td><td>Management philosophy slider</td></tr>
+    <tr><td>Herzberg (1959)</td><td>Two-factor theory</td><td>Hygiene factors prevent dissatisfaction; motivators drive satisfaction</td><td>Pay vs. recognition vs. growth</td></tr>
+    <tr><td>Argyris (1957)</td><td>Personality vs. organization</td><td>Formal structures frustrate mature adults</td><td>Autonomy vs. control tension</td></tr>
+    <tr><td>Barnard (1938)</td><td>Cooperative systems</td><td>Organizations require communication + shared purpose + contribution</td><td>Internal communication quality</td></tr>
+  </table>
+
+  <h3>5.3 Quantitative / Management Science</h3>
+  <p><span class="tag">1940–present</span> <span class="tag">Optimization</span> <span class="tag">Data</span></p>
+  <p>Applies mathematics, statistics, and modeling to management decisions: linear programming, queuing theory, simulation, forecasting, inventory optimization. Simon's bounded rationality acknowledges real managers cannot optimize but satisfice (Simon, 1947). Directly relevant to simulation game mechanics — resource allocation, queuing, bottlenecks.</p>
+
+  <h3>5.4 Systems Theory</h3>
+  <p><span class="tag">1950–present</span> <span class="tag">Holism</span> <span class="tag">Environment</span></p>
+  <p>Organizations are <em>open systems</em> — they import inputs (capital, labor, materials, information), transform them, and export outputs (products, services, waste) while adapting to environmental feedback (Katz &amp; Kahn, 1966). Subsystems (production, marketing, HR) must be integrated. For a game: environmental events (regulation, competition, supply shocks) are core system inputs.</p>
+
+  <h3>5.5 Contingency Theory</h3>
+  <p><span class="tag">1960–present</span> <span class="tag">Fit</span> <span class="tag">Context</span></p>
+  <p>There is no one best way to organize. Optimal structure depends on environment (Burns &amp; Stalker, 1961), technology (Woodward, 1965), size (Blau, 1970), strategy (Miles &amp; Snow, 1978), and information-processing needs (Galbraith, 1973). This is perhaps the most important design principle for a management sim: <strong>player strategies should succeed or fail based on environmental fit</strong>.</p>
+
+  <h3>5.6 Organizational Culture and Strategic Management</h3>
+  <p><strong>Edgar Schein</strong> (1985) defined culture as shared basic assumptions. Porter's industry analysis (1980, 1985), the resource-based view (Barney, 1991), and dynamic capabilities (Teece et al., 1997) address competitive advantage. Deming, Juran, Ohno, and Womack/Jones provide the quality/lean toolkit for operations gameplay.</p>
+</section>
+
+<!-- ========== LEADERSHIP ========== -->
+<section id="leadership">
+  <h2>6. Leadership Theory</h2>
+  <p>Leadership is a subset of management concerned with direction-setting, inspiration, and change.</p>
+
+  <h3>6.1 Major Approaches</h3>
+  <table>
+    <tr><th>Era</th><th>Theory</th><th>Key Figures</th><th>Core Idea</th></tr>
+    <tr><td>pre-1950</td><td>Trait / Great Man</td><td>Stogdill</td><td>Leaders born with inherent qualities</td></tr>
+    <tr><td>1950–70</td><td>Behavioral / Style</td><td>Ohio State, Blake &amp; Mouton</td><td>Task vs. relationship orientation</td></tr>
+    <tr><td>1960–80</td><td>Situational / Contingency</td><td>Fiedler; Hersey &amp; Blanchard; House</td><td>Effective style depends on context</td></tr>
+    <tr><td>1978+</td><td>Transformational</td><td>Burns; Bass</td><td>Inspire followers to transcend self-interest</td></tr>
+    <tr><td>1978+</td><td>Transactional</td><td>Bass</td><td>Exchange: rewards for compliance</td></tr>
+    <tr><td>1970+</td><td>Servant</td><td>Greenleaf</td><td>Leaders serve followers first</td></tr>
+    <tr><td>2000+</td><td>Authentic</td><td>Avolio &amp; Gardner</td><td>Self-awareness, transparency, ethics</td></tr>
+    <tr><td>2000+</td><td>Distributed</td><td>Gronn</td><td>Leadership as collective property</td></tr>
+  </table>
+
+  <h3>6.2 Transformational Leadership (Detail)</h3>
+  <p>Bass (1985) operationalized four factors: idealized influence, inspirational motivation, intellectual stimulation, and individualized consideration. Meta-analyses find positive correlations with performance and satisfaction (Judge &amp; Piccolo, 2004), though heroic-leader bias and endogeneity are concerns (Tourish, 2013).</p>
+
+  <h3>6.3 What Managers Actually Do (Mintzberg, 1973)</h3>
+  <p>Observational study of five CEOs: managers work at relentless pace, favor verbal communication, and perform interpersonal (figurehead, leader, liaison), informational (monitor, disseminator, spokesperson), and decisional (entrepreneur, disturbance handler, resource allocator, negotiator) roles. This contrasts with MBA classroom ideals — a tension worth modeling in gameplay.</p>
+</section>
+
+<!-- ========== MBA CURRICULUM ========== -->
+<section id="mba">
+  <h2>7. The MBA Curriculum: Credits, Classes, and Structure</h2>
+  <p>The Master of Business Administration (MBA) is the flagship professional degree in management. First offered at Harvard Business School in 1908, it has become a global credential with ~250,000 graduates annually from accredited programs (GMAC, 2024; AACSB, 2024).</p>
+
+  <h3>7.1 Credit Requirements</h3>
+  <table>
+    <tr><th>Program Type</th><th>Typical Credits</th><th>Duration (Full-Time)</th><th>Notes</th></tr>
+    <tr><td>US full-time MBA</td><td>36–60 credit hours</td><td>2 years</td><td>Most common: 48–60 (Lerna, 2025; BestColleges, 2025)</td></tr>
+    <tr><td>Accelerated MBA</td><td>30–36</td><td>12–18 months</td><td>Compressed schedule</td></tr>
+    <tr><td>Executive MBA (EMBA)</td><td>45–90 (varies)</td><td>18–24 months (part-time)</td><td>For experienced managers; INSEAD ~90 ECTS</td></tr>
+    <tr><td>European MBA</td><td>90 ECTS ≈ 45 US credits</td><td>1–2 years</td><td>INSEAD, LBS one-year options</td></tr>
+    <tr><td>Online MBA</td><td>36–48</td><td>2–4 years (part-time)</td><td>AACSB-accredited programs</td></tr>
+  </table>
+  <p>US schools typically require <strong>12–15 credits per semester</strong> for full-time students. Wharton uses "course units" (CUs) where 1 CU ≈ 0.5 US credit in some contexts; Wharton requires 19 CUs total (Wharton, 2025).</p>
+
+  <h3>7.2 Typical Credit Breakdown</h3>
+  <div class="diagram">TYPICAL US FULL-TIME MBA (48–60 CREDITS)
+
+  ┌─────────────────────────────────────────────────────────────┐
+  │  CORE / REQUIRED COURSES          50–65%  (24–36 credits)  │
+  │  ─ Accounting / Financial Reporting                         │
+  │  ─ Finance (Corporate Finance, Valuation)                   │
+  │  ─ Marketing Management                                     │
+  │  ─ Operations / Technology & Operations Management          │
+  │  ─ Strategy                                                 │
+  │  ─ Organizational Behavior / Leadership                       │
+  │  ─ Microeconomics (Managerial Economics)                      │
+  │  ─ Statistics / Data Analytics / Regression                 │
+  │  ─ Ethics / Legal / Business & Government                   │
+  │  ─ Entrepreneurship (increasingly required)                   │
+  ├─────────────────────────────────────────────────────────────┤
+  │  ELECTIVES                        25–40%  (12–24 credits)    │
+  │  ─ Concentration / Major courses                            │
+  │  ─ Cross-disciplinary options                                 │
+  ├─────────────────────────────────────────────────────────────┤
+  │  EXPERIENTIAL                     5–15%   (3–9 credits)     │
+  │  ─ Internships, FIELD projects, global immersion            │
+  │  ─ Consulting practicums, capstones                         │
+  └─────────────────────────────────────────────────────────────┘</div>
+
+  <h3>7.3 Harvard Business School (Class of 2027)</h3>
+  <p>HBS uses a distinctive two-year structure with no electives in Year 1 (HBS, 2025):</p>
+  <table>
+    <tr><th>Term 1 (RC)</th><th>Term 2 (RC)</th><th>Credits</th></tr>
+    <tr><td>Finance 1</td><td>Business, Government &amp; International Economy (BGIE)</td><td>3 each</td></tr>
+    <tr><td>Financial Reporting &amp; Control</td><td>Data Science &amp; AI for Leaders</td><td>3 each</td></tr>
+    <tr><td>Leadership &amp; Organizational Behavior (LEAD)</td><td>The Entrepreneurial Manager</td><td>3 each</td></tr>
+    <tr><td>Marketing</td><td>FIELD Global Capstone</td><td>3 each</td></tr>
+    <tr><td>Strategy</td><td>Finance 2</td><td>3 each</td></tr>
+    <tr><td>Technology &amp; Operations Management</td><td>Leadership &amp; Corporate Accountability</td><td>3 each</td></tr>
+    <tr><td colspan="2">The Purpose of the Firm</td><td>1.5</td></tr>
+  </table>
+  <p>Year 2 requires <strong>30 elective credits</strong> (~10 three-credit courses). Pedagogy is case-method: students analyze 500+ cases over two years. STEM-designated as of recent years.</p>
+
+  <h3>7.4 Wharton MBA (WG27, Class of 2027)</h3>
+  <p>Wharton requires <strong>19.0 course units (CU)</strong> (Wharton, 2025):</p>
+  <table>
+    <tr><th>Category</th><th>CUs Required</th><th>Key Courses</th></tr>
+    <tr><td>Core Curriculum</td><td>9.5</td><td>Accounting, Finance, Legal Studies, Microeconomics, Management, Marketing, Operations/Information/Decisions, Statistics, Communication</td></tr>
+    <tr><td>Major</td><td>4.0–5.0</td><td>18 concentrations available (Finance, Marketing, OPS, etc.)</td></tr>
+    <tr><td>Electives</td><td>4.5+</td><td>Free choice; up to 2.0 CU may cross-count across majors</td></tr>
+  </table>
+  <p>Fixed core (3.25 CU) in first semester: Leadership, Marketing, Microeconomics, Regression/Statistics. Flexible core (6.25 CU) can be deferred to Year 2.</p>
+
+  <h3>7.5 Cross-School Core Subjects (AACSB Standard)</h3>
+  <p>AACSB-accredited programs must cover (AACSB, 2024): accounting, finance, management, marketing, and operations/information systems, plus general knowledge areas including economic, political, regulatory, and ethical environments. Modern additions across M7 schools include data science, AI for leaders, and stakeholder/sustainability modules (F1GMAT, 2025).</p>
+
+  <h3>7.6 What the MBA Does and Does Not Teach</h3>
+  <p>The MBA provides analytical frameworks (finance, strategy, operations), a professional network, and a credential signal. It teaches <em>about</em> management more than <em>how to manage</em> — case discussions simulate decisions but cannot replicate the interpersonal complexity Mintzberg documented. Research on MBA value is mixed: career earnings premiums exist especially at elite schools (GMAC, 2024), but evidence that MBA training directly improves managerial performance is weak (Pfeffer &amp; Fong, 2002; Rosenzweig, 2007).</p>
+</section>
+
+<!-- ========== INFLUENTIAL BOOKS ========== -->
+<section id="books">
+  <h2>8. Most Influential Books on Management</h2>
+  <p>The following catalogue of 45 books is organized chronologically within eras. Selection criteria: citation frequency, sales, curriculum adoption, practitioner influence, and inclusion in "greatest business book" lists (Forbes, 2002; Bloomsbury/Profile Books; Collins on Drucker, 2009).</p>
+
+  <h3>8.1 Foundations and Classical Era</h3>
+  <table>
+    <tr><th>Year</th><th>Title</th><th>Author(s)</th><th>Core Contribution</th></tr>
+    <tr><td>1776</td><td><em>The Wealth of Nations</em></td><td>Adam Smith</td><td>Division of labor, market efficiency</td></tr>
+    <tr><td>1911</td><td><em>The Principles of Scientific Management</em></td><td>Frederick Taylor</td><td>Time-motion study, standardization, scientific method applied to work</td></tr>
+    <tr><td>1916</td><td><em>General and Industrial Management</em></td><td>Henri Fayol</td><td>14 principles, 5 management functions</td></tr>
+    <tr><td>1922</td><td><em>Economy and Society</em> (bureaucracy)</td><td>Max Weber</td><td>Ideal-type bureaucracy, authority types</td></tr>
+    <tr><td>1938</td><td><em>The Functions of the Executive</em></td><td>Chester Barnard</td><td>Organizations as cooperative systems</td></tr>
+    <tr><td>1936</td><td><em>How to Win Friends and Influence People</em></td><td>Dale Carnegie</td><td>Interpersonal influence (30M+ copies)</td></tr>
+  </table>
+
+  <h3>8.2 Human Relations and Behavioral Era</h3>
+  <table>
+    <tr><th>Year</th><th>Title</th><th>Author(s)</th><th>Core Contribution</th></tr>
+    <tr><td>1943</td><td>"A Theory of Human Motivation"</td><td>Abraham Maslow</td><td>Hierarchy of needs</td></tr>
+    <tr><td>1947</td><td><em>Administrative Behavior</em></td><td>Herbert Simon</td><td>Bounded rationality, satisficing</td></tr>
+    <tr><td>1954</td><td><em>Motivation and Personality</em></td><td>Abraham Maslow</td><td>Full hierarchy theory</td></tr>
+    <tr><td>1958</td><td><em>Organizations</em></td><td>March &amp; Simon</td><td>Foundational organizational behavior text</td></tr>
+    <tr><td>1959</td><td><em>The Motivation to Work</em></td><td>Herzberg, Mausner &amp; Snyderman</td><td>Two-factor (hygiene/motivator) theory</td></tr>
+    <tr><td>1960</td><td><em>The Human Side of Enterprise</em></td><td>Douglas McGregor</td><td>Theory X and Theory Y</td></tr>
+    <tr><td>1939/49</td><td><em>Management and the Worker</em></td><td>Roethlisberger &amp; Dickson</td><td>Hawthorne studies definitive account</td></tr>
+  </table>
+
+  <h3>8.3 Systems, Contingency, and Organization Design</h3>
+  <table>
+    <tr><th>Year</th><th>Title</th><th>Author(s)</th><th>Core Contribution</th></tr>
+    <tr><td>1961</td><td><em>The Management of Innovation</em></td><td>Burns &amp; Stalker</td><td>Mechanistic vs. organic organizations</td></tr>
+    <tr><td>1965</td><td><em>Industrial Organization: Theory and Practice</em></td><td>Joan Woodward</td><td>Technology-structure contingency</td></tr>
+    <tr><td>1966</td><td><em>The Social Psychology of Organizations</em></td><td>Katz &amp; Kahn</td><td>Open systems theory</td></tr>
+    <tr><td>1967</td><td><em>Organization and Environment</em></td><td>Lawrence &amp; Lorsch</td><td>Differentiation and integration</td></tr>
+    <tr><td>1973</td><td><em>The Nature of Managerial Work</em></td><td>Henry Mintzberg</td><td>What managers actually do (observational)</td></tr>
+    <tr><td>1973</td><td><em>Designing Complex Organizations</em></td><td>Jay Galbraith</td><td>Information-processing view of structure</td></tr>
+    <tr><td>1979</td><td><em>The Structuring of Organizations</em></td><td>Henry Mintzberg</td><td>Five structural configurations</td></tr>
+    <tr><td>1983</td><td><em>Structure in Fives</em></td><td>Henry Mintzberg</td><td>Accessible org design framework</td></tr>
+    <tr><td>1985</td><td><em>Organizational Culture and Leadership</em></td><td>Edgar Schein</td><td>Culture as shared assumptions</td></tr>
+  </table>
+
+  <h3>8.4 Strategy, Excellence, and Quality</h3>
+  <table>
+    <tr><th>Year</th><th>Title</th><th>Author(s)</th><th>Core Contribution</th></tr>
+    <tr><td>1946/1954</td><td><em>Concept of the Corporation</em> / <em>Practice of Management</em></td><td>Peter Drucker</td><td>Management as discipline; MBO; knowledge work</td></tr>
+    <tr><td>1967</td><td><em>The Effective Executive</em></td><td>Peter Drucker</td><td>Personal effectiveness for managers</td></tr>
+    <tr><td>1980</td><td><em>Competitive Strategy</em></td><td>Michael Porter</td><td>Five forces, generic strategies</td></tr>
+    <tr><td>1982</td><td><em>In Search of Excellence</em></td><td>Peters &amp; Waterman</td><td>8 attributes of excellent companies (4.5M+ copies)</td></tr>
+    <tr><td>1985</td><td><em>Competitive Advantage</em></td><td>Michael Porter</td><td>Value chain analysis</td></tr>
+    <tr><td>1986</td><td><em>Out of the Crisis</em></td><td>W. Edwards Deming</td><td>14 points, TQM philosophy</td></tr>
+    <tr><td>1988</td><td><em>Toyota Production System</em></td><td>Taiichi Ohno</td><td>Lean manufacturing origin</td></tr>
+    <tr><td>1990</td><td><em>The Machine That Changed the World</em></td><td>Womack, Jones &amp; Roos</td><td>Lean enterprise popularization</td></tr>
+    <tr><td>1990</td><td><em>The Fifth Discipline</em></td><td>Peter Senge</td><td>Learning organizations, systems thinking</td></tr>
+    <tr><td>1994</td><td><em>Built to Last</em></td><td>Collins &amp; Porras</td><td>Visionary companies vs. comparison firms</td></tr>
+    <tr><td>1997</td><td><em>The Innovator's Dilemma</em></td><td>Clayton Christensen</td><td>Disruptive innovation</td></tr>
+    <tr><td>2001</td><td><em>Good to Great</em></td><td>Jim Collins</td><td>Level 5 leadership, hedgehog concept, flywheel</td></tr>
+  </table>
+
+  <h3>8.5 Leadership, Change, and Modern Practice</h3>
+  <table>
+    <tr><th>Year</th><th>Title</th><th>Author(s)</th><th>Core Contribution</th></tr>
+    <tr><td>1978</td><td><em>Leadership</em></td><td>James MacGregor Burns</td><td>Transactional vs. transformational leadership</td></tr>
+    <tr><td>1989</td><td><em>The 7 Habits of Highly Effective People</em></td><td>Stephen Covey</td><td>Principle-centered leadership (40M+ copies)</td></tr>
+    <tr><td>1990</td><td><em>Leadership and the New Science</em></td><td>Margaret Wheatley</td><td>Complexity and chaos in organizations</td></tr>
+    <tr><td>1995</td><td><em>Emotional Intelligence</em></td><td>Daniel Goleman</td><td>EQ in leadership</td></tr>
+    <tr><td>1996</td><td><em>Leading Change</em></td><td>John Kotter</td><td>8-step change model</td></tr>
+    <tr><td>2000</td><td><em>First, Break All the Rules</em></td><td>Buckingham &amp; Coffman</td><td>Gallup: focus on strengths, manager as key</td></tr>
+    <tr><td>2007</td><td><em>The Halo Effect</em></td><td>Phil Rosenzweig</td><td>Critique of management bestseller methodology</td></tr>
+    <tr><td>2014</td><td><em>Zero to One</em></td><td>Peter Thiel</td><td>Startup monopoly thinking</td></tr>
+    <tr><td>2016</td><td><em>Reinventing Organizations</em></td><td>Frederic Laloux</td><td>Teal organizations, self-management</td></tr>
+    <tr><td>2018</td><td><em>Measure What Matters</em></td><td>John Doerr</td><td>OKRs (Objectives and Key Results)</td></tr>
+  </table>
+
+  <h3>8.6 Top-Tier by Combined Academic and Popular Influence</h3>
+  <p>If a player or designer could read only ten books to understand management:</p>
+  <ol>
+    <li>Drucker, <em>The Practice of Management</em> (1954) — defines the discipline</li>
+    <li>Taylor, <em>Principles of Scientific Management</em> (1911) — efficiency origin</li>
+    <li>McGregor, <em>The Human Side of Enterprise</em> (1960) — assumptions about people</li>
+    <li>Lawrence &amp; Lorsch, <em>Organization and Environment</em> (1967) — contingency foundation</li>
+    <li>Mintzberg, <em>The Nature of Managerial Work</em> (1973) — managerial reality</li>
+    <li>Porter, <em>Competitive Strategy</em> (1980) — industry and positioning</li>
+    <li>Peters &amp; Waterman, <em>In Search of Excellence</em> (1982) — culture and practice (read critically)</li>
+    <li>Collins, <em>Good to Great</em> (2001) — long-run performance patterns</li>
+    <li>Rosenzweig, <em>The Halo Effect</em> (2007) — essential methodological skepticism</li>
+    <li>Bloom &amp; Van Reenen, WMS papers (2007+) — empirical management science</li>
+  </ol>
+</section>
+
+<!-- ========== EMPIRICAL RESEARCH ========== -->
+<section id="empirical">
+  <h2>9. What Research Says: Good vs. Poor Management</h2>
+  <p>This section synthesizes the strongest empirical evidence linking management quality to outcomes — the quantitative foundation for simulation mechanics.</p>
+
+  <h3>9.1 World Management Survey (Bloom &amp; Van Reenen, 2007+)</h3>
+  <p>The most ambitious attempt to measure management scientifically. Researchers developed an interview-based scoring tool rating 18 practices from 1 (worst) to 5 (best) across three dimensions (Bloom &amp; Van Reenen, 2007; Bloom et al., 2012):</p>
+  <table>
+    <tr><th>Dimension</th><th>What "Good" Looks Like</th><th>What "Bad" Looks Like</th></tr>
+    <tr><td><strong>Monitoring</strong></td><td>Continuous tracking of performance, systematic data collection, regular review</td><td>No meaningful metrics; performance invisible until crisis</td></tr>
+    <tr><td><strong>Targets</strong></td><td>Stretching but achievable goals; cascaded from strategy; reviewed regularly</td><td>No clear targets; goals too easy or impossible; no follow-up</td></tr>
+    <tr><td><strong>People / Incentives</strong></td><td>Performance-based promotion and pay; underperformers managed (train or exit); talent retained</td><td>Promotion by tenure; no consequences for poor performance; talent leaves</td></tr>
+  </table>
+  <p><strong>Key findings</strong> from 14,000+ firms across 35 countries (Bloom et al., 2012; Sadun, Bloom &amp; Van Reenen, 2017):</p>
+  <ul>
+    <li>Management scores strongly correlate with <strong>productivity, profitability, Tobin's Q, sales growth, and survival</strong> (Bloom &amp; Van Reenen, 2007).</li>
+    <li>US firms score highest on average; a long tail of extremely poorly managed firms exists in every country.</li>
+    <li>Poor management is more prevalent when <strong>product market competition is weak</strong> and when <strong>family firms pass control to eldest sons</strong> (primogeniture) (Bloom &amp; Van Reenen, 2007).</li>
+    <li>Management practices account for <strong>~30% of cross-country productivity differences</strong> — comparable to R&amp;D and IT (Bloom et al., 2012).</li>
+    <li>Better-managed firms adapted faster to <strong>remote work</strong> during COVID-19 (Bloom et al., 2021).</li>
+  </ul>
+
+  <h3>9.2 Randomized Controlled Trial: India (Bloom et al., 2013)</h3>
+  <p>The gold-standard causal test. Researchers randomly assigned 28 Indian textile plants to receive five months of management consulting (implementing WMS practices) or no intervention (Bloom et al., 2013, <em>Quarterly Journal of Economics</em>).</p>
+  <table>
+    <tr><th>Outcome</th><th>Result</th></tr>
+    <tr><td>Productivity (first year)</td><td><strong>+17%</strong></td></tr>
+    <tr><td>Quality defects</td><td>Reduced</td></tr>
+    <tr><td>Inventory</td><td>Reduced</td></tr>
+    <tr><td>Annual profitability</td><td><strong>+$300,000+</strong> per plant</td></tr>
+    <tr><td>Within-firm spillovers</td><td>Positive — practices spread to non-treated plants</td></tr>
+  </table>
+  <p>Indian firms averaged WMS score 2.69 vs. 3.33 for US firms. Treated plants adopted better monitoring, target-setting, and incentive systems. This provides direct causal evidence that <strong>management practices are a production input</strong>, not merely a correlate of success.</p>
+
+  <h3>9.3 The Value of Bosses (Lazear, Shaw &amp; Stanton, 2015)</h3>
+  <p>Using granular output data from a technology-based services firm, Lazear et al. estimated individual supervisor effects on team productivity (<em>Journal of Labor Economics</em>, 2015):</p>
+  <ul>
+    <li>Replacing a boss in the <strong>bottom 10%</strong> with one in the <strong>top 10%</strong> increases team output by more than <strong>adding one worker to a nine-person team</strong>.</li>
+    <li>Workers assigned to better bosses are <strong>less likely to leave</strong> the firm.</li>
+    <li>The average boss adds approximately <strong>1.75× the output</strong> of the average worker — consistent with pay differentials.</li>
+    <li>Boss quality is not simply "being the best worker" — the highest-performing individual contributors do not necessarily make the best managers (Caliendo, Monte &amp; Rossi-Hansberg, 2015; Benson, Li &amp; Shue, 2019).</li>
+  </ul>
+
+  <h3>9.4 Gallup: Managers and Engagement (2015)</h3>
+  <p>Gallup's meta-analysis of employee engagement across 2.7 million employees and 105,000 managers (Gallup, 2015):</p>
+  <ul>
+    <li>Managers account for <strong>at least 70% of the variance</strong> in employee engagement scores across business units.</li>
+    <li>Only <strong>30% of US employees</strong> (13% globally) are engaged at work.</li>
+    <li>Approximately <strong>1 in 10 people</strong> possess natural management talent; organizations routinely promote the wrong people.</li>
+    <li>Engagement correlates with productivity, profitability, turnover, safety, and customer satisfaction.</li>
+  </ul>
+
+  <h3>9.5 Google Project Oxygen (2008–present)</h3>
+  <p>Google initially questioned whether managers mattered. Data from 10,000+ observations proved they do (Garvin, 2013; Google re:Work, 2024). Ten behaviors of effective Google managers:</p>
+  <ol>
+    <li>Is a good coach</li>
+    <li>Empowers team without micromanaging</li>
+    <li>Creates inclusive team environment</li>
+    <li>Is productive and results-oriented</li>
+    <li>Is a good communicator (listens and shares)</li>
+    <li>Supports career development and discusses performance</li>
+    <li>Has clear vision/strategy for team</li>
+    <li>Has key technical skills to advise team</li>
+    <li>Collaborates across organization</li>
+    <li>Is a strong decision maker</li>
+  </ol>
+  <p>Project Aristotle (2016) added that <strong>psychological safety</strong> — the belief one won't be punished for mistakes — is the top predictor of team effectiveness (Duhigg, 2016; Rozovsky, 2015).</p>
+
+  <h3>9.6 Synthesis: Quantified Impact of Management Quality</h3>
+  <table>
+    <tr><th>Study</th><th>Intervention</th><th>Effect Size</th><th>Confidence</th></tr>
+    <tr><td>Bloom &amp; Van Reenen (2007)</td><td>1-point WMS score increase</td><td>+25% productivity; +15% ROIC</td><td>Correlational (strong)</td></tr>
+    <tr><td>Bloom et al. (2013) India RCT</td><td>Management consulting</td><td>+17% productivity in year 1</td><td>Causal (strong)</td></tr>
+    <tr><td>Lazear et al. (2015)</td><td>Replace bottom-10% boss with top-10%</td><td>≈ +1 worker equivalent on 9-person team</td><td>Firm data (strong)</td></tr>
+    <tr><td>Gallup (2015)</td><td>Manager quality → engagement</td><td>70% of engagement variance</td><td>Meta-analysis (moderate-strong)</td></tr>
+    <tr><td>Google Oxygen</td><td>Manager behaviors → team outcomes</td><td>Higher productivity, purpose, retention</td><td>Internal data (moderate)</td></tr>
+    <tr><td>Buckingham &amp; Coffman (1999)</td><td>Manager relationship → retention</td><td>People leave managers, not companies</td><td>Gallup survey (moderate)</td></tr>
+  </table>
+</section>
+
+<!-- ========== FLAT ORGS ========== -->
+<section id="flat-orgs">
+  <h2>10. Ongoing Debates: Flat Organizations and the "Death of Middle Management"</h2>
+
+  <h3>10.1 The Trend</h3>
+  <p>Since the 1980s, large firms have systematically reduced hierarchical layers and increased spans of control (span = direct reports per manager). Fortune 500 CEO spans rose from 4.5 in the mid-1980s to ~10 by the mid-2000s; organizational depth between CEO and division managers fell ~25% (Rajan &amp; Wulf, 2006; Guadalupe, Li &amp; Wulf, 2014). Post-2020 layoff waves disproportionately targeted middle managers — dubbed the <strong>"Great Flattening"</strong> (Gallup, 2025). Amazon, Meta, Google, and others publicly discussed reducing management layers to cut costs and accelerate decisions.</p>
+
+  <h3>10.2 Elon Musk's Approach (Tesla, SpaceX)</h3>
+  <p>Musk's 2018 email to Tesla employees articulated a philosophy now widely cited (Musk, 2018; CleanTechnica, 2018):</p>
+  <blockquote style="border-left:3px solid var(--accent);padding-left:1rem;margin:1rem 0;color:var(--muted);font-style:italic;">
+    "Communication should travel via the shortest path necessary to get the job done, not through the 'chain of command.' Any manager who attempts to enforce chain of command communication will soon find themselves working elsewhere. A major source of issues is poor communication between departments. The way to solve this is allow free flow of information between all levels."
+  </blockquote>
+  <p>Musk's broader management toolkit includes:</p>
+  <ul>
+    <li><strong>First principles thinking</strong> — decompose problems to fundamental truths, rebuild from scratch (Musk, 2014 TED).</li>
+    <li><strong>Five-step algorithm</strong> (2020): (1) Question requirements, (2) Delete parts/processes, (3) Simplify and optimize, (4) Accelerate cycle time, (5) Automate — in that order (Minnaar, 2020).</li>
+    <li><strong>Flattening management</strong> — periodic reorgs to cut "non-value-add layers" (Musk, 2018).</li>
+    <li><strong>Extreme vertical integration</strong> — internalize supply chain and production to control quality and speed (Vance, 2015).</li>
+    <li><strong>Mission-driven intensity</strong> — long hours, high expectations, tolerance for failure in pursuit of ambitious goals.</li>
+  </ul>
+  <p>Results are mixed by metric: SpaceX and Tesla achieved extraordinary engineering milestones, but also face lawsuits over workplace conditions, high executive turnover, and production chaos during scaling (Wong, 2022; Minnaar, 2020). The approach works best in <strong>mission-critical, engineering-intensive, founder-led contexts</strong> — less clearly transferable to mature, diversified, or highly regulated organizations.</p>
+
+  <h3>10.3 Arguments For Flattening</h3>
+  <ul>
+    <li><strong>Speed</strong> — fewer approval layers accelerate decisions (Sah &amp; Stiglitz, 1986; The Conversation, 2018).</li>
+    <li><strong>Cost</strong> — McKinsey estimates 10–15% managerial cost savings from rightsizing spans and layers (McKinsey, 2017).</li>
+    <li><strong>Autonomy</strong> — frontline employees gain decision authority, increasing motivation (Theory Y alignment).</li>
+    <li><strong>Information fidelity</strong> — fewer hierarchical filters reduce distortion (Galbraith, 1973).</li>
+    <li><strong>Innovation</strong> — flatter structures improve idea generation (Lee &amp; Edmondson, 2021).</li>
+  </ul>
+
+  <h3>10.4 Arguments Against / Risks</h3>
+  <ul>
+    <li><strong>Execution failures</strong> — "The myth of the flat start-up" (Lee &amp; Edmondson, 2021, <em>Strategic Management Journal</em>): flatter structures improve creativity but cause "haphazard execution" and decision overload.</li>
+    <li><strong>Scaling limits</strong> — people can only manage so many direct reports effectively; beyond ~15–20, coaching and coordination break down without structure (McKinsey, 2017; Gallup, 2025).</li>
+    <li><strong>Informal hierarchy emerges</strong> — Holacracy and similar experiments at Zappos (2013–2020) found that eliminating formal hierarchy often produces <em>worse</em> informal hierarchy (Groth, 2011; Reingold, 2016).</li>
+    <li><strong>Middle managers as glue</strong> — they translate strategy to operations, develop talent, and maintain engagement (Floyd &amp; Wooldridge, 1997; D'Innocenzo et al., 2016).</li>
+    <li><strong>Senior leader overload</strong> — removing middle management dumps coordination burden on executives (Vanishing Middle Management, 2024).</li>
+    <li><strong>Career paths</strong> — fewer management layers reduce promotion opportunities, affecting retention (Caliendo et al., 2015).</li>
+  </ul>
+
+  <h3>10.5 Alternative Models</h3>
+  <table>
+    <tr><th>Model</th><th>Origin</th><th>Mechanism</th><th>Notable Adopter</th><th>Outcome</th></tr>
+    <tr><td>Holacracy</td><td>Robertson (2007)</td><td>Roles in circles, governance meetings, no job titles</td><td>Zappos (2013–20)</td><td>18% turnover spike; quietly abandoned (Reingold, 2016)</td></tr>
+    <tr><td>Sociocracy</td><td>Endenburg (1970s)</td><td>Consent-based decisions, double-linking circles</td><td>Various cooperatives</td><td>Stable in small/medium orgs</td></tr>
+    <tr><td>Spotify Model</td><td>Kniberg (2012)</td><td>Squads, tribes, chapters, guilds</td><td>Spotify (later distanced)</td><td>Widely copied; Spotify noted it was never formal (Kua, 2020)</td></tr>
+    <tr><td>Agile / Scrum</td><td>Beck, Schwaber (1990s–2000s)</td><td>Self-organizing teams, sprints, product owner</td><td>Tech industry broadly</td><td>Strong for software; less proven elsewhere</td></tr>
+    <tr><td>OKRs</td><td>Grove (Intel, 1970s); Doerr (Google)</td><td>Objectives + measurable key results, transparent</td><td>Google, Intel, LinkedIn</td><td>Widely adopted; execution varies</td></tr>
+    <tr><td>Valve Handbook</td><td>Newell (2012)</td><td>No formal hierarchy; desk wheels; project choice</td><td>Valve</td><td>Creative but criticized for hidden hierarchy (Hollister, 2013)</td></tr>
+  </table>
+
+  <h3>10.6 Research Consensus on Flat Organizations</h3>
+  <div class="thesis-box">
+    <strong>Current research consensus:</strong> The question is not "hierarchy vs. no hierarchy" but <strong>"what kind of structure, for what task, at what scale?"</strong> Flat structures work for small, creative, fast-moving teams with high-trust cultures and strong coordination alternatives (Agile, OKRs, transparent information systems). They fail when they simply remove managers without replacing their coordination, coaching, and accountability functions. The optimal design is <strong>contingent</strong> — and the trend toward flattening is as much about cost-cutting and technology-enabled coordination as it is about ideological commitment to empowerment (Lee &amp; Edmondson, 2021; McKinsey, 2017; Gallup, 2025).
+  </div>
+</section>
+
+<!-- ========== GAME DESIGN ========== -->
+<section id="game-design">
+  <h2>11. Implications for Management Simulation Game Design</h2>
+  <p>Translating this research into game mechanics:</p>
+
+  <h3>11.1 Core Simulation Variables (Evidence-Backed)</h3>
+  <table>
+    <tr><th>Variable</th><th>Source Theory</th><th>Mechanic Suggestion</th></tr>
+    <tr><td>Management quality score</td><td>WMS (Bloom &amp; Van Reenen)</td><td>Composite of monitoring, targets, incentives sliders</td></tr>
+    <tr><td>Boss quality</td><td>Lazear et al. (2015)</td><td>Individual manager stats affecting team multiplier</td></tr>
+    <tr><td>Employee engagement</td><td>Gallup (2015)</td><td>Morale meter; 70% driven by direct manager</td></tr>
+    <tr><td>Org structure (layers/spans)</td><td>Contingency theory; McKinsey</td><td>Org chart editor with tradeoffs: speed vs. control</td></tr>
+    <tr><td>Environmental turbulence</td><td>Lawrence &amp; Lorsch; Burns &amp; Stalker</td><td>Scenario parameter affecting optimal structure</td></tr>
+    <tr><td>Culture</td><td>Schein (1985)</td><td>Slow-changing alignment variable affecting cohesion</td></tr>
+    <tr><td>Innovation vs. execution</td><td>Lee &amp; Edmondson (2021)</td><td>Flat org bonus to creativity, penalty to execution</td></tr>
+    <tr><td>Information distortion</td><td>Galbraith (1973)</td><td>Signal degradation through hierarchy layers</td></tr>
+    <tr><td>Promotion decisions</td><td>Benson et al. (2019)</td><td>Promoting top performer ≠ good manager</td></tr>
+    <tr><td>Competition pressure</td><td>Bloom &amp; Van Reenen (2007)</td><td>Low competition enables management sloth</td></tr>
+  </table>
+
+  <h3>11.2 Design Principles</h3>
+  <ol>
+    <li><strong>No universal optimum.</strong> Contingency theory demands that different strategies win in different environments — stable manufacturing vs. turbulent startup vs. regulated healthcare.</li>
+    <li><strong>Management is a production input.</strong> The India RCT justifies treating management investment as directly increasing output, not just a flavor choice.</li>
+    <li><strong>Managers matter more than most inputs.</strong> Boss quality effects rival adding headcount; engagement variance is 70% managerial.</li>
+    <li><strong>Structure has costs and benefits.</strong> Flattening saves money and speeds decisions but risks execution, burnout, and informal hierarchy.</li>
+    <li><strong>Include folklore and reality.</strong> Players may believe Hawthorne effect, Theory X, or "excellence" attributes work — sometimes they're right, sometimes wrong (Rosenzweig, 2007).</li>
+    <li><strong>Time horizons matter.</strong> Cost-cutting reorgs boost short-term metrics; talent drain and culture damage appear later.</li>
+    <li><strong>MBA knowledge as skill tree.</strong> Finance, strategy, operations, leadership as unlockable competencies mirroring real curriculum.</li>
+  </ol>
+
+  <h3>11.3 Comparable Games (Reference)</h3>
+  <table>
+    <tr><th>Game</th><th>Management Elements</th><th>Gap vs. Research</th></tr>
+    <tr><td>Football Manager</td><td>Staff hierarchy, morale, delegation, scouting</td><td>Sports-specific; strong morale/manager model</td></tr>
+    <tr><td>Software Inc.</td><td>Team assignment, product pipeline, market</td><td>Light on org design and leadership theory</td></tr>
+    <tr><td>Game Dev Tycoon / Story</td><td>Employee skills, team composition</td><td>No management layer depth</td></tr>
+    <tr><td>Capitalism II</td><td>Corporate structure, R&amp;D, marketing, HR</td><td>Dated; limited behavioral modeling</td></tr>
+    <tr><td>RimWorld</td><td>Mood, needs, social dynamics, hierarchy</td><td>Colony sim; rich psychology, not business</td></tr>
+    <tr><td>Workers &amp; Resources</td><td>Production chains, logistics</td><td>Operations focus; no management theory</td></tr>
+    <tr><td>The Tower (incremental)</td><td>Corporate floor building, delegation</td><td>Abstract; no research grounding</td></tr>
+  </table>
+</section>
+
+<!-- ========== CONCLUSION ========== -->
+<section id="conclusion">
+  <h2>12. Conclusion</h2>
+  <div class="conclusion-box">
+    <p>Management theory has evolved over 150 years from Taylor's stopwatch to Bloom's randomized trials — from prescriptive "one best way" doctrines to contingent, empirically grounded understandings of how organizations function. Seven conclusions stand out for game design:</p>
+    <ol>
+      <li><strong>Management quality is causal, not cosmetic.</strong> The India RCT and WMS provide strong evidence that how firms are managed directly affects productivity and survival.</li>
+      <li><strong>Individual managers are high-leverage.</strong> Boss quality effects rival headcount decisions; Gallup's 70% engagement finding makes the direct manager the most important single variable.</li>
+      <li><strong>Context determines optimal design.</strong> Contingency theory is the best-supported framework for a sim where no single strategy always wins.</li>
+      <li><strong>Flat is not free.</strong> Removing middle management saves cost and speeds decisions but creates execution, coordination, and talent-development risks — unless alternative structures replace what managers did.</li>
+      <li><strong>The MBA curriculum maps to game skill trees.</strong> Finance, strategy, operations, leadership, analytics, and ethics are natural progression systems.</li>
+      <li><strong>Popular management wisdom is often wrong.</strong> Rosenzweig's halo effect, Hawthorne mythology, and "excellent company" retrospection provide rich material for player misjudgment and learning.</li>
+      <li><strong>The field is actively evolving.</strong> AI management, remote work, stakeholder capitalism, and the Great Flattening are live debates — not settled history.</li>
+    </ol>
+  </div>
+
+  <h3>12.1 Further Research Questions</h3>
+  <ul>
+    <li>How do management practices diffuse within and between firms? (Bloom et al., 2013 spillover findings)</li>
+    <li>What is the optimal span of control by task type, industry, and manager quality? (McKinsey, 2017; Gallup, 2025)</li>
+    <li>How do organizational structures affect innovation vs. exploitation tradeoffs? (March, 1991; O'Reilly &amp; Tushman, 2013 ambidexterity)</li>
+    <li>What management practices survive AI automation of routine coordination? (De Cremer et al., 2025)</li>
+    <li>How do national culture dimensions (Hofstede; GLOBE) moderate management effectiveness? (House et al., 2004)</li>
+    <li>What does the economics literature say about firm entry, exit, and market structure for simulating competitive dynamics?</li>
+    <li>How should a management sim model ethical failures (Enron, Wells Fargo) and regulatory response?</li>
+    <li>What do agent-based models of organizations exist in academia, and can they be adapted for gameplay?</li>
+  </ul>
+</section>
+
+<!-- ========== REFERENCES ========== -->
+<section id="references">
+  <h2>13. References</h2>
+  <ol class="ref-list">
+    <li>AACSB International. (2024). <em>Business Accreditation Standards.</em> AACSB.</li>
+    <li>Abrahamson, E. (1996). Management fashion. <em>Academy of Management Review,</em> 21(1), 254–285.</li>
+    <li>Admissionado. (2025). How many credits do you need for an MBA? <a href="https://admissionado.com/blog/mba/how-many-credits-do-you-need-for-an-mba-your-mba-credits-guide/">admissionado.com</a></li>
+    <li>Avolio, B.J., &amp; Gardner, W.L. (2005). Authentic leadership development. <em>The Leadership Quarterly,</em> 16(3), 315–338.</li>
+    <li>Baker Library, Harvard Business School. (2024). The Human Relations Movement: Hawthorne Experiments. <a href="https://www.library.hbs.edu/hc/hawthorne/intro.html">library.hbs.edu</a></li>
+    <li>Barney, J.B. (1991). Firm resources and sustained competitive advantage. <em>Journal of Management,</em> 17(1), 99–120.</li>
+    <li>Barnard, C.I. (1938). <em>The Functions of the Executive.</em> Harvard University Press.</li>
+    <li>Beatty, J. (2016). <em>The World According to Peter Drucker.</em> RosettaBooks.</li>
+    <li>Bedeian, A.G., &amp; Hunt, J.G. (2006). Academic amnesia and the charismatic component of transformational leadership. <em>Journal of Management History.</em></li>
+    <li>Benson, A., Li, D., &amp; Shue, K. (2019). Promotions and the Peter Principle. <em>Quarterly Journal of Economics,</em> 134(4).</li>
+    <li>BestColleges. (2025). How long does an MBA take? <a href="https://www.bestcolleges.com/business/mba/how-long-does-it-take-to-complete-mba/">bestcolleges.com</a></li>
+    <li>Blake, R.R., &amp; Mouton, J.S. (1964). <em>The Managerial Grid.</em> Gulf Publishing.</li>
+    <li>Blau, P.M. (1970). <em>A Formal Theory of Differentiation in Organizations.</em> American Sociological Review.</li>
+    <li>Bloom, N., et al. (2013). Does management matter? Evidence from India. <em>Quarterly Journal of Economics,</em> 128(1), 1–51.</li>
+    <li>Bloom, N., &amp; Van Reenen, J. (2007). Measuring and explaining management practices across firms and countries. <em>Quarterly Journal of Economics,</em> 122(4), 1351–1408.</li>
+    <li>Bloom, N., &amp; Van Reenen, J. (2010). Why do management practices differ across firms and countries? <em>Journal of Economic Perspectives,</em> 24(1), 203–224.</li>
+    <li>Bloom, N., et al. (2012). Management practices across firms and countries. <em>Academy of Management Perspectives,</em> 26(1), 12–33.</li>
+    <li>Bloom, N., et al. (2021). The donut effect of COVID-19 on cities. <em>NBER Working Paper 28848.</em></li>
+    <li>Buckingham, M., &amp; Coffman, C. (1999). <em>First, Break All the Rules.</em> Simon &amp; Schuster.</li>
+    <li>Burns, J.M. (1978). <em>Leadership.</em> Harper &amp; Row.</li>
+    <li>Burns, T., &amp; Stalker, G.M. (1961). <em>The Management of Innovation.</em> Tavistock.</li>
+    <li>Business Roundtable. (2019). Statement on the purpose of a corporation. <a href="https://www.businessroundtable.org/business-roundtable-redefines-the-purpose-of-a-corporation-to-promote-an-economy-that-serves-all-americans">businessroundtable.org</a></li>
+    <li>Byrne, J.A. (2003). In search of excellence—revisited. <em>Fast Company.</em></li>
+    <li>Caliendo, L., Monte, F., &amp; Rossi-Hansberg, E. (2015). The anatomy of French production hierarchies. <em>Journal of Political Economy,</em> 123(4).</li>
+    <li>Chandler, A.D. (1977). <em>The Visible Hand.</em> Harvard University Press.</li>
+    <li>Christensen, C.M. (1997). <em>The Innovator's Dilemma.</em> Harvard Business School Press.</li>
+    <li>CleanTechnica. (2018). Elon Musk takes on corporate hierarchy. <a href="https://cleantechnica.com/2018/05/15/elon-musk-takes-on-corporate-hierarchy-in-note-to-tesla-employees/">cleantechnica.com</a></li>
+    <li>Collins, J. (2001). <em>Good to Great.</em> HarperBusiness.</li>
+    <li>Collins, J. (2009). The Daily Drucker. <a href="https://www.jimcollins.com/article_topics/articles/the-daily-drucker.html">jimcollins.com</a></li>
+    <li>Collins, J., &amp; Porras, J.I. (1994). <em>Built to Last.</em> HarperBusiness.</li>
+    <li>Daft, R.L. (2015). <em>Organization Theory and Design</em> (12th ed.). Cengage.</li>
+    <li>De Cremer, D., et al. (2025). AI and the future of management. <em>Harvard Business Review.</em></li>
+    <li>DiMaggio, P.J., &amp; Powell, W.W. (1983). The iron cage revisited. <em>American Sociological Review,</em> 48(2), 147–160.</li>
+    <li>Doerr, J. (2018). <em>Measure What Matters.</em> Portfolio.</li>
+    <li>Duhigg, C. (2016). What Google learned from its quest to build the perfect team. <em>The New York Times Magazine.</em></li>
+    <li>F1GMAT. (2025). Harvard MBA curriculum analysis. <a href="https://www.f1gmat.com/harvard-mba-curriculum-analysis">f1gmat.com</a></li>
+    <li>Fayol, H. (1949). <em>General and Industrial Management.</em> Pitman.</li>
+    <li>Fiedler, F.E. (1967). <em>A Theory of Leadership Effectiveness.</em> McGraw-Hill.</li>
+    <li>Floyd, S.W., &amp; Wooldridge, B. (1997). Middle management's strategic role. <em>Journal of Management Studies.</em></li>
+    <li>Galbraith, J.R. (1973). <em>Designing Complex Organizations.</em> Addison-Wesley.</li>
+    <li>Galbraith, J.R. (1977). <em>Organization Design.</em> Addison-Wesley.</li>
+    <li>Gallup. (2015). State of the American Manager. <a href="https://news.gallup.com/businessjournal/182792/managers-account-variance-employee-engagement.aspx">gallup.com</a></li>
+    <li>Gallup. (2025). Span of control: optimal team size. <a href="https://www.gallup.com/workplace/700718/span-control-optimal-team-size-managers.aspx">gallup.com</a></li>
+    <li>Garvin, D.A. (2013). How Google sold its engineers on management. <em>Harvard Business Review.</em></li>
+    <li>GMAC. (2024). <em>Corporate Recruiters Survey.</em> Graduate Management Admission Council.</li>
+    <li>Google re:Work. (2024). Project Oxygen: research behind great managers. <a href="https://rework.withgoogle.com/intl/en/guides/following-the-data-the-research-behind-great-managers">rework.withgoogle.com</a></li>
+    <li>Greenleaf, R.K. (1970). <em>The Servant as Leader.</em> Robert K. Greenleaf Center.</li>
+    <li>Groth, A. (2011). Zappos is going holacratic. <em>Business Insider.</em></li>
+    <li>Guadalupe, M., Li, H., &amp; Wulf, J. (2014). Who lives in the C-suite? <em>Management Science,</em> 60(4).</li>
+    <li>Harvard Business School. (2025). MBA degree requirements, Class of 2027. <a href="https://www.hbs.edu/mba/handbook/academic-information-and-policies/degree-requirements">hbs.edu</a></li>
+    <li>Hersey, P., &amp; Blanchard, K.H. (1969). <em>Management of Organizational Behavior.</em> Prentice-Hall.</li>
+    <li>Hofstede, G. (1980). <em>Culture's Consequences.</em> Sage.</li>
+    <li>Hollister, S. (2013). Why Valve? <em>The Verge.</em></li>
+    <li>House, R.J., et al. (2004). <em>Culture, Leadership, and Organizations: The GLOBE Study.</em> Sage.</li>
+    <li>Judge, T.A., &amp; Piccolo, R.F. (2004). Transformational and transactional leadership: A meta-analytic test. <em>Journal of Applied Psychology,</em> 89(5).</li>
+    <li>Kanigel, R. (1997). <em>The One Best Way: Frederick Taylor and the Enigma of Efficiency.</em> Viking.</li>
+    <li>Katz, D., &amp; Kahn, R.L. (1966). <em>The Social Psychology of Organizations.</em> Wiley.</li>
+    <li>Kim, W.C., &amp; Mauborgne, R. (2005). <em>Blue Ocean Strategy.</em> Harvard Business School Press.</li>
+    <li>Kotter, J.P. (1990). <em>A Force for Change: How Leadership Differs from Management.</em> Free Press.</li>
+    <li>Kotter, J.P. (1996). <em>Leading Change.</em> Harvard Business School Press.</li>
+    <li>Kua, J. (2020). Spotify does not use "the Spotify model." <a href="https://www.jeremiahlee.com/posts/failed-squad-goals/">jeremiahlee.com</a></li>
+    <li>Laloux, F. (2014). <em>Reinventing Organizations.</em> Nelson Parker.</li>
+    <li>Lawrence, P.R., &amp; Lorsch, J.W. (1967). <em>Organization and Environment.</em> Harvard Business School.</li>
+    <li>Lazear, E.P., Shaw, K.L., &amp; Stanton, C.T. (2015). The value of bosses. <em>Journal of Labor Economics,</em> 33(4), 823–861.</li>
+    <li>Lee, K., &amp; Edmondson, A.C. (2021). The myth of the flat start-up. <em>Strategic Management Journal.</em></li>
+    <li>Lerna Courses. (2025). How many credits for an MBA? <a href="https://lerna.courses/how-many-credits-for-an-mba-survey-results/">lerna.courses</a></li>
+    <li>LSE Business Review. (2022). Improving productivity through better management practices. <a href="https://blogs.lse.ac.uk/businessreview/2022/05/20/improving-productivity-through-better-management-practices/">lse.ac.uk</a></li>
+    <li>March, J.G. (1991). Exploration and exploitation in organizational learning. <em>Organization Science,</em> 2(1), 71–87.</li>
+    <li>March, J.G., &amp; Simon, H.A. (1958). <em>Organizations.</em> Wiley.</li>
+    <li>McGregor, D. (1960). <em>The Human Side of Enterprise.</em> McGraw-Hill.</li>
+    <li>McKinsey &amp; Company. (2017). How to identify the right spans of control. <a href="https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/how-to-identify-the-right-spans-of-control-for-your-organization">mckinsey.com</a></li>
+    <li>Miles, R.E., &amp; Snow, C.C. (1978). <em>Organizational Strategy, Structure, and Process.</em> McGraw-Hill.</li>
+    <li>Minnaar, J. (2020). Elon Musk's 5-step algorithm to bust bureaucracy. Corporate Rebels. <a href="https://www.corporate-rebels.com/blog/musks-algorithm-to-cut-bureaucracy">corporate-rebels.com</a></li>
+    <li>Mintzberg, H. (1973). <em>The Nature of Managerial Work.</em> Harper &amp; Row.</li>
+    <li>Mintzberg, H. (1979). <em>The Structuring of Organizations.</em> Prentice-Hall.</li>
+    <li>Musk, E. (2018). Tesla internal email on communication. Via CleanTechnica and Wall Street Journal.</li>
+    <li>Ohno, T. (1988). <em>Toyota Production System.</em> Productivity Press.</li>
+    <li>O'Reilly, C.A., &amp; Tushman, M.L. (2013). Organizational ambidexterity. <em>Harvard Business Review.</em></li>
+    <li>Parsons, H.M. (1974). What happened at Hawthorne? <em>Science,</em> 183(4128), 922–932.</li>
+    <li>Parker, G., Van Alstyne, M., &amp; Choudary, S. (2016). <em>Platform Revolution.</em> Norton.</li>
+    <li>Peters, T.J., &amp; Waterman, R.H. (1982). <em>In Search of Excellence.</em> Harper &amp; Row.</li>
+    <li>Pfeffer, J., &amp; Fong, C.T. (2002). The end of business schools? <em>Academy of Management Learning &amp; Education,</em> 1(1).</li>
+    <li>Porter, M.E. (1980). <em>Competitive Strategy.</em> Free Press.</li>
+    <li>Porter, M.E. (1985). <em>Competitive Advantage.</em> Free Press.</li>
+    <li>Rajan, R.G., &amp; Wulf, J. (2006). The flattening firm. <em>Quarterly Journal of Economics,</em> 121(4).</li>
+    <li>Reingold, J. (2016). How a radical shift left Zappos reeling. <em>Fortune.</em></li>
+    <li>Roethlisberger, F.J., &amp; Dickson, W.J. (1939). <em>Management and the Worker.</em> Harvard University Press.</li>
+    <li>Rosenzweig, P. (2007). <em>The Halo Effect.</em> Free Press.</li>
+    <li>Rozovsky, J. (2015). The five keys to a successful Google team. <em>re:Work.</em></li>
+    <li>Sadun, R., Bloom, N., &amp; Van Reenen, J. (2017). Management as a technology? <em>Harvard Business School Working Paper 17-076.</em></li>
+    <li>Sah, R.K., &amp; Stiglitz, J.E. (1986). The architecture of economic systems. <em>American Economic Review,</em> 76(4).</li>
+    <li>Schein, E.H. (1985). <em>Organizational Culture and Leadership.</em> Jossey-Bass.</li>
+    <li>Senge, P.M. (1990). <em>The Fifth Discipline.</em> Doubleday.</li>
+    <li>Simon, H.A. (1947). <em>Administrative Behavior.</em> Macmillan.</li>
+    <li>SI Labs. (2026). Flat organizations: why they fail and what actually works. <a href="https://www.si-labs.com/en/articles/flat-organizations/">si-labs.com</a></li>
+    <li>Stogdill, R.M. (1948). Personal factors associated with leadership. <em>Journal of Psychology,</em> 25, 35–71.</li>
+    <li>Taylor, F.W. (1911). <em>The Principles of Scientific Management.</em> Harper &amp; Brothers.</li>
+    <li>Teece, D.J., Pisano, G., &amp; Shuen, A. (1997). Dynamic capabilities and strategic management. <em>Strategic Management Journal,</em> 18(7).</li>
+    <li>The Conversation. (2018). The appeal of the flat organisation. <a href="https://theconversation.com/the-appeal-of-the-flat-organisation-why-some-firms-are-getting-rid-of-middle-managers-88942">theconversation.com</a></li>
+    <li>Tourish, D. (2013). <em>The Dark Side of Transformational Leadership.</em> Routledge.</li>
+    <li>Vance, A. (2015). <em>Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future.</em> Ecco.</li>
+    <li>Vanishing Middle Management. (2024). Impact on organisational control systems. <em>Open Access Journal of Science.</em></li>
+    <li>Weber, M. (1947). <em>The Theory of Social and Economic Organization.</em> Free Press.</li>
+    <li>Wharton School. (2025). WG27 MBA program requirements. <a href="https://mba-inside.wharton.upenn.edu/wp-content/uploads/2025/08/WG27-MBA-Program-Requirements.pdf">wharton.upenn.edu</a></li>
+    <li>Wickström, G., &amp; Bendix, T. (2000). The "Hawthorne effect" — what did the original Hawthorne studies actually show? <em>Scandinavian Journal of Work Environment &amp; Health,</em> 26(4).</li>
+    <li>Womack, J.P., Jones, D.T., &amp; Roos, D. (1990). <em>The Machine That Changed the World.</em> Rawson Associates.</li>
+    <li>Woodward, J. (1965). <em>Industrial Organization: Theory and Practice.</em> Oxford University Press.</li>
+    <li>Wren, D.A., &amp; Bedeian, A.G. (2018). <em>The Evolution of Management Thought</em> (7th ed.). Wiley.</li>
+  </ol>
+</section>
+
+<footer>
+  <p><em>Management Sim</em> — Question 1 Research Report. This document surveys management theory, MBA curricula, influential books, empirical research on management quality, and ongoing debates about organizational design — to inform a management simulation video game.</p>
+  <p>Document produced July 2026. All sources accessed during research phase. HTML/CSS self-contained; no external dependencies.</p>
+</footer>
+
+</div>
+</body>
+</html>
