@@ -15,3 +15,4 @@ Instructions for Agents:
 ## Research Questions
 
 1. **Management Theory Foundations (complete):** What are the main theories of business and organizational management? What are the most influential books? How has management evolved historically? What does a typical MBA curriculum cover? What does research say about good vs. poor management and outcomes? What are ongoing debates (flat organizations, middle management, Musk-style first-principles management)? See `docs/management-theory-research.html`.
+2. **Startup Accelerators & Co-Founder Paths (complete):** How do successful digital founders (especially college dropouts) meet co-founders? What is the history of incubators and accelerators? Which US programs succeed most, what do programs look like, and what are success/failure rates? See `docs/startup-accelerators-cofounder-paths.html`.

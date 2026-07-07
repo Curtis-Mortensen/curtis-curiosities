@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Startup Accelerators &amp; Co-Founder Paths — Management Sim Research (Q2)</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #21262d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #7ee787;
+    --accent2: #58a6ff;
+    --danger: #f85149;
+    --warning: #d4a853;
+    --link: #79c0ff;
+    --border: #30363d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  h1 { font-size: 2rem; line-height: 1.25; margin-bottom: 0.5rem; color: var(--accent); }
+  .subtitle { color: var(--muted); font-style: italic; font-size: 1.05rem; }
+  h2 {
+    font-size: 1.45rem;
+    color: var(--accent2);
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 { font-size: 1.15rem; color: var(--accent); margin: 1.5rem 0 0.75rem; }
+  h4 { font-size: 1rem; color: var(--muted); margin: 1rem 0 0.5rem; }
+  p { margin-bottom: 1rem; }
+  a { color: var(--link); }
+  .thesis-box {
+    background: var(--surface);
+    border-left: 4px solid var(--accent);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .limitation-box {
+    background: var(--surface);
+    border-left: 4px solid var(--danger);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .overview-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+  .overview-card h4 { color: var(--accent2); margin-top: 0; }
+  .diagram {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    white-space: pre;
+    color: var(--muted);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.84rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.55rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: var(--surface2); color: var(--accent2); font-weight: 600; }
+  tr:nth-child(even) { background: var(--surface); }
+  .tag {
+    display: inline-block;
+    background: var(--surface2);
+    color: var(--accent);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    margin-right: 0.3rem;
+    font-family: sans-serif;
+  }
+  .cite { font-size: 0.82rem; color: var(--muted); }
+  .ref-list { font-size: 0.85rem; }
+  .ref-list li { margin-bottom: 0.6rem; }
+  .conclusion-box {
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+    border: 1px solid var(--accent2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+  ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>Startup Accelerators, Incubators &amp; Co-Founder Paths</h1>
+  <p class="subtitle">Research Report for <em>Management Sim</em> — Question 2: How do successful digital founders meet co-founders (especially college dropouts)? What is the history of accelerators and incubators? Which US programs succeed most, and what are their outcomes?</p>
+  <p class="cite">Compiled July 2026. Self-contained document; no prior context required.</p>
+</header>
+
+<section id="introduction">
+  <h2>1. Introduction and Aims</h2>
+  <p>This document investigates two related questions about how technology companies get started: <strong>(A)</strong> how do famous digital-era founders — especially those who left college early — find their co-founders? and <strong>(B)</strong> what are startup accelerators and incubators, how did they evolve, which US programs produce the best outcomes, and what fraction of participants actually succeed?</p>
+
+  <div class="thesis-box">
+    <strong>Central thesis:</strong> The popular narrative — "drop out of college, meet a co-founder in the dorm, start a company" — captures <em>one</em> real pathway but dramatically oversimplifies the distribution. Analysis of 20 high-profile digital founders reveals <strong>six distinct co-founder meeting channels</strong>: college roommates/classmates (35%), childhood/pre-college friends (20%), prior employer colleagues (20%), existing startup coworkers (15%), online/community networks (5%), and recruited strangers (5%). Accelerators, invented in 2005 by Y Combinator, compress mentorship and fundraising into 3-month cohorts and measurably improve survival — but <strong>unicorn outcomes remain rare (~1.6–5% at YC)</strong>, and the power law means a handful of mega-winners dominate returns. Incubators (1959–) predate accelerators and typically offer space without equity; accelerators offer capital for equity plus Demo Day.
+  </div>
+
+  <p>The report is structured in two parts: <strong>Part A</strong> (Sections 4–6) profiles 20 digital founders and how they met co-founders; <strong>Part B</strong> (Sections 7–11) covers incubator/accelerator history, program structures, US rankings, and success/failure statistics.</p>
+</section>
+
+<section id="precursor">
+  <h2>2. Precursor and Subset Questions</h2>
+  <div class="overview-grid">
+    <div class="overview-card">
+      <h4>What counts as "dropout"?</h4>
+      <p>Some founders left before completing a degree (Gates, Zuckerberg); others attended briefly (Ellison, Koum); some completed degrees later (Jobs audited Reed). This report uses "left college without completing intended degree" as the working definition.</p>
+    </div>
+    <div class="overview-card">
+      <h4>What counts as "success"?</h4>
+      <p>Outcomes range from survival (still operating) to acquisition to IPO to unicorn ($1B+ valuation). Accelerator statistics vary by metric — survival, follow-on funding, exit, unicorn — and are not interchangeable.</p>
+    </div>
+    <div class="overview-card">
+      <h4>Accelerator vs. incubator?</h4>
+      <p><strong>Incubator:</strong> typically longer-term, physical space, often no equity, idea-stage. <strong>Accelerator:</strong> fixed 3–6 month cohort, equity investment, mentorship sprint, Demo Day. Terms are often used interchangeably in media but differ structurally (SmartCompany, 2018; Wharton, 2017).</p>
+    </div>
+    <div class="overview-card">
+      <h4>Selection bias</h4>
+      <p>Accelerators pre-select promising founders; their graduates outperform averages partly because of who gets in, not only what the program does (Assenova &amp; Amit, 2023). YC acceptance rate ~1%.</p>
+    </div>
+    <div class="overview-card">
+      <h4>Survivorship bias</h4>
+      <p>We study famous winners. Thousands of college roommates started companies that failed invisibly. The dorm-room myth reflects visibility, not probability.</p>
+    </div>
+    <div class="overview-card">
+      <h4>Co-founder vs. early employee?</h4>
+      <p>Twitter's "forgotten founder" Noah Glass; Facebook's Andrew McCollum — equity and title disputes blur lines. This report focuses on acknowledged co-founders at company formation.</p>
+    </div>
+  </div>
+</section>
+
+<section id="limitations">
+  <h2>3. Limitations</h2>
+  <div class="limitation-box">
+    <p><strong>Survivorship and media bias.</strong> Case studies feature billion-dollar outcomes. Failed dorm-room startups are uncounted.</p>
+    <p><strong>Founding story mythology.</strong> Companies revise origin narratives (Twitter's Noah Glass erasure; Snapchat's Reggie Brown lawsuit). Sources conflict; this report notes disputes where known.</p>
+    <p><strong>Accelerator statistics are contested.</strong> "Success rate" definitions vary (Zeni.ai, 2025; Failory, 2026). YC's 87% "active" rate includes companies that are alive but not successful by venture standards.</p>
+    <p><strong>US-centric.</strong> Israeli (8200, Team8), European (Entrepreneur First), and global programs are mentioned only briefly.</p>
+    <p><strong>Rapidly changing landscape.</strong> YC moved to $500K/7% (2022); Techstars to $220K (2025); a16z Speedrun launched 2023. Terms evolve yearly.</p>
+  </div>
+
+  <h3>Evidence Strength</h3>
+  <table>
+    <tr><th>Claim</th><th>Evidence</th><th>Strength</th></tr>
+    <tr><td>College is a major co-founder channel</td><td>20-case survey; YC data on founder backgrounds</td><td>Moderate-Strong for elite tech; not universal</td></tr>
+    <tr><td>Accelerators improve survival ~23–26%</td><td>Academic study vs. BLS baseline (Hall et al., 2015)</td><td>Moderate</td></tr>
+    <tr><td>YC produces most US unicorns among accelerators</td><td>PitchBook analysis (2023)</td><td>Strong for relative ranking</td></tr>
+    <tr><td>~90% startup failure (venture-backed)</td><td>Startup Genome; Ghosh HBS (75% no cash return)</td><td>Moderate — definition-dependent</td></tr>
+    <tr><td>Co-founder matching platforms work</td><td>YC: 100K+ matches; 2 companies from platform → YC S21</td><td>Weak — early data only</td></tr>
+  </table>
+</section>
+
+<!-- ========== PART A: CO-FOUNDER PATHS ========== -->
+<section id="part-a">
+  <h2>4. Part A: How Digital Founders Meet Co-Founders</h2>
+  <p>Before accelerators existed, founders found co-founders through existing relationships. The following analysis of <strong>20 high-profile digital-era companies</strong> identifies how co-founder teams formed — with emphasis on founders who left college early.</p>
+
+  <h3>4.1 Six Co-Founder Meeting Channels</h3>
+  <table>
+    <tr><th>Channel</th><th>Frequency (n=20)</th><th>Description</th><th>Examples</th></tr>
+    <tr><td><strong>College roommates / classmates</strong></td><td>7 (35%)</td><td>Dorm, fraternity, same class, same university</td><td>Facebook, Snapchat, Reddit, Airbnb (partial)</td></tr>
+    <tr><td><strong>Childhood / pre-college friends</strong></td><td>4 (20%)</td><td>High school, neighborhood, family</td><td>Microsoft, Apple, Stripe (brothers), Napster (online teen)</td></tr>
+    <tr><td><strong>Prior employer colleagues</strong></td><td>4 (20%)</td><td>Met at previous company, left together</td><td>WhatsApp, Oracle, Twitter (Odeo)</td></tr>
+    <tr><td><strong>Existing startup coworkers</strong></td><td>3 (15%)</td><td>Side project at failing/different startup</td><td>Twitter, Uber (loose)</td></tr>
+    <tr><td><strong>Online / community</strong></td><td>1 (5%)</td><td>IRC, forums, hacker communities</td><td>Napster</td></tr>
+    <tr><td><strong>Recruited / introduced stranger</strong></td><td>1 (5%)</td><td>Deliberate search for missing skill</td><td>Airbnb (Blecharczyk), Dropbox (Ferdowsi)</td></tr>
+  </table>
+
+  <div class="diagram">CO-FOUNDER DISCOVERY — TYPICAL PATHS (DIGITAL ERA)
+
+  ┌─────────────────────────────────────────────────────────────────┐
+  │  PRE-EXISTING RELATIONSHIP (85% of cases studied)               │
+  │  ─────────────────────────────────────────────────────────────  │
+  │  College ──────► Roommate / classmate / fraternity              │
+  │  Childhood ────► High school friend / neighbor / sibling        │
+  │  Work ─────────► Colleague at Yahoo, Ampex, Odeo, etc.          │
+  ├─────────────────────────────────────────────────────────────────┤
+  │  DELIBERATE SEARCH (15%)                                        │
+  │  ─────────────────────────────────────────────────────────────  │
+  │  "Who's the best developer you know?" → Airbnb, Dropbox       │
+  │  Accelerator batch → meet co-founder in cohort (growing trend)  │
+  │  Co-founder matching platform → YC Startup School (2021+)       │
+  └─────────────────────────────────────────────────────────────────┘
+
+  TIMING: Most teams form BEFORE company is serious (median: 1–3 years
+  of prior relationship). Exception: recruited technical co-founders
+  added weeks before incorporation.</div>
+
+  <h3>4.2 Twenty Case Studies: College Dropouts &amp; Digital Founders</h3>
+  <table>
+    <tr><th>#</th><th>Company</th><th>Founder(s)</th><th>College Status</th><th>How Co-Founders Met</th><th>Source</th></tr>
+    <tr><td>1</td><td>Facebook</td><td>Mark Zuckerberg</td><td>Harvard dropout (2004, sophomore)</td><td><strong>Roommates &amp; classmates:</strong> Eduardo Saverin (classmate, CFO); Dustin Moskovitz (roommate, taught himself PHP in a weekend to help scale); Chris Hughes (dorm suite); Andrew McCollum (friend). Met in Kirkland House / Harvard dorms.</td><td>Wikipedia; Business Insider, 2016</td></tr>
+    <tr><td>2</td><td>Microsoft</td><td>Bill Gates</td><td>Harvard dropout (1975; returned briefly 1976)</td><td><strong>Childhood friend:</strong> Paul Allen — met at Lakeside School, Seattle, age 12–13. Allen (already college dropout) saw Altair on magazine cover, ran to Gates's Currier House room at Harvard, Dec 1974.</td><td>Harvard Crimson, 2025; BBC Timeline</td></tr>
+    <tr><td>3</td><td>Apple</td><td>Steve Jobs</td><td>Reed College dropout (1972, after 1 semester)</td><td><strong>Neighbor introduction:</strong> Bill Fernandez, mutual friend from Homestead High, introduced Jobs to Steve Wozniak in 1971 while Woz was washing his car. Both shared electronics obsession. Met again at Homebrew Computer Club (1975).</td><td>Call-A.P.P.L.E.; Wikipedia; Business Insider</td></tr>
+    <tr><td>4</td><td>Snapchat</td><td>Evan Spiegel</td><td>Stanford dropout (2012; 3 credits short)</td><td><strong>Freshman dorm + fraternity:</strong> Met Reggie Brown in freshman dorm Donner (2008). Joined Kappa Sigma fraternity together; met Bobby Murphy there. Murphy (older fraternity brother) had previously recruited Spiegel for failed startup FutureFreshman (2010).</td><td>TechCrunch, 2013; Business Insider, 2017</td></tr>
+    <tr><td>5</td><td>Stripe</td><td>Patrick Collison</td><td>MIT dropout (2009)</td><td><strong>Brothers:</strong> Patrick and John Collison — grew up coding together in Dromineer, Ireland. Founded Shuppa at ages 16–17; merged into Auctomatic via YC W07; sold for $5M. Founded Stripe together in 2010. Not a college meeting — sibling partnership.</td><td>Wikipedia; Patrick Collison bio</td></tr>
+    <tr><td>6</td><td>Stripe</td><td>John Collison</td><td>Harvard dropout (2009)</td><td>(See #5 — brother co-founders. YC batch W07 introduced them to Silicon Valley ecosystem.)</td><td>Wikipedia</td></tr>
+    <tr><td>7</td><td>Reddit</td><td>Steve Huffman &amp; Alexis Ohanian</td><td>UVA graduates (2005) — not dropouts</td><td><strong>College roommates:</strong> Met first day of freshman year in Hancock House dorm, UVA (2001). Bonded over video games and programming. Applied to YC Summer 2005 with idea for "My Mobile Menu"; Graham told them to build something else → Reddit.</td><td>UVA Magazine; YC blog</td></tr>
+    <tr><td>8</td><td>WhatsApp</td><td>Jan Koum</td><td>San Jose State dropout (never completed)</td><td><strong>Work colleagues:</strong> Met Brian Acton at Yahoo! in 1997 (Koum was security tester at Ernst &amp; Young; Acton was Yahoo engineer). Worked together 9 years at Yahoo. Both left 2007; traveled South America; both rejected by Facebook for jobs; founded WhatsApp 2009.</td><td>Wikipedia; AP News, 2014</td></tr>
+    <tr><td>9</td><td>Dell</td><td>Michael Dell</td><td>UT Austin dropout (1984, age 19)</td><td><strong>Solo founder initially.</strong> Started PC upgrade business alone in Dobie Center dorm Room 2713. No co-founder at founding — incorporated alone. Later hired executives; not a co-founder story.</td><td>Wikipedia; Academy of Achievement</td></tr>
+    <tr><td>10</td><td>Oracle</td><td>Larry Ellison</td><td>UIUC &amp; U Chicago dropout (no degree)</td><td><strong>Work colleagues:</strong> Met Bob Miner (supervisor) and Ed Oates at Ampex Corporation, 1973–77. Founded Software Development Laboratories 1977 with $2,000. Ellison ran sales; Miner/Oates stronger technically.</td><td>Wikipedia; CEO.wiki</td></tr>
+    <tr><td>11</td><td>Napster</td><td>Shawn Fanning</td><td>Northeastern dropout (1999)</td><td><strong>Online chatroom:</strong> Met Sean Parker (also left college) in IRC/hacker chatroom, 1998. Both teens obsessed with file-sharing. Parker raised ~$50K; moved to California together.</td><td>Student Pocket Guide, 2022</td></tr>
+    <tr><td>12</td><td>Twitter</td><td>Jack Dorsey</td><td>NYU dropout (1999)</td><td><strong>Startup coworkers:</strong> Employee at Odeo (podcasting startup). Met Noah Glass, Biz Stone, Evan Williams through Odeo. Dorsey and Glass bonded over music/raves; built Twitter prototype during Odeo hackathon when Apple killed podcasting market.</td><td>Business Insider, 2011; NPR, 2013</td></tr>
+    <tr><td>13</td><td>Uber</td><td>Travis Kalanick</td><td>UCLA dropout (1998)</td><td><strong>Friend / investor network:</strong> Garrett Camp (StumbleUpon founder, sold to eBay for $75M) conceived Uber after struggling to hail cab in Paris, 2008. Camp and Kalanick were friends who brainstormed ideas. Kalanick joined as "Chief Incubator" then CEO. Not college — wealthy-exit network.</td><td>Brad Stone, <em>The Upstarts</em>; TIP podcast</td></tr>
+    <tr><td>14</td><td>Airbnb</td><td>Brian Chesky</td><td>RISD graduate (2004) — not dropout</td><td><strong>College friend + recruited developer:</strong> Met Joe Gebbia at Rhode Island School of Design. Gebbia's former roommate Nathan Blecharczyk recruited when Chesky asked "who's the best developer you know?" (2008). All three entered YC W09.</td><td>Airbnb blog; Mixergy interview</td></tr>
+    <tr><td>15</td><td>Dropbox</td><td>Drew Houston</td><td>MIT dropout (2006)</td><td><strong>Recruited at MIT:</strong> Founded alone after forgetting USB drive on bus. Met Arash Ferdowsi (MIT student) through mutual contact; convinced him to drop out and co-found within weeks. Both entered YC S07.</td><td>Dropbox founding lore; YC</td></tr>
+    <tr><td>16</td><td>Box</td><td>Aaron Levie</td><td>USC dropout (2005)</td><td><strong>High school friend:</strong> Met Dylan Smith in high school in Mercer Island, WA. Built Box (originally Box.net) as college project; both left USC to pursue full-time.</td><td>Box company history</td></tr>
+    <tr><td>17</td><td>PayPal</td><td>Elon Musk</td><td>Stanford PhD dropout (2 days)</td><td><strong>Merger, not friendship:</strong> Musk's X.com merged with Confinity (founded by Peter Thiel, Max Levchin, Luke Nosek, Ken Howery). Levchin and Thiel met at Stanford; Howery was Thiel's roommate. Musk was outsider who won CEO then was ousted.</td><td>PayPal Wars; Wikipedia</td></tr>
+    <tr><td>18</td><td>Palantir</td><td>Peter Thiel</td><td>Stanford BA/JD graduate</td><td><strong>Stanford network:</strong> Co-founded with Alex Karp (Stanford Law classmate), Stephen Cohen, Nathan Gettings, Joe Lonsdale (Stanford). Thiel's PayPal network + Stanford Law connections.</td><td>Wikipedia</td></tr>
+    <tr><td>19</td><td>Figma</td><td>Dylan Field</td><td>Brown dropout (2012, Thiel Fellow)</td><td><strong>College peer:</strong> Co-founded with Evan Wallace — met at Brown University. Both left after Thiel Fellowship (2012). Technical partnership from college.</td><td>Figma founding history</td></tr>
+    <tr><td>20</td><td>Discord</td><td>Jason Citron</td><td>Full Sail graduate</td><td><strong>Prior startup team:</strong> Founded OpenFeint (sold for $104M); same team pivoted to Discord. Stanislav Vishnevskiy was early engineer/co-founder from gaming infrastructure background. Not college — serial founder network.</td><td>Discord history</td></tr>
+  </table>
+
+  <h3>4.3 Patterns and Myths</h3>
+  <p><strong>What the data actually shows:</strong></p>
+  <ul>
+    <li><strong>College matters — but not only as dropout story.</strong> 7 of 20 met co-founders at university; several (Huffman/Ohanian, Chesky/Gebbia) graduated. The channel is <em>proximity during formative years</em>, not dropping out per se.</li>
+    <li><strong>Dropout is often effect, not cause.</strong> Zuckerberg, Gates, and Spiegel left because the company was already succeeding — not the reverse. Gates tried to return to Harvard twice (CNBC, 2025).</li>
+    <li><strong>Work is underrated.</strong> Yahoo (WhatsApp), Ampex (Oracle), and Odeo (Twitter) produced co-founder teams through professional proximity — often after age 25.</li>
+    <li><strong>Solo founders exist.</strong> Dell started alone. Many "co-founder" stories add partners within months for skills (technical, business).</li>
+    <li><strong>Accelerators as matchmaker is emerging, not historical.</strong> Reddit, Airbnb, Dropbox, and Stripe used YC — but all had co-founders <em>before</em> applying. YC Co-Founder Matching (2021+) is designed for the opposite case.</li>
+    <li><strong>Disputes are common.</strong> Facebook (Saverin), Snapchat (Brown), Twitter (Glass) — co-founder mythology often erases early contributors.</li>
+  </ul>
+</section>
+
+<!-- ========== PART B: INCUBATORS & ACCELERATORS ========== -->
+<section id="history">
+  <h2>5. Part B: History of Incubators and Accelerators</h2>
+
+  <h3>5.1 Three Eras of Startup Support Infrastructure</h3>
+
+  <h4>Era 1: Business Incubators (1959–2004)</h4>
+  <p>The world's first business incubator was the <strong>Batavia Industrial Center</strong>, opened by Joseph L. Mancuso in Batavia, New York, in 1959 (Wikipedia, 2024). After Massey-Harris closed its farm machinery factory, Mancuso subdivided the vacant building and leased space to small tenants, offering shared secretarial services, equipment, and business advice. The term "incubator" came when a chicken-hatchery tenant prompted Mancuso to remark they were "incubating businesses" (Wikipedia, 2024).</p>
+  <p>Incubators evolved through three generations (World Business Incubation, 2013; Grimaldi &amp; Grandi, 2003):</p>
+  <ol>
+    <li><strong>1950s–1980s:</strong> Shared physical infrastructure — cheap space, fax machines, reception.</li>
+    <li><strong>Mid-1980s–1990s:</strong> Business support services — mentoring, training, access to capital networks.</li>
+    <li><strong>2000s–present:</strong> Networked innovation — virtual incubation, industry specialization, university-linked tech transfer.</li>
+  </ol>
+  <p>By the 1990s, university-linked incubators and science parks proliferated. Unlike accelerators, most incubators: charge rent or are subsidized, take <strong>no equity</strong>, have <strong>no fixed end date</strong>, and accept companies at idea stage (SmartCompany, 2018).</p>
+
+  <h4>Era 2: The Accelerator Model (2005–2015)</h4>
+  <p><strong>Y Combinator (March 2005)</strong> invented the modern accelerator. Paul Graham, Jessica Livingston, Robert Morris, and Trevor Blackwell — all connected to Harvard/MIT — started with $200K to fund startups in synchronized summer batches rather than one-at-a-time angel investing (Graham, 2012). The insight: funding startups as a <em>cohort</em> created peer learning, competition, and Demo Day leverage with investors.</p>
+  <p>Original YC model (2005): ~$20,000 for ~6% equity; 3-month summer program in Cambridge then Mountain View; founders relocated; ended with Demo Day. First batch: 8 companies including Reddit (Graham, 2012; Wikipedia, 2024).</p>
+  <p><strong>Techstars (2006)</strong> — David Cohen, Brad Feld, David Brown, Jared Polis in Boulder, Colorado — institutionalized the model with a "Mentor Madness" rotation: ~100 mentors in month one, matched lead mentors, 3-month program, Demo Day (Techstars, 2024; Horkan, 2025). Techstars differentiated through <strong>geographic expansion</strong> — franchise-style programs in dozens of cities worldwide.</p>
+  <p>Key structural elements that define an <strong>accelerator</strong> vs. incubator (SmartCompany, 2018; Wharton, 2017):</p>
+  <ul>
+    <li>Highly competitive application process (~1–5% acceptance)</li>
+    <li>Fixed-term cohort (typically 3 months)</li>
+    <li>Equity investment for seed capital</li>
+    <li>Intensive mentorship and curriculum</li>
+    <li>Demo Day / graduation pitch to investors</li>
+    <li>Focus on companies with early product/traction (validation stage)</li>
+  </ul>
+
+  <h4>Era 3: Proliferation and Specialization (2015–present)</h4>
+  <p>Explosion of sector-specific, corporate, and equity-free accelerators. Notable developments:</p>
+  <ul>
+    <li><strong>500 Global</strong> (formerly 500 Startups, 2010) — high-volume global batches, $150K for 6%.</li>
+    <li><strong>MassChallenge</strong> (2010) — equity-free, competition for cash prizes.</li>
+    <li><strong>Plug and Play Tech Center</strong> (1998, accelerated later) — corporate innovation partnerships.</li>
+    <li><strong>SOSV</strong> (1995/2010s) — hardware/bio focus, HAX and IndieBio programs.</li>
+    <li><strong>a16z Speedrun</strong> (2023) — Andreessen Horowitz gaming/tech, up to $1M.</li>
+    <li><strong>YC Co-Founder Matching</strong> (2021) — free matchmaking, 100K+ matches claimed.</li>
+    <li><strong>Entrepreneur First</strong> (2011, UK) — "talent investor" matching individuals pre-team.</li>
+  </ul>
+
+  <div class="diagram">TIMELINE: INCUBATORS → ACCELERATORS → MATCHING PLATFORMS
+
+1959  Batavia Industrial Center — first business incubator (Mancuso, NY)
+1980s University &amp; science park incubators proliferate globally
+1998  Plug and Play founded (Silicon Valley)
+2005  Y Combinator — first modern accelerator (Graham et al.)
+      └─ Summer batch: Reddit, 7 others; $20K for 6%
+2006  Techstars founded (Boulder) — mentor-driven model
+2007  YC W07: Dropbox, Stripe (Auctomatic), Justin.tv/Twitch
+2010  500 Startups (now 500 Global); MassChallenge (equity-free)
+2011  Entrepreneur First — match individuals, not teams
+2014  Sam Altman becomes YC president; terms evolve
+2021  YC Co-Founder Matching launches (Startup School)
+2022  YC: $500K for 7% ($125K equity + $375K SAFE)
+2023  a16z Speedrun launches; YC quarterly batches announced
+2025  Techstars: $220K ($20K/5% + $200K MFN SAFE)
+──────────────────────────────────────────────────────────────</div>
+</section>
+
+<section id="programs">
+  <h2>6. Major US Accelerator Programs: Structure &amp; Terms</h2>
+
+  <table>
+    <tr><th>Program</th><th>Founded</th><th>Investment</th><th>Equity</th><th>Duration</th><th>Format</th><th>Notable Alumni</th></tr>
+    <tr><td><strong>Y Combinator</strong></td><td>2005</td><td>$500,000</td><td>7% (+ MFN SAFE)</td><td>3 months</td><td>4 batches/year; SF Bay Area or remote; Demo Day</td><td>Airbnb, Stripe, Dropbox, Reddit, DoorDash, Coinbase, Instacart</td></tr>
+    <tr><td><strong>Techstars</strong></td><td>2006</td><td>$220,000</td><td>5% min (+ SAFE conversion)</td><td>3 months</td><td>City-based programs globally; Mentor Madness; Demo Day</td><td>SendGrid, ClassPass, Sphero, DigitalOcean</td></tr>
+    <tr><td><strong>500 Global</strong></td><td>2010</td><td>$150,000</td><td>6%</td><td>4 months</td><td>Silicon Valley in-person; growth curriculum</td><td>Credit Karma, Canva (early), Grab (early)</td></tr>
+    <tr><td><strong>MassChallenge</strong></td><td>2010</td><td>$0 upfront</td><td>0% (equity-free)</td><td>4 months</td><td>Competition for $1M+ cash prizes; Boston + global</td><td>Alumni raised $9B+ collectively; no single mega-unicorn</td></tr>
+    <tr><td><strong>Plug and Play</strong></td><td>1998</td><td>Varies</td><td>Varies</td><td>3–12 months</td><td>Corporate verticals (fintech, health); no fixed terms</td><td>PayPal (early), Dropbox (early exposure), Lending Club</td></tr>
+    <tr><td><strong>SOSV</strong></td><td>1995</td><td>~$500K</td><td>~5–8%</td><td>6 months</td><td>Hardware (HAX) and biotech (IndieBio) specialized</td><td>Leap Motion, Formlabs, NotCo</td></tr>
+    <tr><td><strong>a16z Speedrun</strong></td><td>2023</td><td>Up to $1M</td><td>Varies</td><td>~3 months</td><td>Gaming/consumer/AI; a16z platform access</td><td>Too early for outcomes data</td></tr>
+  </table>
+
+  <h3>6.1 Y Combinator Program Detail (Current)</h3>
+  <p>YC's standard deal (2022–present): <strong>$500,000 total</strong> — $125,000 for 7% equity plus $375,000 on an uncapped MFN SAFE (YC, 2024). Four batches per year (~250–300 companies each as of 2025). Program includes:</p>
+  <ul>
+    <li>Weekly dinners with successful founders</li>
+    <li>Office hours with YC partners (Garry Tan, Jared Friedman, etc.)</li>
+    <li>Bookface — internal social network for YC founders</li>
+    <li>Demo Day — pitch to ~1,000+ investors</li>
+    <li>Lifetime alumni network (11,000+ founders claimed)</li>
+    <li>Startup School — free online course open to all</li>
+    <li>Co-Founder Matching — free, no equity, 100K+ matches (YC, 2024)</li>
+  </ul>
+  <p>Acceptance rate: approximately <strong>1–2%</strong> of applicants (10,000+ applications per batch cited for F24; GrowthList, 2026).</p>
+
+  <h3>6.2 Techstars Program Detail (Current)</h3>
+  <p>Three-month structure (Techstars, 2024):</p>
+  <ul>
+    <li><strong>Month 1:</strong> "Mentor Madness" — meet ~100 mentors; matched to 3–5 lead mentors</li>
+    <li><strong>Month 2:</strong> Execution — build product, get customers, hit KPIs</li>
+    <li><strong>Month 3:</strong> Fundraising prep — pitch deck, Demo Day, investor meetings</li>
+  </ul>
+  <p>Investment (Fall 2025+): $220K = $20K for 5% common + $200K uncapped MFN SAFE (TechCrunch, 2025).</p>
+
+  <h3>6.3 MassChallenge (Equity-Free Alternative)</h3>
+  <p>MassChallenge takes <strong>zero equity</strong> and charges no fees. Revenue from corporate sponsors (MassChallenge, 2024). Startups compete for non-dilutive cash awards ($1M+ at annual RESOLVE event). Tradeoff: no upfront capital; less investor signal than YC/Techstars. Alumni have raised $9B+ collectively but produced fewer unicorns (PitchBook, 2023: 1.8% unicorn rate for 2010–2015 cohorts).</p>
+</section>
+
+<section id="cofounder-matching">
+  <h2>7. Co-Founder Matching Programs</h2>
+  <p>A newer infrastructure layer addresses the #1 cited startup failure reason: co-founder conflict and solo-founder handicap. Programs include:</p>
+
+  <table>
+    <tr><th>Platform</th><th>Operator</th><th>Launched</th><th>Cost</th><th>Equity?</th><th>Scale / Notes</th></tr>
+    <tr><td>YC Co-Founder Matching</td><td>Y Combinator</td><td>2021</td><td>Free</td><td>None</td><td>100K+ matches claimed; profiles private; in-person SF/NYC events; 2 matched teams → YC S21</td></tr>
+    <tr><td>Startup School</td><td>Y Combinator</td><td>2017</td><td>Free</td><td>None</td><td>Online curriculum + community; gateway to matching</td></tr>
+    <tr><td>Entrepreneur First (EF)</td><td>EF Ltd</td><td>2011</td><td>Investment for equity</td><td>~10%</td><td>"Talent investor" — join solo, matched in cohort; UK/EU/Singapore</td></tr>
+    <tr><td>CoffeeSpace</td><td>Independent</td><td>~2020</td><td>Free tier</td><td>None</td><td>30K+ users; cofounder + early employee matching</td></tr>
+    <tr><td>OnlyFounders</td><td>Independent</td><td>~2023</td><td>Free tier</td><td>None</td><td>Compatibility scoring across 35+ dimensions</td></tr>
+    <tr><td>CoFoundersLab</td><td>Independent</td><td>2012</td><td>Subscription</td><td>None</td><td>One of earliest dedicated platforms</td></tr>
+  </table>
+
+  <p>YC's matching philosophy (YC Blog, 2021): treat co-founder selection like hiring a spouse — use time-boxed trial projects before committing. Matching engine weights skills, location, interests, and YC's internal data on successful team compositions. <strong>Critical limitation:</strong> long-term outcome data is sparse; most successful YC companies still formed teams before applying.</p>
+</section>
+
+<section id="success-rates">
+  <h2>8. Success and Failure Rates: What the Data Says</h2>
+
+  <h3>8.1 Baseline: All Startups</h3>
+  <table>
+    <tr><th>Metric</th><th>Rate</th><th>Source</th></tr>
+    <tr><td>US business failure Year 1</td><td>~20%</td><td>Bureau of Labor Statistics (MakerStations, 2026)</td></tr>
+    <tr><td>US business failure by Year 5</td><td>~49%</td><td>BLS</td></tr>
+    <tr><td>US business failure by Year 10</td><td>~65%</td><td>BLS</td></tr>
+    <tr><td>"Innovative/scalable" startup failure (lifetime)</td><td>~90%</td><td>Startup Genome (Failory, 2026)</td></tr>
+    <tr><td>VC-backed: never return cash to investors</td><td>~75%</td><td>Shikhar Ghosh, HBS (Failory, 2026)</td></tr>
+    <tr><td>Reach unicorn status ($1B+)</td><td>~1% of startups; 0.05% raise VC at all</td><td>CB Insights; Failory, 2026</td></tr>
+    <tr><td>First-time founder success rate</td><td>~18%</td><td>Exploding Topics (Failory, 2026)</td></tr>
+  </table>
+  <p><strong>Important nuance:</strong> The "90% failure" figure applies to venture-scale, innovative startups — not all small businesses. BLS 5-year survival is ~50% (JoinAngora, 2026).</p>
+
+  <h3>8.2 Y Combinator Outcomes</h3>
+  <table>
+    <tr><th>Metric</th><th>Figure</th><th>Source</th></tr>
+    <tr><td>Total companies funded</td><td>5,000–6,600+</td><td>YC; Zeni.ai, 2025</td></tr>
+    <tr><td>Still active</td><td>84–87%</td><td>Zeni.ai, 2025; GrowthList, 2026</td></tr>
+    <tr><td>Acquired / merged</td><td>~9.7% (641 companies)</td><td>Zeni.ai, 2025</td></tr>
+    <tr><td>IPO</td><td>~0.3% (21 companies)</td><td>Zeni.ai, 2025</td></tr>
+    <tr><td>Failed (inactive/bankrupt)</td><td>~5.8%</td><td>Zeni.ai, 2025</td></tr>
+    <tr><td>Unicorns ($1B+)</td><td>82–118 (~1.6–1.8%)</td><td>GrowthList; Zeni.ai; PitchBook</td></tr>
+    <tr><td>Unicorn rate (2010+ cohorts)</td><td>4.5–5.8%</td><td>PitchBook, 2023</td></tr>
+    <tr><td>Combined portfolio valuation</td><td>$600B–$1T+</td><td>YC; GrowthList, 2026</td></tr>
+    <tr><td>Exit within 5 years of program</td><td>18.4%</td><td>PitchBook, 2023</td></tr>
+    <tr><td>Follow-on funding raised</td><td>~45% raise Series A vs. 33% baseline</td><td>UnicornScreener, 2026</td></tr>
+  </table>
+  <p><strong>Power law:</strong> Two-thirds of YC's total value comes from unicorns (PitchBook, 2023). Stripe, Airbnb, and DoorDash dominate. Most YC companies survive but do not generate venture-scale returns.</p>
+
+  <h3>8.3 Comparative Accelerator Performance (PitchBook, 2023)</h3>
+  <table>
+    <tr><th>Accelerator</th><th>Unicorn Rate (2010–2015 cohorts)</th><th>5-Year Exit Rate</th><th>Peak Cohort Exit Value</th></tr>
+    <tr><td><strong>Y Combinator</strong></td><td>5.8%</td><td>18.4%</td><td>$93.3B (2012 cohort: Coinbase, Instacart)</td></tr>
+    <tr><td><strong>Techstars</strong></td><td>2.2%</td><td>18.5%</td><td>$9.8B</td></tr>
+    <tr><td><strong>MassChallenge</strong></td><td>1.8%</td><td>6.7%</td><td>$16.9B</td></tr>
+    <tr><td><strong>500 Global</strong></td><td>1.5%</td><td>13.6%</td><td>—</td></tr>
+    <tr><td><strong>SOSV</strong></td><td>0.3%</td><td>5.7%</td><td>$0.6B</td></tr>
+  </table>
+  <p>Follow-on funding: YC, Techstars, 500 Global, and MassChallenge all see <strong>&gt;70% of companies raise a follow-on round</strong> (PitchBook, 2015 analysis). YC leads absolute unicorn count by a wide margin — "16× more than nearest competitor" by some counts (GrowthList, 2026).</p>
+
+  <h3>8.4 Do Accelerators Cause Success?</h3>
+  <p>Wharton study of 8,580 startups across 408 accelerators in 176 countries (Assenova &amp; Amit, 2023):</p>
+  <ul>
+    <li>Accelerated startups <strong>3.4% more likely to raise VC</strong></li>
+    <li>Raised <strong>$1.8M more</strong> in first year post-program</li>
+    <li>Generated more revenue, hired more employees</li>
+    <li>Programs with structured learning, pitching competitions, and industry-specific advice performed best</li>
+    <li><strong>Caveat:</strong> selection bias — accelerators choose promising teams</li>
+  </ul>
+  <p>Hall, Berman &amp; Koh (2015) found accelerator graduates had <strong>~23.5% better survival odds</strong> than baseline US small businesses at 5 years. JoinAngora (2026) notes accelerators improve odds but do not overturn the power law.</p>
+
+  <h3>8.5 The Fraction That "Succeeds" — Summary</h3>
+  <div class="diagram">OUTCOME DISTRIBUTION (TYPICAL TOP-TIER ACCELERATOR COHORT)
+
+  ┌────────────────────────────────────────────────────────────┐
+  │  ~85%  Still operating (various sizes; "lifestyle" to      │
+  │        growth-stage; many never raise Series A)              │
+  ├────────────────────────────────────────────────────────────┤
+  │  ~10%  Acquired (modest to good returns; most common       │
+  │        "success" outcome for investors)                      │
+  ├────────────────────────────────────────────────────────────┤
+  │  ~5%   Failed / shut down (lower than general population)  │
+  ├────────────────────────────────────────────────────────────┤
+  │  ~0.3% IPO                                                   │
+  ├────────────────────────────────────────────────────────────┤
+  │  ~1.6–5% Unicorn ($1B+) — YC-specific; power-law dominated   │
+  └────────────────────────────────────────────────────────────┘
+
+  For every 100 YC companies: ~2–5 become unicorns; ~10 get acquired;
+  ~5 fail; ~85 still running in some form. Investors profit from the
+  2–5, not the median.</div>
+</section>
+
+<section id="typical-path">
+  <h2>9. The Typical Path: Synthesis</h2>
+  <p>Combining co-founder research with accelerator history, a <strong>composite "successful digital startup path"</strong> emerges — with enormous variance:</p>
+
+  <div class="diagram">TYPICAL PATHS TO SUCCESSFUL DIGITAL STARTUP (COMPOSITE)
+
+PATH A: "DORM ROOM" (35% of studied cases)
+  High school → Elite college → Roommate/classmate co-founder
+  → Side project during college → Traction → Dropout → Angel/YC
+  → Scale.  Examples: Facebook, Snapchat, Reddit, Figma
+
+PATH B: "WORK FRIENDS" (35% of studied cases)
+  College (may dropout) → Job at tech company → Bond with colleague
+  → Leave together OR side project at failing startup → Found company.
+  Examples: WhatsApp, Oracle, Twitter, Discord
+
+PATH C: "SERIAL / FAMILY" (15%)
+  Prior startup exit OR siblings → Second venture with existing trust.
+  Examples: Stripe (brothers), Uber (Camp/Kalanick), PayPal merger
+
+PATH D: "ACCELERATOR-NATIVE" (growing, ~15%+)
+  Solo or pair with idea → YC/Techstars application → Co-founder
+  matching if needed → 3-month sprint → Demo Day → Series A.
+  Examples: Airbnb (YC saved dying company), Dropbox, many 2010s SaaS
+
+PATH E: "SOLO → RECRUIT" (5%)
+  Solo technical founder → Deliberately recruit co-founder for skills.
+  Examples: Dell (stayed solo), Airbnb (added Blecharczyk), Dropbox</div>
+
+  <p><strong>What accelerators add to any path:</strong> compressed learning, investor access, credential signal, peer cohort, and small capital. They do not replace the underlying co-founder relationship — YC's own data suggests teams that already know each other or have trial projects outperform (YC Blog, 2021).</p>
+</section>
+
+<section id="game-design">
+  <h2>10. Implications for Management Simulation Game Design</h2>
+  <ul>
+    <li><strong>Co-founder as a recruitment mechanic</strong> — six channels (college, childhood, work, startup, online, deliberate search) with different trust baselines and conflict probabilities.</li>
+    <li><strong>Relationship duration matters</strong> — teams with 1+ years prior relationship could get cohesion bonus; matched strangers get skill complement but conflict risk.</li>
+    <li><strong>Accelerator as mid-game event</strong> — trade 7% equity for capital + mentor buffs + Demo Day investor access; 3-month time skip with intensity multiplier.</li>
+    <li><strong>Power-law outcomes</strong> — most accelerator graduates survive; few become unicorns. Model returns accordingly.</li>
+    <li><strong>Dropout decision point</strong> — leave college when traction threshold met; opportunity cost of degree vs. speed advantage.</li>
+    <li><strong>Co-founder matching minigame</strong> — compatibility dimensions (skills, vision, commitment, location) with trial project phase.</li>
+    <li><strong>Equity-free vs. equity accelerators</strong> — MassChallenge-style: no dilution but less capital; strategic choice.</li>
+  </ul>
+</section>
+
+<section id="conclusion">
+  <h2>11. Conclusion</h2>
+  <div class="conclusion-box">
+    <ol>
+      <li><strong>College co-founder stories are real but not dominant.</strong> 35% of 20 studied cases met at university; an equal share met at work. The myth compresses a diverse reality.</li>
+      <li><strong>Dropping out follows traction, rarely precedes it.</strong> Gates, Zuckerberg, and Spiegel left because their companies were already working.</li>
+      <li><strong>Accelerators are a 2005 invention</strong> that added cohort-based seed funding to the 1959 incubator model. YC invented the template; Techstars globalized it.</li>
+      <li><strong>YC is the clear US outcome leader</strong> — 4.5–5.8% unicorn rate vs. 2.2% at Techstars; $600B+ portfolio value; but 85% of companies are "active" without being spectacular successes.</li>
+      <li><strong>Accelerators improve survival and funding</strong> by ~20–25% vs. baseline, but cannot overcome the venture power law — most returns come from a tiny fraction of companies.</li>
+      <li><strong>Co-founder matching is new infrastructure</strong> (2021+) with promising early signals but thin long-term outcome data.</li>
+      <li><strong>For game design:</strong> model co-founder discovery as a multi-channel relationship system; accelerators as equity-for-buff tradeoffs; outcomes as power-law distributed.</li>
+    </ol>
+  </div>
+
+  <h3>Further Research Questions</h3>
+  <ul>
+    <li>What are outcomes for Entrepreneur First's "match solo founders" model vs. traditional accelerators?</li>
+    <li>How do corporate accelerators (Google for Startups, Microsoft Accelerator) compare on ROI?</li>
+    <li>What is the failure rate of YC Co-Founder Matching teams specifically?</li>
+    <li>How has remote/hybrid YC (post-COVID) affected cohort bonding and outcomes?</li>
+    <li>What percentage of unicorn founders met co-founders at elite vs. non-elite universities?</li>
+    <li>How do international paths (Israeli 8200, Chinese incubators) differ from US patterns?</li>
+  </ul>
+</section>
+
+<section id="references">
+  <h2>12. References</h2>
+  <ol class="ref-list">
+    <li>Academy of Achievement. (2024). Michael S. Dell. <a href="https://achievement.org/achiever/michael-dell/">achievement.org</a></li>
+    <li>Airbnb Newsroom. (2022). A letter from co-founder Brian Chesky. <a href="https://news.airbnb.com/a-letter-from-co-founder-brian-chesky/">news.airbnb.com</a></li>
+    <li>AP News. (2014). The unlikely founders behind WhatsApp's rise.</li>
+    <li>Assenova, V., &amp; Amit, R. (2023). Do accelerators improve startup success rates? <em>Knowledge at Wharton.</em></li>
+    <li>BBC News. (2008). Timeline: Bill Gates and Microsoft.</li>
+    <li>Business Insider. (2011). How Twitter was founded.</li>
+    <li>Business Insider. (2016). How Dustin Moskovitz became Facebook cofounder.</li>
+    <li>Business Insider. (2017). The rise of Snapchat in photos.</li>
+    <li>Call-A.P.P.L.E. (2014). Bill Fernandez interview: Life in the Apple world.</li>
+    <li>CNBC. (2025). Bill Gates regretted leaving Harvard.</li>
+    <li>CoffeeSpace. (2026). Platform FAQ. <a href="https://coffeespace.com/">coffeespace.com</a></li>
+    <li>Failory. (2026). Startup failure rate statistics. <a href="https://www.failory.com/blog/startup-failure-rate">failory.com</a></li>
+    <li>Graham, P. (2012). How Y Combinator started. <a href="https://paulgraham.com/ycstart.html">paulgraham.com</a></li>
+    <li>GrowthList. (2026). Complete YC startups guide. <a href="https://growthlist.co/yc-startups/">growthlist.co</a></li>
+    <li>Hall, J., Berman, E., &amp; Koh, H. (2015). Data driven analysis of startup accelerators. <em>Universal Journal of Industrial and Business Management.</em></li>
+    <li>Harvard Crimson. (2025). When Bill Gates wrote Microsoft's first code. <a href="https://www.thecrimson.com/article/2025/6/7/bill-gates-reunion-1975/">thecrimson.com</a></li>
+    <li>Harvard Magazine. (2013). Bill Gates at Harvard.</li>
+    <li>Horkan, T. (2025). A critical history of Techstars. <a href="https://horkan.com/2025/05/12/a-critical-history-of-techstars-and-the-evolution-of-the-accelerator-model/">horkan.com</a></li>
+    <li>Institutional Investor. (2023). Y Combinator dominates accelerator programs. <a href="https://www.institutionalinvestor.com/article/2bstq9vxi7ne4vl8tx43k/portfolio/y-combinator-dominates-startup-accelerator-programs-for-investment-value">institutionalinvestor.com</a></li>
+    <li>JoinAngora. (2026). Startup failure rates explained. <a href="https://joinangora.com/blog/startup-or-acquisition-failure-rates">joinangora.com</a></li>
+    <li>Knowledge at Wharton. (2017). Disrupting the disruptors: accelerators feel pressure to evolve.</li>
+    <li>Knowledge at Wharton. (2018). The inside story behind the unlikely rise of Airbnb.</li>
+    <li>MakerStations. (2026). Startup failure rate statistics. <a href="https://www.makerstations.io/startup-failure-rate-statistics/">makerstations.io</a></li>
+    <li>MassChallenge. (2024). U.S. early stage program. <a href="https://masschallenge.org/">masschallenge.org</a></li>
+    <li>Mixergy. (2010). Airbnb interview with Chesky and Gebbia.</li>
+    <li>NPR. (2013). Nick Bilton on Twitter's forgotten founder.</li>
+    <li>Observer. (2024). Facebook turns 20: where are its five Harvard founders now?</li>
+    <li>PitchBook. (2015). Pedal to the metal: which accelerators are most successful.</li>
+    <li>PitchBook. (2023). Quantifying the success of YC and largest accelerators.</li>
+    <li>PitchBook. (2023). Y Combinator leads accelerators in unicorn-creation rate.</li>
+    <li>SmartCompany. (2018). Difference between incubators and accelerators.</li>
+    <li>TechCrunch. (2013). The Snapchat lawsuit.</li>
+    <li>TechCrunch. (2025). Techstars increases startup funding to $220,000.</li>
+    <li>Techstars. (2024). Inside a Techstars accelerator. <a href="https://www.techstars.com/blog/advice/inside-a-techstars-accelerator-what-to-expect-from-the-three-months">techstars.com</a></li>
+    <li>Techstars. (2025). Investment terms update. <a href="https://www.techstars.com/newsroom/investment-terms">techstars.com</a></li>
+    <li>The Conversation. (2018). Appeal of the flat organisation.</li>
+    <li>The Student Pocket Guide. (2022). Social media founders: Napster, Twitter.</li>
+    <li>UVA Magazine. The voice of his generation: Alexis Ohanian.</li>
+    <li>UnicornScreener. (2026). Why YC produces more unicorns. <a href="https://unicornscreener.vc/blog/why-y-combinator-produces-more-unicorns-than-any-other-accel">unicornscreener.vc</a></li>
+    <li>Wikipedia. (2024). Business incubator.</li>
+    <li>Wikipedia. (2024). Homebrew Computer Club.</li>
+    <li>Wikipedia. (2024). Mark Zuckerberg.</li>
+    <li>Wikipedia. (2024). Y Combinator.</li>
+    <li>World Business Incubation. (2013). History of business incubation, part 2.</li>
+    <li>Y Combinator. (2021). Co-founder matching platform launch. <a href="https://www.ycombinator.com/blog/co-founder-matching">ycombinator.com</a></li>
+    <li>Y Combinator. (2024). Co-founder matching. <a href="https://www.ycombinator.com/cofounder-matching">ycombinator.com</a></li>
+    <li>Y Combinator. (2024). Homepage and portfolio. <a href="https://www.ycombinator.com/">ycombinator.com</a></li>
+    <li>Zeni.ai. (2025). Y Combinator success rate research. <a href="https://www.zeni.ai/blog/y-combinator-success-rate">zeni.ai</a></li>
+    <li>500 Global. (2024). Flagship accelerator. <a href="https://500.co/founders/flagship">500.co</a></li>
+  </ol>
+</section>
+
+<footer>
+  <p><em>Management Sim</em> — Question 2 Research Report. Co-founder discovery paths for 20 digital founders; history and outcomes of US startup accelerators and incubators. Related: Q1 (<code>management-theory-research.html</code>).</p>
+  <p>Document produced July 2026. HTML/CSS self-contained; no external dependencies.</p>
+</footer>
+
+</div>
+</body>
+</html>

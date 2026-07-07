@@ -37,3 +37,39 @@ User requested research on business/organizational management theory for a manag
 
 ### Status
 **Complete** — Question 1 research artifact ready for human review.
+
+---
+
+## 2026-07-07 — Question 2: Startup Accelerators & Co-Founder Paths (complete)
+
+### Plan summary
+User requested research on: (A) how ~20 college-dropout digital founders met co-founders, and (B) history/development of accelerators and incubators, top US programs, program structure, and success/failure rates. Deliver self-contained HTML in Apocalypse Story / Q1 format.
+
+### Precursor / subset questions identified
+1. What counts as "dropout" vs. "left without degree"?
+2. Accelerator vs. incubator definitional differences?
+3. What metric defines "success" (survival, exit, unicorn)?
+4. Selection bias in accelerator outcome data?
+5. Co-founder matching platforms — do they work?
+6. Survivorship bias in famous founder case studies?
+
+### Key findings — Part A (Co-founder paths)
+- **20 case studies** catalogued with meeting channel, college status, and sources.
+- **Six channels:** college roommates/classmates (35%), childhood friends (20%), work colleagues (20%), startup coworkers (15%), online (5%), recruited strangers (5%).
+- **Dropout myth:** dropping out usually follows traction, not precedes it (Gates tried to return twice).
+- **Work underrated:** WhatsApp (Yahoo), Oracle (Ampex), Twitter (Odeo) — professional proximity matters.
+- **Accelerators rarely create teams:** Reddit, Airbnb, Dropbox, Stripe had co-founders before YC.
+
+### Key findings — Part B (Accelerators)
+- **Incubator origin:** Batavia Industrial Center, 1959 (Mancuso, NY).
+- **Accelerator origin:** Y Combinator, March 2005 (Graham et al.); Techstars 2006.
+- **YC outcomes:** 84–87% active; ~1.6–5.8% unicorn rate; 18.4% exit by year 5; $600B–$1T portfolio.
+- **Comparative:** YC 5.8% unicorn vs. Techstars 2.2%, MassChallenge 1.8%, 500 Global 1.5%.
+- **Accelerators improve survival ~23–25%** vs. baseline (Hall et al., 2015); Wharton 2023: +$1.8M funding year 1.
+- **Co-founder matching:** YC platform 100K+ matches; free, no equity; thin outcome data.
+
+### Deliverable
+- `docs/startup-accelerators-cofounder-paths.html` — 12 sections, 20-founder table, accelerator comparison tables, timeline diagrams, 50+ references.
+
+### Status
+**Complete** — Question 2 research artifact ready for human review.
