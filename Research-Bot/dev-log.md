@@ -1,5 +1,38 @@
 # Apocalypse Story — Dev Log
 
+## 2026-07-07 — Radio Repeater Technology Research (complete)
+
+### Plan summary
+User requested detailed research on radio repeater technology: Meshtastic/LoRa, GMRS, ham radio, and related bands — with Amazon makes/models, power draw, solar viability, DIY kits, popular guides, and cost comparisons sorted by category, range, and price. Initial response was chat-only; user asked to commit to Research-Bot.
+
+### Precursor / subset questions identified
+1. What legally counts as a "repeater" on each band (Meshtastic mesh vs. full-duplex voice)?
+2. Which license-free bands prohibit repeaters (MURS, CB)?
+3. Which Amazon hardware is community-validated vs. marketing hype?
+4. What solar power budgets apply to nRF52840 vs. ESP32 Meshtastic nodes vs. GMRS RT97L?
+5. When does DIY (Surecom controller + duplexer + mobiles) beat turnkey RT97L on cost?
+
+### Key findings
+- **Meshtastic:** RAK4631 solar relay (~$100–180) is cheapest credible hilltop node; height beats antenna gain (Avramut field data).
+- **GMRS:** RT97L (~$535 Amazon) beats most DIY builds; draws up to 72 W on TX — needs 100–200 W solar for off-grid moderate use.
+- **MURS/CB:** Repeaters explicitly illegal under FCC Part 95.
+- **Ham:** SvxLink on Raspberry Pi remains dominant DIY path; Amazon strong for controllers/duplexers, weak for commercial repeaters.
+
+### Changes made
+- Created `Research-Bot/radio-repeater-technology.html` — self-contained HTML report with taxonomy, Amazon ASIN tables, solar sizing, DIY BOM comparisons, decision tree, 25 references.
+
+### Assumptions
+- US-centric (FCC, Amazon.com). Prices representative of 2025–2026 listings.
+- Apocalypse Story relevance noted but not primary scope (one-time research question, not Apocalypse-Story series).
+
+### Bugs / problems
+- Prior chat response was never committed; corrected in this session.
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-05 — Mesa Fireworks Viewing Guide (complete, updated for July 4 MST)
 
 ### Plan summary
