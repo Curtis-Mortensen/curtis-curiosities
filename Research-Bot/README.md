@@ -1,20 +1,23 @@
-# Apocalypse Story
+# Research Bot
 
-This is a repo dedicated to research in preperation for creating a story about a post-apocalyptic world. While it's currently text-only, it May eventually evolve into. Programmatic simulation. Of. Different. Locations. And group sizes in the event of a collapse. 
+This is a repo dedicated to research 
 
-The general premise under investigation is of an epidemic. The disease is dormant for 2-3 days, after which the victim begins vomiting blood which spreads the disease. They're mostly symptomless up to that point. The disease has a higher than 50% mortality rate and victims die with 5 days of vomiting stage. 
-The epidemic is not the focus of the investigation, rather the societal implications (primarily focused in the US) of having a rapid reduction in population are. Specifically, researching instances where the population was reduced by 50-90% within a period of weeks to months. 
-
-Instructions for Agents: 
+## Research Instructions for Agents: 
 - Each agent should take only the one question assigned. They should attempt to identify precursor questions and subset questions, write them out, and then research step by step using web-search and other tools.
 - Agents should be thorough, but they shouldn't attempt to answer questions that are likely the domain of other agents researching other big questions. Feel free to explore and document interesting and useful facts, but strive for independent silos and areas.
-- Agents may research different conclusions than previous agents - that is normal and contradictory information and evidence is good - it invites further exploration and comparison.
-- Agents will present their finding in a self-contained html doc with contained css that incorporates diagrams, top level overviews, and an introductory section describing what the document is and what it's aims are (meant to be readable by a general audience without the context of this repo).
+- If the topic has been researched or explored before, agents may research different conclusions than previous agents - that is normal and contradictory information and evidence is good - it invites further exploration and comparison.
+- Agents will present their findings in a self-contained html doc with contained css that incorporates diagrams, top level overviews, and an introductory section describing what the document is and what it's aims are (meant to be readable by a general audience without the context of this repo).
 - After the aims, note the limitations of the research - give theoretical limitations first (human psychology is inhently chaotic, as an example) before diving into methodoloy and literature limitations. Note the strength of the evidence by giving some commentary on that area of study and where it is as a field (and the history of the field). In fact, add a section on the history of the fields that attempt to answer that question.
 - Report documents shouldn't be afraid to dive into technical detail but should be very thorough in citing sources. Almost every sentance or fact or statement should have sources. Treat this as a research paper. While keeping overviews and headings and thesis readable, give as much info as possible.
 - When researching questions that want examples, find as many examples as possible - 20-50 is appropriate.
 - At the end of the document, present a consice conclusion. Identify further potential research questions and directions for interesting additional study. 
 
+## Apocalypse Story
+
+One of the topics is in preperation for creating a story about a post-apocalyptic world. While it's currently text-only, it May eventually evolve into. Programmatic simulation. Of. Different. Locations. And group sizes in the event of a collapse. 
+
+The general premise under investigation is of an epidemic. The disease is dormant for 2-3 days, after which the victim begins vomiting blood which spreads the disease. They're mostly symptomless up to that point. The disease has a higher than 50% mortality rate and victims die with 5 days of vomiting stage. 
+The epidemic is not the focus of the investigation, rather the societal implications (primarily focused in the US) of having a rapid reduction in population are. Specifically, researching instances where the population was reduced by 50-90% within a period of weeks to months. 
 Several research questions have been identified: 
 1. Historical parallels: What are the major historical parallels of instances of dramatic population loss? Not exclusive to pandemics - invading armies, natural disasters, famines, droughts. Looking back at all of human history, to try to identify fertile areas of further research and investigation. 
 2. Psychology: How do humans react in the face of existential danger? What would be the likely immediate results of widespread panic? When has that happened in recent memory (last 250 years)? For example, how did Japanese citizens react after two of their cities were nuked - facing an overwhelming enemy? How do cities react that know they are likely to be invaded? How often do people flee, and how?  Look at the past 500 years worldwide as the world has gotten more connected and transport has changed. 
