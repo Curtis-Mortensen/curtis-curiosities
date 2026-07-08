@@ -214,3 +214,37 @@ python3 tier-list/scrape/build-viewer.py
 ### Status
 
 Shipped in Stage 3. Stage 4 remains character nav polish only.
+
+## 2026-07-08 — STS2 tier list Phase 4 (Stage 4: character navigation polish)
+
+**Plan:** `recreating-tier-list.html` Stage 4
+
+### Goal
+
+Polish sticky character jump navigation: active-section highlight on scroll, smooth hash jumps, keyboard traversal, mobile layout.
+
+### What was built
+
+| Path | Purpose |
+|------|---------|
+| `tier-list/viewer.js` | Scroll-spy (`setupCharacterNavScrollSpy`), smooth scroll (`setupNavSmoothScroll`), keyboard nav (`setupNavKeyboard`) |
+| `tier-list/viewer.css` | `.is-active` pill style, `focus-visible` rings, mobile horizontal-scroll nav, `scroll-behavior: smooth` |
+
+### Run
+
+No new scripts. Open `tier-list/index.html` in a browser (or re-bake if JSON changed).
+
+### Decisions / assumptions
+
+- **Scroll-spy:** IntersectionObserver with header-offset fallback picks the section whose top has passed the sticky header.
+- **Reduced motion:** `scroll-behavior: smooth` only when `prefers-reduced-motion: no-preference`.
+- **Mobile:** Below 640px, nav pills scroll horizontally instead of wrapping to a tall block.
+- **Out of scope:** YouTube embeds, wiki/Mobalytics crosslinks (unchanged from plan).
+
+### Bugs / issues
+
+- None during implementation.
+
+### Status
+
+**Stage 4 complete.** Viewer feature set is done; Stage 5 is the documented refresh pipeline only.

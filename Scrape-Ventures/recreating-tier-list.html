@@ -197,7 +197,7 @@
         matching the Mobalytics layout closely enough to be useful offline. Open <code>tier-list/index.html</code> directly;
         no HTTP server required.
       </p>
-      <p><strong>Status (2026-07-08):</strong> Stages 1–3 complete. Stage 4 (character nav polish) is next.</p>
+      <p><strong>Status (2026-07-08):</strong> Stages 1–4 complete. Stage 5 (refresh workflow) is documentation-only.</p>
     </div>
 
     <h2>1. How the original page works</h2>
@@ -551,20 +551,15 @@ STS2/
       </div>
 
       <div class="card stage">
-        <h3>Stage 4 — Character navigation polish</h3>
-        <p><strong>Next up.</strong> Scope is intentionally narrow — tier list + character nav only.</p>
+        <h3>Stage 4 — Character navigation polish <span class="tag tag-done">Complete</span></h3>
+        <p><strong>Completed 2026-07-08.</strong> See <a href="#stage4-findings">findings</a> below.</p>
         <ul>
-          <li>Sticky character nav with active-section highlight on scroll.</li>
-          <li>Smooth scroll / keyboard-friendly jump links (hash anchors already in place).</li>
-          <li>Mobile-friendly nav layout (wrap or horizontal scroll).</li>
+          <li>✅ Scroll-spy highlights active character (or Methodology) in sticky nav while scrolling.</li>
+          <li>✅ Smooth scroll on nav click; hash updates for shareable deep links.</li>
+          <li>✅ Keyboard: arrow keys move focus between nav pills; Home/End jump to ends.</li>
+          <li>✅ Mobile: horizontal scroll nav row below 640px; wrap on wider screens.</li>
         </ul>
-        <p><strong>Explicitly out of scope (per owner):</strong></p>
-        <ul>
-          <li>YouTube review embeds</li>
-          <li>Wiki or Mobalytics crosslinks / clickable cards</li>
-          <li>Pixel-perfect Mobalytics theme recreation beyond current palette</li>
-        </ul>
-        <p><strong>Already done in Stage 3:</strong> hash anchors, Necrobinder TBD row, search, methodology blurb, metadata tooltips.</p>
+        <p><strong>Explicitly out of scope (per owner):</strong> YouTube embeds, wiki/Mobalytics crosslinks, pixel-perfect theme.</p>
       </div>
 
       <div class="card stage">
@@ -922,7 +917,7 @@ Response path:
         <li>Wiki / Mobalytics crosslinks or clickable cards</li>
         <li>Card cost/type/rarity beyond Spire Codex base-card data</li>
       </ul>
-      <p>Methodology and metadata tooltips shipped in Stage 3. Stage 4 is character nav polish only.</p>
+      <p>Methodology and metadata tooltips shipped in Stage 3. Character nav polish shipped in Stage 4.</p>
     </div>
 
     <h2 id="stage3-findings">5e. Stage 3 findings (2026-07-08)</h2>
@@ -1053,18 +1048,31 @@ python3 tier-list/scrape/build-viewer.py</pre>
       </tbody>
     </table>
 
+    <h2 id="stage4-findings">5g. Stage 4 findings (2026-07-08)</h2>
+
+    <div class="card">
+      <h3>What we built</h3>
+      <table>
+        <thead>
+          <tr><th>Change</th><th>Role</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>viewer.js</code> — <code>setupCharacterNavScrollSpy</code></td><td>IntersectionObserver + scroll cutoff; <code>aria-current</code> on active pill</td></tr>
+          <tr><td><code>viewer.js</code> — <code>setupNavSmoothScroll</code></td><td>Click jumps with <code>scrollIntoView</code>; updates URL hash</td></tr>
+          <tr><td><code>viewer.js</code> — <code>setupNavKeyboard</code></td><td>Arrow / Home / End move focus between nav links</td></tr>
+          <tr><td><code>viewer.css</code> — <code>.is-active</code> pill style</td><td>Gold highlight for current section</td></tr>
+          <tr><td><code>viewer.css</code> — mobile <code>@media (max-width: 640px)</code></td><td>Horizontal scroll nav row on narrow screens</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Done when:</strong> Scrolling updates the active nav pill; clicking a character smooth-scrolls; keyboard can traverse nav. <em>Achieved.</em></p>
+    </div>
+
     <h2>7. Immediate next step</h2>
 
     <div class="card">
-      <p><strong>Stage 4 — character navigation polish.</strong> Viewer is at <code>tier-list/index.html</code> (open directly, no server).</p>
-      <ol>
-        <li>Active-section highlight in sticky character nav on scroll.</li>
-        <li>Mobile-friendly nav layout.</li>
-        <li>Keyboard / smooth-scroll polish for hash jump links.</li>
-      </ol>
-      <p><strong>Not building:</strong> YouTube embeds, wiki/Mobalytics crosslinks.</p>
+      <p><strong>Stage 5 — refresh workflow.</strong> Viewer is complete at <code>tier-list/index.html</code> (open directly, no server).</p>
       <p>
-        Refresh data pipeline:
+        When Mobalytics updates rankings, run:
         <code>python3 tier-list/scrape/fetch-tier-lists.py</code> →
         <code>python3 tier-list/scrape/download-images.py</code> →
         <code>python3 tier-list/scrape/fetch-card-metadata.py</code> →
@@ -1092,8 +1100,7 @@ python3 tier-list/scrape/build-viewer.py</pre>
     <footer>
       Plan authored from analysis of <code>Scrape-Ventures/STS2/</code> saved snapshot,
       Mobalytics JS bundle reverse-engineering, and live page structure review.
-      Stages 1–3 implemented 2026-07-08 — see <code>dev-log.md</code> and scripts in <code>tier-list/scrape/</code>.
-      Stage 4 (character nav polish) is next.
+      Stages 1–4 implemented 2026-07-08 — see <code>dev-log.md</code> and scripts in <code>tier-list/scrape/</code>.
     </footer>
   </main>
 </body>

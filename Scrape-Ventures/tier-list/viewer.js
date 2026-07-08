@@ -277,6 +277,123 @@ function buildCharacterNav(characters, navEl) {
   }
 }
 
+/** Pair each nav link with its on-page section for scroll-spy and smooth jumps. */
+function navSectionPairs(navEl) {
+  return [...navEl.querySelectorAll('a[href^="#"]')]
+    .map((link) => {
+      const id = link.getAttribute("href").slice(1);
+      return { link, section: document.getElementById(id) };
+    })
+    .filter((pair) => pair.section);
+}
+
+/** Highlight whichever section is currently in view while scrolling. */
+function setupCharacterNavScrollSpy(navEl) {
+  const pairs = navSectionPairs(navEl);
+  if (pairs.length === 0) {
+    return;
+  }
+
+  const setActive = (activeLink) => {
+    for (const { link } of pairs) {
+      const isActive = link === activeLink;
+      link.classList.toggle("is-active", isActive);
+      link.toggleAttribute("aria-current", isActive);
+    }
+  };
+
+  const pickActiveFromScroll = () => {
+    const header = document.querySelector(".site-header");
+    const cutoff = (header?.offsetHeight ?? 0) + 12;
+
+    let active = pairs[0];
+    for (const pair of pairs) {
+      if (pair.section.getBoundingClientRect().top <= cutoff) {
+        active = pair;
+      }
+    }
+    setActive(active.link);
+  };
+
+  const observer = new IntersectionObserver(
+    () => pickActiveFromScroll(),
+    {
+      root: null,
+      rootMargin: "-20% 0px -65% 0px",
+      threshold: 0,
+    },
+  );
+
+  for (const { section } of pairs) {
+    observer.observe(section);
+  }
+
+  pickActiveFromScroll();
+  window.addEventListener("hashchange", pickActiveFromScroll);
+}
+
+/** Smooth in-page jumps that respect the sticky header offset. */
+function setupNavSmoothScroll(navEl) {
+  navEl.addEventListener("click", (event) => {
+    const link = event.target.closest('a[href^="#"]');
+    if (!link || !navEl.contains(link)) {
+      return;
+    }
+
+    const id = link.getAttribute("href").slice(1);
+    const target = document.getElementById(id);
+    if (!target) {
+      return;
+    }
+
+    event.preventDefault();
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    history.pushState(null, "", `#${id}`);
+    link.classList.add("is-active");
+    for (const other of navEl.querySelectorAll("a.is-active")) {
+      if (other !== link) {
+        other.classList.remove("is-active");
+        other.removeAttribute("aria-current");
+      }
+    }
+    link.setAttribute("aria-current", "true");
+  });
+}
+
+/** Arrow keys move focus between nav links; Enter follows the focused hash. */
+function setupNavKeyboard(navEl) {
+  navEl.addEventListener("keydown", (event) => {
+    const links = [...navEl.querySelectorAll("a")];
+    const index = links.indexOf(document.activeElement);
+    if (index === -1) {
+      return;
+    }
+
+    let next = -1;
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      next = (index + 1) % links.length;
+    } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+      next = (index - 1 + links.length) % links.length;
+    } else if (event.key === "Home") {
+      next = 0;
+    } else if (event.key === "End") {
+      next = links.length - 1;
+    }
+
+    if (next >= 0) {
+      event.preventDefault();
+      links[next].focus();
+    }
+  });
+}
+
+/** Wire scroll-spy, smooth jumps, and keyboard nav after links are in the DOM. */
+function setupCharacterNav(navEl) {
+  setupNavSmoothScroll(navEl);
+  setupNavKeyboard(navEl);
+  setupCharacterNavScrollSpy(navEl);
+}
+
 /** Hide non-matching cards; dim empty tier rows during search. */
 function applySearch(query) {
   const normalized = query.trim().toLowerCase();
@@ -325,7 +442,8 @@ function renderViewer(data) {
   const metaBySlug = data.cardMetadata?.cards || {};
 
   main.replaceChildren();
-  buildCharacterNav(tierData.characters, document.getElementById("character-nav"));
+  const navEl = document.getElementById("character-nav");
+  buildCharacterNav(tierData.characters, navEl);
 
   const methodologySection = createMethodologySection(data.methodology);
   if (methodologySection) {
@@ -342,7 +460,17 @@ function renderViewer(data) {
   const metaCount = Object.keys(metaBySlug).length;
   meta.textContent = `${tierData.cardCount} cards · ${metaCount} with metadata · updated ${fetched}`;
 
+  setupCharacterNav(navEl);
   setupSearch();
+
+  if (location.hash) {
+    const target = document.getElementById(location.hash.slice(1));
+    if (target) {
+      requestAnimationFrame(() => {
+        target.scrollIntoView({ behavior: "auto", block: "start" });
+      });
+    }
+  }
 }
 
 /** Boot: load data, render, or show a helpful error. */
