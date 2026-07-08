@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+  STS2 card tier list viewer (Stage 3).
+  Loads rankings from data/tier-lists.json and image paths from assets/manifest.json,
+  then builds searchable tier rows in the browser. Serve this folder over HTTP —
+  opening as file:// blocks fetch(). See README in Scrape-Ventures/.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STS2 Card Tier List</title>
+  <link rel="stylesheet" href="viewer.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-text">
+        <h1>Slay the Spire 2 — Card Tier List</h1>
+        <p class="subtitle">
+          Offline Mobalytics rankings ·
+          <span id="meta-count">loading…</span>
+        </p>
+      </div>
+      <label class="search-box">
+        <span class="search-label">Search cards</span>
+        <input
+          id="search-input"
+          type="search"
+          placeholder="e.g. Crash Landing"
+          autocomplete="off"
+          spellcheck="false"
+        >
+      </label>
+    </div>
+    <nav id="character-nav" class="character-nav" aria-label="Characters"></nav>
+  </header>
+
+  <main id="tier-list-main" class="tier-list-main">
+    <p class="loading">Loading tier list…</p>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      Data from Mobalytics. Serve locally:
+      <code>cd tier-list &amp;&amp; python3 -m http.server 8080</code>
+    </p>
+  </footer>
+
+  <script src="viewer.js"></script>
+</body>
+</html>
