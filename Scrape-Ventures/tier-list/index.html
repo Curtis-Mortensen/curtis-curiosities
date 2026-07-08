@@ -33,12 +33,18 @@
         >
       </label>
     </div>
-    <nav id="character-nav" class="character-nav" aria-label="Characters"></nav>
   </header>
 
-  <main id="tier-list-main" class="tier-list-main">
-    <p class="loading">Loading tier list…</p>
-  </main>
+  <div class="page-layout">
+    <main id="tier-list-main" class="tier-list-main">
+      <p class="loading">Loading tier list…</p>
+    </main>
+
+    <aside class="toc-sidebar">
+      <p class="toc-heading">On this page</p>
+      <nav id="character-nav" class="character-nav" aria-label="On this page"></nav>
+    </aside>
+  </div>
 
   <footer class="site-footer">
     <p>
@@ -47,6 +53,8 @@
       then open <code>http://localhost:8080</code>
     </p>
   </footer>
+
+  <div id="card-preview" class="card-preview" hidden aria-hidden="true"></div>
 
   <script src="viewer.js"></script>
 </body>

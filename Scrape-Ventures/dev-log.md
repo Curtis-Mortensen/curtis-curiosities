@@ -317,3 +317,18 @@ cd tier-list && python3 -m http.server 8080
 ```
 
 `build-viewer.py` left in repo but no longer called by refresh pipeline.
+
+## 2026-07-08 — Tier list viewer UX: right TOC, cursor preview, visible card names
+
+**User request:** Match Mobalytics layout more closely; fix Ctrl+F by putting readable text on the page.
+
+| File | Change |
+|------|--------|
+| `tier-list/index.html` | Two-column layout: main content + right sidebar ("On this page") |
+| `tier-list/viewer.css` | Sticky vertical nav on the right; small `.card-name` labels under thumbs; fixed `.card-preview` panel |
+| `tier-list/viewer.js` | Shared preview follows cursor to the right; per-card hover popovers removed |
+
+**Notes:**
+- Card names are tiny (0.5rem) on purpose — visible enough for browser find/highlight, not for reading.
+- Preview flips left of the cursor if it would overflow the viewport edge.
+- Below 900px width, TOC collapses to a horizontal strip above the tier rows.
