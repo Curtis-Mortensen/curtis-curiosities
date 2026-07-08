@@ -247,10 +247,9 @@ body {
   left: 50%;
   bottom: calc(100% + 8px);
   transform: translateX(-50%);
-  width: min(340px, 70vw);
-  height: auto;
-  max-height: 480px;
-  object-fit: contain;
+  width: min(340px, 85vw);
+  max-height: min(520px, 80vh);
+  overflow: auto;
   border-radius: 8px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55);
   border: 2px solid var(--accent);
@@ -259,9 +258,115 @@ body {
   pointer-events: none;
 }
 
+.card-hover-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px 6px 0 0;
+  background: #1a1625;
+}
+
+.card-hover-meta {
+  padding: 0.65rem 0.75rem 0.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.card-hover-title {
+  margin: 0 0 0.25rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.card-hover-stats {
+  margin: 0 0 0.35rem;
+  font-size: 0.8rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.card-hover-keywords {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.card-hover-desc {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+  white-space: pre-line;
+  line-height: 1.4;
+}
+
 .card-entry:hover .card-hover,
 .card-entry:focus-within .card-hover {
   display: block;
+}
+
+.methodology-panel {
+  margin-bottom: 2rem;
+  scroll-margin-top: 7rem;
+}
+
+.methodology-panel details {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+
+.methodology-panel summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--accent);
+  list-style-position: outside;
+}
+
+.methodology-body p {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.methodology-disclaimer {
+  color: #ff8787 !important;
+  font-size: 0.85rem !important;
+}
+
+.methodology-note {
+  font-size: 0.85rem !important;
+  font-style: italic;
+}
+
+.methodology-tiers {
+  margin: 1rem 0 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.methodology-tiers dt {
+  margin: 0;
+}
+
+.methodology-tier-badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #1a1625;
+}
+
+.methodology-tiers dd {
+  margin: 0.25rem 0 0;
+  padding-left: 0;
+  color: var(--text);
+  font-size: 0.88rem;
+  line-height: 1.45;
 }
 
 .site-footer {

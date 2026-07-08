@@ -1,7 +1,8 @@
 /**
  * STS2 tier-list viewer logic.
  * Prefers baked window.TIER_DATA (file:// friendly); falls back to fetch() when developing
- * without re-running build-viewer.py. Builds character sections, tier rows, and search.
+ * without re-running build-viewer.py. Renders methodology, character tier rows, and
+ * hover tooltips with card metadata from Spire Codex.
  */
 
 const TIER_ORDER = ["S", "A", "B", "C", "D", "TBD"];
@@ -15,15 +16,17 @@ const tierLabelClass = {
   TBD: "tier-label--tbd",
 };
 
-/** Load tier data from baked script tag or JSON files over HTTP. */
+/** Load all viewer JSON — baked inline or fetched over HTTP during dev. */
 async function loadData() {
   if (window.TIER_DATA?.tiers && window.TIER_DATA?.manifest) {
     return window.TIER_DATA;
   }
 
-  const [tierRes, manifestRes] = await Promise.all([
+  const [tierRes, manifestRes, methodologyRes, metadataRes] = await Promise.all([
     fetch("data/tier-lists.json"),
     fetch("assets/manifest.json"),
+    fetch("data/methodology.json"),
+    fetch("data/card-metadata.json"),
   ]);
 
   if (!tierRes.ok) {
@@ -36,6 +39,8 @@ async function loadData() {
   return {
     tiers: await tierRes.json(),
     manifest: await manifestRes.json(),
+    methodology: methodologyRes.ok ? await methodologyRes.json() : null,
+    cardMetadata: metadataRes.ok ? await metadataRes.json() : null,
   };
 }
 
@@ -56,8 +61,56 @@ function shouldShowTierRow(tierKey, cards, characterSlug) {
   return tierKey === "TBD" && characterSlug === "necrobinder";
 }
 
+/** Build the hover tooltip: full art plus cost / type / rarity / description. */
+function createCardHover(card, fullSrc, metaBySlug) {
+  const hover = document.createElement("div");
+  hover.className = "card-hover";
+  hover.setAttribute("role", "tooltip");
+
+  const art = document.createElement("img");
+  art.className = "card-hover-art";
+  art.src = fullSrc;
+  art.alt = card.name;
+  hover.appendChild(art);
+
+  const meta = metaBySlug[card.slug];
+  if (meta) {
+    const panel = document.createElement("div");
+    panel.className = "card-hover-meta";
+
+    const title = document.createElement("p");
+    title.className = "card-hover-title";
+    title.textContent = meta.name || card.name;
+    panel.appendChild(title);
+
+    const stats = document.createElement("p");
+    stats.className = "card-hover-stats";
+    const parts = [meta.cost, meta.type, meta.rarity].filter(Boolean);
+    stats.textContent = parts.join(" · ");
+    panel.appendChild(stats);
+
+    if (meta.keywords?.length) {
+      const keywords = document.createElement("p");
+      keywords.className = "card-hover-keywords";
+      keywords.textContent = meta.keywords.join(", ");
+      panel.appendChild(keywords);
+    }
+
+    if (meta.description) {
+      const desc = document.createElement("p");
+      desc.className = "card-hover-desc";
+      desc.textContent = meta.description;
+      panel.appendChild(desc);
+    }
+
+    hover.appendChild(panel);
+  }
+
+  return hover;
+}
+
 /** One card thumbnail with hover preview and a findable name in the DOM. */
-function createCardEntry(card, manifestPaths) {
+function createCardEntry(card, manifestPaths, metaBySlug) {
   const { thumb, full } = imageSources(card, manifestPaths);
 
   const entry = document.createElement("div");
@@ -77,17 +130,16 @@ function createCardEntry(card, manifestPaths) {
   name.className = "card-name";
   name.textContent = card.name;
 
-  const hoverImg = document.createElement("img");
-  hoverImg.className = "card-hover";
-  hoverImg.src = full;
-  hoverImg.alt = card.name;
-
-  entry.append(thumbImg, name, hoverImg);
+  entry.append(
+    thumbImg,
+    name,
+    createCardHover(card, full, metaBySlug),
+  );
   return entry;
 }
 
 /** S/A/B/C/D (and optional empty TBD) row for one character. */
-function createTierRow(tierKey, cards, characterSlug, manifestPaths) {
+function createTierRow(tierKey, cards, characterSlug, manifestPaths, metaBySlug) {
   const row = document.createElement("div");
   row.className = "tier-row";
   row.dataset.tier = tierKey;
@@ -104,7 +156,7 @@ function createTierRow(tierKey, cards, characterSlug, manifestPaths) {
     grid.textContent = "No cards yet";
   } else {
     for (const card of cards) {
-      grid.appendChild(createCardEntry(card, manifestPaths));
+      grid.appendChild(createCardEntry(card, manifestPaths, metaBySlug));
     }
   }
 
@@ -113,7 +165,7 @@ function createTierRow(tierKey, cards, characterSlug, manifestPaths) {
 }
 
 /** Full section for one character: title + tier rows. */
-function createCharacterSection(character, manifestPaths) {
+function createCharacterSection(character, manifestPaths, metaBySlug) {
   const section = document.createElement("section");
   section.className = "character-section";
   section.id = character.anchorId;
@@ -129,16 +181,94 @@ function createCharacterSection(character, manifestPaths) {
       continue;
     }
     section.appendChild(
-      createTierRow(tierKey, cards, character.character, manifestPaths),
+      createTierRow(tierKey, cards, character.character, manifestPaths, metaBySlug),
     );
   }
 
   return section;
 }
 
+/** Mobalytics-style S–D methodology blurb at the top of the page. */
+function createMethodologySection(methodology) {
+  if (!methodology) {
+    return null;
+  }
+
+  const section = document.createElement("section");
+  section.className = "methodology-panel";
+  section.id = "methodology";
+
+  const details = document.createElement("details");
+  details.open = true;
+
+  const summary = document.createElement("summary");
+  summary.textContent = "Tier methodology";
+  details.appendChild(summary);
+
+  const body = document.createElement("div");
+  body.className = "methodology-body";
+
+  if (methodology.intro) {
+    const intro = document.createElement("p");
+    intro.textContent = methodology.intro;
+    body.appendChild(intro);
+  }
+
+  if (methodology.disclaimer) {
+    const disclaimer = document.createElement("p");
+    disclaimer.className = "methodology-disclaimer";
+    disclaimer.textContent = methodology.disclaimer;
+    body.appendChild(disclaimer);
+  }
+
+  if (methodology.evaluation) {
+    const evaluation = document.createElement("p");
+    evaluation.textContent = methodology.evaluation;
+    body.appendChild(evaluation);
+  }
+
+  if (methodology.multiplayerNote) {
+    const mp = document.createElement("p");
+    mp.className = "methodology-note";
+    mp.textContent = methodology.multiplayerNote;
+    body.appendChild(mp);
+  }
+
+  const tierList = document.createElement("dl");
+  tierList.className = "methodology-tiers";
+
+  for (const tier of methodology.tiers || []) {
+    if (tier.tier === "TBD") {
+      continue;
+    }
+
+    const dt = document.createElement("dt");
+    const badge = document.createElement("span");
+    badge.className = `methodology-tier-badge ${tierLabelClass[tier.tier] || ""}`;
+    badge.textContent = tier.label || tier.tier;
+    dt.appendChild(badge);
+
+    const dd = document.createElement("dd");
+    dd.textContent = tier.description;
+
+    tierList.append(dt, dd);
+  }
+
+  body.appendChild(tierList);
+  details.appendChild(body);
+  section.appendChild(details);
+  return section;
+}
+
 /** Jump links across the sticky header. */
 function buildCharacterNav(characters, navEl) {
   navEl.replaceChildren();
+
+  const methodLink = document.createElement("a");
+  methodLink.href = "#methodology";
+  methodLink.textContent = "Methodology";
+  navEl.appendChild(methodLink);
+
   for (const character of characters) {
     const link = document.createElement("a");
     link.href = `#${character.anchorId}`;
@@ -186,33 +316,42 @@ function setupSearch() {
 }
 
 /** Fill the page once JSON is loaded. */
-function renderViewer(tierData, manifest) {
+function renderViewer(data) {
+  const tierData = data.tiers;
+  const manifest = data.manifest;
   const main = document.getElementById("tier-list-main");
   const meta = document.getElementById("meta-count");
   const manifestPaths = manifest.paths || {};
+  const metaBySlug = data.cardMetadata?.cards || {};
 
   main.replaceChildren();
   buildCharacterNav(tierData.characters, document.getElementById("character-nav"));
 
+  const methodologySection = createMethodologySection(data.methodology);
+  if (methodologySection) {
+    main.appendChild(methodologySection);
+  }
+
   for (const character of tierData.characters) {
-    main.appendChild(createCharacterSection(character, manifestPaths));
+    main.appendChild(createCharacterSection(character, manifestPaths, metaBySlug));
   }
 
   const fetched = tierData.fetchedAt
     ? new Date(tierData.fetchedAt).toLocaleDateString()
     : "unknown date";
-  meta.textContent = `${tierData.cardCount} cards · updated ${fetched}`;
+  const metaCount = Object.keys(metaBySlug).length;
+  meta.textContent = `${tierData.cardCount} cards · ${metaCount} with metadata · updated ${fetched}`;
 
   setupSearch();
 }
 
-/** Boot: fetch data, render, or show a helpful error. */
+/** Boot: load data, render, or show a helpful error. */
 async function init() {
   const main = document.getElementById("tier-list-main");
 
   try {
-    const { tiers, manifest } = await loadData();
-    renderViewer(tiers, manifest);
+    const data = await loadData();
+    renderViewer(data);
   } catch (err) {
     main.innerHTML = "";
     const msg = document.createElement("p");

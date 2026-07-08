@@ -438,8 +438,11 @@ tier-list/
   viewer.js                        ← ✅ baked-data loader, render, search
   scrape/
     build-viewer.py                ← ✅ bake JSON into index.html (file://)
+    fetch-card-metadata.py         ← ✅ Spire Codex cost/type/rarity for tooltips
   data/
     tier-lists.json                ← ✅ scraped Mobalytics rankings (403 cards)
+    methodology.json               ← ✅ S–D tier definitions (Mobalytics copy)
+    card-metadata.json             ← ✅ 401/403 cards from Spire Codex
   assets/
     manifest.json                  ← ✅ slug → thumb/full paths
     thumbs/                        ← ✅ 403 symlinks → STS2/*_19D0.avif
@@ -507,6 +510,9 @@ STS2/
           <li>✅ CSS hover/focus popover with full <code>assets/full/{slug}.webp</code></li>
           <li>✅ Visually hidden <code>&lt;span class="card-name"&gt;</code> for Ctrl+F</li>
           <li>✅ In-page search box filters cards and scrolls first match</li>
+          <li>✅ <code>build-viewer.py</code> bakes JSON for <code>file://</code> (no server)</li>
+          <li>✅ Tier methodology blurb (S–D definitions) at page top</li>
+          <li>✅ Card metadata tooltips (cost, type, rarity, description via Spire Codex)</li>
         </ul>
         <p><strong>Done when:</strong> Opening <code>index.html</code> directly shows all tiers; hover shows full card; searching "Crash Landing" finds the card. <em>Achieved.</em></p>
         <p>Re-bake after data refresh: <code>python3 tier-list/scrape/build-viewer.py</code></p>
@@ -524,11 +530,9 @@ STS2/
         <ul>
           <li>YouTube review embeds</li>
           <li>Wiki or Mobalytics crosslinks / clickable cards</li>
-          <li>Tier methodology blurb (S–D definitions)</li>
-          <li>Card cost, type, or rarity tooltips</li>
           <li>Pixel-perfect Mobalytics theme recreation beyond current palette</li>
         </ul>
-        <p><strong>Already done in Stage 3:</strong> hash anchors per character, Necrobinder TBD row, search box.</p>
+        <p><strong>Already done in Stage 3:</strong> hash anchors, Necrobinder TBD row, search, methodology blurb, metadata tooltips.</p>
       </div>
 
       <div class="card stage">
@@ -834,11 +838,10 @@ Response path:
         <li>Note: anchor IDs use content-widget index, not live Mobalytics order — close enough for local use.</li>
       </ul>
 
-      <h3>Wiki links (optional)</h3>
+      <h3>Wiki / external links</h3>
       <p>
-        <code>linkUrl</code> is <code>null</code> in scraped data. Construct as
-        <code>https://mobalytics.gg/slay-the-spire-2/wiki/cards/{slug}</code> if cards should be clickable.
-        Not required for MVP.
+        <code>linkUrl</code> is <code>null</code> in scraped data.
+        <strong>Out of scope</strong> — viewer is tier list + character nav only; cards are not clickable links.
       </p>
 
       <h3>Files to create</h3>
@@ -868,10 +871,9 @@ Response path:
       <ul>
         <li>YouTube review embeds</li>
         <li>Wiki / Mobalytics crosslinks or clickable cards</li>
-        <li>Tier methodology blurb (S–D definitions) at page top</li>
-        <li>Card cost/type/rarity in tooltip (would need Spire Codex API)</li>
+        <li>Card cost/type/rarity beyond Spire Codex base-card data</li>
       </ul>
-      <p>Stage 4 focuses on character navigation polish only — see Stage 4 checklist above.</p>
+      <p>Methodology blurb and metadata tooltips shipped in Stage 3. Stage 4 is character nav polish only.</p>
     </div>
 
     <h2>6. Risks and decisions</h2>
@@ -938,11 +940,12 @@ Response path:
         <li>Mobile-friendly nav layout.</li>
         <li>Keyboard / smooth-scroll polish for hash jump links.</li>
       </ol>
-      <p><strong>Not building:</strong> YouTube embeds, wiki/Mobalytics crosslinks, methodology blurb, card metadata tooltips.</p>
+      <p><strong>Not building:</strong> YouTube embeds, wiki/Mobalytics crosslinks.</p>
       <p>
         Refresh data pipeline:
         <code>python3 tier-list/scrape/fetch-tier-lists.py</code> →
         <code>python3 tier-list/scrape/download-images.py</code> →
+        <code>python3 tier-list/scrape/fetch-card-metadata.py</code> →
         <code>python3 tier-list/scrape/build-viewer.py</code>
       </p>
     </div>

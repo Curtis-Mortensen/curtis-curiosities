@@ -179,3 +179,38 @@ Full refresh: `fetch-tier-lists.py` → `download-images.py` → `build-viewer.p
 ### Status
 
 **Bake step complete.** Viewer is self-contained for data; ship `tier-list/` folder for offline use.
+
+## 2026-07-08 — STS2 tier list methodology + metadata tooltips
+
+**Plan:** Stage 3 extension
+
+### Goal
+
+Add Mobalytics-style tier methodology at page top and Spire Codex card metadata in hover tooltips.
+
+### What was built
+
+| Path | Purpose |
+|------|---------|
+| `tier-list/data/methodology.json` | S–D tier definitions + intro/disclaimer copy |
+| `tier-list/scrape/fetch-card-metadata.py` | Bulk fetch from Spire Codex → `card-metadata.json` |
+| `tier-list/data/card-metadata.json` | 401/403 cards: cost, type, rarity, description, keywords |
+| `viewer.js` / `viewer.css` | Methodology panel, enriched hover tooltip, nav link |
+| `build-viewer.py` | Now bakes methodology + metadata into `index.html` |
+
+### Run
+
+```bash
+python3 tier-list/scrape/fetch-card-metadata.py
+python3 tier-list/scrape/build-viewer.py
+```
+
+### Decisions / assumptions
+
+- **Tiers from Mobalytics only;** Spire Codex used for metadata, not rankings.
+- **2 missing Spire Codex slugs:** `follow-through`, `unrelenting-plus` — tooltips show art only.
+- **Methodology** is static JSON (edited from live Mobalytics page copy), not scraped.
+
+### Status
+
+Shipped in Stage 3. Stage 4 remains character nav polish only.

@@ -1,0 +1,3053 @@
+{
+  "source": "spire-codex",
+  "fetchedAt": "2026-07-08T05:49:49.322407+00:00",
+  "cardCount": 401,
+  "missingCount": 2,
+  "missingSlugs": [
+    "follow-through",
+    "unrelenting-plus"
+  ],
+  "cards": {
+    "well-laid-plans": {
+      "name": "Well-Laid Plans",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "At the end of your turn, [gold]Retain[/gold] up to 1 card."
+    },
+    "blade-of-ink": {
+      "name": "Blade of Ink",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Add 2 [purple]Inky[/purple] [gold]Shivs[/gold] into your [gold]Hand[/gold]."
+    },
+    "afterimage": {
+      "name": "Afterimage",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "Whenever you play a card, gain 1 [gold]Block[/gold]."
+    },
+    "footwork": {
+      "name": "Footwork",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "Gain 2 [gold]Dexterity[/gold]."
+    },
+    "adrenaline": {
+      "name": "Adrenaline",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Gain [energy:1].\nDraw 2 cards.",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "abrasive": {
+      "name": "Abrasive",
+      "cost": "3",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "Gain 1 [gold]Dexterity[/gold].\nGain 4 [gold]Thorns[/gold].",
+      "keywords": [
+        "Sly"
+      ]
+    },
+    "acrobatics": {
+      "name": "Acrobatics",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Draw 3 cards.\nDiscard 1 card."
+    },
+    "escape-plan": {
+      "name": "Escape Plan",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Draw 1 card.\nIf you draw a Skill, gain 3 [gold]Block[/gold]."
+    },
+    "tracking": {
+      "name": "Tracking",
+      "cost": "2",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "[gold]Weak[/gold] enemies take double damage from Attacks."
+    },
+    "prepared": {
+      "name": "Prepared",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Draw 1 card.\nDiscard 1 card."
+    },
+    "calculated-gamble": {
+      "name": "Calculated Gamble",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Discard your [gold]Hand[/gold],\nthen draw that many cards.",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "reflex": {
+      "name": "Reflex",
+      "cost": "3",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Draw 2 cards.",
+      "keywords": [
+        "Sly"
+      ]
+    },
+    "untouchable": {
+      "name": "Untouchable",
+      "cost": "2",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain 6 [gold]Block[/gold].",
+      "keywords": [
+        "Sly"
+      ]
+    },
+    "piercing-wail": {
+      "name": "Piercing Wail",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "ALL enemies lose 6 [gold]Strength[/gold] this turn.",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "tools-of-the-trade": {
+      "name": "Tools of the Trade",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "At the start of your turn, draw 1 card and discard 1 card."
+    },
+    "malaise": {
+      "name": "Malaise",
+      "cost": "X",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Enemy loses X [gold]Strength[/gold]. Apply X [gold]Weak[/gold].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "leg-sweep": {
+      "name": "Leg Sweep",
+      "cost": "2",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Apply 2 [gold]Weak[/gold].\nGain 11 [gold]Block[/gold]."
+    },
+    "dodge-and-roll": {
+      "name": "Dodge and Roll",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain 4 [gold]Block[/gold].\nNext turn, gain 4 [gold]Block[/gold]."
+    },
+    "the-hunt": {
+      "name": "The Hunt",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 10 damage.\nIf [gold]Fatal[/gold], gain an additional card reward.",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "noxious-fumes": {
+      "name": "Noxious Fumes",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "At the start of your turn, apply 2 [gold]Poison[/gold] to ALL enemies."
+    },
+    "tactician": {
+      "name": "Tactician",
+      "cost": "3",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain [energy:1].",
+      "keywords": [
+        "Sly"
+      ]
+    },
+    "blur": {
+      "name": "Blur",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain 5 [gold]Block[/gold].\n[gold]Block[/gold] is not removed at the start of your next turn."
+    },
+    "flechettes": {
+      "name": "Flechettes",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 5 damage for each Skill in your [gold]Hand[/gold]."
+    },
+    "expose": {
+      "name": "Expose",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Remove all [gold]Artifact[/gold] and [gold]Block[/gold] from the enemy.\nApply 2 [gold]Vulnerable[/gold].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "backflip": {
+      "name": "Backflip",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain 5 [gold]Block[/gold].\nDraw 2 cards."
+    },
+    "pinpoint": {
+      "name": "Pinpoint",
+      "cost": "3",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 15 damage.\nCosts 1 less [energy:1] for each Skill played this turn."
+    },
+    "blade-dance": {
+      "name": "Blade Dance",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Add 3 [gold]Shivs[/gold] into your [gold]Hand[/gold].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "assassinate": {
+      "name": "Assassinate",
+      "cost": "0",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 10 damage.\nApply 1 [gold]Vulnerable[/gold].",
+      "keywords": [
+        "Exhaust",
+        "Innate"
+      ]
+    },
+    "leading-strike": {
+      "name": "Leading Strike",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 3 damage.\nAdd 2 [gold]Shivs[/gold] into your [gold]Hand[/gold]."
+    },
+    "hidden-daggers": {
+      "name": "Hidden Daggers",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Discard 2 cards.\nAdd 2 [gold]Shivs[/gold] into your [gold]Hand[/gold]."
+    },
+    "infinite-blades": {
+      "name": "Infinite Blades",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "At the start of your turn, add 1 [gold]Shiv[/gold] into your [gold]Hand[/gold]."
+    },
+    "accuracy": {
+      "name": "Accuracy",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "[gold]Shivs[/gold] deal 4 additional damage."
+    },
+    "echoing-slash": {
+      "name": "Echoing Slash",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 10 damage to ALL enemies.\nRepeat this effect for each enemy killed."
+    },
+    "phantom-blades": {
+      "name": "Phantom Blades",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "[gold]Shivs[/gold] gain [gold]Retain[/gold].\nThe first [gold]Shiv[/gold] you play each turn deals 9 additional damage."
+    },
+    "predator": {
+      "name": "Predator",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 15 damage.\nNext turn, draw 2 cards."
+    },
+    "backstab": {
+      "name": "Backstab",
+      "cost": "0",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 11 damage.",
+      "keywords": [
+        "Exhaust",
+        "Innate"
+      ]
+    },
+    "cloak-and-dagger": {
+      "name": "Cloak and Dagger",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain 6 [gold]Block[/gold].\nAdd 1 [gold]Shiv[/gold] into your [gold]Hand[/gold]."
+    },
+    "sucker-punch": {
+      "name": "Sucker Punch",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 8 damage.\nApply 1 [gold]Weak[/gold]."
+    },
+    "dagger-throw": {
+      "name": "Dagger Throw",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 9 damage.\nDraw 1 card.\nDiscard 1 card."
+    },
+    "dagger-spray": {
+      "name": "Dagger Spray",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 4 damage to ALL enemies twice."
+    },
+    "ricochet": {
+      "name": "Ricochet",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 3 damage to a random enemy 4 times.",
+      "keywords": [
+        "Sly"
+      ]
+    },
+    "precise-cut": {
+      "name": "Precise Cut",
+      "cost": "0",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 13 damage.\nDeals 2 less damage for each other card in your [gold]Hand[/gold]."
+    },
+    "deflect": {
+      "name": "Deflect",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain 4 [gold]Block[/gold]."
+    },
+    "slice": {
+      "name": "Slice",
+      "cost": "0",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 6 damage."
+    },
+    "pounce": {
+      "name": "Pounce",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 14 damage.\nThe next Skill you play costs 0 [energy:1]."
+    },
+    "dash": {
+      "name": "Dash",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Gain 10 [gold]Block[/gold].\nDeal 10 damage."
+    },
+    "flick-flack": {
+      "name": "Flick-Flack",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 6 damage to ALL enemies.",
+      "keywords": [
+        "Sly"
+      ]
+    },
+    "shadowmeld": {
+      "name": "Shadowmeld",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Double your [gold]Block[/gold] gain this turn."
+    },
+    "knife-trap": {
+      "name": "Knife Trap",
+      "cost": "2",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Play every [gold]Shiv[/gold] in your [gold]Exhaust Pile[/gold] on the enemy."
+    },
+    "corrosive-wave": {
+      "name": "Corrosive Wave",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Whenever you draw a card this turn, apply 2 [gold]Poison[/gold] to ALL enemies."
+    },
+    "murder": {
+      "name": "Murder",
+      "cost": "3",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 1 damage.\nDeals 1 additional damage for each card drawn this combat."
+    },
+    "master-planner": {
+      "name": "Master Planner",
+      "cost": "2",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "When you play a Skill, it gains [gold]Sly[/gold]."
+    },
+    "fan-of-knives": {
+      "name": "Fan of Knives",
+      "cost": "2",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "[gold]Shivs[/gold] now hit ALL enemies.\nAdd 4 [gold]Shivs[/gold] into your [gold]Hand[/gold]."
+    },
+    "burst": {
+      "name": "Burst",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "This turn, your next Skill is played an extra time."
+    },
+    "poisoned-stab": {
+      "name": "Poisoned Stab",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 6 damage.\nApply 3 [gold]Poison[/gold]."
+    },
+    "outbreak": {
+      "name": "Outbreak",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "Every 3 times you apply [gold]Poison[/gold], deal 11 damage to ALL enemies."
+    },
+    "serpent-form": {
+      "name": "Serpent Form",
+      "cost": "3",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "Whenever you play a card, deal 4 damage to a random enemy."
+    },
+    "accelerant": {
+      "name": "Accelerant",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "[gold]Poison[/gold] is triggered 1 additional time."
+    },
+    "finisher": {
+      "name": "Finisher",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 6 damage for each Attack already played this turn."
+    },
+    "strangle": {
+      "name": "Strangle",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 8 damage.\nWhenever you play a card this turn, the enemy loses 2 HP."
+    },
+    "deadly-poison": {
+      "name": "Deadly Poison",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Apply 5 [gold]Poison[/gold]."
+    },
+    "expertise": {
+      "name": "Expertise",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Draw cards until you have 6 in your [gold]Hand[/gold]."
+    },
+    "anticipate": {
+      "name": "Anticipate",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain 2 [gold]Dexterity[/gold] this turn."
+    },
+    "bubble-bubble": {
+      "name": "Bubble Bubble",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "If the enemy has [gold]Poison[/gold], apply 9 [gold]Poison[/gold]."
+    },
+    "hand-trick": {
+      "name": "Hand Trick",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain 7 [gold]Block[/gold].\nAdd [gold]Sly[/gold] to a Skill in your [gold]Hand[/gold] this turn."
+    },
+    "snakebite": {
+      "name": "Snakebite",
+      "cost": "2",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Apply 7 [gold]Poison[/gold].",
+      "keywords": [
+        "Retain"
+      ]
+    },
+    "haze": {
+      "name": "Haze",
+      "cost": "3",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Apply 4 [gold]Poison[/gold] to ALL enemies.",
+      "keywords": [
+        "Sly"
+      ]
+    },
+    "skewer": {
+      "name": "Skewer",
+      "cost": "X",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 8 damage X times."
+    },
+    "shadow-step": {
+      "name": "Shadow Step",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Discard your [gold]Hand[/gold].\nNext turn, Attacks deal double damage."
+    },
+    "up-my-sleeve": {
+      "name": "Up My Sleeve",
+      "cost": "2",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Add 3 [gold]Shivs[/gold] into your [gold]Hand[/gold].\nReduce this card's cost by 1."
+    },
+    "speedster": {
+      "name": "Speedster",
+      "cost": "2",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "Whenever you draw a card during your turn, deal 2 damage to ALL enemies."
+    },
+    "memento-mori": {
+      "name": "Memento Mori",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 9 damage.\nDeals 4 additional damage for each card discarded this turn."
+    },
+    "grand-finale": {
+      "name": "Grand Finale",
+      "cost": "0",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Can only be played if there are no cards in your [gold]Draw Pile[/gold]. Deal 60 damage to ALL enemies."
+    },
+    "bullet-time": {
+      "name": "Bullet Time",
+      "cost": "3",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "You cannot draw additional cards this turn. ALL cards in your [gold]Hand[/gold] are free to play this turn."
+    },
+    "nightmare": {
+      "name": "Nightmare",
+      "cost": "3",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Choose a card.\nNext turn, add 3 copies of that card into your [gold]Hand[/gold].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "storm-of-steel": {
+      "name": "Storm of Steel",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Discard your [gold]Hand[/gold].\nAdd 1 [gold]Shiv[/gold] into your [gold]Hand[/gold] for each card discarded."
+    },
+    "mirage": {
+      "name": "Mirage",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain [gold]Block[/gold] equal to [gold]Poison[/gold] on ALL enemies.",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "bouncing-flask": {
+      "name": "Bouncing Flask",
+      "cost": "2",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Apply 3 [gold]Poison[/gold] to a random enemy 3 times."
+    },
+    "envenom": {
+      "name": "Envenom",
+      "cost": "2",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "Whenever an Attack deals unblocked damage, apply 1 [gold]Poison[/gold]."
+    },
+    "big-bang": {
+      "name": "Big Bang",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Draw 1 card.\nGain [energy:1].\nGain [star:1].\n[gold]Forge[/gold] 5.",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "reflect": {
+      "name": "Reflect",
+      "cost": "3★",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain 15 [gold]Block[/gold].\nBlocked attack damage is reflected to your attacker this turn."
+    },
+    "child-of-the-stars": {
+      "name": "Child of the Stars",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "Whenever you spend [star:1], gain 2 [gold]Block[/gold] for each [star:1] spent."
+    },
+    "pillar-of-creation": {
+      "name": "Pillar of Creation",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "Whenever you create a card, gain 3 [gold]Block[/gold]."
+    },
+    "convergence": {
+      "name": "Convergence",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Next turn,\ngain [energy:1] and [star:1].\n[gold]Retain[/gold] your [gold]Hand[/gold] this turn."
+    },
+    "guards": {
+      "name": "GUARDS!!!",
+      "cost": "2",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "[gold]Transform[/gold] any number of cards in your [gold]Hand[/gold] into [gold]Minion Sacrifice[/gold].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "bulwark": {
+      "name": "Bulwark",
+      "cost": "2",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain 12 [gold]Block[/gold].\n[gold]Forge[/gold] 10."
+    },
+    "meteor-shower": {
+      "name": "Meteor Shower",
+      "cost": "2★",
+      "type": "Attack",
+      "rarity": "Ancient",
+      "description": "Deal 14 damage to ALL enemies.\nApply 2 [gold]Weak[/gold] and [gold]Vulnerable[/gold] to ALL enemies."
+    },
+    "astral-pulse": {
+      "name": "Astral Pulse",
+      "cost": "3★",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 6 damage to ALL enemies twice."
+    },
+    "know-thy-place": {
+      "name": "Know Thy Place",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Apply 1 [gold]Weak[/gold].\nApply 1 [gold]Vulnerable[/gold].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "royal-gamble": {
+      "name": "Royal Gamble",
+      "cost": "5★",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain 9 [star:1].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "spectrum-shift": {
+      "name": "Spectrum Shift",
+      "cost": "2",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "At the start of your turn, add 1 random Colorless card into your [gold]Hand[/gold]."
+    },
+    "glow": {
+      "name": "Glow",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain [star:1].\nDraw 1 card.\nNext turn, draw 1 card."
+    },
+    "comet": {
+      "name": "Comet",
+      "cost": "5★",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 33 damage.\nApply 3 [gold]Weak[/gold].\nApply 3 [gold]Vulnerable[/gold]."
+    },
+    "the-sealed-throne": {
+      "name": "The Sealed Throne",
+      "cost": "3★",
+      "type": "Power",
+      "rarity": "Ancient",
+      "description": "Whenever you play a card, gain [star:1]."
+    },
+    "void-form": {
+      "name": "Void Form",
+      "cost": "3",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "End your turn.\nThe first 2 cards you play each turn are free to play.",
+      "keywords": [
+        "Ethereal"
+      ]
+    },
+    "charge": {
+      "name": "CHARGE!!",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Choose 2 cards in your [gold]Draw Pile[/gold] to [gold]Transform[/gold] into\n[gold]Minion Dive Bombs[/gold]."
+    },
+    "crash-landing": {
+      "name": "Crash Landing",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 21 damage to ALL enemies.\nFill your [gold]Hand[/gold] with [gold]Debris[/gold]."
+    },
+    "particle-wall": {
+      "name": "Particle Wall",
+      "cost": "2★",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain 9 [gold]Block[/gold].\nReturn this card to your [gold]Hand[/gold]."
+    },
+    "royalties": {
+      "name": "Royalties",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "At the end of combat, gain 30 [gold]Gold[/gold]."
+    },
+    "the-smith": {
+      "name": "The Smith",
+      "cost": "4★",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "[gold]Forge[/gold] 30."
+    },
+    "tyranny": {
+      "name": "Tyranny",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "At the start of your turn, draw 1 card and [gold]Exhaust[/gold] 1 card from your [gold]Hand[/gold].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "make-it-so": {
+      "name": "Make It So",
+      "cost": "0",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 6 damage.\nEvery 3 Skills you play in a turn, put this into your [gold]Hand[/gold]."
+    },
+    "quasar": {
+      "name": "Quasar",
+      "cost": "2★",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Choose 1 of 3 random Colorless cards to add into your [gold]Hand[/gold]."
+    },
+    "begone": {
+      "name": "BEGONE!",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Choose a card in your [gold]Hand[/gold] to [gold]Transform[/gold] into [gold]Minion Strike[/gold]."
+    },
+    "orbit": {
+      "name": "Orbit",
+      "cost": "2",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "Every [energy:4] you spend,\ngain [energy:1]."
+    },
+    "radiate": {
+      "name": "Radiate",
+      "cost": "0",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 3 damage to ALL enemies for each [star:1] gained this turn."
+    },
+    "bundle-of-joy": {
+      "name": "Bundle of Joy",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Add 3 random Colorless cards into your [gold]Hand[/gold].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "manifest-authority": {
+      "name": "Manifest Authority",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain 7 [gold]Block[/gold].\nAdd 1 random Colorless card into your [gold]Hand[/gold]."
+    },
+    "kingly-kick": {
+      "name": "Kingly Kick",
+      "cost": "4",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 27 damage.\nWhenever you draw this card, reduce its cost by 1."
+    },
+    "collision-course": {
+      "name": "Collision Course",
+      "cost": "0",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 11 damage.\nAdd a [gold]Debris[/gold] into your [gold]Hand[/gold]."
+    },
+    "gamma-blast": {
+      "name": "Gamma Blast",
+      "cost": "3★",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 13 damage.\nApply 2 [gold]Weak[/gold].\nApply 2 [gold]Vulnerable[/gold]."
+    },
+    "cloak-of-stars": {
+      "name": "Cloak of Stars",
+      "cost": "1★",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain 7 [gold]Block[/gold]."
+    },
+    "refine-blade": {
+      "name": "Refine Blade",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "[gold]Forge[/gold] 9.\nNext turn, gain [energy:1]."
+    },
+    "dying-star": {
+      "name": "Dying Star",
+      "cost": "3★",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 9 damage to ALL enemies. ALL enemies lose 9 [gold]Strength[/gold] this turn.",
+      "keywords": [
+        "Ethereal"
+      ]
+    },
+    "gather-light": {
+      "name": "Gather Light",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain 8 [gold]Block[/gold].\nGain [star:1]."
+    },
+    "bombardment": {
+      "name": "Bombardment",
+      "cost": "3",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 18 damage.\nAt the start of your turn, if this is in your [gold]Exhaust Pile[/gold], play it.",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "decisions-decisions": {
+      "name": "Decisions, Decisions",
+      "cost": "6★",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Draw 3 cards.\nChoose a Skill in your [gold]Hand[/gold] and play it 3 times.",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "kingly-punch": {
+      "name": "Kingly Punch",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 8 damage.\nWhenever you draw this card, increase its damage by 4 this combat."
+    },
+    "glitterstream": {
+      "name": "Glitterstream",
+      "cost": "2",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain 11 [gold]Block[/gold].\nNext turn, gain 5 [gold]Block[/gold]."
+    },
+    "glimmer": {
+      "name": "Glimmer",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Draw 3 cards.\nPut 1 card from your [gold]Hand[/gold] on top of your [gold]Draw Pile[/gold]."
+    },
+    "black-hole": {
+      "name": "Black Hole",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "Whenever you spend or gain [star:1], deal 3 damage to ALL enemies."
+    },
+    "crush-under": {
+      "name": "Crush Under",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 7 damage to ALL enemies. All enemies lose 1 [gold]Strength[/gold] this turn."
+    },
+    "guiding-star": {
+      "name": "Guiding Star",
+      "cost": "2★",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 12 damage.\nDraw 2 cards."
+    },
+    "alignment": {
+      "name": "Alignment",
+      "cost": "3★",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain [energy:2]."
+    },
+    "heavenly-drill": {
+      "name": "Heavenly Drill",
+      "cost": "X",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 8 damage X times.\nDouble X if it's 4 or more."
+    },
+    "supermassive": {
+      "name": "Supermassive",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 5 damage.\nDeals 3 additional damage for each card you created this combat."
+    },
+    "hidden-cache": {
+      "name": "Hidden Cache",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain [star:1].\nNext turn, gain [star:3]."
+    },
+    "patter": {
+      "name": "Patter",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain 8 [gold]Block[/gold].\nGain 2 [gold]Vigor[/gold]."
+    },
+    "photon-cut": {
+      "name": "Photon Cut",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 10 damage.\nDraw 1 card.\nPut 1 card from your [gold]Hand[/gold] on top of your [gold]Draw Pile[/gold]."
+    },
+    "pale-blue-dot": {
+      "name": "Pale Blue Dot",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "If you play 5 or more cards in a turn, draw 1 card at the start of your next turn."
+    },
+    "wrought-in-war": {
+      "name": "Wrought in War",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 7 damage.\n[gold]Forge[/gold] 7."
+    },
+    "spoils-of-battle": {
+      "name": "Spoils of Battle",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "[gold]Forge[/gold] 5.\nDraw 2 cards."
+    },
+    "shining-strike": {
+      "name": "Shining Strike",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 8 damage.\nGain [star:2].\nPut this card on top of your [gold]Draw Pile[/gold]."
+    },
+    "genesis": {
+      "name": "Genesis",
+      "cost": "2",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "At the start of your turn, gain [star:2]."
+    },
+    "parry": {
+      "name": "Parry",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "[gold]Sovereign Blade[/gold] now gains 10 [gold]Block[/gold]."
+    },
+    "foregone-conclusion": {
+      "name": "Foregone Conclusion",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Next turn, put 2 cards from your [gold]Draw Pile[/gold] into your [gold]Hand[/gold]."
+    },
+    "solar-strike": {
+      "name": "Solar Strike",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 9 damage.\nGain [star:1]."
+    },
+    "i-am-invincible": {
+      "name": "I Am Invincible",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Gain 10 [gold]Block[/gold].\nAt the end of your turn, if this is on top of your [gold]Draw Pile[/gold], play it."
+    },
+    "seven-stars": {
+      "name": "Seven Stars",
+      "cost": "7★",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 7 damage to ALL enemies 7 times."
+    },
+    "cosmic-indifference": {
+      "name": "Cosmic Indifference",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain 6 [gold]Block[/gold].\nPut a card from your [gold]Discard Pile[/gold] on top of your [gold]Draw Pile[/gold]."
+    },
+    "seeking-edge": {
+      "name": "Seeking Edge",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "[gold]Forge[/gold] 7.\n[gold]Sovereign Blade[/gold] now deals damage to ALL enemies."
+    },
+    "celestial-might": {
+      "name": "Celestial Might",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 6 damage 3 times."
+    },
+    "hegemony": {
+      "name": "Hegemony",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 15 damage.\nNext turn, gain [energy:2]."
+    },
+    "sword-sage": {
+      "name": "Sword Sage",
+      "cost": "2",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "[gold]Sovereign Blade[/gold] gains [gold]Replay[/gold] 1."
+    },
+    "arsenal": {
+      "name": "Arsenal",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "Whenever you create a card, gain 1 [gold]Strength[/gold]."
+    },
+    "beat-into-shape": {
+      "name": "Beat into Shape",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 5 damage.\n[gold]Forge[/gold] X.\n[gold]Forges[/gold] an additional 5 for every other time you've hit the enemy this turn."
+    },
+    "devastate": {
+      "name": "Devastate",
+      "cost": "4★",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 30 damage."
+    },
+    "lunar-blast": {
+      "name": "Lunar Blast",
+      "cost": "0",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 4 damage for each Skill already played this turn."
+    },
+    "knockout-blow": {
+      "name": "Knockout Blow",
+      "cost": "3",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 30 damage.\nIf this kills an enemy, gain [star:5]."
+    },
+    "summon-forth": {
+      "name": "Summon Forth",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Put [gold]Sovereign Blade[/gold] into your [gold]Hand[/gold] from anywhere.\n[gold]Forge[/gold] 8."
+    },
+    "conqueror": {
+      "name": "Conqueror",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "[gold]Forge[/gold] 3.\n[gold]Sovereign Blade[/gold] deals double damage to the enemy this turn."
+    },
+    "terraforming": {
+      "name": "Terraforming",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain 6 [gold]Vigor[/gold]."
+    },
+    "furnace": {
+      "name": "Furnace",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "At the start of your turn, [gold]Forge[/gold] 5."
+    },
+    "prophesize": {
+      "name": "Prophesize",
+      "cost": "2",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Draw 6 cards."
+    },
+    "neutron-aegis": {
+      "name": "Neutron Aegis",
+      "cost": "5★",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "Gain 8 [gold]Plating[/gold]."
+    },
+    "stardust": {
+      "name": "Stardust",
+      "cost": "X★",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 5 damage to a random enemy X times."
+    },
+    "resonance": {
+      "name": "Resonance",
+      "cost": "3★",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain 1 [gold]Strength[/gold]. ALL enemies lose 1 [gold]Strength[/gold]."
+    },
+    "heirloom-hammer": {
+      "name": "Heirloom Hammer",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 20 damage.\nChoose a Colorless card in your [gold]Hand[/gold]. Add a copy of that card into your [gold]Hand[/gold]."
+    },
+    "monarchs-gaze": {
+      "name": "Monarch's Gaze",
+      "cost": "2",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "Whenever you attack an enemy, it loses 1 [gold]Strength[/gold] this turn."
+    },
+    "monologue": {
+      "name": "Monologue",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Whenever you play a card this turn, gain 1 [gold]Strength[/gold] this turn."
+    },
+    "crescent-spear": {
+      "name": "Crescent Spear",
+      "cost": "1★",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 8 damage.\nDeals 2 additional damage for ALL your cards that have a [star:1] cost."
+    },
+    "offering": {
+      "name": "Offering",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Lose 6 HP.\nGain [energy:2].\nDraw 3 cards.",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "dominate": {
+      "name": "Dominate",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Apply 1 [gold]Vulnerable[/gold].\nGain 1 [gold]Strength[/gold] for each [gold]Vulnerable[/gold] on the enemy.",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "bloodletting": {
+      "name": "Bloodletting",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Lose 3 HP.\nGain [energy:2]."
+    },
+    "colossus": {
+      "name": "Colossus",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain 5 [gold]Block[/gold].\nYou receive 50% less damage from [gold]Vulnerable[/gold] enemies this turn."
+    },
+    "inferno": {
+      "name": "Inferno",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "At the start of your turn, lose 1 HP.\nWhenever you lose HP on your turn, deal 6 damage to ALL enemies."
+    },
+    "pacts-end": {
+      "name": "Pact's End",
+      "cost": "0",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "If you have 3 or more cards in your [gold]Exhaust Pile[/gold],\ndeal 17 damage to ALL enemies."
+    },
+    "crimson-mantle": {
+      "name": "Crimson Mantle",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "At the start of your turn, lose 1 HP and gain 8 [gold]Block[/gold]."
+    },
+    "unmovable": {
+      "name": "Unmovable",
+      "cost": "2",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "The first time you gain [gold]Block[/gold] from a card each turn, double the amount gained."
+    },
+    "uppercut": {
+      "name": "Uppercut",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 13 damage.\nApply 1 [gold]Weak[/gold].\nApply 1 [gold]Vulnerable[/gold]."
+    },
+    "battle-trance": {
+      "name": "Battle Trance",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Draw 3 cards.\nYou cannot draw additional cards this turn."
+    },
+    "tremble": {
+      "name": "Tremble",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Apply 3 [gold]Vulnerable[/gold].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "burning-pact": {
+      "name": "Burning Pact",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "[gold]Exhaust[/gold] 1 card.\nDraw 2 cards."
+    },
+    "cruelty": {
+      "name": "Cruelty",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "[gold]Vulnerable[/gold] enemies take an additional 25% damage."
+    },
+    "dark-embrace": {
+      "name": "Dark Embrace",
+      "cost": "2",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "Whenever a card is [gold]Exhausted[/gold],\ndraw 1 card."
+    },
+    "fiend-fire": {
+      "name": "Fiend Fire",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "[gold]Exhaust[/gold] your [gold]Hand[/gold].\nDeal 7 damage for each card [gold]Exhausted[/gold].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "impervious": {
+      "name": "Impervious",
+      "cost": "2",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Gain 30 [gold]Block[/gold].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "pommel-strike": {
+      "name": "Pommel Strike",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 9 damage.\nDraw 1 card."
+    },
+    "primal-force": {
+      "name": "Primal Force",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Transform all Attacks in your [gold]Hand[/gold] into [gold]Giant Rock[/gold]."
+    },
+    "feed": {
+      "name": "Feed",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 10 damage.\nIf [gold]Fatal[/gold], raise your Max HP by 3.",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "flame-barrier": {
+      "name": "Flame Barrier",
+      "cost": "2",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain 12 [gold]Block[/gold].\nWhenever you are attacked this turn, deal 4 damage back."
+    },
+    "corruption": {
+      "name": "Corruption",
+      "cost": "3",
+      "type": "Power",
+      "rarity": "Ancient",
+      "description": "Skills cost 0 [energy:1].\nWhenever you play a Skill, [gold]Exhaust[/gold] it."
+    },
+    "feel-no-pain": {
+      "name": "Feel No Pain",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "Whenever a card is [gold]Exhausted[/gold], gain 3 [gold]Block[/gold]."
+    },
+    "blood-wall": {
+      "name": "Blood Wall",
+      "cost": "2",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Lose 2 HP.\nGain 16 [gold]Block[/gold]."
+    },
+    "expect-a-fight": {
+      "name": "Expect a Fight",
+      "cost": "2",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain [energy:1] for each Attack in your [gold]Hand[/gold].\nYou cannot gain\nadditional [energy:1] this turn."
+    },
+    "anger": {
+      "name": "Anger",
+      "cost": "0",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 6 damage.\nAdd a copy of this card into your [gold]Discard Pile[/gold]."
+    },
+    "bludgeon": {
+      "name": "Bludgeon",
+      "cost": "3",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 32 damage."
+    },
+    "hemokinesis": {
+      "name": "Hemokinesis",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Lose 2 HP.\nDeal 15 damage."
+    },
+    "pyre": {
+      "name": "Pyre",
+      "cost": "2",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "Gain [energy:1] at the start of each turn."
+    },
+    "rage": {
+      "name": "Rage",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Whenever you play an Attack this turn, gain 3 [gold]Block[/gold]."
+    },
+    "headbutt": {
+      "name": "Headbutt",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 9 damage.\nPut a card from your [gold]Discard Pile[/gold] on top of your [gold]Draw Pile[/gold]."
+    },
+    "second-wind": {
+      "name": "Second Wind",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "[gold]Exhaust[/gold] all non-Attack cards in your [gold]Hand[/gold]. Gain 5 [gold]Block[/gold] for each card [gold]Exhausted[/gold]."
+    },
+    "shrug-it-off": {
+      "name": "Shrug It Off",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain 8 [gold]Block[/gold].\nDraw 1 card."
+    },
+    "stoke": {
+      "name": "Stoke",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "[gold]Exhaust[/gold] your [gold]Hand[/gold].\nAdd 1 random card into your [gold]Hand[/gold] for each card [gold]Exhausted[/gold]."
+    },
+    "break": {
+      "name": "Break",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Ancient",
+      "description": "Deal 20 damage.\nApply 5 [gold]Vulnerable[/gold]."
+    },
+    "forgotten-ritual": {
+      "name": "Forgotten Ritual",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "If you [gold]Exhausted[/gold] a card this turn, gain [energy:3].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "tear-asunder": {
+      "name": "Tear Asunder",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 5 damage.\nHits an additional time for each time you lost HP this combat."
+    },
+    "dismantle": {
+      "name": "Dismantle",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 8 damage.\nIf the enemy is [gold]Vulnerable[/gold], hits twice."
+    },
+    "breakthrough": {
+      "name": "Breakthrough",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Lose 1 HP.\nDeal 9 damage to ALL enemies."
+    },
+    "ashen-strike": {
+      "name": "Ashen Strike",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 6 damage.\nDeals 3 additional damage for each card in your [gold]Exhaust Pile[/gold]."
+    },
+    "cinder": {
+      "name": "Cinder",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 18 damage.\n[gold]Exhaust[/gold] 1 card at random."
+    },
+    "evil-eye": {
+      "name": "Evil Eye",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain 8 [gold]Block[/gold].\nGain another 8 [gold]Block[/gold] if you have [gold]Exhausted[/gold] a card this turn."
+    },
+    "thrash": {
+      "name": "Thrash",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 4 damage twice.\n[gold]Exhaust[/gold] a random Attack in your [gold]Hand[/gold] and add its damage to this card."
+    },
+    "aggression": {
+      "name": "Aggression",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "At the start of your turn, put a random Attack from your [gold]Discard Pile[/gold] into your [gold]Hand[/gold] and [gold]Upgrade[/gold] it."
+    },
+    "spite": {
+      "name": "Spite",
+      "cost": "0",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 5 damage.\nIf you lost HP this turn,\nhits 2 times."
+    },
+    "whirlwind": {
+      "name": "Whirlwind",
+      "cost": "X",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 5 damage to ALL enemies X times."
+    },
+    "taunt": {
+      "name": "Taunt",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain 7 [gold]Block[/gold].\nApply 1 [gold]Vulnerable[/gold]."
+    },
+    "stomp": {
+      "name": "Stomp",
+      "cost": "3",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 12 damage to ALL enemies.\nCosts 1 less [energy:1] for each Attack played this turn."
+    },
+    "iron-wave": {
+      "name": "Iron Wave",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Gain 5 [gold]Block[/gold].\nDeal 5 damage."
+    },
+    "twin-strike": {
+      "name": "Twin Strike",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 5 damage twice."
+    },
+    "vicious": {
+      "name": "Vicious",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "Whenever you apply [gold]Vulnerable[/gold], draw 1 card."
+    },
+    "stone-armor": {
+      "name": "Stone Armor",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "Gain 4 [gold]Plating[/gold]."
+    },
+    "rupture": {
+      "name": "Rupture",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "Whenever you lose HP on your turn, gain 1 [gold]Strength[/gold]."
+    },
+    "pillage": {
+      "name": "Pillage",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 6 damage.\nDraw cards until you draw a non-Attack card."
+    },
+    "thunderclap": {
+      "name": "Thunderclap",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 4 damage and apply 1 [gold]Vulnerable[/gold] to ALL enemies."
+    },
+    "stampede": {
+      "name": "Stampede",
+      "cost": "2",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "At the end of your turn, 1 random Attack in your [gold]Hand[/gold] is played against a random enemy."
+    },
+    "true-grit": {
+      "name": "True Grit",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain 7 [gold]Block[/gold].\n[gold]Exhaust[/gold] 1 card at random."
+    },
+    "inflame": {
+      "name": "Inflame",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "Gain 2 [gold]Strength[/gold]."
+    },
+    "cascade": {
+      "name": "Cascade",
+      "cost": "X",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Play the top X cards of your [gold]Draw Pile[/gold]."
+    },
+    "molten-fist": {
+      "name": "Molten Fist",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 10 damage.\nDouble the enemy's [gold]Vulnerable[/gold].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "rampage": {
+      "name": "Rampage",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 9 damage.\nIncrease this card's damage by 5 this combat."
+    },
+    "bully": {
+      "name": "Bully",
+      "cost": "0",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 4 damage.\nDeals 2 additional damage for each [gold]Vulnerable[/gold] on the enemy."
+    },
+    "setup-strike": {
+      "name": "Setup Strike",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 7 damage.\nGain 2 [gold]Strength[/gold] this turn."
+    },
+    "infernal-blade": {
+      "name": "Infernal Blade",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Add a random Attack into your [gold]Hand[/gold]. It's free to play this turn.",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "perfected-strike": {
+      "name": "Perfected Strike",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 6 damage.\nDeals 2 additional damage for ALL your cards containing “Strike”."
+    },
+    "sword-boomerang": {
+      "name": "Sword Boomerang",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 3 damage to a random enemy 3 times."
+    },
+    "havoc": {
+      "name": "Havoc",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Play the top card of your [gold]Draw Pile[/gold] and [gold]Exhaust[/gold] it."
+    },
+    "hellraiser": {
+      "name": "Hellraiser",
+      "cost": "2",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "Whenever you draw a card containing “Strike”, it is played against a random enemy."
+    },
+    "brand": {
+      "name": "Brand",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Lose 1 HP.\n[gold]Exhaust[/gold] 1 card.\nGain 1 [gold]Strength[/gold]."
+    },
+    "armaments": {
+      "name": "Armaments",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain 5 [gold]Block[/gold].\n[gold]Upgrade[/gold] a card in your [gold]Hand[/gold]."
+    },
+    "howl-from-beyond": {
+      "name": "Howl from Beyond",
+      "cost": "3",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 16 damage to ALL enemies.\nAt the end of your turn, if this is in your [gold]Exhaust Pile[/gold], play it."
+    },
+    "body-slam": {
+      "name": "Body Slam",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal damage equal to your [gold]Block[/gold]."
+    },
+    "drum-of-battle": {
+      "name": "Drum of Battle",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Draw 2 cards.\nWhen this card is [gold]Exhausted[/gold], gain [energy:2]."
+    },
+    "juggling": {
+      "name": "Juggling",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "Add a copy of the third [gold]Attack[/gold] you play each turn into your [gold]Hand[/gold]."
+    },
+    "demon-form": {
+      "name": "Demon Form",
+      "cost": "3",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "At the start of your turn, gain 2 [gold]Strength[/gold]."
+    },
+    "fight-me": {
+      "name": "Fight Me!",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 5 damage twice.\nGain 3 [gold]Strength[/gold].\nThe enemy gains 1 [gold]Strength[/gold]."
+    },
+    "one-two-punch": {
+      "name": "One-Two Punch",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "This turn, your next Attack is played an extra time."
+    },
+    "mangle": {
+      "name": "Mangle",
+      "cost": "3",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 15 damage.\nEnemy loses 10 [gold]Strength[/gold] this turn."
+    },
+    "barricade": {
+      "name": "Barricade",
+      "cost": "3",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "[gold]Block[/gold] is not removed at the start of your turn."
+    },
+    "juggernaut": {
+      "name": "Juggernaut",
+      "cost": "2",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "Whenever you gain [gold]Block[/gold], deal 6 damage to a random enemy."
+    },
+    "conflagration": {
+      "name": "Conflagration",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 2 damage to ALL enemies 4 times."
+    },
+    "demesne": {
+      "name": "Demesne",
+      "cost": "3",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "At the start of your turn, gain [energy:1] and draw 1 additional card.",
+      "keywords": [
+        "Ethereal"
+      ]
+    },
+    "friendship": {
+      "name": "Friendship",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "Lose 2 [gold]Strength[/gold].\nGain [energy:1] at the start of each turn."
+    },
+    "neurosurge": {
+      "name": "Neurosurge",
+      "cost": "0",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "Gain [energy:3].\nDraw 2 cards.\nAt the start of your turn, apply 3 [gold]Doom[/gold] to yourself."
+    },
+    "call-of-the-void": {
+      "name": "Call of the Void",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "At the start of your turn, add 1 random card into your [gold]Hand[/gold]. It gains [gold]Ethereal[/gold]."
+    },
+    "sleight-of-flesh": {
+      "name": "Sleight of Flesh",
+      "cost": "2",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "Whenever you apply a debuff to an enemy, they take 9 damage."
+    },
+    "putrefy": {
+      "name": "Putrefy",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Apply 2 [gold]Weak[/gold].\nApply 2 [gold]Vulnerable[/gold].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "danse-macabre": {
+      "name": "Danse Macabre",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "Whenever you play a card that costs [energy:2] or more, gain 4 [gold]Block[/gold]."
+    },
+    "lethality": {
+      "name": "Lethality",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "The first Attack each turn deals 50% additional damage.",
+      "keywords": [
+        "Ethereal"
+      ]
+    },
+    "delay": {
+      "name": "Delay",
+      "cost": "2",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain 11 [gold]Block[/gold].\nNext turn,\ngain [energy:1]."
+    },
+    "reanimate": {
+      "name": "Reanimate",
+      "cost": "3",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "[gold]Summon[/gold] 20.",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "enfeebling-touch": {
+      "name": "Enfeebling Touch",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Enemy loses 8 [gold]Strength[/gold] this turn.",
+      "keywords": [
+        "Ethereal"
+      ]
+    },
+    "defy": {
+      "name": "Defy",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain 6 [gold]Block[/gold].\nApply 1 [gold]Weak[/gold].",
+      "keywords": [
+        "Ethereal"
+      ]
+    },
+    "reaper-form": {
+      "name": "Reaper Form",
+      "cost": "3",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "Whenever Attacks deal damage, apply that much [gold]Doom[/gold]."
+    },
+    "bone-shards": {
+      "name": "Bone Shards",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "If [gold]Osty[/gold] is alive, he deals 9 damage to ALL enemies and you gain 9 [gold]Block[/gold].\n[gold]Osty[/gold] dies."
+    },
+    "pagestorm": {
+      "name": "Pagestorm",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "Whenever you draw an [gold]Ethereal[/gold] card, draw 1 card."
+    },
+    "banshees-cry": {
+      "name": "Banshee's Cry",
+      "cost": "9",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 33 damage to ALL enemies.\nCosts [energy:2] less for each [gold]Ethereal[/gold] card played this combat."
+    },
+    "shared-fate": {
+      "name": "Shared Fate",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Lose 2 [gold]Strength[/gold].\nEnemy loses 2 [gold]Strength[/gold].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "capture-spirit": {
+      "name": "Capture Spirit",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Enemy loses 3 HP.\nAdd 3 [gold]Souls[/gold] into your [gold]Draw Pile[/gold]."
+    },
+    "deathbringer": {
+      "name": "Deathbringer",
+      "cost": "2",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Apply 21 [gold]Doom[/gold] and 1 [gold]Weak[/gold] to ALL enemies."
+    },
+    "dirge": {
+      "name": "Dirge",
+      "cost": "X",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "[gold]Summon[/gold] 3 X times.\nAdd X [gold]Souls[/gold] into your [gold]Draw Pile[/gold].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "spirit-of-ash": {
+      "name": "Spirit of Ash",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "Whenever you play an [gold]Ethereal[/gold] card, gain 4 [gold]Block[/gold]."
+    },
+    "eradicate": {
+      "name": "Eradicate",
+      "cost": "X",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 11 damage X times.",
+      "keywords": [
+        "Retain"
+      ]
+    },
+    "fetch": {
+      "name": "Fetch",
+      "cost": "0",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "[gold]Osty[/gold] deals 3 damage.\nIf this is the first time this card has been played this turn, draw 1 card."
+    },
+    "hang": {
+      "name": "Hang",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 10 damage.\nDouble the damage ALL Hang cards deal to this enemy."
+    },
+    "undeath": {
+      "name": "Undeath",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Gain 7 [gold]Block[/gold].\nAdd a copy of this card into your [gold]Discard Pile[/gold]."
+    },
+    "grave-warden": {
+      "name": "Grave Warden",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain 8 [gold]Block[/gold].\nAdd a [gold]Soul[/gold] into your [gold]Draw Pile[/gold]."
+    },
+    "end-of-days": {
+      "name": "End of Days",
+      "cost": "3",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Apply 29 [gold]Doom[/gold] to ALL enemies.\nKill enemies with at least as much [gold]Doom[/gold] as HP."
+    },
+    "borrowed-time": {
+      "name": "Borrowed Time",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain [energy:4].\nCards cost an additional [energy:1] this turn."
+    },
+    "afterlife": {
+      "name": "Afterlife",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "[gold]Summon[/gold] 6.",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "transfigure": {
+      "name": "Transfigure",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Add [gold]Replay[/gold] to a card in your [gold]Hand[/gold].\nIt costs an extra [energy:1].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "spur": {
+      "name": "Spur",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "[gold]Summon[/gold] 3.\n[gold]Osty[/gold] heals 5 HP.",
+      "keywords": [
+        "Retain"
+      ]
+    },
+    "no-escape": {
+      "name": "No Escape",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Apply 10 [gold]Doom[/gold], plus an additional 5 [gold]Doom[/gold] for every 10 [gold]Doom[/gold] already on this enemy."
+    },
+    "countdown": {
+      "name": "Countdown",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "At the start of your turn, apply 6 [gold]Doom[/gold] to a random enemy."
+    },
+    "sow": {
+      "name": "Sow",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 8 damage to ALL enemies.",
+      "keywords": [
+        "Retain"
+      ]
+    },
+    "calcify": {
+      "name": "Calcify",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "[gold]Osty's[/gold] attacks deal 4 additional damage."
+    },
+    "invoke": {
+      "name": "Invoke",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Next turn, [gold]Summon[/gold] 2 and gain [energy:2]."
+    },
+    "pull-aggro": {
+      "name": "Pull Aggro",
+      "cost": "2",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "[gold]Summon[/gold] 4.\nGain 7 [gold]Block[/gold]."
+    },
+    "melancholy": {
+      "name": "Melancholy",
+      "cost": "3",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain 13 [gold]Block[/gold].\nReduce this card's cost by [energy:1] whenever ANYONE dies."
+    },
+    "oblivion": {
+      "name": "Oblivion",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Whenever you play a card this turn, apply 3 [gold]Doom[/gold] to the enemy."
+    },
+    "sentry-mode": {
+      "name": "Sentry Mode",
+      "cost": "2",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "At the start of your turn, add 1 [gold]Sweeping Gaze[/gold] into your [gold]Hand[/gold]."
+    },
+    "the-scythe": {
+      "name": "The Scythe",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 13 damage.\nPermanently increase this card's damage by 4.",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "deaths-door": {
+      "name": "Death's Door",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain 6 [gold]Block[/gold].\nIf you applied [gold]Doom[/gold] this turn, gain [gold]Block[/gold] 2 additional times."
+    },
+    "reap": {
+      "name": "Reap",
+      "cost": "3",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 27 damage.",
+      "keywords": [
+        "Retain"
+      ]
+    },
+    "shroud": {
+      "name": "Shroud",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "Whenever you apply [gold]Doom[/gold], gain 2 [gold]Block[/gold]."
+    },
+    "haunt": {
+      "name": "Haunt",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "Whenever you play a [gold]Soul[/gold], a random enemy loses 6 HP."
+    },
+    "dredge": {
+      "name": "Dredge",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Put 3 cards from your [gold]Discard Pile[/gold] into your [gold]Hand[/gold].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "debilitate": {
+      "name": "Debilitate",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 10 damage.\n[gold]Vulnerable[/gold] and [gold]Weak[/gold] are twice as effective against the enemy for the next 2 turns."
+    },
+    "negative-pulse": {
+      "name": "Negative Pulse",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain 5 [gold]Block[/gold].\nApply 7 [gold]Doom[/gold] to ALL enemies."
+    },
+    "defile": {
+      "name": "Defile",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 13 damage.",
+      "keywords": [
+        "Ethereal"
+      ]
+    },
+    "high-five": {
+      "name": "High Five",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "[gold]Osty[/gold] deals 11 damage\nand applies 2 [gold]Vulnerable[/gold]\nto ALL enemies."
+    },
+    "pull-from-below": {
+      "name": "Pull from Below",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 5 damage for each [gold]Ethereal[/gold] card played this combat."
+    },
+    "eidolon": {
+      "name": "Eidolon",
+      "cost": "2",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "[gold]Exhaust[/gold] your [gold]Hand[/gold].\nIf 9 cards were [gold]Exhausted[/gold] this way, gain 1 [gold]Intangible[/gold]."
+    },
+    "times-up": {
+      "name": "Time's Up",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal damage equal to the enemy's [gold]Doom[/gold].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "cleanse": {
+      "name": "Cleanse",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "[gold]Summon[/gold] 3.\n[gold]Exhaust[/gold] 1 card from your [gold]Draw Pile[/gold]."
+    },
+    "seance": {
+      "name": "Seance",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Transform a card in your [gold]Draw Pile[/gold] into [gold]Soul[/gold].",
+      "keywords": [
+        "Ethereal"
+      ]
+    },
+    "sic-em": {
+      "name": "Sic 'Em",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "[gold]Osty[/gold] deals 5 damage.\nWhenever [gold]Osty[/gold] hits this enemy this turn, [gold]Summon[/gold] 3."
+    },
+    "wisp": {
+      "name": "Wisp",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain [energy:1].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "snap": {
+      "name": "Snap",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "[gold]Osty[/gold] deals 7 damage.\nAdd [gold]Retain[/gold] to a card in your [gold]Hand[/gold]."
+    },
+    "rattle": {
+      "name": "Rattle",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "[gold]Osty[/gold] deals 7 damage.\nHits an additional time for each other time he has attacked this turn."
+    },
+    "right-hand-hand": {
+      "name": "Right Hand Hand",
+      "cost": "0",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "[gold]Osty[/gold] deals 4 damage.\nWhenever you play a card that costs [energy:2] or more, return this to your [gold]Hand[/gold] from the [gold]Discard Pile[/gold]."
+    },
+    "blight-strike": {
+      "name": "Blight Strike",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 8 damage.\nApply [gold]Doom[/gold] equal to damage dealt."
+    },
+    "death-march": {
+      "name": "Death March",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 8 damage.\nDeals 4 additional damage for each card drawn during your turn."
+    },
+    "squeeze": {
+      "name": "Squeeze",
+      "cost": "3",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "[gold]Osty[/gold] deals 25 damage.\nDeals 5 additional damage for ALL your other [gold]Osty[/gold] Attacks."
+    },
+    "drain-power": {
+      "name": "Drain Power",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 10 damage.\n[gold]Upgrade[/gold] 2 random cards in your [gold]Discard Pile[/gold]."
+    },
+    "poke": {
+      "name": "Poke",
+      "cost": "0",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "[gold]Osty[/gold] deals 6 damage."
+    },
+    "scourge": {
+      "name": "Scourge",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Apply 13 [gold]Doom[/gold].\nDraw 1 card."
+    },
+    "sculpting-strike": {
+      "name": "Sculpting Strike",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 9 damage.\nAdd [gold]Ethereal[/gold] to a card in your [gold]Hand[/gold]."
+    },
+    "necro-mastery": {
+      "name": "Necro Mastery",
+      "cost": "2",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "[gold]Summon[/gold] 5.\nWhenever [gold]Osty[/gold] loses HP,\nALL enemies lose that much HP as well."
+    },
+    "devour-life": {
+      "name": "Devour Life",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "Whenever you play a [gold]Soul[/gold], [gold]Summon[/gold] 1."
+    },
+    "sacrifice": {
+      "name": "Sacrifice",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "If [gold]Osty[/gold] is alive, he dies and you gain [gold]Block[/gold] equal to double his Max HP.",
+      "keywords": [
+        "Retain"
+      ]
+    },
+    "reave": {
+      "name": "Reave",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 9 damage.\nAdd a [gold]Soul[/gold] into your [gold]Draw Pile[/gold]."
+    },
+    "parse": {
+      "name": "Parse",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Draw 3 cards.",
+      "keywords": [
+        "Ethereal"
+      ]
+    },
+    "veilpiercer": {
+      "name": "Veilpiercer",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 10 damage.\nThe next [gold]Ethereal[/gold] card you play costs 0 [energy:1]."
+    },
+    "misery": {
+      "name": "Misery",
+      "cost": "0",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 7 damage.\nApply any debuffs on the enemy to ALL other enemies."
+    },
+    "severance": {
+      "name": "Severance",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 13 damage.\nAdd a [gold]Soul[/gold] into your [gold]Draw Pile[/gold], [gold]Hand[/gold], and [gold]Discard Pile[/gold]."
+    },
+    "flatten": {
+      "name": "Flatten",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "[gold]Osty[/gold] deals 12 damage.\nThis card costs 0 [energy:1] if [gold]Osty[/gold] has attacked this turn."
+    },
+    "bury": {
+      "name": "Bury",
+      "cost": "4",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 52 damage."
+    },
+    "soul-storm": {
+      "name": "Soul Storm",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 9 damage.\nDeals 2 additional damage for each [gold]Soul[/gold] in your [gold]Exhaust Pile[/gold]."
+    },
+    "graveblast": {
+      "name": "Graveblast",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 4 damage.\nPut a card from your [gold]Discard Pile[/gold] into your [gold]Hand[/gold].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "fear": {
+      "name": "Fear",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 7 damage.\nApply 1 [gold]Vulnerable[/gold].",
+      "keywords": [
+        "Ethereal"
+      ]
+    },
+    "echo-form": {
+      "name": "Echo Form",
+      "cost": "3",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "The first card you play each turn is played an extra time.",
+      "keywords": [
+        "Ethereal"
+      ]
+    },
+    "defragment": {
+      "name": "Defragment",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "Gain 1 [gold]Focus[/gold]."
+    },
+    "glacier": {
+      "name": "Glacier",
+      "cost": "2",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain 6 [gold]Block[/gold].\n[gold]Channel[/gold] 2 [gold]Frost[/gold]."
+    },
+    "modded": {
+      "name": "Modded",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Gain 1 Orb Slot.\nDraw 1 card. Increase this card's cost by 1."
+    },
+    "genetic-algorithm": {
+      "name": "Genetic Algorithm",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Gain 1 [gold]Block[/gold].\nPermanently increase this card's [gold]Block[/gold] by 3.",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "darkness": {
+      "name": "Darkness",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "[gold]Channel[/gold] 1 [gold]Dark[/gold].\nTrigger the passive ability of all [gold]Dark[/gold] Orbs."
+    },
+    "synchronize": {
+      "name": "Synchronize",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain 2 [gold]Focus[/gold] this turn for each unique Orb you have.",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "chill": {
+      "name": "Chill",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "[gold]Channel[/gold] 1 [gold]Frost[/gold] for each enemy.",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "coolheaded": {
+      "name": "Coolheaded",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "[gold]Channel[/gold] 1 [gold]Frost[/gold].\nDraw 1 card."
+    },
+    "machine-learning": {
+      "name": "Machine Learning",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "At the start of your turn, draw 1 additional card."
+    },
+    "null": {
+      "name": "Null",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 10 damage.\nApply 2 [gold]Weak[/gold].\n[gold]Channel[/gold] 1 [gold]Dark[/gold]."
+    },
+    "barrage": {
+      "name": "Barrage",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 5 damage for each [gold]Channeled[/gold] Orb."
+    },
+    "ice-lance": {
+      "name": "Ice Lance",
+      "cost": "3",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 19 damage.\n[gold]Channel[/gold] 3 [gold]Frost[/gold]."
+    },
+    "buffer": {
+      "name": "Buffer",
+      "cost": "2",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "Prevent the next time you would lose HP."
+    },
+    "boot-sequence": {
+      "name": "Boot Sequence",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain 10 [gold]Block[/gold].",
+      "keywords": [
+        "Exhaust",
+        "Innate"
+      ]
+    },
+    "supercritical": {
+      "name": "Supercritical",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Gain [energy:4].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "cold-snap": {
+      "name": "Cold Snap",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 6 damage.\n[gold]Channel[/gold] 1 [gold]Frost[/gold]."
+    },
+    "hotfix": {
+      "name": "Hotfix",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain 2 [gold]Focus[/gold] this turn.",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "bulk-up": {
+      "name": "Bulk Up",
+      "cost": "2",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "Lose 1 Orb Slot.\nGain 2 [gold]Strength[/gold].\nGain 2 [gold]Dexterity[/gold]."
+    },
+    "capacitor": {
+      "name": "Capacitor",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "Gain 2 Orb Slots."
+    },
+    "coolant": {
+      "name": "Coolant",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "At the start of your turn, gain 2 [gold]Block[/gold] for each unique Orb you have."
+    },
+    "spinner": {
+      "name": "Spinner",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "At the start of your turn, [gold]Channel[/gold] 1 [gold]Glass[/gold]."
+    },
+    "shadow-shield": {
+      "name": "Shadow Shield",
+      "cost": "2",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain 11 [gold]Block[/gold].\n[gold]Channel[/gold] 1 [gold]Dark[/gold]."
+    },
+    "ftl": {
+      "name": "FTL",
+      "cost": "0",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 5 damage.\nIf you have played fewer than 3 cards this turn, draw 1 card."
+    },
+    "charge-battery": {
+      "name": "Charge Battery",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain 7 [gold]Block[/gold].\nNext turn, gain [energy:1]."
+    },
+    "go-for-the-eyes": {
+      "name": "Go for the Eyes",
+      "cost": "0",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 3 damage.\nIf the enemy intends to attack, apply 1 [gold]Weak[/gold]."
+    },
+    "sunder": {
+      "name": "Sunder",
+      "cost": "3",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 24 damage.\nIf this kills an enemy, gain [energy:3]."
+    },
+    "overclock": {
+      "name": "Overclock",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Draw 2 cards.\nAdd a [gold]Burn[/gold] into your [gold]Discard Pile[/gold]."
+    },
+    "skim": {
+      "name": "Skim",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Draw 3 cards."
+    },
+    "turbo": {
+      "name": "TURBO",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain [energy:2].\nAdd a [gold]Void[/gold] into your [gold]Discard Pile[/gold]."
+    },
+    "glasswork": {
+      "name": "Glasswork",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain 5 [gold]Block[/gold].\n[gold]Channel[/gold] 1 [gold]Glass[/gold]."
+    },
+    "rainbow": {
+      "name": "Rainbow",
+      "cost": "2",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "[gold]Channel[/gold] 1 [gold]Lightning[/gold].\n[gold]Channel[/gold] 1 [gold]Frost[/gold].\n[gold]Channel[/gold] 1 [gold]Dark[/gold].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "subroutine": {
+      "name": "Subroutine",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "Whenever you play a Power, gain [energy:1]."
+    },
+    "all-for-one": {
+      "name": "All for One",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 10 damage.\nPut ALL 0[energy:1] cards from your [gold]Discard Pile[/gold] into your [gold]Hand[/gold]."
+    },
+    "compile-driver": {
+      "name": "Compile Driver",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 7 damage.\nDraw 1 card for each unique Orb you have."
+    },
+    "fight-through": {
+      "name": "Fight Through",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain 13 [gold]Block[/gold].\nAdd 2 [gold]Wounds[/gold] into your [gold]Discard Pile[/gold]."
+    },
+    "tesla-coil": {
+      "name": "Tesla Coil",
+      "cost": "0",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 3 damage.\nTrigger all [gold]Lightning[/gold] against the enemy."
+    },
+    "hologram": {
+      "name": "Hologram",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain 3 [gold]Block[/gold].\nPut a card from your [gold]Discard Pile[/gold] into your [gold]Hand[/gold].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "feral": {
+      "name": "Feral",
+      "cost": "2",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "The first time you play a\n0[energy:1] Attack each turn,\nreturn it to your [gold]Hand[/gold]."
+    },
+    "focused-strike": {
+      "name": "Focused Strike",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 9 damage.\nGain 1 [gold]Focus[/gold] this turn."
+    },
+    "double-energy": {
+      "name": "Double Energy",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Double your Energy.",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "signal-boost": {
+      "name": "Signal Boost",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "The next Power you play is played an additional time.",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "iteration": {
+      "name": "Iteration",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "The first time you draw a Status each turn, draw 2 cards."
+    },
+    "trash-to-treasure": {
+      "name": "Trash to Treasure",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "Whenever you create a Status, [gold]Channel[/gold] 1 random Orb."
+    },
+    "creative-ai": {
+      "name": "Creative AI",
+      "cost": "3",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "At the start of your turn, add a random Power into your [gold]Hand[/gold]."
+    },
+    "rocket-punch": {
+      "name": "Rocket Punch",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 13 damage.\nDraw 1 card.\nWhenever you create a Status, reduce this card's cost to 0 [energy:1] until played."
+    },
+    "refract": {
+      "name": "Refract",
+      "cost": "3",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 9 damage twice.\n[gold]Channel[/gold] 2 [gold]Glass[/gold]."
+    },
+    "leap": {
+      "name": "Leap",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain 9 [gold]Block[/gold]."
+    },
+    "loop": {
+      "name": "Loop",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "At the start of your turn, trigger the passive ability of your rightmost Orb."
+    },
+    "reboot": {
+      "name": "Reboot",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "Shuffle ALL your cards into your [gold]Draw Pile[/gold].\nDraw 4 cards.",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "ball-lightning": {
+      "name": "Ball Lightning",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 7 damage.\n[gold]Channel[/gold] 1 [gold]Lightning[/gold]."
+    },
+    "hailstorm": {
+      "name": "Hailstorm",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "At the end of your turn, if you have [gold]Frost[/gold], deal 6 damage to ALL enemies."
+    },
+    "meteor-strike": {
+      "name": "Meteor Strike",
+      "cost": "5",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 24 damage.\n[gold]Channel[/gold] 3 [gold]Plasma[/gold]."
+    },
+    "adaptive-strike": {
+      "name": "Adaptive Strike",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 18 damage.\nAdd a 0[energy:1] copy of this card into your [gold]Discard Pile[/gold]."
+    },
+    "lightning-rod": {
+      "name": "Lightning Rod",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain 4 [gold]Block[/gold].\nAt the start of the next 2 turns, [gold]Channel[/gold] 1 [gold]Lightning[/gold]."
+    },
+    "multi-cast": {
+      "name": "Multi-Cast",
+      "cost": "X",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "[gold]Evoke[/gold] your rightmost Orb X times."
+    },
+    "boost-away": {
+      "name": "Boost Away",
+      "cost": "0",
+      "type": "Skill",
+      "rarity": "Common",
+      "description": "Gain 6 [gold]Block[/gold].\nAdd a [gold]Dazed[/gold] into your [gold]Discard Pile[/gold]."
+    },
+    "shatter": {
+      "name": "Shatter",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 7 damage to ALL enemies.\n[gold]Evoke[/gold] all of your Orbs twice."
+    },
+    "voltaic": {
+      "name": "Voltaic",
+      "cost": "3",
+      "type": "Skill",
+      "rarity": "Rare",
+      "description": "[gold]Channel Lightning[/gold] equal to the [gold]Lightning[/gold] already [gold]Channeled[/gold] this combat.",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "compact": {
+      "name": "Compact",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Gain 6 [gold]Block[/gold].\n[gold]Transform[/gold] all Status cards in your [gold]Hand[/gold] into [gold]Fuel[/gold]."
+    },
+    "fusion": {
+      "name": "Fusion",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "[gold]Channel[/gold] 1 [gold]Plasma[/gold].",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "sweeping-beam": {
+      "name": "Sweeping Beam",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 6 damage to ALL enemies.\nDraw 1 card."
+    },
+    "momentum-strike": {
+      "name": "Momentum Strike",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 10 damage.\nReduce this card's cost to 0 [energy:1]."
+    },
+    "beam-cell": {
+      "name": "Beam Cell",
+      "cost": "0",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 3 damage.\nApply 1 [gold]Vulnerable[/gold]."
+    },
+    "tempest": {
+      "name": "Tempest",
+      "cost": "X",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "[gold]Channel[/gold] X [gold]Lightning[/gold]."
+    },
+    "gunk-up": {
+      "name": "Gunk Up",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 4 damage 3 times.\nAdd a [gold]Slimed[/gold] into your [gold]Discard Pile[/gold]."
+    },
+    "scrape": {
+      "name": "Scrape",
+      "cost": "1",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 7 damage.\nDraw 4 cards.\nDiscard all cards drawn this way that do not cost 0 [energy:1]."
+    },
+    "scavenge": {
+      "name": "Scavenge",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "[gold]Exhaust[/gold] a card.\nNext turn, gain [energy:2]."
+    },
+    "synthesis": {
+      "name": "Synthesis",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "description": "Deal 14 damage.\nThe next Power you play costs 0 [energy:1]."
+    },
+    "white-noise": {
+      "name": "White Noise",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "Add a random Power into your [gold]Hand[/gold]. It's free to play this turn.",
+      "keywords": [
+        "Exhaust"
+      ]
+    },
+    "flak-cannon": {
+      "name": "Flak Cannon",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "[gold]Exhaust[/gold] ALL your Status cards.\nDeal 8 damage to a random enemy for each card [gold]Exhausted[/gold]."
+    },
+    "smokestack": {
+      "name": "Smokestack",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "Whenever you create a Status, deal 5 damage to ALL enemies."
+    },
+    "helix-drill": {
+      "name": "Helix Drill",
+      "cost": "0",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 3 damage for each [energy:1] previously spent this turn."
+    },
+    "consuming-shadow": {
+      "name": "Consuming Shadow",
+      "cost": "2",
+      "type": "Power",
+      "rarity": "Rare",
+      "description": "[gold]Channel[/gold] 2 [gold]Dark[/gold].\nAt the end of your turn, [gold]Evoke[/gold] your leftmost Orb."
+    },
+    "thunder": {
+      "name": "Thunder",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "Whenever you [gold]Evoke Lightning[/gold], deal 6 damage to each enemy hit."
+    },
+    "hyperbeam": {
+      "name": "Hyperbeam",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Rare",
+      "description": "Deal 28 damage to ALL enemies.\nLose 3 [gold]Focus[/gold]."
+    },
+    "chaos": {
+      "name": "Chaos",
+      "cost": "1",
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "description": "[gold]Channel[/gold] 1 random Orb."
+    },
+    "claw": {
+      "name": "Claw",
+      "cost": "0",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 3 damage.\nIncrease the damage of ALL Claw cards by 2 this combat."
+    },
+    "uproar": {
+      "name": "Uproar",
+      "cost": "2",
+      "type": "Attack",
+      "rarity": "Common",
+      "description": "Deal 6 damage twice.\nPlay a random Attack from your [gold]Draw Pile[/gold]."
+    },
+    "storm": {
+      "name": "Storm",
+      "cost": "1",
+      "type": "Power",
+      "rarity": "Uncommon",
+      "description": "Whenever you play a Power, [gold]Channel[/gold] 1 [gold]Lightning[/gold]."
+    }
+  }
+}
