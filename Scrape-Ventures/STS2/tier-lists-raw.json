@@ -1,0 +1,3365 @@
+{
+  "data": {
+    "game": {
+      "documents": {
+        "userGeneratedDocumentBySlug": {
+          "error": null,
+          "data": {
+            "data": {
+              "tierLists": {
+                "values": [
+                  {
+                    "id": "7",
+                    "tierSections": [
+                      {
+                        "name": "S",
+                        "staticDataItems": [
+                          {
+                            "name": "Echo Form",
+                            "slug": "echo-form",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/echo-form.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Defragment",
+                            "slug": "defragment",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/defragment.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Glacier",
+                            "slug": "glacier",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/glacier.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Modded",
+                            "slug": "modded",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/modded.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Genetic Algorithm",
+                            "slug": "genetic-algorithm",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/genetic-algorithm.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Darkness",
+                            "slug": "darkness",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/darkness.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Synchronize",
+                            "slug": "synchronize",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/synchronize.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Chill",
+                            "slug": "chill",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/chill.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Coolheaded",
+                            "slug": "coolheaded",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/coolheaded.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "A",
+                        "staticDataItems": [
+                          {
+                            "name": "Machine Learning",
+                            "slug": "machine-learning",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/machine-learning.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Null",
+                            "slug": "null",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/null.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Barrage",
+                            "slug": "barrage",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/barrage.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Ice Lance",
+                            "slug": "ice-lance",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/ice-lance.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Buffer",
+                            "slug": "buffer",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/buffer.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Boot Sequence",
+                            "slug": "boot-sequence",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/boot-sequence.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Supercritical",
+                            "slug": "supercritical",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/supercritical.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Cold Snap",
+                            "slug": "cold-snap",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/cold-snap.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Hotfix",
+                            "slug": "hotfix",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/hotfix.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Bulk Up",
+                            "slug": "bulk-up",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/bulk-up.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Capacitor",
+                            "slug": "capacitor",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/capacitor.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Coolant",
+                            "slug": "coolant",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/coolant.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Spinner",
+                            "slug": "spinner",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/spinner.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Shadow Shield",
+                            "slug": "shadow-shield",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/shadow-shield.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "FTL",
+                            "slug": "ftl",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/ftl.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Charge Battery",
+                            "slug": "charge-battery",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/charge-battery.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Go for the Eyes",
+                            "slug": "go-for-the-eyes",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/go-for-the-eyes.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Sunder",
+                            "slug": "sunder",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/sunder.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "B",
+                        "staticDataItems": [
+                          {
+                            "name": "Overclock",
+                            "slug": "overclock",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/overclock.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Skim",
+                            "slug": "skim",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/skim.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "TURBO",
+                            "slug": "turbo",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/turbo.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Glasswork",
+                            "slug": "glasswork",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/glasswork.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Rainbow",
+                            "slug": "rainbow",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/rainbow.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Subroutine",
+                            "slug": "subroutine",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/subroutine.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "All for One",
+                            "slug": "all-for-one",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/all-for-one.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Compile Driver",
+                            "slug": "compile-driver",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/compile-driver.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Fight Through",
+                            "slug": "fight-through",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/fight-through.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Tesla Coil",
+                            "slug": "tesla-coil",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/tesla-coil.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Hologram",
+                            "slug": "hologram",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/hologram.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Feral",
+                            "slug": "feral",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/feral.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Focused Strike",
+                            "slug": "focused-strike",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/focused-strike.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Double Energy",
+                            "slug": "double-energy",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/double-energy.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Signal Boost",
+                            "slug": "signal-boost",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/signal-boost.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Iteration",
+                            "slug": "iteration",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/iteration.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Trash to Treasure",
+                            "slug": "trash-to-treasure",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/trash-to-treasure.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Creative AI",
+                            "slug": "creative-ai",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/creative-ai.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Rocket Punch",
+                            "slug": "rocket-punch",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/rocket-punch.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Refract",
+                            "slug": "refract",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/refract.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Leap",
+                            "slug": "leap",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/leap.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Loop",
+                            "slug": "loop",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/loop.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Reboot",
+                            "slug": "reboot",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/reboot.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Ball Lightning",
+                            "slug": "ball-lightning",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/ball-lightning.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Hailstorm",
+                            "slug": "hailstorm",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/hailstorm.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Meteor Strike",
+                            "slug": "meteor-strike",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/meteor-strike.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Adaptive Strike",
+                            "slug": "adaptive-strike",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/adaptive-strike.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "C",
+                        "staticDataItems": [
+                          {
+                            "name": "Lightning Rod",
+                            "slug": "lightning-rod",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/lightning-rod.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Multi-Cast",
+                            "slug": "multi-cast",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/multi-cast.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Boost Away",
+                            "slug": "boost-away",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/boost-away.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Shatter",
+                            "slug": "shatter",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/shatter.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Voltaic",
+                            "slug": "voltaic",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/voltaic.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Compact",
+                            "slug": "compact",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/compact.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Fusion",
+                            "slug": "fusion",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/fusion.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Sweeping Beam",
+                            "slug": "sweeping-beam",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/sweeping-beam.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Momentum Strike",
+                            "slug": "momentum-strike",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/momentum-strike.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Beam Cell",
+                            "slug": "beam-cell",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/beam-cell.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Tempest",
+                            "slug": "tempest",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/tempest.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Gunk Up",
+                            "slug": "gunk-up",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/gunk-up.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Scrape",
+                            "slug": "scrape",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/scrape.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Scavenge",
+                            "slug": "scavenge",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/scavenge.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Synthesis",
+                            "slug": "synthesis",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/synthesis.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "White Noise",
+                            "slug": "white-noise",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/white-noise.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Flak Cannon",
+                            "slug": "flak-cannon",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/flak-cannon.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Smokestack",
+                            "slug": "smokestack",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/smokestack.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Helix Drill",
+                            "slug": "helix-drill",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/helix-drill.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Consuming Shadow",
+                            "slug": "consuming-shadow",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/consuming-shadow.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "D",
+                        "staticDataItems": [
+                          {
+                            "name": "Thunder",
+                            "slug": "thunder",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/thunder.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Hyperbeam",
+                            "slug": "hyperbeam",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/hyperbeam.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Chaos",
+                            "slug": "chaos",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/chaos.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Claw",
+                            "slug": "claw",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/claw.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Uproar",
+                            "slug": "uproar",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/uproar.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Storm",
+                            "slug": "storm",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/storm.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      }
+                    ],
+                    "staticDataSources": [
+                      {
+                        "slug": "cards",
+                        "tags": [
+                          {
+                            "slug": "defaultValue",
+                            "groupSlug": "variant"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "6",
+                    "tierSections": [
+                      {
+                        "name": "S",
+                        "staticDataItems": [
+                          {
+                            "name": "Demesne",
+                            "slug": "demesne",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/demesne.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Friendship",
+                            "slug": "friendship",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/friendship.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Neurosurge",
+                            "slug": "neurosurge",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/neurosurge.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Call of the Void",
+                            "slug": "call-of-the-void",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/call-of-the-void.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Sleight of Flesh",
+                            "slug": "sleight-of-flesh",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/sleight-of-flesh.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Putrefy",
+                            "slug": "putrefy",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/putrefy.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Danse Macabre",
+                            "slug": "danse-macabre",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/danse-macabre.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Lethality",
+                            "slug": "lethality",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/lethality.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Delay",
+                            "slug": "delay",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/delay.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Reanimate",
+                            "slug": "reanimate",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/reanimate.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Enfeebling Touch",
+                            "slug": "enfeebling-touch",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/enfeebling-touch.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Defy",
+                            "slug": "defy",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/defy.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Reaper Form",
+                            "slug": "reaper-form",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/reaper-form.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Bone Shards",
+                            "slug": "bone-shards",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/bone-shards.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Pagestorm",
+                            "slug": "pagestorm",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/pagestorm.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Banshee's Cry",
+                            "slug": "banshees-cry",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/banshees-cry.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Shared Fate",
+                            "slug": "shared-fate",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/shared-fate.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Capture Spirit",
+                            "slug": "capture-spirit",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/capture-spirit.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Deathbringer",
+                            "slug": "deathbringer",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/deathbringer.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Dirge",
+                            "slug": "dirge",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/dirge.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Spirit of Ash",
+                            "slug": "spirit-of-ash",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/spirit-of-ash.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "A",
+                        "staticDataItems": [
+                          {
+                            "name": "Eradicate",
+                            "slug": "eradicate",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/eradicate.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Fetch",
+                            "slug": "fetch",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/fetch.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Hang",
+                            "slug": "hang",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/hang.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Undeath",
+                            "slug": "undeath",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/undeath.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Grave Warden",
+                            "slug": "grave-warden",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/grave-warden.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "End of Days",
+                            "slug": "end-of-days",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/end-of-days.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Borrowed Time",
+                            "slug": "borrowed-time",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/borrowed-time.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Afterlife",
+                            "slug": "afterlife",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/afterlife.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "B",
+                        "staticDataItems": [
+                          {
+                            "name": "Transfigure",
+                            "slug": "transfigure",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/transfigure.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Spur",
+                            "slug": "spur",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/spur.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "No Escape",
+                            "slug": "no-escape",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/no-escape.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Countdown",
+                            "slug": "countdown",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/countdown.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Sow",
+                            "slug": "sow",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/sow.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Calcify",
+                            "slug": "calcify",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/calcify.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Invoke",
+                            "slug": "invoke",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/invoke.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Pull Aggro",
+                            "slug": "pull-aggro",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/pull-aggro.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Melancholy",
+                            "slug": "melancholy",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/melancholy.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Oblivion",
+                            "slug": "oblivion",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/oblivion.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Sentry Mode",
+                            "slug": "sentry-mode",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/sentry-mode.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "The Scythe",
+                            "slug": "the-scythe",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/the-scythe.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Death's Door",
+                            "slug": "deaths-door",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/deaths-door.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Reap",
+                            "slug": "reap",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/reap.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Shroud",
+                            "slug": "shroud",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/shroud.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Haunt",
+                            "slug": "haunt",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/haunt.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Dredge",
+                            "slug": "dredge",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/dredge.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Debilitate",
+                            "slug": "debilitate",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/debilitate.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Negative Pulse",
+                            "slug": "negative-pulse",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/negative-pulse.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Defile",
+                            "slug": "defile",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/defile.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "High Five",
+                            "slug": "high-five",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/high-five.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Pull from Below",
+                            "slug": "pull-from-below",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/pull-from-below.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Eidolon",
+                            "slug": "eidolon",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/eidolon.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Time's Up",
+                            "slug": "times-up",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/times-up.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "C",
+                        "staticDataItems": [
+                          {
+                            "name": "Cleanse",
+                            "slug": "cleanse",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/cleanse.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Seance",
+                            "slug": "seance",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/seance.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Sic 'Em",
+                            "slug": "sic-em",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/sic-em.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Wisp",
+                            "slug": "wisp",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/wisp.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Snap",
+                            "slug": "snap",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/snap.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Rattle",
+                            "slug": "rattle",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/rattle.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Right Hand Hand",
+                            "slug": "right-hand-hand",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/right-hand-hand.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Blight Strike",
+                            "slug": "blight-strike",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/blight-strike.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Death March",
+                            "slug": "death-march",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/death-march.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Squeeze",
+                            "slug": "squeeze",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/squeeze.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Drain Power",
+                            "slug": "drain-power",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/drain-power.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Poke",
+                            "slug": "poke",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/poke.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Scourge",
+                            "slug": "scourge",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/scourge.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Sculpting Strike",
+                            "slug": "sculpting-strike",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/sculpting-strike.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Necro Mastery",
+                            "slug": "necro-mastery",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/necro-mastery.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Devour Life",
+                            "slug": "devour-life",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/devour-life.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Sacrifice",
+                            "slug": "sacrifice",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/sacrifice.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Reave",
+                            "slug": "reave",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/reave.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Parse",
+                            "slug": "parse",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/parse.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Veilpiercer",
+                            "slug": "veilpiercer",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/veilpiercer.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Misery",
+                            "slug": "misery",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/misery.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Severance",
+                            "slug": "severance",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/severance.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Flatten",
+                            "slug": "flatten",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/flatten.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "D",
+                        "staticDataItems": [
+                          {
+                            "name": "Bury",
+                            "slug": "bury",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/bury.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Soul Storm",
+                            "slug": "soul-storm",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/soul-storm.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Graveblast",
+                            "slug": "graveblast",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/graveblast.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Fear",
+                            "slug": "fear",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/fear.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "TBD",
+                        "staticDataItems": []
+                      }
+                    ],
+                    "staticDataSources": [
+                      {
+                        "slug": "cards",
+                        "tags": [
+                          {
+                            "slug": "defaultValue",
+                            "groupSlug": "variant"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "1",
+                    "tierSections": [
+                      {
+                        "name": "S",
+                        "staticDataItems": [
+                          {
+                            "name": "Big Bang",
+                            "slug": "big-bang",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/big-bang.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Reflect",
+                            "slug": "reflect",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/reflect.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Child of the Stars",
+                            "slug": "child-of-the-stars",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/child-of-the-stars.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Pillar of Creation",
+                            "slug": "pillar-of-creation",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/pillar-of-creation.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Convergence",
+                            "slug": "convergence",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/convergence.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "GUARDS!!!",
+                            "slug": "guards",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/guards.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Bulwark",
+                            "slug": "bulwark",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/bulwark.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Meteor Shower",
+                            "slug": "meteor-shower",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/meteor-shower.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Astral Pulse",
+                            "slug": "astral-pulse",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/astral-pulse.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Know Thy Place",
+                            "slug": "know-thy-place",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/know-thy-place.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Royal Gamble",
+                            "slug": "royal-gamble",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/royal-gamble.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Spectrum Shift",
+                            "slug": "spectrum-shift",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/spectrum-shift.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Glow",
+                            "slug": "glow",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/glow.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Comet",
+                            "slug": "comet",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/comet.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "The Sealed Throne",
+                            "slug": "the-sealed-throne",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/the-sealed-throne.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Void Form",
+                            "slug": "void-form",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/void-form.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "CHARGE!!",
+                            "slug": "charge",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/charge.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Crash Landing",
+                            "slug": "crash-landing",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/crash-landing.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "A",
+                        "staticDataItems": [
+                          {
+                            "name": "Particle Wall",
+                            "slug": "particle-wall",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/particle-wall.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Royalties",
+                            "slug": "royalties",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/royalties.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "The Smith",
+                            "slug": "the-smith",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/the-smith.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Tyranny",
+                            "slug": "tyranny",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/tyranny.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Make It So",
+                            "slug": "make-it-so",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/make-it-so.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Quasar",
+                            "slug": "quasar",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/quasar.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "BEGONE!",
+                            "slug": "begone",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/begone.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Orbit",
+                            "slug": "orbit",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/orbit.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Radiate",
+                            "slug": "radiate",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/radiate.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Bundle of Joy",
+                            "slug": "bundle-of-joy",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/bundle-of-joy.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Manifest Authority",
+                            "slug": "manifest-authority",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/manifest-authority.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Kingly Kick",
+                            "slug": "kingly-kick",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/kingly-kick.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Collision Course",
+                            "slug": "collision-course",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/collision-course.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Gamma Blast",
+                            "slug": "gamma-blast",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/gamma-blast.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Cloak of Stars",
+                            "slug": "cloak-of-stars",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/cloak-of-stars.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Refine Blade",
+                            "slug": "refine-blade",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/refine-blade.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Dying Star",
+                            "slug": "dying-star",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/dying-star.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Gather Light",
+                            "slug": "gather-light",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/gather-light.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "B",
+                        "staticDataItems": [
+                          {
+                            "name": "Bombardment",
+                            "slug": "bombardment",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/bombardment.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Decisions, Decisions",
+                            "slug": "decisions-decisions",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/decisions-decisions.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Kingly Punch",
+                            "slug": "kingly-punch",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/kingly-punch.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Glitterstream",
+                            "slug": "glitterstream",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/glitterstream.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Glimmer",
+                            "slug": "glimmer",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/glimmer.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Black Hole",
+                            "slug": "black-hole",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/black-hole.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Crush Under",
+                            "slug": "crush-under",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/crush-under.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Guiding Star",
+                            "slug": "guiding-star",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/guiding-star.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Alignment",
+                            "slug": "alignment",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/alignment.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Heavenly Drill",
+                            "slug": "heavenly-drill",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/heavenly-drill.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Supermassive",
+                            "slug": "supermassive",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/supermassive.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Hidden Cache",
+                            "slug": "hidden-cache",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/hidden-cache.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Patter",
+                            "slug": "patter",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/patter.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Photon Cut",
+                            "slug": "photon-cut",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/photon-cut.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "C",
+                        "staticDataItems": [
+                          {
+                            "name": "Pale Blue Dot",
+                            "slug": "pale-blue-dot",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/pale-blue-dot.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Wrought in War",
+                            "slug": "wrought-in-war",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/wrought-in-war.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Spoils of Battle",
+                            "slug": "spoils-of-battle",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/spoils-of-battle.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Shining Strike",
+                            "slug": "shining-strike",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/shining-strike.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Genesis",
+                            "slug": "genesis",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/genesis.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Parry",
+                            "slug": "parry",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/parry.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Foregone Conclusion",
+                            "slug": "foregone-conclusion",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/foregone-conclusion.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Solar Strike",
+                            "slug": "solar-strike",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/solar-strike.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "I Am Invincible",
+                            "slug": "i-am-invincible",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/i-am-invincible.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Seven Stars",
+                            "slug": "seven-stars",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/seven-stars.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Cosmic Indifference",
+                            "slug": "cosmic-indifference",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/cosmic-indifference.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Seeking Edge",
+                            "slug": "seeking-edge",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/seeking-edge.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Celestial Might",
+                            "slug": "celestial-might",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/celestial-might.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Hegemony",
+                            "slug": "hegemony",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/hegemony.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Sword Sage",
+                            "slug": "sword-sage",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/sword-sage.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Arsenal",
+                            "slug": "arsenal",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/arsenal.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Beat into Shape",
+                            "slug": "beat-into-shape",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/beat-into-shape.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Devastate",
+                            "slug": "devastate",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/devastate.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Lunar Blast",
+                            "slug": "lunar-blast",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/lunar-blast.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Knockout Blow",
+                            "slug": "knockout-blow",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/knockout-blow.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Summon Forth",
+                            "slug": "summon-forth",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/summon-forth.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Conqueror",
+                            "slug": "conqueror",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/conqueror.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Terraforming",
+                            "slug": "terraforming",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/terraforming.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Furnace",
+                            "slug": "furnace",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/furnace.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Prophesize",
+                            "slug": "prophesize",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/prophesize.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Neutron Aegis",
+                            "slug": "neutron-aegis",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/neutron-aegis.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Stardust",
+                            "slug": "stardust",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/stardust.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "D",
+                        "staticDataItems": [
+                          {
+                            "name": "Resonance",
+                            "slug": "resonance",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/resonance.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Heirloom Hammer",
+                            "slug": "heirloom-hammer",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/heirloom-hammer.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Monarch's Gaze",
+                            "slug": "monarchs-gaze",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/monarchs-gaze.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Monologue",
+                            "slug": "monologue",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/monologue.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Crescent Spear",
+                            "slug": "crescent-spear",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/crescent-spear.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      }
+                    ],
+                    "staticDataSources": [
+                      {
+                        "slug": "cards",
+                        "tags": [
+                          {
+                            "slug": "defaultValue",
+                            "groupSlug": "variant"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "351d6f39-2f46-4b3a-a275-59eb9843cded",
+                    "tierSections": [
+                      {
+                        "name": "S",
+                        "staticDataItems": [
+                          {
+                            "name": "Well-Laid Plans",
+                            "slug": "well-laid-plans",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/well-laid-plans.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Blade of Ink",
+                            "slug": "blade-of-ink",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/blade-of-ink.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Afterimage",
+                            "slug": "afterimage",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/afterimage.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Footwork",
+                            "slug": "footwork",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/footwork.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Adrenaline",
+                            "slug": "adrenaline",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/adrenaline.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Abrasive",
+                            "slug": "abrasive",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/abrasive.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Acrobatics",
+                            "slug": "acrobatics",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/acrobatics.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Escape Plan",
+                            "slug": "escape-plan",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/escape-plan.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Tracking",
+                            "slug": "tracking",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/tracking.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Prepared",
+                            "slug": "prepared",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/prepared.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Calculated Gamble",
+                            "slug": "calculated-gamble",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/calculated-gamble.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Reflex",
+                            "slug": "reflex",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/reflex.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Untouchable",
+                            "slug": "untouchable",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/untouchable.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Piercing Wail",
+                            "slug": "piercing-wail",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/piercing-wail.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Tools of the Trade",
+                            "slug": "tools-of-the-trade",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/tools-of-the-trade.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Malaise",
+                            "slug": "malaise",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/malaise.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Leg Sweep",
+                            "slug": "leg-sweep",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/leg-sweep.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Dodge and Roll",
+                            "slug": "dodge-and-roll",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/dodge-and-roll.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "The Hunt",
+                            "slug": "the-hunt",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/the-hunt.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "A",
+                        "staticDataItems": [
+                          {
+                            "name": "Noxious Fumes",
+                            "slug": "noxious-fumes",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/noxious-fumes.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Tactician",
+                            "slug": "tactician",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/tactician.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Blur",
+                            "slug": "blur",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/blur.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Flechettes",
+                            "slug": "flechettes",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/flechettes.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Expose",
+                            "slug": "expose",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/expose.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Backflip",
+                            "slug": "backflip",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/backflip.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Pinpoint",
+                            "slug": "pinpoint",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/pinpoint.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Blade Dance",
+                            "slug": "blade-dance",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/blade-dance.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Assassinate",
+                            "slug": "assassinate",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/assassinate.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Leading Strike",
+                            "slug": "leading-strike",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/leading-strike.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Hidden Daggers",
+                            "slug": "hidden-daggers",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/hidden-daggers.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Infinite Blades",
+                            "slug": "infinite-blades",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/infinite-blades.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Accuracy",
+                            "slug": "accuracy",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/accuracy.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Echoing Slash",
+                            "slug": "echoing-slash",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/echoing-slash.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "B",
+                        "staticDataItems": [
+                          {
+                            "name": "Phantom Blades",
+                            "slug": "phantom-blades",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/phantom-blades.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Predator",
+                            "slug": "predator",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/predator.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Backstab",
+                            "slug": "backstab",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/backstab.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Cloak and Dagger",
+                            "slug": "cloak-and-dagger",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/cloak-and-dagger.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Sucker Punch",
+                            "slug": "sucker-punch",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/sucker-punch.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Dagger Throw",
+                            "slug": "dagger-throw",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/dagger-throw.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Dagger Spray",
+                            "slug": "dagger-spray",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/dagger-spray.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Ricochet",
+                            "slug": "ricochet",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/ricochet.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Precise Cut",
+                            "slug": "precise-cut",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/precise-cut.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Deflect",
+                            "slug": "deflect",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/deflect.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Slice",
+                            "slug": "slice",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/slice.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Pounce",
+                            "slug": "pounce",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/pounce.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "C",
+                        "staticDataItems": [
+                          {
+                            "name": "Dash",
+                            "slug": "dash",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/dash.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Flick-Flack",
+                            "slug": "flick-flack",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/flick-flack.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Shadowmeld",
+                            "slug": "shadowmeld",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/shadowmeld.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Knife Trap",
+                            "slug": "knife-trap",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/knife-trap.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Corrosive Wave",
+                            "slug": "corrosive-wave",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/corrosive-wave.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Murder",
+                            "slug": "murder",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/murder.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Master Planner",
+                            "slug": "master-planner",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/master-planner.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Fan of Knives",
+                            "slug": "fan-of-knives",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/fan-of-knives.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Burst",
+                            "slug": "burst",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/burst.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Poisoned Stab",
+                            "slug": "poisoned-stab",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/poisoned-stab.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Outbreak",
+                            "slug": "outbreak",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/outbreak.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Serpent Form",
+                            "slug": "serpent-form",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/serpent-form.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Accelerant",
+                            "slug": "accelerant",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/accelerant.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Finisher",
+                            "slug": "finisher",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/finisher.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Strangle",
+                            "slug": "strangle",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/strangle.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Deadly Poison",
+                            "slug": "deadly-poison",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/deadly-poison.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Expertise",
+                            "slug": "expertise",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/expertise.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Anticipate",
+                            "slug": "anticipate",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/anticipate.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Bubble Bubble",
+                            "slug": "bubble-bubble",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/bubble-bubble.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Hand Trick",
+                            "slug": "hand-trick",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/hand-trick.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Snakebite",
+                            "slug": "snakebite",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/snakebite.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Haze",
+                            "slug": "haze",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/haze.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Skewer",
+                            "slug": "skewer",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/skewer.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Shadow Step",
+                            "slug": "shadow-step",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/shadow-step.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "D",
+                        "staticDataItems": [
+                          {
+                            "name": "Up My Sleeve",
+                            "slug": "up-my-sleeve",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/up-my-sleeve.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Speedster",
+                            "slug": "speedster",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/speedster.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Memento Mori",
+                            "slug": "memento-mori",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/memento-mori.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Grand Finale",
+                            "slug": "grand-finale",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/grand-finale.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Follow Through",
+                            "slug": "follow-through",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/follow-through.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Bullet Time",
+                            "slug": "bullet-time",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/bullet-time.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Nightmare",
+                            "slug": "nightmare",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/nightmare.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Storm of Steel",
+                            "slug": "storm-of-steel",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/storm-of-steel.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Mirage",
+                            "slug": "mirage",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/mirage.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Bouncing Flask",
+                            "slug": "bouncing-flask",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/bouncing-flask.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Envenom",
+                            "slug": "envenom",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/envenom.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      }
+                    ],
+                    "staticDataSources": [
+                      {
+                        "slug": "cards",
+                        "tags": [
+                          {
+                            "slug": "defaultValue",
+                            "groupSlug": "variant"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "5",
+                    "tierSections": [
+                      {
+                        "name": "S",
+                        "staticDataItems": [
+                          {
+                            "name": "Offering",
+                            "slug": "offering",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/offering.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Dominate",
+                            "slug": "dominate",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/dominate.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Bloodletting",
+                            "slug": "bloodletting",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/bloodletting.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Colossus",
+                            "slug": "colossus",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/colossus.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Inferno",
+                            "slug": "inferno",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/inferno.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Pact's End",
+                            "slug": "pacts-end",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/pacts-end.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Crimson Mantle",
+                            "slug": "crimson-mantle",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/crimson-mantle.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Unmovable",
+                            "slug": "unmovable",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/unmovable.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Uppercut",
+                            "slug": "uppercut",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/uppercut.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Battle Trance",
+                            "slug": "battle-trance",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/battle-trance.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Tremble",
+                            "slug": "tremble",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/tremble.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Burning Pact",
+                            "slug": "burning-pact",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/burning-pact.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Cruelty",
+                            "slug": "cruelty",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/cruelty.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Dark Embrace",
+                            "slug": "dark-embrace",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/dark-embrace.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Fiend Fire",
+                            "slug": "fiend-fire",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/fiend-fire.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Impervious",
+                            "slug": "impervious",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/impervious.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Pommel Strike",
+                            "slug": "pommel-strike",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/pommel-strike.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Primal Force",
+                            "slug": "primal-force",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/primal-force.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "A",
+                        "staticDataItems": [
+                          {
+                            "name": "Feed",
+                            "slug": "feed",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/feed.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Flame Barrier",
+                            "slug": "flame-barrier",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/flame-barrier.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Corruption",
+                            "slug": "corruption",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/corruption.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Feel No Pain",
+                            "slug": "feel-no-pain",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/feel-no-pain.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Blood Wall",
+                            "slug": "blood-wall",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/blood-wall.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Expect a Fight",
+                            "slug": "expect-a-fight",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/expect-a-fight.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Anger",
+                            "slug": "anger",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/anger.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Bludgeon",
+                            "slug": "bludgeon",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/bludgeon.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Hemokinesis",
+                            "slug": "hemokinesis",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/hemokinesis.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Pyre",
+                            "slug": "pyre",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/pyre.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Rage",
+                            "slug": "rage",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/rage.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Headbutt",
+                            "slug": "headbutt",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/headbutt.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Second Wind",
+                            "slug": "second-wind",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/second-wind.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Shrug It Off",
+                            "slug": "shrug-it-off",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/shrug-it-off.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Stoke",
+                            "slug": "stoke",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/stoke.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "B",
+                        "staticDataItems": [
+                          {
+                            "name": "Break",
+                            "slug": "break",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/break.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Forgotten Ritual",
+                            "slug": "forgotten-ritual",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/forgotten-ritual.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Tear Asunder",
+                            "slug": "tear-asunder",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/tear-asunder.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Dismantle",
+                            "slug": "dismantle",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/dismantle.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Breakthrough",
+                            "slug": "breakthrough",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/breakthrough.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Ashen Strike",
+                            "slug": "ashen-strike",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/ashen-strike.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Unrelenting+",
+                            "slug": "unrelenting-plus",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/unrelenting-plus.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Cinder",
+                            "slug": "cinder",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/cinder.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Evil Eye",
+                            "slug": "evil-eye",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/evil-eye.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Thrash",
+                            "slug": "thrash",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/thrash.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Aggression",
+                            "slug": "aggression",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/aggression.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Spite",
+                            "slug": "spite",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/spite.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Whirlwind",
+                            "slug": "whirlwind",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/whirlwind.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Taunt",
+                            "slug": "taunt",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/taunt.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Stomp",
+                            "slug": "stomp",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/stomp.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Iron Wave",
+                            "slug": "iron-wave",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/iron-wave.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Twin Strike",
+                            "slug": "twin-strike",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/twin-strike.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "C",
+                        "staticDataItems": [
+                          {
+                            "name": "Vicious",
+                            "slug": "vicious",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/vicious.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Stone Armor",
+                            "slug": "stone-armor",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/stone-armor.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Rupture",
+                            "slug": "rupture",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/rupture.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Pillage",
+                            "slug": "pillage",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/pillage.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Thunderclap",
+                            "slug": "thunderclap",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/thunderclap.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Stampede",
+                            "slug": "stampede",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/stampede.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "True Grit",
+                            "slug": "true-grit",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/true-grit.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Inflame",
+                            "slug": "inflame",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/inflame.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Cascade",
+                            "slug": "cascade",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/cascade.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Molten Fist",
+                            "slug": "molten-fist",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/molten-fist.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Rampage",
+                            "slug": "rampage",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/rampage.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Bully",
+                            "slug": "bully",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/bully.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Setup Strike",
+                            "slug": "setup-strike",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/setup-strike.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Infernal Blade",
+                            "slug": "infernal-blade",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/infernal-blade.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Perfected Strike",
+                            "slug": "perfected-strike",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/perfected-strike.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Sword Boomerang",
+                            "slug": "sword-boomerang",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/sword-boomerang.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Havoc",
+                            "slug": "havoc",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/havoc.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Hellraiser",
+                            "slug": "hellraiser",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/hellraiser.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Brand",
+                            "slug": "brand",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/brand.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Armaments",
+                            "slug": "armaments",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/armaments.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Howl from Beyond",
+                            "slug": "howl-from-beyond",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/howl-from-beyond.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Body Slam",
+                            "slug": "body-slam",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/body-slam.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Drum of Battle",
+                            "slug": "drum-of-battle",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/drum-of-battle.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Juggling",
+                            "slug": "juggling",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/juggling.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Demon Form",
+                            "slug": "demon-form",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/demon-form.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Fight Me!",
+                            "slug": "fight-me",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/fight-me.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "D",
+                        "staticDataItems": [
+                          {
+                            "name": "One-Two Punch",
+                            "slug": "one-two-punch",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/one-two-punch.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Mangle",
+                            "slug": "mangle",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/mangle.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Barricade",
+                            "slug": "barricade",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/barricade.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Juggernaut",
+                            "slug": "juggernaut",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/juggernaut.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Conflagration",
+                            "slug": "conflagration",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/conflagration.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      }
+                    ],
+                    "staticDataSources": [
+                      {
+                        "slug": "cards",
+                        "tags": [
+                          {
+                            "slug": "defaultValue",
+                            "groupSlug": "variant"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "22",
+                    "tierSections": [
+                      {
+                        "name": "S",
+                        "staticDataItems": [
+                          {
+                            "name": "Knockdown",
+                            "slug": "knockdown",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/knockdown.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Flanking",
+                            "slug": "flanking",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/flanking.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Beacon of Hope",
+                            "slug": "beacon-of-hope",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/beacon-of-hope.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Rally",
+                            "slug": "rally",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/rally.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Glimpse Beyond",
+                            "slug": "glimpse-beyond",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/glimpse-beyond.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Energy Surge",
+                            "slug": "energy-surge",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/energy-surge.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Huddle Up",
+                            "slug": "huddle-up",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/huddle-up.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "A",
+                        "staticDataItems": [
+                          {
+                            "name": "Hammer Time",
+                            "slug": "hammer-time",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/hammer-time.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Gang Up",
+                            "slug": "gang-up",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/gang-up.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Sneaky",
+                            "slug": "sneaky",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/sneaky.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Tag Team",
+                            "slug": "tag-team",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/tag-team.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Believe in You",
+                            "slug": "believe-in-you",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/believe-in-you.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Mimic",
+                            "slug": "mimic",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/mimic.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Largesse",
+                            "slug": "largesse",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/largesse.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "B",
+                        "staticDataItems": [
+                          {
+                            "name": "Demonic Shield",
+                            "slug": "demonic-shield",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/demonic-shield.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Lift",
+                            "slug": "lift",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/lift.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "C",
+                        "staticDataItems": [
+                          {
+                            "name": "Legion of Bone",
+                            "slug": "legion-of-bone",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/legion-of-bone.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Ignition",
+                            "slug": "ignition",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/ignition.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Coordinate",
+                            "slug": "coordinate",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/coordinate.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          },
+                          {
+                            "name": "Intercept",
+                            "slug": "intercept",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/intercept.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "D",
+                        "staticDataItems": [
+                          {
+                            "name": "Tank",
+                            "slug": "tank",
+                            "iconUrl": "https://cdn.mobalytics.gg/assets/sts2/images/cards/new/tank.webp",
+                            "linkUrl": null,
+                            "type": "cards"
+                          }
+                        ]
+                      }
+                    ],
+                    "staticDataSources": [
+                      {
+                        "slug": "cards",
+                        "tags": [
+                          {
+                            "slug": "defaultValue",
+                            "groupSlug": "variant"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "content": [
+              {
+                "__typename": "NgfDocumentCmSectionAuto1V1"
+              },
+              {
+                "__typename": "NgfDocumentCmSectionVideoAdV1"
+              },
+              {
+                "__typename": "NgfDocumentUgWidgetHeaderV1"
+              },
+              {
+                "__typename": "NgfDocumentCmSectionAuto1V1"
+              },
+              {
+                "__typename": "NgfDocumentCmSectionAuto1V1"
+              },
+              {
+                "__typename": "NgfDocumentCmWidgetTierListMakerV1",
+                "id": "351d6f39-2f46-4b3a-a275-59eb9843cded",
+                "data": {
+                  "title": "Silent Tier List"
+                }
+              },
+              {
+                "__typename": "NgfDocumentCmWidgetTierListMakerV1",
+                "id": "1",
+                "data": {
+                  "title": "Regent Tier List"
+                }
+              },
+              {
+                "__typename": "NgfDocumentCmSectionAuto1V1"
+              },
+              {
+                "__typename": "NgfDocumentCmSectionAuto1V1"
+              },
+              {
+                "__typename": "NgfDocumentCmSectionAuto400V1"
+              },
+              {
+                "__typename": "NgfDocumentCmWidgetRichTextV2"
+              },
+              {
+                "__typename": "NgfDocumentCmWidgetTableOfContentV1"
+              },
+              {
+                "__typename": "NgfDocumentCmWidgetRichTextV2"
+              },
+              {
+                "__typename": "NgfDocumentCmWidgetTierListMakerV1",
+                "id": "5",
+                "data": {
+                  "title": "Ironclad Tier List"
+                }
+              },
+              {
+                "__typename": "NgfDocumentCmWidgetTierListMakerV1",
+                "id": "6",
+                "data": {
+                  "title": "Necrobinder Tier List"
+                }
+              },
+              {
+                "__typename": "NgfDocumentCmWidgetTierListMakerV1",
+                "id": "7",
+                "data": {
+                  "title": "Defect Tier List"
+                }
+              },
+              {
+                "__typename": "NgfDocumentCmWidgetPromoBannerHorizontalV1"
+              },
+              {
+                "__typename": "NgfDocumentCmWidgetPromoBannerHorizontalV1"
+              },
+              {
+                "__typename": "NgfDocumentCmWidgetPromoBannerHorizontalV1"
+              },
+              {
+                "__typename": "NgfDocumentCmWidgetPromoBannerHorizontalV1"
+              },
+              {
+                "__typename": "NgfDocumentCmWidgetPromoBannerHorizontalV1"
+              },
+              {
+                "__typename": "NgfDocumentCmSectionAuto1V1"
+              },
+              {
+                "__typename": "NgfDocumentCmSectionAuto1V1"
+              },
+              {
+                "__typename": "NgfDocumentCmSectionAuto1V1"
+              },
+              {
+                "__typename": "NgfDocumentCmSectionAuto3V1"
+              },
+              {
+                "__typename": "NgfDocumentCmWidgetPromoBannerHorizontalV1"
+              },
+              {
+                "__typename": "NgfDocumentCmWidgetPromoBannerHorizontalV1"
+              },
+              {
+                "__typename": "NgfDocumentCmWidgetPromoBannerHorizontalV1"
+              },
+              {
+                "__typename": "NgfDocumentCmWidgetVideoV2"
+              },
+              {
+                "__typename": "NgfDocumentCmWidgetVideoV2"
+              },
+              {
+                "__typename": "NgfDocumentCmWidgetVideoV2"
+              },
+              {
+                "__typename": "NgfDocumentCmWidgetVideoV2"
+              },
+              {
+                "__typename": "NgfDocumentCmWidgetVideoV2"
+              },
+              {
+                "__typename": "NgfDocumentCmWidgetTierListMakerV1",
+                "id": "22",
+                "data": {
+                  "title": "Multiplayer Tier List"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
