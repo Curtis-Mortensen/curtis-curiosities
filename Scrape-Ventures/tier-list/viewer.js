@@ -459,9 +459,18 @@ function setupCharacterNav(navEl) {
   setupCharacterNavScrollSpy(navEl);
 }
 
+/** Scroll position saved when the user first types in search; restored when cleared. */
+let preSearchScrollY = null;
+
 /** Hide non-matching cards; dim empty tier rows during search. */
 function applySearch(query) {
   const normalized = query.trim().toLowerCase();
+  const isActive = normalized.length > 0;
+
+  if (isActive && preSearchScrollY === null) {
+    preSearchScrollY = window.scrollY;
+  }
+
   const entries = document.querySelectorAll(".card-entry");
   let firstMatch = null;
 
@@ -484,6 +493,17 @@ function applySearch(query) {
     const visible = row.querySelectorAll(".card-entry:not(.is-hidden)");
     const isEmptyTier = row.querySelector(".tier-cards--empty");
     row.classList.toggle("is-empty", !isEmptyTier && visible.length === 0);
+  }
+
+  if (!isActive) {
+    if (preSearchScrollY !== null) {
+      const restoreY = preSearchScrollY;
+      preSearchScrollY = null;
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: restoreY, behavior: "smooth" });
+      });
+    }
+    return;
   }
 
   if (firstMatch) {
