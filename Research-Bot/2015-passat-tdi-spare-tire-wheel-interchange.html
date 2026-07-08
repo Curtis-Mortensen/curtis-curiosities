@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2015 Volkswagen Passat TDI — Spare Tire &amp; Wheel Interchange Research</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #21262d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #7ee787;
+    --accent2: #58a6ff;
+    --danger: #f85149;
+    --warning: #d4a853;
+    --link: #79c0ff;
+    --border: #30363d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  h1 { font-size: 2rem; line-height: 1.25; margin-bottom: 0.5rem; color: var(--accent); }
+  .subtitle { color: var(--muted); font-style: italic; font-size: 1.05rem; }
+  h2 {
+    font-size: 1.45rem;
+    color: var(--accent2);
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 { font-size: 1.15rem; color: var(--accent); margin: 1.5rem 0 0.75rem; }
+  h4 { font-size: 1rem; color: var(--muted); margin: 1rem 0 0.5rem; }
+  p { margin-bottom: 1rem; }
+  a { color: var(--link); }
+  .thesis-box, .limitation-box, .warn-box, .success-box {
+    background: var(--surface);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .thesis-box { border-left: 4px solid var(--accent); }
+  .limitation-box { border-left: 4px solid var(--danger); }
+  .warn-box { border-left: 4px solid var(--warning); }
+  .success-box { border-left: 4px solid var(--accent2); }
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .overview-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+  .overview-card strong { color: var(--accent); display: block; margin-bottom: 0.25rem; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0 1.5rem;
+    font-size: 0.92rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.55rem 0.65rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: var(--surface2); color: var(--accent2); }
+  tr:nth-child(even) { background: var(--surface); }
+  .tier-a { color: var(--accent); font-weight: bold; }
+  .tier-b { color: var(--warning); }
+  .tier-c { color: var(--danger); }
+  .diagram {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-family: "Courier New", monospace;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    overflow-x: auto;
+    white-space: pre;
+  }
+  .flow-diagram {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    text-align: center;
+  }
+  .flow-diagram svg { max-width: 100%; height: auto; }
+  ol, ul { margin: 0.5rem 0 1rem 1.5rem; }
+  li { margin-bottom: 0.35rem; }
+  .cite { color: var(--muted); font-size: 0.88rem; }
+  .ref-list { font-size: 0.9rem; }
+  .ref-list li { margin-bottom: 0.5rem; word-break: break-word; }
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>2015 Volkswagen Passat TDI — Spare Tire &amp; Wheel Interchange</h1>
+  <p class="subtitle">Research report on junkyard wheel/tire compatibility for a factory 235/45R18 setup — July 2026</p>
+</header>
+
+<section id="aims">
+  <h2>Aims of This Document</h2>
+  <p>This report answers a practical question: <em>if you need a full-size spare (not a donut) for a 2015 Volkswagen Passat TDI with factory 235/45R18 tires, what can you safely pull from a junkyard?</em> The sticker tire size is only half the story. A wheel must match bolt pattern, hub bore, lug-bolt seat type, offset, brake clearance, and — if you are replacing a single tire — overall rolling diameter.</p>
+  <p>The research double-checks a previously compiled list of “matching” vehicles (including some SUVs and Audi models), incorporates forum evidence from Passat/TDI owners, and explains why a junkyard employee’s warnings about lug locations and brake contact are correct and how to work around them.</p>
+
+  <div class="thesis-box">
+    <strong>Bottom line up front:</strong> Your safest junkyard target is another <strong>5×112 / 57.1&nbsp;mm hub / ball-seat lug</strong> wheel from the VW Group family, ideally with a <strong>235/45R18</strong> tire. Many cars share the <em>tire size</em> but not the <em>bolt pattern</em> — Ford Fusion, Hyundai Sonata, Toyota Camry, and most Japanese sedans are common traps. Modern Audi wheels (2010+) often bolt on but need <strong>66.6→57.1&nbsp;mm hub rings</strong>. TDI brake rotors are 312&nbsp;mm front; any 18″ wheel that clears GTI/A3 brakes will clear yours, but narrow-offset or deep-dish designs deserve a physical test fit.
+  </div>
+</section>
+
+<section id="limitations">
+  <h2>Limitations</h2>
+
+  <h3>Theoretical limitations</h3>
+  <div class="limitation-box">
+    <p>Vehicle fitment is a messy human system. Junkyard inventory is unlabeled, curbed, or missing spec stamps. Tire age cannot be judged from a database. A wheel that “should” fit can still rub because of wheel spoke sculpting, balance-weight placement, or prior collision damage. Speedometer, ABS, and traction-control assumptions all depend on keeping tire diameter within a narrow band — especially when mixing one new tire with three worn ones.</p>
+  </div>
+
+  <h3>Methodology limitations</h3>
+  <p>This report synthesizes OEM parts catalogs, fitment databases (Wheel-Size.com, Wheelfitment.eu, BoltPatternHQ), brake-parts cross-reference data (Detroit Axle, ProForce Automotive), and owner forums (TDIClub, VW Vortex, PassatWorld). No physical test fit was performed on the researcher’s vehicle. Trim-specific factory wheel packages (Bristol, Pretoria, etc.) can differ in offset even within the same model year. North American vs European market builds occasionally differ.</p>
+
+  <h3>Strength of evidence</h3>
+  <p>Bolt pattern and center-bore data for VW Group platforms are well standardized and widely corroborated — high confidence. Brake rotor sizing for 2015 Passat TDI is confirmed across multiple parts catalogs — high confidence. Forum anecdotes about trunk fit and Audi hub rings are consistent across multiple independent threads — moderate-to-high confidence. Lists of “cars that use 235/45R18” from general tire sites are accurate for <em>tire size</em> but frequently omit bolt pattern — low confidence if used alone for wheel interchange.</p>
+</section>
+
+<section id="history">
+  <h2>Brief History: Why This Is Confusing</h2>
+  <p>From the 1990s through mid-2000s, Volkswagen Passats in North America used several bolt patterns: 4×100 (B4), then 5×112 from 1999 onward, with older B5 cars sometimes cited at 4×100 in early years <span class="cite">[1]</span>. The modern B7 (2012–2015 NA) and B8 (2016+ elsewhere; 2012–2019 for the “new” Passat in some markets) standardized on <strong>5×112 with 57.1&nbsp;mm center bore</strong> for most VWs <span class="cite">[2][3]</span>.</p>
+  <p>Audi followed a parallel path: B5/B6/B7 A4 and many older A6/Q3/TT models used 57.1&nbsp;mm bore, making them direct bolt-ons to VWs. Starting with the B8 A4 chassis (~2009), Audi moved most mid-size platforms to a <strong>66.6&nbsp;mm (often listed as 66.56&nbsp;mm) center bore</strong> while keeping 5×112 <span class="cite">[4][5]</span>. That single change created a generation of “looks right, needs rings” wheels — the most common source of junkyard confusion today.</p>
+  <p>Tire sizing standardized internationally through ISO metric markings (width/aspect ratio/Rim diameter) by the late 20th century, which is why many unrelated brands share 235/45R18 — but PCD (pitch circle diameter) remained manufacturer-specific. The result: tire yards sort by tire size; wheel interchange requires sorting by <em>hub geometry</em>, not tread width.</p>
+</section>
+
+<section id="your-car">
+  <h2>Your Vehicle: 2015 Passat TDI Factory Specs</h2>
+
+  <div class="overview-grid">
+    <div class="overview-card"><strong>Tire (door sticker)</strong>235/45R18 — 26.33″ overall diameter <span class="cite">[6][7]</span></div>
+    <div class="overview-card"><strong>Bolt pattern (PCD)</strong>5×112 mm <span class="cite">[1][2][3]</span></div>
+    <div class="overview-card"><strong>Center bore</strong>57.1 mm (hub-centric) <span class="cite">[1][2]</span></div>
+    <div class="overview-card"><strong>Lug hardware</strong>M14×1.5 lug <em>bolts</em>, ball seat (R13/R14) <span class="cite">[8][9]</span></div>
+    <div class="overview-card"><strong>Factory 18″ wheel</strong>8J×18 ET44–48 (Bristol: ET48) <span class="cite">[10][11]</span></div>
+    <div class="overview-card"><strong>Brakes (TDI)</strong>312 mm front / 272 mm rear rotors <span class="cite">[12][13]</span></div>
+    <div class="overview-card"><strong>Min wheel for brakes</strong>~16″ clears 312 mm rotors <span class="cite">[14][15]</span></div>
+    <div class="overview-card"><strong>Torque</strong>92–100 ft-lb (125 Nm) <span class="cite">[1][3]</span></div>
+  </div>
+
+  <p><strong>TDI trim note:</strong> Diesel vs gas does not change wheel specs on the 2015 Passat; TDI SE and TDI SEL Premium use the same 5×112 / 57.1 / 312&nbsp;mm front rotor package as other 2015 trims with 18″ wheels <span class="cite">[12]</span>. The relevant variable is whether your car has the 18″ upgrade package (235/45R18) vs base 16″ or 17″ wheels — your sticker confirms 18″.</p>
+
+  <h3>OEM 18″ wheel part reference</h3>
+  <p>The common “Bristol” alloy on 2012–2015 Passats is part <strong>561601025C / 561601025C8Z8</strong>, spec’d as <strong>8J×18H2 ET48, 5×112</strong> <span class="cite">[10][11]</span>. B8 Passat (2014–2019) lists 8J×18 ET44 for 235/45ZR18 in Wheel-Size data <span class="cite">[16]</span>. Either offset range (ET40–48) is normal for your car.</p>
+</section>
+
+<section id="tire-sizes">
+  <h2>Tire Size Alternatives (Rolling Diameter)</h2>
+  <p>If you cannot find 235/45R18, these are the closest overall diameters. Stay within about ±2% if replacing <em>one</em> tire on a driven axle; the factory spare does not need to match for rotation purposes if it is emergency-only.</p>
+
+  <table>
+    <thead>
+      <tr><th>Tire size</th><th>Overall diameter</th><th>Δ vs 235/45R18</th><th>Verdict</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>235/45R18</strong> (OEM)</td><td>26.33″ (669 mm)</td><td>0%</td><td class="tier-a">Best match</td></tr>
+      <tr><td>225/45R18</td><td>~26.0″</td><td>−1.3%</td><td class="tier-a">Good alternative</td></tr>
+      <tr><td>245/45R18</td><td>~26.7″</td><td>+1.4%</td><td class="tier-a">Good alternative</td></tr>
+      <tr><td>245/40R18</td><td>~25.7″</td><td>−1.7%</td><td class="tier-a">Acceptable</td></tr>
+      <tr><td>235/40R18</td><td>~25.4″</td><td>−3.1%</td><td class="tier-b">Less ideal; speedo/ABS drift</td></tr>
+    </tbody>
+  </table>
+  <p class="cite">Diameter figures from Premier Tires, Tire-Size-Calculator.net, TireConverter.com, and WheelsSize.com cross-checked [6][7][17][18].</p>
+
+  <div class="warn-box">
+    <strong>Important distinction:</strong> Many vehicles run 225/45R18 or 245/45R18 from the factory, but that does <em>not</em> mean their <em>wheels</em> interchange. Always verify PCD and center bore before buying the wheel+tire assembly.
+  </div>
+</section>
+
+<section id="fitment-checklist">
+  <h2>The Five-Point Junkyard Fitment Checklist</h2>
+  <p>The junkyard employee was right: lug pattern and brake contact are the real gates. Use this order:</p>
+
+  <div class="flow-diagram">
+    <svg viewBox="0 0 720 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fitment decision flow">
+      <rect x="10" y="40" width="120" height="40" rx="6" fill="#21262d" stroke="#58a6ff"/>
+      <text x="70" y="65" text-anchor="middle" fill="#e6edf3" font-size="12">5×112 PCD?</text>
+      <text x="140" y="55" fill="#8b949e" font-size="18">→</text>
+      <rect x="150" y="40" width="120" height="40" rx="6" fill="#21262d" stroke="#58a6ff"/>
+      <text x="210" y="65" text-anchor="middle" fill="#e6edf3" font-size="11">Bore ≤57.1 or rings?</text>
+      <text x="280" y="55" fill="#8b949e" font-size="18">→</text>
+      <rect x="290" y="40" width="120" height="40" rx="6" fill="#21262d" stroke="#58a6ff"/>
+      <text x="350" y="65" text-anchor="middle" fill="#e6edf3" font-size="11">Ball-seat lug OK?</text>
+      <text x="420" y="55" fill="#8b949e" font-size="18">→</text>
+      <rect x="430" y="40" width="120" height="40" rx="6" fill="#21262d" stroke="#58a6ff"/>
+      <text x="490" y="65" text-anchor="middle" fill="#e6edf3" font-size="11">ET 35–50?</text>
+      <text x="560" y="55" fill="#8b949e" font-size="18">→</text>
+      <rect x="570" y="40" width="140" height="40" rx="6" fill="#21262d" stroke="#7ee787"/>
+      <text x="640" y="65" text-anchor="middle" fill="#e6edf3" font-size="11">Test on hub: brakes?</text>
+    </svg>
+  </div>
+
+  <h3>1. Bolt pattern (lug location)</h3>
+  <p>Must be <strong>5×112</strong>. Do not assume from tire size. Common junkyard mistakes:</p>
+  <ul>
+    <li><span class="tier-c">5×108</span> — Ford Fusion/Milan, Volvo S60 (many years), Jaguar XF, Lincoln MKZ <span class="cite">[19][20]</span></li>
+    <li><span class="tier-c">5×114.3</span> — Hyundai Sonata, Kia Optima, Toyota Camry, Nissan Altima, Honda Accord <span class="cite">[21]</span></li>
+    <li><span class="tier-c">5×120</span> — BMW 3/5 Series <span class="cite">[4]</span></li>
+    <li><span class="tier-c">5×100</span> — Older VW/Audi TT (pre-2007), Subaru, older Toyota <span class="cite">[4]</span></li>
+  </ul>
+
+  <h3>2. Center bore (hub diameter)</h3>
+  <p>Your hub is <strong>57.1&nbsp;mm</strong>. Wheels with exactly 57.1 bore are ideal — no rings, less highway vibration per forum consensus <span class="cite">[22]</span>. Wheels with 66.6&nbsp;mm bore (most Audi 2010+, VW Atlas) need <strong>66.6→57.1&nbsp;mm hub-centric rings</strong>; metal rings preferred over plastic <span class="cite">[23][24]</span>.</p>
+
+  <h3>3. Lug bolt seat type</h3>
+  <p>VW/Audi OEM wheels use <strong>ball-seat</strong> lug bolts (M14×1.5, ~27&nbsp;mm shank length stock). Aftermarket wheels often need <strong>conical/taper</strong> seat bolts — mixing seat types is unsafe <span class="cite">[8][25]</span>. Carry your own known-good ball-seat bolts when test-fitting junkyard wheels.</p>
+
+  <h3>4. Offset (ET)</h3>
+  <p>Factory range roughly <strong>ET40–48</strong> on 18×8. Wider ET (lower number) pushes wheel outward; higher ET tucks inward. Forum guidance for Passat: offsets between ~32 and 50&nbsp;mm have been run successfully depending on width, but stock-height cars should stay near ET40–48 to avoid rubbing <span class="cite">[26]</span>.</p>
+
+  <h3>5. Brake clearance</h3>
+  <p>2015 Passat TDI front rotors are <strong>312&nbsp;mm × 25&nbsp;mm</strong> vented discs — the same family used on Mk4/Mk5 GTI/Jetta 2.0T upgrades <span class="cite">[12][14][15]</span>. Minimum theoretical wheel diameter is <strong>16″</strong>; your 18″ spare has ample diameter. Problems arise from <em>spoke barrel design</em> or very deep dish, not diameter. Physically mount the wheel with lug bolts and spin — listen for caliper contact.</p>
+</section>
+
+<section id="vehicle-lists">
+  <h2>Vehicle Lists: What Actually Interchanges</h2>
+
+  <h3>Tier A — Direct bolt-on (5×112, 57.1&nbsp;mm bore, ball seat)</h3>
+  <p>Best junkyard targets. Wheels should mount without hub rings. Verify offset and brake clearance.</p>
+  <table>
+    <thead><tr><th>#</th><th>Vehicle</th><th>Years (typical)</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>VW Passat B7</td><td>2012–2015</td><td>Same chassis; Bristol 8J×18 ET48 common <span class="cite">[10][27]</span></td></tr>
+      <tr><td>2</td><td>VW Passat B8</td><td>2014–2019</td><td>ET44 on 18″; 235/45R18 OEM <span class="cite">[16][28]</span></td></tr>
+      <tr><td>3</td><td>VW Passat CC / Arteon</td><td>2008–2017 / 2017+</td><td>5×112 57.1; check ET <span class="cite">[3]</span></td></tr>
+      <tr><td>4</td><td>VW Golf / GTI / R (Mk5–Mk7)</td><td>2005–2020</td><td>Many 18″ OEMs ET47–51 <span class="cite">[3]</span></td></tr>
+      <tr><td>5</td><td>VW Jetta / GLI</td><td>2005–2018</td><td>5×112 57.1 <span class="cite">[3]</span></td></tr>
+      <tr><td>6</td><td>VW Beetle</td><td>2012–2019</td><td>235/45R18 OEM option <span class="cite">[6]</span></td></tr>
+      <tr><td>7</td><td>VW Eos</td><td>2006–2015</td><td>5×112 57.1 <span class="cite">[3]</span></td></tr>
+      <tr><td>8</td><td>VW Tiguan (Mk1)</td><td>2007–2016</td><td>5×112; ET38–42 — verify clearance <span class="cite">[3]</span></td></tr>
+      <tr><td>9</td><td>VW Touran</td><td>2003–2015</td><td>5×112 57.1 <span class="cite">[3]</span></td></tr>
+      <tr><td>10</td><td>Audi A3 (8P)</td><td>2003–2012</td><td>57.1 bore; popular junkyard spare source <span class="cite">[29][3]</span></td></tr>
+      <tr><td>11</td><td>Audi A3 (8V)</td><td>2012–2020</td><td>57.1 on many trims <span class="cite">[3][4]</span></td></tr>
+      <tr><td>12</td><td>Audi A4 (B5/B6/B7)</td><td>1996–2008</td><td>57.1 bore; ET42–45 typical <span class="cite">[25][3]</span></td></tr>
+      <tr><td>13</td><td>Audi A6 (C5 early)</td><td>1998–2004</td><td>57.1 on many; verify year <span class="cite">[3]</span></td></tr>
+      <tr><td>14</td><td>Audi Q3</td><td>2011–2018</td><td>57.1 bore SUV option <span class="cite">[4][3]</span></td></tr>
+      <tr><td>15</td><td>Audi TT (8J)</td><td>2007–2014</td><td>57.1; 18″ clears 312&nbsp;mm brakes <span class="cite">[3][15]</span></td></tr>
+      <tr><td>16</td><td>Audi S3 / RS3 (8P/8V)</td><td>2006–2020</td><td>57.1; performance offsets ET47–52 <span class="cite">[3]</span></td></tr>
+      <tr><td>17</td><td>Seat Leon</td><td>2005–2020</td><td>VW MQB/PQ platform sibling <span class="cite">[3]</span></td></tr>
+      <tr><td>18</td><td>Seat Altea / Toledo</td><td>2004–2015</td><td>5×112 57.1 <span class="cite">[3]</span></td></tr>
+      <tr><td>19</td><td>Skoda Octavia</td><td>2005–2020</td><td>5×112 57.1 <span class="cite">[3]</span></td></tr>
+      <tr><td>20</td><td>Skoda Superb</td><td>2008–2024</td><td>5×112 57.1 <span class="cite">[3]</span></td></tr>
+      <tr><td>21</td><td>Skoda Yeti / Karoq</td><td>2009–2018</td><td>5×112 57.1 <span class="cite">[3]</span></td></tr>
+      <tr><td>22</td><td>VW Phaeton</td><td>2002–2016</td><td>57.1; large wheels — check ET <span class="cite">[25][3]</span></td></tr>
+      <tr><td>23</td><td>VW Scirocco R</td><td>2008–2017</td><td>5×112 57.1 <span class="cite">[3]</span></td></tr>
+      <tr><td>24</td><td>Audi Allroad (C5)</td><td>2000–2006</td><td>57.1; lower ET — test fit <span class="cite">[3]</span></td></tr>
+      <tr><td>25</td><td>Cupra Formentor / Leon</td><td>2020+</td><td>VW Group 57.1 on many trims <span class="cite">[3]</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Tier B — Bolt pattern matches; hub rings required (5×112, 66.6&nbsp;mm bore)</h3>
+  <p>Common Audi and some VW SUV wheels. Buy <strong>66.6→57.1&nbsp;mm</strong> hub-centric rings (~$15–30) before driving.</p>
+  <table>
+    <thead><tr><th>#</th><th>Vehicle</th><th>Years (typical)</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>26</td><td>Audi A4 / A5 / S4 (B8/B8.5/B9)</td><td>2009–2024</td><td>66.6 bore; ET43–47 on 18×8 common <span class="cite">[5][30]</span></td></tr>
+      <tr><td>27</td><td>Audi A6 / A7 / S6 (C7/C8)</td><td>2012–2024</td><td>66.6; 245/45R18 common — tire OK, needs rings <span class="cite">[23][4]</span></td></tr>
+      <tr><td>28</td><td>Audi A8 / S8 (4E/4H)</td><td>2003–2020</td><td>66.6 on newer; verify year <span class="cite">[4]</span></td></tr>
+      <tr><td>29</td><td>Audi Q5 / SQ5</td><td>2009–2024</td><td>66.6 SUV; ET25–38 — offset varies <span class="cite">[4][3]</span></td></tr>
+      <tr><td>30</td><td>Audi Q7 (4M, 2015+)</td><td>2015+</td><td>66.6; large wheels <span class="cite">[4]</span></td></tr>
+      <tr><td>31</td><td>VW Atlas / Cross Sport</td><td>2018+</td><td>66.6 bore on 5×112 <span class="cite">[4]</span></td></tr>
+      <tr><td>32</td><td>VW Tiguan (Mk2)</td><td>2016–2024</td><td>5×112; check bore by year <span class="cite">[3]</span></td></tr>
+      <tr><td>33</td><td>Audi e-tron / Q4 e-tron</td><td>2019+</td><td>66.6 typical <span class="cite">[3]</span></td></tr>
+      <tr><td>34</td><td>Porsche Macan (some)</td><td>2015+</td><td>5×112 66.6 on many; verify offset <span class="cite">[4]</span></td></tr>
+      <tr><td>35</td><td>Bentley Continental GT (VW platform)</td><td>2003–2018</td><td>5×112; exotic junkyard find <span class="cite">[3]</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Tier C — Same tire size, WRONG wheels (do not buy for bolt-on)</h3>
+  <p>These often appear on “235/45R18 fitment” lists. The <em>tire</em> may be reusable if you mount it on a correct VW wheel; the <em>wheel</em> will not bolt on.</p>
+  <table>
+    <thead><tr><th>#</th><th>Vehicle</th><th>Tire</th><th>Why it fails</th></tr></thead>
+    <tbody>
+      <tr><td>36</td><td>Ford Fusion</td><td>235/45R18</td><td class="tier-c">5×108 PCD, 63.4 bore, 12×1.5 lugs <span class="cite">[19][20]</span></td></tr>
+      <tr><td>37</td><td>Hyundai Sonata</td><td>235/45R18 (some trims)</td><td class="tier-c">5×114.3 PCD <span class="cite">[21]</span></td></tr>
+      <tr><td>38</td><td>Kia Optima / K5</td><td>235/45R18</td><td class="tier-c">5×114.3 PCD <span class="cite">[6]</span></td></tr>
+      <tr><td>39</td><td>Toyota Camry / Avalon</td><td>235/45R18</td><td class="tier-c">5×114.3 PCD <span class="cite">[6]</span></td></tr>
+      <tr><td>40</td><td>Honda Accord</td><td>235/45R18 (mods)</td><td class="tier-c">5×114.3 PCD <span class="cite">[6]</span></td></tr>
+      <tr><td>41</td><td>Nissan Altima</td><td>235/45R18</td><td class="tier-c">5×114.3 PCD <span class="cite">[6]</span></td></tr>
+      <tr><td>42</td><td>Subaru Outback (older)</td><td>235/45R18</td><td class="tier-c">5×100 PCD <span class="cite">[6]</span></td></tr>
+      <tr><td>43</td><td>BMW 3 Series</td><td>225/45R18 etc.</td><td class="tier-c">5×120 PCD <span class="cite">[4]</span></td></tr>
+      <tr><td>44</td><td>Mercedes C-Class</td><td>varies</td><td class="tier-c">5×112 on some, but 66.6 bore + different lug seat — not a casual swap <span class="cite">[4]</span></td></tr>
+      <tr><td>45</td><td>Volvo S60 / V60</td><td>235/45R18 (some)</td><td class="tier-c">5×108 on many model years <span class="cite">[20]</span></td></tr>
+      <tr><td>46</td><td>Tesla Model 3 (early)</td><td>235/45R18</td><td class="tier-c">5×114.3 PCD <span class="cite">[6]</span></td></tr>
+      <tr><td>47</td><td>Mazda6</td><td>235/45R18</td><td class="tier-c">5×114.3 PCD <span class="cite">[6]</span></td></tr>
+      <tr><td>48</td><td>Chrysler 200</td><td>235/45R18</td><td class="tier-c">5×110 or 5×114.3 depending on year — not VW <span class="cite">[6]</span></td></tr>
+      <tr><td>49</td><td>Infiniti G35</td><td>235/45R18 (some)</td><td class="tier-c">5×114.3 PCD <span class="cite">[6]</span></td></tr>
+      <tr><td>50</td><td>Audi TT (Mk1)</td><td>225/45R17 etc.</td><td class="tier-c">5×100 PCD — pre-2007 TT does NOT match <span class="cite">[4]</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="forums">
+  <h2>Forum Evidence: What Passat &amp; TDI Owners Actually Did</h2>
+
+  <h3>Full-size spare in trunk (B7/B8 Passat TDI)</h3>
+  <div class="success-box">
+    <p>TDIClub user with a <strong>2015 Passat TDI</strong> reported fitting a reconditioned OEM 235/45R18 wheel+tire by removing the compact spare, trimming the foam jack holder, and removing the knurled knob — trunk floor ended up flush. Wheel sourced from 2011–2014 Passat <span class="cite">[27]</span>.</p>
+  </div>
+  <p>Related VW platform guidance: full-size spares may need a longer hold-down bolt (e.g. VW <strong>3G0803899A</strong> 214&nbsp;mm vs 99&nbsp;mm compact-spare bolt) and taller trunk-floor inserts on some MQB cars <span class="cite">[31]</span>. Measure your well before assuming the trunk closes flat.</p>
+
+  <h3>Audi wheels on Passat</h3>
+  <p>VW Vortex thread comparing Passat B7 (235/45R18, 8J×18 ET48, 57.1) to Audi A6 wheels (245/45R18, 8J×18 ET42, 66.6): physically fits with <strong>hub rings</strong>; ~1.7% speedometer error from taller tire <span class="cite">[23]</span>. Multiple owners recommend metal rings over plastic to avoid highway vibration <span class="cite">[23][24]</span>.</p>
+
+  <h3>Brake clearance with compact 18″ spares (GTI/R platform)</h3>
+  <p>VW Vortex reports that OEM <strong>18″ donut spares</strong> (125/70R18) often <strong>do not clear front big brakes</strong> on GTI/R — owners swap a rear wheel to front and put spare on rear after a front flat <span class="cite">[29][32]</span>. Your use case is a <em>full-size</em> 235/45R18, which has a normal barrel and should clear 312&nbsp;mm rotors; this is mainly a warning against grabbing GTI compact-spare assemblies.</p>
+
+  <h3>Hub bore philosophy</h3>
+  <p>Long VW Vortex thread (2023–2024) consensus: <strong>wheels with native 57.1&nbsp;mm bore</strong> ride better than large-bore wheels + plastic rings. Owners cite Borbet OEM VW wheels, Neuspeed 18×8 ET45, and Replica R195 Pretoria reps as direct-fit examples <span class="cite">[22]</span>.</p>
+</section>
+
+<section id="junkyard-strategy">
+  <h2>Recommended Junkyard Search Strategy</h2>
+
+  <div class="diagram">JUNKYARD PHONE SCRIPT / ROW WALK ORDER
+──────────────────────────────────────
+1. "Do you have Passat, CC, or Jetta 2011–2018 with 18-inch wheels?"
+2. "Audi A3 or older A4 — 5-lug, not TT Mk1?"
+3. "Golf GTI 18-inch takeoffs?"
+4. If tire only: "Any 235/45R18 — I'll remount on my wheel"
+
+ON-SITE CHECK (bring one known lug bolt + tape measure)
+──────────────────────────────────────
+□ Count 5 lugs on 112 mm circle (or compare to your wheel)
+□ Hub bore: tight slip-on to your front hub = 57.1; loose = needs rings
+□ Mount on FRONT — spin — listen for caliper scrape
+□ Read tire DOT date — avoid 6+ year old rubber for highway spare
+□ Check for cracks at spoke roots (especially cast Audi wheels)</div>
+
+  <h3>Priority order (best → acceptable)</h3>
+  <ol>
+    <li><strong>Passat 2011–2018</strong> with 235/45R18 — identical spec <span class="cite">[10][16][27]</span></li>
+    <li><strong>VW CC, Beetle, Golf/Jetta 18″</strong> — Tier A direct fit <span class="cite">[3]</span></li>
+    <li><strong>Audi A3 8P/8V</strong> — common, 57.1, often cheap <span class="cite">[29]</span></li>
+    <li><strong>Audi A4 B8+ / A6 / Q5</strong> — good if rings included in budget <span class="cite">[23][5]</span></li>
+    <li><strong>Tire-only from any 235/45R18</strong> — mount on your existing rim at a tire shop</li>
+  </ol>
+
+  <h3>If you only replace the tire (keep your rim)</h3>
+  <p>Any junkyard 235/45R18 tire with decent tread and DOT date under ~6 years can be mounted on your Bristol/OEM wheel. Alternative sizes 225/45R18, 245/45R18, 245/40R18 remain within your ±2% diameter target. This sidesteps bolt pattern entirely.</p>
+</section>
+
+<section id="conclusion">
+  <h2>Conclusion</h2>
+  <p>Your earlier tire-size analysis holds up: <strong>235/45R18 is the best match</strong>, with <strong>225/45R18</strong>, <strong>245/45R18</strong>, and <strong>245/40R18</strong> as the best diameter alternatives. The junkyard employee’s caution was well placed: <strong>tire size alone is not a fitment guide</strong>. The non-negotiable wheel specs for your 2015 Passat TDI are <strong>5×112 bolt pattern</strong>, <strong>57.1&nbsp;mm center bore</strong> (or rings from 66.6&nbsp;mm), and <strong>ball-seat M14×1.5 lug bolts</strong>, with offset near <strong>ET40–48</strong> on an 18×8 rim and physical clearance over <strong>312&nbsp;mm front rotors</strong>.</p>
+  <p>The highest-yield junkyard searches are other <strong>VW Passats (2011–2018)</strong>, <strong>VW CC/Golf/Jetta/Beetle 18″ takeoffs</strong>, and <strong>Audi A3</strong> wheels. Modern <strong>Audi A4/A6/Q5</strong> wheels are worth grabbing if you budget for hub rings. Avoid wheels from <strong>Ford Fusion</strong>, <strong>Hyundai/Kia</strong>, <strong>Toyota/Honda/Nissan</strong>, and <strong>BMW</strong> even when the tire reads 235/45R18. TDIClub owners confirm a full-size 235/45R18 spare can live in the trunk with minor foam trimming.</p>
+</section>
+
+<section id="further-research">
+  <h2>Further Research Questions</h2>
+  <ul>
+    <li>Does your specific trunk well require the longer 214&nbsp;mm hold-down bolt (3G0803899A) or foam modification for a flush floor?</li>
+    <li>What is the DOT age and tread depth of any candidate junkyard tire — is it emergency-only or highway-rated for your typical trips?</li>
+    <li>If sourcing Audi 66.6&nbsp;mm wheels, which metal hub ring brand/part number fits tightest (ECS ES2185353 vs alternatives)?</li>
+    <li>Would a 17″ full-size spare (215/55R17 from base Passat) fit the trunk more easily while still clearing 312&nbsp;mm brakes — trading aesthetics for packaging?</li>
+    <li>Local junkyard inventory snapshot: which Tier A models are actually on the row this month?</li>
+  </ul>
+</section>
+
+<section id="references">
+  <h2>References</h2>
+  <ol class="ref-list">
+    <li>BoltPatternHQ — <a href="https://boltpatternhq.com/volkswagen/passat/2015/">2015 Volkswagen Passat Bolt Pattern &amp; Wheel Specs</a></li>
+    <li>Avtoreference.com — <a href="https://avtoreference.com/en/auto/volkswagen/passat/2015/">Volkswagen Passat 2015 wheel and tire data</a></li>
+    <li>Wheelfitment.eu — <a href="https://www.wheelfitment.eu/car/volkswagen/passat%20b8%20(2014%20-%202024).html">Passat B8 PCD 5×112 / 57.1 shared-platform list</a></li>
+    <li>CarXplorer — <a href="https://carxplorer.com/what-car-uses-5x112-bolt-pattern/">What Cars Use 5×112 Bolt Pattern</a></li>
+    <li>VW Vortex — <a href="https://www.vwvortex.com/threads/the-b8-b8-5-a4-wheel-gallery.6049353/">B8/B8.5 A4 Wheel Gallery (66.6 mm bore)</a></li>
+    <li>WheelsSize.com — <a href="https://www.wheelssize.com/tires/P-235-45r18.html">P235/45R18 tire specs and vehicle list</a></li>
+    <li>Mavis — <a href="https://www.mavis.com/vehicle/volkswagen/passat/2015/tdi-sel-premium/">2015 Passat TDI SEL Premium 235/45R18 OEM confirmation</a></li>
+    <li>PassatWorld — <a href="https://www.passatworld.com/threads/need-stock-lug-bolt-specs-pitch-seat-type-length-etc.219089/">Stock lug bolt specs (14×1.5 ball seat)</a></li>
+    <li>Gorilla Automotive — <a href="https://www.gorilla-auto.com/products/lugs/lug-bolts">Ball seat R14 lug bolt specifications</a></li>
+    <li>Volkswagen OEM Parts — <a href="https://parts.vw.com/p/Volkswagen_2015_Passat/Wheel/48363702/561601025C8Z8.html">561601025C8Z8 Bristol 18″ wheel</a></li>
+    <li>OEM Wolf — <a href="https://oemwolf.com/volkswagen/usa/passat/2015/wheels_brakes/wheels.html">2015 Passat OEM wheel catalog (8J×18 ET48)</a></li>
+    <li>Detroit Axle — <a href="https://www.detroitaxle.com/part/2020-volkswagen-passat/brake-pads-shoes/8pc-front-rear-disc-brake-rotors-ceramic-brake-pads-kit/8pr42388/">2015 Passat 312 mm / 272 mm rotor fitment data</a></li>
+    <li>ProForce Automotive — <a href="http://www.proforceautomotive.com/WPCE/product/standard-disc-brake-rotor-431/">Passat TDI 312 mm rotor cross-reference</a></li>
+    <li>VW Vortex — <a href="https://www.vwvortex.com/threads/smallest-wheel-size-w-312mm-front-brakes.5310324/">Smallest wheel size with 312 mm brakes</a></li>
+    <li>Club GTI — <a href="https://www.clubgti.com/forums/index.php?threads/the-mk4-brake-upgrade-sizes-info.260016/">Mk4 brake upgrade sizes and wheel clearance</a></li>
+    <li>Wheel-Size.com — <a href="https://www.wheel-size.com/size/volkswagen/passat/b8-2014-2019/">Passat B8 wheel/tire specifications</a></li>
+    <li>Premier Tires — <a href="https://premiertiresandwheels.ca/pages/tire-size-specifications-guide-by-diameter-18-diameter">18″ diameter tire specification guide</a></li>
+    <li>TireConverter.com — <a href="https://tireconverter.com/245-45r18-in-inches">245/45R18 dimensions</a></li>
+    <li>TireWheelGuide — <a href="https://tirewheelguide.com/sizes/ford/fusion/2015/">2015 Ford Fusion 5×108 / 235/45R18</a></li>
+    <li>BoltPatternHQ — <a href="https://boltpatternhq.com/ford/fusion/2015/">2015 Ford Fusion bolt pattern</a></li>
+    <li>Wheel-Sizes.com — <a href="https://wheel-sizes.com/bolt-pattern/hyundai/sonata/2015/">2015 Hyundai Sonata 5×114.3</a></li>
+    <li>VW Vortex — <a href="https://www.vwvortex.com/threads/57-1mm-center-bore-wheels.9557437/">57.1 mm center bore wheels discussion</a></li>
+    <li>VW Vortex — <a href="https://www.vwvortex.com/threads/will-2013-audi-a6-wheel-tire-fit-my-passat.7543313/">2013 Audi A6 wheels on Passat (hub rings)</a></li>
+    <li>VW Vortex — <a href="https://www.vwvortex.com/threads/will-these-rims-fit-my-2013-b7-passat-s.7083991/">Audi S4 wheels on B7 Passat (57.1→66.6 rings)</a></li>
+    <li>PassatWorld — <a href="https://www.passatworld.com/threads/rim-size-and-hub-bore-question.504393/">Rim size and hub bore (ball seat vs conical)</a></li>
+    <li>VW Vortex — <a href="https://www.vwvortex.com/threads/does-passat-share-a-bolt-pattern-with-anyone-else.6960595/">Passat shared bolt pattern discussion</a></li>
+    <li>TDIClub — <a href="https://forums.tdiclub.com/index.php?threads/2015-passat-tdi-full-size-spare.437521/">2015 Passat TDI full-size spare thread</a></li>
+    <li>Wheel-Size.com — <a href="https://www.wheel-size.com/tire/iso-metric-235-45-R-18/volkswagen/passat-variant/2014-2026/">Passat Variant 235/45R18 trim list</a></li>
+    <li>VW Vortex — <a href="https://www.vwvortex.com/threads/spare-wheel-tire-different-part-numbers-available.9537160/">Spare wheel part numbers (A3 junkyard spare)</a></li>
+    <li>VW Vortex — <a href="https://www.vwvortex.com/threads/helix-subwoofer-in-21-arteon-sel.9478595/">Full-size spare trunk hardware (214 mm bolt)</a></li>
+    <li>VW Vortex — <a href="https://www.vwvortex.com/threads/2024-r-spare-my-solution.9571501/">18″ spare vs front brake clearance</a></li>
+    <li>SpareTire.com — <a href="https://sparetire.com/Volkswagen/Passat/">Volkswagen Passat spare tire fitment guide</a></li>
+    <li>ThreePiece.us — <a href="https://vehicles.threepiece.us/vehicles/volkswagen/passat/2015/">2015 Passat compatible wheel sizes</a></li>
+    <li>Kipardo Racing — <a href="https://www.kipardoracing.com/audi-bolt-pattern-a-technical-guide-for-wheel-distributors-and-retailers/">Audi bolt pattern technical guide (bore generations)</a></li>
+    <li>ECS Tuning — <a href="https://www.ecstuning.com/b-assembled-by-ecs-parts/front-big-brake-kit-plain-rotors-312x25/1ko698001/">312×25 rotor kit — 16″ minimum wheel note</a></li>
+  </ol>
+</section>
+
+<footer>
+  <p>Research-Bot artifact. Compiled July 2026. Junkyard inventory, tire aging, and regional trim differences change frequently — verify physically before relying on a spare in an emergency. This document is informational, not professional mechanical advice.</p>
+</footer>
+
+</div>
+</body>
+</html>
