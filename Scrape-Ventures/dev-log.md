@@ -47,3 +47,5 @@ python tier-list/scrape/fetch-tier-lists.py --raw
 ### Status
 
 **Stage 1 complete.** Ready for Stage 2 (consolidate card images).
+
+**2026-07-08 (later):** Updated `recreating-tier-list.html` with Stage 1 findings and Stage 2 prep details.

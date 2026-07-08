@@ -80,6 +80,7 @@
     .tag-have { background: #2b4a34; color: var(--ok); }
     .tag-missing { background: #4a2b2b; color: var(--danger); }
     .tag-partial { background: #4a3f2b; color: var(--accent); }
+    .tag-done { background: #2b3a4a; color: #9db4ff; }
     table {
       width: 100%;
       border-collapse: collapse;
@@ -304,7 +305,11 @@ Page also embeds YouTube review videos per character (Ironclad, Silent, Regent, 
         <tr>
           <td>GraphQL query schema</td>
           <td><span class="tag tag-have">Have</span></td>
-          <td><code>Sts2UgFeaturedDocumentQuery</code> and <code>NgfDocumentDataTierListsFragment</code> recovered from <code>main.a10982b0_19D0.js</code>. Endpoint: <code>/api/sts2/v1/graphql/query</code>.</td>
+          <td>
+            Minimal <code>Sts2TierLists</code> query in <code>fetch-tier-lists.py</code>.
+            Tier data path: <code>…userGeneratedDocumentBySlug.data.data.tierLists</code>.
+            Full fragments in <code>main.a10982b0_19D0.js</code>.
+          </td>
         </tr>
         <tr>
           <td>Main page HTML</td>
@@ -313,18 +318,30 @@ Page also embeds YouTube review videos per character (Ironclad, Silent, Regent, 
         </tr>
         <tr>
           <td>Tier assignments (which card → which tier)</td>
-          <td><span class="tag tag-missing">Missing</span></td>
-          <td>The critical ranking data lives in the GraphQL API response, not in the saved files. Cannot be reconstructed from images alone.</td>
+          <td><span class="tag tag-have">Have</span></td>
+          <td>
+            Scraped to <code>tier-list/data/tier-lists.json</code> (403 cards).
+            Raw GraphQL at <code>STS2/tier-lists-raw.json</code>.
+            Re-fetch: <code>python tier-list/scrape/fetch-tier-lists.py</code>
+          </td>
         </tr>
         <tr>
           <td>Full-size hover card images (webp)</td>
-          <td><span class="tag tag-missing">Missing</span></td>
-          <td>Saved AVIFs are thumbnails only. Full art must be fetched from Mobalytics CDN and/or Spire Codex CDN.</td>
+          <td><span class="tag tag-partial">Partial</span></td>
+          <td>
+            URLs present in JSON as <code>iconUrl</code> (all <code>.webp</code> on Mobalytics CDN).
+            Files not downloaded yet — Stage 2 task. CDN is reachable without Cloudflare
+            (<code>cdn.mobalytics.gg/assets/sts2/images/cards/new/{slug}.webp</code>).
+          </td>
         </tr>
         <tr>
           <td>Character → tier-list section mapping</td>
-          <td><span class="tag tag-missing">Missing</span></td>
-          <td>Live page has 5 sections (Ironclad, Silent, Regent, Necrobinder, Defect). Which <code>tierLists.values[]</code> entry maps to which character is only in API data.</td>
+          <td><span class="tag tag-have">Have</span></td>
+          <td>
+            Each <code>NgfDocumentCmWidgetTierListMakerV1</code> widget <code>id</code> matches
+            <code>tierLists.values[].id</code>. Character slug parsed from widget title
+            (e.g. "Ironclad Tier List" → <code>ironclad</code>). Sixth list is Multiplayer — excluded.
+          </td>
         </tr>
         <tr>
           <td>YouTube embed references</td>
@@ -353,29 +370,29 @@ Page also embeds YouTube review videos per character (Ironclad, Silent, Regent, 
       <tbody>
         <tr>
           <td><strong>Tier list JSON</strong> (card name, slug, tier, character)</td>
-          <td>Critical</td>
+          <td><span class="tag tag-done">Done</span></td>
           <td>
-            1. Mobalytics GraphQL API<br>
-            2. Browser devtools network capture while page loads<br>
-            3. Manual transcription (last resort)
+            <code>tier-list/scrape/fetch-tier-lists.py</code> ·
+            <code>tier-list/data/tier-lists.json</code>
           </td>
           <td>
-            Query: <code>Sts2UgFeaturedDocumentQuery</code> with
-            <code>input: { slug: "cards", type: "tier-lists" }</code>.
-            Cloudflare blocks headless curl from this environment — scrape may need a real browser session or user-provided JSON export.
+            Live fetch works via <code>curl_cffi</code> (Chrome TLS impersonation).
+            Plain <code>curl</code> still gets Cloudflare 403.
+            <code>--raw</code> mode re-parses <code>STS2/tier-lists-raw.json</code> offline.
           </td>
         </tr>
         <tr>
           <td><strong>Full card art for hover</strong></td>
-          <td>High</td>
+          <td>High — Stage 2</td>
           <td>
-            1. Mobalytics <code>iconUrl</code> from GraphQL<br>
-            2. Spire Codex <code>image_url_card</code> (e.g. <code>cdn.spire-codex.com/cards-full/stable/{slug}.webp</code>)<br>
-            3. Download during scrape script
+            1. Mobalytics <code>iconUrl</code> from <code>tier-lists.json</code> (preferred)<br>
+            2. Spire Codex <code>cdn.spire-codex.com/cards-full/stable/{slug_underscore}.webp</code> (fallback only)
           </td>
           <td>
-            Spire Codex is a good fallback: public API, no auth, slug mapping mostly matches (underscore vs hyphen:
-            <code>crash-landing</code> → <code>crash_landing.webp</code>). Not identical to Mobalytics rankings but fine for images.
+            All 403 ranked cards have Mobalytics <code>iconUrl</code> ending in <code>.webp</code>.
+            CDN downloads succeed with <code>curl_cffi</code> (no Cloudflare on CDN).
+            Sample size ~466 KB/card → budget ~150–200 MB for full set.
+            <strong>Do not use Spire Codex for tiers</strong> — images only if a slug 404s on Mobalytics CDN.
           </td>
         </tr>
         <tr>
@@ -409,16 +426,19 @@ Page also embeds YouTube review videos per character (Ironclad, Silent, Regent, 
 
     <div class="diagram">recreating-tier-list.html          ← this plan
 tier-list/
-  index.html                       ← main viewer (searchable, hover cards)
+  index.html                       ← main viewer (Stage 3)
   data/
-    tier-lists.json                ← scraped Mobalytics rankings
-    cards.json                     ← optional Spire Codex metadata cache
+    tier-lists.json                ← ✅ scraped Mobalytics rankings (403 cards)
   assets/
-    thumbs/                        ← copy or symlink STS2/*_19D0.avif
-    full/                          ← downloaded full card webp/png
+    thumbs/                        ← Stage 2: copy STS2/*_19D0.avif
+    full/                          ← Stage 2: download iconUrl webp from CDN
   scrape/
-    fetch-tier-lists.py            ← GraphQL scraper (run in browser or with cookies)
-    download-images.py             ← pull full art from CDN</div>
+    fetch-tier-lists.py            ← ✅ GraphQL fetch + normalize
+    download-images.py             ← Stage 2: pull full art from CDN
+    bookmarklet.js                 ← ✅ browser fallback export
+STS2/
+  tier-lists-raw.json              ← ✅ saved GraphQL response
+  {slug}_19D0.avif                 ← 424 thumbs (403 ranked + 21 multiplayer)</div>
 
     <h3>HTML element design (fixes Ctrl+F problem)</h3>
     <p>Each card in the recreated page should be structured like:</p>
@@ -438,24 +458,30 @@ tier-list/
 
     <div class="stages">
       <div class="card stage">
-        <h3>Stage 1 — Scrape tier list data</h3>
+        <h3>Stage 1 — Scrape tier list data <span class="tag tag-done">Complete</span></h3>
+        <p><strong>Completed 2026-07-08.</strong> See <a href="#stage1-findings">findings</a> below.</p>
         <ul>
-          <li>Write <code>scrape/fetch-tier-lists.py</code> (or a browser bookmarklet) to call Mobalytics GraphQL.</li>
-          <li>Parse <code>tierLists.values</code> → normalize to <code>{ character, tiers: { S: [...], A: [...], ... } }</code>.</li>
-          <li>Output <code>data/tier-lists.json</code> with card <code>name</code>, <code>slug</code>, <code>tier</code>, <code>character</code>, <code>iconUrl</code>.</li>
-          <li><strong>Blocker:</strong> Cloudflare. Options: run scraper locally in user's browser, export HAR from DevTools, or paste cookies into script.</li>
+          <li>✅ <code>tier-list/scrape/fetch-tier-lists.py</code> — GraphQL fetch + normalize</li>
+          <li>✅ <code>tier-list/scrape/bookmarklet.js</code> — browser console fallback</li>
+          <li>✅ <code>tier-list/data/tier-lists.json</code> — 403 cards, 5 characters</li>
+          <li>✅ <code>STS2/tier-lists-raw.json</code> — saved API response</li>
+          <li>✅ <code>requirements.txt</code> — <code>curl_cffi</code> for Cloudflare bypass</li>
         </ul>
-        <p><strong>Done when:</strong> JSON contains all ~440 card placements across 5 characters × 5 tiers.</p>
+        <p><strong>Done when:</strong> JSON contains all ranked card placements across 5 characters × 5 tiers. <em>Achieved: 403 cards (81+80+82+80+80).</em></p>
       </div>
 
       <div class="card stage">
         <h3>Stage 2 — Consolidate card images</h3>
+        <p><strong>Next up.</strong> Detailed checklist in <a href="#stage2-prep">Stage 2 prep</a> section.</p>
         <ul>
-          <li>Copy/rename <code>STS2/{slug}_19D0.avif</code> → <code>assets/thumbs/{slug}.avif</code>.</li>
-          <li>Download full hover images — prefer Mobalytics <code>iconUrl</code> from JSON; fallback to Spire Codex CDN with slug normalization (<code>-</code> → <code>_</code>).</li>
-          <li>Log any cards missing images (slug mismatches, colorless cards, etc.).</li>
+          <li>Write <code>scrape/download-images.py</code> (read <code>tier-lists.json</code>, emit manifest).</li>
+          <li>Copy <code>STS2/{slug}_19D0.avif</code> → <code>assets/thumbs/{slug}.avif</code> (all 403 slugs match — zero mismatches found).</li>
+          <li>Download full hover images from each card's <code>iconUrl</code> → <code>assets/full/{slug}.webp</code>.</li>
+          <li>Skip the 21 multiplayer-only AVIFs in STS2/ (not in tier list JSON).</li>
+          <li>Log any CDN 404s; fallback to Spire Codex with <code>-</code> → <code>_</code> slug rewrite.</li>
+          <li>Write <code>assets/manifest.json</code> mapping slug → thumb/full paths for Stage 3 viewer.</li>
         </ul>
-        <p><strong>Done when:</strong> Every card in JSON has thumb + full image paths that resolve.</p>
+        <p><strong>Done when:</strong> Every card in JSON has thumb + full image paths that resolve locally.</p>
       </div>
 
       <div class="card stage">
@@ -492,6 +518,158 @@ tier-list/
       </div>
     </div>
 
+    <h2 id="stage1-findings">5a. Stage 1 findings (2026-07-08)</h2>
+
+    <div class="card">
+      <h3>What we built</h3>
+      <table>
+        <thead>
+          <tr><th>File</th><th>Role</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>tier-list/scrape/fetch-tier-lists.py</code></td><td>Live GraphQL fetch or <code>--raw</code> re-parse → normalized JSON</td></tr>
+          <tr><td><code>tier-list/scrape/bookmarklet.js</code></td><td>Paste in browser console on tier-list page; downloads raw JSON</td></tr>
+          <tr><td><code>tier-list/data/tier-lists.json</code></td><td>Viewer input: <code>characters[]</code> with nested tiers + flat <code>cards[]</code></td></tr>
+          <tr><td><code>STS2/tier-lists-raw.json</code></td><td>Full GraphQL response (~161 KB)</td></tr>
+        </tbody>
+      </table>
+      <p>Run: <code>pip install -r requirements.txt &amp;&amp; python tier-list/scrape/fetch-tier-lists.py</code></p>
+    </div>
+
+    <h3>GraphQL schema corrections</h3>
+    <p>The saved JS bundles use the large <code>Sts2UgFeaturedDocumentQuery</code>, but a minimal query works:</p>
+    <pre>POST /api/sts2/v1/graphql/query
+variables: { input: { slug: "cards", type: "tier-lists" } }
+
+Response path:
+  data.game.sts2.documents.userGeneratedDocumentBySlug.data
+    .data.tierLists.values[]          ← tier data (NOT on document root)
+    .content[]                        ← widgets; TierListMaker ids match values[].id</pre>
+
+    <h3>Cloudflare</h3>
+    <ul>
+      <li>Plain <code>curl</code> / headless Chrome → Cloudflare challenge (403).</li>
+      <li><code>curl_cffi</code> with <code>impersonate="chrome"</code> → 200 OK from agent environment.</li>
+      <li>Mobalytics CDN (<code>cdn.mobalytics.gg</code>) has <strong>no</strong> Cloudflare — direct download OK.</li>
+    </ul>
+
+    <h3>Card counts (actual)</h3>
+    <table>
+      <thead>
+        <tr><th>Character</th><th>S</th><th>A</th><th>B</th><th>C</th><th>D</th><th>TBD</th><th>Total</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Ironclad</td><td>18</td><td>15</td><td>17</td><td>26</td><td>5</td><td>—</td><td><strong>81</strong></td></tr>
+        <tr><td>Silent</td><td>19</td><td>14</td><td>12</td><td>24</td><td>11</td><td>—</td><td><strong>80</strong></td></tr>
+        <tr><td>Regent</td><td>18</td><td>18</td><td>14</td><td>27</td><td>5</td><td>—</td><td><strong>82</strong></td></tr>
+        <tr><td>Necrobinder</td><td>21</td><td>8</td><td>24</td><td>23</td><td>4</td><td>0</td><td><strong>80</strong></td></tr>
+        <tr><td>Defect</td><td>9</td><td>18</td><td>27</td><td>20</td><td>6</td><td>—</td><td><strong>80</strong></td></tr>
+        <tr><td><em>Multiplayer</em></td><td colspan="6"><em>21 cards in API — excluded from JSON</em></td><td><em>21</em></td></tr>
+        <tr><td colspan="7"><strong>Ranked total</strong></td><td><strong>403</strong></td></tr>
+      </tbody>
+    </table>
+    <p>Original estimate ~440 assumed ~88×5; actual API has 424 card entries (403 ranked + 21 multiplayer).</p>
+
+    <h3>Character mapping (resolved)</h3>
+    <p>API returns <strong>6</strong> <code>tierLists.values</code> entries. Widget <code>id</code> links list to character:</p>
+    <table>
+      <thead>
+        <tr><th>Widget <code>id</code></th><th>Title</th><th>Character slug</th><th>In JSON?</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>5</code></td><td>Ironclad Tier List</td><td><code>ironclad</code></td><td>✅</td></tr>
+        <tr><td><code>351d6f39-…</code></td><td>Silent Tier List</td><td><code>silent</code></td><td>✅</td></tr>
+        <tr><td><code>1</code></td><td>Regent Tier List</td><td><code>regent</code></td><td>✅</td></tr>
+        <tr><td><code>6</code></td><td>Necrobinder Tier List</td><td><code>necrobinder</code></td><td>✅</td></tr>
+        <tr><td><code>7</code></td><td>Defect Tier List</td><td><code>defect</code></td><td>✅</td></tr>
+        <tr><td><code>22</code></td><td>Multiplayer Tier List</td><td><code>multiplayer</code></td><td>❌ skipped</td></tr>
+      </tbody>
+    </table>
+    <p>
+      <code>staticDataSources[].tags</code> only contains <code>{ slug: "defaultValue", groupSlug: "variant" }</code> —
+      <strong>not useful</strong> for character detection. Use widget titles instead.
+    </p>
+    <p>
+      Content widget order (1→6): Silent, Regent, Ironclad, Necrobinder, Defect, Multiplayer.
+      Live page display order: Ironclad, Silent, Regent, Necrobinder, Defect.
+      JSON <code>characters[]</code> is sorted to display order. Anchor IDs use content index
+      (e.g. <code>3-ironclad-tier-list-2</code>) — may not match live Mobalytics hashes exactly.
+    </p>
+
+    <h3>Normalized JSON shape</h3>
+    <pre>{
+  "source": "mobalytics",
+  "fetchedAt": "2026-07-08T…",
+  "characterCount": 5,
+  "cardCount": 403,
+  "characters": [
+    {
+      "character": "ironclad",
+      "title": "Ironclad Tier List",
+      "anchorId": "3-ironclad-tier-list-2",
+      "tiers": {
+        "S": [{ "name", "slug", "iconUrl", "linkUrl", "type" }, …],
+        "A": […], "B": […], "C": […], "D": […]
+      }
+    }
+  ],
+  "cards": [
+    { "name", "slug", "tier", "character", "iconUrl", "linkUrl" }
+  ]
+}</pre>
+    <ul>
+      <li>All <code>iconUrl</code> values are Mobalytics CDN <code>.webp</code> (not the saved AVIF thumbs).</li>
+      <li>All <code>linkUrl</code> values are <code>null</code> in current API response — wiki links optional for later stages.</li>
+      <li>Necrobinder includes empty <code>TBD</code> tier row (0 cards) — keep for parity with live page.</li>
+    </ul>
+
+    <h2 id="stage2-prep">5b. Stage 2 prep — image consolidation details</h2>
+
+    <div class="card">
+      <h3>Thumbnail copy (local AVIFs)</h3>
+      <ul>
+        <li><strong>Perfect slug match:</strong> all 403 ranked card slugs have <code>STS2/{slug}_19D0.avif</code>. Zero mismatches.</li>
+        <li><strong>21 extra AVIFs</strong> in STS2/ are multiplayer-only cards not in the tier list:
+          <code>beacon-of-hope, believe-in-you, coordinate, demonic-shield, energy-surge, flanking, gang-up,
+          glimpse-beyond, hammer-time, huddle-up, ignition, intercept, knockdown, largesse, legion-of-bone,
+          lift, mimic, rally, sneaky, tag-team, tank</code>
+        </li>
+        <li>Copy pattern: <code>STS2/{slug}_19D0.avif</code> → <code>tier-list/assets/thumbs/{slug}.avif</code></li>
+        <li>Symlinks acceptable to save disk space (same filesystem).</li>
+        <li>Thumbs are 102×128px — correct size for tier grid icons.</li>
+      </ul>
+
+      <h3>Full art download (Mobalytics CDN)</h3>
+      <ul>
+        <li>URL pattern: <code>https://cdn.mobalytics.gg/assets/sts2/images/cards/new/{slug}.webp</code></li>
+        <li>Same URL as each card's <code>iconUrl</code> in <code>tier-lists.json</code> — iterate <code>cards[]</code>.</li>
+        <li>CDN returns 200 without Cloudflare; <code>curl_cffi</code> or plain <code>urllib</code> should work.</li>
+        <li>Sample file size ~466 KB (<code>offering.webp</code>) → expect <strong>~150–200 MB</strong> total for 403 images.</li>
+        <li>Save to: <code>tier-list/assets/full/{slug}.webp</code></li>
+        <li>Skip download if file exists (idempotent re-runs).</li>
+      </ul>
+
+      <h3>Proposed <code>download-images.py</code> behavior</h3>
+      <ol>
+        <li>Read <code>tier-list/data/tier-lists.json</code>.</li>
+        <li>Copy thumbs (403 files) → <code>assets/thumbs/</code>.</li>
+        <li>Download full webp for each <code>iconUrl</code> → <code>assets/full/</code>.</li>
+        <li>On 404: try Spire Codex <code>https://cdn.spire-codex.com/cards-full/stable/{slug_with_underscores}.webp</code>.</li>
+        <li>Emit <code>assets/manifest.json</code>:
+          <code>{ slug: { thumb: "assets/thumbs/….avif", full: "assets/full/….webp" } }</code>
+        </li>
+        <li>Print summary: copied, downloaded, skipped (cached), failed.</li>
+      </ol>
+
+      <h3>Stage 3 consumption</h3>
+      <p>Viewer should resolve images in this priority:</p>
+      <ol>
+        <li><code>assets/thumbs/{slug}.avif</code> for grid icon</li>
+        <li><code>assets/full/{slug}.webp</code> for hover popover</li>
+        <li>Fallback: remote <code>iconUrl</code> from JSON (needs network)</li>
+      </ol>
+    </div>
+
     <h2>6. Risks and decisions</h2>
 
     <table>
@@ -501,8 +679,8 @@ tier-list/
       <tbody>
         <tr>
           <td>Cloudflare blocks API scraping</td>
-          <td>Cannot get tier data automatically from this agent environment</td>
-          <td>User runs scraper in browser; or provides GraphQL response JSON; or we use Spire Codex tiers (different methodology — not a Mobalytics recreation)</td>
+          <td>Plain curl fails; was a Stage 1 blocker</td>
+          <td><strong>Resolved:</strong> <code>curl_cffi</code> Chrome impersonation works. Bookmarklet + <code>--raw</code> remain as fallbacks.</td>
         </tr>
         <tr>
           <td>Mobalytics vs Spire Codex tier disagreement</td>
@@ -512,17 +690,27 @@ tier-list/
         <tr>
           <td>Slug mismatches (hyphen vs underscore)</td>
           <td>Broken images for some cards</td>
-          <td>Normalization table in scrape script; verify against 424 AVIF filenames</td>
+          <td>Stage 1: <strong>zero thumb mismatches</strong> for ranked cards. Stage 2: Spire Codex fallback uses <code>-</code> → <code>_</code> if Mobalytics CDN 404s.</td>
         </tr>
         <tr>
           <td>Saved page incomplete</td>
           <td>Cannot offline-reverse-engineer rankings from STS2 folder alone</td>
-          <td>Confirmed: images yes, rankings no</td>
+          <td>Confirmed and resolved — rankings now in <code>tier-lists.json</code></td>
         </tr>
         <tr>
           <td>Multiplayer cards excluded</td>
           <td>Mobalytics notes they omit multiplayer cards</td>
-          <td>Match their scope; don't add extra cards from Codex that Mobalytics didn't rank</td>
+          <td>21 multiplayer cards in API + 21 extra AVIFs — both excluded from viewer scope</td>
+        </tr>
+        <tr>
+          <td>Large download size (Stage 2)</td>
+          <td>~150–200 MB of full card webp</td>
+          <td>Skip existing files on re-run; thumbs are local copies only (~few MB)</td>
+        </tr>
+        <tr>
+          <td><code>linkUrl</code> null in API</td>
+          <td>No wiki deep-links from tier list data</td>
+          <td>Construct wiki URLs as <code>/slay-the-spire-2/wiki/cards/{slug}</code> in Stage 3 if needed</td>
         </tr>
       </tbody>
     </table>
@@ -530,36 +718,37 @@ tier-list/
     <h2>7. Immediate next step</h2>
 
     <div class="card">
-      <p>
-        <strong>Before building HTML:</strong> obtain <code>tier-lists.json</code> from Mobalytics.
-        Fastest path for the user:
-      </p>
+      <p><strong>Stage 2 — consolidate card images.</strong></p>
       <ol>
-        <li>Open the tier list page in Chrome/Firefox with DevTools → Network.</li>
-        <li>Filter for <code>graphql</code> or <code>sts2</code>.</li>
-        <li>Find the <code>Sts2UgFeaturedDocumentQuery</code> response.</li>
-        <li>Save the JSON response body to <code>Scrape-Ventures/STS2/tier-lists-raw.json</code>.</li>
+        <li>Implement <code>tier-list/scrape/download-images.py</code> per <a href="#stage2-prep">Stage 2 prep</a>.</li>
+        <li>Copy 403 AVIF thumbs → <code>tier-list/assets/thumbs/</code>.</li>
+        <li>Download 403 full webp → <code>tier-list/assets/full/</code>.</li>
+        <li>Verify manifest: every <code>tier-lists.json</code> slug resolves to local thumb + full.</li>
       </ol>
       <p>
-        Once that file exists, implementation can proceed without needing live API access from the agent.
+        Re-fetch rankings after Mobalytics updates:
+        <code>python tier-list/scrape/fetch-tier-lists.py</code>
       </p>
     </div>
 
     <h2>8. File counts reference</h2>
     <ul>
       <li>STS2 total files: ~535 (424 avif, 63 js, 35 svg, 7 css, 4 htm, …)</li>
-      <li>Card thumbnails: 424 AVIF @ 102×128px</li>
-      <li>Characters: 5 (Ironclad, Silent, Regent, Necrobinder, Defect)</li>
-      <li>Tiers per character: 5 (S, A, B, C, D) + possible TBD row</li>
-      <li>Cards per character: ~87–88</li>
+      <li>Card thumbnails on disk: 424 AVIF @ 102×128px</li>
+      <li>Ranked cards in JSON: <strong>403</strong> (multiplayer 21 excluded)</li>
+      <li>Characters in viewer: 5 (Ironclad, Silent, Regent, Necrobinder, Defect)</li>
+      <li>Tiers per character: S/A/B/C/D (+ Necrobinder TBD row, empty)</li>
+      <li>Cards per character: 81 / 80 / 82 / 80 / 80</li>
       <li>GraphQL endpoint: <code>POST /api/sts2/v1/graphql/query</code></li>
       <li>Featured document slug: <code>cards</code> (type <code>tier-lists</code>)</li>
+      <li>Full art CDN: <code>cdn.mobalytics.gg/assets/sts2/images/cards/new/{slug}.webp</code></li>
     </ul>
 
     <footer>
       Plan authored from analysis of <code>Scrape-Ventures/STS2/</code> saved snapshot,
       Mobalytics JS bundle reverse-engineering, and live page structure review.
-      No implementation code yet — this document is the staging plan only.
+      Stage 1 implemented 2026-07-08 — see <code>dev-log.md</code> and
+      <code>tier-list/scrape/fetch-tier-lists.py</code>.
     </footer>
   </main>
 </body>
