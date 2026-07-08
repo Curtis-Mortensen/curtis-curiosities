@@ -214,3 +214,84 @@ python3 tier-list/scrape/build-viewer.py
 ### Status
 
 Shipped in Stage 3. Stage 4 remains character nav polish only.
+
+## 2026-07-08 — STS2 tier list Phase 4 (Stage 4: character navigation polish)
+
+**Plan:** `recreating-tier-list.html` Stage 4
+
+### Goal
+
+Polish sticky character jump navigation: active-section highlight on scroll, smooth hash jumps, keyboard traversal, mobile layout.
+
+### What was built
+
+| Path | Purpose |
+|------|---------|
+| `tier-list/viewer.js` | Scroll-spy (`setupCharacterNavScrollSpy`), smooth scroll (`setupNavSmoothScroll`), keyboard nav (`setupNavKeyboard`) |
+| `tier-list/viewer.css` | `.is-active` pill style, `focus-visible` rings, mobile horizontal-scroll nav, `scroll-behavior: smooth` |
+
+### Run
+
+No new scripts. Open `tier-list/index.html` in a browser (or re-bake if JSON changed).
+
+### Decisions / assumptions
+
+- **Scroll-spy:** IntersectionObserver with header-offset fallback picks the section whose top has passed the sticky header.
+- **Reduced motion:** `scroll-behavior: smooth` only when `prefers-reduced-motion: no-preference`.
+- **Mobile:** Below 640px, nav pills scroll horizontally instead of wrapping to a tall block.
+- **Out of scope:** YouTube embeds, wiki/Mobalytics crosslinks (unchanged from plan).
+
+### Bugs / issues
+
+- None during implementation.
+
+### Status
+
+**Stage 4 complete.** Viewer feature set is done; Stage 5 is the documented refresh pipeline only.
+
+## 2026-07-08 — STS2 tier list Phase 5 (Stage 5: refresh workflow)
+
+**Plan:** `recreating-tier-list.html` Stage 5
+
+### Goal
+
+Single-command refresh when Mobalytics updates rankings, plus tier-change diff between runs.
+
+### What was built
+
+| Path | Purpose |
+|------|---------|
+| `tier-list/scrape/refresh-tier-list.py` | Orchestrates fetch → images → metadata → bake; backs up JSON; runs diff |
+| `tier-list/scrape/diff-tier-lists.py` | Compare two `tier-lists.json` files; report moved/added/removed cards |
+| `tier-list/data/snapshots/` | Timestamped backups (gitignored JSON; `.gitkeep` in repo) |
+| `tier-list/.gitignore` | Ignores `tier-lists.previous.json` and snapshot JSON files |
+
+### Run
+
+```bash
+cd Scrape-Ventures
+python3 tier-list/scrape/refresh-tier-list.py          # live Mobalytics fetch
+python3 tier-list/scrape/refresh-tier-list.py --raw    # offline from STS2/tier-lists-raw.json
+python3 tier-list/scrape/diff-tier-lists.py            # manual diff (previous vs current)
+```
+
+Flags: `--skip-fetch`, `--skip-images`, `--skip-metadata`, `--skip-bake`, `--no-backup`, `--no-diff`.
+
+### Decisions / assumptions
+
+- **Backup before fetch:** Copies current JSON to `tier-lists.previous.json` and `data/snapshots/tier-lists-{UTC}.json`.
+- **Diff exit code 2** when placements changed (0 = identical); refresh treats 2 as success.
+- **Methodology still manual** — not scraped; edit `methodology.json` by hand if Mobalytics copy changes.
+- **Never hand-edit baked `index.html`** — re-run refresh or `build-viewer.py`.
+
+### Bugs / issues
+
+- None during implementation.
+
+### Status
+
+**Stage 5 complete.** STS2 tier-list project (Stages 1–5) is shippable.
+
+## 2026-07-08 — README: hand-edit vs generated files
+
+Updated `README.md` with tables for what to edit manually (`methodology.json`, viewer source) vs what to regenerate via `refresh-tier-list.py` (tier data, baked `index.html`, images, metadata).
