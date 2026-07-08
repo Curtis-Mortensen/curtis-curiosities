@@ -1,4 +1,44 @@
-# Apocalypse Story — Dev Log
+# Research Bot — Dev Log
+
+## 2026-07-08 — CompTIA A+ Mesa, Arizona Research (complete)
+
+### Plan summary
+User (employed IT tech ~1 year, Mesa AZ) asked for CompTIA A+ exam cost, discount/subsidy/grant programs, local proctoring centers, summer 2026 availability, and free/low-cost paths. Research followed Research-Bot README guidelines.
+
+### Precursor / subset questions identified
+1. Exam structure: how many vouchers, current codes (220-1201/220-1202)?
+2. Retail vs. partner vs. academic vs. military pricing?
+3. WIOA / Per Scholas / Garcia scholarship eligibility for employed workers?
+4. Which Pearson VUE centers serve East Valley Mesa?
+5. Summer 2026 center hours vs. Pearson on-demand scheduling?
+6. Exam-only path vs. $2,195+ training bundles for experienced techs?
+7. Hidden costs: retakes, CE renewal, study materials?
+8. Employer reimbursement and military spouse (SpouseWorks/MyCAA) paths?
+
+### Key findings
+- **Retail (post–June 1, 2026):** $274/exam, $548 for both A+ cores.
+- **Best likely path for employed tech:** authorized partner vouchers ~$476 total + free self-study; ask employer first.
+- **WIOA / Per Scholas:** can be $0 but require unemployment, dislocation, low income, or full-time training commitment — less likely if steadily employed.
+- **Garcia Family Foundation:** up to $2,500 + 2 A+ vouchers via MCC/SCC pathway; need-based.
+- **Nearest centers:** MCC Southern & Dobson (Bldg 38), Rio Salado Tempe, Pearson Chandler; OnVUE from home same voucher.
+- **Summer 2026:** MCC Mon–Thu 8am–6pm; Rio Mon–Thu 8am–7pm with holiday closures Jun 18–19 and Jul 2–5.
+
+### Changes made
+- Created `Research-Bot/comptia-a-plus-mesa-arizona-2026.html` — self-contained HTML report with cost tables, 30-program discount catalog, 10 test-center profiles, summer hours, decision tree, 48 references.
+
+### Assumptions
+- User is Maricopa County resident outside City of Phoenix (Mesa) for ARIZONA@WORK office mapping.
+- "Copier A+" interpreted as CompTIA A+.
+- Pearson VUE live seat inventory not queried (requires voucher + login); center hours only.
+- Employed status makes WIOA/Per Scholas lower probability; flagged in matrix.
+
+### Bugs / problems
+- CompTIA store product page did not render per-exam price in automated fetch; cross-verified via Total Seminars June 2026 price-increase post and CompTIA blog sources.
+
+### Status
+**Complete**
+
+---
 
 ## 2026-07-07 — Radio Repeater Technology Research (complete)
 
