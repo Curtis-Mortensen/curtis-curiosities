@@ -1,5 +1,45 @@
 # Apocalypse Story — Dev Log
 
+## 2026-07-08 — Arcosanti & Cosanti Foundation Current State Research (complete)
+
+### Plan summary
+User visited Arcosanti, spoke with a resident reporting hard times (~30 full-time residents), foundation blame post-Soleri, and recalled a Not So Native podcast (thought 2021/2023) about 2018 grey-water work and partnership-seeking over money. Requested comprehensive web research on foundation leadership, marketing head, residents, and current situation.
+
+### Precursor / subset questions identified
+1. What happened after Paolo Soleri died (2013)?
+2. Was 2018 grey-water the last major infrastructure project?
+3. Who was on the Not So Native podcast — same person still in marketing?
+4. Who runs the Cosanti Foundation board and staff today?
+5. Can we identify the ~30 current residents?
+6. Is the foundation discouraging residency?
+7. What is the most accurate picture as of mid-2026?
+
+### Key findings
+- Podcast was **Nov 21, 2019** (Not So Native S4), guest **Tim Bell** (Director of Communications) — not 2021/2023; Bell no longer in role.
+- 2018 grey-water (East Crescent + ASU EPICS) well-documented; last major building completed 1989.
+- CEO succession: Stein → McWhortor → Martin-Malikian (resigned Sept 2023) → Fritz interim → David Turnbull (~2024).
+- 2025 crisis (Wikipedia, NLRB): 80%+ layoffs reported, workshops ended 2024, volunteers eliminated Fall 2025, board strategic pause through 2026.
+- Resident count: downward from 75 (2020) → ~45 (website) → ~38 (press) → ~30 (visitor testimony); no public full roster.
+- No documented "discourage residency" policy; structural changes (employment-only, program cuts) explain resident perception.
+
+### Changes made
+- Created `Research-Bot/arcosanti-cosanti-foundation-current-state.html` — self-contained HTML report with timeline, leadership tables, resident partial list, financials, contradictions section, 29 references.
+
+### Assumptions
+- User meant "accurate" not "inaccurate" in final request.
+- Wikipedia 2025 layoff claims treated as reported but not fully independently verified (paywalled/local sources inaccessible).
+- Research date: July 8, 2026.
+
+### Bugs / problems
+- Bloomberg Oct 2025 article and Daily Independent paywalled — could not retrieve full text.
+- Foundation website partially stale vs. Wikipedia crisis reporting.
+- FY2024 990 leadership listing inconsistent across aggregators (Turnbull vs. Fritz).
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-07 — Radio Repeater Technology Research (complete)
 
 ### Plan summary
