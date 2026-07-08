@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alexandria — Investor Brief</title>
+  <style>
+    :root {
+      --bg: #f4f5f7;
+      --card: #ffffff;
+      --text: #1a1d21;
+      --muted: #5c6570;
+      --accent: #e65100;
+      --accent-soft: rgba(230, 81, 0, 0.1);
+      --navy: #0d1b2a;
+      --navy-mid: #1b2838;
+      --border: #e2e6ea;
+      --good: #198754;
+      --good-soft: #e8f5ec;
+      --warn: #d97706;
+      --warn-soft: #fef3c7;
+      --engine: #0d6efd;
+      --narrator: #6f42c1;
+      --discord: #5865f2;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+      line-height: 1.55;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 880px;
+      margin: 0 auto;
+      background: var(--card);
+      box-shadow: 0 0 60px rgba(13, 27, 42, 0.08);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, #162032 100%);
+      color: white;
+      padding: 2.75rem 2.5rem 2.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 90% 10%, rgba(230, 81, 0, 0.18) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 50% at 5% 90%, rgba(111, 66, 193, 0.14) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; }
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 0.65rem;
+    }
+    .hero h1 {
+      font-size: 2.15rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 0.85rem;
+    }
+    .hero-tagline {
+      font-size: 1.08rem;
+      color: rgba(255,255,255,0.82);
+      max-width: 38rem;
+      line-height: 1.5;
+    }
+    .hero-pitch {
+      margin-top: 1.35rem;
+      padding: 0.85rem 1.1rem;
+      background: rgba(255,255,255,0.07);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.9);
+      font-style: italic;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+    }
+    .hero-meta strong { color: rgba(255,255,255,0.85); font-weight: 600; }
+
+    /* ── Body grid ── */
+    .body {
+      padding: 2rem 2.5rem 2.5rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .section {
+      margin-bottom: 1.25rem;
+    }
+    .section-full {
+      grid-column: 1 / -1;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.35rem;
+      height: 100%;
+    }
+    .card-accent {
+      border-top: 3px solid var(--accent);
+    }
+    .card-navy {
+      background: linear-gradient(160deg, #f8f9fb 0%, #f0f2f5 100%);
+      border-color: #d5dae0;
+    }
+
+    .card-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.45rem;
+    }
+    .card h2 {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.65rem;
+      letter-spacing: -0.02em;
+    }
+    .card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.55rem;
+    }
+    .card p:last-child { margin-bottom: 0; }
+
+    ul.clean {
+      list-style: none;
+      padding: 0;
+    }
+    ul.clean li {
+      font-size: 0.88rem;
+      color: var(--text);
+      padding: 0.3rem 0 0.3rem 1.15rem;
+      position: relative;
+    }
+    ul.clean li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.65rem;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* ── Progress strip ── */
+    .progress-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      margin: 0.85rem 0 0;
+    }
+    .prog-item {
+      text-align: center;
+      padding: 0.75rem 0.5rem;
+      background: #f8f9fb;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .prog-value {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.1;
+    }
+    .prog-label {
+      font-size: 0.68rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+      line-height: 1.25;
+    }
+
+    /* ── Status bars ── */
+    .status-list { margin-top: 0.5rem; }
+    .status-row {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 0.55rem;
+      font-size: 0.82rem;
+    }
+    .status-row:last-child { margin-bottom: 0; }
+    .status-name {
+      flex: 0 0 7.5rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+    .status-bar-wrap {
+      flex: 1;
+      height: 6px;
+      background: #e9ecef;
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .status-bar-fill {
+      height: 100%;
+      border-radius: 99px;
+    }
+    .fill-good { background: linear-gradient(90deg, #2d9f5f, var(--good)); }
+    .fill-warn { background: linear-gradient(90deg, #f59e0b, var(--warn)); }
+    .fill-muted { background: #adb5bd; }
+    .status-tag {
+      flex: 0 0 auto;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.12rem 0.45rem;
+      border-radius: 99px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .tag-live { background: var(--good-soft); color: var(--good); }
+    .tag-beta { background: var(--warn-soft); color: #92400e; }
+    .tag-next { background: #e9ecef; color: #6c757d; }
+
+    /* ── Two-layer diagram ── */
+    .layers {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0.5rem;
+      align-items: center;
+      margin: 0.75rem 0 0.5rem;
+    }
+    .layer-box {
+      padding: 0.65rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+    .layer-box strong {
+      display: block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.2rem;
+    }
+    .layer-engine {
+      background: rgba(13, 110, 253, 0.08);
+      border: 1px solid rgba(13, 110, 253, 0.25);
+      color: var(--engine);
+    }
+    .layer-narrator {
+      background: rgba(111, 66, 193, 0.08);
+      border: 1px solid rgba(111, 66, 193, 0.25);
+      color: var(--narrator);
+    }
+    .layer-arrow {
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    /* ── Roadmap ── */
+    .roadmap {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+    .road-item {
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 0.82rem;
+    }
+    .road-item strong {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+    .road-item span { color: var(--muted); font-size: 0.78rem; }
+    .road-now { border-left: 3px solid var(--good); background: var(--good-soft); }
+    .road-soon { border-left: 3px solid var(--warn); background: var(--warn-soft); }
+    .road-later { border-left: 3px solid #adb5bd; background: #f8f9fb; }
+
+    /* ── Business model strip ── */
+    .biz-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.75rem;
+      padding: 0.85rem 1rem;
+      background: var(--accent-soft);
+      border-radius: 8px;
+      border: 1px solid rgba(230, 81, 0, 0.15);
+    }
+    .biz-item {
+      flex: 1;
+      min-width: 120px;
+    }
+    .biz-item .num {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+    .biz-item .lbl {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 0.1rem;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      padding: 1rem 2.5rem 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      background: #fafbfc;
+    }
+    .footer strong { color: var(--navy); }
+
+    @media (max-width: 700px) {
+      .hero, .body { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .progress-strip { grid-template-columns: repeat(2, 1fr); }
+      .roadmap { grid-template-columns: 1fr; }
+      .layers { grid-template-columns: 1fr; }
+      .layer-arrow { text-align: center; transform: rotate(90deg); }
+    }
+
+    @media print {
+      body { background: white; }
+      .page { box-shadow: none; max-width: 100%; }
+      .hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .card, .prog-item, .road-item { break-inside: avoid; }
+      @page { margin: 0.6in; size: letter; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header class="hero">
+      <div class="hero-inner">
+        <p class="hero-eyebrow">Investor Brief · July 2026</p>
+        <h1>Alexandria</h1>
+        <p class="hero-tagline">
+          Narrator-driven D&amp;D-style one-shots on Discord — where a rules engine keeps the math honest
+          and AI voices tell the story.
+        </p>
+        <p class="hero-pitch">
+          “A narrator-driven one-shot where the computer is the rules referee and the voices are the storytellers.”
+        </p>
+        <div class="hero-meta">
+          <span><strong>Model</strong> Subscription SaaS</span>
+          <span><strong>Platform</strong> Discord-native</span>
+          <span><strong>Stage</strong> Pre-revenue · MVP in build</span>
+          <span><strong>Founder</strong> Curtis Mortensen</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="body">
+
+      <div class="grid-2">
+
+        <!-- Target Audience -->
+        <section class="section card card-accent">
+          <p class="card-label">01 · Market</p>
+          <h2>Target Audience</h2>
+          <p>
+            Friend groups who already play tabletop RPGs — especially D&amp;D — and already hang out on Discord.
+            Alexandria is <em>not</em> replacing campaign DMs. It fills the empty chair on game night.
+          </p>
+          <ul class="clean">
+            <li><strong>3–4 players</strong> in voice chat, one evening session</li>
+            <li>Groups that cancel when nobody can prep or run a session</li>
+            <li>Players who want real dice math, not AI-hallucinated rolls</li>
+            <li>Discord-native — no new app to install for game night</li>
+          </ul>
+        </section>
+
+        <!-- MVP -->
+        <section class="section card card-accent">
+          <p class="card-label">02 · Product</p>
+          <h2>MVP Functionality</h2>
+          <p>Self-running one-shot adventures: join Discord, pick characters, play a prepared story with voiced narration.</p>
+
+          <div class="layers">
+            <div class="layer-box layer-engine">
+              <strong>Rules Engine</strong>
+              Dice, HP, combat, valid moves — enforced in code
+            </div>
+            <div class="layer-arrow">+</div>
+            <div class="layer-box layer-narrator">
+              <strong>Narrator Voices</strong>
+              Bard, Challenger &amp; more — scene prose &amp; roleplay
+            </div>
+          </div>
+
+          <ul class="clean" style="margin-top: 0.65rem;">
+            <li>Featured adventure: <em>Temple of the Moon Priests</em> (3–5 hr one-shot)</li>
+            <li>Adventure Lite &amp; D&amp;D 5e rules editions</li>
+            <li>Text + voice-message input; TTS narration in Discord voice</li>
+            <li>Operator review mode for live-session quality control</li>
+          </ul>
+        </section>
+
+        <!-- Code & Progress -->
+        <section class="section section-full card card-navy">
+          <p class="card-label">03 · Traction &amp; Engineering</p>
+          <h2>State of the Code</h2>
+          <p>
+            A deliberate multi-repo Ruby architecture (combat engine, tool engine, orchestrator, prompts engine, game shell)
+            built for testability and AI-agent development velocity. Major refactor complete; core game loop ~70% toward Discord MVP.
+          </p>
+
+          <div class="progress-strip">
+            <div class="prog-item">
+              <div class="prog-value">5</div>
+              <div class="prog-label">Engine repos shipped &amp; wired</div>
+            </div>
+            <div class="prog-item">
+              <div class="prog-value">B−</div>
+              <div class="prog-label">MVP loop readiness (audit)</div>
+            </div>
+            <div class="prog-item">
+              <div class="prog-value">5/7</div>
+              <div class="prog-label">Automation phases complete</div>
+            </div>
+            <div class="prog-item">
+              <div class="prog-value">Live</div>
+              <div class="prog-label">Terminal game playable today</div>
+            </div>
+          </div>
+
+          <div class="status-list" style="margin-top: 1rem;">
+            <div class="status-row">
+              <span class="status-name">Rules engine</span>
+              <div class="status-bar-wrap"><div class="status-bar-fill fill-good" style="width: 90%"></div></div>
+              <span class="status-tag tag-live">Shipped</span>
+            </div>
+            <div class="status-row">
+              <span class="status-name">AI turn loop</span>
+              <div class="status-bar-wrap"><div class="status-bar-fill fill-good" style="width: 75%"></div></div>
+              <span class="status-tag tag-live">Working</span>
+            </div>
+            <div class="status-row">
+              <span class="status-name">Marketing site</span>
+              <div class="status-bar-wrap"><div class="status-bar-fill fill-good" style="width: 85%"></div></div>
+              <span class="status-tag tag-live">Live</span>
+            </div>
+            <div class="status-row">
+              <span class="status-name">Discord voice</span>
+              <div class="status-bar-wrap"><div class="status-bar-fill fill-warn" style="width: 40%"></div></div>
+              <span class="status-tag tag-beta">In build</span>
+            </div>
+            <div class="status-row">
+              <span class="status-name">Paid launch</span>
+              <div class="status-bar-wrap"><div class="status-bar-fill fill-muted" style="width: 10%"></div></div>
+              <span class="status-tag tag-next">Next</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Business Model -->
+        <section class="section card">
+          <p class="card-label">04 · Business</p>
+          <h2>Revenue Model</h2>
+          <p>Subscription access to hosted one-shot adventures with AI narration. Core mechanics work offline; rich narrator scenes use managed AI infrastructure with transparent per-session costs.</p>
+          <div class="biz-strip">
+            <div class="biz-item">
+              <div class="num">$20</div>
+              <div class="lbl">Target price / month</div>
+            </div>
+            <div class="biz-item">
+              <div class="num">~$2.50</div>
+              <div class="lbl">AI cost / 3–4 hr session</div>
+            </div>
+            <div class="biz-item">
+              <div class="num">10%</div>
+              <div class="lbl">Modeled viral growth</div>
+            </div>
+            <div class="biz-item">
+              <div class="num">7%</div>
+              <div class="lbl">Modeled monthly churn</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Future -->
+        <section class="section card">
+          <p class="card-label">05 · Vision</p>
+          <h2>Future Aspirations</h2>
+          <p>One engine, many one-shots — adventures authored as data, separate from the rules engine. Content library scales without rewriting core code.</p>
+
+          <div class="roadmap">
+            <div class="road-item road-now">
+              <strong>Now → Q3 2026</strong>
+              <span>Close the automation loop · Discord voice MVP · beta with early groups</span>
+            </div>
+            <div class="road-item road-soon">
+              <strong>Next</strong>
+              <span>Paid launch · second adventure · subscription billing</span>
+            </div>
+            <div class="road-item road-later">
+              <strong>Later</strong>
+              <span>Adventure marketplace · creator tools · solo play · campaign mode</span>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+    </main>
+
+    <footer class="footer">
+      <span><strong>Alexandria</strong> · Confidential</span>
+      <span>the-motherlode · docs/funding/alexandria-for-investors.html</span>
+    </footer>
+
+  </div>
+</body>
+</html>
