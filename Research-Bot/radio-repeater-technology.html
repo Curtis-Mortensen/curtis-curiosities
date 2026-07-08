@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radio Repeater Technology — Meshtastic, GMRS, and Ham — Research Report</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #21262d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #7ee787;
+    --accent2: #58a6ff;
+    --danger: #f85149;
+    --warning: #d4a853;
+    --link: #79c0ff;
+    --border: #30363d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  h1 { font-size: 2rem; line-height: 1.25; margin-bottom: 0.5rem; color: var(--accent); }
+  .subtitle { color: var(--muted); font-style: italic; font-size: 1.05rem; }
+  h2 {
+    font-size: 1.45rem;
+    color: var(--accent2);
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 { font-size: 1.15rem; color: var(--accent); margin: 1.5rem 0 0.75rem; }
+  h4 { font-size: 1rem; color: var(--muted); margin: 1rem 0 0.5rem; }
+  p { margin-bottom: 1rem; }
+  a { color: var(--link); }
+  .thesis-box {
+    background: var(--surface);
+    border-left: 4px solid var(--accent);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .limitation-box {
+    background: var(--surface);
+    border-left: 4px solid var(--danger);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .warn-box {
+    background: var(--surface);
+    border-left: 4px solid var(--warning);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .overview-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+  .overview-card h4 { color: var(--accent2); margin-top: 0; }
+  .diagram {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    font-family: "Courier New", monospace;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    white-space: pre;
+    color: var(--muted);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.84rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.55rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: var(--surface2); color: var(--accent2); font-weight: 600; }
+  tr:nth-child(even) { background: var(--surface); }
+  .tag {
+    display: inline-block;
+    background: var(--surface2);
+    color: var(--accent);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    margin-right: 0.3rem;
+    font-family: sans-serif;
+  }
+  .cite { font-size: 0.82rem; color: var(--muted); }
+  .ref-list { font-size: 0.85rem; }
+  .ref-list li { margin-bottom: 0.6rem; }
+  .conclusion-box {
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+    border: 1px solid var(--accent2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+  ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>Radio Repeater Technology: LoRa, GMRS, and Ham</h1>
+  <p class="subtitle">A field guide to off-grid mesh relays, licensed voice repeaters, solar power sizing, Amazon hardware, and DIY build costs — with emphasis on emergency communications and post-collapse connectivity scenarios.</p>
+  <p class="cite">Compiled July 2026. US-centric (FCC rules, Amazon.com). Self-contained document; no prior context required.</p>
+</header>
+
+<section id="introduction">
+  <h2>1. Introduction and Aims</h2>
+  <p>This report answers a practical question: <strong>what repeater technologies exist, what do they cost on Amazon, how far do they reach, and can they run on solar?</strong> It covers three legal tiers relevant to US operators:</p>
+  <ol>
+    <li><strong>LoRa / Meshtastic</strong> — unlicensed Part 15 ISM (915 MHz); digital mesh packet relay, not voice.</li>
+    <li><strong>Licensed without exam</strong> — GMRS ($35 FCC fee, 10 years); full-duplex voice repeaters. Also documents FRS, MURS, and CB where repeaters are restricted or illegal.</li>
+    <li><strong>Amateur (ham) radio</strong> — Technician license + exam; full-duplex voice on coordinated VHF/UHF bands.</li>
+  </ol>
+
+  <div class="thesis-box">
+    <strong>Central thesis:</strong> For <em>off-grid text mesh</em> with minimal legal friction, a solar-powered <strong>RAK4631 Meshtastic relay</strong> (~$100–180 all-in) is the cheapest credible hilltop node. For <em>county-scale voice</em>, a <strong>Retevis RT97L GMRS repeater</strong> (~$535) beats most DIY Baofeng builds on filtering and total cost. For <em>maximum regional voice coverage</em>, a <strong>ham SvxLink + 50 W mobile + duplexer</strong> (~$600–1,500 DIY) remains the community standard — but requires a license exam and frequency coordination. Across all categories, <strong>antenna height and line-of-sight matter more than transmit power</strong> (Avramut, 2025; BFGNeil, 2025).
+  </div>
+
+  <p>Products are sorted within each category by <strong>range potential</strong> then <strong>price</strong>. Amazon ASINs and typical 2025–2026 prices are listed; prices fluctuate by seller and should be verified before purchase.</p>
+</section>
+
+<section id="precursor">
+  <h2>2. Precursor and Subset Questions</h2>
+  <div class="overview-grid">
+    <div class="overview-card">
+      <h4>What is a "repeater"?</h4>
+      <p>Traditional repeaters receive on one frequency and simultaneously retransmit on another (full-duplex voice). Meshtastic "routers" are store-and-forward <em>mesh nodes</em> — a different architecture with different range physics (LoRa spread-spectrum vs. FM voice).</p>
+    </div>
+    <div class="overview-card">
+      <h4>Which bands allow repeaters legally?</h4>
+      <p>GMRS and ham: yes (with license). FRS: no dedicated repeater channels. MURS: repeaters explicitly prohibited (47 CFR §95.1311). CB: repeaters and amplifiers prohibited (47 CFR §§95.411, 95.419).</p>
+    </div>
+    <div class="overview-card">
+      <h4>Can cheap Baofengs be a repeater?</h4>
+      <p>Technically with a controller + duplexer, but Baofeng UV-5R units lack selectivity; adjacent-channel TX desensitizes RX. Community consensus: buy a purpose-built GMRS repeater or ham-grade mobiles (TwoWayRadioForum, 2021; GMRS.io, 2025).</p>
+    </div>
+    <div class="overview-card">
+      <h4>Solar feasibility?</h4>
+      <p>Meshtastic nRF52840 nodes draw 5–20 mA average — trivially solar. GMRS RT97L draws up to 72 W on TX — needs 100–200 W panels and 50+ Ah batteries for reliable off-grid duty (Retevis, 2025).</p>
+    </div>
+    <div class="overview-card">
+      <h4>Amazon vs. specialist dealers?</h4>
+      <p>Meshtastic boards and Retevis repeaters are well-represented on Amazon. Quality duplexers (XLT, Icom) and RAK kits are often cheaper from radio dealers (Buy Two Way Radios, Rokland, RAKwireless).</p>
+    </div>
+    <div class="overview-card">
+      <h4>Apocalypse Story relevance?</h4>
+      <p>Post-collapse communications in the Apocalypse Story premise may assume infrastructure loss. Meshtastic provides infrastructure-free text mesh; GMRS/ham provide voice coordination at community scale if repeaters survive and are powered.</p>
+    </div>
+  </div>
+</section>
+
+<section id="limitations">
+  <h2>3. Limitations</h2>
+  <div class="limitation-box">
+    <p><strong>Theoretical:</strong> RF propagation is terrain- and weather-dependent. Range tables are distributions, not guarantees. Human behavior (who maintains hilltop nodes, who holds licenses) dominates post-crisis utility.</p>
+    <p><strong>US-centric:</strong> FCC Part 15/95/97 rules do not transfer to other countries. EU Meshtastic uses 868 MHz; GMRS does not exist outside North America.</p>
+    <p><strong>Price volatility:</strong> Amazon third-party sellers change prices daily. Figures here are representative snapshots (2025–2026).</p>
+    <p><strong>Amazon quality risk:</strong> Clone boards, mislabeled antennas, and poorly tuned duplexers are common. Community antenna reports (RicInNewMexico, 2024) document hardware-damaging bad matches.</p>
+    <p><strong>Marketing vs. measured range:</strong> Manufacturer "15 km" claims for GMRS repeaters assume ideal conditions. Field data for Meshtastic shows urban 0.5–2 km handheld-to-handheld without elevation (Avramut, 2025).</p>
+  </div>
+
+  <h3>Evidence Strength by Claim</h3>
+  <table>
+    <tr><th>Claim</th><th>Source type</th><th>Strength</th></tr>
+    <tr><td>MURS/CB repeaters illegal in US</td><td>FCC CFR text</td><td>Definitive</td></tr>
+    <tr><td>GMRS license $35, no exam</td><td>FCC GMRS page; Retevis blog</td><td>Definitive</td></tr>
+    <tr><td>RAK4631 draws 5–20 mA in router mode</td><td>Community measurements; d-central.tech sizing guide</td><td>Moderate</td></tr>
+    <tr><td>RT97L ~21 W after duplexer</td><td>Amazon verified purchaser review (B0F1G2FC7T)</td><td>Moderate (n=1)</td></tr>
+    <tr><td>Height beats gain for Meshtastic range</td><td>Field deployment synthesis (Avramut, 2025)</td><td>Strong</td></tr>
+    <tr><td>ALFA AOA-915-5ACM community-approved</td><td>VNA testing (NWI Mesh, 2025); GitHub antenna reports</td><td>Strong</td></tr>
+  </table>
+</section>
+
+<section id="history">
+  <h2>4. Brief History of the Field</h2>
+  <p><strong>Amateur repeaters (1950s–present):</strong> VHF/UHF repeaters emerged as hams sought extended range for mobile operation. Frequency coordinators formed in the 1970s to manage shared spectrum. SvxLink (Tobias Liljegren / SM0SVX) became the dominant open-source controller stack in the 2000s–2020s, running on Raspberry Pi with USB sound interfaces (sm0svx/svxlink Wiki, 2025).</p>
+  <p><strong>CB radio (1958–present):</strong> Citizens Band was opened for public use in 1958. The FCC has consistently prohibited external amplifiers and repeaters on 27 MHz to prevent interference (47 CFR §95.411). CB peaked in the 1970s; remains license-free but legally constrained.</p>
+  <p><strong>GMRS (1960s–present):</strong> General Mobile Radio Service was established for family/business mobile communication. 2017 FCC rule changes separated FRS and GMRS equipment classes and added data capabilities. Portable integrated GMRS repeaters (Retevis RT97 series, ~2019–2025) democratized repeater ownership for non-hams.</p>
+  <p><strong>LoRa and Meshtastic (2010s–present):</strong> Semtech's LoRa chirp spread-spectrum (2014–2015 commercialization) enabled km-range low-power digital links. Meshtastic (Jeremy Bennett et al., open source, ~2019) layered encrypted mesh routing on LoRa using ESP32 and nRF52840 boards. Post-COVID emergency-prep and off-grid communities drove explosive growth in 2023–2026 (Meshtastic.org; Adrelien, 2026).</p>
+</section>
+
+<section id="taxonomy">
+  <h2>5. Technology Taxonomy</h2>
+  <div class="diagram">
+LICENSE TIER          BAND / TECH        REPEATER LEGAL?    VOICE?    TYPICAL RANGE
+─────────────────────────────────────────────────────────────────────────────────────
+None (Part 15)        LoRa 915 MHz       Mesh relay OK      No        0.5–50+ km/hop
+None (Part 95)        FRS 462–467 MHz    No                 Yes       0.5–2 mi
+None (Part 95)        MURS 151–154 MHz   PROHIBITED         Yes       1–5 mi
+None (Part 95)        CB 27 MHz          PROHIBITED         Yes       1–10 mi
+$35 license, no test  GMRS 462–467 MHz   Yes (15R–22R)      Yes       5–50+ mi
+Exam required         Ham 2m / 70cm      Yes (coordinated)  Yes       20–80+ mi
+  </div>
+</section>
+
+<!-- ========== CATEGORY 1: LORA / MESHTASTIC ========== -->
+<section id="meshtastic">
+  <h2>6. Category 1: LoRa / Meshtastic (No License)</h2>
+  <p>Meshtastic nodes in <span class="tag">Router</span> or <span class="tag">Router_Late</span> role receive, decrypt, and re-forward encrypted packets — extending mesh reach beyond single-hop LoRa range. This is not a voice repeater; it is a <strong>digital packet relay</strong> on the unlicensed 902–928 MHz ISM band (US).</p>
+
+  <h3>6.1 Realistic Range (915 MHz, US)</h3>
+  <table>
+    <tr><th>Deployment</th><th>Reliable range</th><th>Source</th></tr>
+    <tr><td>Handheld, stock antenna, urban</td><td>0.5–2 km</td><td>Avramut, 2025</td></tr>
+    <tr><td>Handheld, good 915 MHz whip, suburban</td><td>2–8 km</td><td>Avramut, 2025; BFGNeil, 2025</td></tr>
+    <tr><td>Rooftop relay + 5 dBi omni</td><td>10–50 km to elevated peers</td><td>Avramut, 2025</td></tr>
+    <tr><td>Mountain relay, clear Fresnel</td><td>50–150+ km</td><td>Avramut, 2025 (outliers to 200+ km)</td></tr>
+    <tr><td>Seeed SenseCAP Solar Node (open area)</td><td>8–9 km (manufacturer)</td><td>Seeed Wiki, 2025</td></tr>
+  </table>
+
+  <h3>6.2 Amazon Hardware — Sorted by Price (Low → High)</h3>
+  <table>
+    <tr><th>Price</th><th>Make / Model</th><th>Amazon ASIN</th><th>MCU / Radio</th><th>Best use</th></tr>
+    <tr><td>~$20–26</td><td>Geekstory ESP32 LoRa 32 V3</td><td><a href="https://www.amazon.com/Development-Display-Antenna-Arduino-Internet/dp/B0CYSSZMSR">B0CYSSZMSR</a></td><td>ESP32-S3 + SX1262</td><td>Cheapest experiment</td></tr>
+    <tr><td>~$26</td><td><strong>Heltec WiFi LoRa 32 V3</strong></td><td><a href="https://www.amazon.com/Heltec-Meshtastic-Bluetooth-Development-Starter/dp/B0GQLBS3MM">B0GQLBS3MM</a></td><td>ESP32-S3 + SX1262</td><td>Budget fixed relay</td></tr>
+    <tr><td>~$35–45</td><td>Heltec V3 kit (board + 3000 mAh + case)</td><td><a href="https://www.amazon.com/Heltec-Development-Meshtastic-Compatible-Industrial/dp/B0FJXW21CC">B0FJXW21CC</a></td><td>ESP32-S3 + SX1262</td><td>Portable turnkey</td></tr>
+    <tr><td>~$37–68</td><td><strong>LILYGO T-Beam</strong></td><td>Search "LILYGO T-Beam Meshtastic 915"</td><td>ESP32 + SX1276/SX1262 + GPS</td><td>Mobile / solar 18650</td></tr>
+    <tr><td>~$60–91</td><td><strong>LILYGO T-Beam SUPREME</strong></td><td><a href="https://www.amazon.com/LILYGO-T-BeamSUPREME-UBLOX-M10S-915mhz/dp/B0CWRKK53Q">B0CWRKK53Q</a> (~$91); L76K <a href="https://www.amazon.com/LILYGO-T-BeamSUPREME-Development-L76K-915Mhz/dp/B0CXJ71NB6">B0CXJ71NB6</a></td><td>ESP32-S3 + SX1262 + GPS</td><td>Best ESP32 all-in-one</td></tr>
+    <tr><td>~$65</td><td>RAK WisBlock Meshtastic kit (RAK4631)</td><td>Often Newegg; search Amazon "RAK4631"</td><td>nRF52840 + SX1262</td><td><strong>Best for solar</strong></td></tr>
+    <tr><td>~$70–144</td><td>LILYGO T-Deck / T-Deck Plus</td><td>Search "LILYGO T-Deck Meshtastic"</td><td>ESP32-S3 + keyboard</td><td>Phone-free messaging; high power</td></tr>
+    <tr><td>~$70–90</td><td>LILYGO T-Echo</td><td>Search "LILYGO T-Echo Meshtastic"</td><td>nRF52840 + e-ink + GPS</td><td>Ultralight EDC</td></tr>
+    <tr><td>~$70–90</td><td><strong>Seeed SenseCAP Solar Node P1 / P1-Pro</strong></td><td>Seeed Amazon store; MSRP ~$70–90 direct</td><td>nRF52840 + 5 W panel</td><td>Turnkey solar repeater</td></tr>
+  </table>
+
+  <h3>6.3 Amazon Hardware — Sorted by Range Potential (Low → High)</h3>
+  <table>
+    <tr><th>Range tier</th><th>Product</th><th>Price</th><th>Notes</th></tr>
+    <tr><td>Short (urban handheld)</td><td>Heltec V3 bare board</td><td>~$26</td><td>Replace stock antenna; set Router role</td></tr>
+    <tr><td>Medium (suburban)</td><td>T-Beam + aftermarket whip</td><td>~$50–80</td><td>18650 + GPS for field relay</td></tr>
+    <tr><td>Long (hilltop relay)</td><td>RAK4631 + ALFA 5 dBi + LMR-240</td><td>~$70–110</td><td>Lowest power draw for solar</td></tr>
+    <tr><td>Long (turnkey solar)</td><td>SenseCAP P1-Pro</td><td>~$90</td><td>5 W panel, 4×18650, IPX6</td></tr>
+    <tr><td>Maximum (backbone)</td><td>RAK4631 + Rokland 5.8 dBi on tower</td><td>~$90–130</td><td>Community-tested step up from ALFA (NWI Mesh, 2025)</td></tr>
+  </table>
+
+  <h3>6.4 Antenna Upgrades (Amazon / Adjacent)</h3>
+  <table>
+    <tr><th>Antenna</th><th>Price</th><th>Gain</th><th>Community verdict</th></tr>
+    <tr><td>Stock T-Beam / Heltec whip</td><td>Included</td><td>~2 dBi</td><td>❌ Poor VSWR ~3.6 — replace (NWI Mesh, 2025)</td></tr>
+    <tr><td>Tenmory TB-CSA21 (2-pack)</td><td>~$12</td><td>~3 dBi</td><td>✔️ Budget upgrade (GitHub antenna reports)</td></tr>
+    <tr><td>ALFA AOA-915-5ACM</td><td>~$14–20</td><td>5 dBi</td><td>✔️ Infrastructure standard (NWI Mesh, 2025)</td></tr>
+    <tr><td>Rokland 32" 5.8 dBi</td><td>~$25–35</td><td>5.8 dBi</td><td>✔️ Elevated outdoor nodes</td></tr>
+    <tr><td>Clarifi 8 dBi</td><td>~$30–40</td><td>8 dBi</td><td>Flat-terrain backbone; narrow beam</td></tr>
+  </table>
+
+  <h3>6.5 Power Draw and Solar Sizing</h3>
+  <table>
+    <tr><th>Hardware</th><th>Avg current (router)</th><th>Daily energy @ 3.7 V</th><th>Recommended panel</th></tr>
+    <tr><td>RAK4631 (low traffic)</td><td>5–20 mA</td><td>0.4–1.8 Wh/day</td><td>5–10 W</td></tr>
+    <tr><td>RAK4631 (busy mesh)</td><td>15–40 mA</td><td>1.3–3.6 Wh/day</td><td>10–20 W</td></tr>
+    <tr><td>Heltec V3 (ESP32)</td><td>60–150 mA</td><td>5–13 Wh/day</td><td>30–60 W (avoid for solar if possible)</td></tr>
+    <tr><td>T-Beam Supreme</td><td>80–120 mA active</td><td>7–11 Wh/day</td><td>20–40 W minimum</td></tr>
+  </table>
+  <p class="cite">Sources: Meshtastic.org power measurement guide; d-central.tech solar sizing; NEPA Mesh field report (nepamesh.com, 2025); Kaspars Dambis field test (12 mA @ 5% air utilization).</p>
+
+  <h3>6.6 DIY Solar BOM vs. Turnkey (Cost Comparison)</h3>
+  <table>
+    <tr><th>Build</th><th>Parts</th><th>Est. cost</th></tr>
+    <tr><td><strong>Budget DIY relay</strong></td><td>Heltec V3 + 5 W panel + CN3791 MPPT + 2×18650 + IP67 box + Tenmory antenna</td><td>~$95</td></tr>
+    <tr><td><strong>Serious DIY relay</strong></td><td>RAK4631 kit + 10 W panel + 6000 mAh 18650 + ALFA antenna + LMR-240 + enclosure</td><td>~$180</td></tr>
+    <tr><td><strong>Turnkey</strong></td><td>Seeed SenseCAP P1-Pro (panel + batteries + enclosure included)</td><td>~$90</td></tr>
+  </table>
+
+  <h3>6.7 Top Meshtastic Guides</h3>
+  <ol>
+    <li><a href="https://meshtastic.org/docs/hardware/solar-powered/measure-power-consumption/">Meshtastic.org — Measure Power Consumption</a> (official; required before solar sizing)</li>
+    <li><a href="https://nepamesh.com/the-solar-node-build-permanent-off-grid-and-surprisingly-boring-to-maintain/">NEPA Mesh — Solar Node Build</a> (RAK4631; survived 2 weeks snow-covered)</li>
+    <li><a href="https://www.lorameshdevices.com/blog/meshtastic/diy-solar-meshtastic-node-build-a-complete-step-by-step-guide.html">LoRaMeshDevices.com — DIY Solar Step-by-Step</a></li>
+    <li><a href="https://adrelien.com/meshtastic-the-complete-getting-started-guide/">Adrelien — Complete Getting Started Guide (2026)</a></li>
+    <li><a href="http://meshcalc.com/battery/">MeshCalc</a> — battery/panel estimator</li>
+    <li><a href="https://github.com/RicInNewMexico/Meshtastic-Antenna-Reports">Meshtastic Antenna Reports (GitHub)</a></li>
+    <li><a href="https://d-central.tech/solar-meshtastic-node-build/">d-central.tech — Solar Relay Sizing (RAK, LFP)</a></li>
+  </ol>
+</section>
+
+<!-- ========== CATEGORY 2: LICENSED NO EXAM ========== -->
+<section id="gmrs">
+  <h2>7. Category 2: Licensed Without Exam (GMRS)</h2>
+  <p><strong>License:</strong> $35 via <a href="https://www.fcc.gov/wireless/bureau-divisions/mobility-division/general-mobile-radio-service-gmrs">FCC ULS</a>, 10-year term, covers immediate family. No examination (FCC GMRS page; Retevis, 2025).</p>
+  <p><strong>Repeater channels:</strong> 15R–22R — output 462.550–462.725 MHz, input +5 MHz on 467.550–467.725 MHz (GMRS.io, 2025).</p>
+
+  <div class="warn-box">
+    <strong>MURS and CB:</strong> MURS repeaters are <em>explicitly prohibited</em> (47 CFR §95.1311). CB repeaters and external RF amplifiers are <em>prohibited</em> (47 CFR §§95.411, 95.419). Products marketed as "MURS repeaters" or "CB linear amplifiers" on Amazon are illegal to operate as repeaters in the US.
+  </div>
+
+  <h3>7.1 Amazon GMRS Repeaters — Sorted by Price</h3>
+  <table>
+    <tr><th>Price</th><th>Model</th><th>ASIN</th><th>Effective TX</th><th>Solar (12–24 V)?</th></tr>
+    <tr><td>~$360–400</td><td>Retevis RT97</td><td><a href="https://www.amazon.com/Retevis-Mobile-Station-Duplex-Portable/dp/B07Q71LZJG">B07Q71LZJG</a></td><td>~5–6 W (duplexer loss)</td><td>Yes</td></tr>
+    <tr><td>~$391</td><td>RT97 + MR600 antenna bundle</td><td><a href="https://www.amazon.com/Retevis-Repeater-Antenna-Portable-Magnetic/dp/B0FWJRB61C">B0FWJRB61C</a></td><td>~5–6 W</td><td>Yes</td></tr>
+    <tr><td>~$400–450</td><td>Retevis RT97S (waterproof)</td><td>Search B0FBX48DDM</td><td>~4 W reported</td><td>Yes</td></tr>
+    <tr><td>~$535</td><td><strong>Retevis RT97L (25 W, IP66)</strong></td><td><a href="https://www.amazon.com/Retevis-High-Power-Waterproof-Compatible-Raspberry/dp/B0F1G2FC7T">B0F1G2FC7T</a></td><td>~21 W verified (user)</td><td>Yes — 6 A TX</td></tr>
+    <tr><td>~$640</td><td>RT97L + FRP antenna kit</td><td><a href="https://www.amazon.com/Retevis-Repeater-Portable-Warehouses-Outdoors/dp/B0F62PXSTN">B0F62PXSTN</a></td><td>~21 W</td><td>Yes</td></tr>
+  </table>
+
+  <h3>7.2 GMRS Repeaters — Sorted by Range Potential</h3>
+  <table>
+    <tr><th>Rank</th><th>Model</th><th>Typical coverage</th><th>Price</th></tr>
+    <tr><td>1</td><td>RT97L on hilltop + high-gain antenna</td><td>15–50+ miles radius</td><td>~$535 + antenna/coax</td></tr>
+    <tr><td>2</td><td>RT97 / RT97S</td><td>5–25 miles</td><td>~$360–450</td></tr>
+    <tr><td>3</td><td>DIY: 2× BTECH GMRS-50X1 + duplexer + controller</td><td>Similar to RT97L if built well</td><td>~$800–1,100</td></tr>
+  </table>
+
+  <h3>7.3 GMRS Power Draw and Solar</h3>
+  <table>
+    <tr><th>Model</th><th>Standby</th><th>Transmit</th><th>Moderate-use solar system</th></tr>
+    <tr><td>RT97</td><td>~75–85 mA @ 12 V (~1 W)</td><td>~2 A @ 12 V</td><td>30 W panel + 9 Ah battery</td></tr>
+    <tr><td>RT97L</td><td>~85 mA @ 12 V (~1 W)</td><td>6 A @ 12 V (~72 W)</td><td>150 W panel + 50 Ah LiFePO₄</td></tr>
+  </table>
+  <p>Retevis published RT97L daily energy estimates (Retevis blog, 2025):</p>
+  <table>
+    <tr><th>Usage</th><th>TX time/day</th><th>Daily Wh</th><th>Battery</th><th>Panel</th></tr>
+    <tr><td>Light</td><td>1 h</td><td>~110 Wh</td><td>12 V 20 Ah</td><td>≥100 W</td></tr>
+    <tr><td>Moderate</td><td>3 h</td><td>~280 Wh</td><td>12 V 50 Ah</td><td>≥150 W</td></tr>
+    <tr><td>Heavy</td><td>6 h</td><td>~530 Wh</td><td>12 V 100 Ah</td><td>≥200 W</td></tr>
+  </table>
+
+  <h3>7.4 DIY GMRS Repeater — Amazon Parts and Cost Comparison</h3>
+  <table>
+    <tr><th>Component</th><th>Amazon example</th><th>Price</th></tr>
+    <tr><td>GMRS duplexer (462/467 preset)</td><td>Fumei 50 W <a href="https://www.amazon.com/Fumei-400-470MHz-Duplexer-Frequency-connectors/dp/B07FGFX6Q4">B07FGFX6Q4</a></td><td>~$119</td></tr>
+    <tr><td>Generic UHF duplexer (needs tuning)</td><td>Wishring <a href="https://www.amazon.com/Wishring-380-512MHz-DUPLEXER-repeater-connector/dp/B01C8D73WO">B01C8D73WO</a></td><td>~$139</td></tr>
+    <tr><td>Repeater controller</td><td>Surecom SR-629 <a href="https://www.amazon.com/Gam3Gear-Surecom-SR-629-Repeater-Controller/dp/B01M0KVOC2">B01M0KVOC2</a></td><td>~$39</td></tr>
+    <tr><td>Cross-band controller w/ cables</td><td>Surecom SR-628 <a href="https://www.amazon.com/Mcbazel-Surecom-Repeater-Controller-QUANSHENG/dp/B01M7YTI16">B01M7YTI16</a></td><td>~$51</td></tr>
+    <tr><td>2× mobile radios (50 W GMRS)</td><td>BTECH GMRS-50X1 (~$179 each)</td><td>~$358</td></tr>
+    <tr><td>Antenna + LMR-400 coax</td><td>5–8 dBi fiberglass GMRS</td><td>$60–120</td></tr>
+    <tr><td>12 V battery + solar</td><td>50 Ah LiFePO₄ + 150 W panel + MPPT</td><td>$150–300</td></tr>
+    <tr><td colspan="2"><strong>DIY total</strong></td><td><strong>~$800–1,100</strong></td></tr>
+    <tr><td colspan="2"><strong>RT97L turnkey (repeater only)</strong></td><td><strong>~$535</strong></td></tr>
+  </table>
+  <p><strong>Verdict:</strong> RT97L beats DIY on cost and duplexer integration unless cross-band or existing mobiles are available (GMRS.io, 2025; Retevis, 2025).</p>
+
+  <h3>7.5 Top GMRS Guides</h3>
+  <ol>
+    <li><a href="https://www.gmrs.io/guide/setting-up-repeater">GMRS.io — Setting Up Your Own Repeater</a></li>
+    <li><a href="https://www.retevis.com/blog/breaking-communication-barriers-rt97l-portable-repeater-and-solar-power-solution">Retevis — RT97L Solar Power Solution</a></li>
+    <li><a href="https://www.buytwowayradios.com/blog/2024/03/how-to-connect-two-kg-1000g-radios-to-a-gmrs-duplexer.html">Buy Two Way Radios — KG-1000G + GMRS Duplexer</a></li>
+    <li><a href="https://www.gmrs.io/guide/repeater-offsets">GMRS.io — Repeater Offsets and Splits</a></li>
+  </ol>
+</section>
+
+<!-- ========== CATEGORY 3: HAM ========== -->
+<section id="ham">
+  <h2>8. Category 3: Amateur (Ham) Radio — License + Exam</h2>
+  <p><strong>Minimum license:</strong> Technician ($15 exam via VEC). Permits VHF/UHF repeater operation (47 CFR §97.205). <strong>Frequency coordination</strong> is voluntary but strongly recommended; uncoordinated repeaters bear primary interference liability (47 CFR §97.205(c); RepeaterBook Wiki, 2025).</p>
+
+  <h3>8.1 Amazon Ham Repeater Ecosystem</h3>
+  <p>Full commercial repeaters (Icom FR-series, Motorola SLR) are rarely on Amazon. Amazon is useful for controllers, duplexers, interfaces, and mobile radios.</p>
+  <table>
+    <tr><th>Component</th><th>Amazon example</th><th>Price</th></tr>
+    <tr><td>VHF duplexer 50 W</td><td>Fumei VHF <a href="https://www.amazon.com/Fumei-136-174MHz-Duplexer-Frequency-connectors/dp/B07VLSPZLW">B07VLSPZLW</a></td><td>~$90–120</td></tr>
+    <tr><td>UHF duplexer 50 W</td><td>Fumei / Wishring</td><td>$119–139</td></tr>
+    <tr><td>Analog controller</td><td>Surecom SR-629</td><td>~$39</td></tr>
+    <tr><td>Raspberry Pi 4/5</td><td>Various</td><td>$45–80</td></tr>
+    <tr><td>CM108 USB sound dongle (PTT mod)</td><td>Search "CM108 PTT"</td><td>~$10–15</td></tr>
+    <tr><td>Mobile radio (ham)</td><td>AnyTone AT-778UV, Radioddity DB-25G</td><td>$80–150</td></tr>
+  </table>
+  <p>Professional GMRS/ham duplexers (XLT DP-GMRS-50 ~$170, Icom IASDUP ~$500+) from <a href="https://www.buytwowayradios.com/accessories/duplexers.html">Buy Two Way Radios</a> — not typically Amazon.</p>
+
+  <h3>8.2 DIY Ham Repeater Tiers</h3>
+  <table>
+    <tr><th>Tier</th><th>Architecture</th><th>Cost</th><th>Range</th><th>Key guide</th></tr>
+    <tr><td>A — Micro</td><td>2× Dorji SA-818 modules + Arduino</td><td>$80–150</td><td>5–15 km</td><td><a href="https://github.com/sq2dk/Micro-repeater">sq2dk/Micro-repeater</a></td></tr>
+    <tr><td>B — Arduino</td><td>Arduino + 2× mobile/handheld + audio/PTT</td><td>$150–400</td><td>10–30 km</td><td><a href="https://bandingsite.wordpress.com/arduino-repeater-controller/">AA5OY Arduino Controller</a></td></tr>
+    <tr><td>C — SvxLink</td><td>Raspberry Pi + CM108 + FM mobile + duplexer</td><td>$600–1,500</td><td>20–80+ mi</td><td><a href="https://github.com/sm0svx/svxlink/wiki">sm0svx/svxlink Wiki</a></td></tr>
+  </table>
+
+  <h3>8.3 Top Ham Repeater Guides</h3>
+  <ol>
+    <li><a href="https://github.com/sm0svx/svxlink/wiki/InstallSrcHwRpi">SvxLink — Install on Raspberry Pi</a> (canonical)</li>
+    <li><a href="https://github.com/do6np/svxlink_setup">do6np/svxlink_setup</a> (automated Pi install)</li>
+    <li><a href="https://github.com/f5vmr/svxlinkbuilder">f5vmr/svxlinkbuilder</a> + <a href="https://youtu.be/cesWlmhy_vs">YouTube walkthrough</a></li>
+    <li><a href="https://openrepeater.com/hardware">Open Repeater hardware</a> (ICS Pi boards)</li>
+    <li><a href="https://wiki.oarc.uk/svxlink">OARC SvxLink wiki</a> (CM108 minimal build)</li>
+    <li><a href="https://www.qsl.net/on7eq/projects/arduino_simplex_repeater.htm">ON7EQ Arduino Simplex Repeater</a></li>
+  </ol>
+</section>
+
+<!-- ========== MASTER COMPARISON ========== -->
+<section id="master">
+  <h2>9. Master Comparison — Range vs. Price</h2>
+  <table>
+    <tr><th>Rank</th><th>System</th><th>License</th><th>Typical max range</th><th>Entry price</th><th>Solar viable?</th></tr>
+    <tr><td>1</td><td>Ham hilltop repeater (50–100 W)</td><td>Exam</td><td>50–80+ mi</td><td>$600 DIY / $2K+ commercial</td><td>Yes (100–200 W panel)</td></tr>
+    <tr><td>2</td><td>GMRS RT97L repeater</td><td>$35 fee</td><td>15–50 mi</td><td>~$535</td><td>Yes (100–200 W panel)</td></tr>
+    <tr><td>3</td><td>Meshtastic elevated relay</td><td>None</td><td>10–50+ km/hop; multi-hop extends</td><td>~$26–90</td><td><strong>Easiest</strong> (5–10 W)</td></tr>
+    <tr><td>4</td><td>GMRS RT97 / RT97S</td><td>$35 fee</td><td>5–25 mi</td><td>~$360–450</td><td>Yes (30–100 W)</td></tr>
+    <tr><td>5</td><td>FRS handhelds</td><td>None</td><td>0.5–2 mi</td><td>~$25–60/pair</td><td>N/A</td></tr>
+    <tr><td>6</td><td>MURS handheld + external antenna</td><td>None</td><td>1–5 mi (no repeater)</td><td>~$50–80</td><td>N/A</td></tr>
+    <tr><td>7</td><td>CB base/handheld</td><td>None</td><td>1–10 mi (variable)</td><td>~$40–150</td><td>N/A (no repeater)</td></tr>
+  </table>
+
+  <h3>9.1 Decision Tree (Emergency / Off-Grid)</h3>
+  <div class="diagram">
+Need OFF-GRID TEXT, no license?
+  └─► Meshtastic RAK4631 solar relay on a hill (~$100–180 all-in)
+
+Need VOICE across a county, family license OK?
+  └─► GMRS RT97L on hilltop + solar (~$700 with power/antenna)
+
+Need regional voice + emcomm community?
+  └─► Technician license → SvxLink Pi repeater → coordinate frequency
+
+Already own UV-5Rs?
+  └─► Do NOT build GMRS repeater from them (illegal Part 95 + poor filtering)
+  └─► Use as handhelds; invest in RT97L or ham build
+  </div>
+</section>
+
+<section id="shopping">
+  <h2>10. Amazon Shopping List Templates</h2>
+  <h3>10.1 Budget Mesh Relay (~$95)</h3>
+  <ul>
+    <li>Heltec V3 (B0GQLBS3MM) — ~$26</li>
+    <li>5 W monocrystalline solar panel — ~$18</li>
+    <li>CN3791 MPPT module — ~$10</li>
+    <li>2× 18650 + holder — ~$18</li>
+    <li>IP67 enclosure + cable glands — ~$15</li>
+    <li>Tenmory antenna upgrade — ~$12</li>
+  </ul>
+  <h3>10.2 Serious Off-Grid Mesh Relay (~$180)</h3>
+  <ul>
+    <li>T-Beam SUPREME or RAK4631 kit — $60–90</li>
+    <li>ALFA AOA-915-5ACM — ~$18</li>
+    <li>10 W panel + 6000 mAh 18650 — ~$45</li>
+    <li>LMR-240 coax + roof mount — ~$30</li>
+  </ul>
+  <h3>10.3 GMRS Hilltop Voice (~$750)</h3>
+  <ul>
+    <li>RT97L (B0F1G2FC7T) — ~$535</li>
+    <li>150 W panel + 50 Ah LiFePO₄ + MPPT — ~$250</li>
+    <li>Fiberglass 6–8 dBi GMRS antenna + LMR-400 — ~$80</li>
+  </ul>
+</section>
+
+<section id="conclusion">
+  <h2>11. Conclusion</h2>
+  <div class="conclusion-box">
+    <p>Radio "repeater" technology spans three distinct legal and technical worlds. <strong>Meshtastic</strong> offers the lowest barrier — no license, trivial solar power, and mesh range that scales with elevation — but carries text/data only. <strong>GMRS</strong> is the sweet spot for licensed voice at family scale: the Retevis RT97L at ~$535 outperforms most DIY builds and accepts 12–24 V solar input, though it demands 10–20× the power budget of a LoRa node. <strong>Ham repeaters</strong> remain the gold standard for regional emcomm voice but require an exam, coordination, and substantially more expertise and capital.</p>
+    <p>Across all three, the highest-return investment is not the radio but the <strong>antenna system and mount height</strong>. A $26 Heltec on a roof with a $15 ALFA antenna will outperform a $91 T-Beam Supreme with a stock whip at ground level.</p>
+  </div>
+</section>
+
+<section id="further">
+  <h2>12. Further Research Directions</h2>
+  <ul>
+    <li>Cross-band GMRS↔ham gateway legality and practical setups for licensed operators holding both credentials.</li>
+    <li>LiFePO₄ vs. AGM for RT97L solar duty cycles in northern latitudes (winter peak-sun-hour derating).</li>
+    <li>Meshtastic MQTT gateway + Starlink fallback architectures for hybrid off-grid/backhaul.</li>
+    <li>EMP/hardening considerations for hilltop repeater sites (feedline protection, Faraday enclosures).</li>
+    <li>Apocalypse Story mapping: which mesh voice/text stacks survive 50–90% population loss with no grid power.</li>
+    <li>Field comparison: Fumei Amazon duplexer vs. XLT DP-GMRS-50 on adjacent-channel desense.</li>
+  </ul>
+</section>
+
+<section id="references">
+  <h2>13. References</h2>
+  <ol class="ref-list">
+    <li>Avramut, V. (2025). <em>Meshtastic Range: Field Data vs RF Theory.</em> <a href="https://vlad-avramut.com/articles/meshtastic-range.html">vlad-avramut.com</a></li>
+    <li>BFGNeil (2025). <em>How to Improve Your Meshtastic Range.</em> <a href="https://bfgneil.uk/blog/how-to-improve-your-meshtastic-range-antennas-height-and-real-world-tips-17">bfgneil.uk</a></li>
+    <li>Meshtastic.org (2025). <em>Measure Power Consumption.</em> <a href="https://meshtastic.org/docs/hardware/solar-powered/measure-power-consumption/">meshtastic.org</a></li>
+    <li>Seeed Studio (2025). <em>SenseCAP Solar Node Wiki.</em> <a href="https://wiki.seeedstudio.com/meshtastic_solar_node/">wiki.seeedstudio.com</a></li>
+    <li>NEPA Mesh (2025). <em>Solar-Powered Meshtastic Node Build Guide.</em> <a href="https://nepamesh.com/the-solar-node-build-permanent-off-grid-and-surprisingly-boring-to-maintain/">nepamesh.com</a></li>
+    <li>d-central.tech (2025). <em>Solar Meshtastic Relay Node Build Guide.</em></li>
+    <li>NWI Mesh / W9MDM (2025). <em>915 MHz LoRa Antenna Comparison (VNA).</em> <a href="https://nwimesh.net/alfa-915-vs-knockoff/">nwimesh.net</a></li>
+    <li>RicInNewMexico (2024). <em>Meshtastic Antenna Reports.</em> GitHub.</li>
+    <li>Adrelien (2026). <em>Meshtastic Complete Getting Started Guide.</em></li>
+    <li>FCC (2025). <em>General Mobile Radio Service (GMRS).</em> <a href="https://www.fcc.gov/wireless/bureau-divisions/mobility-division/general-mobile-radio-service-gmrs">fcc.gov</a></li>
+    <li>FCC (2025). <em>Multi-Use Radio Service (MURS).</em> 47 CFR §95.1311.</li>
+    <li>FCC. <em>Citizens Band Radio Service.</em> 47 CFR §§95.411, 95.419.</li>
+    <li>GMRS.io (2025). <em>Setting Up Your Own Repeater.</em> <a href="https://www.gmrs.io/guide/setting-up-repeater">gmrs.io</a></li>
+    <li>Retevis (2025). <em>RT97L Portable Repeater and Solar Power Solution.</em></li>
+    <li>Retevis (2025). RT97 product page — 12–24 V DC, solar battery support.</li>
+    <li>Amazon product listings: B0GQLBS3MM, B07Q71LZJG, B0F1G2FC7T, B07FGFX6Q4, B01M0KVOC2 (prices July 2025–2026).</li>
+    <li>TwoWayRadioForum (2021). <em>Help with GMRS repeater set up.</em></li>
+    <li>Buy Two Way Radios (2024). <em>KG-1000G + GMRS Duplexer.</em></li>
+    <li>sm0svx (2025). <em>SvxLink Wiki — Install on Raspberry Pi.</em> GitHub.</li>
+    <li>do6np (2025). <em>svxlink_setup.</em> GitHub.</li>
+    <li>sq2dk. <em>Micro-repeater.</em> GitHub.</li>
+    <li>47 CFR §97.205 — Repeater station (ham).</li>
+    <li>RepeaterBook Wiki. <em>Repeater Coordination.</em></li>
+    <li>Kaspars Dambis. <em>Building a Solar Powered LoRa Meshtastic Network.</em></li>
+    <li>Pete's Blog. <em>Meshtastic solar charging — TP4054 limitations.</em></li>
+  </ol>
+</section>
+
+<footer>
+  <p>Research-Bot artifact. Compiled July 2026. Prices and Amazon availability change frequently — verify before purchase. This document is informational and does not constitute legal advice on FCC compliance.</p>
+</footer>
+
+</div>
+</body>
+</html>
