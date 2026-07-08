@@ -335,4 +335,4 @@ cd tier-list && python3 -m http.server 8080
 
 ## 2026-07-08 — Search scroll restore
 
-Clearing the search box restores the scroll position from before the first keystroke of that search session.
+Clearing the search box restores scroll position from before the search started. Uses the visible section as an anchor so restore still works after filtered rows expand the page again. Also listens for the `search` event (clear button on `type="search"` inputs).

@@ -459,16 +459,71 @@ function setupCharacterNav(navEl) {
   setupCharacterNavScrollSpy(navEl);
 }
 
-/** Scroll position saved when the user first types in search; restored when cleared. */
-let preSearchScrollY = null;
+/** Where the user was before they started searching — restored when the box is cleared. */
+let preSearchScroll = null;
+
+/** Remember the current scroll position and which section is on screen. */
+function capturePreSearchScroll() {
+  const header = document.querySelector(".site-header");
+  const anchorLine = (header?.offsetHeight ?? 0) + 8;
+
+  let anchor = null;
+  for (const section of document.querySelectorAll(".methodology-panel, .character-section")) {
+    if (section.getBoundingClientRect().top <= anchorLine) {
+      anchor = section;
+    }
+  }
+
+  preSearchScroll = {
+    y: window.scrollY,
+    anchorId: anchor?.id ?? null,
+    anchorViewportTop: anchor ? anchor.getBoundingClientRect().top : 0,
+  };
+}
+
+/** Jump back after search ends — wait for un-hidden rows to expand layout first. */
+function restorePreSearchScroll() {
+  if (!preSearchScroll) {
+    return;
+  }
+
+  const saved = preSearchScroll;
+  preSearchScroll = null;
+
+  const run = () => {
+    if (saved.anchorId) {
+      const section = document.getElementById(saved.anchorId);
+      if (section) {
+        const top =
+          window.scrollY + section.getBoundingClientRect().top - saved.anchorViewportTop;
+        window.scrollTo({ top, left: 0, behavior: "auto" });
+        return;
+      }
+    }
+
+    const maxY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    window.scrollTo({
+      top: Math.min(Math.max(0, saved.y), maxY),
+      left: 0,
+      behavior: "auto",
+    });
+  };
+
+  // Two frames so tier rows are visible again before we measure scroll height.
+  void document.body.offsetHeight;
+  requestAnimationFrame(() => {
+    void document.body.offsetHeight;
+    requestAnimationFrame(run);
+  });
+}
 
 /** Hide non-matching cards; dim empty tier rows during search. */
 function applySearch(query) {
   const normalized = query.trim().toLowerCase();
   const isActive = normalized.length > 0;
 
-  if (isActive && preSearchScrollY === null) {
-    preSearchScrollY = window.scrollY;
+  if (isActive && preSearchScroll === null) {
+    capturePreSearchScroll();
   }
 
   const entries = document.querySelectorAll(".card-entry");
@@ -496,25 +551,24 @@ function applySearch(query) {
   }
 
   if (!isActive) {
-    if (preSearchScrollY !== null) {
-      const restoreY = preSearchScrollY;
-      preSearchScrollY = null;
-      requestAnimationFrame(() => {
-        window.scrollTo({ top: restoreY, behavior: "smooth" });
-      });
-    }
+    restorePreSearchScroll();
     return;
   }
 
   if (firstMatch) {
-    firstMatch.scrollIntoView({ behavior: "smooth", block: "center" });
+    const rect = firstMatch.getBoundingClientRect();
+    const targetY =
+      window.scrollY + rect.top - window.innerHeight / 2 + rect.height / 2;
+    window.scrollTo({ top: Math.max(0, targetY), behavior: "auto" });
   }
 }
 
 /** Wire search input after the page is rendered. */
 function setupSearch() {
   const input = document.getElementById("search-input");
-  input.addEventListener("input", () => applySearch(input.value));
+  const onSearchInput = () => applySearch(input.value);
+  input.addEventListener("input", onSearchInput);
+  input.addEventListener("search", onSearchInput);
 }
 
 /** Fill the page once JSON is loaded. */
