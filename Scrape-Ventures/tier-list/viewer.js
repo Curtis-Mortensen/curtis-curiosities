@@ -1,7 +1,7 @@
 /**
- * STS2 tier-list viewer logic (Stage 3).
- * Fetches tier-lists.json + manifest.json, builds character sections and tier rows,
- * and wires up search filtering. Loaded by index.html — needs a local HTTP server.
+ * STS2 tier-list viewer logic.
+ * Prefers baked window.TIER_DATA (file:// friendly); falls back to fetch() when developing
+ * without re-running build-viewer.py. Builds character sections, tier rows, and search.
  */
 
 const TIER_ORDER = ["S", "A", "B", "C", "D", "TBD"];
@@ -15,8 +15,12 @@ const tierLabelClass = {
   TBD: "tier-label--tbd",
 };
 
-/** Load both JSON inputs the viewer needs. */
+/** Load tier data from baked script tag or JSON files over HTTP. */
 async function loadData() {
+  if (window.TIER_DATA?.tiers && window.TIER_DATA?.manifest) {
+    return window.TIER_DATA;
+  }
+
   const [tierRes, manifestRes] = await Promise.all([
     fetch("data/tier-lists.json"),
     fetch("assets/manifest.json"),
@@ -215,7 +219,7 @@ async function init() {
     msg.className = "load-error";
     msg.textContent =
       `Could not load tier list data (${err.message}). ` +
-      "Serve this folder over HTTP: cd tier-list && python3 -m http.server 8080";
+      "Run: python3 tier-list/scrape/build-viewer.py — or serve over HTTP for dev.";
     main.appendChild(msg);
   }
 }

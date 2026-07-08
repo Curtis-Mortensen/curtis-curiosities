@@ -435,7 +435,9 @@ Page also embeds YouTube review videos per character (Ironclad, Silent, Regent, 
 tier-list/
   index.html                       ← ✅ main viewer (Stage 3)
   viewer.css                       ← ✅ tier row + hover styles
-  viewer.js                        ← ✅ fetch JSON, render, search
+  viewer.js                        ← ✅ baked-data loader, render, search
+  scrape/
+    build-viewer.py                ← ✅ bake JSON into index.html (file://)
   data/
     tier-lists.json                ← ✅ scraped Mobalytics rankings (403 cards)
   assets/
@@ -499,25 +501,34 @@ STS2/
         <p>Detailed checklist in <a href="#stage3-prep">Stage 3 prep</a> section.</p>
         <ul>
           <li>✅ <code>tier-list/index.html</code> + <code>viewer.css</code> + <code>viewer.js</code> — vanilla HTML/CSS/JS</li>
+          <li>✅ <code>tier-list/scrape/build-viewer.py</code> — bakes JSON into HTML for <code>file://</code> (no server)</li>
           <li>✅ Character nav + stacked sections (Ironclad → Silent → Regent → Necrobinder → Defect)</li>
           <li>✅ Tier rows S–D (+ empty Necrobinder TBD) with flex-wrapped card grid</li>
           <li>✅ CSS hover/focus popover with full <code>assets/full/{slug}.webp</code></li>
           <li>✅ Visually hidden <code>&lt;span class="card-name"&gt;</code> for Ctrl+F</li>
           <li>✅ In-page search box filters cards and scrolls first match</li>
         </ul>
-        <p><strong>Done when:</strong> Opening via local HTTP server shows all tiers; hover shows full card; searching "Crash Landing" finds the card. <em>Achieved.</em></p>
-        <p>Run: <code>cd tier-list &amp;&amp; python3 -m http.server 8080</code></p>
+        <p><strong>Done when:</strong> Opening <code>index.html</code> directly shows all tiers; hover shows full card; searching "Crash Landing" finds the card. <em>Achieved.</em></p>
+        <p>Re-bake after data refresh: <code>python3 tier-list/scrape/build-viewer.py</code></p>
       </div>
 
       <div class="card stage">
-        <h3>Stage 4 — Parity polish (optional)</h3>
+        <h3>Stage 4 — Character navigation polish</h3>
+        <p><strong>Next up.</strong> Scope is intentionally narrow — tier list + character nav only.</p>
         <ul>
-          <li>Match Mobalytics dark purple theme (colors from saved CSS: <code>#2c274f</code> background family).</li>
-          <li>Hash anchors per character section (<code>id="1-regent-tier-list-2"</code>).</li>
-          <li>Embed YouTube review videos (gather missing 3 video IDs).</li>
-          <li>Show tier methodology blurb (S–D definitions) at top.</li>
-          <li>Handle Necrobinder "TBD" tier row if present in scraped data.</li>
+          <li>Sticky character nav with active-section highlight on scroll.</li>
+          <li>Smooth scroll / keyboard-friendly jump links (hash anchors already in place).</li>
+          <li>Mobile-friendly nav layout (wrap or horizontal scroll).</li>
         </ul>
+        <p><strong>Explicitly out of scope (per owner):</strong></p>
+        <ul>
+          <li>YouTube review embeds</li>
+          <li>Wiki or Mobalytics crosslinks / clickable cards</li>
+          <li>Tier methodology blurb (S–D definitions)</li>
+          <li>Card cost, type, or rarity tooltips</li>
+          <li>Pixel-perfect Mobalytics theme recreation beyond current palette</li>
+        </ul>
+        <p><strong>Already done in Stage 3:</strong> hash anchors per character, Necrobinder TBD row, search box.</p>
       </div>
 
       <div class="card stage">
@@ -525,7 +536,7 @@ STS2/
         <ul>
           <li>Re-run scraper when Mobalytics updates the list (live page shows "Updated on Jun 24, 2026").</li>
           <li>Diff JSON to see tier changes between versions.</li>
-          <li>Re-generate HTML from template + JSON (don't hand-edit HTML).</li>
+          <li>Re-run <code>build-viewer.py</code> after fetch + images (don't hand-edit baked HTML).</li>
         </ul>
       </div>
     </div>
@@ -768,16 +779,11 @@ Response path:
       <h3>Local file caveat</h3>
       <p>
         <code>fetch('data/tier-lists.json')</code> is blocked on <code>file://</code> in Chrome/Firefox (CORS).
-        Two MVP options:
+        <strong>Resolved:</strong> <code>build-viewer.py</code> bakes both JSON files into
+        <code>window.TIER_DATA</code> inside <code>index.html</code>. Open the file directly — no server needed.
+        Images still load from <code>assets/thumbs/</code> and <code>assets/full/</code> via relative paths.
       </p>
-      <ol>
-        <li><strong>Serve locally (simplest for dev):</strong>
-          <code>cd tier-list &amp;&amp; python3 -m http.server 8080</code> → open <code>http://localhost:8080</code>
-        </li>
-        <li><strong>True file:// offline:</strong> add a tiny <code>build-viewer.py</code> that inlines JSON into
-          <code>&lt;script&gt;window.TIER_DATA = …&lt;/script&gt;</code> (defer to Stage 5 refresh workflow, or ship as optional bake step)</li>
-      </ol>
-      <p>Recommend option 1 for Stage 3 MVP; document the server command in README.</p>
+      <p>Run after fetch + images: <code>python3 tier-list/scrape/build-viewer.py</code></p>
 
       <h3>Proposed page structure</h3>
       <pre>index.html
@@ -797,7 +803,7 @@ Response path:
 
       <h3>Rendering loop (vanilla JS)</h3>
       <ol>
-        <li>On load: <code>Promise.all([fetch('data/tier-lists.json'), fetch('assets/manifest.json')])</code></li>
+        <li>On load: use <code>window.TIER_DATA</code> if baked, else <code>fetch('data/tier-lists.json')</code> + <code>fetch('assets/manifest.json')</code></li>
         <li>Iterate <code>data.characters</code> in JSON order (already sorted: Ironclad → Silent → Regent → Necrobinder → Defect).</li>
         <li>For each character, iterate tiers in fixed order <code>['S','A','B','C','D','TBD']</code> — skip empty tiers except Necrobinder TBD (0 cards but row exists for parity).</li>
         <li>For each card, look up <code>manifest.paths[slug]</code>; use those paths for <code>&lt;img&gt;</code> src.</li>
@@ -841,7 +847,8 @@ Response path:
           <tr><th>File</th><th>Purpose</th></tr>
         </thead>
         <tbody>
-          <tr><td><code>tier-list/index.html</code></td><td>Shell: header, nav, main container, inline or linked CSS/JS</td></tr>
+          <tr><td><code>tier-list/scrape/build-viewer.py</code></td><td>Bake JSON into <code>index.html</code> for <code>file://</code></td></tr>
+          <tr><td><code>tier-list/index.html</code></td><td>Shell + baked <code>window.TIER_DATA</code> + linked CSS/JS</td></tr>
           <tr><td><code>tier-list/viewer.css</code> (optional split)</td><td>Tier row layout, hover popover, theme</td></tr>
           <tr><td><code>tier-list/viewer.js</code> (optional split)</td><td>Fetch JSON, build DOM, search filter</td></tr>
         </tbody>
@@ -857,13 +864,14 @@ Response path:
         <li>Character nav hash links scroll to correct section.</li>
       </ol>
 
-      <h3>Out of scope for Stage 3 (→ Stage 4)</h3>
+      <h3>Out of scope (won't build)</h3>
       <ul>
-        <li>YouTube review embeds (only 2 of 5 video IDs captured)</li>
+        <li>YouTube review embeds</li>
+        <li>Wiki / Mobalytics crosslinks or clickable cards</li>
         <li>Tier methodology blurb (S–D definitions) at page top</li>
-        <li>Pixel-perfect Mobalytics theme polish</li>
         <li>Card cost/type/rarity in tooltip (would need Spire Codex API)</li>
       </ul>
+      <p>Stage 4 focuses on character navigation polish only — see Stage 4 checklist above.</p>
     </div>
 
     <h2>6. Risks and decisions</h2>
@@ -906,7 +914,7 @@ Response path:
         <tr>
           <td><code>file://</code> blocks JSON fetch</td>
           <td>Viewer won't load data if opened as raw file</td>
-          <td>Serve via <code>python3 -m http.server</code> from <code>tier-list/</code>, or bake JSON into HTML (Stage 5).</td>
+          <td><strong>Resolved:</strong> <code>build-viewer.py</code> bakes JSON into <code>index.html</code>. Images use relative paths and work on <code>file://</code>.</td>
         </tr>
         <tr>
           <td>Symlinks on Windows</td>
@@ -916,7 +924,7 @@ Response path:
         <tr>
           <td><code>linkUrl</code> null in API</td>
           <td>No wiki deep-links from tier list data</td>
-          <td>Construct wiki URLs as <code>https://mobalytics.gg/slay-the-spire-2/wiki/cards/{slug}</code> in Stage 3 if needed</td>
+          <td><strong>Out of scope.</strong> Viewer is tier list + character nav only — no external crosslinks.</td>
         </tr>
       </tbody>
     </table>
@@ -924,17 +932,18 @@ Response path:
     <h2>7. Immediate next step</h2>
 
     <div class="card">
-      <p><strong>Stage 4 — parity polish (optional).</strong> Stage 3 viewer is at <code>tier-list/index.html</code>.</p>
+      <p><strong>Stage 4 — character navigation polish.</strong> Viewer is at <code>tier-list/index.html</code> (open directly, no server).</p>
       <ol>
-        <li>Match Mobalytics dark purple theme more closely (colors from saved CSS).</li>
-        <li>Hash anchors per character section (partially done — uses JSON <code>anchorId</code>).</li>
-        <li>Embed YouTube review videos (gather missing 3 video IDs).</li>
-        <li>Show tier methodology blurb (S–D definitions) at top.</li>
+        <li>Active-section highlight in sticky character nav on scroll.</li>
+        <li>Mobile-friendly nav layout.</li>
+        <li>Keyboard / smooth-scroll polish for hash jump links.</li>
       </ol>
+      <p><strong>Not building:</strong> YouTube embeds, wiki/Mobalytics crosslinks, methodology blurb, card metadata tooltips.</p>
       <p>
         Refresh data pipeline:
         <code>python3 tier-list/scrape/fetch-tier-lists.py</code> →
-        <code>python3 tier-list/scrape/download-images.py</code>
+        <code>python3 tier-list/scrape/download-images.py</code> →
+        <code>python3 tier-list/scrape/build-viewer.py</code>
       </p>
     </div>
 

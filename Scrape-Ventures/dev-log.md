@@ -112,12 +112,12 @@ Offline searchable tier-list page: 5 characters, S–D tier rows, hover full-car
 ### Run
 
 ```bash
-cd Scrape-Ventures/tier-list
-python3 -m http.server 8080
-# open http://localhost:8080
+cd Scrape-Ventures
+python3 tier-list/scrape/build-viewer.py
+# open tier-list/index.html in a browser
 ```
 
-`file://` blocks `fetch()` — local HTTP server required for Stage 3 MVP.
+Previously required `python3 -m http.server` before bake step was added.
 
 ### Decisions / assumptions
 
@@ -138,4 +138,44 @@ python3 -m http.server 8080
 
 ### Status
 
-**Stage 3 complete.** Ready for Stage 4 (parity polish — theme, YouTube embeds, methodology blurb).
+**Stage 3 complete.** Ready for Stage 4 (character navigation polish only — no embeds or external links).
+
+## 2026-07-08 — STS2 tier list bake step (file:// offline)
+
+**Plan:** `recreating-tier-list.html` Stage 3 extension / Stage 5 prep
+
+### Goal
+
+Open `tier-list/index.html` directly without running a local HTTP server.
+
+### What was built
+
+| Path | Purpose |
+|------|---------|
+| `tier-list/scrape/build-viewer.py` | Inlines `tier-lists.json` + `manifest.json` into `index.html` as `window.TIER_DATA` |
+| `tier-list/viewer.js` | Prefers baked data; `fetch()` fallback for dev without re-bake |
+| `tier-list/index.html` | Re-baked with ~171 KB inline JSON (403 cards) |
+
+### Run
+
+```bash
+cd Scrape-Ventures
+python3 tier-list/scrape/build-viewer.py
+# open tier-list/index.html in a browser
+```
+
+Full refresh: `fetch-tier-lists.py` → `download-images.py` → `build-viewer.py`.
+
+### Decisions / assumptions
+
+- **Bake into same `index.html`:** marker comments (`tier-data:start` / `tier-data:end`) let the script re-inject on refresh.
+- **Images stay external:** only JSON is inlined; `assets/thumbs/` and `assets/full/` remain separate (~189 MB).
+- **No server for normal use:** `fetch()` blocked on `file://` is resolved by inline script; relative image paths still work on `file://`.
+
+### Verification
+
+- `build-viewer.py` reports 403 cards baked; `index.html` contains `window.TIER_DATA` with `crash-landing`.
+
+### Status
+
+**Bake step complete.** Viewer is self-contained for data; ship `tier-list/` folder for offline use.
