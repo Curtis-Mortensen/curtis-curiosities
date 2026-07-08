@@ -332,3 +332,7 @@ cd tier-list && python3 -m http.server 8080
 - Card names are tiny (0.5rem) on purpose — visible enough for browser find/highlight, not for reading.
 - Preview stays to the right of the cursor; viewport padding clamps it inward instead of flipping sides.
 - Below 900px width, TOC collapses to a horizontal strip above the tier rows.
+
+## 2026-07-08 — Search scroll restore
+
+Clearing the search box restores scroll position from before the search started. Uses the visible section as an anchor so restore still works after filtered rows expand the page again. Also listens for the `search` event (clear button on `type="search"` inputs).
