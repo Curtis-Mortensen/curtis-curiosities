@@ -7,11 +7,10 @@ When Mobalytics updates rankings, this script:
   2. fetch-tier-lists.py      — Mobalytics GraphQL → tier-lists.json
   3. download-images.py       — thumbs + full hover art + manifest
   4. fetch-card-metadata.py   — Spire Codex tooltips
-  5. build-viewer.py          — bake JSON into index.html for file://
-  6. diff-tier-lists.py       — show tier moves vs the backup
+  5. diff-tier-lists.py       — show tier moves vs the backup
 
 Edit tier-list/data/methodology.json by hand if Mobalytics copy changes — it is
-not scraped. Never hand-edit the baked JSON inside index.html; re-run this script.
+not scraped. Serve tier-list/ over HTTP to view (see README).
 
 Reads/writes: everything under tier-list/ and STS2/tier-lists-raw.json
 """
@@ -107,11 +106,6 @@ def main() -> int:
         action="store_true",
         help="Skip fetch-card-metadata.py",
     )
-    parser.add_argument(
-        "--skip-bake",
-        action="store_true",
-        help="Skip build-viewer.py",
-    )
     args = parser.parse_args()
 
     backup_path: Path | None = None
@@ -131,9 +125,6 @@ def main() -> int:
 
     if not args.skip_metadata:
         run_script("fetch-card-metadata.py", [])
-
-    if not args.skip_bake:
-        run_script("build-viewer.py", [])
 
     if args.no_diff or args.skip_fetch:
         print("\nRefresh complete.")

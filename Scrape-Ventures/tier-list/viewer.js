@@ -1,8 +1,8 @@
 /**
  * STS2 tier-list viewer logic.
- * Prefers baked window.TIER_DATA (file:// friendly); falls back to fetch() when developing
- * without re-running build-viewer.py. Renders methodology, character tier rows, and
- * hover tooltips with card metadata from Spire Codex.
+ * Fetches JSON from data/ and assets/, then renders methodology, character tier rows,
+ * and hover tooltips with card metadata from Spire Codex. Serve tier-list/ over HTTP —
+ * opening index.html as file:// blocks fetch().
  */
 
 const TIER_ORDER = ["S", "A", "B", "C", "D", "TBD"];
@@ -16,12 +16,8 @@ const tierLabelClass = {
   TBD: "tier-label--tbd",
 };
 
-/** Load all viewer JSON — baked inline or fetched over HTTP during dev. */
+/** Load all viewer JSON over HTTP from the tier-list folder. */
 async function loadData() {
-  if (window.TIER_DATA?.tiers && window.TIER_DATA?.manifest) {
-    return window.TIER_DATA;
-  }
-
   const [tierRes, manifestRes, methodologyRes, metadataRes] = await Promise.all([
     fetch("data/tier-lists.json"),
     fetch("assets/manifest.json"),
@@ -486,7 +482,7 @@ async function init() {
     msg.className = "load-error";
     msg.textContent =
       `Could not load tier list data (${err.message}). ` +
-      "Run: python3 tier-list/scrape/build-viewer.py — or serve over HTTP for dev.";
+      "Serve locally: cd tier-list && python3 -m http.server 8080";
     main.appendChild(msg);
   }
 }
