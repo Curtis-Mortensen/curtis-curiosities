@@ -90,3 +90,5 @@ Options: `--copy` (real AVIF copies instead of symlinks), `--thumbs-only`, `--fu
 ### Status
 
 **Stage 2 complete.** Ready for Stage 3 (static HTML viewer).
+
+**2026-07-08 (later):** Updated `recreating-tier-list.html` with Stage 2 findings and Stage 3 prep details.
