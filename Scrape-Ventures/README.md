@@ -8,11 +8,15 @@ python extract_ventures.py
 
 ## STS2 card tier list (Mobalytics)
 
-Stage 1 scraper for the offline tier-list viewer (see `recreating-tier-list.html`):
+Offline tier-list viewer pipeline (see `recreating-tier-list.html`):
 
 ```bash
 pip install -r requirements.txt
-python tier-list/scrape/fetch-tier-lists.py
+python3 tier-list/scrape/fetch-tier-lists.py   # Stage 1: rankings JSON
+python3 tier-list/scrape/download-images.py    # Stage 2: thumbs + full art
 ```
 
-Output: `tier-list/data/tier-lists.json` (403 cards across 5 characters). Raw GraphQL response saved to `STS2/tier-lists-raw.json`.
+Outputs:
+- `tier-list/data/tier-lists.json` — 403 cards across 5 characters
+- `STS2/tier-lists-raw.json` — saved Mobalytics GraphQL response
+- `tier-list/assets/manifest.json` — local thumb/full paths for the viewer

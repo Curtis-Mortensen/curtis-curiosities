@@ -1,0 +1,1619 @@
+{
+  "source": "mobalytics",
+  "fetchedAt": "2026-07-08T05:16:49.880796+00:00",
+  "cardCount": 403,
+  "paths": {
+    "well-laid-plans": {
+      "thumb": "assets/thumbs/well-laid-plans.avif",
+      "full": "assets/full/well-laid-plans.webp"
+    },
+    "blade-of-ink": {
+      "thumb": "assets/thumbs/blade-of-ink.avif",
+      "full": "assets/full/blade-of-ink.webp"
+    },
+    "afterimage": {
+      "thumb": "assets/thumbs/afterimage.avif",
+      "full": "assets/full/afterimage.webp"
+    },
+    "footwork": {
+      "thumb": "assets/thumbs/footwork.avif",
+      "full": "assets/full/footwork.webp"
+    },
+    "adrenaline": {
+      "thumb": "assets/thumbs/adrenaline.avif",
+      "full": "assets/full/adrenaline.webp"
+    },
+    "abrasive": {
+      "thumb": "assets/thumbs/abrasive.avif",
+      "full": "assets/full/abrasive.webp"
+    },
+    "acrobatics": {
+      "thumb": "assets/thumbs/acrobatics.avif",
+      "full": "assets/full/acrobatics.webp"
+    },
+    "escape-plan": {
+      "thumb": "assets/thumbs/escape-plan.avif",
+      "full": "assets/full/escape-plan.webp"
+    },
+    "tracking": {
+      "thumb": "assets/thumbs/tracking.avif",
+      "full": "assets/full/tracking.webp"
+    },
+    "prepared": {
+      "thumb": "assets/thumbs/prepared.avif",
+      "full": "assets/full/prepared.webp"
+    },
+    "calculated-gamble": {
+      "thumb": "assets/thumbs/calculated-gamble.avif",
+      "full": "assets/full/calculated-gamble.webp"
+    },
+    "reflex": {
+      "thumb": "assets/thumbs/reflex.avif",
+      "full": "assets/full/reflex.webp"
+    },
+    "untouchable": {
+      "thumb": "assets/thumbs/untouchable.avif",
+      "full": "assets/full/untouchable.webp"
+    },
+    "piercing-wail": {
+      "thumb": "assets/thumbs/piercing-wail.avif",
+      "full": "assets/full/piercing-wail.webp"
+    },
+    "tools-of-the-trade": {
+      "thumb": "assets/thumbs/tools-of-the-trade.avif",
+      "full": "assets/full/tools-of-the-trade.webp"
+    },
+    "malaise": {
+      "thumb": "assets/thumbs/malaise.avif",
+      "full": "assets/full/malaise.webp"
+    },
+    "leg-sweep": {
+      "thumb": "assets/thumbs/leg-sweep.avif",
+      "full": "assets/full/leg-sweep.webp"
+    },
+    "dodge-and-roll": {
+      "thumb": "assets/thumbs/dodge-and-roll.avif",
+      "full": "assets/full/dodge-and-roll.webp"
+    },
+    "the-hunt": {
+      "thumb": "assets/thumbs/the-hunt.avif",
+      "full": "assets/full/the-hunt.webp"
+    },
+    "noxious-fumes": {
+      "thumb": "assets/thumbs/noxious-fumes.avif",
+      "full": "assets/full/noxious-fumes.webp"
+    },
+    "tactician": {
+      "thumb": "assets/thumbs/tactician.avif",
+      "full": "assets/full/tactician.webp"
+    },
+    "blur": {
+      "thumb": "assets/thumbs/blur.avif",
+      "full": "assets/full/blur.webp"
+    },
+    "flechettes": {
+      "thumb": "assets/thumbs/flechettes.avif",
+      "full": "assets/full/flechettes.webp"
+    },
+    "expose": {
+      "thumb": "assets/thumbs/expose.avif",
+      "full": "assets/full/expose.webp"
+    },
+    "backflip": {
+      "thumb": "assets/thumbs/backflip.avif",
+      "full": "assets/full/backflip.webp"
+    },
+    "pinpoint": {
+      "thumb": "assets/thumbs/pinpoint.avif",
+      "full": "assets/full/pinpoint.webp"
+    },
+    "blade-dance": {
+      "thumb": "assets/thumbs/blade-dance.avif",
+      "full": "assets/full/blade-dance.webp"
+    },
+    "assassinate": {
+      "thumb": "assets/thumbs/assassinate.avif",
+      "full": "assets/full/assassinate.webp"
+    },
+    "leading-strike": {
+      "thumb": "assets/thumbs/leading-strike.avif",
+      "full": "assets/full/leading-strike.webp"
+    },
+    "hidden-daggers": {
+      "thumb": "assets/thumbs/hidden-daggers.avif",
+      "full": "assets/full/hidden-daggers.webp"
+    },
+    "infinite-blades": {
+      "thumb": "assets/thumbs/infinite-blades.avif",
+      "full": "assets/full/infinite-blades.webp"
+    },
+    "accuracy": {
+      "thumb": "assets/thumbs/accuracy.avif",
+      "full": "assets/full/accuracy.webp"
+    },
+    "echoing-slash": {
+      "thumb": "assets/thumbs/echoing-slash.avif",
+      "full": "assets/full/echoing-slash.webp"
+    },
+    "phantom-blades": {
+      "thumb": "assets/thumbs/phantom-blades.avif",
+      "full": "assets/full/phantom-blades.webp"
+    },
+    "predator": {
+      "thumb": "assets/thumbs/predator.avif",
+      "full": "assets/full/predator.webp"
+    },
+    "backstab": {
+      "thumb": "assets/thumbs/backstab.avif",
+      "full": "assets/full/backstab.webp"
+    },
+    "cloak-and-dagger": {
+      "thumb": "assets/thumbs/cloak-and-dagger.avif",
+      "full": "assets/full/cloak-and-dagger.webp"
+    },
+    "sucker-punch": {
+      "thumb": "assets/thumbs/sucker-punch.avif",
+      "full": "assets/full/sucker-punch.webp"
+    },
+    "dagger-throw": {
+      "thumb": "assets/thumbs/dagger-throw.avif",
+      "full": "assets/full/dagger-throw.webp"
+    },
+    "dagger-spray": {
+      "thumb": "assets/thumbs/dagger-spray.avif",
+      "full": "assets/full/dagger-spray.webp"
+    },
+    "ricochet": {
+      "thumb": "assets/thumbs/ricochet.avif",
+      "full": "assets/full/ricochet.webp"
+    },
+    "precise-cut": {
+      "thumb": "assets/thumbs/precise-cut.avif",
+      "full": "assets/full/precise-cut.webp"
+    },
+    "deflect": {
+      "thumb": "assets/thumbs/deflect.avif",
+      "full": "assets/full/deflect.webp"
+    },
+    "slice": {
+      "thumb": "assets/thumbs/slice.avif",
+      "full": "assets/full/slice.webp"
+    },
+    "pounce": {
+      "thumb": "assets/thumbs/pounce.avif",
+      "full": "assets/full/pounce.webp"
+    },
+    "dash": {
+      "thumb": "assets/thumbs/dash.avif",
+      "full": "assets/full/dash.webp"
+    },
+    "flick-flack": {
+      "thumb": "assets/thumbs/flick-flack.avif",
+      "full": "assets/full/flick-flack.webp"
+    },
+    "shadowmeld": {
+      "thumb": "assets/thumbs/shadowmeld.avif",
+      "full": "assets/full/shadowmeld.webp"
+    },
+    "knife-trap": {
+      "thumb": "assets/thumbs/knife-trap.avif",
+      "full": "assets/full/knife-trap.webp"
+    },
+    "corrosive-wave": {
+      "thumb": "assets/thumbs/corrosive-wave.avif",
+      "full": "assets/full/corrosive-wave.webp"
+    },
+    "murder": {
+      "thumb": "assets/thumbs/murder.avif",
+      "full": "assets/full/murder.webp"
+    },
+    "master-planner": {
+      "thumb": "assets/thumbs/master-planner.avif",
+      "full": "assets/full/master-planner.webp"
+    },
+    "fan-of-knives": {
+      "thumb": "assets/thumbs/fan-of-knives.avif",
+      "full": "assets/full/fan-of-knives.webp"
+    },
+    "burst": {
+      "thumb": "assets/thumbs/burst.avif",
+      "full": "assets/full/burst.webp"
+    },
+    "poisoned-stab": {
+      "thumb": "assets/thumbs/poisoned-stab.avif",
+      "full": "assets/full/poisoned-stab.webp"
+    },
+    "outbreak": {
+      "thumb": "assets/thumbs/outbreak.avif",
+      "full": "assets/full/outbreak.webp"
+    },
+    "serpent-form": {
+      "thumb": "assets/thumbs/serpent-form.avif",
+      "full": "assets/full/serpent-form.webp"
+    },
+    "accelerant": {
+      "thumb": "assets/thumbs/accelerant.avif",
+      "full": "assets/full/accelerant.webp"
+    },
+    "finisher": {
+      "thumb": "assets/thumbs/finisher.avif",
+      "full": "assets/full/finisher.webp"
+    },
+    "strangle": {
+      "thumb": "assets/thumbs/strangle.avif",
+      "full": "assets/full/strangle.webp"
+    },
+    "deadly-poison": {
+      "thumb": "assets/thumbs/deadly-poison.avif",
+      "full": "assets/full/deadly-poison.webp"
+    },
+    "expertise": {
+      "thumb": "assets/thumbs/expertise.avif",
+      "full": "assets/full/expertise.webp"
+    },
+    "anticipate": {
+      "thumb": "assets/thumbs/anticipate.avif",
+      "full": "assets/full/anticipate.webp"
+    },
+    "bubble-bubble": {
+      "thumb": "assets/thumbs/bubble-bubble.avif",
+      "full": "assets/full/bubble-bubble.webp"
+    },
+    "hand-trick": {
+      "thumb": "assets/thumbs/hand-trick.avif",
+      "full": "assets/full/hand-trick.webp"
+    },
+    "snakebite": {
+      "thumb": "assets/thumbs/snakebite.avif",
+      "full": "assets/full/snakebite.webp"
+    },
+    "haze": {
+      "thumb": "assets/thumbs/haze.avif",
+      "full": "assets/full/haze.webp"
+    },
+    "skewer": {
+      "thumb": "assets/thumbs/skewer.avif",
+      "full": "assets/full/skewer.webp"
+    },
+    "shadow-step": {
+      "thumb": "assets/thumbs/shadow-step.avif",
+      "full": "assets/full/shadow-step.webp"
+    },
+    "up-my-sleeve": {
+      "thumb": "assets/thumbs/up-my-sleeve.avif",
+      "full": "assets/full/up-my-sleeve.webp"
+    },
+    "speedster": {
+      "thumb": "assets/thumbs/speedster.avif",
+      "full": "assets/full/speedster.webp"
+    },
+    "memento-mori": {
+      "thumb": "assets/thumbs/memento-mori.avif",
+      "full": "assets/full/memento-mori.webp"
+    },
+    "grand-finale": {
+      "thumb": "assets/thumbs/grand-finale.avif",
+      "full": "assets/full/grand-finale.webp"
+    },
+    "follow-through": {
+      "thumb": "assets/thumbs/follow-through.avif",
+      "full": "assets/full/follow-through.webp"
+    },
+    "bullet-time": {
+      "thumb": "assets/thumbs/bullet-time.avif",
+      "full": "assets/full/bullet-time.webp"
+    },
+    "nightmare": {
+      "thumb": "assets/thumbs/nightmare.avif",
+      "full": "assets/full/nightmare.webp"
+    },
+    "storm-of-steel": {
+      "thumb": "assets/thumbs/storm-of-steel.avif",
+      "full": "assets/full/storm-of-steel.webp"
+    },
+    "mirage": {
+      "thumb": "assets/thumbs/mirage.avif",
+      "full": "assets/full/mirage.webp"
+    },
+    "bouncing-flask": {
+      "thumb": "assets/thumbs/bouncing-flask.avif",
+      "full": "assets/full/bouncing-flask.webp"
+    },
+    "envenom": {
+      "thumb": "assets/thumbs/envenom.avif",
+      "full": "assets/full/envenom.webp"
+    },
+    "big-bang": {
+      "thumb": "assets/thumbs/big-bang.avif",
+      "full": "assets/full/big-bang.webp"
+    },
+    "reflect": {
+      "thumb": "assets/thumbs/reflect.avif",
+      "full": "assets/full/reflect.webp"
+    },
+    "child-of-the-stars": {
+      "thumb": "assets/thumbs/child-of-the-stars.avif",
+      "full": "assets/full/child-of-the-stars.webp"
+    },
+    "pillar-of-creation": {
+      "thumb": "assets/thumbs/pillar-of-creation.avif",
+      "full": "assets/full/pillar-of-creation.webp"
+    },
+    "convergence": {
+      "thumb": "assets/thumbs/convergence.avif",
+      "full": "assets/full/convergence.webp"
+    },
+    "guards": {
+      "thumb": "assets/thumbs/guards.avif",
+      "full": "assets/full/guards.webp"
+    },
+    "bulwark": {
+      "thumb": "assets/thumbs/bulwark.avif",
+      "full": "assets/full/bulwark.webp"
+    },
+    "meteor-shower": {
+      "thumb": "assets/thumbs/meteor-shower.avif",
+      "full": "assets/full/meteor-shower.webp"
+    },
+    "astral-pulse": {
+      "thumb": "assets/thumbs/astral-pulse.avif",
+      "full": "assets/full/astral-pulse.webp"
+    },
+    "know-thy-place": {
+      "thumb": "assets/thumbs/know-thy-place.avif",
+      "full": "assets/full/know-thy-place.webp"
+    },
+    "royal-gamble": {
+      "thumb": "assets/thumbs/royal-gamble.avif",
+      "full": "assets/full/royal-gamble.webp"
+    },
+    "spectrum-shift": {
+      "thumb": "assets/thumbs/spectrum-shift.avif",
+      "full": "assets/full/spectrum-shift.webp"
+    },
+    "glow": {
+      "thumb": "assets/thumbs/glow.avif",
+      "full": "assets/full/glow.webp"
+    },
+    "comet": {
+      "thumb": "assets/thumbs/comet.avif",
+      "full": "assets/full/comet.webp"
+    },
+    "the-sealed-throne": {
+      "thumb": "assets/thumbs/the-sealed-throne.avif",
+      "full": "assets/full/the-sealed-throne.webp"
+    },
+    "void-form": {
+      "thumb": "assets/thumbs/void-form.avif",
+      "full": "assets/full/void-form.webp"
+    },
+    "charge": {
+      "thumb": "assets/thumbs/charge.avif",
+      "full": "assets/full/charge.webp"
+    },
+    "crash-landing": {
+      "thumb": "assets/thumbs/crash-landing.avif",
+      "full": "assets/full/crash-landing.webp"
+    },
+    "particle-wall": {
+      "thumb": "assets/thumbs/particle-wall.avif",
+      "full": "assets/full/particle-wall.webp"
+    },
+    "royalties": {
+      "thumb": "assets/thumbs/royalties.avif",
+      "full": "assets/full/royalties.webp"
+    },
+    "the-smith": {
+      "thumb": "assets/thumbs/the-smith.avif",
+      "full": "assets/full/the-smith.webp"
+    },
+    "tyranny": {
+      "thumb": "assets/thumbs/tyranny.avif",
+      "full": "assets/full/tyranny.webp"
+    },
+    "make-it-so": {
+      "thumb": "assets/thumbs/make-it-so.avif",
+      "full": "assets/full/make-it-so.webp"
+    },
+    "quasar": {
+      "thumb": "assets/thumbs/quasar.avif",
+      "full": "assets/full/quasar.webp"
+    },
+    "begone": {
+      "thumb": "assets/thumbs/begone.avif",
+      "full": "assets/full/begone.webp"
+    },
+    "orbit": {
+      "thumb": "assets/thumbs/orbit.avif",
+      "full": "assets/full/orbit.webp"
+    },
+    "radiate": {
+      "thumb": "assets/thumbs/radiate.avif",
+      "full": "assets/full/radiate.webp"
+    },
+    "bundle-of-joy": {
+      "thumb": "assets/thumbs/bundle-of-joy.avif",
+      "full": "assets/full/bundle-of-joy.webp"
+    },
+    "manifest-authority": {
+      "thumb": "assets/thumbs/manifest-authority.avif",
+      "full": "assets/full/manifest-authority.webp"
+    },
+    "kingly-kick": {
+      "thumb": "assets/thumbs/kingly-kick.avif",
+      "full": "assets/full/kingly-kick.webp"
+    },
+    "collision-course": {
+      "thumb": "assets/thumbs/collision-course.avif",
+      "full": "assets/full/collision-course.webp"
+    },
+    "gamma-blast": {
+      "thumb": "assets/thumbs/gamma-blast.avif",
+      "full": "assets/full/gamma-blast.webp"
+    },
+    "cloak-of-stars": {
+      "thumb": "assets/thumbs/cloak-of-stars.avif",
+      "full": "assets/full/cloak-of-stars.webp"
+    },
+    "refine-blade": {
+      "thumb": "assets/thumbs/refine-blade.avif",
+      "full": "assets/full/refine-blade.webp"
+    },
+    "dying-star": {
+      "thumb": "assets/thumbs/dying-star.avif",
+      "full": "assets/full/dying-star.webp"
+    },
+    "gather-light": {
+      "thumb": "assets/thumbs/gather-light.avif",
+      "full": "assets/full/gather-light.webp"
+    },
+    "bombardment": {
+      "thumb": "assets/thumbs/bombardment.avif",
+      "full": "assets/full/bombardment.webp"
+    },
+    "decisions-decisions": {
+      "thumb": "assets/thumbs/decisions-decisions.avif",
+      "full": "assets/full/decisions-decisions.webp"
+    },
+    "kingly-punch": {
+      "thumb": "assets/thumbs/kingly-punch.avif",
+      "full": "assets/full/kingly-punch.webp"
+    },
+    "glitterstream": {
+      "thumb": "assets/thumbs/glitterstream.avif",
+      "full": "assets/full/glitterstream.webp"
+    },
+    "glimmer": {
+      "thumb": "assets/thumbs/glimmer.avif",
+      "full": "assets/full/glimmer.webp"
+    },
+    "black-hole": {
+      "thumb": "assets/thumbs/black-hole.avif",
+      "full": "assets/full/black-hole.webp"
+    },
+    "crush-under": {
+      "thumb": "assets/thumbs/crush-under.avif",
+      "full": "assets/full/crush-under.webp"
+    },
+    "guiding-star": {
+      "thumb": "assets/thumbs/guiding-star.avif",
+      "full": "assets/full/guiding-star.webp"
+    },
+    "alignment": {
+      "thumb": "assets/thumbs/alignment.avif",
+      "full": "assets/full/alignment.webp"
+    },
+    "heavenly-drill": {
+      "thumb": "assets/thumbs/heavenly-drill.avif",
+      "full": "assets/full/heavenly-drill.webp"
+    },
+    "supermassive": {
+      "thumb": "assets/thumbs/supermassive.avif",
+      "full": "assets/full/supermassive.webp"
+    },
+    "hidden-cache": {
+      "thumb": "assets/thumbs/hidden-cache.avif",
+      "full": "assets/full/hidden-cache.webp"
+    },
+    "patter": {
+      "thumb": "assets/thumbs/patter.avif",
+      "full": "assets/full/patter.webp"
+    },
+    "photon-cut": {
+      "thumb": "assets/thumbs/photon-cut.avif",
+      "full": "assets/full/photon-cut.webp"
+    },
+    "pale-blue-dot": {
+      "thumb": "assets/thumbs/pale-blue-dot.avif",
+      "full": "assets/full/pale-blue-dot.webp"
+    },
+    "wrought-in-war": {
+      "thumb": "assets/thumbs/wrought-in-war.avif",
+      "full": "assets/full/wrought-in-war.webp"
+    },
+    "spoils-of-battle": {
+      "thumb": "assets/thumbs/spoils-of-battle.avif",
+      "full": "assets/full/spoils-of-battle.webp"
+    },
+    "shining-strike": {
+      "thumb": "assets/thumbs/shining-strike.avif",
+      "full": "assets/full/shining-strike.webp"
+    },
+    "genesis": {
+      "thumb": "assets/thumbs/genesis.avif",
+      "full": "assets/full/genesis.webp"
+    },
+    "parry": {
+      "thumb": "assets/thumbs/parry.avif",
+      "full": "assets/full/parry.webp"
+    },
+    "foregone-conclusion": {
+      "thumb": "assets/thumbs/foregone-conclusion.avif",
+      "full": "assets/full/foregone-conclusion.webp"
+    },
+    "solar-strike": {
+      "thumb": "assets/thumbs/solar-strike.avif",
+      "full": "assets/full/solar-strike.webp"
+    },
+    "i-am-invincible": {
+      "thumb": "assets/thumbs/i-am-invincible.avif",
+      "full": "assets/full/i-am-invincible.webp"
+    },
+    "seven-stars": {
+      "thumb": "assets/thumbs/seven-stars.avif",
+      "full": "assets/full/seven-stars.webp"
+    },
+    "cosmic-indifference": {
+      "thumb": "assets/thumbs/cosmic-indifference.avif",
+      "full": "assets/full/cosmic-indifference.webp"
+    },
+    "seeking-edge": {
+      "thumb": "assets/thumbs/seeking-edge.avif",
+      "full": "assets/full/seeking-edge.webp"
+    },
+    "celestial-might": {
+      "thumb": "assets/thumbs/celestial-might.avif",
+      "full": "assets/full/celestial-might.webp"
+    },
+    "hegemony": {
+      "thumb": "assets/thumbs/hegemony.avif",
+      "full": "assets/full/hegemony.webp"
+    },
+    "sword-sage": {
+      "thumb": "assets/thumbs/sword-sage.avif",
+      "full": "assets/full/sword-sage.webp"
+    },
+    "arsenal": {
+      "thumb": "assets/thumbs/arsenal.avif",
+      "full": "assets/full/arsenal.webp"
+    },
+    "beat-into-shape": {
+      "thumb": "assets/thumbs/beat-into-shape.avif",
+      "full": "assets/full/beat-into-shape.webp"
+    },
+    "devastate": {
+      "thumb": "assets/thumbs/devastate.avif",
+      "full": "assets/full/devastate.webp"
+    },
+    "lunar-blast": {
+      "thumb": "assets/thumbs/lunar-blast.avif",
+      "full": "assets/full/lunar-blast.webp"
+    },
+    "knockout-blow": {
+      "thumb": "assets/thumbs/knockout-blow.avif",
+      "full": "assets/full/knockout-blow.webp"
+    },
+    "summon-forth": {
+      "thumb": "assets/thumbs/summon-forth.avif",
+      "full": "assets/full/summon-forth.webp"
+    },
+    "conqueror": {
+      "thumb": "assets/thumbs/conqueror.avif",
+      "full": "assets/full/conqueror.webp"
+    },
+    "terraforming": {
+      "thumb": "assets/thumbs/terraforming.avif",
+      "full": "assets/full/terraforming.webp"
+    },
+    "furnace": {
+      "thumb": "assets/thumbs/furnace.avif",
+      "full": "assets/full/furnace.webp"
+    },
+    "prophesize": {
+      "thumb": "assets/thumbs/prophesize.avif",
+      "full": "assets/full/prophesize.webp"
+    },
+    "neutron-aegis": {
+      "thumb": "assets/thumbs/neutron-aegis.avif",
+      "full": "assets/full/neutron-aegis.webp"
+    },
+    "stardust": {
+      "thumb": "assets/thumbs/stardust.avif",
+      "full": "assets/full/stardust.webp"
+    },
+    "resonance": {
+      "thumb": "assets/thumbs/resonance.avif",
+      "full": "assets/full/resonance.webp"
+    },
+    "heirloom-hammer": {
+      "thumb": "assets/thumbs/heirloom-hammer.avif",
+      "full": "assets/full/heirloom-hammer.webp"
+    },
+    "monarchs-gaze": {
+      "thumb": "assets/thumbs/monarchs-gaze.avif",
+      "full": "assets/full/monarchs-gaze.webp"
+    },
+    "monologue": {
+      "thumb": "assets/thumbs/monologue.avif",
+      "full": "assets/full/monologue.webp"
+    },
+    "crescent-spear": {
+      "thumb": "assets/thumbs/crescent-spear.avif",
+      "full": "assets/full/crescent-spear.webp"
+    },
+    "offering": {
+      "thumb": "assets/thumbs/offering.avif",
+      "full": "assets/full/offering.webp"
+    },
+    "dominate": {
+      "thumb": "assets/thumbs/dominate.avif",
+      "full": "assets/full/dominate.webp"
+    },
+    "bloodletting": {
+      "thumb": "assets/thumbs/bloodletting.avif",
+      "full": "assets/full/bloodletting.webp"
+    },
+    "colossus": {
+      "thumb": "assets/thumbs/colossus.avif",
+      "full": "assets/full/colossus.webp"
+    },
+    "inferno": {
+      "thumb": "assets/thumbs/inferno.avif",
+      "full": "assets/full/inferno.webp"
+    },
+    "pacts-end": {
+      "thumb": "assets/thumbs/pacts-end.avif",
+      "full": "assets/full/pacts-end.webp"
+    },
+    "crimson-mantle": {
+      "thumb": "assets/thumbs/crimson-mantle.avif",
+      "full": "assets/full/crimson-mantle.webp"
+    },
+    "unmovable": {
+      "thumb": "assets/thumbs/unmovable.avif",
+      "full": "assets/full/unmovable.webp"
+    },
+    "uppercut": {
+      "thumb": "assets/thumbs/uppercut.avif",
+      "full": "assets/full/uppercut.webp"
+    },
+    "battle-trance": {
+      "thumb": "assets/thumbs/battle-trance.avif",
+      "full": "assets/full/battle-trance.webp"
+    },
+    "tremble": {
+      "thumb": "assets/thumbs/tremble.avif",
+      "full": "assets/full/tremble.webp"
+    },
+    "burning-pact": {
+      "thumb": "assets/thumbs/burning-pact.avif",
+      "full": "assets/full/burning-pact.webp"
+    },
+    "cruelty": {
+      "thumb": "assets/thumbs/cruelty.avif",
+      "full": "assets/full/cruelty.webp"
+    },
+    "dark-embrace": {
+      "thumb": "assets/thumbs/dark-embrace.avif",
+      "full": "assets/full/dark-embrace.webp"
+    },
+    "fiend-fire": {
+      "thumb": "assets/thumbs/fiend-fire.avif",
+      "full": "assets/full/fiend-fire.webp"
+    },
+    "impervious": {
+      "thumb": "assets/thumbs/impervious.avif",
+      "full": "assets/full/impervious.webp"
+    },
+    "pommel-strike": {
+      "thumb": "assets/thumbs/pommel-strike.avif",
+      "full": "assets/full/pommel-strike.webp"
+    },
+    "primal-force": {
+      "thumb": "assets/thumbs/primal-force.avif",
+      "full": "assets/full/primal-force.webp"
+    },
+    "feed": {
+      "thumb": "assets/thumbs/feed.avif",
+      "full": "assets/full/feed.webp"
+    },
+    "flame-barrier": {
+      "thumb": "assets/thumbs/flame-barrier.avif",
+      "full": "assets/full/flame-barrier.webp"
+    },
+    "corruption": {
+      "thumb": "assets/thumbs/corruption.avif",
+      "full": "assets/full/corruption.webp"
+    },
+    "feel-no-pain": {
+      "thumb": "assets/thumbs/feel-no-pain.avif",
+      "full": "assets/full/feel-no-pain.webp"
+    },
+    "blood-wall": {
+      "thumb": "assets/thumbs/blood-wall.avif",
+      "full": "assets/full/blood-wall.webp"
+    },
+    "expect-a-fight": {
+      "thumb": "assets/thumbs/expect-a-fight.avif",
+      "full": "assets/full/expect-a-fight.webp"
+    },
+    "anger": {
+      "thumb": "assets/thumbs/anger.avif",
+      "full": "assets/full/anger.webp"
+    },
+    "bludgeon": {
+      "thumb": "assets/thumbs/bludgeon.avif",
+      "full": "assets/full/bludgeon.webp"
+    },
+    "hemokinesis": {
+      "thumb": "assets/thumbs/hemokinesis.avif",
+      "full": "assets/full/hemokinesis.webp"
+    },
+    "pyre": {
+      "thumb": "assets/thumbs/pyre.avif",
+      "full": "assets/full/pyre.webp"
+    },
+    "rage": {
+      "thumb": "assets/thumbs/rage.avif",
+      "full": "assets/full/rage.webp"
+    },
+    "headbutt": {
+      "thumb": "assets/thumbs/headbutt.avif",
+      "full": "assets/full/headbutt.webp"
+    },
+    "second-wind": {
+      "thumb": "assets/thumbs/second-wind.avif",
+      "full": "assets/full/second-wind.webp"
+    },
+    "shrug-it-off": {
+      "thumb": "assets/thumbs/shrug-it-off.avif",
+      "full": "assets/full/shrug-it-off.webp"
+    },
+    "stoke": {
+      "thumb": "assets/thumbs/stoke.avif",
+      "full": "assets/full/stoke.webp"
+    },
+    "break": {
+      "thumb": "assets/thumbs/break.avif",
+      "full": "assets/full/break.webp"
+    },
+    "forgotten-ritual": {
+      "thumb": "assets/thumbs/forgotten-ritual.avif",
+      "full": "assets/full/forgotten-ritual.webp"
+    },
+    "tear-asunder": {
+      "thumb": "assets/thumbs/tear-asunder.avif",
+      "full": "assets/full/tear-asunder.webp"
+    },
+    "dismantle": {
+      "thumb": "assets/thumbs/dismantle.avif",
+      "full": "assets/full/dismantle.webp"
+    },
+    "breakthrough": {
+      "thumb": "assets/thumbs/breakthrough.avif",
+      "full": "assets/full/breakthrough.webp"
+    },
+    "ashen-strike": {
+      "thumb": "assets/thumbs/ashen-strike.avif",
+      "full": "assets/full/ashen-strike.webp"
+    },
+    "unrelenting-plus": {
+      "thumb": "assets/thumbs/unrelenting-plus.avif",
+      "full": "assets/full/unrelenting-plus.webp"
+    },
+    "cinder": {
+      "thumb": "assets/thumbs/cinder.avif",
+      "full": "assets/full/cinder.webp"
+    },
+    "evil-eye": {
+      "thumb": "assets/thumbs/evil-eye.avif",
+      "full": "assets/full/evil-eye.webp"
+    },
+    "thrash": {
+      "thumb": "assets/thumbs/thrash.avif",
+      "full": "assets/full/thrash.webp"
+    },
+    "aggression": {
+      "thumb": "assets/thumbs/aggression.avif",
+      "full": "assets/full/aggression.webp"
+    },
+    "spite": {
+      "thumb": "assets/thumbs/spite.avif",
+      "full": "assets/full/spite.webp"
+    },
+    "whirlwind": {
+      "thumb": "assets/thumbs/whirlwind.avif",
+      "full": "assets/full/whirlwind.webp"
+    },
+    "taunt": {
+      "thumb": "assets/thumbs/taunt.avif",
+      "full": "assets/full/taunt.webp"
+    },
+    "stomp": {
+      "thumb": "assets/thumbs/stomp.avif",
+      "full": "assets/full/stomp.webp"
+    },
+    "iron-wave": {
+      "thumb": "assets/thumbs/iron-wave.avif",
+      "full": "assets/full/iron-wave.webp"
+    },
+    "twin-strike": {
+      "thumb": "assets/thumbs/twin-strike.avif",
+      "full": "assets/full/twin-strike.webp"
+    },
+    "vicious": {
+      "thumb": "assets/thumbs/vicious.avif",
+      "full": "assets/full/vicious.webp"
+    },
+    "stone-armor": {
+      "thumb": "assets/thumbs/stone-armor.avif",
+      "full": "assets/full/stone-armor.webp"
+    },
+    "rupture": {
+      "thumb": "assets/thumbs/rupture.avif",
+      "full": "assets/full/rupture.webp"
+    },
+    "pillage": {
+      "thumb": "assets/thumbs/pillage.avif",
+      "full": "assets/full/pillage.webp"
+    },
+    "thunderclap": {
+      "thumb": "assets/thumbs/thunderclap.avif",
+      "full": "assets/full/thunderclap.webp"
+    },
+    "stampede": {
+      "thumb": "assets/thumbs/stampede.avif",
+      "full": "assets/full/stampede.webp"
+    },
+    "true-grit": {
+      "thumb": "assets/thumbs/true-grit.avif",
+      "full": "assets/full/true-grit.webp"
+    },
+    "inflame": {
+      "thumb": "assets/thumbs/inflame.avif",
+      "full": "assets/full/inflame.webp"
+    },
+    "cascade": {
+      "thumb": "assets/thumbs/cascade.avif",
+      "full": "assets/full/cascade.webp"
+    },
+    "molten-fist": {
+      "thumb": "assets/thumbs/molten-fist.avif",
+      "full": "assets/full/molten-fist.webp"
+    },
+    "rampage": {
+      "thumb": "assets/thumbs/rampage.avif",
+      "full": "assets/full/rampage.webp"
+    },
+    "bully": {
+      "thumb": "assets/thumbs/bully.avif",
+      "full": "assets/full/bully.webp"
+    },
+    "setup-strike": {
+      "thumb": "assets/thumbs/setup-strike.avif",
+      "full": "assets/full/setup-strike.webp"
+    },
+    "infernal-blade": {
+      "thumb": "assets/thumbs/infernal-blade.avif",
+      "full": "assets/full/infernal-blade.webp"
+    },
+    "perfected-strike": {
+      "thumb": "assets/thumbs/perfected-strike.avif",
+      "full": "assets/full/perfected-strike.webp"
+    },
+    "sword-boomerang": {
+      "thumb": "assets/thumbs/sword-boomerang.avif",
+      "full": "assets/full/sword-boomerang.webp"
+    },
+    "havoc": {
+      "thumb": "assets/thumbs/havoc.avif",
+      "full": "assets/full/havoc.webp"
+    },
+    "hellraiser": {
+      "thumb": "assets/thumbs/hellraiser.avif",
+      "full": "assets/full/hellraiser.webp"
+    },
+    "brand": {
+      "thumb": "assets/thumbs/brand.avif",
+      "full": "assets/full/brand.webp"
+    },
+    "armaments": {
+      "thumb": "assets/thumbs/armaments.avif",
+      "full": "assets/full/armaments.webp"
+    },
+    "howl-from-beyond": {
+      "thumb": "assets/thumbs/howl-from-beyond.avif",
+      "full": "assets/full/howl-from-beyond.webp"
+    },
+    "body-slam": {
+      "thumb": "assets/thumbs/body-slam.avif",
+      "full": "assets/full/body-slam.webp"
+    },
+    "drum-of-battle": {
+      "thumb": "assets/thumbs/drum-of-battle.avif",
+      "full": "assets/full/drum-of-battle.webp"
+    },
+    "juggling": {
+      "thumb": "assets/thumbs/juggling.avif",
+      "full": "assets/full/juggling.webp"
+    },
+    "demon-form": {
+      "thumb": "assets/thumbs/demon-form.avif",
+      "full": "assets/full/demon-form.webp"
+    },
+    "fight-me": {
+      "thumb": "assets/thumbs/fight-me.avif",
+      "full": "assets/full/fight-me.webp"
+    },
+    "one-two-punch": {
+      "thumb": "assets/thumbs/one-two-punch.avif",
+      "full": "assets/full/one-two-punch.webp"
+    },
+    "mangle": {
+      "thumb": "assets/thumbs/mangle.avif",
+      "full": "assets/full/mangle.webp"
+    },
+    "barricade": {
+      "thumb": "assets/thumbs/barricade.avif",
+      "full": "assets/full/barricade.webp"
+    },
+    "juggernaut": {
+      "thumb": "assets/thumbs/juggernaut.avif",
+      "full": "assets/full/juggernaut.webp"
+    },
+    "conflagration": {
+      "thumb": "assets/thumbs/conflagration.avif",
+      "full": "assets/full/conflagration.webp"
+    },
+    "demesne": {
+      "thumb": "assets/thumbs/demesne.avif",
+      "full": "assets/full/demesne.webp"
+    },
+    "friendship": {
+      "thumb": "assets/thumbs/friendship.avif",
+      "full": "assets/full/friendship.webp"
+    },
+    "neurosurge": {
+      "thumb": "assets/thumbs/neurosurge.avif",
+      "full": "assets/full/neurosurge.webp"
+    },
+    "call-of-the-void": {
+      "thumb": "assets/thumbs/call-of-the-void.avif",
+      "full": "assets/full/call-of-the-void.webp"
+    },
+    "sleight-of-flesh": {
+      "thumb": "assets/thumbs/sleight-of-flesh.avif",
+      "full": "assets/full/sleight-of-flesh.webp"
+    },
+    "putrefy": {
+      "thumb": "assets/thumbs/putrefy.avif",
+      "full": "assets/full/putrefy.webp"
+    },
+    "danse-macabre": {
+      "thumb": "assets/thumbs/danse-macabre.avif",
+      "full": "assets/full/danse-macabre.webp"
+    },
+    "lethality": {
+      "thumb": "assets/thumbs/lethality.avif",
+      "full": "assets/full/lethality.webp"
+    },
+    "delay": {
+      "thumb": "assets/thumbs/delay.avif",
+      "full": "assets/full/delay.webp"
+    },
+    "reanimate": {
+      "thumb": "assets/thumbs/reanimate.avif",
+      "full": "assets/full/reanimate.webp"
+    },
+    "enfeebling-touch": {
+      "thumb": "assets/thumbs/enfeebling-touch.avif",
+      "full": "assets/full/enfeebling-touch.webp"
+    },
+    "defy": {
+      "thumb": "assets/thumbs/defy.avif",
+      "full": "assets/full/defy.webp"
+    },
+    "reaper-form": {
+      "thumb": "assets/thumbs/reaper-form.avif",
+      "full": "assets/full/reaper-form.webp"
+    },
+    "bone-shards": {
+      "thumb": "assets/thumbs/bone-shards.avif",
+      "full": "assets/full/bone-shards.webp"
+    },
+    "pagestorm": {
+      "thumb": "assets/thumbs/pagestorm.avif",
+      "full": "assets/full/pagestorm.webp"
+    },
+    "banshees-cry": {
+      "thumb": "assets/thumbs/banshees-cry.avif",
+      "full": "assets/full/banshees-cry.webp"
+    },
+    "shared-fate": {
+      "thumb": "assets/thumbs/shared-fate.avif",
+      "full": "assets/full/shared-fate.webp"
+    },
+    "capture-spirit": {
+      "thumb": "assets/thumbs/capture-spirit.avif",
+      "full": "assets/full/capture-spirit.webp"
+    },
+    "deathbringer": {
+      "thumb": "assets/thumbs/deathbringer.avif",
+      "full": "assets/full/deathbringer.webp"
+    },
+    "dirge": {
+      "thumb": "assets/thumbs/dirge.avif",
+      "full": "assets/full/dirge.webp"
+    },
+    "spirit-of-ash": {
+      "thumb": "assets/thumbs/spirit-of-ash.avif",
+      "full": "assets/full/spirit-of-ash.webp"
+    },
+    "eradicate": {
+      "thumb": "assets/thumbs/eradicate.avif",
+      "full": "assets/full/eradicate.webp"
+    },
+    "fetch": {
+      "thumb": "assets/thumbs/fetch.avif",
+      "full": "assets/full/fetch.webp"
+    },
+    "hang": {
+      "thumb": "assets/thumbs/hang.avif",
+      "full": "assets/full/hang.webp"
+    },
+    "undeath": {
+      "thumb": "assets/thumbs/undeath.avif",
+      "full": "assets/full/undeath.webp"
+    },
+    "grave-warden": {
+      "thumb": "assets/thumbs/grave-warden.avif",
+      "full": "assets/full/grave-warden.webp"
+    },
+    "end-of-days": {
+      "thumb": "assets/thumbs/end-of-days.avif",
+      "full": "assets/full/end-of-days.webp"
+    },
+    "borrowed-time": {
+      "thumb": "assets/thumbs/borrowed-time.avif",
+      "full": "assets/full/borrowed-time.webp"
+    },
+    "afterlife": {
+      "thumb": "assets/thumbs/afterlife.avif",
+      "full": "assets/full/afterlife.webp"
+    },
+    "transfigure": {
+      "thumb": "assets/thumbs/transfigure.avif",
+      "full": "assets/full/transfigure.webp"
+    },
+    "spur": {
+      "thumb": "assets/thumbs/spur.avif",
+      "full": "assets/full/spur.webp"
+    },
+    "no-escape": {
+      "thumb": "assets/thumbs/no-escape.avif",
+      "full": "assets/full/no-escape.webp"
+    },
+    "countdown": {
+      "thumb": "assets/thumbs/countdown.avif",
+      "full": "assets/full/countdown.webp"
+    },
+    "sow": {
+      "thumb": "assets/thumbs/sow.avif",
+      "full": "assets/full/sow.webp"
+    },
+    "calcify": {
+      "thumb": "assets/thumbs/calcify.avif",
+      "full": "assets/full/calcify.webp"
+    },
+    "invoke": {
+      "thumb": "assets/thumbs/invoke.avif",
+      "full": "assets/full/invoke.webp"
+    },
+    "pull-aggro": {
+      "thumb": "assets/thumbs/pull-aggro.avif",
+      "full": "assets/full/pull-aggro.webp"
+    },
+    "melancholy": {
+      "thumb": "assets/thumbs/melancholy.avif",
+      "full": "assets/full/melancholy.webp"
+    },
+    "oblivion": {
+      "thumb": "assets/thumbs/oblivion.avif",
+      "full": "assets/full/oblivion.webp"
+    },
+    "sentry-mode": {
+      "thumb": "assets/thumbs/sentry-mode.avif",
+      "full": "assets/full/sentry-mode.webp"
+    },
+    "the-scythe": {
+      "thumb": "assets/thumbs/the-scythe.avif",
+      "full": "assets/full/the-scythe.webp"
+    },
+    "deaths-door": {
+      "thumb": "assets/thumbs/deaths-door.avif",
+      "full": "assets/full/deaths-door.webp"
+    },
+    "reap": {
+      "thumb": "assets/thumbs/reap.avif",
+      "full": "assets/full/reap.webp"
+    },
+    "shroud": {
+      "thumb": "assets/thumbs/shroud.avif",
+      "full": "assets/full/shroud.webp"
+    },
+    "haunt": {
+      "thumb": "assets/thumbs/haunt.avif",
+      "full": "assets/full/haunt.webp"
+    },
+    "dredge": {
+      "thumb": "assets/thumbs/dredge.avif",
+      "full": "assets/full/dredge.webp"
+    },
+    "debilitate": {
+      "thumb": "assets/thumbs/debilitate.avif",
+      "full": "assets/full/debilitate.webp"
+    },
+    "negative-pulse": {
+      "thumb": "assets/thumbs/negative-pulse.avif",
+      "full": "assets/full/negative-pulse.webp"
+    },
+    "defile": {
+      "thumb": "assets/thumbs/defile.avif",
+      "full": "assets/full/defile.webp"
+    },
+    "high-five": {
+      "thumb": "assets/thumbs/high-five.avif",
+      "full": "assets/full/high-five.webp"
+    },
+    "pull-from-below": {
+      "thumb": "assets/thumbs/pull-from-below.avif",
+      "full": "assets/full/pull-from-below.webp"
+    },
+    "eidolon": {
+      "thumb": "assets/thumbs/eidolon.avif",
+      "full": "assets/full/eidolon.webp"
+    },
+    "times-up": {
+      "thumb": "assets/thumbs/times-up.avif",
+      "full": "assets/full/times-up.webp"
+    },
+    "cleanse": {
+      "thumb": "assets/thumbs/cleanse.avif",
+      "full": "assets/full/cleanse.webp"
+    },
+    "seance": {
+      "thumb": "assets/thumbs/seance.avif",
+      "full": "assets/full/seance.webp"
+    },
+    "sic-em": {
+      "thumb": "assets/thumbs/sic-em.avif",
+      "full": "assets/full/sic-em.webp"
+    },
+    "wisp": {
+      "thumb": "assets/thumbs/wisp.avif",
+      "full": "assets/full/wisp.webp"
+    },
+    "snap": {
+      "thumb": "assets/thumbs/snap.avif",
+      "full": "assets/full/snap.webp"
+    },
+    "rattle": {
+      "thumb": "assets/thumbs/rattle.avif",
+      "full": "assets/full/rattle.webp"
+    },
+    "right-hand-hand": {
+      "thumb": "assets/thumbs/right-hand-hand.avif",
+      "full": "assets/full/right-hand-hand.webp"
+    },
+    "blight-strike": {
+      "thumb": "assets/thumbs/blight-strike.avif",
+      "full": "assets/full/blight-strike.webp"
+    },
+    "death-march": {
+      "thumb": "assets/thumbs/death-march.avif",
+      "full": "assets/full/death-march.webp"
+    },
+    "squeeze": {
+      "thumb": "assets/thumbs/squeeze.avif",
+      "full": "assets/full/squeeze.webp"
+    },
+    "drain-power": {
+      "thumb": "assets/thumbs/drain-power.avif",
+      "full": "assets/full/drain-power.webp"
+    },
+    "poke": {
+      "thumb": "assets/thumbs/poke.avif",
+      "full": "assets/full/poke.webp"
+    },
+    "scourge": {
+      "thumb": "assets/thumbs/scourge.avif",
+      "full": "assets/full/scourge.webp"
+    },
+    "sculpting-strike": {
+      "thumb": "assets/thumbs/sculpting-strike.avif",
+      "full": "assets/full/sculpting-strike.webp"
+    },
+    "necro-mastery": {
+      "thumb": "assets/thumbs/necro-mastery.avif",
+      "full": "assets/full/necro-mastery.webp"
+    },
+    "devour-life": {
+      "thumb": "assets/thumbs/devour-life.avif",
+      "full": "assets/full/devour-life.webp"
+    },
+    "sacrifice": {
+      "thumb": "assets/thumbs/sacrifice.avif",
+      "full": "assets/full/sacrifice.webp"
+    },
+    "reave": {
+      "thumb": "assets/thumbs/reave.avif",
+      "full": "assets/full/reave.webp"
+    },
+    "parse": {
+      "thumb": "assets/thumbs/parse.avif",
+      "full": "assets/full/parse.webp"
+    },
+    "veilpiercer": {
+      "thumb": "assets/thumbs/veilpiercer.avif",
+      "full": "assets/full/veilpiercer.webp"
+    },
+    "misery": {
+      "thumb": "assets/thumbs/misery.avif",
+      "full": "assets/full/misery.webp"
+    },
+    "severance": {
+      "thumb": "assets/thumbs/severance.avif",
+      "full": "assets/full/severance.webp"
+    },
+    "flatten": {
+      "thumb": "assets/thumbs/flatten.avif",
+      "full": "assets/full/flatten.webp"
+    },
+    "bury": {
+      "thumb": "assets/thumbs/bury.avif",
+      "full": "assets/full/bury.webp"
+    },
+    "soul-storm": {
+      "thumb": "assets/thumbs/soul-storm.avif",
+      "full": "assets/full/soul-storm.webp"
+    },
+    "graveblast": {
+      "thumb": "assets/thumbs/graveblast.avif",
+      "full": "assets/full/graveblast.webp"
+    },
+    "fear": {
+      "thumb": "assets/thumbs/fear.avif",
+      "full": "assets/full/fear.webp"
+    },
+    "echo-form": {
+      "thumb": "assets/thumbs/echo-form.avif",
+      "full": "assets/full/echo-form.webp"
+    },
+    "defragment": {
+      "thumb": "assets/thumbs/defragment.avif",
+      "full": "assets/full/defragment.webp"
+    },
+    "glacier": {
+      "thumb": "assets/thumbs/glacier.avif",
+      "full": "assets/full/glacier.webp"
+    },
+    "modded": {
+      "thumb": "assets/thumbs/modded.avif",
+      "full": "assets/full/modded.webp"
+    },
+    "genetic-algorithm": {
+      "thumb": "assets/thumbs/genetic-algorithm.avif",
+      "full": "assets/full/genetic-algorithm.webp"
+    },
+    "darkness": {
+      "thumb": "assets/thumbs/darkness.avif",
+      "full": "assets/full/darkness.webp"
+    },
+    "synchronize": {
+      "thumb": "assets/thumbs/synchronize.avif",
+      "full": "assets/full/synchronize.webp"
+    },
+    "chill": {
+      "thumb": "assets/thumbs/chill.avif",
+      "full": "assets/full/chill.webp"
+    },
+    "coolheaded": {
+      "thumb": "assets/thumbs/coolheaded.avif",
+      "full": "assets/full/coolheaded.webp"
+    },
+    "machine-learning": {
+      "thumb": "assets/thumbs/machine-learning.avif",
+      "full": "assets/full/machine-learning.webp"
+    },
+    "null": {
+      "thumb": "assets/thumbs/null.avif",
+      "full": "assets/full/null.webp"
+    },
+    "barrage": {
+      "thumb": "assets/thumbs/barrage.avif",
+      "full": "assets/full/barrage.webp"
+    },
+    "ice-lance": {
+      "thumb": "assets/thumbs/ice-lance.avif",
+      "full": "assets/full/ice-lance.webp"
+    },
+    "buffer": {
+      "thumb": "assets/thumbs/buffer.avif",
+      "full": "assets/full/buffer.webp"
+    },
+    "boot-sequence": {
+      "thumb": "assets/thumbs/boot-sequence.avif",
+      "full": "assets/full/boot-sequence.webp"
+    },
+    "supercritical": {
+      "thumb": "assets/thumbs/supercritical.avif",
+      "full": "assets/full/supercritical.webp"
+    },
+    "cold-snap": {
+      "thumb": "assets/thumbs/cold-snap.avif",
+      "full": "assets/full/cold-snap.webp"
+    },
+    "hotfix": {
+      "thumb": "assets/thumbs/hotfix.avif",
+      "full": "assets/full/hotfix.webp"
+    },
+    "bulk-up": {
+      "thumb": "assets/thumbs/bulk-up.avif",
+      "full": "assets/full/bulk-up.webp"
+    },
+    "capacitor": {
+      "thumb": "assets/thumbs/capacitor.avif",
+      "full": "assets/full/capacitor.webp"
+    },
+    "coolant": {
+      "thumb": "assets/thumbs/coolant.avif",
+      "full": "assets/full/coolant.webp"
+    },
+    "spinner": {
+      "thumb": "assets/thumbs/spinner.avif",
+      "full": "assets/full/spinner.webp"
+    },
+    "shadow-shield": {
+      "thumb": "assets/thumbs/shadow-shield.avif",
+      "full": "assets/full/shadow-shield.webp"
+    },
+    "ftl": {
+      "thumb": "assets/thumbs/ftl.avif",
+      "full": "assets/full/ftl.webp"
+    },
+    "charge-battery": {
+      "thumb": "assets/thumbs/charge-battery.avif",
+      "full": "assets/full/charge-battery.webp"
+    },
+    "go-for-the-eyes": {
+      "thumb": "assets/thumbs/go-for-the-eyes.avif",
+      "full": "assets/full/go-for-the-eyes.webp"
+    },
+    "sunder": {
+      "thumb": "assets/thumbs/sunder.avif",
+      "full": "assets/full/sunder.webp"
+    },
+    "overclock": {
+      "thumb": "assets/thumbs/overclock.avif",
+      "full": "assets/full/overclock.webp"
+    },
+    "skim": {
+      "thumb": "assets/thumbs/skim.avif",
+      "full": "assets/full/skim.webp"
+    },
+    "turbo": {
+      "thumb": "assets/thumbs/turbo.avif",
+      "full": "assets/full/turbo.webp"
+    },
+    "glasswork": {
+      "thumb": "assets/thumbs/glasswork.avif",
+      "full": "assets/full/glasswork.webp"
+    },
+    "rainbow": {
+      "thumb": "assets/thumbs/rainbow.avif",
+      "full": "assets/full/rainbow.webp"
+    },
+    "subroutine": {
+      "thumb": "assets/thumbs/subroutine.avif",
+      "full": "assets/full/subroutine.webp"
+    },
+    "all-for-one": {
+      "thumb": "assets/thumbs/all-for-one.avif",
+      "full": "assets/full/all-for-one.webp"
+    },
+    "compile-driver": {
+      "thumb": "assets/thumbs/compile-driver.avif",
+      "full": "assets/full/compile-driver.webp"
+    },
+    "fight-through": {
+      "thumb": "assets/thumbs/fight-through.avif",
+      "full": "assets/full/fight-through.webp"
+    },
+    "tesla-coil": {
+      "thumb": "assets/thumbs/tesla-coil.avif",
+      "full": "assets/full/tesla-coil.webp"
+    },
+    "hologram": {
+      "thumb": "assets/thumbs/hologram.avif",
+      "full": "assets/full/hologram.webp"
+    },
+    "feral": {
+      "thumb": "assets/thumbs/feral.avif",
+      "full": "assets/full/feral.webp"
+    },
+    "focused-strike": {
+      "thumb": "assets/thumbs/focused-strike.avif",
+      "full": "assets/full/focused-strike.webp"
+    },
+    "double-energy": {
+      "thumb": "assets/thumbs/double-energy.avif",
+      "full": "assets/full/double-energy.webp"
+    },
+    "signal-boost": {
+      "thumb": "assets/thumbs/signal-boost.avif",
+      "full": "assets/full/signal-boost.webp"
+    },
+    "iteration": {
+      "thumb": "assets/thumbs/iteration.avif",
+      "full": "assets/full/iteration.webp"
+    },
+    "trash-to-treasure": {
+      "thumb": "assets/thumbs/trash-to-treasure.avif",
+      "full": "assets/full/trash-to-treasure.webp"
+    },
+    "creative-ai": {
+      "thumb": "assets/thumbs/creative-ai.avif",
+      "full": "assets/full/creative-ai.webp"
+    },
+    "rocket-punch": {
+      "thumb": "assets/thumbs/rocket-punch.avif",
+      "full": "assets/full/rocket-punch.webp"
+    },
+    "refract": {
+      "thumb": "assets/thumbs/refract.avif",
+      "full": "assets/full/refract.webp"
+    },
+    "leap": {
+      "thumb": "assets/thumbs/leap.avif",
+      "full": "assets/full/leap.webp"
+    },
+    "loop": {
+      "thumb": "assets/thumbs/loop.avif",
+      "full": "assets/full/loop.webp"
+    },
+    "reboot": {
+      "thumb": "assets/thumbs/reboot.avif",
+      "full": "assets/full/reboot.webp"
+    },
+    "ball-lightning": {
+      "thumb": "assets/thumbs/ball-lightning.avif",
+      "full": "assets/full/ball-lightning.webp"
+    },
+    "hailstorm": {
+      "thumb": "assets/thumbs/hailstorm.avif",
+      "full": "assets/full/hailstorm.webp"
+    },
+    "meteor-strike": {
+      "thumb": "assets/thumbs/meteor-strike.avif",
+      "full": "assets/full/meteor-strike.webp"
+    },
+    "adaptive-strike": {
+      "thumb": "assets/thumbs/adaptive-strike.avif",
+      "full": "assets/full/adaptive-strike.webp"
+    },
+    "lightning-rod": {
+      "thumb": "assets/thumbs/lightning-rod.avif",
+      "full": "assets/full/lightning-rod.webp"
+    },
+    "multi-cast": {
+      "thumb": "assets/thumbs/multi-cast.avif",
+      "full": "assets/full/multi-cast.webp"
+    },
+    "boost-away": {
+      "thumb": "assets/thumbs/boost-away.avif",
+      "full": "assets/full/boost-away.webp"
+    },
+    "shatter": {
+      "thumb": "assets/thumbs/shatter.avif",
+      "full": "assets/full/shatter.webp"
+    },
+    "voltaic": {
+      "thumb": "assets/thumbs/voltaic.avif",
+      "full": "assets/full/voltaic.webp"
+    },
+    "compact": {
+      "thumb": "assets/thumbs/compact.avif",
+      "full": "assets/full/compact.webp"
+    },
+    "fusion": {
+      "thumb": "assets/thumbs/fusion.avif",
+      "full": "assets/full/fusion.webp"
+    },
+    "sweeping-beam": {
+      "thumb": "assets/thumbs/sweeping-beam.avif",
+      "full": "assets/full/sweeping-beam.webp"
+    },
+    "momentum-strike": {
+      "thumb": "assets/thumbs/momentum-strike.avif",
+      "full": "assets/full/momentum-strike.webp"
+    },
+    "beam-cell": {
+      "thumb": "assets/thumbs/beam-cell.avif",
+      "full": "assets/full/beam-cell.webp"
+    },
+    "tempest": {
+      "thumb": "assets/thumbs/tempest.avif",
+      "full": "assets/full/tempest.webp"
+    },
+    "gunk-up": {
+      "thumb": "assets/thumbs/gunk-up.avif",
+      "full": "assets/full/gunk-up.webp"
+    },
+    "scrape": {
+      "thumb": "assets/thumbs/scrape.avif",
+      "full": "assets/full/scrape.webp"
+    },
+    "scavenge": {
+      "thumb": "assets/thumbs/scavenge.avif",
+      "full": "assets/full/scavenge.webp"
+    },
+    "synthesis": {
+      "thumb": "assets/thumbs/synthesis.avif",
+      "full": "assets/full/synthesis.webp"
+    },
+    "white-noise": {
+      "thumb": "assets/thumbs/white-noise.avif",
+      "full": "assets/full/white-noise.webp"
+    },
+    "flak-cannon": {
+      "thumb": "assets/thumbs/flak-cannon.avif",
+      "full": "assets/full/flak-cannon.webp"
+    },
+    "smokestack": {
+      "thumb": "assets/thumbs/smokestack.avif",
+      "full": "assets/full/smokestack.webp"
+    },
+    "helix-drill": {
+      "thumb": "assets/thumbs/helix-drill.avif",
+      "full": "assets/full/helix-drill.webp"
+    },
+    "consuming-shadow": {
+      "thumb": "assets/thumbs/consuming-shadow.avif",
+      "full": "assets/full/consuming-shadow.webp"
+    },
+    "thunder": {
+      "thumb": "assets/thumbs/thunder.avif",
+      "full": "assets/full/thunder.webp"
+    },
+    "hyperbeam": {
+      "thumb": "assets/thumbs/hyperbeam.avif",
+      "full": "assets/full/hyperbeam.webp"
+    },
+    "chaos": {
+      "thumb": "assets/thumbs/chaos.avif",
+      "full": "assets/full/chaos.webp"
+    },
+    "claw": {
+      "thumb": "assets/thumbs/claw.avif",
+      "full": "assets/full/claw.webp"
+    },
+    "uproar": {
+      "thumb": "assets/thumbs/uproar.avif",
+      "full": "assets/full/uproar.webp"
+    },
+    "storm": {
+      "thumb": "assets/thumbs/storm.avif",
+      "full": "assets/full/storm.webp"
+    }
+  }
+}
