@@ -295,3 +295,25 @@ Flags: `--skip-fetch`, `--skip-images`, `--skip-metadata`, `--skip-bake`, `--no-
 ## 2026-07-08 — README: hand-edit vs generated files
 
 Updated `README.md` with tables for what to edit manually (`methodology.json`, viewer source) vs what to regenerate via `refresh-tier-list.py` (tier data, baked `index.html`, images, metadata).
+
+## 2026-07-08 — Revert tier-list bake step (serve over HTTP again)
+
+**User correction:** Viewer should load JSON via `fetch()` over a local HTTP server, not inlined `window.TIER_DATA` for `file://`.
+
+**Reverted from:** commit `a87a77e` bake step (Phase 3 extension).
+
+| File | Change |
+|------|--------|
+| `tier-list/viewer.js` | Removed `window.TIER_DATA` shortcut; always fetches JSON |
+| `tier-list/index.html` | Removed ~240 KB inline bake block; footer shows `python3 -m http.server` |
+| `tier-list/scrape/refresh-tier-list.py` | Dropped `build-viewer.py` step and `--skip-bake` flag |
+| `README.md` | Open instructions → `cd tier-list && python3 -m http.server 8080` |
+
+**Run viewer:**
+
+```bash
+cd tier-list && python3 -m http.server 8080
+# open http://localhost:8080
+```
+
+`build-viewer.py` left in repo but no longer called by refresh pipeline.
