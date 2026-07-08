@@ -330,5 +330,5 @@ cd tier-list && python3 -m http.server 8080
 
 **Notes:**
 - Card names are tiny (0.5rem) on purpose — visible enough for browser find/highlight, not for reading.
-- Preview flips left of the cursor if it would overflow the viewport edge.
+- Preview stays to the right of the cursor; viewport padding clamps it inward instead of flipping sides.
 - Below 900px width, TOC collapses to a horizontal strip above the tier rows.

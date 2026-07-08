@@ -101,28 +101,21 @@ function fillCardPreview(previewEl, card, fullSrc, metaBySlug) {
   }
 }
 
-/** Place the preview to the right of the cursor, flipping left if needed. */
+/** Place the preview to the right of the cursor, clamped inside the viewport. */
 function positionCardPreview(previewEl, event) {
   const gap = 14;
-  const pad = 12;
+  const pad = 20;
   const width = previewEl.offsetWidth || 320;
   const height = previewEl.offsetHeight || 420;
 
   let left = event.clientX + gap;
   let top = event.clientY - 24;
 
-  if (left + width > window.innerWidth - pad) {
-    left = event.clientX - width - gap;
-  }
-  if (top + height > window.innerHeight - pad) {
-    top = window.innerHeight - height - pad;
-  }
-  if (top < pad) {
-    top = pad;
-  }
-  if (left < pad) {
-    left = pad;
-  }
+  // Stay on screen with padding — slide inward instead of flipping to the left of the cursor.
+  left = Math.min(left, window.innerWidth - width - pad);
+  left = Math.max(left, pad);
+  top = Math.min(top, window.innerHeight - height - pad);
+  top = Math.max(top, pad);
 
   previewEl.style.left = `${left}px`;
   previewEl.style.top = `${top}px`;
