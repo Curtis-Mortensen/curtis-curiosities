@@ -248,3 +248,46 @@ No new scripts. Open `tier-list/index.html` in a browser (or re-bake if JSON cha
 ### Status
 
 **Stage 4 complete.** Viewer feature set is done; Stage 5 is the documented refresh pipeline only.
+
+## 2026-07-08 — STS2 tier list Phase 5 (Stage 5: refresh workflow)
+
+**Plan:** `recreating-tier-list.html` Stage 5
+
+### Goal
+
+Single-command refresh when Mobalytics updates rankings, plus tier-change diff between runs.
+
+### What was built
+
+| Path | Purpose |
+|------|---------|
+| `tier-list/scrape/refresh-tier-list.py` | Orchestrates fetch → images → metadata → bake; backs up JSON; runs diff |
+| `tier-list/scrape/diff-tier-lists.py` | Compare two `tier-lists.json` files; report moved/added/removed cards |
+| `tier-list/data/snapshots/` | Timestamped backups (gitignored JSON; `.gitkeep` in repo) |
+| `tier-list/.gitignore` | Ignores `tier-lists.previous.json` and snapshot JSON files |
+
+### Run
+
+```bash
+cd Scrape-Ventures
+python3 tier-list/scrape/refresh-tier-list.py          # live Mobalytics fetch
+python3 tier-list/scrape/refresh-tier-list.py --raw    # offline from STS2/tier-lists-raw.json
+python3 tier-list/scrape/diff-tier-lists.py            # manual diff (previous vs current)
+```
+
+Flags: `--skip-fetch`, `--skip-images`, `--skip-metadata`, `--skip-bake`, `--no-backup`, `--no-diff`.
+
+### Decisions / assumptions
+
+- **Backup before fetch:** Copies current JSON to `tier-lists.previous.json` and `data/snapshots/tier-lists-{UTC}.json`.
+- **Diff exit code 2** when placements changed (0 = identical); refresh treats 2 as success.
+- **Methodology still manual** — not scraped; edit `methodology.json` by hand if Mobalytics copy changes.
+- **Never hand-edit baked `index.html`** — re-run refresh or `build-viewer.py`.
+
+### Bugs / issues
+
+- None during implementation.
+
+### Status
+
+**Stage 5 complete.** STS2 tier-list project (Stages 1–5) is shippable.

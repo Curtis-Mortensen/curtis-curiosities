@@ -197,7 +197,7 @@
         matching the Mobalytics layout closely enough to be useful offline. Open <code>tier-list/index.html</code> directly;
         no HTTP server required.
       </p>
-      <p><strong>Status (2026-07-08):</strong> Stages 1–4 complete. Stage 5 (refresh workflow) is documentation-only.</p>
+      <p><strong>Status (2026-07-08):</strong> Stages 1–5 complete. STS2 tier-list viewer is shippable.</p>
     </div>
 
     <h2>1. How the original page works</h2>
@@ -479,6 +479,8 @@ tier-list/
     download-images.py             ← ✅ consolidate thumbs + full art
     fetch-card-metadata.py         ← ✅ Spire Codex bulk metadata
     build-viewer.py                ← ✅ bake all JSON into index.html
+    refresh-tier-list.py           ← ✅ full pipeline + backup + diff
+    diff-tier-lists.py             ← ✅ compare two tier-lists.json snapshots
     bookmarklet.js                 ← ✅ browser fallback export
 STS2/
   tier-lists-raw.json              ← ✅ saved GraphQL response
@@ -563,15 +565,17 @@ STS2/
       </div>
 
       <div class="card stage">
-        <h3>Stage 5 — Refresh workflow</h3>
-        <p>Run all four scripts when Mobalytics updates the list (live page: "Updated on Jun 24, 2026"):</p>
-        <pre>python3 tier-list/scrape/fetch-tier-lists.py
-python3 tier-list/scrape/download-images.py
-python3 tier-list/scrape/fetch-card-metadata.py
-python3 tier-list/scrape/build-viewer.py</pre>
+        <h3>Stage 5 — Refresh workflow <span class="tag tag-done">Complete</span></h3>
+        <p><strong>Completed 2026-07-08.</strong> See <a href="#stage5-findings">findings</a> below.</p>
+        <p>One command when Mobalytics updates the list:</p>
+        <pre>python3 tier-list/scrape/refresh-tier-list.py</pre>
+        <p>Offline re-parse from saved GraphQL:</p>
+        <pre>python3 tier-list/scrape/refresh-tier-list.py --raw</pre>
         <ul>
-          <li>Diff <code>tier-lists.json</code> between runs to see tier changes.</li>
-          <li>Never hand-edit baked <code>index.html</code> — re-run <code>build-viewer.py</code>.</li>
+          <li>✅ <code>refresh-tier-list.py</code> — runs fetch → images → metadata → bake → diff</li>
+          <li>✅ <code>diff-tier-lists.py</code> — reports moved / added / removed cards between snapshots</li>
+          <li>✅ Auto-backup to <code>tier-lists.previous.json</code> + timestamped <code>data/snapshots/</code></li>
+          <li>Never hand-edit baked <code>index.html</code> — re-run refresh (or <code>build-viewer.py</code> alone).</li>
           <li>Edit <code>methodology.json</code> manually if Mobalytics copy changes (not auto-scraped).</li>
         </ul>
       </div>
@@ -939,11 +943,7 @@ Response path:
         </tbody>
       </table>
       <p>Open: <code>tier-list/index.html</code> directly — no HTTP server.</p>
-      <p>Full refresh:</p>
-      <pre>python3 tier-list/scrape/fetch-tier-lists.py
-python3 tier-list/scrape/download-images.py
-python3 tier-list/scrape/fetch-card-metadata.py
-python3 tier-list/scrape/build-viewer.py</pre>
+      <p>Full refresh: <code>python3 tier-list/scrape/refresh-tier-list.py</code></p>
     </div>
 
     <h3>Metadata coverage</h3>
@@ -1067,17 +1067,34 @@ python3 tier-list/scrape/build-viewer.py</pre>
       <p><strong>Done when:</strong> Scrolling updates the active nav pill; clicking a character smooth-scrolls; keyboard can traverse nav. <em>Achieved.</em></p>
     </div>
 
-    <h2>7. Immediate next step</h2>
+    <h2 id="stage5-findings">5h. Stage 5 findings (2026-07-08)</h2>
 
     <div class="card">
-      <p><strong>Stage 5 — refresh workflow.</strong> Viewer is complete at <code>tier-list/index.html</code> (open directly, no server).</p>
-      <p>
-        When Mobalytics updates rankings, run:
-        <code>python3 tier-list/scrape/fetch-tier-lists.py</code> →
-        <code>python3 tier-list/scrape/download-images.py</code> →
-        <code>python3 tier-list/scrape/fetch-card-metadata.py</code> →
-        <code>python3 tier-list/scrape/build-viewer.py</code>
-      </p>
+      <h3>What we built</h3>
+      <table>
+        <thead>
+          <tr><th>File</th><th>Role</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>tier-list/scrape/refresh-tier-list.py</code></td><td>Runs fetch → images → metadata → bake; backs up JSON; prints diff</td></tr>
+          <tr><td><code>tier-list/scrape/diff-tier-lists.py</code></td><td>Reports tier moves, additions, removals between two JSON files</td></tr>
+          <tr><td><code>tier-list/data/tier-lists.previous.json</code></td><td>Last backup before fetch (gitignored; created by refresh)</td></tr>
+          <tr><td><code>tier-list/data/snapshots/</code></td><td>Timestamped tier-list archives (gitignored JSON; <code>.gitkeep</code> only in repo)</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Run:</strong> <code>python3 tier-list/scrape/refresh-tier-list.py</code> (live Mobalytics) or <code>--raw</code> (offline).</p>
+      <p><strong>Done when:</strong> One command refreshes the viewer and prints tier changes. <em>Achieved.</em></p>
+    </div>
+
+    <h2>7. Project complete</h2>
+
+    <div class="card">
+      <p><strong>All five stages done.</strong> Ship <code>tier-list/</code> for offline use — open <code>index.html</code> directly.</p>
+      <p>When Mobalytics updates rankings:</p>
+      <pre>cd Scrape-Ventures
+pip install -r requirements.txt   # first time only
+python3 tier-list/scrape/refresh-tier-list.py</pre>
+      <p>Manual diff anytime: <code>python3 tier-list/scrape/diff-tier-lists.py [old.json] [new.json]</code></p>
     </div>
 
     <h2>8. File counts reference</h2>
@@ -1094,13 +1111,13 @@ python3 tier-list/scrape/build-viewer.py</pre>
       <li>GraphQL endpoint: <code>POST /api/sts2/v1/graphql/query</code></li>
       <li>Featured document slug: <code>cards</code> (type <code>tier-lists</code>)</li>
       <li>Metadata API: <code>GET spire-codex.com/api/cards</code> (bulk, 577 cards)</li>
-      <li>Full refresh pipeline: fetch-tier-lists → download-images → fetch-card-metadata → build-viewer</li>
+      <li>Full refresh: <code>python3 tier-list/scrape/refresh-tier-list.py</code></li>
     </ul>
 
     <footer>
       Plan authored from analysis of <code>Scrape-Ventures/STS2/</code> saved snapshot,
       Mobalytics JS bundle reverse-engineering, and live page structure review.
-      Stages 1–4 implemented 2026-07-08 — see <code>dev-log.md</code> and scripts in <code>tier-list/scrape/</code>.
+      Stages 1–5 implemented 2026-07-08 — see <code>dev-log.md</code> and scripts in <code>tier-list/scrape/</code>.
     </footer>
   </main>
 </body>
