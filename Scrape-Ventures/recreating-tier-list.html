@@ -327,11 +327,19 @@ Page also embeds YouTube review videos per character (Ironclad, Silent, Regent, 
         </tr>
         <tr>
           <td>Full-size hover card images (webp)</td>
-          <td><span class="tag tag-partial">Partial</span></td>
+          <td><span class="tag tag-have">Have</span></td>
           <td>
-            URLs present in JSON as <code>iconUrl</code> (all <code>.webp</code> on Mobalytics CDN).
-            Files not downloaded yet — Stage 2 task. CDN is reachable without Cloudflare
-            (<code>cdn.mobalytics.gg/assets/sts2/images/cards/new/{slug}.webp</code>).
+            403 files at <code>tier-list/assets/full/{slug}.webp</code> (~189 MB total).
+            Downloaded from Mobalytics CDN via <code>download-images.py</code>.
+            Manifest at <code>tier-list/assets/manifest.json</code>.
+          </td>
+        </tr>
+        <tr>
+          <td>Consolidated tier-list thumbnails</td>
+          <td><span class="tag tag-have">Have</span></td>
+          <td>
+            403 symlinks at <code>tier-list/assets/thumbs/{slug}.avif</code> → <code>STS2/{slug}_19D0.avif</code>.
+            Use <code>--copy</code> on <code>download-images.py</code> if symlinks are unsupported.
           </td>
         </tr>
         <tr>
@@ -383,16 +391,15 @@ Page also embeds YouTube review videos per character (Ironclad, Silent, Regent, 
         </tr>
         <tr>
           <td><strong>Full card art for hover</strong></td>
-          <td>High — Stage 2</td>
+          <td><span class="tag tag-done">Done</span></td>
           <td>
-            1. Mobalytics <code>iconUrl</code> from <code>tier-lists.json</code> (preferred)<br>
-            2. Spire Codex <code>cdn.spire-codex.com/cards-full/stable/{slug_underscore}.webp</code> (fallback only)
+            <code>tier-list/scrape/download-images.py</code> ·
+            <code>tier-list/assets/full/</code> ·
+            <code>tier-list/assets/manifest.json</code>
           </td>
           <td>
-            All 403 ranked cards have Mobalytics <code>iconUrl</code> ending in <code>.webp</code>.
-            CDN downloads succeed with <code>curl_cffi</code> (no Cloudflare on CDN).
-            Sample size ~466 KB/card → budget ~150–200 MB for full set.
-            <strong>Do not use Spire Codex for tiers</strong> — images only if a slug 404s on Mobalytics CDN.
+            403/403 downloaded from Mobalytics CDN (0 failures, 0 Spire Codex fallbacks).
+            ~189 MB on disk. Re-run is idempotent (skips existing files).
           </td>
         </tr>
         <tr>
@@ -426,15 +433,16 @@ Page also embeds YouTube review videos per character (Ironclad, Silent, Regent, 
 
     <div class="diagram">recreating-tier-list.html          ← this plan
 tier-list/
-  index.html                       ← main viewer (Stage 3)
+  index.html                       ← main viewer (Stage 3 — next)
   data/
     tier-lists.json                ← ✅ scraped Mobalytics rankings (403 cards)
   assets/
-    thumbs/                        ← Stage 2: copy STS2/*_19D0.avif
-    full/                          ← Stage 2: download iconUrl webp from CDN
+    manifest.json                  ← ✅ slug → thumb/full paths
+    thumbs/                        ← ✅ 403 symlinks → STS2/*_19D0.avif
+    full/                          ← ✅ 403 webp hover images (~189 MB)
   scrape/
     fetch-tier-lists.py            ← ✅ GraphQL fetch + normalize
-    download-images.py             ← Stage 2: pull full art from CDN
+    download-images.py             ← ✅ consolidate thumbs + full art
     bookmarklet.js                 ← ✅ browser fallback export
 STS2/
   tier-lists-raw.json              ← ✅ saved GraphQL response
@@ -446,7 +454,7 @@ STS2/
   &lt;img class="card-thumb" src="assets/thumbs/crash-landing.avif" alt=""&gt;
   &lt;span class="card-name"&gt;Crash Landing&lt;/span&gt;   &lt;!-- Ctrl+F target --&gt;
   &lt;div class="card-hover" role="tooltip"&gt;
-    &lt;img src="assets/full/crash_landing.webp" alt="Crash Landing"&gt;
+    &lt;img src="assets/full/crash-landing.webp" alt="Crash Landing"&gt;
   &lt;/div&gt;
 &lt;/article&gt;</pre>
     <p>
@@ -471,21 +479,22 @@ STS2/
       </div>
 
       <div class="card stage">
-        <h3>Stage 2 — Consolidate card images</h3>
-        <p><strong>Next up.</strong> Detailed checklist in <a href="#stage2-prep">Stage 2 prep</a> section.</p>
+        <h3>Stage 2 — Consolidate card images <span class="tag tag-done">Complete</span></h3>
+        <p><strong>Completed 2026-07-08.</strong> See <a href="#stage2-findings">findings</a> below.</p>
         <ul>
-          <li>Write <code>scrape/download-images.py</code> (read <code>tier-lists.json</code>, emit manifest).</li>
-          <li>Copy <code>STS2/{slug}_19D0.avif</code> → <code>assets/thumbs/{slug}.avif</code> (all 403 slugs match — zero mismatches found).</li>
-          <li>Download full hover images from each card's <code>iconUrl</code> → <code>assets/full/{slug}.webp</code>.</li>
-          <li>Skip the 21 multiplayer-only AVIFs in STS2/ (not in tier list JSON).</li>
-          <li>Log any CDN 404s; fallback to Spire Codex with <code>-</code> → <code>_</code> slug rewrite.</li>
-          <li>Write <code>assets/manifest.json</code> mapping slug → thumb/full paths for Stage 3 viewer.</li>
+          <li>✅ <code>tier-list/scrape/download-images.py</code> — copy/link thumbs, download full art, emit manifest</li>
+          <li>✅ <code>tier-list/assets/thumbs/{slug}.avif</code> — 403 symlinks → <code>STS2/{slug}_19D0.avif</code></li>
+          <li>✅ <code>tier-list/assets/full/{slug}.webp</code> — 403 Mobalytics CDN hover images</li>
+          <li>✅ <code>tier-list/assets/manifest.json</code> — slug → thumb/full paths for viewer</li>
+          <li>✅ 21 multiplayer-only AVIFs in STS2/ correctly skipped</li>
+          <li>✅ Spire Codex fallback implemented but unused (0 CDN 404s)</li>
         </ul>
-        <p><strong>Done when:</strong> Every card in JSON has thumb + full image paths that resolve locally.</p>
+        <p><strong>Done when:</strong> Every card in JSON has thumb + full image paths that resolve locally. <em>Achieved: 403/403, zero failures.</em></p>
       </div>
 
       <div class="card stage">
         <h3>Stage 3 — Build static HTML viewer</h3>
+        <p><strong>Next up.</strong> Detailed checklist in <a href="#stage3-prep">Stage 3 prep</a> section.</p>
         <ul>
           <li>Single-page <code>tier-list/index.html</code> with vanilla HTML/CSS/JS (no React, no build step).</li>
           <li>Character nav tabs or stacked sections matching Mobalytics order.</li>
@@ -664,10 +673,194 @@ Response path:
       <h3>Stage 3 consumption</h3>
       <p>Viewer should resolve images in this priority:</p>
       <ol>
-        <li><code>assets/thumbs/{slug}.avif</code> for grid icon</li>
+        <li><code>assets/thumbs/{slug}.avif</code> for grid icon (via <code>manifest.json</code> paths)</li>
         <li><code>assets/full/{slug}.webp</code> for hover popover</li>
         <li>Fallback: remote <code>iconUrl</code> from JSON (needs network)</li>
       </ol>
+    </div>
+
+    <h2 id="stage2-findings">5c. Stage 2 findings (2026-07-08)</h2>
+
+    <div class="card">
+      <h3>What we built</h3>
+      <table>
+        <thead>
+          <tr><th>File</th><th>Role</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>tier-list/scrape/download-images.py</code></td><td>Read JSON → symlink/copy thumbs, download full art, write manifest</td></tr>
+          <tr><td><code>tier-list/assets/thumbs/{slug}.avif</code></td><td>403 symlinks to <code>STS2/{slug}_19D0.avif</code> (102×128px icons)</td></tr>
+          <tr><td><code>tier-list/assets/full/{slug}.webp</code></td><td>403 Mobalytics CDN hover images (~189 MB total)</td></tr>
+          <tr><td><code>tier-list/assets/manifest.json</code></td><td><code>paths[slug].thumb</code> + <code>paths[slug].full</code> for viewer</td></tr>
+        </tbody>
+      </table>
+      <p>Run: <code>python3 tier-list/scrape/download-images.py</code></p>
+      <p>Flags: <code>--copy</code> (real files instead of symlinks), <code>--thumbs-only</code>, <code>--full-only</code>.</p>
+    </div>
+
+    <h3>Results (verified re-run)</h3>
+    <table>
+      <thead>
+        <tr><th>Step</th><th>First run</th><th>Re-run</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Thumbs</td><td>403 linked, 0 missing</td><td>403 skipped (cached)</td></tr>
+        <tr><td>Full art</td><td>403 downloaded, 0 failed</td><td>403 skipped (cached)</td></tr>
+        <tr><td>Spire Codex fallback</td><td>0 used</td><td>—</td></tr>
+        <tr><td>Disk usage</td><td colspan="2"><code>assets/full/</code> ~189 MB · <code>assets/thumbs/</code> ~20 KB (symlinks only)</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Manifest shape</h3>
+    <pre>{
+  "source": "mobalytics",
+  "fetchedAt": "2026-07-08T05:16:49.880796+00:00",
+  "cardCount": 403,
+  "paths": {
+    "crash-landing": {
+      "thumb": "assets/thumbs/crash-landing.avif",
+      "full": "assets/full/crash-landing.webp"
+    }
+  }
+}</pre>
+    <p>Paths are relative to <code>tier-list/</code> (same base as <code>index.html</code> will use).</p>
+
+    <h3>Decisions</h3>
+    <ul>
+      <li><strong>Symlinks by default:</strong> avoids duplicating AVIFs already in <code>STS2/</code>. Windows users without symlink support should pass <code>--copy</code>.</li>
+      <li><strong>Plain <code>urllib</code> for CDN:</strong> Mobalytics CDN needs no Cloudflare bypass; downloads work without <code>curl_cffi</code>.</li>
+      <li><strong>Idempotent:</strong> safe to re-run after re-fetching <code>tier-lists.json</code> — only new/changed slugs get processed.</li>
+    </ul>
+
+    <h2 id="stage3-prep">5d. Stage 3 prep — static HTML viewer details</h2>
+
+    <div class="card">
+      <h3>Goal</h3>
+      <p>
+        Single offline page at <code>tier-list/index.html</code> that renders all 5 character tier lists
+        from existing JSON + manifest. No React, no bundler. Must support Ctrl+F card name search and
+        hover-to-preview full card art.
+      </p>
+
+      <h3>Inputs (all ready)</h3>
+      <table>
+        <thead>
+          <tr><th>File</th><th>Use in viewer</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>data/tier-lists.json</code></td>
+            <td>
+              <code>characters[]</code> — nested tier rows (S/A/B/C/D/TBD) with card names, slugs, tiers.<br>
+              <code>cards[]</code> — flat list (optional; useful for global search/filter).
+            </td>
+          </tr>
+          <tr>
+            <td><code>assets/manifest.json</code></td>
+            <td>Resolve <code>paths[slug].thumb</code> and <code>paths[slug].full</code> for each card icon.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Local file caveat</h3>
+      <p>
+        <code>fetch('data/tier-lists.json')</code> is blocked on <code>file://</code> in Chrome/Firefox (CORS).
+        Two MVP options:
+      </p>
+      <ol>
+        <li><strong>Serve locally (simplest for dev):</strong>
+          <code>cd tier-list &amp;&amp; python3 -m http.server 8080</code> → open <code>http://localhost:8080</code>
+        </li>
+        <li><strong>True file:// offline:</strong> add a tiny <code>build-viewer.py</code> that inlines JSON into
+          <code>&lt;script&gt;window.TIER_DATA = …&lt;/script&gt;</code> (defer to Stage 5 refresh workflow, or ship as optional bake step)</li>
+      </ol>
+      <p>Recommend option 1 for Stage 3 MVP; document the server command in README.</p>
+
+      <h3>Proposed page structure</h3>
+      <pre>index.html
+├── &lt;header&gt; title + optional search input
+├── &lt;nav&gt; character jump links (use anchorId from JSON)
+└── &lt;main&gt;
+    └── for each character in characters[]:
+        &lt;section id="{anchorId}"&gt;
+          &lt;h2&gt;{title}&lt;/h2&gt;
+          └── for each tier in [S, A, B, C, D, TBD]:
+              &lt;div class="tier-row" data-tier="{tier}"&gt;
+                &lt;span class="tier-label"&gt;{tier}&lt;/span&gt;
+                &lt;div class="tier-cards"&gt;
+                  └── card-entry per card (see element design above)
+                &lt;/div&gt;
+              &lt;/div&gt;</pre>
+
+      <h3>Rendering loop (vanilla JS)</h3>
+      <ol>
+        <li>On load: <code>Promise.all([fetch('data/tier-lists.json'), fetch('assets/manifest.json')])</code></li>
+        <li>Iterate <code>data.characters</code> in JSON order (already sorted: Ironclad → Silent → Regent → Necrobinder → Defect).</li>
+        <li>For each character, iterate tiers in fixed order <code>['S','A','B','C','D','TBD']</code> — skip empty tiers except Necrobinder TBD (0 cards but row exists for parity).</li>
+        <li>For each card, look up <code>manifest.paths[slug]</code>; use those paths for <code>&lt;img&gt;</code> src.</li>
+        <li>Append sections to <code>&lt;main&gt;</code> via <code>document.createElement</code> (or template literals + <code>innerHTML</code> on a container).</li>
+      </ol>
+
+      <h3>CSS essentials</h3>
+      <ul>
+        <li><strong>Theme:</strong> reuse plan palette — bg <code>#1a1625</code>, surface <code>#2c274f</code>, accent <code>#f2bf43</code> (from saved Mobalytics CSS family).</li>
+        <li><strong>Tier label colors:</strong> S <code>#ff6b6b</code>, A <code>#ffa94d</code>, B <code>#ffd43b</code>, C <code>#69db7c</code>, D <code>#74c0fc</code> (match plan demo).</li>
+        <li><strong>Card thumb:</strong> ~51×64px display (2× the 102×128 source) or native 102×128; <code>object-fit: contain</code>.</li>
+        <li><strong>Hover popover:</strong> <code>.card-entry:hover .card-hover</code> — <code>position: absolute</code>, <code>z-index</code> above grid, scale full webp (~300–400px wide). Also show on <code>:focus-within</code> for keyboard access.</li>
+        <li><strong>Card name for Ctrl+F:</strong> <code>.card-name</code> with <code>position: absolute; width: 1px; height: 1px; overflow: hidden</code> (visually hidden but in DOM text), OR small caption under thumb.</li>
+      </ul>
+
+      <h3>Search / filter (optional but high value)</h3>
+      <p>Raw Ctrl+F works once names are in the DOM. Better UX: a search box that:</p>
+      <ul>
+        <li>Filters <code>.card-entry</code> elements by matching <code>data-slug</code> or card name (case-insensitive).</li>
+        <li>Adds <code>.hidden</code> class to non-matches; dims empty tier rows optionally.</li>
+        <li>Highlights first match and scrolls it into view.</li>
+      </ul>
+
+      <h3>Character nav + anchors</h3>
+      <ul>
+        <li>Each section <code>id</code> = <code>character.anchorId</code> from JSON (e.g. <code>3-ironclad-tier-list-2</code>).</li>
+        <li>Nav links: <code>&lt;a href="#{anchorId}"&gt;{character}&lt;/a&gt;</code> — enables hash jump within page.</li>
+        <li>Note: anchor IDs use content-widget index, not live Mobalytics order — close enough for local use.</li>
+      </ul>
+
+      <h3>Wiki links (optional)</h3>
+      <p>
+        <code>linkUrl</code> is <code>null</code> in scraped data. Construct as
+        <code>https://mobalytics.gg/slay-the-spire-2/wiki/cards/{slug}</code> if cards should be clickable.
+        Not required for MVP.
+      </p>
+
+      <h3>Files to create</h3>
+      <table>
+        <thead>
+          <tr><th>File</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>tier-list/index.html</code></td><td>Shell: header, nav, main container, inline or linked CSS/JS</td></tr>
+          <tr><td><code>tier-list/viewer.css</code> (optional split)</td><td>Tier row layout, hover popover, theme</td></tr>
+          <tr><td><code>tier-list/viewer.js</code> (optional split)</td><td>Fetch JSON, build DOM, search filter</td></tr>
+        </tbody>
+      </table>
+      <p>Single-file <code>index.html</code> with embedded <code>&lt;style&gt;</code> + <code>&lt;script&gt;</code> is fine for MVP.</p>
+
+      <h3>Done checklist</h3>
+      <ol>
+        <li>All 5 characters render with S–D tier rows (+ empty Necrobinder TBD row).</li>
+        <li>403 card thumbs visible; no broken images when served via local HTTP server.</li>
+        <li>Hover/focus shows full <code>.webp</code> preview from <code>assets/full/</code>.</li>
+        <li>Browser find (Ctrl+F) locates "Crash Landing" (or equivalent) in page text.</li>
+        <li>Character nav hash links scroll to correct section.</li>
+      </ol>
+
+      <h3>Out of scope for Stage 3 (→ Stage 4)</h3>
+      <ul>
+        <li>YouTube review embeds (only 2 of 5 video IDs captured)</li>
+        <li>Tier methodology blurb (S–D definitions) at page top</li>
+        <li>Pixel-perfect Mobalytics theme polish</li>
+        <li>Card cost/type/rarity in tooltip (would need Spire Codex API)</li>
+      </ul>
     </div>
 
     <h2>6. Risks and decisions</h2>
@@ -705,12 +898,22 @@ Response path:
         <tr>
           <td>Large download size (Stage 2)</td>
           <td>~150–200 MB of full card webp</td>
-          <td>Skip existing files on re-run; thumbs are local copies only (~few MB)</td>
+          <td><strong>Resolved:</strong> 403 files (~189 MB) downloaded. Re-run skips existing files; thumbs are symlinks (~20 KB).</td>
+        </tr>
+        <tr>
+          <td><code>file://</code> blocks JSON fetch</td>
+          <td>Viewer won't load data if opened as raw file</td>
+          <td>Serve via <code>python3 -m http.server</code> from <code>tier-list/</code>, or bake JSON into HTML (Stage 5).</td>
+        </tr>
+        <tr>
+          <td>Symlinks on Windows</td>
+          <td>Thumb images may not resolve</td>
+          <td>Re-run <code>download-images.py --copy</code> to materialize AVIF files.</td>
         </tr>
         <tr>
           <td><code>linkUrl</code> null in API</td>
           <td>No wiki deep-links from tier list data</td>
-          <td>Construct wiki URLs as <code>/slay-the-spire-2/wiki/cards/{slug}</code> in Stage 3 if needed</td>
+          <td>Construct wiki URLs as <code>https://mobalytics.gg/slay-the-spire-2/wiki/cards/{slug}</code> in Stage 3 if needed</td>
         </tr>
       </tbody>
     </table>
@@ -718,23 +921,26 @@ Response path:
     <h2>7. Immediate next step</h2>
 
     <div class="card">
-      <p><strong>Stage 2 — consolidate card images.</strong></p>
+      <p><strong>Stage 3 — build static HTML viewer.</strong> See <a href="#stage3-prep">Stage 3 prep</a> for full spec.</p>
       <ol>
-        <li>Implement <code>tier-list/scrape/download-images.py</code> per <a href="#stage2-prep">Stage 2 prep</a>.</li>
-        <li>Copy 403 AVIF thumbs → <code>tier-list/assets/thumbs/</code>.</li>
-        <li>Download 403 full webp → <code>tier-list/assets/full/</code>.</li>
-        <li>Verify manifest: every <code>tier-lists.json</code> slug resolves to local thumb + full.</li>
+        <li>Create <code>tier-list/index.html</code> — fetch <code>tier-lists.json</code> + <code>manifest.json</code>, render character sections.</li>
+        <li>Tier rows S–D (+ Necrobinder TBD) with card thumbs from manifest paths.</li>
+        <li>Hover/focus popover with full <code>assets/full/{slug}.webp</code>.</li>
+        <li>Card names in DOM for Ctrl+F; optional search box filter.</li>
+        <li>Serve via <code>cd tier-list &amp;&amp; python3 -m http.server 8080</code> (required — <code>file://</code> blocks fetch).</li>
       </ol>
       <p>
-        Re-fetch rankings after Mobalytics updates:
-        <code>python tier-list/scrape/fetch-tier-lists.py</code>
+        Refresh data pipeline:
+        <code>python3 tier-list/scrape/fetch-tier-lists.py</code> →
+        <code>python3 tier-list/scrape/download-images.py</code>
       </p>
     </div>
 
     <h2>8. File counts reference</h2>
     <ul>
       <li>STS2 total files: ~535 (424 avif, 63 js, 35 svg, 7 css, 4 htm, …)</li>
-      <li>Card thumbnails on disk: 424 AVIF @ 102×128px</li>
+      <li>Card thumbnails on disk: 424 AVIF @ 102×128px in STS2/; 403 symlinked into <code>tier-list/assets/thumbs/</code></li>
+      <li>Full hover images: <strong>403</strong> webp in <code>tier-list/assets/full/</code> (~189 MB)</li>
       <li>Ranked cards in JSON: <strong>403</strong> (multiplayer 21 excluded)</li>
       <li>Characters in viewer: 5 (Ironclad, Silent, Regent, Necrobinder, Defect)</li>
       <li>Tiers per character: S/A/B/C/D (+ Necrobinder TBD row, empty)</li>
@@ -742,13 +948,14 @@ Response path:
       <li>GraphQL endpoint: <code>POST /api/sts2/v1/graphql/query</code></li>
       <li>Featured document slug: <code>cards</code> (type <code>tier-lists</code>)</li>
       <li>Full art CDN: <code>cdn.mobalytics.gg/assets/sts2/images/cards/new/{slug}.webp</code></li>
+      <li>Image pipeline: <code>python3 tier-list/scrape/download-images.py</code></li>
     </ul>
 
     <footer>
       Plan authored from analysis of <code>Scrape-Ventures/STS2/</code> saved snapshot,
       Mobalytics JS bundle reverse-engineering, and live page structure review.
-      Stage 1 implemented 2026-07-08 — see <code>dev-log.md</code> and
-      <code>tier-list/scrape/fetch-tier-lists.py</code>.
+      Stage 1 implemented 2026-07-08 · Stage 2 implemented 2026-07-08 — see <code>dev-log.md</code>,
+      <code>tier-list/scrape/fetch-tier-lists.py</code>, and <code>tier-list/scrape/download-images.py</code>.
     </footer>
   </main>
 </body>

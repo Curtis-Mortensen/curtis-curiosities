@@ -49,3 +49,46 @@ python tier-list/scrape/fetch-tier-lists.py --raw
 **Stage 1 complete.** Ready for Stage 2 (consolidate card images).
 
 **2026-07-08 (later):** Updated `recreating-tier-list.html` with Stage 1 findings and Stage 2 prep details.
+
+## 2026-07-08 — STS2 tier list Phase 2 (Stage 2: consolidate card images)
+
+**Plan:** `recreating-tier-list.html` Stage 2
+
+### Goal
+
+Give every ranked card a local thumbnail and full hover image, plus a manifest for the Stage 3 HTML viewer.
+
+### What was built
+
+| Path | Purpose |
+|------|---------|
+| `tier-list/scrape/download-images.py` | Copy/link thumbs, download full art, emit manifest |
+| `tier-list/assets/thumbs/{slug}.avif` | 403 symlinks → `STS2/{slug}_19D0.avif` |
+| `tier-list/assets/full/{slug}.webp` | 403 Mobalytics CDN hover images (~189 MB total) |
+| `tier-list/assets/manifest.json` | Slug → thumb/full paths for viewer |
+
+### Run
+
+```bash
+cd Scrape-Ventures
+python3 tier-list/scrape/download-images.py
+```
+
+Options: `--copy` (real AVIF copies instead of symlinks), `--thumbs-only`, `--full-only`.
+
+### Decisions / assumptions
+
+- **Thumbs via symlinks:** Default links into existing `STS2/` AVIFs to avoid duplicating ~few MB of icons. Use `--copy` if symlinks are unsupported.
+- **Full art source:** Mobalytics CDN only; Spire Codex fallback implemented but unused (0 CDN 404s).
+- **Idempotent:** Re-run skips existing thumb links and full webp files.
+- **Multiplayer AVIFs:** 21 extra thumbs in `STS2/` correctly left out (not in tier list JSON).
+
+### Bugs / issues
+
+- None. All 403 slugs got thumb + full with zero failures.
+
+### Status
+
+**Stage 2 complete.** Ready for Stage 3 (static HTML viewer).
+
+**2026-07-08 (later):** Updated `recreating-tier-list.html` with Stage 2 findings and Stage 3 prep details.
