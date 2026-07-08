@@ -8,17 +8,23 @@ python extract_ventures.py
 
 ## STS2 card tier list (Mobalytics)
 
-Offline tier-list viewer. Full plan: `recreating-tier-list.html`.
+Local tier-list viewer (Mobalytics rankings + Spire Codex tooltips). Full plan: `recreating-tier-list.html`.
 
 ### Open the viewer
+
+From the `Scrape-Ventures` folder:
 
 ```bash
 cd tier-list && python3 -m http.server 8080
 ```
 
-Then open http://localhost:8080 in a browser. The viewer loads JSON via `fetch()`, which browsers block on `file://`.
+Then open http://localhost:8080 in your browser.
+
+The viewer loads JSON with `fetch()`. Browsers block that on `file://`, so double-clicking `index.html` will not work — use the local server above.
 
 ### Refresh when Mobalytics updates rankings
+
+Re-fetches rankings, images, and card metadata. Does **not** rewrite `index.html` — the viewer always reads live JSON from `data/` and `assets/`.
 
 ```bash
 pip install -r requirements.txt   # first time only
@@ -69,4 +75,4 @@ Generated backups (safe to delete locally): `tier-list/data/tier-lists.previous.
 - `tier-list/data/card-metadata.json` — cost, type, rarity, description (Spire Codex)
 - `STS2/tier-lists-raw.json` — saved Mobalytics GraphQL response
 - `tier-list/assets/manifest.json` — local thumb/full paths for the viewer
-- `tier-list/index.html` — viewer shell (serve over HTTP)
+- `tier-list/index.html` — viewer shell (`viewer.js` + `viewer.css`; serve over HTTP)
