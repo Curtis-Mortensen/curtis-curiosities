@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plan: Recreating Mobalytics STS2 Card Tier List</title>
+  <style>
+    :root {
+      --bg: #1a1625;
+      --surface: #2c274f;
+      --text: #e8e6f0;
+      --muted: #a9a3c4;
+      --accent: #f2bf43;
+      --tier-s: #ff6b6b;
+      --tier-a: #ffa94d;
+      --tier-b: #ffd43b;
+      --tier-c: #69db7c;
+      --tier-d: #74c0fc;
+      --danger: #ff8787;
+      --ok: #8ce99a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem 1rem 4rem;
+    }
+    main {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    h1, h2, h3 { line-height: 1.25; }
+    h1 { font-size: 1.75rem; margin-bottom: 0.25rem; }
+    .subtitle { color: var(--muted); margin-top: 0; }
+    h2 {
+      margin-top: 2.5rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid #3d3668;
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+    h3 { font-size: 1rem; margin-top: 1.5rem; }
+    a { color: #9db4ff; }
+    code, pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.9em;
+    }
+    code {
+      background: #241f3a;
+      padding: 0.1em 0.35em;
+      border-radius: 4px;
+    }
+    pre {
+      background: #241f3a;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      border: 1px solid #3d3668;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid #3d3668;
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      margin-right: 0.35rem;
+    }
+    .tag-have { background: #2b4a34; color: var(--ok); }
+    .tag-missing { background: #4a2b2b; color: var(--danger); }
+    .tag-partial { background: #4a3f2b; color: var(--accent); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      border: 1px solid #3d3668;
+      padding: 0.55rem 0.75rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #241f3a; }
+    ul { padding-left: 1.25rem; }
+    li { margin: 0.35rem 0; }
+    .stage {
+      counter-increment: stage;
+      position: relative;
+      padding-left: 2.5rem;
+    }
+    .stages { counter-reset: stage; }
+    .stage::before {
+      content: counter(stage);
+      position: absolute;
+      left: 0;
+      top: 0.1rem;
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #1a1625;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+    .diagram {
+      background: #241f3a;
+      border: 1px solid #3d3668;
+      border-radius: 8px;
+      padding: 1rem;
+      font-family: ui-monospace, monospace;
+      font-size: 0.82rem;
+      white-space: pre;
+      overflow-x: auto;
+      line-height: 1.45;
+    }
+    .tier-demo {
+      display: flex;
+      gap: 0.5rem;
+      align-items: stretch;
+      margin: 0.75rem 0;
+    }
+    .tier-label {
+      width: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .tier-s { background: var(--tier-s); color: #1a1625; }
+    .tier-a { background: var(--tier-a); color: #1a1625; }
+    .tier-b { background: var(--tier-b); color: #1a1625; }
+    .tier-c { background: var(--tier-c); color: #1a1625; }
+    .tier-d { background: var(--tier-d); color: #1a1625; }
+    .tier-row {
+      flex: 1;
+      background: #241f3a;
+      border-radius: 4px;
+      padding: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      min-height: 2.5rem;
+    }
+    .mini-card {
+      width: 34px;
+      height: 42px;
+      background: #3d3668;
+      border-radius: 3px;
+      font-size: 0.55rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--muted);
+    }
+    footer {
+      margin-top: 3rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Recreating the Mobalytics STS2 Card Tier List</h1>
+    <p class="subtitle">
+      Source page:
+      <a href="https://mobalytics.gg/slay-the-spire-2/tier-lists/cards#1-regent-tier-list-2" target="_blank" rel="noopener">
+        mobalytics.gg/slay-the-spire-2/tier-lists/cards
+      </a>
+      · Saved snapshot: <code>Scrape-Ventures/STS2/</code> · Plan date: 2026-07-08
+    </p>
+
+    <div class="card">
+      <strong>Goal</strong>
+      <p>
+        Build a local, searchable HTML tier-list viewer where each card is a real DOM element (name in text, findable with Ctrl+F),
+        organized by character and tier (S/A/B/C/D), with hover-to-expand full card art — matching the Mobalytics layout closely enough to be useful offline.
+      </p>
+    </div>
+
+    <h2>1. How the original page works</h2>
+
+    <p>
+      Mobalytics is a React SPA. The card tier list page is <em>not</em> a static HTML table of cards. It is a
+      <strong>featured user-generated document</strong> (slug <code>cards</code>, document id
+      <code>46067e61-5426-4b2d-a176-5d40f3d6df33</code>) rendered by their NGF (Next-Gen Framework) document system.
+    </p>
+
+    <div class="diagram">Browser loads mobalytics.gg/slay-the-spire-2/tier-lists/cards
+        │
+        ▼
+React app (chunks in STS2/*.js)
+        │
+        ▼
+POST https://mobalytics.gg/api/sts2/v1/graphql/query
+  query Sts2UgFeaturedDocumentQuery($input: { slug: "cards", type: "tier-lists", ... })
+        │
+        ▼
+Response contains:
+  document.data.tierLists.values[]          ← per-character tier list data
+    └── tierSections[]                    ← S, A, B, C, D rows
+          └── staticDataItems[]           ← cards in that tier
+                ├── name                  ← searchable text (missing in saved DOM!)
+                ├── slug                  ← e.g. "crash-landing"
+                ├── iconUrl               ← small thumbnail (webp/avif)
+                └── linkUrl               ← wiki link
+
+Page also embeds YouTube review videos per character (Ironclad, Silent, Regent, etc.)</div>
+
+    <h3>Tier list widget behavior (from saved JS analysis)</h3>
+    <ul>
+      <li>Cards use <code>staticDataItems</code> linked to wiki type <code>Sts2Cards</code>.</li>
+      <li>Thumbnails render as square icons (~102×128px in our saved AVIF files) via <code>iconStyle: "square"</code>.</li>
+      <li>On hover, a custom tooltip renders the full <code>iconUrl</code> image (larger card art), plus tier/tags metadata.</li>
+      <li>Tier rows are labeled S, A, B, C, D with color-coded section headers.</li>
+      <li>Character sections use anchor IDs like <code>#1-regent-tier-list-2</code> (widget index + slug).</li>
+      <li>Necrobinder section may include a "TBD" placeholder tier (visible on live page).</li>
+    </ul>
+
+    <h3>GraphQL data shape we need</h3>
+    <pre>{
+  "tierLists": {
+    "values": [
+      {
+        "id": "&lt;uuid&gt;",
+        "tierSections": [
+          {
+            "name": "S",
+            "color": "#...",
+            "description": null,
+            "staticDataItems": [
+              {
+                "name": "Crash Landing",
+                "slug": "crash-landing",
+                "iconUrl": "https://cdn.mobalytics.gg/...",
+                "linkUrl": "/slay-the-spire-2/wiki/cards/crash-landing",
+                "type": "cards"
+              }
+            ]
+          }
+        ],
+        "staticDataSources": [{ "slug": "cards", "iconStyle": "square", "showTitles": false }]
+      }
+    ]
+  }
+}</pre>
+
+    <h3>Target UI (simplified)</h3>
+    <div class="tier-demo">
+      <div class="tier-label tier-s">S</div>
+      <div class="tier-row">
+        <div class="mini-card">thumb</div>
+        <div class="mini-card">thumb</div>
+        <span style="align-self:center;color:var(--muted);font-size:0.85rem">
+          ← hover expands to full card · Ctrl+F finds hidden <code>Crash Landing</code> text
+        </span>
+      </div>
+    </div>
+
+    <h2>2. Inventory: what STS2/ already contains</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Asset</th>
+          <th>Status</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Card thumbnail images</td>
+          <td><span class="tag tag-have">Have</span></td>
+          <td><strong>424 AVIF files</strong> at <code>STS2/{slug}_19D0.avif</code> (e.g. <code>crash-landing_19D0.avif</code>). All measured at <strong>102×128px</strong> — suitable as tier-list icons.</td>
+        </tr>
+        <tr>
+          <td>Card slug → filename mapping</td>
+          <td><span class="tag tag-have">Have</span></td>
+          <td>Filename stem matches card slug (kebab-case). 424 slugs cover ~all character cards (Ironclad 87, others 88 each per Spire Codex counts).</td>
+        </tr>
+        <tr>
+          <td>Mobalytics app JS/CSS</td>
+          <td><span class="tag tag-partial">Partial</span></td>
+          <td>63 JS chunks + CSS bundles. Contains GraphQL query definitions, tier-list widget code, routing. <strong>Not directly reusable</strong> for our static rebuild (minified React, Cloudflare-dependent).</td>
+        </tr>
+        <tr>
+          <td>GraphQL query schema</td>
+          <td><span class="tag tag-have">Have</span></td>
+          <td><code>Sts2UgFeaturedDocumentQuery</code> and <code>NgfDocumentDataTierListsFragment</code> recovered from <code>main.a10982b0_19D0.js</code>. Endpoint: <code>/api/sts2/v1/graphql/query</code>.</td>
+        </tr>
+        <tr>
+          <td>Main page HTML</td>
+          <td><span class="tag tag-missing">Missing</span></td>
+          <td><code>a_19D0.htm</code> is only a Cloudflare challenge stub (409 bytes). No rendered tier-list DOM was saved.</td>
+        </tr>
+        <tr>
+          <td>Tier assignments (which card → which tier)</td>
+          <td><span class="tag tag-missing">Missing</span></td>
+          <td>The critical ranking data lives in the GraphQL API response, not in the saved files. Cannot be reconstructed from images alone.</td>
+        </tr>
+        <tr>
+          <td>Full-size hover card images (webp)</td>
+          <td><span class="tag tag-missing">Missing</span></td>
+          <td>Saved AVIFs are thumbnails only. Full art must be fetched from Mobalytics CDN and/or Spire Codex CDN.</td>
+        </tr>
+        <tr>
+          <td>Character → tier-list section mapping</td>
+          <td><span class="tag tag-missing">Missing</span></td>
+          <td>Live page has 5 sections (Ironclad, Silent, Regent, Necrobinder, Defect). Which <code>tierLists.values[]</code> entry maps to which character is only in API data.</td>
+        </tr>
+        <tr>
+          <td>YouTube embed references</td>
+          <td><span class="tag tag-partial">Partial</span></td>
+          <td>Two embedded review videos saved as <code>i70zlnQfayY_19D0.htm</code> (Ironclad) and <code>8zXnLXaxwhc_19D0.htm</code> (Regent). Silent/Defect/Necrobinder video IDs not captured.</td>
+        </tr>
+        <tr>
+          <td>Intro copy / methodology text</td>
+          <td><span class="tag tag-partial">Partial</span></td>
+          <td>Tier definitions (S–D descriptions) available from live page fetch. Full rich-text intro is in document <code>content</code> widgets — not in save.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>3. What must be gathered / scraped</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Priority</th>
+          <th>Source options</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Tier list JSON</strong> (card name, slug, tier, character)</td>
+          <td>Critical</td>
+          <td>
+            1. Mobalytics GraphQL API<br>
+            2. Browser devtools network capture while page loads<br>
+            3. Manual transcription (last resort)
+          </td>
+          <td>
+            Query: <code>Sts2UgFeaturedDocumentQuery</code> with
+            <code>input: { slug: "cards", type: "tier-lists" }</code>.
+            Cloudflare blocks headless curl from this environment — scrape may need a real browser session or user-provided JSON export.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Full card art for hover</strong></td>
+          <td>High</td>
+          <td>
+            1. Mobalytics <code>iconUrl</code> from GraphQL<br>
+            2. Spire Codex <code>image_url_card</code> (e.g. <code>cdn.spire-codex.com/cards-full/stable/{slug}.webp</code>)<br>
+            3. Download during scrape script
+          </td>
+          <td>
+            Spire Codex is a good fallback: public API, no auth, slug mapping mostly matches (underscore vs hyphen:
+            <code>crash-landing</code> → <code>crash_landing.webp</code>). Not identical to Mobalytics rankings but fine for images.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Character metadata</strong></td>
+          <td>Medium</td>
+          <td>GraphQL tier list titles, or hardcode 5 characters</td>
+          <td>Section order on live page: Ironclad → Silent → Regent → Necrobinder → Defect.</td>
+        </tr>
+        <tr>
+          <td><strong>Section anchor IDs</strong></td>
+          <td>Low</td>
+          <td>Derive from widget order: <code>{n}-{character-slug}-tier-list-2</code></td>
+          <td>Needed if we want URL hash navigation like the original (<code>#1-regent-tier-list-2</code>).</td>
+        </tr>
+        <tr>
+          <td><strong>YouTube video IDs</strong></td>
+          <td>Low</td>
+          <td>Live page inspection</td>
+          <td>Optional embeds above each character tier list. Have 2 of 5.</td>
+        </tr>
+        <tr>
+          <td><strong>Card wiki details</strong> (cost, type, rarity)</td>
+          <td>Low</td>
+          <td>Spire Codex <code>/api/cards/{id}</code></td>
+          <td>Nice for expanded tooltip but not required for MVP.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>4. Proposed architecture for the recreation</h2>
+
+    <div class="diagram">recreating-tier-list.html          ← this plan
+tier-list/
+  index.html                       ← main viewer (searchable, hover cards)
+  data/
+    tier-lists.json                ← scraped Mobalytics rankings
+    cards.json                     ← optional Spire Codex metadata cache
+  assets/
+    thumbs/                        ← copy or symlink STS2/*_19D0.avif
+    full/                          ← downloaded full card webp/png
+  scrape/
+    fetch-tier-lists.py            ← GraphQL scraper (run in browser or with cookies)
+    download-images.py             ← pull full art from CDN</div>
+
+    <h3>HTML element design (fixes Ctrl+F problem)</h3>
+    <p>Each card in the recreated page should be structured like:</p>
+    <pre>&lt;article class="card-entry" data-slug="crash-landing" data-tier="S" data-character="regent"&gt;
+  &lt;img class="card-thumb" src="assets/thumbs/crash-landing.avif" alt=""&gt;
+  &lt;span class="card-name"&gt;Crash Landing&lt;/span&gt;   &lt;!-- Ctrl+F target --&gt;
+  &lt;div class="card-hover" role="tooltip"&gt;
+    &lt;img src="assets/full/crash_landing.webp" alt="Crash Landing"&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</pre>
+    <p>
+      The visible grid shows only thumbnails (like Mobalytics). The card name sits in the DOM as text
+      (can be <code>visually-hidden</code> or shown under the icon). Hover/focus scales the full card image.
+    </p>
+
+    <h2>5. Implementation stages</h2>
+
+    <div class="stages">
+      <div class="card stage">
+        <h3>Stage 1 — Scrape tier list data</h3>
+        <ul>
+          <li>Write <code>scrape/fetch-tier-lists.py</code> (or a browser bookmarklet) to call Mobalytics GraphQL.</li>
+          <li>Parse <code>tierLists.values</code> → normalize to <code>{ character, tiers: { S: [...], A: [...], ... } }</code>.</li>
+          <li>Output <code>data/tier-lists.json</code> with card <code>name</code>, <code>slug</code>, <code>tier</code>, <code>character</code>, <code>iconUrl</code>.</li>
+          <li><strong>Blocker:</strong> Cloudflare. Options: run scraper locally in user's browser, export HAR from DevTools, or paste cookies into script.</li>
+        </ul>
+        <p><strong>Done when:</strong> JSON contains all ~440 card placements across 5 characters × 5 tiers.</p>
+      </div>
+
+      <div class="card stage">
+        <h3>Stage 2 — Consolidate card images</h3>
+        <ul>
+          <li>Copy/rename <code>STS2/{slug}_19D0.avif</code> → <code>assets/thumbs/{slug}.avif</code>.</li>
+          <li>Download full hover images — prefer Mobalytics <code>iconUrl</code> from JSON; fallback to Spire Codex CDN with slug normalization (<code>-</code> → <code>_</code>).</li>
+          <li>Log any cards missing images (slug mismatches, colorless cards, etc.).</li>
+        </ul>
+        <p><strong>Done when:</strong> Every card in JSON has thumb + full image paths that resolve.</p>
+      </div>
+
+      <div class="card stage">
+        <h3>Stage 3 — Build static HTML viewer</h3>
+        <ul>
+          <li>Single-page <code>tier-list/index.html</code> with vanilla HTML/CSS/JS (no React, no build step).</li>
+          <li>Character nav tabs or stacked sections matching Mobalytics order.</li>
+          <li>Tier rows (S–D) with flex-wrapped card grid per row.</li>
+          <li>CSS hover: scale full card image above thumbnail (position absolute / popover).</li>
+          <li>Each card includes visible or screen-reader <code>&lt;span class="card-name"&gt;</code> for Ctrl+F.</li>
+          <li>Optional: in-page search box that filters/highlights cards (better UX than raw Ctrl+F).</li>
+        </ul>
+        <p><strong>Done when:</strong> Opening <code>index.html</code> locally shows all tiers; hovering shows full card; searching "Crash Landing" finds the card.</p>
+      </div>
+
+      <div class="card stage">
+        <h3>Stage 4 — Parity polish (optional)</h3>
+        <ul>
+          <li>Match Mobalytics dark purple theme (colors from saved CSS: <code>#2c274f</code> background family).</li>
+          <li>Hash anchors per character section (<code>id="1-regent-tier-list-2"</code>).</li>
+          <li>Embed YouTube review videos (gather missing 3 video IDs).</li>
+          <li>Show tier methodology blurb (S–D definitions) at top.</li>
+          <li>Handle Necrobinder "TBD" tier row if present in scraped data.</li>
+        </ul>
+      </div>
+
+      <div class="card stage">
+        <h3>Stage 5 — Refresh workflow</h3>
+        <ul>
+          <li>Re-run scraper when Mobalytics updates the list (live page shows "Updated on Jun 24, 2026").</li>
+          <li>Diff JSON to see tier changes between versions.</li>
+          <li>Re-generate HTML from template + JSON (don't hand-edit HTML).</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>6. Risks and decisions</h2>
+
+    <table>
+      <thead>
+        <tr><th>Issue</th><th>Impact</th><th>Mitigation</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Cloudflare blocks API scraping</td>
+          <td>Cannot get tier data automatically from this agent environment</td>
+          <td>User runs scraper in browser; or provides GraphQL response JSON; or we use Spire Codex tiers (different methodology — not a Mobalytics recreation)</td>
+        </tr>
+        <tr>
+          <td>Mobalytics vs Spire Codex tier disagreement</td>
+          <td>Wrong tiers if we use Codex scores instead of Mobalytics editorial list</td>
+          <td><strong>Only use Spire Codex for images/metadata.</strong> Tiers must come from Mobalytics GraphQL.</td>
+        </tr>
+        <tr>
+          <td>Slug mismatches (hyphen vs underscore)</td>
+          <td>Broken images for some cards</td>
+          <td>Normalization table in scrape script; verify against 424 AVIF filenames</td>
+        </tr>
+        <tr>
+          <td>Saved page incomplete</td>
+          <td>Cannot offline-reverse-engineer rankings from STS2 folder alone</td>
+          <td>Confirmed: images yes, rankings no</td>
+        </tr>
+        <tr>
+          <td>Multiplayer cards excluded</td>
+          <td>Mobalytics notes they omit multiplayer cards</td>
+          <td>Match their scope; don't add extra cards from Codex that Mobalytics didn't rank</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>7. Immediate next step</h2>
+
+    <div class="card">
+      <p>
+        <strong>Before building HTML:</strong> obtain <code>tier-lists.json</code> from Mobalytics.
+        Fastest path for the user:
+      </p>
+      <ol>
+        <li>Open the tier list page in Chrome/Firefox with DevTools → Network.</li>
+        <li>Filter for <code>graphql</code> or <code>sts2</code>.</li>
+        <li>Find the <code>Sts2UgFeaturedDocumentQuery</code> response.</li>
+        <li>Save the JSON response body to <code>Scrape-Ventures/STS2/tier-lists-raw.json</code>.</li>
+      </ol>
+      <p>
+        Once that file exists, implementation can proceed without needing live API access from the agent.
+      </p>
+    </div>
+
+    <h2>8. File counts reference</h2>
+    <ul>
+      <li>STS2 total files: ~535 (424 avif, 63 js, 35 svg, 7 css, 4 htm, …)</li>
+      <li>Card thumbnails: 424 AVIF @ 102×128px</li>
+      <li>Characters: 5 (Ironclad, Silent, Regent, Necrobinder, Defect)</li>
+      <li>Tiers per character: 5 (S, A, B, C, D) + possible TBD row</li>
+      <li>Cards per character: ~87–88</li>
+      <li>GraphQL endpoint: <code>POST /api/sts2/v1/graphql/query</code></li>
+      <li>Featured document slug: <code>cards</code> (type <code>tier-lists</code>)</li>
+    </ul>
+
+    <footer>
+      Plan authored from analysis of <code>Scrape-Ventures/STS2/</code> saved snapshot,
+      Mobalytics JS bundle reverse-engineering, and live page structure review.
+      No implementation code yet — this document is the staging plan only.
+    </footer>
+  </main>
+</body>
+</html>
