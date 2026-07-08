@@ -1,0 +1,41 @@
+{
+  "source": "mobalytics",
+  "pageTitle": "Slay the Spire 2 Card Tier List",
+  "updatedNote": "Rankings from Mobalytics (Jun 24, 2026). Early Access — expect updates as the meta evolves.",
+  "intro": "Preliminary card tier list for each of the five characters. Rankings help evaluate picks during a run; read the tier definitions below — rank alone does not tell the whole story.",
+  "disclaimer": "Slay the Spire 2 is in Early Access. This is an early look while mechanics are still being explored. Future balance patches will change rankings.",
+  "evaluation": "Each run is contextual: a card can be outstanding in one deck and useless in another. More flexible cards rate higher. Rankings consider the base card and its upgraded version.",
+  "multiplayerNote": "Multiplayer-only cards are excluded from this list.",
+  "tiers": [
+    {
+      "tier": "S",
+      "label": "S-Tier",
+      "description": "The best of the best. Highly sought after regardless of run, almost always positive. Often run-defining and gives direction to your deck."
+    },
+    {
+      "tier": "A",
+      "label": "A-Tier",
+      "description": "Often run-warping, but not always worth adding at every point. May need key combo pieces to shine or only excel during part of a run."
+    },
+    {
+      "tier": "B",
+      "label": "B-Tier",
+      "description": "May be slightly niche but still provides good value. Not always best-in-slot, or may fall off late game, but serviceable."
+    },
+    {
+      "tier": "C",
+      "label": "C-Tier",
+      "description": "Often extremely niche but can solve specific deck problems. Desperation picks to fix short-term issues."
+    },
+    {
+      "tier": "D",
+      "label": "D-Tier",
+      "description": "Usually over-costed, clunky, weak in most cases, or even harmful to add to the deck."
+    },
+    {
+      "tier": "TBD",
+      "label": "TBD",
+      "description": "To be determined — not enough data yet to rank confidently."
+    }
+  ]
+}

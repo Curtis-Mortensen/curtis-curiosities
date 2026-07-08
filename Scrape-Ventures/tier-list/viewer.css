@@ -1,0 +1,385 @@
+/*
+  Styles for the STS2 offline tier-list viewer.
+  Dark purple Mobalytics-inspired palette; tier rows with flex-wrapped card grids
+  and a hover/focus popover for full card art. Paired with viewer.js + index.html.
+ */
+
+:root {
+  --bg: #1a1625;
+  --surface: #2c274f;
+  --surface-deep: #241f3a;
+  --border: #3d3668;
+  --text: #e8e6f0;
+  --muted: #a9a3c4;
+  --accent: #f2bf43;
+  --tier-s: #ff6b6b;
+  --tier-a: #ffa94d;
+  --tier-b: #ffd43b;
+  --tier-c: #69db7c;
+  --tier-d: #74c0fc;
+  --tier-tbd: #868e96;
+  --thumb-w: 51px;
+  --thumb-h: 64px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(180deg, var(--bg) 85%, transparent);
+  padding: 1rem 1rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.header-text h1 {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+
+.subtitle {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.search-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: min(100%, 260px);
+}
+
+.search-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+#search-input {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface-deep);
+  color: var(--text);
+  font-size: 1rem;
+}
+
+#search-input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.character-nav {
+  max-width: 1100px;
+  margin: 0.75rem auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.character-nav a {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+}
+
+.character-nav a:hover,
+.character-nav a:focus {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.tier-list-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 3rem;
+}
+
+.loading,
+.load-error {
+  color: var(--muted);
+  text-align: center;
+  padding: 2rem;
+}
+
+.load-error {
+  color: #ff8787;
+}
+
+.character-section {
+  margin-bottom: 2.5rem;
+  scroll-margin-top: 7rem;
+}
+
+.character-section h2 {
+  margin: 0 0 1rem;
+  font-size: 1.15rem;
+  color: var(--accent);
+  text-transform: capitalize;
+}
+
+.tier-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: stretch;
+  margin-bottom: 0.5rem;
+}
+
+.tier-row.is-hidden,
+.tier-row.is-empty {
+  display: none;
+}
+
+.tier-label {
+  width: 2.25rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  color: #1a1625;
+}
+
+.tier-label--s { background: var(--tier-s); }
+.tier-label--a { background: var(--tier-a); }
+.tier-label--b { background: var(--tier-b); }
+.tier-label--c { background: var(--tier-c); }
+.tier-label--d { background: var(--tier-d); }
+.tier-label--tbd { background: var(--tier-tbd); color: var(--text); }
+
+.tier-cards {
+  flex: 1;
+  min-height: calc(var(--thumb-h) + 1rem);
+  background: var(--surface-deep);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-content: flex-start;
+}
+
+.tier-cards--empty {
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.card-entry {
+  position: relative;
+  width: var(--thumb-w);
+  height: var(--thumb-h);
+  flex-shrink: 0;
+  border-radius: 4px;
+  cursor: default;
+}
+
+.card-entry.is-hidden {
+  display: none;
+}
+
+.card-entry.is-match {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.card-thumb {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+  background: #3d3668;
+}
+
+/* Visually hidden but findable with Ctrl+F and available to screen readers. */
+.card-name {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.card-hover {
+  display: none;
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  transform: translateX(-50%);
+  width: min(340px, 85vw);
+  max-height: min(520px, 80vh);
+  overflow: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55);
+  border: 2px solid var(--accent);
+  background: var(--surface-deep);
+  z-index: 50;
+  pointer-events: none;
+}
+
+.card-hover-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px 6px 0 0;
+  background: #1a1625;
+}
+
+.card-hover-meta {
+  padding: 0.65rem 0.75rem 0.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.card-hover-title {
+  margin: 0 0 0.25rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.card-hover-stats {
+  margin: 0 0 0.35rem;
+  font-size: 0.8rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.card-hover-keywords {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.card-hover-desc {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+  white-space: pre-line;
+  line-height: 1.4;
+}
+
+.card-entry:hover .card-hover,
+.card-entry:focus-within .card-hover {
+  display: block;
+}
+
+.methodology-panel {
+  margin-bottom: 2rem;
+  scroll-margin-top: 7rem;
+}
+
+.methodology-panel details {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+
+.methodology-panel summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--accent);
+  list-style-position: outside;
+}
+
+.methodology-body p {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.methodology-disclaimer {
+  color: #ff8787 !important;
+  font-size: 0.85rem !important;
+}
+
+.methodology-note {
+  font-size: 0.85rem !important;
+  font-style: italic;
+}
+
+.methodology-tiers {
+  margin: 1rem 0 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.methodology-tiers dt {
+  margin: 0;
+}
+
+.methodology-tier-badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #1a1625;
+}
+
+.methodology-tiers dd {
+  margin: 0.25rem 0 0;
+  padding-left: 0;
+  color: var(--text);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.site-footer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem 2rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.site-footer code {
+  background: var(--surface-deep);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}

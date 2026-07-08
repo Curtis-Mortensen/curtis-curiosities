@@ -193,8 +193,11 @@
       <strong>Goal</strong>
       <p>
         Build a local, searchable HTML tier-list viewer where each card is a real DOM element (name in text, findable with Ctrl+F),
-        organized by character and tier (S/A/B/C/D), with hover-to-expand full card art — matching the Mobalytics layout closely enough to be useful offline.
+        organized by character and tier (S/A/B/C/D), with hover tooltips showing full card art plus cost/type/rarity —
+        matching the Mobalytics layout closely enough to be useful offline. Open <code>tier-list/index.html</code> directly;
+        no HTTP server required.
       </p>
+      <p><strong>Status (2026-07-08):</strong> Stages 1–3 complete. Stage 4 (character nav polish) is next.</p>
     </div>
 
     <h2>1. How the original page works</h2>
@@ -354,12 +357,23 @@ Page also embeds YouTube review videos per character (Ironclad, Silent, Regent, 
         <tr>
           <td>YouTube embed references</td>
           <td><span class="tag tag-partial">Partial</span></td>
-          <td>Two embedded review videos saved as <code>i70zlnQfayY_19D0.htm</code> (Ironclad) and <code>8zXnLXaxwhc_19D0.htm</code> (Regent). Silent/Defect/Necrobinder video IDs not captured.</td>
+          <td>Two embedded review videos saved as <code>i70zlnQfayY_19D0.htm</code> (Ironclad) and <code>8zXnLXaxwhc_19D0.htm</code> (Regent). <strong>Out of scope</strong> — owner does not want embeds in viewer.</td>
         </tr>
         <tr>
           <td>Intro copy / methodology text</td>
-          <td><span class="tag tag-partial">Partial</span></td>
-          <td>Tier definitions (S–D descriptions) available from live page fetch. Full rich-text intro is in document <code>content</code> widgets — not in save.</td>
+          <td><span class="tag tag-have">Have</span></td>
+          <td>
+            Static copy in <code>tier-list/data/methodology.json</code> (S–D definitions, intro, disclaimer).
+            Baked into <code>index.html</code> via <code>build-viewer.py</code>. Rendered as collapsible panel at page top.
+          </td>
+        </tr>
+        <tr>
+          <td>Card metadata (cost, type, rarity)</td>
+          <td><span class="tag tag-have">Have</span></td>
+          <td>
+            401/403 cards in <code>tier-list/data/card-metadata.json</code> from Spire Codex bulk API.
+            Missing: <code>follow-through</code>, <code>unrelenting-plus</code>. Shown in hover tooltips.
+          </td>
         </tr>
       </tbody>
     </table>
@@ -404,27 +418,43 @@ Page also embeds YouTube review videos per character (Ironclad, Silent, Regent, 
         </tr>
         <tr>
           <td><strong>Character metadata</strong></td>
-          <td>Medium</td>
-          <td>GraphQL tier list titles, or hardcode 5 characters</td>
-          <td>Section order on live page: Ironclad → Silent → Regent → Necrobinder → Defect.</td>
+          <td><span class="tag tag-done">Done</span></td>
+          <td>From GraphQL widget titles in <code>tier-lists.json</code>. Display order: Ironclad → Silent → Regent → Necrobinder → Defect.</td>
         </tr>
         <tr>
           <td><strong>Section anchor IDs</strong></td>
-          <td>Low</td>
-          <td>Derive from widget order: <code>{n}-{character-slug}-tier-list-2</code></td>
-          <td>Needed if we want URL hash navigation like the original (<code>#1-regent-tier-list-2</code>).</td>
+          <td><span class="tag tag-done">Done</span></td>
+          <td><code>anchorId</code> per character in JSON (e.g. <code>3-ironclad-tier-list-2</code>). Used in viewer nav + hash links.</td>
         </tr>
         <tr>
           <td><strong>YouTube video IDs</strong></td>
-          <td>Low</td>
-          <td>Live page inspection</td>
-          <td>Optional embeds above each character tier list. Have 2 of 5.</td>
+          <td><span class="tag tag-missing">Won't build</span></td>
+          <td>Owner decision: no YouTube embeds in viewer. Saved HTML stubs exist in STS2/ for reference only.</td>
         </tr>
         <tr>
-          <td><strong>Card wiki details</strong> (cost, type, rarity)</td>
-          <td>Low</td>
-          <td>Spire Codex <code>/api/cards/{id}</code></td>
-          <td>Nice for expanded tooltip but not required for MVP.</td>
+          <td><strong>Card metadata</strong> (cost, type, rarity, description)</td>
+          <td><span class="tag tag-done">Done</span></td>
+          <td>
+            <code>tier-list/scrape/fetch-card-metadata.py</code> ·
+            <code>tier-list/data/card-metadata.json</code> ·
+            Spire Codex <code>GET /api/cards</code> (bulk). Metadata only — tiers stay Mobalytics.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Methodology blurb</strong> (S–D definitions)</td>
+          <td><span class="tag tag-done">Done</span></td>
+          <td>
+            <code>tier-list/data/methodology.json</code> — static Mobalytics copy.
+            Collapsible panel + nav link in viewer.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Baked offline viewer</strong></td>
+          <td><span class="tag tag-done">Done</span></td>
+          <td>
+            <code>tier-list/scrape/build-viewer.py</code> inlines all JSON into <code>index.html</code> as <code>window.TIER_DATA</code> (~240 KB).
+            Open via <code>file://</code> — no HTTP server.
+          </td>
         </tr>
       </tbody>
     </table>
@@ -433,9 +463,13 @@ Page also embeds YouTube review videos per character (Ironclad, Silent, Regent, 
 
     <div class="diagram">recreating-tier-list.html          ← this plan
 tier-list/
-  index.html                       ← main viewer (Stage 3 — next)
+  index.html                       ← ✅ viewer shell + baked window.TIER_DATA (~240 KB)
+  viewer.css                       ← ✅ tier rows, methodology panel, hover tooltips
+  viewer.js                        ← ✅ render, search, metadata tooltips
   data/
-    tier-lists.json                ← ✅ scraped Mobalytics rankings (403 cards)
+    tier-lists.json                ← ✅ Mobalytics rankings (403 cards)
+    methodology.json               ← ✅ S–D tier definitions + intro copy
+    card-metadata.json             ← ✅ Spire Codex metadata (401/403 cards)
   assets/
     manifest.json                  ← ✅ slug → thumb/full paths
     thumbs/                        ← ✅ 403 symlinks → STS2/*_19D0.avif
@@ -443,6 +477,8 @@ tier-list/
   scrape/
     fetch-tier-lists.py            ← ✅ GraphQL fetch + normalize
     download-images.py             ← ✅ consolidate thumbs + full art
+    fetch-card-metadata.py         ← ✅ Spire Codex bulk metadata
+    build-viewer.py                ← ✅ bake all JSON into index.html
     bookmarklet.js                 ← ✅ browser fallback export
 STS2/
   tier-lists-raw.json              ← ✅ saved GraphQL response
@@ -454,7 +490,12 @@ STS2/
   &lt;img class="card-thumb" src="assets/thumbs/crash-landing.avif" alt=""&gt;
   &lt;span class="card-name"&gt;Crash Landing&lt;/span&gt;   &lt;!-- Ctrl+F target --&gt;
   &lt;div class="card-hover" role="tooltip"&gt;
-    &lt;img src="assets/full/crash-landing.webp" alt="Crash Landing"&gt;
+    &lt;img class="card-hover-art" src="assets/full/crash-landing.webp" alt="Crash Landing"&gt;
+    &lt;div class="card-hover-meta"&gt;
+      &lt;p class="card-hover-title"&gt;Crash Landing&lt;/p&gt;
+      &lt;p class="card-hover-stats"&gt;1 · Attack · Rare&lt;/p&gt;
+      &lt;p class="card-hover-desc"&gt;Deal 8 damage…&lt;/p&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
 &lt;/article&gt;</pre>
     <p>
@@ -493,36 +534,50 @@ STS2/
       </div>
 
       <div class="card stage">
-        <h3>Stage 3 — Build static HTML viewer</h3>
-        <p><strong>Next up.</strong> Detailed checklist in <a href="#stage3-prep">Stage 3 prep</a> section.</p>
+        <h3>Stage 3 — Build static HTML viewer <span class="tag tag-done">Complete</span></h3>
+        <p><strong>Completed 2026-07-08.</strong> See <a href="#stage3-findings">findings</a> below.</p>
         <ul>
-          <li>Single-page <code>tier-list/index.html</code> with vanilla HTML/CSS/JS (no React, no build step).</li>
-          <li>Character nav tabs or stacked sections matching Mobalytics order.</li>
-          <li>Tier rows (S–D) with flex-wrapped card grid per row.</li>
-          <li>CSS hover: scale full card image above thumbnail (position absolute / popover).</li>
-          <li>Each card includes visible or screen-reader <code>&lt;span class="card-name"&gt;</code> for Ctrl+F.</li>
-          <li>Optional: in-page search box that filters/highlights cards (better UX than raw Ctrl+F).</li>
+          <li>✅ <code>tier-list/index.html</code> + <code>viewer.css</code> + <code>viewer.js</code> — vanilla HTML/CSS/JS</li>
+          <li>✅ <code>build-viewer.py</code> — bakes all JSON into HTML for <code>file://</code> (no server)</li>
+          <li>✅ Character nav + stacked sections (Ironclad → Silent → Regent → Necrobinder → Defect)</li>
+          <li>✅ Tier rows S–D (+ empty Necrobinder TBD) with flex-wrapped card grid</li>
+          <li>✅ Hover/focus tooltips: full art + cost · type · rarity · description (Spire Codex)</li>
+          <li>✅ Tier methodology panel (S–D definitions) at page top + nav link</li>
+          <li>✅ Visually hidden <code>&lt;span class="card-name"&gt;</code> for Ctrl+F</li>
+          <li>✅ In-page search box filters cards and scrolls first match</li>
         </ul>
-        <p><strong>Done when:</strong> Opening <code>index.html</code> locally shows all tiers; hovering shows full card; searching "Crash Landing" finds the card.</p>
+        <p><strong>Done when:</strong> Opening <code>index.html</code> directly shows all tiers; hover shows art + metadata; searching "Crash Landing" finds the card. <em>Achieved.</em></p>
+        <p>Open: <code>tier-list/index.html</code> · Re-bake: <code>python3 tier-list/scrape/build-viewer.py</code></p>
       </div>
 
       <div class="card stage">
-        <h3>Stage 4 — Parity polish (optional)</h3>
+        <h3>Stage 4 — Character navigation polish</h3>
+        <p><strong>Next up.</strong> Scope is intentionally narrow — tier list + character nav only.</p>
         <ul>
-          <li>Match Mobalytics dark purple theme (colors from saved CSS: <code>#2c274f</code> background family).</li>
-          <li>Hash anchors per character section (<code>id="1-regent-tier-list-2"</code>).</li>
-          <li>Embed YouTube review videos (gather missing 3 video IDs).</li>
-          <li>Show tier methodology blurb (S–D definitions) at top.</li>
-          <li>Handle Necrobinder "TBD" tier row if present in scraped data.</li>
+          <li>Sticky character nav with active-section highlight on scroll.</li>
+          <li>Smooth scroll / keyboard-friendly jump links (hash anchors already in place).</li>
+          <li>Mobile-friendly nav layout (wrap or horizontal scroll).</li>
         </ul>
+        <p><strong>Explicitly out of scope (per owner):</strong></p>
+        <ul>
+          <li>YouTube review embeds</li>
+          <li>Wiki or Mobalytics crosslinks / clickable cards</li>
+          <li>Pixel-perfect Mobalytics theme recreation beyond current palette</li>
+        </ul>
+        <p><strong>Already done in Stage 3:</strong> hash anchors, Necrobinder TBD row, search, methodology blurb, metadata tooltips.</p>
       </div>
 
       <div class="card stage">
         <h3>Stage 5 — Refresh workflow</h3>
+        <p>Run all four scripts when Mobalytics updates the list (live page: "Updated on Jun 24, 2026"):</p>
+        <pre>python3 tier-list/scrape/fetch-tier-lists.py
+python3 tier-list/scrape/download-images.py
+python3 tier-list/scrape/fetch-card-metadata.py
+python3 tier-list/scrape/build-viewer.py</pre>
         <ul>
-          <li>Re-run scraper when Mobalytics updates the list (live page shows "Updated on Jun 24, 2026").</li>
-          <li>Diff JSON to see tier changes between versions.</li>
-          <li>Re-generate HTML from template + JSON (don't hand-edit HTML).</li>
+          <li>Diff <code>tier-lists.json</code> between runs to see tier changes.</li>
+          <li>Never hand-edit baked <code>index.html</code> — re-run <code>build-viewer.py</code>.</li>
+          <li>Edit <code>methodology.json</code> manually if Mobalytics copy changes (not auto-scraped).</li>
         </ul>
       </div>
     </div>
@@ -628,7 +683,7 @@ Response path:
 }</pre>
     <ul>
       <li>All <code>iconUrl</code> values are Mobalytics CDN <code>.webp</code> (not the saved AVIF thumbs).</li>
-      <li>All <code>linkUrl</code> values are <code>null</code> in current API response — wiki links optional for later stages.</li>
+      <li>All <code>linkUrl</code> values are <code>null</code> in current API response — wiki links explicitly out of scope.</li>
       <li>Necrobinder includes empty <code>TBD</code> tier row (0 cards) — keep for parity with live page.</li>
     </ul>
 
@@ -752,53 +807,59 @@ Response path:
             <td><code>data/tier-lists.json</code></td>
             <td>
               <code>characters[]</code> — nested tier rows (S/A/B/C/D/TBD) with card names, slugs, tiers.<br>
-              <code>cards[]</code> — flat list (optional; useful for global search/filter).
+              <code>cards[]</code> — flat list for global search/filter.
             </td>
           </tr>
           <tr>
             <td><code>assets/manifest.json</code></td>
             <td>Resolve <code>paths[slug].thumb</code> and <code>paths[slug].full</code> for each card icon.</td>
           </tr>
+          <tr>
+            <td><code>data/methodology.json</code></td>
+            <td>S–D tier definitions, intro, disclaimer — rendered as collapsible panel at page top.</td>
+          </tr>
+          <tr>
+            <td><code>data/card-metadata.json</code></td>
+            <td><code>cards[slug]</code> — cost, type, rarity, description, keywords for hover tooltips.</td>
+          </tr>
         </tbody>
       </table>
+
+      <h3>Baked <code>window.TIER_DATA</code> shape</h3>
+      <pre>{
+  "tiers": { …tier-lists.json… },
+  "manifest": { …manifest.json… },
+  "methodology": { …methodology.json… },
+  "cardMetadata": { …card-metadata.json… }
+}</pre>
+      <p>All four payloads inlined by <code>build-viewer.py</code> between <code>&lt;!-- tier-data:start --&gt;</code> markers.</p>
 
       <h3>Local file caveat</h3>
       <p>
         <code>fetch('data/tier-lists.json')</code> is blocked on <code>file://</code> in Chrome/Firefox (CORS).
-        Two MVP options:
+        <strong>Resolved:</strong> <code>build-viewer.py</code> bakes both JSON files into
+        <code>window.TIER_DATA</code> inside <code>index.html</code>. Open the file directly — no server needed.
+        Images still load from <code>assets/thumbs/</code> and <code>assets/full/</code> via relative paths.
       </p>
-      <ol>
-        <li><strong>Serve locally (simplest for dev):</strong>
-          <code>cd tier-list &amp;&amp; python3 -m http.server 8080</code> → open <code>http://localhost:8080</code>
-        </li>
-        <li><strong>True file:// offline:</strong> add a tiny <code>build-viewer.py</code> that inlines JSON into
-          <code>&lt;script&gt;window.TIER_DATA = …&lt;/script&gt;</code> (defer to Stage 5 refresh workflow, or ship as optional bake step)</li>
-      </ol>
-      <p>Recommend option 1 for Stage 3 MVP; document the server command in README.</p>
+      <p>Run after fetch + images + metadata: <code>python3 tier-list/scrape/build-viewer.py</code></p>
 
       <h3>Proposed page structure</h3>
       <pre>index.html
-├── &lt;header&gt; title + optional search input
-├── &lt;nav&gt; character jump links (use anchorId from JSON)
+├── &lt;header&gt; title + search input + character nav
 └── &lt;main&gt;
+    ├── &lt;section id="methodology"&gt; collapsible S–D definitions
     └── for each character in characters[]:
         &lt;section id="{anchorId}"&gt;
           &lt;h2&gt;{title}&lt;/h2&gt;
-          └── for each tier in [S, A, B, C, D, TBD]:
-              &lt;div class="tier-row" data-tier="{tier}"&gt;
-                &lt;span class="tier-label"&gt;{tier}&lt;/span&gt;
-                &lt;div class="tier-cards"&gt;
-                  └── card-entry per card (see element design above)
-                &lt;/div&gt;
-              &lt;/div&gt;</pre>
+          └── tier rows S/A/B/C/D/TBD with card-entry + hover tooltip</pre>
 
       <h3>Rendering loop (vanilla JS)</h3>
       <ol>
-        <li>On load: <code>Promise.all([fetch('data/tier-lists.json'), fetch('assets/manifest.json')])</code></li>
-        <li>Iterate <code>data.characters</code> in JSON order (already sorted: Ironclad → Silent → Regent → Necrobinder → Defect).</li>
-        <li>For each character, iterate tiers in fixed order <code>['S','A','B','C','D','TBD']</code> — skip empty tiers except Necrobinder TBD (0 cards but row exists for parity).</li>
-        <li>For each card, look up <code>manifest.paths[slug]</code>; use those paths for <code>&lt;img&gt;</code> src.</li>
-        <li>Append sections to <code>&lt;main&gt;</code> via <code>document.createElement</code> (or template literals + <code>innerHTML</code> on a container).</li>
+        <li>On load: use <code>window.TIER_DATA</code> if baked, else fetch all four JSON files.</li>
+        <li>Render methodology panel from <code>methodology</code> (collapsible <code>&lt;details&gt;</code>).</li>
+        <li>Build character nav: Methodology link + one link per character (<code>anchorId</code>).</li>
+        <li>Iterate <code>tiers.characters</code> in display order; render tier rows S→D→TBD.</li>
+        <li>For each card: thumb/full from <code>manifest.paths[slug]</code>; metadata from <code>cardMetadata.cards[slug]</code>.</li>
       </ol>
 
       <h3>CSS essentials</h3>
@@ -825,11 +886,10 @@ Response path:
         <li>Note: anchor IDs use content-widget index, not live Mobalytics order — close enough for local use.</li>
       </ul>
 
-      <h3>Wiki links (optional)</h3>
+      <h3>Wiki / external links</h3>
       <p>
-        <code>linkUrl</code> is <code>null</code> in scraped data. Construct as
-        <code>https://mobalytics.gg/slay-the-spire-2/wiki/cards/{slug}</code> if cards should be clickable.
-        Not required for MVP.
+        <code>linkUrl</code> is <code>null</code> in scraped data.
+        <strong>Out of scope</strong> — viewer is tier list + character nav only; cards are not clickable links.
       </p>
 
       <h3>Files to create</h3>
@@ -838,7 +898,8 @@ Response path:
           <tr><th>File</th><th>Purpose</th></tr>
         </thead>
         <tbody>
-          <tr><td><code>tier-list/index.html</code></td><td>Shell: header, nav, main container, inline or linked CSS/JS</td></tr>
+          <tr><td><code>tier-list/scrape/build-viewer.py</code></td><td>Bake JSON into <code>index.html</code> for <code>file://</code></td></tr>
+          <tr><td><code>tier-list/index.html</code></td><td>Shell + baked <code>window.TIER_DATA</code> + linked CSS/JS</td></tr>
           <tr><td><code>tier-list/viewer.css</code> (optional split)</td><td>Tier row layout, hover popover, theme</td></tr>
           <tr><td><code>tier-list/viewer.js</code> (optional split)</td><td>Fetch JSON, build DOM, search filter</td></tr>
         </tbody>
@@ -847,19 +908,88 @@ Response path:
 
       <h3>Done checklist</h3>
       <ol>
-        <li>All 5 characters render with S–D tier rows (+ empty Necrobinder TBD row).</li>
-        <li>403 card thumbs visible; no broken images when served via local HTTP server.</li>
-        <li>Hover/focus shows full <code>.webp</code> preview from <code>assets/full/</code>.</li>
-        <li>Browser find (Ctrl+F) locates "Crash Landing" (or equivalent) in page text.</li>
-        <li>Character nav hash links scroll to correct section.</li>
+        <li>All 5 characters render with S–D tier rows (+ empty Necrobinder TBD row). ✅</li>
+        <li>403 card thumbs visible when opening <code>index.html</code> via <code>file://</code>. ✅</li>
+        <li>Hover/focus shows full art + metadata tooltip. ✅</li>
+        <li>Methodology panel with S–D definitions at page top. ✅</li>
+        <li>Ctrl+F locates "Crash Landing" in page text. ✅</li>
+        <li>Character nav hash links scroll to correct section. ✅</li>
       </ol>
 
-      <h3>Out of scope for Stage 3 (→ Stage 4)</h3>
+      <h3>Out of scope (won't build)</h3>
       <ul>
-        <li>YouTube review embeds (only 2 of 5 video IDs captured)</li>
-        <li>Tier methodology blurb (S–D definitions) at page top</li>
-        <li>Pixel-perfect Mobalytics theme polish</li>
-        <li>Card cost/type/rarity in tooltip (would need Spire Codex API)</li>
+        <li>YouTube review embeds</li>
+        <li>Wiki / Mobalytics crosslinks or clickable cards</li>
+        <li>Card cost/type/rarity beyond Spire Codex base-card data</li>
+      </ul>
+      <p>Methodology and metadata tooltips shipped in Stage 3. Stage 4 is character nav polish only.</p>
+    </div>
+
+    <h2 id="stage3-findings">5e. Stage 3 findings (2026-07-08)</h2>
+
+    <div class="card">
+      <h3>What we built</h3>
+      <table>
+        <thead>
+          <tr><th>File</th><th>Role</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>tier-list/index.html</code></td><td>Viewer shell + baked <code>window.TIER_DATA</code> (~240 KB)</td></tr>
+          <tr><td><code>tier-list/viewer.css</code></td><td>Theme, tier rows, methodology panel, metadata tooltips</td></tr>
+          <tr><td><code>tier-list/viewer.js</code></td><td>Render, search, methodology, enriched hover tooltips</td></tr>
+          <tr><td><code>tier-list/scrape/build-viewer.py</code></td><td>Bake tiers + manifest + methodology + metadata into HTML</td></tr>
+          <tr><td><code>tier-list/scrape/fetch-card-metadata.py</code></td><td>Spire Codex bulk fetch → <code>card-metadata.json</code></td></tr>
+          <tr><td><code>tier-list/data/methodology.json</code></td><td>Static S–D definitions (Mobalytics copy)</td></tr>
+          <tr><td><code>tier-list/data/card-metadata.json</code></td><td>401/403 cards: cost, type, rarity, description</td></tr>
+        </tbody>
+      </table>
+      <p>Open: <code>tier-list/index.html</code> directly — no HTTP server.</p>
+      <p>Full refresh:</p>
+      <pre>python3 tier-list/scrape/fetch-tier-lists.py
+python3 tier-list/scrape/download-images.py
+python3 tier-list/scrape/fetch-card-metadata.py
+python3 tier-list/scrape/build-viewer.py</pre>
+    </div>
+
+    <h3>Metadata coverage</h3>
+    <table>
+      <thead>
+        <tr><th>Source</th><th>Coverage</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Mobalytics tiers</td><td>403/403</td><td>Authoritative rankings in <code>tier-lists.json</code></td></tr>
+        <tr><td>Local images</td><td>403/403</td><td>Thumbs + full art via manifest</td></tr>
+        <tr><td>Spire Codex metadata</td><td>401/403</td><td>Missing: <code>follow-through</code>, <code>unrelenting-plus</code> (art-only tooltips)</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Decisions</h3>
+    <ul>
+      <li><strong>Tiers from Mobalytics only.</strong> Spire Codex used for metadata, never for tier placement.</li>
+      <li><strong>Bake all JSON</strong> into <code>index.html</code> so <code>file://</code> works without a server.</li>
+      <li><strong>Methodology is static JSON</strong> — edited from live Mobalytics copy, not scraped on refresh.</li>
+      <li><strong>No YouTube embeds, no wiki crosslinks</strong> — owner scope: tier list + character nav.</li>
+    </ul>
+
+    <h2 id="stage4-prep">5f. Stage 4 prep — character navigation polish</h2>
+
+    <div class="card">
+      <h3>Goal</h3>
+      <p>Improve character jump navigation UX. Everything else in Stage 3 is done.</p>
+
+      <h3>In scope</h3>
+      <ul>
+        <li>Active-section highlight in sticky nav as user scrolls.</li>
+        <li>Mobile-friendly nav (wrap or horizontal scroll).</li>
+        <li>Smooth scroll / keyboard polish for hash links.</li>
+      </ul>
+
+      <h3>Out of scope (owner decision)</h3>
+      <ul>
+        <li>YouTube review embeds</li>
+        <li>Wiki or Mobalytics crosslinks / clickable cards</li>
+        <li>Pixel-perfect Mobalytics theme beyond current palette</li>
+        <li>Upgraded-card metadata or live Spire Codex fetch in browser</li>
       </ul>
     </div>
 
@@ -903,7 +1033,7 @@ Response path:
         <tr>
           <td><code>file://</code> blocks JSON fetch</td>
           <td>Viewer won't load data if opened as raw file</td>
-          <td>Serve via <code>python3 -m http.server</code> from <code>tier-list/</code>, or bake JSON into HTML (Stage 5).</td>
+          <td><strong>Resolved:</strong> <code>build-viewer.py</code> bakes JSON into <code>index.html</code>. Images use relative paths and work on <code>file://</code>.</td>
         </tr>
         <tr>
           <td>Symlinks on Windows</td>
@@ -911,9 +1041,14 @@ Response path:
           <td>Re-run <code>download-images.py --copy</code> to materialize AVIF files.</td>
         </tr>
         <tr>
+          <td>Spire Codex metadata gaps</td>
+          <td>2 cards lack cost/type/rarity in tooltip</td>
+          <td><code>follow-through</code>, <code>unrelenting-plus</code> not in Codex API yet. Tooltip shows art only.</td>
+        </tr>
+        <tr>
           <td><code>linkUrl</code> null in API</td>
           <td>No wiki deep-links from tier list data</td>
-          <td>Construct wiki URLs as <code>https://mobalytics.gg/slay-the-spire-2/wiki/cards/{slug}</code> in Stage 3 if needed</td>
+          <td><strong>Out of scope.</strong> Viewer is tier list + character nav only — no external crosslinks.</td>
         </tr>
       </tbody>
     </table>
@@ -921,18 +1056,19 @@ Response path:
     <h2>7. Immediate next step</h2>
 
     <div class="card">
-      <p><strong>Stage 3 — build static HTML viewer.</strong> See <a href="#stage3-prep">Stage 3 prep</a> for full spec.</p>
+      <p><strong>Stage 4 — character navigation polish.</strong> Viewer is at <code>tier-list/index.html</code> (open directly, no server).</p>
       <ol>
-        <li>Create <code>tier-list/index.html</code> — fetch <code>tier-lists.json</code> + <code>manifest.json</code>, render character sections.</li>
-        <li>Tier rows S–D (+ Necrobinder TBD) with card thumbs from manifest paths.</li>
-        <li>Hover/focus popover with full <code>assets/full/{slug}.webp</code>.</li>
-        <li>Card names in DOM for Ctrl+F; optional search box filter.</li>
-        <li>Serve via <code>cd tier-list &amp;&amp; python3 -m http.server 8080</code> (required — <code>file://</code> blocks fetch).</li>
+        <li>Active-section highlight in sticky character nav on scroll.</li>
+        <li>Mobile-friendly nav layout.</li>
+        <li>Keyboard / smooth-scroll polish for hash jump links.</li>
       </ol>
+      <p><strong>Not building:</strong> YouTube embeds, wiki/Mobalytics crosslinks.</p>
       <p>
         Refresh data pipeline:
         <code>python3 tier-list/scrape/fetch-tier-lists.py</code> →
-        <code>python3 tier-list/scrape/download-images.py</code>
+        <code>python3 tier-list/scrape/download-images.py</code> →
+        <code>python3 tier-list/scrape/fetch-card-metadata.py</code> →
+        <code>python3 tier-list/scrape/build-viewer.py</code>
       </p>
     </div>
 
@@ -942,20 +1078,22 @@ Response path:
       <li>Card thumbnails on disk: 424 AVIF @ 102×128px in STS2/; 403 symlinked into <code>tier-list/assets/thumbs/</code></li>
       <li>Full hover images: <strong>403</strong> webp in <code>tier-list/assets/full/</code> (~189 MB)</li>
       <li>Ranked cards in JSON: <strong>403</strong> (multiplayer 21 excluded)</li>
+      <li>Card metadata entries: <strong>401</strong> from Spire Codex (2 missing)</li>
+      <li>Baked <code>index.html</code>: ~240 KB inline JSON + linked CSS/JS</li>
       <li>Characters in viewer: 5 (Ironclad, Silent, Regent, Necrobinder, Defect)</li>
       <li>Tiers per character: S/A/B/C/D (+ Necrobinder TBD row, empty)</li>
       <li>Cards per character: 81 / 80 / 82 / 80 / 80</li>
       <li>GraphQL endpoint: <code>POST /api/sts2/v1/graphql/query</code></li>
       <li>Featured document slug: <code>cards</code> (type <code>tier-lists</code>)</li>
-      <li>Full art CDN: <code>cdn.mobalytics.gg/assets/sts2/images/cards/new/{slug}.webp</code></li>
-      <li>Image pipeline: <code>python3 tier-list/scrape/download-images.py</code></li>
+      <li>Metadata API: <code>GET spire-codex.com/api/cards</code> (bulk, 577 cards)</li>
+      <li>Full refresh pipeline: fetch-tier-lists → download-images → fetch-card-metadata → build-viewer</li>
     </ul>
 
     <footer>
       Plan authored from analysis of <code>Scrape-Ventures/STS2/</code> saved snapshot,
       Mobalytics JS bundle reverse-engineering, and live page structure review.
-      Stage 1 implemented 2026-07-08 · Stage 2 implemented 2026-07-08 — see <code>dev-log.md</code>,
-      <code>tier-list/scrape/fetch-tier-lists.py</code>, and <code>tier-list/scrape/download-images.py</code>.
+      Stages 1–3 implemented 2026-07-08 — see <code>dev-log.md</code> and scripts in <code>tier-list/scrape/</code>.
+      Stage 4 (character nav polish) is next.
     </footer>
   </main>
 </body>
