@@ -291,3 +291,7 @@ Flags: `--skip-fetch`, `--skip-images`, `--skip-metadata`, `--skip-bake`, `--no-
 ### Status
 
 **Stage 5 complete.** STS2 tier-list project (Stages 1–5) is shippable.
+
+## 2026-07-08 — README: hand-edit vs generated files
+
+Updated `README.md` with tables for what to edit manually (`methodology.json`, viewer source) vs what to regenerate via `refresh-tier-list.py` (tier data, baked `index.html`, images, metadata).
