@@ -57,55 +57,127 @@ function shouldShowTierRow(tierKey, cards, characterSlug) {
   return tierKey === "TBD" && characterSlug === "necrobinder";
 }
 
-/** Build the hover tooltip: full art plus cost / type / rarity / description. */
-function createCardHover(card, fullSrc, metaBySlug) {
-  const hover = document.createElement("div");
-  hover.className = "card-hover";
-  hover.setAttribute("role", "tooltip");
+/** Build the large card preview panel (full art + metadata). */
+function fillCardPreview(previewEl, card, fullSrc, metaBySlug) {
+  previewEl.replaceChildren();
 
   const art = document.createElement("img");
-  art.className = "card-hover-art";
+  art.className = "card-preview-art";
   art.src = fullSrc;
   art.alt = card.name;
-  hover.appendChild(art);
+  previewEl.appendChild(art);
 
   const meta = metaBySlug[card.slug];
   if (meta) {
     const panel = document.createElement("div");
-    panel.className = "card-hover-meta";
+    panel.className = "card-preview-meta";
 
     const title = document.createElement("p");
-    title.className = "card-hover-title";
+    title.className = "card-preview-title";
     title.textContent = meta.name || card.name;
     panel.appendChild(title);
 
     const stats = document.createElement("p");
-    stats.className = "card-hover-stats";
+    stats.className = "card-preview-stats";
     const parts = [meta.cost, meta.type, meta.rarity].filter(Boolean);
     stats.textContent = parts.join(" · ");
     panel.appendChild(stats);
 
     if (meta.keywords?.length) {
       const keywords = document.createElement("p");
-      keywords.className = "card-hover-keywords";
+      keywords.className = "card-preview-keywords";
       keywords.textContent = meta.keywords.join(", ");
       panel.appendChild(keywords);
     }
 
     if (meta.description) {
       const desc = document.createElement("p");
-      desc.className = "card-hover-desc";
+      desc.className = "card-preview-desc";
       desc.textContent = meta.description;
       panel.appendChild(desc);
     }
 
-    hover.appendChild(panel);
+    previewEl.appendChild(panel);
   }
-
-  return hover;
 }
 
-/** One card thumbnail with hover preview and a findable name in the DOM. */
+/** Place the preview to the right of the cursor, clamped inside the viewport. */
+function positionCardPreview(previewEl, event) {
+  const gap = 14;
+  const pad = 20;
+  const width = previewEl.offsetWidth || 320;
+  const height = previewEl.offsetHeight || 420;
+
+  let left = event.clientX + gap;
+  let top = event.clientY - 24;
+
+  // Stay on screen with padding — slide inward instead of flipping to the left of the cursor.
+  left = Math.min(left, window.innerWidth - width - pad);
+  left = Math.max(left, pad);
+  top = Math.min(top, window.innerHeight - height - pad);
+  top = Math.max(top, pad);
+
+  previewEl.style.left = `${left}px`;
+  previewEl.style.top = `${top}px`;
+}
+
+/** One shared preview that follows the pointer over any card thumbnail. */
+function setupCardPreview(metaBySlug) {
+  const previewEl = document.getElementById("card-preview");
+  if (!previewEl) {
+    return;
+  }
+
+  let activeEntry = null;
+
+  const showForEntry = (entry, event) => {
+    const slug = entry.dataset.slug;
+    const card = { name: entry.dataset.name, slug };
+    const fullSrc = entry.dataset.fullSrc;
+    fillCardPreview(previewEl, card, fullSrc, metaBySlug);
+    previewEl.hidden = false;
+    previewEl.setAttribute("aria-hidden", "false");
+    positionCardPreview(previewEl, event);
+    activeEntry = entry;
+  };
+
+  const hide = () => {
+    previewEl.hidden = true;
+    previewEl.setAttribute("aria-hidden", "true");
+    activeEntry = null;
+  };
+
+  document.addEventListener("mouseover", (event) => {
+    const entry = event.target.closest(".card-entry");
+    if (!entry || entry.classList.contains("is-hidden")) {
+      if (!event.relatedTarget?.closest?.(".card-entry")) {
+        hide();
+      }
+      return;
+    }
+    if (entry !== activeEntry) {
+      showForEntry(entry, event);
+    }
+  });
+
+  document.addEventListener("mousemove", (event) => {
+    if (activeEntry && event.target.closest(".card-entry") === activeEntry) {
+      positionCardPreview(previewEl, event);
+    }
+  });
+
+  document.addEventListener("mouseout", (event) => {
+    const from = event.target.closest(".card-entry");
+    const to = event.relatedTarget?.closest?.(".card-entry");
+    if (from && from !== to) {
+      hide();
+    }
+  });
+
+  window.addEventListener("scroll", hide, { passive: true });
+}
+
+/** One card thumbnail with a findable name label beneath it. */
 function createCardEntry(card, manifestPaths, metaBySlug) {
   const { thumb, full } = imageSources(card, manifestPaths);
 
@@ -113,6 +185,7 @@ function createCardEntry(card, manifestPaths, metaBySlug) {
   entry.className = "card-entry";
   entry.dataset.slug = card.slug;
   entry.dataset.name = card.name;
+  entry.dataset.fullSrc = full;
   entry.tabIndex = 0;
 
   const thumbImg = document.createElement("img");
@@ -126,11 +199,7 @@ function createCardEntry(card, manifestPaths, metaBySlug) {
   name.className = "card-name";
   name.textContent = card.name;
 
-  entry.append(
-    thumbImg,
-    name,
-    createCardHover(card, full, metaBySlug),
-  );
+  entry.append(thumbImg, name);
   return entry;
 }
 
@@ -300,7 +369,7 @@ function setupCharacterNavScrollSpy(navEl) {
 
   const pickActiveFromScroll = () => {
     const header = document.querySelector(".site-header");
-    const cutoff = (header?.offsetHeight ?? 0) + 12;
+    const cutoff = (header?.offsetHeight ?? 0) + 8;
 
     let active = pairs[0];
     for (const pair of pairs) {
@@ -458,6 +527,7 @@ function renderViewer(data) {
 
   setupCharacterNav(navEl);
   setupSearch();
+  setupCardPreview(metaBySlug);
 
   if (location.hash) {
     const target = document.getElementById(location.hash.slice(1));
