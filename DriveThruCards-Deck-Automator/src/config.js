@@ -2,12 +2,13 @@
   This file is the shared settings for the whole automator.
 
   ELI5: Think of it as a sticky note with the website address, folder
-  paths, and the 130-card limit. Other scripts import these numbers
-  instead of hard-coding them in five places.
+  paths, the 130-card limit, and how long we are willing to wait for
+  DriveThru's slow "fix colors / render sheet / publish" jobs.
 
   Related files:
-  - src/run-batch.js uses these URLs and paths when driving the browser
+  - src/run-batch.js uses these URLs and paths when driving Edge
   - src/organize-batches.js uses maxCardsPerBatch as a default
+  - src/waits.js uses the long-job timeout + heartbeat settings
 */
 
 import path from 'node:path';
@@ -37,14 +38,41 @@ export const config = {
   recommendedHeight: 1125,
 
   // Local paths.
+  // Persistent Edge profile = you log in once in a real Edge window.
+  edgeProfileDir: path.join(ROOT, 'auth', 'edge-profile'),
+  // Optional cookie snapshot (legacy / backup); profile folder is preferred.
   authStatePath: path.join(ROOT, 'auth', 'storage-state.json'),
   cardsDir: path.join(ROOT, 'cards'),
   batchesDir: path.join(ROOT, 'cards', 'batches'),
   outputDir: path.join(ROOT, 'output'),
 
-  // Slow, watchable defaults for first dry runs.
+  // Use installed Microsoft Edge, in a visible window you can watch.
+  browserChannel: 'msedge',
   headless: false,
   slowMoMs: 250,
-  navigationTimeoutMs: 60_000,
+
+  // Short navigations (clicking Next between ready pages).
+  navigationTimeoutMs: 120_000,
+
+  // DTC server-side jobs observed ~10 minutes each (color correct,
+  // render sheet, publish). Give them 20 minutes before failing.
+  longJobTimeoutMs: 20 * 60 * 1000,
+  waitHeartbeatMs: 30_000,
+
   uploadSettleMs: 2_000,
+
+  // Selectors that often mean "server is still working."
+  // Hardened later against the live DOM; extras are ignored if absent.
+  busySelectors: [
+    '.batch-wait',
+    '.blockUI',
+    '.blockOverlay',
+    '.loading',
+    '.spinner',
+    'img[src*="loader"]',
+    'text=/please wait/i',
+    'text=/processing/i',
+    'text=/rendering/i',
+    'text=/auto-?correct/i',
+  ],
 };

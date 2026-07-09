@@ -1,5 +1,36 @@
 # Dev log — DriveThruCards Deck Automator
 
+## 2026-07-09 — Edge (headed), long waits, HTML explainer
+
+### Plan summary
+
+User feedback: run in **their Microsoft Edge** (visible, not headless) so they can log in and watch; DTC steps can each take **~10 minutes** (color correct, render sheet, publish); add a plain-language offline HTML doc; explain how Playwright detects page shifts.
+
+### Changes made
+
+- `src/browser.js` / `scripts/auth-save.js` — `chromium.launchPersistentContext` with `channel: 'msedge'`, `headless: false`, profile at `auth/edge-profile/`.
+- `src/waits.js` — `waitForPageShift` / URL / selector / busy-clear helpers with 20-minute timeout and 30s heartbeats.
+- `src/steps/edit-images.js` + `export-pdf.js` + `src/run-batch.js` — use long waits; support `--mode make|update|download` and `--keep-open`.
+- `docs/plan-explainer.html` — self-contained CSS, offline-friendly simple plan + wait explainer.
+- Updated README, master-plan, gitignore (`auth/edge-profile/`).
+
+### Coding decisions / assumptions
+
+- Persistent Edge profile is preferred over cookie-only `storageState` so the user sees “their” browser session.
+- `longJobTimeoutMs = 20 minutes` based on observed ~10-minute jobs (buffer for slower runs).
+- Busy selectors are a best-effort list; will tighten after a live headed run if DTC uses different overlays.
+- Assumption: Microsoft Edge is installed on the machine that runs the scripts.
+
+### Bugs / problems
+
+- None new in this pass (no live Edge in the cloud agent environment to exercise `msedge` channel).
+
+### Status
+
+Scaffold updated for Edge + waits + HTML doc. Still needs a local headed dry run to lock upload/assemble selectors.
+
+---
+
 ## 2026-07-09 — Research + project scaffold
 
 ### Plan summary

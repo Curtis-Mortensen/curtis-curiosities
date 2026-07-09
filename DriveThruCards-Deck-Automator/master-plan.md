@@ -116,28 +116,65 @@ cards/
 
 If you want a single 130-card product with mixed backs, still generate one batch folder, but `batch.json` lists heterogeneous backs. Upload every unique back once, every front once, then assemble by pairing rows. The organizer supports this via `"batchStrategy": "single-deck"` (pack by total qty only, ignore back grouping for split decisions).
 
+## Human-facing docs
+
+- `docs/plan-explainer.html` — simple offline HTML (self-contained CSS) explaining the plan, Edge watching, and how waits work.
+- `master-plan.md` (this file) — technical detail.
+
+## Observed server wait times (user testing)
+
+These are real wall-clock waits on DTC’s side, not Playwright overhead:
+
+| Job | Approx. duration |
+|---|---|
+| Auto-correct / fix colors | ~10 minutes |
+| Render cards onto a sheet | ~10 minutes |
+| Publish (vs download-only) | ~10 minutes |
+
+Automation must tolerate **≥20 minutes per long job** and detect completion via page shifts (see below), not fixed `sleep(600000)`.
+
 ## Playwright architecture (lean)
 
 One file per action / concept:
 
 | File | Job |
 |---|---|
-| `src/config.js` | URLs, timeouts, paths, max cards |
-| `src/auth-save.js` | headed login → save `auth/storage-state.json` |
+| `src/config.js` | URLs, timeouts, paths, max cards, Edge channel |
+| `scripts/auth-save.js` | headed Edge login → persistent `auth/edge-profile/` |
+| `src/browser.js` | launch installed Edge (`channel: 'msedge'`), headed, watchable |
+| `src/waits.js` | page-shift waits + 30s heartbeats for long DTC jobs |
 | `src/organize-batches.js` | manifest → `cards/batches/*` |
 | `src/steps/upload-images.js` | drag/drop or file chooser on upload step |
-| `src/steps/edit-images.js` | wait for processing; click Next; optional auto-fix |
+| `src/steps/edit-images.js` | wait for auto-correct; click Next |
 | `src/steps/assemble-deck.js` | pair backs/fronts from `batch.json`, set qty |
-| `src/steps/export-pdf.js` | choose download / make product; save PDF |
-| `src/run-batch.js` | glue: load storage state, walk one batch through the wizard |
+| `src/steps/export-pdf.js` | download PDF **or** publish (`make` / `update`); long waits |
+| `src/run-batch.js` | glue: open Edge, walk one batch through the wizard |
+
+### Browser: Microsoft Edge (headed)
+
+- **Not headless.** Default `headless: false` so you can watch.
+- Uses Playwright `chromium.launchPersistentContext` with `channel: 'msedge'` (your installed Edge).
+- Profile directory: `auth/edge-profile/` (gitignored). Login once via `npm run auth:save`; later runs reuse cookies.
+- Optional `--keep-open` leaves the window open after a run for inspection.
 
 ### Auth approach
 
-1. `npm run auth:save` opens Chromium; human logs into partner tools.
-2. Persist `storageState` to `auth/storage-state.json`.
-3. Automation reuses that file. Re-run when the session expires (`osCsid` cookie).
+1. `npm run auth:save` opens Edge with the project profile; human logs into partner tools.
+2. Profile folder on disk is the source of truth (optional cookie snapshot also written).
+3. Re-run auth save if the session expires.
 
-Do not put email/password in the repo. Optional later: env-based login fill if Fancybox fields are stable.
+Do not put email/password in the repo.
+
+### How waits work (page shifts, not blind sleeps)
+
+Playwright continues when the **page state changes**, for example:
+
+1. **URL change** — `page.waitForURL(...)` when the wizard advances.
+2. **Selector appears** — success UI, Next button, assemble checkboxes, etc.
+3. **Busy UI clears** — spinners / `.blockUI` / “please wait” / `.batch-wait` go hidden.
+4. **Download event** — for `--mode download`, wait for Edge to start a file download.
+
+`src/waits.js` wraps these with a **20-minute** ceiling (`longJobTimeoutMs`) and a **30-second heartbeat** log line so a 10-minute color-correct job does not look frozen. Edit + export steps call `waitForPageShift` after clicks that start server work.
 
 ### Selector strategy (to harden after login)
 
@@ -156,36 +193,39 @@ Upload dropzone text observed: “Drag and drop files here or click to upload.�
 ### Run loop (one batch)
 
 ```
-auth storage → open /builder/deck (or partner menu entry)
-→ start / resume deck session
+Edge profile → open start URL (live …/images/back/<id> preferred)
 → upload all batch backs
-→ Next → wait edit page clean (or click batch auto-fix)
-→ Next → upload all batch fronts
-→ Next → edit fronts
-→ Next → assemble pairs from batch.json
-→ Finish → download PDF to output/<batch-id>/
-→ write run-log.json (counts, URLs, timestamps)
+→ Next → wait page shift to edit → auto-correct if offered (≤20 min) → Next
+→ wait page shift to front upload → upload fronts
+→ Next → edit fronts (same long wait pattern)
+→ wait page shift to assemble → pair from batch.json → Finish
+→ export: download PDF and/or publish (each may take ~10 min)
+→ write run-log.json
 ```
 
 ## Implementation phases
 
 1. **Research + skeleton** (this folder) — done.
-2. **Logged-in selector pass** — with real credentials, dump DOM for upload/assemble pages; lock selectors.
-3. **Organize + dry upload** — one small batch (2–3 cards), headed mode, human watches.
-4. **Assemble + PDF download** — confirm export path and file naming.
-5. **Multi-batch runner** — loop batches; stop on failure; resume from last good step.
+2. **Edge + long-wait helpers + HTML explainer** — done.
+3. **Logged-in selector pass** — with real credentials in Edge, dump DOM for upload/assemble pages; lock selectors.
+4. **Organize + dry upload** — one small batch (2–3 cards), watch Edge through auto-correct.
+5. **Assemble + PDF download / publish** — confirm export path; tune busy selectors if needed.
+6. **Multi-batch runner** — loop batches; stop on failure; resume from last good step.
 
 ## Risks / assumptions
 
 - Beta UI may change; keep selectors in one place.
 - Cloudflare on `site.*` may interfere with login from some networks; prefer logging in on `tools.drivethrucards.com`.
 - Unverified partner accounts may lock some tools (seen in partner dashboard screenshot).
-- Builder may rate-limit or slow-process large uploads; wait on table rows / absence of loaders, not fixed sleeps only.
+- Long jobs (~10 min) are expected; busy-selector list may need tightening after a live run.
+- Edge must be installed locally (`msedge` channel). On machines without Edge, switch `browserChannel` only if the user asks.
 - Assumption: 130 is the builder max unless `deckMaxCards` says otherwise in-session.
 - Assumption: one uploaded back image can be checked once and paired with many fronts during assemble (verify; if not, duplicate back files per card in the batch folder).
 
 ## Success criteria
 
 - From a filled `manifest.json`, `organize-batches.js` produces valid batch folders ≤ 130 cards each.
-- With a saved auth state, `run-batch.js` can take one batch from empty upload through PDF download without manual clicking (aside from initial auth save).
+- With an Edge profile login, `run-batch.js` can take one batch from empty upload through PDF download or publish without manual clicking (aside from initial auth save), while the human can watch the window.
+- Long jobs print heartbeats and proceed only after a detected page shift (or download).
+- `docs/plan-explainer.html` opens offline and explains the plan in plain language.
 - `dev-log.md` records every selector discovery and failure.

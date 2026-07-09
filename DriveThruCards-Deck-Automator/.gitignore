@@ -1,6 +1,7 @@
 node_modules/
 auth/storage-state.json
 auth/*.json
+auth/edge-profile/
 !auth/.gitkeep
 cards/batches/
 cards/source/

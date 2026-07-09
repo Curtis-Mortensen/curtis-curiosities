@@ -14,11 +14,15 @@ Automate the partner beta “Create US Poker Deck from Image Files Upload” so 
 ## Delivered in scaffold
 
 - Folder layout + organize-by-back script
-- Playwright step stubs + auth storage flow
+- Playwright step stubs
+- Headed **Microsoft Edge** + persistent profile (`auth/edge-profile/`)
+- Long-job page-shift waits + heartbeats (`src/waits.js`) for ~10 min DTC jobs
+- Offline HTML explainer: `docs/plan-explainer.html`
 - Research notes in master-plan / dev-log
 
 ## Next
 
-1. Local `npm run auth:save`
-2. Headed 2-card dry run; lock selectors
-3. Multi-batch runner once one batch PDF downloads cleanly
+1. Local `npm run auth:save` (Edge login)
+2. Headed 2-card dry run through auto-correct; lock selectors + busy UI hooks
+3. Confirm download vs publish (`--mode make`) waits
+4. Multi-batch runner once one batch finishes cleanly
