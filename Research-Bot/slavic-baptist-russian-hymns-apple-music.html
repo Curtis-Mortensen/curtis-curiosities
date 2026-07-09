@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slavic Baptist Hymnals &amp; Russian Worship on Apple Music — Research Report</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #21262d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #c9a227;
+    --accent2: #58a6ff;
+    --danger: #f85149;
+    --success: #3fb950;
+    --link: #79c0ff;
+    --border: #30363d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  h1 { font-size: 2rem; line-height: 1.25; margin-bottom: 0.5rem; color: var(--accent); }
+  .subtitle { color: var(--muted); font-style: italic; font-size: 1.05rem; }
+  h2 {
+    font-size: 1.45rem;
+    color: var(--accent2);
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 { font-size: 1.15rem; color: var(--accent); margin: 1.5rem 0 0.75rem; }
+  h4 { font-size: 1rem; color: var(--muted); margin: 1rem 0 0.5rem; }
+  p { margin-bottom: 1rem; }
+  a { color: var(--link); }
+  .thesis-box, .limitation-box, .conclusion-box, .tip-box {
+    background: var(--surface);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .thesis-box { border-left: 4px solid var(--accent); }
+  .limitation-box { border-left: 4px solid var(--danger); }
+  .tip-box { border-left: 4px solid var(--success); }
+  .conclusion-box {
+    border: 1px solid var(--accent2);
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+  }
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .overview-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+  .overview-card h4 { color: var(--accent2); margin-top: 0; }
+  .diagram {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    font-family: "Courier New", monospace;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    white-space: pre;
+    color: var(--muted);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.84rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.55rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: var(--surface2); color: var(--accent2); font-weight: 600; }
+  tr:nth-child(even) { background: var(--surface); }
+  .cite { font-size: 0.82rem; color: var(--muted); }
+  .ref-list { font-size: 0.85rem; }
+  .ref-list li { margin-bottom: 0.6rem; }
+  .tag {
+    display: inline-block;
+    background: var(--surface2);
+    color: var(--accent);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    margin-right: 0.3rem;
+    font-family: sans-serif;
+  }
+  ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  @media print {
+    body { background: white; color: black; }
+    .overview-card, .thesis-box, table { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>Slavic Baptist Hymnals &amp; Russian Worship Music</h1>
+  <p class="subtitle">A practical research guide for finding the standard hymn repertoire of Slavic Baptist churches and listening to Russian traditional and contemporary worship on Apple Music — without owning a printed hymnal.</p>
+  <p class="cite">Compiled July 2026. Self-contained document; no prior context required.</p>
+</header>
+
+<!-- ========== 1. INTRODUCTION ========== -->
+<section id="introduction">
+  <h2>1. Introduction and Aims</h2>
+  <p>This report answers a practical question: <strong>if you attend a Slavic Baptist church and want to sing or listen to more Russian hymns at home, what is the “standard book,” what songs are in it, and how do you find recordings on Apple Music?</strong></p>
+  <p>The aims are:</p>
+  <ol>
+    <li>Identify the <em>de facto</em> standard hymnal(s) used across Slavic Baptist and closely related evangelical congregations.</li>
+    <li>Explain how those hymnals relate to older collections (especially Ivan Prokhanov’s work) and to diaspora editions in North America.</li>
+    <li>Provide a <strong>searchable song list</strong> — hymn numbers plus Russian titles — suitable for Apple Music, YouTube, and lyric databases.</li>
+    <li>Survey <strong>top traditional</strong> and <strong>top contemporary</strong> Russian-language worship music, with emphasis on what is actually findable on Apple Music.</li>
+    <li>Give a step-by-step listening workflow when you do not have a physical hymnal.</li>
+  </ol>
+
+  <div class="thesis-box">
+    <strong>Short answer:</strong> For most Slavic Baptist congregations in the former USSR and the diaspora, the standard congregational hymnal is <em>Песнь Возрождения</em> (<em>Song of Revival</em>). The most common expanded digital/print edition today contains <strong>3,300 numbered hymns</strong>.<sup><a href="#ref-1">1</a></sup><sup><a href="#ref-2">2</a></sup> North American Slavic Baptist churches often also use the bilingual <em>Russian-American Hymnal</em> (1994).<sup><a href="#ref-3">3</a></sup> Apple Music does not host one official “Pesn Vozrozhdeniya album”; instead you search individual Russian titles or browse artists who record hymns from that tradition.
+  </div>
+</section>
+
+<!-- ========== 2. LIMITATIONS ========== -->
+<section id="limitations">
+  <h2>2. Limitations of This Research</h2>
+
+  <h3>2.1 Theoretical limitations</h3>
+  <ul>
+    <li><strong>“Standard” is sociological, not canonical.</strong> Protestant hymnody has no single magisterium. Congregations choose editions, add choruses, and mix in contemporary worship bands.<sup><a href="#ref-4">4</a></sup></li>
+    <li><strong>Memory and identity shape repertoire.</strong> A song can be “famous” in one region (Ukraine, Siberia, US Midwest) but rare elsewhere, even within the same denomination.</li>
+    <li><strong>Streaming catalogs shift.</strong> Apple Music licensing varies by country; an album available in the US may differ in Russia or Ukraine.</li>
+  </ul>
+
+  <h3>2.2 Methodological limitations</h3>
+  <ul>
+    <li>This report synthesizes published histories (Baptist encyclopedia, Wikipedia, Hymnary.org), online full-text hymnal databases (hvalite.com, pesnvozrozhdeniya.com, holychords.pro), and Apple Music artist/album pages. It does <em>not</em> include a survey of individual Slavic Baptist churches worldwide.</li>
+    <li>“Top songs” lists for contemporary worship are inferred from platform presence (Apple Music, HolyChords popularity, SlavicWorship/RussiaWorship catalogs), not from chart data — Russian evangelical music has no equivalent of <em>Billboard</em> Christian charts.</li>
+    <li>Orthodox liturgical chant and Slavic Baptist hymnody overlap only at the margins (shared cultural language, occasional borrowed melodies). They are treated as <strong>separate traditions</strong> below.</li>
+  </ul>
+
+  <div class="limitation-box">
+    <strong>Important distinction:</strong> Russian <em>traditional worship</em> in an Orthodox cathedral (znamenny chant, Liturgy of St. John Chrysostom) is not the same repertoire as Russian <em>Baptist</em> hymn-singing, which descends from 19th–20th century evangelical translations (Sankey, Bliss, Crosby, etc.) and Ivan Prokhanov’s Russian hymnody.<sup><a href="#ref-5">5</a></sup><sup><a href="#ref-6">6</a></sup> Both are “traditional Russian worship,” but they serve different churches.
+  </div>
+</section>
+
+<!-- ========== 3. HISTORY ========== -->
+<section id="history">
+  <h2>3. History of Slavic Baptist Hymnody</h2>
+
+  <h3>3.1 Pre-Soviet foundations (1880s–1920s)</h3>
+  <p>Russian evangelical hymnody was systematized largely by <strong>Ivan Stepanovich Prokhanov</strong> (1869–1935), who composed or translated more than 1,200 spiritual hymns and edited the foundational collections <em>Гусли</em> (<em>Harps</em>, 1902, ~507 hymns) and later the expanded <em>Десятисборник</em> (<em>Ten-Collection</em>, 1927, 1,237 hymns).<sup><a href="#ref-5">5</a></sup><sup><a href="#ref-6">6</a></sup> Prokhanov’s work drew on earlier Russian spiritual verse and Western gospel-song translations.</p>
+  <p>Older believers still colloquially call any thick hymnbook <strong>“Гусли”</strong> (Harps), even when the book is actually <em>Песнь Возрождения</em>.<sup><a href="#ref-1">1</a></sup></p>
+
+  <h3>3.2 Soviet underground period (1950s–1980s)</h3>
+  <p>The officially registered All-Union Council published a smaller <em>Сборник духовных песен</em> in 1956, but the fuller underground hymnal <em>Песнь Возрождения</em> (first edition May 1978, publisher <em>Христианин</em>) became far more widely used because of larger print runs and broader content.<sup><a href="#ref-1">1</a></sup><sup><a href="#ref-2">2</a></sup> It unified numbering and thematic sections while replacing obsolete songs from the <em>Десятисборник</em>.</p>
+
+  <h3>3.3 Post-Soviet editions and splits</h3>
+  <p>Multiple editions now coexist:</p>
+  <ul>
+    <li><strong>Original-numbering expansions:</strong> 2,000 → 2,500 → 2,800 → 3,055 → <strong>3,300</strong> hymns, keeping numbers 1–830 stable across editions.<sup><a href="#ref-2">2</a></sup><sup><a href="#ref-7">7</a></sup></li>
+    <li><strong>2002 “second edition” (800 hymns):</strong> Revised texts and notation published by MSC EKhB (<em>Христианин</em>), dropping rarely used and choir-only pieces.<sup><a href="#ref-1">1</a></sup></li>
+    <li><strong>Diaspora:</strong> <em>Russian-American Hymnal: Christian Hymns</em> (Daniel Jasko, ed.; Russian-Ukrainian Evangelical Baptist Union, USA, 1994) for bilingual congregations.<sup><a href="#ref-3">3</a></sup></li>
+  </ul>
+
+  <div class="diagram">
+TIMELINE — SLAVIC BAPTIST HYMNAL LINEAGE
+────────────────────────────────────────────────────────────────────
+1882–1893   Early spiritual verse collections
+     │
+1902        Prokhanov: «Гусли» (~507 hymns)
+     │
+1905–1927   «Пятисборник» → «Десятисборник» (1,237 hymns)
+     │
+1956        Official VSEKhB «Сборник духовных песен» (smaller, state-registered)
+     │
+1978        «Песнь Возрождения» 1st ed. (830 + supplements) — becomes standard
+     │
+1994        «Russian-American Hymnal» (US diaspora, bilingual)
+     │
+2000–2020s  Expansions: PV-2000, 2500, 2800, 3055, 3300
+     │
+2002        Revised 800-hymn notated edition (MSC EKhB)
+────────────────────────────────────────────────────────────────────
+  </div>
+</section>
+
+<!-- ========== 4. STANDARD HYMNALS ========== -->
+<section id="hymnals">
+  <h2>4. Which Hymnal Do Slavic Baptist Churches Actually Use?</h2>
+
+  <div class="overview-grid">
+    <div class="overview-card">
+      <h4>Primary: Песнь Возрождения</h4>
+      <p><span class="tag">#1 standard</span> Used in Baptist, evangelical, and many Pentecostal churches across Russia, Ukraine, Belarus, and the post-Soviet diaspora.<sup><a href="#ref-1">1</a></sup><sup><a href="#ref-4">4</a></sup></p>
+      <p>Typical Sunday: 10+ hymns — before service, praise set, between sermon portions.<sup><a href="#ref-8">8</a></sup></p>
+    </div>
+    <div class="overview-card">
+      <h4>Diaspora: Russian-American Hymnal</h4>
+      <p><span class="tag">US / Canada</span> Bilingual Russian-English; Baptist Union USA, 1994.<sup><a href="#ref-3">3</a></sup> Good if your church sings in both languages.</p>
+    </div>
+    <div class="overview-card">
+      <h4>Official (historical): VSEKhB 1956</h4>
+      <p><span class="tag">Older / smaller</span> State-registered Soviet-era book; largely superseded by <em>Песнь Возрождения</em> in practice.<sup><a href="#ref-2">2</a></sup></p>
+    </div>
+    <div class="overview-card">
+      <h4>Related (not Baptist): Гимны веры христиан</h4>
+      <p><span class="tag">Pentecostal</span> Standard for many Slavic <em>Evangelical Pentecostal</em> churches, especially in Australia/North America.<sup><a href="#ref-9">9</a></sup> Overlaps in repertoire but different book.</p>
+    </div>
+  </div>
+
+  <h3>4.1 Thematic index of Песнь Возрождения (core 830 hymns)</h3>
+  <p>Numbers <strong>1–830 are stable</strong> across nearly all editions; later numbers are supplements.<sup><a href="#ref-1">1</a></sup> This table is the roadmap your church likely follows through a service year:</p>
+
+  <table>
+    <thead>
+      <tr><th>Section</th><th>Hymn #s</th><th>Typical use</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Before gathering</td><td>1–20</td><td>Pre-service singing</td></tr>
+      <tr><td>Prayer hymns</td><td>21–90</td><td>Opening, intercession</td></tr>
+      <tr><td>God’s love &amp; majesty</td><td>91–126</td><td>Theology, praise</td></tr>
+      <tr><td>Thanksgiving &amp; praise</td><td>127–155</td><td>Worship set</td></tr>
+      <tr><td>Christian joy</td><td>156–181</td><td>Celebration</td></tr>
+      <tr><td>Path of faith</td><td>182–246</td><td>Discipleship</td></tr>
+      <tr><td>On the Church</td><td>247–258</td><td>Ecclesiology</td></tr>
+      <tr><td>Call to labor</td><td>259–291</td><td>Missions, service</td></tr>
+      <tr><td>Call to repentance</td><td>292–382</td><td>Evangelistic meetings</td></tr>
+      <tr><td>For new converts</td><td>383–407</td><td>Young believers</td></tr>
+      <tr><td>Baptism</td><td>408–415</td><td>Baptism Sundays</td></tr>
+      <tr><td>Lord’s Supper</td><td>416–425</td><td>Communion</td></tr>
+      <tr><td>Christ’s suffering &amp; death</td><td>426–449</td><td>Passion season</td></tr>
+      <tr><td>Ordination / marriage / children / funeral</td><td>450–507</td><td>Life events</td></tr>
+      <tr><td>Heavenly homeland</td><td>508–552</td><td>Hope, eschatology</td></tr>
+      <tr><td>Comfort for the suffering</td><td>553–589</td><td>Pastoral care</td></tr>
+      <tr><td>Christmas / New Year / Easter</td><td>590–642</td><td>Seasonal</td></tr>
+      <tr><td>Holy Spirit / harvest / Second Coming</td><td>643–673</td><td>Seasonal &amp; thematic</td></tr>
+      <tr><td>Greetings &amp; closing</td><td>679–715</td><td>End of service</td></tr>
+      <tr><td>Youth hymns</td><td>716–830</td><td>Youth meetings, camps</td></tr>
+      <tr><td>Supplements</td><td>831+</td><td>Later editions (to 3,300)</td></tr>
+    </tbody>
+  </table>
+  <p class="cite">Section table from Baptist encyclopedia / Wikipedia reconstruction of 1978 first edition.<sup><a href="#ref-1">1</a></sup><sup><a href="#ref-2">2</a></sup></p>
+</section>
+
+<!-- ========== 5. SONG LIST ========== -->
+<section id="song-list">
+  <h2>5. Searchable Song List for Apple Music</h2>
+  <p>Use the <strong>Russian title</strong> as your primary Apple Music search term. Add <em>хор</em> (choir), <em>гимн</em>, or a church name if results are noisy. The <strong>PV #</strong> column matches <em>Песнь Возрождения</em> numbering — ask someone at church to confirm which edition (2800 vs 3300) if numbers above 830 differ slightly in text.</p>
+
+  <div class="tip-box">
+    <strong>Apple Music workflow (no hymnal needed):</strong>
+    <ol>
+      <li>Install the free app <em>Песнь Возрождения</em> (lyrics + numbering; not Apple Music playback).<sup><a href="#ref-10">10</a></sup></li>
+      <li>Browse full texts at <a href="https://pesnvozrozhdeniya.com/">pesnvozrozhdeniya.com</a> or <a href="https://hvalite.com/pesni">hvalite.com/pesni</a>.<sup><a href="#ref-7">7</a></sup><sup><a href="#ref-11">11</a></sup></li>
+      <li>Copy the Russian title → paste into Apple Music search.</li>
+      <li>If no hit: search <a href="https://holychords.pro/artist/167">HolyChords “Песнь Возрождения”</a> for a linked YouTube/recording, then return to Apple Music for the artist name.<sup><a href="#ref-12">12</a></sup></li>
+      <li>Internet Archive hosts community MP3/Ogg collections of PV 2000 and PV 2800 for offline listening.<sup><a href="#ref-13">13</a></sup></li>
+    </ol>
+  </div>
+
+  <h3>5.1 Opening &amp; prayer hymns (PV 1–50) — “every Sunday” repertoire</h3>
+  <table>
+    <thead><tr><th>PV #</th><th>Russian title (search string)</th><th>Notes / origin</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Слушайте повесть любви в простоте</td><td>Lowry; Prokhanov trans.<sup><a href="#ref-7">7</a></sup></td></tr>
+      <tr><td>2</td><td>Вот настал молитвы час</td><td>Tenney; Prokhanov trans.</td></tr>
+      <tr><td>3</td><td>Боже! Слышать слово</td><td>Opening prayer</td></tr>
+      <tr><td>4</td><td>Господь, душа внимать готова</td><td>Very common pre-sermon</td></tr>
+      <tr><td>5</td><td>О Спаситель, благодать</td><td>S. B. Marsh gospel song</td></tr>
+      <tr><td>6</td><td>О Божьих слов не пропускай</td><td>Sankey; Prokhanov trans.</td></tr>
+      <tr><td>7</td><td>Благословений потоки</td><td>MacGranahan; classic chorus</td></tr>
+      <tr><td>8</td><td>Люблю, Спаситель, в Книге дивной</td><td>Prokhanov; <em>extremely</em> popular<sup><a href="#ref-12">12</a></sup></td></tr>
+      <tr><td>9</td><td>Весть об Иисусе скажи мне</td><td>Evangelistic</td></tr>
+      <tr><td>10</td><td>Вот собрались мы опять</td><td>Gathering hymn</td></tr>
+      <tr><td>11</td><td>Спаситель, говори нам</td><td>Jasko trans.; also in Russian-American Hymnal #57<sup><a href="#ref-3">3</a></sup></td></tr>
+      <tr><td>13</td><td>Скажи мне весть благую</td><td>Doane</td></tr>
+      <tr><td>14</td><td>Как тропинкою лесною</td><td>Prokhanov</td></tr>
+      <tr><td>15</td><td>Ты помощь мне, Господь</td><td>Hawks; = RAH #52 “I need Thee every hour”<sup><a href="#ref-3">3</a></sup></td></tr>
+      <tr><td>16</td><td>Господь, пребудь Ты с нами</td><td>Cheverulina, 1890</td></tr>
+      <tr><td>17</td><td>Как радостно, как сладко для сердец</td><td>Creutzer; Prokhanov trans.</td></tr>
+      <tr><td>18</td><td>Брат, напомни мне опять</td><td>Bliss</td></tr>
+      <tr><td>22</td><td>Ближе, Господь, к Тебе</td><td>Near to Thee; RAH #55<sup><a href="#ref-3">3</a></sup></td></tr>
+      <tr><td>23</td><td>Научи меня, Боже, молиться</td><td>Prayer classic</td></tr>
+      <tr><td>27</td><td>О наш Отец на небесах</td><td>Lord’s Prayer hymn</td></tr>
+      <tr><td>30</td><td>Не пройди, Иисус, меня Ты</td><td>Doan; Prokhanov trans.</td></tr>
+      <tr><td>32</td><td>Я люблю Тебя, Боже, люблю всей душой</td><td>Children &amp; adults</td></tr>
+      <tr><td>33</td><td>О Господь, веди мой челн</td><td>Gould; Jasko trans.; RAH #58<sup><a href="#ref-3">3</a></sup></td></tr>
+      <tr><td>47</td><td>Прости меня, хоть не прощенья</td><td>Prokhanov repentance</td></tr>
+      <tr><td>50</td><td>Иисус, души Спаситель</td><td>Datsko</td></tr>
+    </tbody>
+  </table>
+
+  <h3>5.2 Praise, joy &amp; faith (PV 78–216) — worship-set staples</h3>
+  <table>
+    <thead><tr><th>PV #</th><th>Russian title</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>78</td><td>Полн любви к душе моей</td><td>God’s love section</td></tr>
+      <tr><td>103</td><td>Посмотри вблизи потока</td><td>Invitation hymn</td></tr>
+      <tr><td>116</td><td>Человека сердце жаждет</td><td>Longing for God</td></tr>
+      <tr><td>120</td><td>Любви святой дыханье</td><td>Spiritual affection</td></tr>
+      <tr><td>121</td><td>Правда, любит Бог меня</td><td>Assurance</td></tr>
+      <tr><td>127</td><td>Благо есть славить Господа</td><td>Top praise hymn<sup><a href="#ref-12">12</a></sup></td></tr>
+      <tr><td>134</td><td>Хвала святой любви Отца</td><td>Thanksgiving</td></tr>
+      <tr><td>151</td><td>Буду петь, как Искупитель</td><td>Redemption praise</td></tr>
+      <tr><td>155</td><td>Тебя хочу хвалить я пеньем</td><td>Personal praise</td></tr>
+      <tr><td>166</td><td>Пусть земля вся утверждает</td><td>Joyful proclamation</td></tr>
+      <tr><td>182</td><td>Великий Бог, когда на мир смотрю я</td><td>Top-tier; creation hymn<sup><a href="#ref-12">12</a></sup></td></tr>
+      <tr><td>216</td><td>Благодатная скала</td><td>Rock of Ages tradition</td></tr>
+      <tr><td>322</td><td>Друг мой, к Господу приди</td><td>Invitation</td></tr>
+      <tr><td>345</td><td>Устало сердце</td><td>Weary pilgrim</td></tr>
+    </tbody>
+  </table>
+
+  <h3>5.3 Passion, Easter, heaven &amp; closing (PV 428–731)</h3>
+  <table>
+    <thead><tr><th>PV #</th><th>Russian title</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>428</td><td>Крест — орудие казни на Голгофу нес</td><td>Passion season</td></tr>
+      <tr><td>483</td><td>У Иерусалимских гор</td><td>Passion narrative</td></tr>
+      <tr><td>556</td><td>Дорогое обещанье Бог нам</td><td>Promises</td></tr>
+      <tr><td>601</td><td>Вести радостной внемлите</td><td>Christmas</td></tr>
+      <tr><td>607</td><td>Вести ангельской внемли</td><td>Christmas</td></tr>
+      <tr><td>624</td><td>О смерть, где, скажи, твоё жало</td><td>Easter classic (1 Cor 15)</td></tr>
+      <tr><td>627</td><td>Свершилось чудо воскресенья</td><td>Easter</td></tr>
+      <tr><td>694</td><td>Возьми меня отныне</td><td>Dedication</td></tr>
+      <tr><td>713</td><td>Со мной останься, меркнет луч дневной</td><td>Abide with Me tradition; closing<sup><a href="#ref-12">12</a></sup></td></tr>
+      <tr><td>718</td><td>Привет вам, Христово цветущее племя</td><td>Greeting hymn</td></tr>
+      <tr><td>731</td><td>О Тебе пою, Спаситель</td><td>Closing devotion</td></tr>
+    </tbody>
+  </table>
+
+  <h3>5.4 Youth &amp; supplement favorites (PV 785–1298)</h3>
+  <table>
+    <thead><tr><th>PV #</th><th>Russian title</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>785</td><td>Факел веры угасает</td><td>Youth rally cry</td></tr>
+      <tr><td>819</td><td>Высока любовь и дивна</td><td>Youth camp favorite</td></tr>
+      <tr><td>824</td><td>Святая Библия одна</td><td>Scripture hymn</td></tr>
+      <tr><td>852</td><td>Владыка жизни у дверей</td><td>Second Coming</td></tr>
+      <tr><td>896</td><td>Душа моя болит, тревоги полная</td><td>Lament</td></tr>
+      <tr><td>918</td><td>Иисуса приход ожидаем</td><td>Eschatology</td></tr>
+      <tr><td>1015</td><td>Сеется семя</td><td>Harvest / missions</td></tr>
+      <tr><td>1023</td><td>Слава Богу за все даяния</td><td>Thanksgiving chorus</td></tr>
+      <tr><td>1037</td><td>Там, в вышине бесконечной</td><td>Heaven</td></tr>
+      <tr><td>1047</td><td>Ты оставил Отца, далеко ушёл</td><td>Incarnation narrative</td></tr>
+      <tr><td>1167</td><td>О, Дух Святой, Тебя умоляем</td><td>Spirit hymn</td></tr>
+      <tr><td>1184</td><td>Спаситель наш сошёл на землю к нам</td><td>Christmas</td></tr>
+      <tr><td>1268</td><td>Помолись за меня</td><td>Youth prayer</td></tr>
+      <tr><td>1269</td><td>Послушай, о грешник</td><td>Evangelistic</td></tr>
+      <tr><td>1282</td><td>Ты — моя истина, Ты — моя радость</td><td>Contemporary-feel supplement</td></tr>
+      <tr><td>1298</td><td>Господи, Тебя хочу я славить</td><td>Praise</td></tr>
+    </tbody>
+  </table>
+  <p class="cite">Titles verified against pesnvozrozhdeniya.com, 911pesni.pro, and holychords.pro aggregated lyric databases.<sup><a href="#ref-7">7</a></sup><sup><a href="#ref-12">12</a></sup><sup><a href="#ref-14">14</a></sup></p>
+
+  <h3>5.5 Russian-American Hymnal — diaspora “greatest hits” (RAH 1994)</h3>
+  <p>If your Slavic Baptist church is in North America, these bilingual entries are high-probability songs (Russian title → English equivalent):</p>
+  <table>
+    <thead><tr><th>RAH #</th><th>Russian title</th><th>English parallel</th></tr></thead>
+    <tbody>
+      <tr><td>51</td><td>Я слышу: голос Твой</td><td>I hear Thy welcome voice</td></tr>
+      <tr><td>52</td><td>Ты помощь мне, Господь</td><td>I need Thee every hour</td></tr>
+      <tr><td>53</td><td>Господь мой, я жажду быть чистым вполне</td><td>Lord Jesus, I long to be perfectly whole</td></tr>
+      <tr><td>54</td><td>Боже, да будет воля Твоя!</td><td>Have Thine own way, Lord</td></tr>
+      <tr><td>55</td><td>О, Господь, я Твой!</td><td>I am Thine, O Lord</td></tr>
+      <tr><td>56</td><td>Господь, хочу идти с Тобой</td><td>O Master, let me walk with Thee</td></tr>
+      <tr><td>57</td><td>Спаситель, говори нам</td><td>Speak to my soul, Lord Jesus</td></tr>
+      <tr><td>58</td><td>О, Господь, веди мой челн</td><td>Jesus, Saviour, pilot me</td></tr>
+    </tbody>
+  </table>
+  <p class="cite">Hymnary.org index, RAHCH94.<sup><a href="#ref-3">3</a></sup></p>
+</section>
+
+<!-- ========== 6. TRADITIONAL ========== -->
+<section id="traditional">
+  <h2>6. Top Russian Traditional Worship Songs</h2>
+  <p>“Traditional” here means <strong>pre-contemporary-worship-band</strong> repertoire still sung congregationally — not classical concert repertoire.</p>
+
+  <h3>6.1 Slavic Baptist / evangelical tradition (your church’s world)</h3>
+  <p>These are the hymns most often cited as enduring favorites across PV databases and HolyChords play counts:</p>
+  <ol>
+    <li><strong>Великий Бог, когда на мир смотрю я</strong> (PV ~182) — creation and providence<sup><a href="#ref-12">12</a></sup></li>
+    <li><strong>Ближе, Господь, к Тебе</strong> (PV 22) — American gospel translated; universal funeral/closing hymn</li>
+    <li><strong>Люблю, Спаситель, в Книге дивной</strong> (PV 8) — Prokhanov; love of Scripture</li>
+    <li><strong>Благо есть славить Господа</strong> (PV 127) — opening praise</li>
+    <li><strong>Слушайте повесть любви в простоте</strong> (PV 1) — evangelistic narrative</li>
+    <li><strong>Благословений потоки</strong> (PV 7) — joyful chorus</li>
+    <li><strong>Со мной останься, меркнет луч дневной</strong> (PV 713) — “Abide with Me”</li>
+    <li><strong>У Иерусалимских гор</strong> (PV 483) — Passion week</li>
+    <li><strong>О смерть, где, скажи, твоё жало</strong> (PV 624) — Easter</li>
+    <li><strong>Есть на небе город</strong> (popular heaven hymn in PV supplements)<sup><a href="#ref-12">12</a></sup></li>
+  </ol>
+
+  <h3>6.2 Soviet/post-Soviet “canonical” recordings (not PV-specific)</h3>
+  <p>The <strong>Dio Ispira</strong> project (Eduard &amp; Igor Akulov) preserves late-Soviet / early-post-Soviet Russian evangelical song style — poetic, guitar-and-voice, morally earnest — distinct from both PV choir recordings and Hillsong-style worship.<sup><a href="#ref-15">15</a></sup> Key trad-adjacent titles findable on streaming:</p>
+  <ul>
+    <li><em>Не дай нам Бог</em> — anti-complacency prayer<sup><a href="#ref-15">15</a></sup></li>
+    <li><em>Полдороги в небо</em> — pilgrim perseverance<sup><a href="#ref-16">16</a></sup></li>
+    <li><em>Хвали, о душа моя, Господа</em> — Psalm paraphrase tradition (many choir versions)<sup><a href="#ref-17">17</a></sup></li>
+    <li><em>Огонь Христовой любви</em> — camp-meeting style<sup><a href="#ref-17">17</a></sup></li>
+  </ul>
+
+  <h3>6.3 Russian Orthodox liturgical tradition (for comparison only)</h3>
+  <p>If you want <em>traditional Russian sacred music</em> in the Byzantine/Russian Orthodox sense, core liturgical pieces include:</p>
+  <ul>
+    <li><strong>Трисагион</strong> — “Святой Боже, Святой Крепкий…” (Holy God)</li>
+    <li><strong>Херувимская песнь</strong> — Cherubic Hymn</li>
+    <li><strong>Достойно есть</strong> — “It is truly meet…”</li>
+    <li><strong>Христос воскресе</strong> — Paschal troparion</li>
+  </ul>
+  <p>These appear on recordings such as Smithsonian Folkways’ <em>Divine Liturgy: Music of the Russian Orthodox Church</em>.<sup><a href="#ref-18">18</a></sup> They are beautiful and culturally Russian, but <strong>not</strong> what a Slavic Baptist song service typically sings.</p>
+</section>
+
+<!-- ========== 7. CONTEMPORARY ========== -->
+<section id="contemporary">
+  <h2>7. Top Russian Contemporary Worship</h2>
+  <p>Contemporary Slavic worship blends: (a) Russian translations of global worship hits, (b) original songs from church bands, and (c) modern arrangements of PV hymns. Slavic Baptist churches increasingly mix all three — e.g. Gospel Baptist Church (WA) explicitly pairs “classic Slavic Baptist hymns and contemporary Christian music.”<sup><a href="#ref-19">19</a></sup></p>
+
+  <h3>7.1 Ministries &amp; artists on Apple Music</h3>
+  <table>
+    <thead><tr><th>Artist / project</th><th>Style</th><th>Apple Music</th><th>Notable songs</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Sharikov Family Band</strong></td><td>Russian originals; diaspora ministry</td><td>Yes — artist “Sharikov” / “Sharikov Family Band”<sup><a href="#ref-20">20</a></sup></td><td><em>Лишь Иисус</em>, <em>Куда идём?</em>, <em>Держи меня</em></td></tr>
+      <tr><td><strong>Moscow Worship Band</strong></td><td>Contemporary congregational; 2nd Moscow Baptist Church EKhB</td><td>Yes — e.g. EP <em>Из глубины</em><sup><a href="#ref-21">21</a></sup></td><td><em>Из глубины</em> (Psalm 130)</td></tr>
+      <tr><td><strong>NG Worship</strong> (New Generation)</td><td>Ukrainian/Russian youth movement</td><td>Yes<sup><a href="#ref-22">22</a></sup></td><td><em>Склонюсь</em>; recent Romanian-language EP 2024</td></tr>
+      <tr><td><strong>RussiaWorship / SlavicWorship</strong></td><td>Licensed Russian translations (Tomlin, Wickham, etc.) + originals</td><td>Many on iTunes/Apple Music per ministry<sup><a href="#ref-23">23</a></sup></td><td><em>Бесконечная любовь</em> (Reckless Love); <em>Святый вовеки</em> (Holy Forever)<sup><a href="#ref-24">24</a></sup></td></tr>
+      <tr><td><strong>M.Worship</strong></td><td>Live worship EPs</td><td>Yes<sup><a href="#ref-25">25</a></sup></td><td><em>Свят Господь</em> (live Berlin)</td></tr>
+      <tr><td><strong>Станислав Веселов</strong></td><td>Russian originals</td><td>Yes<sup><a href="#ref-26">26</a></sup></td><td><em>Верный</em>, <em>Бог жизни моей</em>, <em>Слава в вышних</em></td></tr>
+      <tr><td><strong>Денис Никитин</strong></td><td>Russian worship composer</td><td>Yes<sup><a href="#ref-27">27</a></sup></td><td><em>Иешуа</em></td></tr>
+      <tr><td><strong>Dio Ispira</strong></td><td>Trad-adjacent Soviet/post-Soviet</td><td>Partial</td><td><em>Не дай нам Бог</em>, <em>Полдороги в небо</em></td></tr>
+      <tr><td><strong>Виталий Ефремочкин</strong></td><td>Major Russian worship leader; M.Worship collabs</td><td>Yes (various)</td><td>Multiple RussiaWorship translations</td></tr>
+      <tr><td><strong>Церковь “Краеугольный камень” (Novosibirsk)</strong></td><td>Church worship team recordings</td><td>Some on Apple Music via HolyChords links</td><td><em>Тебя, Господь, я жажду</em><sup><a href="#ref-26">26</a></sup></td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.2 High-yield contemporary search list (Russian titles)</h3>
+  <p>These titles appear repeatedly across RussiaWorship, HolyChords, and streaming playlists — good Apple Music queries:</p>
+  <ol>
+    <li><strong>Бесконечная любовь</strong> — Reckless Love (RU)</li>
+    <li><strong>Святый вовеки</strong> — Holy Forever (Chris Tomlin, RU)</li>
+    <li><strong>Десятки тысяч есть причин</strong> — 10,000 Reasons (RU)</li>
+    <li><strong>Свят, свят Господь Саваоф</strong> — Holy Holy Holy (RU)</li>
+    <li><strong>Иешуа</strong> — Denis Nikitin</li>
+    <li><strong>Верный</strong> — Stanislav Veselov</li>
+    <li><strong>Из глубины</strong> — Moscow Worship Band</li>
+    <li><strong>Миллионы сердец</strong> — APRIORI WORSHIP</li>
+    <li><strong>Тебя, Господь, я жажду</strong> — Cornerstone Church Novosibirsk</li>
+    <li><strong>Кровь Христа</strong> — various youth worship teams</li>
+    <li><strong>Ти — Світанок</strong> / Russian worship translations via SlavicWorship</li>
+    <li><strong>Склонюсь</strong> — NG Worship</li>
+    <li><strong>В Тебе укроюсь я</strong> — M.Worship</li>
+    <li><strong>Бог жизни моей</strong> — Stanislav Veselov</li>
+    <li><strong>Лишь Иисус</strong> — Sharikov Family Band</li>
+  </ol>
+  <p class="cite">Contemporary list compiled from russiaworship.ru catalog, SlavicWorship ministry pages, and HolyChords/Spotify cross-references.<sup><a href="#ref-23">23</a></sup><sup><a href="#ref-24">24</a></sup><sup><a href="#ref-26">26</a></sup></p>
+</section>
+
+<!-- ========== 8. APPLE MUSIC ========== -->
+<section id="apple-music">
+  <h2>8. Apple Music Strategy — Practical Guide</h2>
+
+  <div class="diagram">
+SEARCH DECISION TREE (Apple Music)
+────────────────────────────────────────
+Know the hymn from church?
+  ├─ YES → Search exact Russian title
+  │         └─ No result? Add "гимн" or "хор"
+  │               └─ Still nothing? HolyChords → find ANY recording → note artist
+  │
+  └─ NO → Browse by ARTIST instead:
+            • Sharikov Family Band (diaspora originals)
+            • Moscow Worship Band (RU contemporary)
+            • RussiaWorship / SDG albums (translations)
+            • NG Worship (youth movement)
+            • Search "Песнь Возрождения" → many choir albums (various churches)
+────────────────────────────────────────
+  </div>
+
+  <h3>8.1 What Apple Music has — and lacks</h3>
+  <ul>
+    <li><strong>Has:</strong> Individual artists (Sharikov, Moscow Worship Band, NG Worship, M.Worship, Veselov, Nikitin); scattered choir albums tagged “Песнь Возрождения”; Apple’s general <em>Духовная музыка</em> playlist (mostly classical/choral sacred, not specifically Baptist).<sup><a href="#ref-28">28</a></sup></li>
+    <li><strong>Lacks:</strong> A single canonical, complete PV 3300 audio Bible; consistent metadata (same hymn, dozens of spellings); official publisher tie-in.</li>
+    <li><strong>Workaround apps (lyrics only, not Apple Music):</strong> <em>Песнь Возрождения</em> iOS app (3,300 texts); <em>Псалмы — песнь возрождения</em> (3055/3300/3400 editions).<sup><a href="#ref-10">10</a></sup><sup><a href="#ref-29">29</a></sup></li>
+  </ul>
+
+  <h3>8.2 Suggested Apple Music playlist structure</h3>
+  <p>Build a personal playlist in four blocks mirroring a Slavic Baptist service:</p>
+  <ol>
+    <li><strong>Pre-service (PV 1–20):</strong> <em>Слушайте повесть любви</em>, <em>Господь, душа внимать готова</em>, <em>Благословений потоки</em></li>
+    <li><strong>Praise set (PV 127–155 + contemporary):</strong> <em>Благо есть славить Господа</em>, <em>Великий Бог</em>, <em>Бесконечная любовь</em>, <em>Святый вовеки</em></li>
+    <li><strong>Reflection (PV 22, 713, 345):</strong> <em>Ближе, Господь, к Тебе</em>, <em>Со мной останься</em></li>
+    <li><strong>Closing (PV 694–731 + Sharikov):</strong> <em>Возьми меня отныне</em>, <em>Лишь Иисус</em></li>
+  </ol>
+</section>
+
+<!-- ========== 9. FREE RESOURCES ========== -->
+<section id="free-resources">
+  <h2>9. Free Digital Alternatives to a Printed Hymnal</h2>
+  <table>
+    <thead><tr><th>Resource</th><th>What you get</th><th>URL</th></tr></thead>
+    <tbody>
+      <tr><td>Песнь Возрождения 3300 (web)</td><td>Full text search by #, title, theme</td><td>pesnvozrozhdeniya.com, hvalite.com</td></tr>
+      <tr><td>HolyChords PV artist page</td><td>Lyrics, chords, linked audio</td><td>holychords.pro/artist/167</td></tr>
+      <tr><td>iOS/Android PV apps</td><td>Offline lyrics, favorites</td><td>Apple App Store “Песнь Возрождения”</td></tr>
+      <tr><td>Internet Archive</td><td>MP3/Ogg of PV 2000 &amp; 2800</td><td>archive.org (publisher links via baptistru.info)<sup><a href="#ref-13">13</a></sup></td></tr>
+      <tr><td>Hymnary.org RAH</td><td>Bilingual diaspora hymnal index</td><td>hymnary.org/hymnal/RAHCH94</td></tr>
+      <tr><td>RussiaWorship.ru</td><td>Contemporary chords + translations</td><td>russiaworship.ru</td></tr>
+      <tr><td>SlavicWorship.com</td><td>Training + links to RussiaWorship</td><td>slavicworship.com</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ========== 10. CONCLUSION ========== -->
+<section id="conclusion">
+  <h2>10. Conclusion</h2>
+  <div class="conclusion-box">
+    <p><strong>The standard hymnal for Slavic Baptist churches is <em>Песнь Возрождения</em> (<em>Song of Revival</em>)</strong>, especially the expanded 2,800–3,300 hymn editions used today. Numbers 1–830 form a stable core organized by liturgical function (opening, prayer, praise, repentance, sacraments, seasons, closing, youth). North American congregations may also use the 1994 <em>Russian-American Hymnal</em>.</p>
+    <p>Without a printed book, treat <strong>pesnvozrozhdeniya.com</strong> or the <strong>Песнь Возрождения</strong> phone app as your hymnal, and Apple Music as your recording layer — search Russian titles from Section 5, then branch into artists from Section 7.</p>
+    <p>Traditional Russian Baptist worship centers on Prokhanov-era and gospel-song translations (Section 6.1). Contemporary worship (Section 7) is increasingly part of Slavic Baptist life but comes from separate artists and ministries — RussiaWorship, church bands, and diaspora musicians like the Sharikov Family Band.</p>
+  </div>
+
+  <h3>Further research directions</h3>
+  <ul>
+    <li>Region-specific repertoire survey (Ukrainian vs Russian vs US Midwest Slavic Baptist churches).</li>
+    <li>Mapping PV hymn numbers to Western hymn-tune names for English-speaking family members.</li>
+    <li>Audio quality comparison of Internet Archive PV recordings vs modern church band arrangements.</li>
+    <li>Ukrainian-language parallel hymnal (<em>Пісня Відродження</em>) numbering differences.</li>
+  </ul>
+</section>
+
+<!-- ========== REFERENCES ========== -->
+<section id="references">
+  <h2>References</h2>
+  <ol class="ref-list">
+    <li id="ref-1">«Песнь Возрождения (сборник песен)». <em>Энциклопедия евангельских христиан-баптистов</em>. <a href="http://www.baptistru.info/index.php?title=%D0%9F%D0%B5%D1%81%D0%BD%D1%8C_%D0%92%D0%BE%D0%B7%D1%80%D0%BE%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D1%8F_%28%D1%81%D0%B1%D0%BE%D1%80%D0%BD%D0%B8%D0%BA_%D0%BF%D0%B5%D1%81%D0%B5%D0%BD%29">baptistru.info</a></li>
+    <li id="ref-2">«Песнь Возрождения». <em>Википедия</em> (Russian). <a href="https://ru.wikipedia.org/wiki/%D0%9F%D0%B5%D1%81%D0%BD%D1%8C_%D0%92%D0%BE%D0%B7%D1%80%D0%BE%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D1%8F">ru.wikipedia.org</a></li>
+    <li id="ref-3">Daniel A. Jasko, ed. <em>Русско-американский сборник: Гимны Христиан / Russian-American Hymnal: Christian Hymns</em>. Russian-Ukrainian Evangelical Baptist Union, USA, 1994. <a href="https://hymnary.org/hymnal/RAHCH94">hymnary.org/hymnal/RAHCH94</a></li>
+    <li id="ref-4">Same as ref-2; usage across Baptist, Pentecostal, and other evangelical churches in post-Soviet states.</li>
+    <li id="ref-5">«Проханов, Иван Степанович». <em>Энциклопедия евангельских христиан-баптистов</em>. <a href="http://baptistru.info/index.php?title=%D0%9F%D1%80%D0%BE%D1%85%D0%B0%D0%BD%D0%BE%D0%B2%2C_%D0%98%D0%B2%D0%B0%D0%BD_%D0%A1%D1%82%D0%B5%D0%BF%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%87">baptistru.info</a></li>
+    <li id="ref-6">«Иван Проханов». <em>Викитека / Век перевода</em>. <a href="https://www.vekperevoda.com/1855/prokhanov.htm">vekperevoda.com</a></li>
+    <li id="ref-7"><em>Песнь Возрождения 3300</em> — searchable hymnal. <a href="https://pesnvozrozhdeniya.com/">pesnvozrozhdeniya.com</a></li>
+    <li id="ref-8">«Песнь Возрождения 3300 | Сборник… с комментариями». varnava.org. <a href="https://varnava.org/songofrevival.html">varnava.org/songofrevival.html</a></li>
+    <li id="ref-9">Church Lyrics Database — About. Slavic Evangelical Pentecostal <em>Гимны веры христиан</em>. <a href="https://www.zap.org.au/documents/music/lyrics-database/example-ppt/etc/about.html">zap.org.au</a></li>
+    <li id="ref-10">«Песнь Возрождения» iOS app (Bogdan Michalchuk). <a href="https://apps.apple.com/us/app/%D0%BF%D0%B5%D1%81%D0%BD%D1%8C-%D0%B2%D0%BE%D0%B7%D1%80%D0%BE%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D1%8F/id1326479187">Apple App Store</a></li>
+    <li id="ref-11">HVALITE.COM — PV 3300 online. <a href="https://hvalite.com/pesni">hvalite.com/pesni</a></li>
+    <li id="ref-12">HolyChords — Песнь Возрождения artist / popular songs. <a href="https://holychords.pro/artist/167">holychords.pro/artist/167</a></li>
+    <li id="ref-13">Internet Archive links via baptistru.info article (PV 2000, PV 2800 audio).</li>
+    <li id="ref-14">911pesni.pro — PV lyric archive. <a href="https://911pesni.pro/15/Pesn-Vozrojdeniya">911pesni.pro</a></li>
+    <li id="ref-15">Dio Ispira — «Не дай нам Бог». HolyChords. <a href="https://holychords.pro/903">holychords.pro/903</a></li>
+    <li id="ref-16">Dio Ispira — «Полдороги в небо». HolyChords. <a href="https://holychords.pro/14875">holychords.pro/14875</a></li>
+    <li id="ref-17">Spotify playlist «Лучшие Христианские Песни» (Dio Ispira Production) — trad-evangelical titles.</li>
+    <li id="ref-18">Smithsonian Folkways — <em>Divine Liturgy: Music of the Russian Orthodox Church</em>. <a href="http://www.folkways.si.edu/russian-liturgical-singers/music-of-the-russian-orthodox-church/album/smithsonian">folkways.si.edu</a></li>
+    <li id="ref-19">Gospel Baptist Church — Worship Band page. <a href="https://gospelbaptist.church/team/worship-band/">gospelbaptist.church</a></li>
+    <li id="ref-20">Sharikov Ministries; Apple Music album <em>Лишь Иисус</em>. <a href="https://sharikovministries.com/">sharikovministries.com</a>; <a href="https://music.apple.com/us/album/%D0%BB%D0%B8%D1%88%D1%8C-%D0%B8%D0%B8%D1%81%D1%83%D1%81/1458038765">music.apple.com</a></li>
+    <li id="ref-21">Protestant.ru — Moscow Worship Band <em>Из глубины</em> (2nd Moscow Baptist Church). <a href="https://www.protestant.ru/news/church/ofchrist/article/1068711">protestant.ru</a></li>
+    <li id="ref-22">NG Worship — Apple Music artist page. <a href="https://music.apple.com/ua/artist/ng-worship/745386632">music.apple.com</a></li>
+    <li id="ref-23">SlavicWorship.com — ministry overview &amp; RussiaWorship links. <a href="https://www.slavicworship.com/">slavicworship.com</a></li>
+    <li id="ref-24">RussiaWorship — «Святый вовеки» (Holy Forever translation). <a href="https://www.russiaworship.ru/search/song/article/1684489">russiaworship.ru</a></li>
+    <li id="ref-25">M.Worship — <em>Свят Господь (Live from Berlin)</em> EP. Spotify/Apple Music.</li>
+    <li id="ref-26">Stanislav Veselov — «Верный» and related tracks. Spotify/Apple Music cross-listing.</li>
+    <li id="ref-27">Denis Nikitin — «Иешуа» (2025). Spotify.</li>
+    <li id="ref-28">Apple Music playlist «Духовная музыка». <a href="https://music.apple.com/ru/playlist/%D0%B4%D1%83%D1%85%D0%BE%D0%B2%D0%BD%D0%B0%D1%8F-%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D0%B0/pl.1bb186db51db4b45bf96684c5bb45209">music.apple.com</a></li>
+    <li id="ref-29">«Псалмы — песнь возрождения» iOS app. <a href="https://apps.apple.com/us/app/%D0%BF%D1%81%D0%B0%D0%BB%D0%BC%D1%8B-%D0%BF%D0%B5%D1%81%D0%BD%D1%8C-%D0%B2%D0%BE%D0%B7%D1%80%D0%BE%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D1%8F/id1230721307">Apple App Store</a></li>
+  </ol>
+</section>
+
+<footer>
+  <p>Research-Bot artifact. Compiled July 2026. Hymn numbering follows <em>Песнь Возрождения</em> editions as cataloged on pesnvozrozhdeniya.com and baptistru.info; confirm edition with your local church. Apple Music availability varies by region.</p>
+</footer>
+
+</div>
+</body>
+</html>
