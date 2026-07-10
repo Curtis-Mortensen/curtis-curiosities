@@ -34,6 +34,145 @@ User (employed IT tech ~1 year, Mesa AZ) asked for CompTIA A+ exam cost, discoun
 
 ### Bugs / problems
 - CompTIA store product page did not render per-exam price in automated fetch; cross-verified via Total Seminars June 2026 price-increase post and CompTIA blog sources.
+## 2026-07-08 — 2015 Passat TDI Spare Tire & Wheel Interchange (complete)
+
+### Plan summary
+User has a 2015 Volkswagen Passat TDI with factory 235/45R18 tires and needs a full-size spare (not a donut). Junkyards often lack VWs; user had a prior list of “matching” cars including SUVs and Audi models. Requested double-check of tire/wheel interchange, bolt pattern (lug location), brake clearance, and forum evidence. Research per Research-Bot README specs.
+
+### Precursor / subset questions identified
+1. What are the exact wheel specs for 2015 Passat TDI (PCD, bore, offset, lug seat)?
+2. Which alternative tire sizes stay within ±2% rolling diameter?
+3. Which vehicles share 235/45R18 but have incompatible bolt patterns?
+4. Which Audi/VW Group wheels need hub rings vs direct fit?
+5. Do 312 mm front brakes limit spare wheel choice?
+6. Will a full-size 235/45R18 fit in the Passat trunk?
+7. What have TDIClub / VW Vortex owners actually swapped?
+
+### Key findings
+- **Non-negotiable wheel specs:** 5×112 PCD, 57.1 mm center bore (or 66.6 mm + rings), M14×1.5 ball-seat lug bolts, ET40–48 on 18×8 typical.
+- **TDI brakes:** 312 mm front / 272 mm rear rotors — 18″ full-size clears; min theoretical wheel 16″ for 312 mm rotors.
+- **Tire alternatives confirmed:** 225/45R18 (−1.3%), 245/45R18 (+1.4%), 245/40R18 (−1.7%) within ±2%; 235/40R18 (−3.1%) less ideal.
+- **Tier A junkyard targets (direct fit):** Passat 2011–2018, CC, Golf/Jetta/Beetle 18″, Audi A3 8P/8V, older A4/A6/Q3/TT 8J, Seat/Skoda MQB siblings.
+- **Tier B (rings required):** Audi A4 B8+, A6, Q5, VW Atlas — 66.6 mm bore.
+- **Tier C traps (same tire, wrong wheel):** Ford Fusion (5×108), Hyundai/Kia/Toyota/Honda/Nissan (5×114.3), BMW (5×120), Mk1 TT (5×100).
+- **Forum:** TDIClub 2015 Passat TDI owner fit full-size 235/45R18 in trunk with foam trim; VW Vortex warns 18″ donut spares may not clear big front brakes on GTI/R.
+
+### Changes made
+- Created `Research-Bot/2015-passat-tdi-spare-tire-wheel-interchange.html` — self-contained HTML report with 50-vehicle tier tables, fitment flow diagram, forum synthesis, 35 references.
+
+### Assumptions
+- US-market 2015 Passat TDI with 18″ upgrade package (sticker confirms 235/45R18).
+- No physical test fit performed; junkyard inventory varies by region.
+- User’s prior compiled list not in repo — report rebuilt from OEM catalogs, fitment DBs, and forums.
+
+### Bugs / problems
+- Wheel-Size.com full tire-size vehicle list timed out on fetch; supplemented via WheelsSize.com and Wheelfitment.eu.
+
+### Status
+**Complete**
+
+---
+
+## 2026-07-09 — Slavic Baptist Hymnals & Russian Worship on Apple Music (complete)
+
+### Plan summary
+User attends a Slavic Baptist Church, wants more Russian hymns on Apple Music, and does not have a printed hymnal. Research standard hymnal(s), searchable song list, and top traditional + contemporary Russian worship per Research-Bot instructions.
+
+### Precursor / subset questions identified
+1. Is there one canonical hymnal or several coexisting editions?
+2. How do diaspora (US) hymnals differ from post-Soviet standard books?
+3. What is the relationship between Песнь Возрождения and Prokhanov’s Гусли/Десятисборник?
+4. How do Slavic Baptist hymns differ from Russian Orthodox liturgical chant?
+5. What is actually findable on Apple Music vs lyrics-only apps?
+6. Which contemporary artists serve Slavic evangelical churches?
+
+### Key findings
+- **Standard hymnal:** *Песнь Возрождения* (Song of Revival); 3,300-hymn edition most common digitally; numbers 1–830 stable across editions.
+- **Diaspora:** *Russian-American Hymnal* (1994, Daniel Jasko, RU-Ukrainian Baptist Union USA).
+- **Related but distinct:** *Гимны веры христиан* (Slavic Pentecostal); official 1956 VSEKhB book largely superseded.
+- **Apple Music:** No single official PV album; search Russian titles or artists (Sharikov Family Band, Moscow Worship Band, NG Worship, RussiaWorship/SDG, M.Worship, Veselov, Nikitin).
+- **Free hymnal substitute:** pesnvozrozhdeniya.com, hvalite.com, PV iOS apps, Internet Archive MP3 collections.
+
+### Changes made
+- Created `Research-Bot/slavic-baptist-russian-hymns-apple-music.html` — full report with hymnal history, thematic index, 55+ searchable songs, traditional/contemporary lists, Apple Music workflow, 29 references.
+
+### Assumptions
+- User’s church is Slavic Baptist or closely related evangelical (not Orthodox); Orthodox tradition noted separately for clarity.
+- “Top” contemporary list based on ministry catalogs and platform presence, not chart data.
+
+### Bugs / problems
+- None during research or document creation.
+## 2026-07-10 — Idaho Falls → SLC Cheap Sunday Transport (complete)
+
+### Plan summary
+User needs cheapest options to get from Idaho Falls to Salt Lake City on Sunday (interpreted as 2026-07-12), open to Turo and any other solutions including Allegiant discounts/coupons/bundles. Delivered as Research-Bot self-contained HTML per README instructions.
+
+### Precursor / subset questions identified
+1. Need a car in SLC, or only transport IDA→SLC?
+2. Airport vs town pickup?
+3. Same-day one-way vs multi-day?
+4. Allegiant flyer status / partner rate eligibility?
+5. Costco/AAA/USAA/BJ’s memberships?
+6. Bus/shuttle or ride-board viable?
+7. Can Turo do true one-way ~190 miles?
+
+### Key findings
+- **Cheapest if no car needed in SLC:** Salt Lake Express IDA→SLC Airport from ~$42 (book direct; Greyhound resells higher).
+- **Best car path:** Traditional one-way rental (Enterprise/Alamo/National via Allegiant or Costco; Hertz stack via AAA). Drop fee dominates; Allegiant discount is base-rate only and does not waive one-way charges.
+- **Turo:** Poor fit for true one-way — cannot select different return city at booking; host must approve later within delivery radius (SLC is far outside typical IDA radius).
+- **Allegiant:** Partners Alamo/Enterprise/National; does not fly IDA→SLC (Delta does).
+- **Gas floor:** ~$35 one-way if borrowing/owning a car (Travelmath, 217 mi).
+
+### Changes made
+- Created `Research-Bot/idaho-falls-slc-cheap-car-sunday.html` — ranked options, decision tree, Allegiant/Turo/discount deep dives, 28 references.
+
+### Assumptions
+- “Sunday” = next Sunday after research day Friday 2026-07-10 → 2026-07-12.
+- Live Kayak/Expedia one-way checkout totals were not scrapable this session; used policy pages + aggregator secondary ranges.
+- One-time Research-Bot question (not Apocalypse-Story series).
+
+### Bugs / problems
+- Aggregator search pages returned empty/JS shells; documented as methodology limitation rather than inventing locked prices.
+
+### Status
+**Complete**
+
+---
+
+## 2026-07-08 — Arcosanti & Cosanti Foundation Current State Research (complete)
+
+### Plan summary
+User visited Arcosanti, spoke with a resident reporting hard times (~30 full-time residents), foundation blame post-Soleri, and recalled a Not So Native podcast (thought 2021/2023) about 2018 grey-water work and partnership-seeking over money. Requested comprehensive web research on foundation leadership, marketing head, residents, and current situation.
+
+### Precursor / subset questions identified
+1. What happened after Paolo Soleri died (2013)?
+2. Was 2018 grey-water the last major infrastructure project?
+3. Who was on the Not So Native podcast — same person still in marketing?
+4. Who runs the Cosanti Foundation board and staff today?
+5. Can we identify the ~30 current residents?
+6. Is the foundation discouraging residency?
+7. What is the most accurate picture as of mid-2026?
+
+### Key findings
+- Podcast was **Nov 21, 2019** (Not So Native S4), guest **Tim Bell** (Director of Communications) — not 2021/2023; Bell no longer in role.
+- 2018 grey-water (East Crescent + ASU EPICS) well-documented; last major building completed 1989.
+- CEO succession: Stein → McWhortor → Martin-Malikian (resigned Sept 2023) → Fritz interim → David Turnbull (~2024).
+- 2025 crisis (Wikipedia, NLRB): 80%+ layoffs reported, workshops ended 2024, volunteers eliminated Fall 2025, board strategic pause through 2026.
+- Resident count: downward from 75 (2020) → ~45 (website) → ~38 (press) → ~30 (visitor testimony); no public full roster.
+- No documented "discourage residency" policy; structural changes (employment-only, program cuts) explain resident perception.
+
+### Changes made
+- Created `Research-Bot/arcosanti-cosanti-foundation-current-state.html` — self-contained HTML report with timeline, leadership tables, resident partial list, financials, contradictions section, 29 references.
+
+### Assumptions
+- User meant "accurate" not "inaccurate" in final request.
+- Wikipedia 2025 layoff claims treated as reported but not fully independently verified (paywalled/local sources inaccessible).
+- Research date: July 8, 2026.
+
+### Bugs / problems
+- Bloomberg Oct 2025 article and Daily Independent paywalled — could not retrieve full text.
+- Foundation website partially stale vs. Wikipedia crisis reporting.
+- FY2024 990 leadership listing inconsistent across aggregators (Turnbull vs. Fritz).
 
 ### Status
 **Complete**
