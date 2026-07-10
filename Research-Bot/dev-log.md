@@ -1,4 +1,43 @@
-# Apocalypse Story — Dev Log
+# Research Bot — Dev Log
+
+## 2026-07-08 — 2015 Passat TDI Spare Tire & Wheel Interchange (complete)
+
+### Plan summary
+User has a 2015 Volkswagen Passat TDI with factory 235/45R18 tires and needs a full-size spare (not a donut). Junkyards often lack VWs; user had a prior list of “matching” cars including SUVs and Audi models. Requested double-check of tire/wheel interchange, bolt pattern (lug location), brake clearance, and forum evidence. Research per Research-Bot README specs.
+
+### Precursor / subset questions identified
+1. What are the exact wheel specs for 2015 Passat TDI (PCD, bore, offset, lug seat)?
+2. Which alternative tire sizes stay within ±2% rolling diameter?
+3. Which vehicles share 235/45R18 but have incompatible bolt patterns?
+4. Which Audi/VW Group wheels need hub rings vs direct fit?
+5. Do 312 mm front brakes limit spare wheel choice?
+6. Will a full-size 235/45R18 fit in the Passat trunk?
+7. What have TDIClub / VW Vortex owners actually swapped?
+
+### Key findings
+- **Non-negotiable wheel specs:** 5×112 PCD, 57.1 mm center bore (or 66.6 mm + rings), M14×1.5 ball-seat lug bolts, ET40–48 on 18×8 typical.
+- **TDI brakes:** 312 mm front / 272 mm rear rotors — 18″ full-size clears; min theoretical wheel 16″ for 312 mm rotors.
+- **Tire alternatives confirmed:** 225/45R18 (−1.3%), 245/45R18 (+1.4%), 245/40R18 (−1.7%) within ±2%; 235/40R18 (−3.1%) less ideal.
+- **Tier A junkyard targets (direct fit):** Passat 2011–2018, CC, Golf/Jetta/Beetle 18″, Audi A3 8P/8V, older A4/A6/Q3/TT 8J, Seat/Skoda MQB siblings.
+- **Tier B (rings required):** Audi A4 B8+, A6, Q5, VW Atlas — 66.6 mm bore.
+- **Tier C traps (same tire, wrong wheel):** Ford Fusion (5×108), Hyundai/Kia/Toyota/Honda/Nissan (5×114.3), BMW (5×120), Mk1 TT (5×100).
+- **Forum:** TDIClub 2015 Passat TDI owner fit full-size 235/45R18 in trunk with foam trim; VW Vortex warns 18″ donut spares may not clear big front brakes on GTI/R.
+
+### Changes made
+- Created `Research-Bot/2015-passat-tdi-spare-tire-wheel-interchange.html` — self-contained HTML report with 50-vehicle tier tables, fitment flow diagram, forum synthesis, 35 references.
+
+### Assumptions
+- US-market 2015 Passat TDI with 18″ upgrade package (sticker confirms 235/45R18).
+- No physical test fit performed; junkyard inventory varies by region.
+- User’s prior compiled list not in repo — report rebuilt from OEM catalogs, fitment DBs, and forums.
+
+### Bugs / problems
+- Wheel-Size.com full tire-size vehicle list timed out on fetch; supplemented via WheelsSize.com and Wheelfitment.eu.
+
+### Status
+**Complete**
+
+---
 
 ## 2026-07-09 — Slavic Baptist Hymnals & Russian Worship on Apple Music (complete)
 
