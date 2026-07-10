@@ -1,5 +1,34 @@
 # Apocalypse Story — Dev Log
 
+## 2026-07-09 — Slavic Baptist Hymnals & Russian Worship on Apple Music (complete)
+
+### Plan summary
+User attends a Slavic Baptist Church, wants more Russian hymns on Apple Music, and does not have a printed hymnal. Research standard hymnal(s), searchable song list, and top traditional + contemporary Russian worship per Research-Bot instructions.
+
+### Precursor / subset questions identified
+1. Is there one canonical hymnal or several coexisting editions?
+2. How do diaspora (US) hymnals differ from post-Soviet standard books?
+3. What is the relationship between Песнь Возрождения and Prokhanov’s Гусли/Десятисборник?
+4. How do Slavic Baptist hymns differ from Russian Orthodox liturgical chant?
+5. What is actually findable on Apple Music vs lyrics-only apps?
+6. Which contemporary artists serve Slavic evangelical churches?
+
+### Key findings
+- **Standard hymnal:** *Песнь Возрождения* (Song of Revival); 3,300-hymn edition most common digitally; numbers 1–830 stable across editions.
+- **Diaspora:** *Russian-American Hymnal* (1994, Daniel Jasko, RU-Ukrainian Baptist Union USA).
+- **Related but distinct:** *Гимны веры христиан* (Slavic Pentecostal); official 1956 VSEKhB book largely superseded.
+- **Apple Music:** No single official PV album; search Russian titles or artists (Sharikov Family Band, Moscow Worship Band, NG Worship, RussiaWorship/SDG, M.Worship, Veselov, Nikitin).
+- **Free hymnal substitute:** pesnvozrozhdeniya.com, hvalite.com, PV iOS apps, Internet Archive MP3 collections.
+
+### Changes made
+- Created `Research-Bot/slavic-baptist-russian-hymns-apple-music.html` — full report with hymnal history, thematic index, 55+ searchable songs, traditional/contemporary lists, Apple Music workflow, 29 references.
+
+### Assumptions
+- User’s church is Slavic Baptist or closely related evangelical (not Orthodox); Orthodox tradition noted separately for clarity.
+- “Top” contemporary list based on ministry catalogs and platform presence, not chart data.
+
+### Bugs / problems
+- None during research or document creation.
 ## 2026-07-10 — Idaho Falls → SLC Cheap Sunday Transport (complete)
 
 ### Plan summary
