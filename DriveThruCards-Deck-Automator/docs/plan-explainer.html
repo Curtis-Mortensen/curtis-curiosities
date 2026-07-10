@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DriveThruCards Deck Automator — Simple Plan</title>
+  <style>
+    :root {
+      --ink: #1c1917;
+      --muted: #57534e;
+      --paper: #f7f3ec;
+      --panel: #fffdf8;
+      --line: #d6d0c4;
+      --accent: #9a3412;
+      --accent-soft: #ffedd5;
+      --ok: #166534;
+      --ok-soft: #dcfce7;
+      --wait: #92400e;
+      --wait-soft: #fef3c7;
+      --edge: #0b57d0;
+      --shadow: 0 12px 40px rgba(28, 25, 23, 0.08);
+      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+      --sans: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --mono: "Cascadia Code", "Fira Code", Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.55;
+      background:
+        radial-gradient(ellipse 80% 50% at 10% -10%, #fde68a55, transparent 50%),
+        radial-gradient(ellipse 60% 40% at 100% 0%, #fdba7455, transparent 45%),
+        linear-gradient(180deg, #faf6ef 0%, var(--paper) 40%, #efe8db 100%);
+      min-height: 100vh;
+    }
+
+    .wrap {
+      max-width: 52rem;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+
+    header.hero {
+      padding: 2rem 0 1.5rem;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 2rem;
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+      margin: 0 0 0.75rem;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      line-height: 1.15;
+      margin: 0 0 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .lede {
+      font-size: 1.125rem;
+      color: var(--muted);
+      max-width: 40rem;
+      margin: 0;
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: 1.55rem;
+      margin: 2.5rem 0 0.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin: 1.5rem 0 0.5rem;
+      color: var(--ink);
+    }
+
+    p { margin: 0 0 1rem; }
+
+    a { color: var(--accent); }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.15rem 1.25rem;
+      box-shadow: var(--shadow);
+      margin: 1rem 0 1.5rem;
+    }
+
+    .callout {
+      border-left: 4px solid var(--accent);
+      background: var(--accent-soft);
+      padding: 0.9rem 1rem;
+      border-radius: 0 10px 10px 0;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .callout.wait {
+      border-left-color: var(--wait);
+      background: var(--wait-soft);
+    }
+
+    .callout.ok {
+      border-left-color: var(--ok);
+      background: var(--ok-soft);
+    }
+
+    .callout strong { display: block; margin-bottom: 0.25rem; }
+
+    ol.steps, ul.clean {
+      margin: 0.5rem 0 1.25rem;
+      padding-left: 1.25rem;
+    }
+
+    ol.steps li, ul.clean li { margin: 0.4rem 0; }
+
+    .flow {
+      display: grid;
+      gap: 0.65rem;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .flow-step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.85rem;
+      align-items: start;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0.85rem 1rem;
+    }
+
+    .num {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .flow-step.slow .num { background: var(--wait); }
+    .flow-step h3 { margin: 0 0 0.2rem; font-size: 1rem; }
+    .flow-step p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      background: var(--wait-soft);
+      color: var(--wait);
+      margin-left: 0.35rem;
+      vertical-align: middle;
+    }
+
+    .tag.edge {
+      background: #dbeafe;
+      color: var(--edge);
+    }
+
+    code, .mono {
+      font-family: var(--mono);
+      font-size: 0.88em;
+    }
+
+    pre {
+      background: #1c1917;
+      color: #f5f5f4;
+      border-radius: 12px;
+      padding: 1rem 1.1rem;
+      overflow-x: auto;
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      line-height: 1.45;
+      margin: 0.75rem 0 1.25rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.75rem 0 1.25rem;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 0.65rem 0.7rem;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    th {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+    }
+
+    .two-col {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 720px) {
+      .two-col { grid-template-columns: 1fr 1fr; }
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .toc a {
+      display: inline-block;
+      margin: 0.2rem 0.75rem 0.2rem 0;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+
+    .toc a:hover { border-bottom-color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <p class="eyebrow">DriveThruCards · Offline plan guide</p>
+      <h1>Deck Automator, explained simply</h1>
+      <p class="lede">
+        This page is the friendly overview. It opens offline (CSS is built in).
+        For selectors, file layouts, and deeper research notes, see
+        <span class="mono">master-plan.md</span>.
+      </p>
+    </header>
+
+    <nav class="toc panel" aria-label="On this page">
+      <strong>On this page</strong><br />
+      <a href="#what">What this is</a>
+      <a href="#edge">Watching in Edge</a>
+      <a href="#organize">Organizing cards</a>
+      <a href="#flow">The wizard flow</a>
+      <a href="#waits">How Playwright waits</a>
+      <a href="#run">How you run it</a>
+    </nav>
+
+    <section id="what">
+      <h2>What this project does</h2>
+      <p>
+        DriveThruCards has a partner beta tool:
+        <strong>Create US Poker Deck from Image Files Upload</strong>.
+        You upload card pictures; their site converts colors (CMYK) and builds
+        a print-ready PDF. Doing that by hand for a big deck is slow — and one
+        deck tops out around <strong>130 cards</strong>.
+      </p>
+      <p>
+        This project helps in two ways:
+      </p>
+      <ol class="steps">
+        <li><strong>Organize</strong> your art into batches by shared card backs (and the 130 limit).</li>
+        <li><strong>Automate clicks</strong> in a real Microsoft Edge window you can watch, using Playwright.</li>
+      </ol>
+      <div class="callout">
+        <strong>Login is required</strong>
+        The builder URL does not show the upload screen until you are logged in
+        as a partner. The scripts open Edge so you can sign in yourself.
+      </div>
+    </section>
+
+    <section id="edge">
+      <h2>You watch it in Microsoft Edge <span class="tag edge">not headless</span></h2>
+      <p>
+        “Headless” means a hidden browser. We are <strong>not</strong> doing that.
+        The automator launches <strong>your installed Edge</strong> in a normal window.
+      </p>
+      <div class="two-col">
+        <div class="panel">
+          <h3>First time</h3>
+          <p>
+            Run <span class="mono">npm run auth:save</span>. Edge opens.
+            Log into DriveThru. Press Enter in the terminal. Your login is kept
+            in a local profile folder (<span class="mono">auth/edge-profile/</span>).
+          </p>
+        </div>
+        <div class="panel">
+          <h3>Later runs</h3>
+          <p>
+            The same Edge profile opens again, already logged in. You can see
+            every upload, every “Next”, and every long wait while the site works.
+            Optional: <span class="mono">--keep-open</span> leaves the window up at the end.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="organize">
+      <h2>Organizing cards by backs</h2>
+      <p>
+        Many cards share one back design. The organizer groups those together,
+        then packs groups into folders of at most 130 cards.
+      </p>
+      <div class="panel">
+        <h3>You write a simple list (manifest)</h3>
+        <p>Each card says: which front image, which back image, how many copies.</p>
+        <pre>{
+  "deckName": "My Game",
+  "maxCardsPerBatch": 130,
+  "cards": [
+    { "id": "001", "front": "fronts/001.jpg", "back": "backs/red.jpg", "qty": 1 },
+    { "id": "010", "front": "fronts/010.jpg", "back": "backs/blue.jpg", "qty": 2 }
+  ]
+}</pre>
+        <p style="margin:0">
+          Then <span class="mono">npm run organize -- your-manifest.json</span>
+          builds <span class="mono">cards/batches/…</span> with renamed
+          <span class="mono">001back.jpg</span> / <span class="mono">001front.jpg</span> files
+          and a pairing sheet called <span class="mono">batch.json</span>.
+        </p>
+      </div>
+    </section>
+
+    <section id="flow">
+      <h2>The DriveThru wizard (what Edge will walk through)</h2>
+      <div class="flow">
+        <div class="flow-step">
+          <div class="num">1</div>
+          <div>
+            <h3>Upload back images</h3>
+            <p>Drop all backs for this batch onto the upload box.</p>
+          </div>
+        </div>
+        <div class="flow-step slow">
+          <div class="num">2</div>
+          <div>
+            <h3>Edit / auto-correct colors <span class="tag">~10 min</span></h3>
+            <p>Site may offer to fix colors. In testing this took about ten minutes.</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="num">3</div>
+          <div>
+            <h3>Upload front images</h3>
+            <p>Same idea as backs, for the card faces.</p>
+          </div>
+        </div>
+        <div class="flow-step slow">
+          <div class="num">4</div>
+          <div>
+            <h3>Edit fronts <span class="tag">can be slow</span></h3>
+            <p>Same auto-correct / warning flow as the backs.</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="num">5</div>
+          <div>
+            <h3>Assemble the deck</h3>
+            <p>Pair each front with its back (from <span class="mono">batch.json</span>) and finish.</p>
+          </div>
+        </div>
+        <div class="flow-step slow">
+          <div class="num">6</div>
+          <div>
+            <h3>Render sheet / publish <span class="tag">~10 min each</span></h3>
+            <p>
+              Rendering cards onto a sheet took ~10 minutes. Publishing (instead of
+              only downloading a PDF) took another ~10 minutes.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="callout wait">
+        <strong>Plan for long waits</strong>
+        A full batch can easily spend half an hour just on server processing.
+        That is normal for this tool — the automator is built to wait patiently.
+      </div>
+    </section>
+
+    <section id="waits">
+      <h2>How Playwright knows when to continue</h2>
+      <p>
+        Playwright is a remote control for the browser. The important idea:
+        <strong>it can watch the page and only move on when something real changes</strong>,
+        instead of “sleep 10 minutes and hope.”
+      </p>
+
+      <h3>What we wait for</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Signal</th>
+            <th>Plain meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>URL change</strong></td>
+            <td>The address bar moved to a new step (for example, upload → edit).</td>
+          </tr>
+          <tr>
+            <td><strong>Something appears</strong></td>
+            <td>A button, table, or “success” message shows up that was not there before.</td>
+          </tr>
+          <tr>
+            <td><strong>Busy UI goes away</strong></td>
+            <td>Spinners, “please wait”, or processing overlays disappear.</td>
+          </tr>
+          <tr>
+            <td><strong>Download starts</strong></td>
+            <td>For PDF download mode, Edge begins saving a file.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="panel">
+        <h3>Heartbeats (so it does not look frozen)</h3>
+        <p>
+          While waiting up to <strong>20 minutes</strong> for a slow job, the terminal
+          prints a line every 30 seconds like:
+        </p>
+        <pre>…still waiting for auto-correct colors (backs) (3.5 min so far; DTC jobs often take ~10 min)</pre>
+        <p style="margin:0">
+          When the page finally shifts, you see an <strong>OK</strong> line with how long it took.
+          That logic lives in <span class="mono">src/waits.js</span>.
+        </p>
+      </div>
+
+      <div class="callout ok">
+        <strong>Why not a fixed sleep?</strong>
+        Sometimes a job finishes in 2 minutes; sometimes 12. Waiting for the page
+        to change is faster when the site is quick, and safer when it is slow.
+        Fixed sleeps either waste time or give up too early.
+      </div>
+
+      <h3>Tiny mental model</h3>
+      <pre>click "auto-correct"
+        ↓
+watch for spinner / busy overlay
+        ↓
+watch until busy is gone AND the edit page looks ready
+        ↓
+only then click Next</pre>
+    </section>
+
+    <section id="run">
+      <h2>How you run it (local checklist)</h2>
+      <ol class="steps">
+        <li>Install once: <span class="mono">npm install</span> (Playwright will drive your installed Edge — no separate Chromium required for the happy path).</li>
+        <li>Put art in a manifest; run <span class="mono">npm run organize -- path/to/manifest.json</span>.</li>
+        <li>Log in once: <span class="mono">npm run auth:save</span> → Edge opens → sign in → press Enter.</li>
+        <li>
+          Run a batch while watching Edge:
+          <pre>npm run upload:batch -- --batch cards/batches/batch-01-shared-red --start-url "https://tools.drivethrucards.com/builder/deck/images/back/YOUR_ID" --mode download</pre>
+        </li>
+        <li>To publish instead of download: add <span class="mono">--mode make</span> (new product) or <span class="mono">--mode update</span>.</li>
+        <li>To inspect at the end: add <span class="mono">--keep-open</span>.</li>
+      </ol>
+
+      <div class="panel">
+        <h3>Where to look for more detail</h3>
+        <ul class="clean">
+          <li><span class="mono">master-plan.md</span> — technical plan, selectors, batching rules</li>
+          <li><span class="mono">dev-log.md</span> — what we tried, decisions, problems</li>
+          <li><span class="mono">src/waits.js</span> — the wait / heartbeat code</li>
+          <li><span class="mono">src/browser.js</span> — Edge launch + persistent profile</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        Self-contained HTML for offline viewing · DriveThruCards-Deck-Automator ·
+        Companion to <span class="mono">master-plan.md</span>
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
