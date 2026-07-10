@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arcosanti &amp; The Cosanti Foundation — Current State Research (2026)</title>
+<style>
+  :root {
+    --bg: #1a1410;
+    --surface: #2a2218;
+    --surface2: #3a3024;
+    --text: #f0e8dc;
+    --muted: #a89880;
+    --accent: #c4956a;
+    --accent2: #7eb8d4;
+    --danger: #d4736a;
+    --success: #7ab87a;
+    --link: #9ecfe8;
+    --border: #4a4030;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  h1 { font-size: 2rem; line-height: 1.25; margin-bottom: 0.5rem; color: var(--accent); }
+  .subtitle { color: var(--muted); font-style: italic; font-size: 1.05rem; }
+  h2 {
+    font-size: 1.45rem;
+    color: var(--accent2);
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 { font-size: 1.15rem; color: var(--accent); margin: 1.5rem 0 0.75rem; }
+  h4 { font-size: 1rem; color: var(--muted); margin: 1rem 0 0.5rem; }
+  p { margin-bottom: 1rem; }
+  a { color: var(--link); }
+  a:hover { text-decoration: underline; }
+  .thesis-box {
+    background: var(--surface);
+    border-left: 4px solid var(--accent);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .limitation-box {
+    background: var(--surface);
+    border-left: 4px solid var(--danger);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .overview-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+  .overview-card h4 { color: var(--accent2); margin-top: 0; }
+  .diagram {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    white-space: pre;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0 1.5rem;
+    font-size: 0.95rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.6rem 0.75rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: var(--surface2); color: var(--accent); }
+  tr:nth-child(even) { background: var(--surface); }
+  .cite { color: var(--muted); font-size: 0.85rem; }
+  .cite a { color: var(--muted); }
+  .status-current { color: var(--danger); font-weight: bold; }
+  .status-stable { color: var(--success); }
+  .status-unclear { color: var(--accent); }
+  ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  .conclusion {
+    background: var(--surface);
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+  .toc { background: var(--surface); padding: 1.25rem 1.5rem; border-radius: 8px; margin: 1.5rem 0; }
+  .toc ol { margin-bottom: 0; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>Arcosanti &amp; The Cosanti Foundation: What Happened After Paolo Soleri, and Where Things Stand Today</h1>
+  <p class="subtitle">Research report compiled July 8, 2026 — following Research-Bot guidelines</p>
+</header>
+
+<section id="aims">
+  <h2>Aims of This Document</h2>
+  <p>This report investigates the current state of <strong>Arcosanti</strong> — Paolo Soleri's experimental "arcology" town near Mayer, Arizona — and the <strong>Cosanti Foundation</strong> that operates it. It was prompted by a visitor's conversation with a resident who reported hard times, blamed the post-Soleri foundation, cited roughly 30 full-time residents, and recalled a <em>Not So Native</em> podcast interview about a 2018 grey-water project and a search for partnerships rather than money.</p>
+  <p>The research aims to:</p>
+  <ol>
+    <li>Trace what changed after Paolo Soleri's death in April 2013.</li>
+    <li>Identify the 2018 grey-water infrastructure work and whether it was the last major improvement.</li>
+    <li>Clarify who ran marketing/communications then and who does now.</li>
+    <li>Map current foundation leadership (board and staff).</li>
+    <li>Assess resident population claims, including the "~30 residents" figure.</li>
+    <li>Synthesize the most accurate picture available as of mid-2026.</li>
+  </ol>
+</section>
+
+<section id="executive-summary">
+  <h2>Executive Summary</h2>
+  <div class="thesis-box">
+    <p><strong>Bottom line:</strong> Arcosanti is in its most severe organizational crisis since Soleri's death. After decades of slow construction, financial strain, leadership turnover, and reputational damage from abuse allegations against Soleri, the foundation's board reportedly laid off more than 80% of staff in 2025, ended workshops (2024), eliminated volunteers (Fall 2025), terminated on-site ceramic bell production, and ended formal agricultural activities (December 31, 2025).<sup class="cite"><a href="#ref-wiki">[1]</a></sup> The board is in a year-long "strategic pause" aiming for a new plan by end of 2026.<sup class="cite"><a href="#ref-wiki">[1]</a></sup></p>
+    <p>The podcast you likely remember is <strong>Not So Native, Season 4, November 21, 2019</strong> — not 2021 or 2023 — featuring <strong>Tim Bell</strong> as Director of Communications.<sup class="cite"><a href="#ref-nsn">[2]</a></sup> Bell is <strong>no longer</strong> in that role. Marketing/communications has since been held by Kelly Bird (c. 2020), Kate Bemesderfer (2021–2023), and is not clearly filled on the current staff page.<sup class="cite"><a href="#ref-mediakit">[3]</a><a href="#ref-phg">[4]</a><a href="#ref-staff">[5]</a></sup></p>
+    <p>Your resident's figure of <strong>~30 full-time residents</strong> is plausible and consistent with the downward trajectory (official site still claims ~45; tax filings cited ~60 in FY2023; 2019 press reported 70–80).<sup class="cite"><a href="#ref-life">[6]</a><a href="#ref-causeiq">[7]</a><a href="#ref-cronkite">[8]</a></sup> A complete public roster of all current residents <strong>does not exist</strong>; only partial names can be assembled from press, alumni communications, and foundation materials.</p>
+  </div>
+</section>
+
+<nav class="toc">
+  <h3>Contents</h3>
+  <ol>
+    <li><a href="#limitations">Limitations</a></li>
+    <li><a href="#history-field">History of the Field</a></li>
+    <li><a href="#timeline">Timeline: Soleri's Death to 2026</a></li>
+    <li><a href="#podcast">The Not So Native Podcast</a></li>
+    <li><a href="#greywater">The 2018 Grey-Water Project</a></li>
+    <li><a href="#leadership">Foundation Leadership Today</a></li>
+    <li><a href="#residents">Residents: Counts and Known Names</a></li>
+    <li><a href="#resident-complaints">"Discouraging People from Living There"</a></li>
+    <li><a href="#financials">Financial Picture</a></li>
+    <li><a href="#partnerships">Partnerships vs. Money</a></li>
+    <li><a href="#contradictions">Contradictions in Public Sources</a></li>
+    <li><a href="#conclusion">Conclusion &amp; Further Research</a></li>
+    <li><a href="#references">References</a></li>
+  </ol>
+</nav>
+
+<section id="limitations">
+  <h2>Limitations</h2>
+
+  <h3>Theoretical / Epistemic Limitations</h3>
+  <div class="limitation-box">
+    <ul>
+      <li><strong>Intentional communities are opaque.</strong> Resident grievances, internal board politics, and employment decisions are rarely documented in public filings. Oral testimony (like your conversation) may be accurate but is not independently verifiable.</li>
+      <li><strong>"Discouraging residency" is interpretive.</strong> Structural policy changes (requiring employment, ending workshops/volunteers, layoffs) can feel like discouragement without any explicit anti-residency policy.</li>
+      <li><strong>Founder-centric institutions struggle with succession.</strong> Soleri's charismatic, top-down model left weak organizational infrastructure — a pattern noted by his daughter Daniela and by former CEO Patrick McWhortor.<sup class="cite"><a href="#ref-guardian">[9]</a></sup></li>
+    </ul>
+  </div>
+
+  <h3>Methodological Limitations</h3>
+  <ul>
+    <li>Research relied on web-accessible sources: foundation website, IRS Form 990 summaries (ProPublica, Cause IQ), Wikipedia (with cited references), Arizona press, national architecture press, podcast archives, and NLRB filings. Paywalled articles (Bloomberg, Daily Independent) could not be fully retrieved.</li>
+    <li>No direct interviews with current residents, board members, or staff were conducted.</li>
+    <li>Foundation website content appears partially stale (e.g., still describing active workshops in some sections while Wikipedia reports cessation).<sup class="cite"><a href="#ref-foundation">[5]</a><a href="#ref-wiki">[1]</a></sup></li>
+    <li>Wikipedia's 2025 crisis section cites a When In Your State article (April 2025) that was not retrievable at research time; the claims align with NLRB data and other secondary sources but should be treated as <em>reported</em> rather than independently confirmed.<sup class="cite"><a href="#ref-wiki">[1]</a><a href="#ref-nlrb">[10]</a></sup></li>
+  </ul>
+
+  <h3>Strength of Evidence by Topic</h3>
+  <table>
+    <tr><th>Topic</th><th>Evidence strength</th><th>Notes</th></tr>
+    <tr><td>Soleri died April 9, 2013</td><td class="status-stable">High</td><td>Multiple authoritative biographical sources.<sup class="cite"><a href="#ref-wiki-soleri">[11]</a></sup></td></tr>
+    <tr><td>2018 grey-water work</td><td class="status-stable">High</td><td>ASU EPICS partnership, foundation desert-water page, Guardian 2016 on-site reporting.<sup class="cite"><a href="#ref-epics">[12]</a><a href="#ref-desertwater">[13]</a><a href="#ref-guardian-cities">[14]</a></sup></td></tr>
+    <tr><td>Tim Bell podcast (2019)</td><td class="status-stable">High</td><td>Podcast archive with date and title.<sup class="cite"><a href="#ref-nsn">[2]</a></sup></td></tr>
+    <tr><td>2025 mass layoffs / mothballing</td><td class="status-unclear">Medium</td><td>Wikipedia + NLRB petition; limited mainstream press retrieval.<sup class="cite"><a href="#ref-wiki">[1]</a><a href="#ref-nlrb">[10]</a></sup></td></tr>
+    <tr><td>Exact current resident count</td><td class="status-current">Low</td><td>Conflicting figures; no public roster.<sup class="cite"><a href="#ref-life">[6]</a><a href="#ref-causeiq">[7]</a></sup></td></tr>
+    <tr><td>Foundation "discouraging" residents</td><td class="status-current">Low</td><td>Anecdotal; no documented policy found.</td></tr>
+  </table>
+</section>
+
+<section id="history-field">
+  <h2>History of the Field: Arcosanti as an "Urban Laboratory"</h2>
+  <p>Paolo Soleri (1919–2013), an Italian-trained architect who studied under Frank Lloyd Wright, coined <strong>arcology</strong> — architecture + ecology — and founded the Cosanti Foundation in 1965.<sup class="cite"><a href="#ref-wiki-soleri">[11]</a></sup> Ground was broken at Arcosanti in 1970 on 860 acres near Cordes Junction, Arizona, with a visionary target population of 5,000; the built complex remains roughly <strong>5% complete</strong>, with the last major structure finished in 1989.<sup class="cite"><a href="#ref-wiki">[1]</a><a href="#ref-metropolis">[15]</a></sup></p>
+  <p>For five decades the project's lifeblood was:</p>
+  <ul>
+    <li><strong>Workshop labor</strong> — paying students/volunteers who built while learning (8,000+ participants by 2024).<sup class="cite"><a href="#ref-wiki">[1]</a></sup></li>
+    <li><strong>Windbell sales</strong> — bronze and ceramic bells cast on-site via Cosanti Originals.<sup class="cite"><a href="#ref-wiki">[1]</a></sup></li>
+    <li><strong>Tourism</strong> — tours, events, overnight stays (once ~30,000–40,000 visitors/year).<sup class="cite"><a href="#ref-mediakit">[3]</a></sup></li>
+    <li><strong>Donations and grants</strong> — typically a small fraction of revenue (~$92K–$104K/year in recent 990s).<sup class="cite"><a href="#ref-propublica">[16]</a></sup></li>
+  </ul>
+  <p>The experiment always sat between utopian urbanism and practical nonprofit survival — praised for prescient anti-sprawl ideas, criticized for slow building, car dependence, food insecurity, and patriarchal founder culture.<sup class="cite"><a href="#ref-metropolis">[15]</a><a href="#ref-fodors">[17]</a></sup></p>
+</section>
+
+<section id="timeline">
+  <h2>Timeline: After Paolo Soleri's Death (2013) to 2026</h2>
+
+  <div class="diagram">1970 ─── Arcosanti construction begins
+2011 ─── Soleri retires as president; Jeff Stein takes leadership
+2013 ─── Paolo Soleri dies (April 9); buried at Arcosanti
+2014 ─── Phoenix Magazine: recession, survival mode, windbells sustain site
+2017 ─── Daniela Soleri publishes abuse allegations publicly (Nov)
+2018 ─── Patrick McWhortor appointed CEO; grey-water EPICS project active
+2019 ─── Tim Bell (Comms Director) on Not So Native podcast; ~70-80 residents
+2020 ─── COVID shifts events digital; media kit lists 75 residents
+2021 ─── Elizabeth Martin-Malikian becomes CEO (Dec 1)
+2023 ─── Martin-Malikian resigns (Sept); Ivan Fritz interim CEO
+2024 ─── Workshops reportedly cease; David Turnbull listed as CEO (Cause IQ)
+2025 ─── NLRB petition (16 employees, April); mass layoffs reported;
+         ceramic bells ended; volunteers eliminated; ag activities end Dec 31
+2026 ─── Board "strategic pause" — plan expected by end of 2026 (reported)</div>
+
+  <h3>2013–2017: Immediate Post-Soleri Period</h3>
+  <p>Jeff Stein, a former Arcosanti workshop participant and Boston architecture dean, had already become foundation president in 2011 when Soleri retired at 92.<sup class="cite"><a href="#ref-wiki">[1]</a><a href="#ref-nyt">[18]</a></sup> One year after Soleri's death, <em>Phoenix Magazine</em> reported the site could "sustain indefinitely" on windbell and workshop income but wanted growth and investors; the community was only ~5% built after 40+ years.<sup class="cite"><a href="#ref-phoenixmag">[19]</a></sup></p>
+  <p>Stein proposed new apartment buildings, amphitheater canopy, bakery renovation, and model storage — most unbuilt.<sup class="cite"><a href="#ref-wiki">[1]</a></sup> The Guardian's 2016 profile found Tamura still optimistic about a developer partnership for a hotel/conference center — an idea Soleri himself resisted ("developer starts with D, like devil").<sup class="cite"><a href="#ref-guardian-cities">[14]</a></sup></p>
+
+  <h3>2017–2020: Reputational Crisis and Leadership Change</h3>
+  <p>In November 2017, Daniela Soleri published "Sexual abuse: It's you, him, and his work" on Medium, alleging childhood sexual abuse and attempted rape by her father.<sup class="cite"><a href="#ref-medium">[20]</a></sup> She had informed the foundation board in 2010 upon resigning; the board made Soleri step down as chairman privately but issued no public statement until after her 2017 essay.<sup class="cite"><a href="#ref-guardian">[9]</a></sup> The foundation expressed support for Daniela and pledged to reconsider Soleri's legacy while continuing the work.<sup class="cite"><a href="#ref-dezeen">[21]</a></sup></p>
+  <p>Patrick McWhortor, a nonprofit executive, became CEO in 2018 to professionalize outreach; Tim Bell joined communications/community engagement in 2017 and lived on-site from March 2018.<sup class="cite"><a href="#ref-guardian">[9]</a><a href="#ref-mediakit">[3]</a></sup> The Guardian (2020) reported ~80 permanent residents, a third being recent young arrivals, and Convergence festivals drawing diverse crowds largely unaware of abuse history.<sup class="cite"><a href="#ref-guardian">[9]</a></sup></p>
+
+  <h3>2021–2023: Martin-Malikian Era and Resignation</h3>
+  <p>Architect and professor Elizabeth Martin-Malikian became CEO December 1, 2021, with plans to grow operations 10%, expand workshops, and engage 8,000+ alumni.<sup class="cite"><a href="#ref-phg">[4]</a></sup> After two years she resigned in September 2023; board chair Matteo Di Michele praised her strategic plan and partnerships. Ivan Fritz, a long-time board member, became interim CEO while the board searched for a permanent replacement.<sup class="cite"><a href="#ref-dailyind">[22]</a></sup></p>
+
+  <h3>2024–2026: Contraction and Reported "Mothballing"</h3>
+  <p>David Turnbull, an architect and educator, appears as President &amp; CEO in Cause IQ personnel data (October 2024) and led a February 2025 "Arcology + AI" event and 2025 Alumni Reunion alongside Board Chair Nicole Ackerina.<sup class="cite"><a href="#ref-causeiq">[7]</a><a href="#ref-events">[23]</a></sup> Despite this, Wikipedia (updated through 2025) reports that the board laid off 80%+ of staff, ended workshops in 2024, eliminated volunteers in Fall 2025, terminated ceramic bell production, ended agricultural activities December 31, 2025, and entered a strategic pause with vacant Executive Director and Board Chair positions — citing treasurer Stephen Ostwinkle's email to remaining employees.<sup class="cite"><a href="#ref-wiki">[1]</a></sup></p>
+  <p>An NLRB petition filed April 15, 2025 lists 16 employees in a bargaining unit covering guest services, archives, maintenance, café, and alumni/workshop staff — suggesting a workforce already much smaller than the 28 employees reported in FY2023.<sup class="cite"><a href="#ref-nlrb">[10]</a></sup></p>
+</section>
+
+<section id="podcast">
+  <h2>The Not So Native Podcast Interview</h2>
+
+  <div class="overview-grid">
+    <div class="overview-card">
+      <h4>What you remembered</h4>
+      <p>Not So Native podcast, head of marketing, ~2021 or 2023, grey-water 2018, seeking partnerships over money.</p>
+    </div>
+    <div class="overview-card">
+      <h4>What the record shows</h4>
+      <p><strong>November 21, 2019</strong> — Season 4, Episode "Arcosanti: An Urban Laboratory." Guest: <strong>Tim Bell</strong>, <em>Director of Communications</em> (not marketing). 43 minutes, recorded on-site.<sup class="cite"><a href="#ref-nsn">[2]</a></sup></p>
+    </div>
+  </div>
+
+  <h3>Tim Bell — Then and Now</h3>
+  <table>
+    <tr><th>Period</th><th>Title</th><th>Status</th></tr>
+    <tr>
+      <td>Fall 2017 – 2020</td>
+      <td>Director of Community Engagement / Communications / Outreach</td>
+      <td>Lived on-site from March 2018; featured in 2019 Cronkite News and Not So Native.<sup class="cite"><a href="#ref-mediakit">[3]</a><a href="#ref-cronkite">[8]</a><a href="#ref-nsn">[2]</a></sup></td>
+    </tr>
+    <tr>
+      <td>2020 media kit</td>
+      <td>Listed as Director of Community Engagement; also "chief cultural officer" for Arcosanti Convergence</td>
+      <td>Not on current staff page.<sup class="cite"><a href="#ref-mediakit">[3]</a><a href="#ref-staff">[5]</a></sup></td>
+    </tr>
+    <tr>
+      <td>Present (2026)</td>
+      <td>—</td>
+      <td><span class="status-current">No longer in communications role.</span> LinkedIn lists former Director of Community Outreach at Cosanti Foundation.<sup class="cite"><a href="#ref-linkedin">[24]</a></sup></td>
+    </tr>
+  </table>
+
+  <h3>Marketing / Communications Lineage</h3>
+  <table>
+    <tr><th>Name</th><th>Title</th><th>Approx. period</th><th>Source</th></tr>
+    <tr><td>Tim Bell</td><td>Director of Communications / Community Engagement</td><td>2017–2020</td><td>Media kit, podcast, Cronkite News<sup class="cite"><a href="#ref-mediakit">[3]</a><a href="#ref-nsn">[2]</a></sup></td></tr>
+    <tr><td>Kelly Bird</td><td>Director of Marketing and Communications</td><td>~2020</td><td>2020 digital media kit<sup class="cite"><a href="#ref-mediakit">[3]</a></sup></td></tr>
+    <tr><td>Kate Bemesderfer</td><td>Senior Director of Development &amp; Communication</td><td>2021–2023</td><td>Phoenix Home &amp; Garden, press releases<sup class="cite"><a href="#ref-phg">[4]</a><a href="#ref-press-zucker">[25]</a></sup></td></tr>
+    <tr><td><em>Unfilled / unclear</em></td><td>—</td><td>2024–2026</td><td>Current staff page lists no comms director<sup class="cite"><a href="#ref-staff">[5]</a></sup></td></tr>
+  </table>
+
+  <p>Bell's 2019 interview themes align with what you recall: Arcosanti as an ongoing experiment, environmental urgency, community size challenges, and the need for broader engagement — though the specific "partnerships over money" framing is more explicitly documented in later CEO statements (McWhortor, Martin-Malikian) and in Tamura's developer-partnership comments.<sup class="cite"><a href="#ref-guardian">[9]</a><a href="#ref-guardian-cities">[14]</a><a href="#ref-phg">[4]</a></sup></p>
+</section>
+
+<section id="greywater">
+  <h2>The 2018 Grey-Water Project</h2>
+  <p>The 2018 grey-water work is well-documented and was among the last visible infrastructure improvements on-site.</p>
+
+  <h3>What Was Built</h3>
+  <ul>
+    <li><strong>East Crescent grey-water system:</strong> The foundation's desert-water page describes installing a grey-water system in the East Crescent neighborhood to reuse sink and shower water for landscape irrigation — part of broader water conservation (low-flush toilets, rainwater harvesting, aquifer recharge).<sup class="cite"><a href="#ref-desertwater">[13]</a></sup></li>
+    <li><strong>ASU EPICS partnership:</strong> Arizona State University's Engineering Projects in Community Service program partnered with Arcosanti on grey-water reclamation (without black water), aiming to purify water for a small orchard — described as exploratory research with no prior existing examples.<sup class="cite"><a href="#ref-epics">[12]</a></sup></li>
+    <li><strong>Earlier context:</strong> A 2016 <em>Guardian</em> Cities piece photographed students installing a grey-water recycling tank on-site while Jeff Stein discussed slow but continuing growth.<sup class="cite"><a href="#ref-guardian-cities">[14]</a></sup></li>
+  </ul>
+
+  <h3>Was 2018 the Last Major Improvement?</h3>
+  <p><strong>Largely yes</strong> for capital infrastructure. No new major buildings have been completed since 1989.<sup class="cite"><a href="#ref-wiki">[1]</a></sup> Post-2018 activity focused on programming (Convergence festivals, alumni events, tours, workshops), land stewardship mapping, and organizational changes rather than construction. The Greenhouse Apron, underway before Soleri's death, was put on hold after 2013.<sup class="cite"><a href="#ref-wiki-soleri">[11]</a></sup> Wikipedia notes formal agricultural activities ended December 31, 2025.<sup class="cite"><a href="#ref-wiki">[1]</a></sup></p>
+</section>
+
+<section id="leadership">
+  <h2>Foundation Leadership Today</h2>
+
+  <h3>Executive Leadership (2024–2026)</h3>
+  <table>
+    <tr><th>Name</th><th>Role</th><th>Notes</th></tr>
+    <tr><td>David Turnbull</td><td>President &amp; CEO / Executive Director</td><td>Listed in Cause IQ (Oct 2024); moderated Arcology+AI event Feb 2025; led alumni reunion with Board Chair Nicole Ackerina.<sup class="cite"><a href="#ref-causeiq">[7]</a><a href="#ref-events">[23]</a><a href="#ref-cbsd">[26]</a></sup> <span class="status-unclear">Wikipedia reports Executive Director vacant (Fall 2025) — contradiction unresolved.</span><sup class="cite"><a href="#ref-wiki">[1]</a></sup></td></tr>
+    <tr><td>Scott Riley</td><td>Director of Site Management</td><td>Senior staff.<sup class="cite"><a href="#ref-staff">[5]</a><a href="#ref-causeiq">[7]</a></sup></td></tr>
+    <tr><td>Ray Paskus</td><td>Director of Education and Partnerships</td><td>Senior staff; archives background.<sup class="cite"><a href="#ref-staff">[5]</a></sup></td></tr>
+    <tr><td>Hanne Sue Kirsch</td><td>Archives Manager</td><td>Long-time resident (since 1978); Guardian 2020 profile.<sup class="cite"><a href="#ref-staff">[5]</a><a href="#ref-guardian">[9]</a></sup></td></tr>
+    <tr><td>Taylor Morganson</td><td>Construction &amp; Maintenance Manager</td><td>Senior staff.<sup class="cite"><a href="#ref-staff">[5]</a></sup></td></tr>
+    <tr><td>Yvonne Brook</td><td>Landscape Manager</td><td>Senior staff.<sup class="cite"><a href="#ref-staff">[5]</a></sup></td></tr>
+  </table>
+
+  <h3>Board of Directors (from foundation website)</h3>
+  <table>
+    <tr><th>Member</th><th>Location / Role</th><th>Background (abbreviated)</th></tr>
+    <tr><td>Jen Adams</td><td>Doylestown, PA</td><td>Marketing/brand leader (Urban Outfitters, Tröegs Brewing, Burpee).<sup class="cite"><a href="#ref-staff">[5]</a></sup></td></tr>
+    <tr><td>Nadia Begin</td><td>Mayer, AZ</td><td>Architect; Arcosanti resident since 1993; former planning dept.; board Education Committee chair.<sup class="cite"><a href="#ref-staff">[5]</a></sup></td></tr>
+    <tr><td>David Fordon</td><td>Scottsdale, AZ</td><td>International business/real estate; Development Committee chair.<sup class="cite"><a href="#ref-staff">[5]</a></sup></td></tr>
+    <tr><td>Newt Lynn</td><td>Prescott, AZ</td><td>Historic preservation, community development.<sup class="cite"><a href="#ref-staff">[5]</a></sup></td></tr>
+    <tr><td>Stephen Ostwinkle</td><td>Phoenix, AZ — <strong>Treasurer</strong></td><td>Heavy civil construction; reportedly emailed staff about 2026 strategic planning.<sup class="cite"><a href="#ref-staff">[5]</a><a href="#ref-wiki">[1]</a></sup></td></tr>
+    <tr><td>Monique de los Rios-Urban</td><td>Phoenix, AZ</td><td>Urban planning, ASU; former strategic planning committee.<sup class="cite"><a href="#ref-staff">[5]</a></sup></td></tr>
+    <tr><td>Jeff Stein</td><td>Boston, MA — <strong>Secretary</strong></td><td>Former foundation president; Arcosanti alumnus; architect/educator.<sup class="cite"><a href="#ref-staff">[5]</a></sup></td></tr>
+    <tr><td>Jeffrey Zucker</td><td>Port Townsend, WA — <strong>Secretary</strong> (per site)</td><td>Architect, Arcosanti alumnus since 1973; joined board 2022.<sup class="cite"><a href="#ref-staff">[5]</a><a href="#ref-press-zucker">[25]</a></sup></td></tr>
+    <tr><td>Matteo Di Michele</td><td>Charlotte, NC — Emeritus</td><td>Former board chair (2023); Arcosanti resident 10+ years; MBA ASU.<sup class="cite"><a href="#ref-staff">[5]</a><a href="#ref-dailyind">[22]</a></sup></td></tr>
+    <tr><td>Jean Tuller</td><td>Berkeley, CA — Emeritus</td><td>Former COO.<sup class="cite"><a href="#ref-staff">[5]</a></sup></td></tr>
+    <tr><td>Nicole Ackerina</td><td>— <strong>Board Chair</strong> (2025 reunion)</td><td>Listed on events page, not main board roster.<sup class="cite"><a href="#ref-events">[23]</a></sup></td></tr>
+  </table>
+
+  <h3>Former CEOs (succession instability)</h3>
+  <table>
+    <tr><th>CEO</th><th>Period</th><th>Outcome</th></tr>
+    <tr><td>Paolo Soleri</td><td>Founder – 2011</td><td>Retired at 92.<sup class="cite"><a href="#ref-wiki">[1]</a></sup></td></tr>
+    <tr><td>Jeff Stein</td><td>2011–~2018</td><td>Transitioned to board secretary.<sup class="cite"><a href="#ref-staff">[5]</a><a href="#ref-guardian">[9]</a></sup></td></tr>
+    <tr><td>Patrick McWhortor</td><td>~2018–~2021</td><td>"Change agent"; sought to rebuild external outreach.<sup class="cite"><a href="#ref-guardian">[9]</a></sup></td></tr>
+    <tr><td>Elizabeth Martin-Malikian</td><td>Dec 2021 – Sept 2023</td><td>Resigned; strategic plan, partnerships, Cosanti Medal.<sup class="cite"><a href="#ref-dailyind">[22]</a><a href="#ref-phg">[4]</a></sup></td></tr>
+    <tr><td>Ivan Fritz</td><td>Interim, Sept 2023+</td><td>Former CEO on FY2024 990.<sup class="cite"><a href="#ref-propublica">[16]</a></sup></td></tr>
+    <tr><td>David Turnbull</td><td>~2024–present?</td><td>Listed CEO Oct 2024; status during 2025 layoffs unclear.<sup class="cite"><a href="#ref-causeiq">[7]</a><a href="#ref-wiki">[1]</a></sup></td></tr>
+  </table>
+</section>
+
+<section id="residents">
+  <h2>Residents: Population Counts and Known Names</h2>
+
+  <h3>Population Estimates Over Time</h3>
+  <table>
+    <tr><th>Year</th><th>Figure</th><th>Source</th></tr>
+    <tr><td>1970s–2000s</td><td>50–150 (incl. students/volunteers)</td><td>Wikipedia<sup class="cite"><a href="#ref-wiki">[1]</a></sup></td></tr>
+    <tr><td>2016</td><td>~50 year-round</td><td>Metropolis<sup class="cite"><a href="#ref-metropolis">[15]</a></sup></td></tr>
+    <tr><td>2019</td><td>70–80 (seasonal fluctuation)</td><td>Cronkite News / Tim Bell<sup class="cite"><a href="#ref-cronkite">[8]</a></sup></td></tr>
+    <tr><td>2020</td><td>75 full-time</td><td>Foundation media kit<sup class="cite"><a href="#ref-mediakit">[3]</a></sup></td></tr>
+    <tr><td>2020</td><td>~80 permanent; 1/3 recent young arrivals</td><td>Guardian<sup class="cite"><a href="#ref-guardian">[9]</a></sup></td></tr>
+    <tr><td>FY2023 990</td><td>~60 reside full-time at Arcosanti</td><td>Cause IQ program description<sup class="cite"><a href="#ref-causeiq">[7]</a></sup></td></tr>
+    <tr><td>Website (current)</td><td>~45 full-time year-round average</td><td>arcosanti.org/arcosanti-life<sup class="cite"><a href="#ref-life">[6]</a></sup></td></tr>
+    <tr><td>~2025</td><td>38</td><td>French press syndication<sup class="cite"><a href="#ref-sayart">[27]</a></sup></td></tr>
+    <tr><td>Your visit (~2026)</td><td>~30 (resident testimony)</td><td>Unverified oral report</td></tr>
+    <tr><td>April 2025</td><td>16 foundation employees (NLRB unit)</td><td>NLRB case 28-RC-363955<sup class="cite"><a href="#ref-nlrb">[10]</a></sup></td></tr>
+  </table>
+
+  <p><strong>Assessment:</strong> The ~30 figure your resident cited is credible given layoffs, ended workshops/volunteers, and the downward trend from 75→60→45→38→30. The foundation website has likely not been updated to reflect 2025 contractions.</p>
+
+  <h3>How Residency Works</h3>
+  <p>Historically, the path to residency was the 5–6 week workshop. Currently (per website), residency requires employment by the Cosanti Foundation or Cosanti Originals — not all jobs require living on-site.<sup class="cite"><a href="#ref-life">[6]</a></sup> With workshops ended and volunteers eliminated, <strong>fewer pathways to residency exist</strong>, which may explain residents' perception of being discouraged even without an explicit anti-residency policy.</p>
+
+  <h3>Known Long-Term Residents &amp; Community Figures (Partial List)</h3>
+  <p><em>No complete public roster exists. The following individuals are documented in press, foundation materials, or tax filings — not necessarily all current as of July 2026.</em></p>
+
+  <table>
+    <tr><th>Name</th><th>Association</th><th>Source</th></tr>
+    <tr><td>Mary Hoadley</td><td>Resident since 1970; former co-president/treasurer; site coordinator</td><td>Cronkite 2019, Guardian 2016/2020<sup class="cite"><a href="#ref-cronkite">[8]</a><a href="#ref-guardian">[9]</a></sup></td></tr>
+    <tr><td>Tomiaki Tamura</td><td>Resident since 1976; architect-in-residence; archives; architectural tours</td><td>Guardian, alumni newsletter 2024<sup class="cite"><a href="#ref-guardian-cities">[14]</a><a href="#ref-newsletter">[28]</a></sup></td></tr>
+    <tr><td>Hanne Sue Kirsch</td><td>Archives Manager; on/off resident since 1978</td><td>Guardian 2020, staff page<sup class="cite"><a href="#ref-guardian">[9]</a><a href="#ref-staff">[5]</a></sup></td></tr>
+    <tr><td>Nadia Begin</td><td>Board member; raised two sons at Arcosanti; now works off-site in Clarkdale</td><td>Board bio<sup class="cite"><a href="#ref-staff">[5]</a></sup></td></tr>
+    <tr><td>Roger Tomalty</td><td>Long-time associate; married to Hoadley; former executive roles</td><td>Guardian 2020, 990 filings<sup class="cite"><a href="#ref-guardian">[9]</a></sup></td></tr>
+    <tr><td>Scott Riley</td><td>Director of Site Management</td><td>Staff page<sup class="cite"><a href="#ref-staff">[5]</a></sup></td></tr>
+    <tr><td>Taylor Morganson</td><td>Construction &amp; Maintenance Manager</td><td>Staff page<sup class="cite"><a href="#ref-staff">[5]</a></sup></td></tr>
+    <tr><td>Yvonne Brook</td><td>Landscape Manager</td><td>Staff page<sup class="cite"><a href="#ref-staff">[5]</a></sup></td></tr>
+    <tr><td>Ray Paskus</td><td>Director of Education and Partnerships</td><td>Staff page<sup class="cite"><a href="#ref-staff">[5]</a></sup></td></tr>
+    <tr><td>Rob Jackson</td><td>Director of Talent Development / HR / residential policies (2019–2020)</td><td>2020 media kit<sup class="cite"><a href="#ref-mediakit">[3]</a></sup></td></tr>
+    <tr><td>Tim Bell</td><td>Former comms director; on-site 2018–2020</td><td>Media kit, podcast<sup class="cite"><a href="#ref-mediakit">[3]</a><a href="#ref-nsn">[2]</a></sup></td></tr>
+    <tr><td>Jorge Molina</td><td>Planning department lead (2024)</td><td>Alumni newsletter<sup class="cite"><a href="#ref-newsletter">[28]</a></sup></td></tr>
+    <tr><td>Ana Vázquez</td><td>Land stewardship coordinator (2024)</td><td>Alumni newsletter<sup class="cite"><a href="#ref-newsletter">[28]</a></sup></td></tr>
+    <tr><td>Linn Williams</td><td>Land Stewardship Manager and Ecologist</td><td>Cause IQ<sup class="cite"><a href="#ref-causeiq">[7]</a></sup></td></tr>
+    <tr><td>Taylor Morgan</td><td>Education Manager</td><td>Cause IQ<sup class="cite"><a href="#ref-causeiq">[7]</a></sup></td></tr>
+    <tr><td>Vickie Mayer</td><td>Cosanti Originals retail GM (subsidiary)</td><td>2020 media kit<sup class="cite"><a href="#ref-mediakit">[3]</a></sup></td></tr>
+    <tr><td>David Tollas</td><td>Nadia Begin's husband; raised family on-site</td><td>Board bio (Nadia Begin)<sup class="cite"><a href="#ref-staff">[5]</a></sup></td></tr>
+    <tr><td>Tristan &amp; Sasha Tollas</td><td>Born at Arcosanti (Nadia Begin's sons)</td><td>Board bio<sup class="cite"><a href="#ref-staff">[5]</a></sup></td></tr>
+  </table>
+
+  <p><strong>Why a full list of 30 is unavailable:</strong> Arcosanti is a private residential community on foundation-owned land. Residents are not a matter of public record unless they appear in press, events, or tax filings as compensated employees. After 2025 layoffs, many former staff-residents may have departed without public announcement.</p>
+</section>
+
+<section id="resident-complaints">
+  <h2>"Discouraging People from Living There"</h2>
+  <p>Your resident's claim could not be confirmed in any published foundation policy, press release, or board statement. However, several <strong>structural changes</strong> produce a similar effect:</p>
+  <ol>
+    <li><strong>Employment-only residency:</strong> You can no longer become a resident through the classic workshop pathway; you must be hired.<sup class="cite"><a href="#ref-life">[6]</a></sup></li>
+    <li><strong>Workshops ended (2024):</strong> Removed the primary pipeline that converted visitors into long-term community members.<sup class="cite"><a href="#ref-wiki">[1]</a></sup></li>
+    <li><strong>Volunteers eliminated (Fall 2025):</strong> Removed another residency pathway.<sup class="cite"><a href="#ref-wiki">[1]</a></sup></li>
+    <li><strong>Mass layoffs (2025):</strong> Fewer jobs = fewer resident slots; NLRB shows only 16 employees in the bargaining unit.<sup class="cite"><a href="#ref-nlrb">[10]</a></sup></li>
+    <li><strong>Low wages:</strong> Tim Bell noted in 2019 that residents leave because nonprofit salaries cannot fund retirement; community size itself drives attrition.<sup class="cite"><a href="#ref-cronkite">[8]</a></sup></li>
+    <li><strong>Stagnation sentiment:</strong> A 2019 resident told Cronkite News: "It's been quite stagnant… people are comfortable with how it's been."<sup class="cite"><a href="#ref-cronkite">[8]</a></sup></li>
+  </ol>
+  <p>The foundation may be pivoting from "living experiment" to "heritage site in strategic review" — which long-term residents could reasonably experience as being pushed out or devalued, even if no one said "we don't want you here."</p>
+</section>
+
+<section id="financials">
+  <h2>Financial Picture</h2>
+  <table>
+    <tr><th>Fiscal year</th><th>Revenue</th><th>Expenses</th><th>Net income</th><th>Employees</th></tr>
+    <tr><td>FY2024 (Nov 2024)</td><td>$1,963,662</td><td>$2,054,505</td><td>−$90,843</td><td>Not in extract</td></tr>
+    <tr><td>FY2023</td><td>$1,764,123</td><td>$1,839,941</td><td>−$75,818</td><td>28</td></tr>
+  </table>
+  <p class="cite">Source: ProPublica Nonprofit Explorer, Cause IQ.<sup class="cite"><a href="#ref-propublica">[16]</a><a href="#ref-causeiq">[7]</a></sup></p>
+
+  <p>Revenue is overwhelmingly from program services (~85%) — tours, bells, events — not donations. The organization has run operating deficits in recent years while net assets declined from ~$5.45M to ~$4.77M.<sup class="cite"><a href="#ref-propublica">[16]</a></sup> Windbell sales and tourism were never sufficient to fund Soleri's full vision; the 2025 contraction suggests the board concluded the operating model was unsustainable at prior staffing levels.</p>
+</section>
+
+<section id="partnerships">
+  <h2>Partnerships vs. Money</h2>
+  <p>The "we need partners more than money" theme appears across eras:</p>
+  <ul>
+    <li><strong>2016:</strong> Tamura discussed a developer partnership for hotel/conference center to fund expansion.<sup class="cite"><a href="#ref-guardian-cities">[14]</a></sup></li>
+    <li><strong>2018–2020:</strong> McWhortor emphasized rebuilding external outreach and addressing reputational damage while defending the mission.<sup class="cite"><a href="#ref-guardian">[9]</a></sup></li>
+    <li><strong>2021–2023:</strong> Martin-Malikian built "strategic partnerships with complementary organizations," academic conferences, and alumni engagement.<sup class="cite"><a href="#ref-dailyind">[22]</a><a href="#ref-phg">[4]</a></sup></li>
+    <li><strong>2025:</strong> "Arcology + AI" symposium with ASU-affiliated speakers suggests continued appetite for intellectual partnerships.<sup class="cite"><a href="#ref-events">[23]</a></sup></li>
+    <li><strong>Board committee structure:</strong> Development Committee (David Fordon, chair) and Education Committee (Nadia Begin, chair) are explicitly open to public involvement — signaling partnership-oriented governance.<sup class="cite"><a href="#ref-staff">[5]</a></sup></li>
+  </ul>
+  <p>Your resident's intuition that the site has <em>uses</em> is shared by many alumni and urbanists; the constraint has been organizational capacity, funding, permitting, and leadership continuity — not lack of imaginable purposes.</p>
+</section>
+
+<section id="contradictions">
+  <h2>Contradictions in Public Sources (Important for Accuracy)</h2>
+  <table>
+    <tr><th>Topic</th><th>Source A</th><th>Source B</th></tr>
+    <tr>
+      <td>CEO status (late 2025)</td>
+      <td>David Turnbull listed CEO, led Feb 2025 events<sup class="cite"><a href="#ref-events">[23]</a></sup></td>
+      <td>Wikipedia: Executive Director position vacant<sup class="cite"><a href="#ref-wiki">[1]</a></sup></td>
+    </tr>
+    <tr>
+      <td>Board Chair</td>
+      <td>Nicole Ackerina, Board Chair at 2025 reunion<sup class="cite"><a href="#ref-events">[23]</a></sup></td>
+      <td>Main board page: no chair listed; Matteo Di Michele emeritus (was chair 2023)<sup class="cite"><a href="#ref-staff">[5]</a><a href="#ref-dailyind">[22]</a></sup></td>
+    </tr>
+    <tr>
+      <td>Resident count</td>
+      <td>Website: ~45 average<sup class="cite"><a href="#ref-life">[6]</a></sup></td>
+      <td>Visitor testimony: ~30; press: 38<sup class="cite"><a href="#ref-sayart">[27]</a></sup></td>
+    </tr>
+    <tr>
+      <td>Programs active?</td>
+      <td>Homepage: "tens of thousands visit," workshops language<sup class="cite"><a href="#ref-homepage">[29]</a></sup></td>
+      <td>Wikipedia: workshops ceased 2024, volunteers ended 2025<sup class="cite"><a href="#ref-wiki">[1]</a></sup></td>
+    </tr>
+    <tr>
+      <td>FY2024 990 leadership</td>
+      <td>Cause IQ: David Turnbull CEO (Oct 2024)<sup class="cite"><a href="#ref-causeiq">[7]</a></sup></td>
+      <td>ProPublica FY2024 extract: Ivan Fritz "Former CEO," no Turnbull listed<sup class="cite"><a href="#ref-propublica">[16]</a></sup></td>
+    </tr>
+  </table>
+  <p>These contradictions suggest the organization is mid-transition with outdated web content and incomplete public reporting. Treat any single source as provisional.</p>
+</section>
+
+<section id="conclusion">
+  <h2>Conclusion</h2>
+  <div class="conclusion">
+    <p>Arcosanti remains standing — the concrete vaults, apse, foundry, and windbells are real — but the <strong>organizational experiment may be at its lowest ebb</strong> since Paolo Soleri's death. The Cosanti Foundation has cycled through multiple CEOs, faced reputational harm from abuse revelations, never solved the economics of building a 5,000-person city at 5% completion, and — per multiple sources — drastically reduced staff and programs in 2025 while the board searches for a new direction through 2026.</p>
+    <p>Your resident's experience aligns with documented trends even where specific claims ("they're discouraging us") lack paper trails. The ~30 resident count is believable. The podcast was Tim Bell in <strong>2019</strong>, not 2021/2023, and he no longer holds that role. The 2018 grey-water project was real and among the last infrastructure wins. The foundation's leadership today is a mix of long-arc veterans (Stein, Begin, Ostwinkle, Hoadley, Tamura) and newer professional board members (Adams, Fordon, Lynn), with David Turnbull as the most recently identified CEO — though his status during the 2025 layoffs is unclear.</p>
+    <p>The site still has extraordinary potential as an educational landmark, retreat, research station, or partnership hub. What it lacks is a stable institutional model that connects that potential to the people who live there.</p>
+  </div>
+
+  <h3>Further Research Questions</h3>
+  <ol>
+    <li>What does the board's end-of-2026 strategic plan actually propose? (Monitor arcosanti.org, alumni list, Yavapai County records.)</li>
+    <li>Outcome of NLRB case 28-RC-363955 — was a union formed?</li>
+    <li>Full text of Stephen Ostwinkle's Fall 2025 staff email.</li>
+    <li>Current Cosanti (Paradise Valley) status vs. Arcosanti — is either site being prioritized for sale, lease, or partnership?</li>
+    <li>Yavapai County permitting history — did local regulation actually block expansion, as Hacker News commenters claimed?</li>
+    <li>Direct interviews with remaining residents and recently departed staff.</li>
+    <li>Whether David Turnbull remains CEO or was affected by 2025 layoffs.</li>
+  </ol>
+</section>
+
+<section id="references">
+  <h2>References</h2>
+  <ol>
+    <li id="ref-wiki"><a href="https://en.wikipedia.org/wiki/Arcosanti">Wikipedia — Arcosanti</a> (accessed July 2026). Includes 2024–2025 workshop cessation, 2025 layoffs, agricultural termination.</li>
+    <li id="ref-nsn"><a href="https://www.notsonativepodcast.com/arcosanti">Not So Native — "Arcosanti: An Urban Laboratory"</a> (Nov 21, 2019). Tim Bell, Director of Communications.</li>
+    <li id="ref-mediakit"><a href="https://www.arcosanti.org/wp-content/uploads/2020/07/Arcosanti-and-the-Cosanti-Foundation-Digital-Media-Kit-Content-FINAL.pdf">Cosanti Foundation Digital Media Kit</a> (July 2020). Staff bios, 75 residents, Kelly Bird, Tim Bell, Rob Jackson.</li>
+    <li id="ref-phg"><a href="https://www.phgmag.com/the-cosanti-foundations-new-ceo-plans-to-preserve-the-past-but-embrace-the-future/">Phoenix Home &amp; Garden — Martin-Malikian CEO appointment</a> (2021).</li>
+    <li id="ref-staff"><a href="https://www.arcosanti.org/cosanti-foundation/">The Cosanti Foundation — Who We Are</a> (staff and board, accessed July 2026).</li>
+    <li id="ref-life"><a href="https://www.arcosanti.org/arcosanti-life/">Arcosanti — Life at Arcosanti</a>. ~45 full-time residents; employment requirement.</li>
+    <li id="ref-causeiq"><a href="https://www.causeiq.com/organizations/cosanti-foundation,860208931/">Cause IQ — Cosanti Foundation</a>. FY2023 financials, ~60 residents, David Turnbull CEO (Oct 2024).</li>
+    <li id="ref-cronkite"><a href="https://cronkitenews.azpbs.org/2019/05/03/arcosanti-project/">Cronkite News — Arcosanti at 50</a> (May 3, 2019). Tim Bell, Mary Hoadley, Jeff Stein interviews.</li>
+    <li id="ref-guardian"><a href="https://www.theguardian.com/artanddesign/2020/feb/29/paolo-soleri-architect-abuser-arcosanti-utopian-city-steve-rose">The Guardian — Daniela Soleri / Arcosanti future</a> (Feb 29, 2020). McWhortor, Bell, ~80 residents.</li>
+    <li id="ref-nlrb"><a href="https://www.nlrb.gov/case/28-RC-363955">NLRB Case 28-RC-363955</a> — Cosanti Foundation, filed April 15, 2025; 16 employees.</li>
+    <li id="ref-wiki-soleri"><a href="https://en.wikipedia.org/wiki/Paolo_Soleri">Wikipedia — Paolo Soleri</a>. Biography, abuse allegations, Greenhouse Apron hold.</li>
+    <li id="ref-epics"><a href="https://epics.engineering.asu.edu/arcosanti-grey-water/">ASU EPICS — Arcosanti Grey Water</a>.</li>
+    <li id="ref-desertwater"><a href="https://www.arcosanti.org/desert-water/">Arcosanti — Desert/Water</a>. East Crescent grey-water system.</li>
+    <li id="ref-guardian-cities"><a href="https://www.theguardian.com/cities/2016/may/04/story-cities-35-arcosanti-paolo-soleri-desert">The Guardian Cities — Story of Cities #35</a> (May 4, 2016). Tamura, Hoadley, grey-water tank.</li>
+    <li id="ref-metropolis"><a href="https://metropolismag.com/viewpoints/complicated-legacy-arcosanti-paolo-soleri/">Metropolis — Complicated Legacy of Arcosanti</a> (Dec 22, 2017).</li>
+    <li id="ref-propublica"><a href="https://projects.propublica.org/nonprofits/organizations/860208931">ProPublica Nonprofit Explorer — Cosanti Foundation</a>. FY2024 and historical 990 data.</li>
+    <li id="ref-fodors"><a href="https://www.fodors.com/world/north-america/usa/arizona/experiences/news/inside-arcosanti-an-experimental-village-in-arizona">Fodor's — Inside Arcosanti</a>. ~40 residents, COVID exodus, Daniela Soleri.</li>
+    <li id="ref-nyt"><a href="https://www.nytimes.com/2012/02/16/garden/an-early-eco-city-faces-the-future.html">New York Times — An Early Eco-City Faces the Future</a> (Feb 15, 2012). Jeff Stein succession.</li>
+    <li id="ref-phoenixmag"><a href="https://www.phoenixmag.com/2014/04/01/sustaining-soleri/">Phoenix Magazine — Sustaining Soleri</a> (April 2014).</li>
+    <li id="ref-medium"><a href="https://medium.com/@soleri/sexual-abuse-its-you-him-and-his-work-88ecb8e99648">Daniela Soleri — Medium essay</a> (Nov 2017).</li>
+    <li id="ref-dezeen"><a href="https://www.dezeen.com/2017/12/18/paolo-soleri-sexual-abuse-daughter-daniela-soleri/">Dezeen — Abuse allegations coverage</a> (Dec 18, 2017).</li>
+    <li id="ref-dailyind"><a href="https://www.yourvalley.net/stories/cosanti-foundation-announces-departure-of-ceoexecutive-director-appoints-interim-ceo,422413">Daily Independent — Martin-Malikian resignation</a> (Sept 12, 2023).</li>
+    <li id="ref-events"><a href="https://www.arcosanti.org/upcoming-events/">Arcosanti — Upcoming Events</a>. 2025 Alumni Reunion; Arcology+AI Feb 2025.</li>
+    <li id="ref-linkedin"><a href="https://www.linkedin.com/in/tim-bell-674b65165">LinkedIn — Tim Bell</a>. Former Director of Community Outreach.</li>
+    <li id="ref-press-zucker"><a href="https://www.arcosanti.org/wp-content/uploads/2022/07/PRESS-RELEASE-Cosanti-Foundation-Welcomes-Jeff-Zucker-to-Board-of-Directors-2022.07.pdf">Press Release — Jeff Zucker to Board</a> (2022). Kate Bemesderfer media contact.</li>
+    <li id="ref-cbsd"><a href="https://www.cbsd.com/author/david-turnbull/">Consortium Book Sales — David Turnbull bio</a>. CEO Cosanti Foundation.</li>
+    <li id="ref-sayart"><a href="https://sayart.net/news/view/1065622205619876">SayArt — Arcosanti utopia article</a>. 38 residents cited.</li>
+    <li id="ref-newsletter"><a href="https://myemail.constantcontact.com/We-re-Not-Slowing-Down-This-Summer---.html?aid=JwR7S_Lv0YA&soid=1111693542346">Cosanti Foundation email newsletter</a> (2024). Tamura honor; Hoadley river mapping.</li>
+    <li id="ref-homepage"><a href="https://www.arcosanti.org/">Arcosanti homepage</a> (accessed July 2026).</li>
+  </ol>
+</section>
+
+</div>
+</body>
+</html>
