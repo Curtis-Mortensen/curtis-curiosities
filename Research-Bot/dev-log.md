@@ -29,6 +29,37 @@ User attends a Slavic Baptist Church, wants more Russian hymns on Apple Music, a
 
 ### Bugs / problems
 - None during research or document creation.
+## 2026-07-10 — Idaho Falls → SLC Cheap Sunday Transport (complete)
+
+### Plan summary
+User needs cheapest options to get from Idaho Falls to Salt Lake City on Sunday (interpreted as 2026-07-12), open to Turo and any other solutions including Allegiant discounts/coupons/bundles. Delivered as Research-Bot self-contained HTML per README instructions.
+
+### Precursor / subset questions identified
+1. Need a car in SLC, or only transport IDA→SLC?
+2. Airport vs town pickup?
+3. Same-day one-way vs multi-day?
+4. Allegiant flyer status / partner rate eligibility?
+5. Costco/AAA/USAA/BJ’s memberships?
+6. Bus/shuttle or ride-board viable?
+7. Can Turo do true one-way ~190 miles?
+
+### Key findings
+- **Cheapest if no car needed in SLC:** Salt Lake Express IDA→SLC Airport from ~$42 (book direct; Greyhound resells higher).
+- **Best car path:** Traditional one-way rental (Enterprise/Alamo/National via Allegiant or Costco; Hertz stack via AAA). Drop fee dominates; Allegiant discount is base-rate only and does not waive one-way charges.
+- **Turo:** Poor fit for true one-way — cannot select different return city at booking; host must approve later within delivery radius (SLC is far outside typical IDA radius).
+- **Allegiant:** Partners Alamo/Enterprise/National; does not fly IDA→SLC (Delta does).
+- **Gas floor:** ~$35 one-way if borrowing/owning a car (Travelmath, 217 mi).
+
+### Changes made
+- Created `Research-Bot/idaho-falls-slc-cheap-car-sunday.html` — ranked options, decision tree, Allegiant/Turo/discount deep dives, 28 references.
+
+### Assumptions
+- “Sunday” = next Sunday after research day Friday 2026-07-10 → 2026-07-12.
+- Live Kayak/Expedia one-way checkout totals were not scrapable this session; used policy pages + aggregator secondary ranges.
+- One-time Research-Bot question (not Apocalypse-Story series).
+
+### Bugs / problems
+- Aggregator search pages returned empty/JS shells; documented as methodology limitation rather than inventing locked prices.
 
 ### Status
 **Complete**

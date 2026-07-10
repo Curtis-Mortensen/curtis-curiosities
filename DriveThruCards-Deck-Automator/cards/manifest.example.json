@@ -1,0 +1,31 @@
+{
+  "deckName": "Example Poker Deck",
+  "maxCardsPerBatch": 130,
+  "batchStrategy": "group-by-back",
+  "cards": [
+    {
+      "id": "001",
+      "front": "_example/fronts/001front.jpg",
+      "back": "_example/backs/shared-red.jpg",
+      "qty": 1
+    },
+    {
+      "id": "002",
+      "front": "_example/fronts/002front.jpg",
+      "back": "_example/backs/shared-red.jpg",
+      "qty": 1
+    },
+    {
+      "id": "003",
+      "front": "_example/fronts/003front.jpg",
+      "back": "_example/backs/shared-red.jpg",
+      "qty": 1
+    },
+    {
+      "id": "010",
+      "front": "_example/fronts/010front.jpg",
+      "back": "_example/backs/unique-blue.jpg",
+      "qty": 2
+    }
+  ]
+}

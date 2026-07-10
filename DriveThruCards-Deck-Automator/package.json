@@ -1,0 +1,19 @@
+{
+  "name": "drivethrucards-deck-automator",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Playwright helper to batch-upload card images into the DriveThruCards US Poker deck builder beta.",
+  "type": "module",
+  "scripts": {
+    "auth:save": "node scripts/auth-save.js",
+    "organize": "node src/organize-batches.js",
+    "upload:batch": "node src/run-batch.js",
+    "organize:example": "node src/organize-batches.js cards/manifest.example.json"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "playwright": "^1.49.0"
+  }
+}
