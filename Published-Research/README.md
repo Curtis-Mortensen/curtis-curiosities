@@ -15,6 +15,7 @@ This folder is the **publishing / public-site home** for a travel-log blog that 
 | Doc | Role |
 |-----|------|
 | [`dev-decisions.md`](dev-decisions.md) | Binding human answers (MCQs + product framing) |
+| [`master-plan.md`](master-plan.md) | Approved execution brief |
 | [`bio.md`](bio.md) | Site bio / about voice |
 | [`.cursor/plans/published-research-hosting.plan.md`](.cursor/plans/published-research-hosting.plan.md) | Earlier draft plan (superseded where it conflicts with decisions) |
 | [`dev-log.md`](dev-log.md) | What changed during planning |
