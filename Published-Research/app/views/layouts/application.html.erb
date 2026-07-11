@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= content_for?(:title) ? "#{yield(:title)} · Throwing Starfish" : "Throwing Starfish" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Travel log and adventure artifacts from Throwing Starfish — field notes, road miles, and reports from the road.">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%# Expressive fonts: brand display + readable body (not a default system stack). %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= yield :head %>
+  </head>
+
+  <body class="<%= content_for?(:body_class) ? yield(:body_class) : "page" %>">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="<%= root_path %>">Throwing Starfish</a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="<%= root_path %>">Home</a>
+          <a href="<%= field_notes_path %>">Field notes</a>
+          <a href="<%= bio_path %>">Bio</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <%= yield %>
+    </main>
+
+    <footer class="site-footer">
+      <p>throwingstarfish.studio · travel log &amp; adventure artifacts</p>
+    </footer>
+  </body>
+</html>

@@ -38,4 +38,4 @@ Unmerged PR production deploys; HTML→ERB conversion; allowlist/copies; CMS/aut
 
 ### Status
 
-**Planning complete.** Implementation is a separate pass against this brief + `dev-decisions.md`.
+**Phase 1 done (2026-07-11):** minimal Rails app under `Published-Research/` with home, bio, stub field-notes index, and report show/raw routes. Stub samples in `sample_reports/` so the click path works before phase 2 wires `Research-Bot/`. Phases 2–4 (real catalog, nginx/TLS, merge-to-main auto-deploy) still pending.

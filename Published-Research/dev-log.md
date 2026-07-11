@@ -1,5 +1,39 @@
 # Published-Research — Dev Log
 
+## 2026-07-11 — Phase 1: Rails scaffold (home / bio / stub field notes / report)
+
+### Plan summary
+Implement master-plan phase 1 only: minimal Rails app so the travel site is runnable and clickable with stub reports. Real Research-Bot catalog, nginx/TLS, and auto-deploy stay for later phases. Document VPS smoke-test commands (manual until phase 4).
+
+### Changes made
+- Generated minimal Rails 7.2 app in `Published-Research/` (no ActiveRecord, no tests, no Hotwire/JS stack).
+- Routes: `/`, `/bio`, `/field-notes`, `/research/:slug`, `/research/:slug/raw`.
+- POROs: `FieldNote`, `FieldNotes::Catalog` → `StubCatalog`, `BioPage` (reads `bio.md`).
+- Sample self-contained HTML under `sample_reports/` for two stub notes.
+- Shared layout + travel-site CSS (Throwing Starfish brand, hero, field-notes list, report iframe chrome).
+- Production knobs for phase-1 VPS smoke: `FORCE_SSL=false`, assets compile on, hosts cleared, static files from Puma.
+- README rewritten with local run + VPS publish/smoke commands.
+- Master-plan status updated to phase 1 done.
+- This log entry.
+
+### Coding decisions and assumptions
+- Stub catalog (not Research-Bot scan) so phase 1 is testable end-to-end without phase 2.
+- Report show uses site chrome + iframe to `/raw` (keeps self-contained HTML CSS intact).
+- No DB — filesystem/stubs only, matching decisions.
+- Gems vendored locally via `vendor/bundle` (gitignored); CI/VPS run `bundle install`.
+- Did not add nginx unit, GitHub Action, or real catalog (out of phase 1).
+- Did not copy patterns from other monorepo folders.
+
+### Bugs / problems
+- First `rails new` failed on `--css=none` (invalid flag); regenerated without it.
+- `rails new` created a nested `.git` / `.github` under Published-Research — removed so the monorepo root stays the only git repo.
+- System gem install of `rake` hit permissions during `rails new` bundling; fixed with `bundle config set --local path vendor/bundle`.
+
+### Status
+**Phase 1 complete.** Ready for human smoke test locally or on VPS; phase 2 = real Research-Bot catalog.
+
+---
+
 ## 2026-07-11 — Human decisions recorded (plan complete for approval→implement gate)
 
 ### Plan summary

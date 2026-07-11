@@ -1,0 +1,22 @@
+<%# Report show: shared chrome + framed Research-Bot-style HTML (iframe → /raw). %>
+<% content_for :title, @note.title %>
+<% content_for :body_class, "page page--report" %>
+
+<section class="report-chrome">
+  <div class="report-chrome__bar">
+    <p class="eyebrow">Field note</p>
+    <h1><%= @note.title %></h1>
+    <p class="report-chrome__links">
+      <a href="<%= field_notes_path %>">← All field notes</a>
+      <a href="<%= research_raw_path(@note.slug) %>" target="_blank" rel="noopener">Open document only</a>
+    </p>
+  </div>
+
+  <div class="report-frame-wrap">
+    <iframe
+      class="report-frame"
+      title="<%= @note.title %>"
+      src="<%= research_raw_path(@note.slug) %>"
+      loading="eager"></iframe>
+  </div>
+</section>

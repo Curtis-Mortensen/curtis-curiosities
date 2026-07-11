@@ -1,0 +1,446 @@
+/*
+  ELI5: Site-wide look for Throwing Starfish — travel-log atmosphere,
+  shared header/footer, home hero, field-notes list, and report chrome.
+  Controllers/views reference these class names; keep brand tokens in :root.
+*/
+
+:root {
+  --sea-ink: #0a2f38;
+  --sea-deep: #134a56;
+  --sea-mid: #1f6d7a;
+  --foam: #e7f4f2;
+  --sand: #f3efe6;
+  --sun: #d4a017;
+  --sun-deep: #a67a0c;
+  --ink: #142226;
+  --muted: #4a6066;
+  --paper: #fbf8f2;
+  --line: rgba(19, 74, 86, 0.14);
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Outfit", "Segoe UI", sans-serif;
+  --header-h: 4rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(31, 109, 122, 0.18), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(212, 160, 23, 0.12), transparent 50%),
+    linear-gradient(180deg, var(--foam) 0%, var(--sand) 45%, var(--paper) 100%);
+  background-attachment: fixed;
+}
+
+a {
+  color: var(--sea-deep);
+}
+
+a:hover {
+  color: var(--sea-mid);
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--sea-ink);
+  color: white;
+  padding: 0.5rem 1rem;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+/* —— Header / nav —— */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(10px);
+  background: rgba(251, 248, 242, 0.82);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header__inner {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 0.9rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: var(--header-h);
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  color: var(--sea-ink);
+  text-decoration: none;
+}
+
+.brand:hover {
+  color: var(--sea-mid);
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.1rem;
+}
+
+.site-nav a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.site-nav a:hover {
+  color: var(--sea-ink);
+}
+
+/* —— Home hero (one composition, full-bleed atmosphere) —— */
+.page--home main {
+  padding: 0;
+}
+
+.hero {
+  position: relative;
+  min-height: calc(100vh - var(--header-h));
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  color: var(--foam);
+}
+
+.hero__atmosphere {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(10, 47, 56, 0.15) 0%, rgba(10, 47, 56, 0.72) 58%, rgba(10, 47, 56, 0.92) 100%),
+    linear-gradient(115deg, #1a6b78 0%, #0d3d48 42%, #163028 78%, #2a4a28 100%);
+  animation: horizon-shift 18s ease-in-out infinite alternate;
+}
+
+.hero__atmosphere::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 78% 28%, rgba(212, 160, 23, 0.35), transparent 28%),
+    radial-gradient(ellipse 120% 40% at 50% 100%, rgba(231, 244, 242, 0.2), transparent 55%);
+  animation: sun-pulse 8s ease-in-out infinite alternate;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 40rem;
+  padding: 4rem 1.5rem 3.5rem;
+  animation: rise-in 0.9s ease-out both;
+}
+
+.hero__brand {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 7vw, 4.2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: #fff;
+}
+
+.hero__headline {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+  font-weight: 500;
+  color: rgba(231, 244, 242, 0.95);
+}
+
+.hero__lede {
+  margin: 0 0 1.6rem;
+  max-width: 32rem;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: rgba(231, 244, 242, 0.82);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.15rem;
+  border-radius: 0.35rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn--primary {
+  background: var(--sun);
+  color: var(--sea-ink);
+}
+
+.btn--primary:hover {
+  background: #e0b12a;
+  color: var(--sea-ink);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--foam);
+  border: 1px solid rgba(231, 244, 242, 0.45);
+}
+
+.btn--ghost:hover {
+  background: rgba(231, 244, 242, 0.1);
+  color: #fff;
+}
+
+.home-invite {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.home-invite h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  margin: 0 0 0.6rem;
+  color: var(--sea-ink);
+}
+
+.home-invite p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* —— Shared inner pages —— */
+.prose-page {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+.prose-page__header {
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--sea-mid);
+}
+
+.prose-page h1 {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  color: var(--sea-ink);
+  letter-spacing: -0.02em;
+}
+
+.lede {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.phase-banner {
+  margin: 1rem 0 0;
+  padding: 0.65rem 0.8rem;
+  background: rgba(31, 109, 122, 0.08);
+  border-left: 3px solid var(--sea-mid);
+  color: var(--sea-deep);
+  font-size: 0.92rem;
+}
+
+.prose p {
+  margin: 0 0 1rem;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+/* —— Field notes list (links, not card chrome) —— */
+.note-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+}
+
+.note-list__item {
+  border-top: 1px solid var(--line);
+  animation: rise-in 0.55s ease-out both;
+  animation-delay: calc(var(--i, 0) * 0.08s);
+}
+
+.note-list__item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.note-list__item a {
+  display: block;
+  padding: 1.25rem 0.15rem;
+  text-decoration: none;
+  color: inherit;
+  transition: padding-left 0.2s ease;
+}
+
+.note-list__item a:hover {
+  padding-left: 0.45rem;
+}
+
+.note-list__item h2 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--sea-ink);
+}
+
+.note-list__item p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* —— Report chrome + iframe —— */
+.page--report main {
+  padding: 0;
+}
+
+.report-chrome {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - var(--header-h) - 4rem);
+}
+
+.report-chrome__bar {
+  max-width: 68rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 0.85rem;
+}
+
+.report-chrome__bar h1 {
+  margin: 0 0 0.55rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--sea-ink);
+}
+
+.report-chrome__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.report-frame-wrap {
+  flex: 1;
+  min-height: 70vh;
+  border-top: 1px solid var(--line);
+  background: #fff;
+}
+
+.report-frame {
+  display: block;
+  width: 100%;
+  height: calc(100vh - var(--header-h) - 9rem);
+  min-height: 28rem;
+  border: 0;
+}
+
+/* —— Footer —— */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes horizon-shift {
+  from {
+    filter: saturate(1) hue-rotate(0deg);
+  }
+  to {
+    filter: saturate(1.08) hue-rotate(6deg);
+  }
+}
+
+@keyframes sun-pulse {
+  from {
+    opacity: 0.85;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero__content {
+    padding-top: 5rem;
+  }
+
+  .report-frame {
+    height: calc(100vh - var(--header-h) - 11rem);
+  }
+}
