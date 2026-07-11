@@ -1,5 +1,41 @@
 # Research Bot — Dev Log
 
+## 2026-07-11 — $10k Band Follow-Up: Lots, MPG & Loan Math (complete)
+
+### Plan summary
+Follow-up expansion to the first-time used-car survey: focus on ~$10k cars near West Jordan/West Valley—which lots have the best range/deals; which models win on gas mileage at that price; hypothetical monthly payments and lifetime interest at scores 600/650/700/750 comparing CU vs dealer rates and 0% vs 10% down across typical terms (~20-row table).
+
+### Precursor / subset questions
+1. Who actually stocks under-$12k inventory on Redwood Rd?
+2. How do Vectra / West Auto / Immaculate / franchise / KSL compare in that band?
+3. Which sedan/hatch models maximize EPA MPG near $10k?
+4. Which published CU sheet and dealer survey map cleanly onto scores 600/650/700/750?
+5. How much does 10% down change payment vs interest when APR is held constant?
+
+### Key findings
+- **Best $10k density:** Vectra Auto Sales (WVC) — iSeeCars avg price ~$8,231; high miles (~153k avg); examples Fiesta $5,499, Versa $5,500, Elantra Sport $6,999.
+- **West Auto** states ~$10k average but featured web inventory often sits mid-teens; still a key ask-for-budget-stock destination.
+- **MPG winners:** Prius (~48–50) ≫ Civic/Corolla (~33–36) ≫ Versa/Fiesta (~31) ≫ Elantra/Impreza (~28–32).
+- **Loan math on $10k / 60 mo:** Utah First–like CU at 750 + 10% down ≈ $164/mo and ~$824 interest; dealer-typical 15.93% at 600 + 0 down ≈ $243/mo and ~$4,569 interest; 72 mo at that dealer rate ≈ $5,590 interest.
+
+### Changes made
+- Created `Research-Bot/slc-10k-used-cars-mpg-loan-math.html`
+- Linked follow-up from parent `slc-west-jordan-first-time-used-car-buyer.html`
+
+### Assumptions
+- Utah First grade bands mapped 750→A+, 700→A, 650→B, 600→C.
+- Dealer APRs = MFP Utah used dealer averages by score (flat across terms).
+- 0% vs 10% down uses same APR (principal-only effect) unless underwriting overlays apply.
+
+### Bugs / problems
+- KSL zip search and Cars.com max-price search timed out; used iSeeCars dealer pages + individual KSL listing fetches.
+- Vectra own inventory URL returned empty “not found” shell; relied on iSeeCars + KSL.
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-11 — SLC West Jordan / West Valley First-Time Used Car Buyer Survey (complete)
 
 ### Plan summary
