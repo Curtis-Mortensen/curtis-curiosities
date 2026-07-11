@@ -1,5 +1,24 @@
 # Research Bot — Dev Log
 
+## 2026-07-11 — Decker Lake housing update: IF/Mesa trends + second deal pass (complete)
+
+### Plan summary
+Follow-up: rents feel high vs Idaho Falls and Mesa. Add lighter historical average-rent comparison across WVC/SLC, Idaho Falls, and Mesa; note SLC drivers. Second listing pass for better deals; Tooele too far; Magna/South Jordan etc OK; ~20 min acceptable, closer ideal. Update near + further sections in existing HTML.
+
+### Key findings (update)
+- **ZORI 2026:** WVC ~$1,575 ≈ Mesa ~$1,554; Idaho Falls ~$1,315 (~$260 cheaper). IF 1BR avg ~$850 vs WVC ~$1,150–$1,250.
+- **SLC drivers:** Silicon Slopes demand, structural shortage, 2022 spike, then multifamily oversupply cooling into 2025–26; pipeline shrinking → possible rent re-acceleration.
+- **Second-pass deals:** Lakecrest Chesterfield 2BR ~$950–$995 (near park); Magna 2BR duplex ~$1,095; Lake Park now ~$1,050–$1,095 (earlier $885 likely gone). Magna $800–$850 and The Redwood ~$849 still best expanded floors. South Jordan averages higher (ZORI ~$1,913) — not a bargain direction.
+
+### Changes made
+- Updated `Research-Bot/decker-lake-west-valley-housing-prices.html` — new §5 three-city trends, tightened to ~20 min, second-pass section, refreshed rankings/conclusion/refs.
+- Updated this dev-log.
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-11 — Decker Lake / West Valley Housing Price Comparison (complete)
 
 ### Plan summary
