@@ -1,5 +1,45 @@
 # Research Bot — Dev Log
 
+## 2026-07-11 — SLC West Jordan / West Valley First-Time Used Car Buyer Survey (complete)
+
+### Plan summary
+User researching first-time car buying near West Jordan / West Valley City: which businesses sell used cars; reputation for price vs reliability; middle options between dealership upcharge and junkyards; one popular sedan/compact-SUV price baseline per major location; financing (% down, rates, bank vs dealer credit) compared across 3–5 credit-score bands. Delivered as Research-Bot self-contained HTML per README.
+
+### Precursor / subset questions identified
+1. What seller tiers exist between franchise retail and as-is junkyards in Utah?
+2. Which named businesses sit in West Jordan, West Valley, and adjacent south-valley destinations first-time buyers actually use?
+3. How do review/aggregator signals (Google, iSeeCars, BBB) map to price vs reliability?
+4. What are Utah rebuilt/branded-title specialists (Prestman, Image Auto) vs salvage auctions vs private KSL?
+5. What sample non-truck listings exist right now as price baselines?
+6. What down-payment norms do local lots publish vs personal-finance guidance (10–20%)?
+7. How do Experian used-car APRs by credit tier compare to Utah CU sheets and MFP Utah dealer/CU/bank surveys?
+8. When must a buyer use their own bank/CU (private party) vs dealer F&I / BHPH?
+
+### Key findings
+- **Middle ground:** independent lots (West Auto Sales WVC, Immaculate WJ, Peterson Midvale) and licensed rebuilt/branded specialists (Prestman SLC, Image Auto WJ)—not DIY Copart bids or U-Pull yards.
+- **Reputation:** West Auto strong on price + review volume; CarMax strong on process predictability; Prestman strong branded-title track record; franchise Ken Garff/LHM stronger on CPO/service networks and often higher stickers/doc fees; BHPH easiest approval, highest effective cost risk.
+- **Utah doc fees:** no state cap; samples ~$299–$499 (avgs ~$424–$443); CarMax $499; Prestman $489.
+- **Baselines (2026-07-11 snapshots):** West Auto 2019 Corolla LE ~$18,207; Immaculate 2024 Outback Premium ~$24,345; LHM 2018 CR-V Touring ~$24,633; CarMax 2020 Escape SE ~$16,998; Prestman 2025 Civic Hybrid Sport Touring ~$25,489 (branded).
+- **Financing:** most lots finance; private KSL usually needs bank/CU; West Auto $0–$500 down by credit; BHPH often ~$500; aim 10–20% when possible.
+- **Rates:** Experian used APRs ~7.70% (781–850) → 21.85% (300–500); Utah First CU sheet 3.50%–16.75% by grade; America First / MACU as low as 4.99%; MFP Utah shows dealers cheapest at 750+ then worst below ~700—CUs more consistent.
+
+### Changes made
+- Created `Research-Bot/slc-west-jordan-first-time-used-car-buyer.html` — spectrum diagram, business survey, reputation matrix, baseline price table, financing + 5-tier rate comparison, first-time playbook, 35 references.
+
+### Assumptions
+- “Near West Jordan or West Valley” includes adjacent South Jordan (CarMax), Sandy Automall (LHM), Midvale (Peterson/Fast Start), and SLC Prestman as realistic west-side shopping destinations.
+- Baseline cars intentionally unmatched on year/miles to illustrate channel pricing, not identical comps.
+- Hard-pull personal APR quotes not obtained; used published Experian, MFP Utah, and CU rate sheets.
+
+### Bugs / problems
+- Ken Garff Used inventory URL 404/timeout; Image Auto homepage timed out—profiled from secondary sources and brand pages.
+- CarMax Utah search returned network-wide listings; used Escape/Camry as representative fixed-price samples and noted fee exclusions.
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-08 — CompTIA A+ Mesa, Arizona Research (complete)
 
 ### Plan summary
