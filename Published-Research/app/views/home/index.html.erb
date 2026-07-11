@@ -1,0 +1,26 @@
+<%# Home hero: one composition — brand, headline, sentence, CTAs, atmosphere. %>
+<% content_for :title, "Travel log" %>
+<% content_for :body_class, "page page--home" %>
+
+<section class="hero" aria-label="Throwing Starfish home">
+  <div class="hero__atmosphere" aria-hidden="true"></div>
+  <div class="hero__content">
+    <p class="hero__brand">Throwing Starfish</p>
+    <h1 class="hero__headline">Miles logged. Notes kept.</h1>
+    <p class="hero__lede">
+      A home for travel logs and adventure artifacts — with research filed as field notes from the road.
+    </p>
+    <div class="hero__actions">
+      <a class="btn btn--primary" href="<%= field_notes_path %>">Read field notes</a>
+      <a class="btn btn--ghost" href="<%= bio_path %>">About Curtis</a>
+    </div>
+  </div>
+</section>
+
+<section class="home-invite">
+  <h2>What you’ll find</h2>
+  <p>
+    Road trips, places lived, and the odd deep dive saved as self-contained reports.
+    Field notes open into the full HTML document — same offline-friendly files Research-Bot ships.
+  </p>
+</section>

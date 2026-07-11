@@ -1,0 +1,26 @@
+<%# Field notes index — teasers in site chrome; click through to the full HTML report. %>
+<% content_for :title, "Field notes" %>
+
+<section class="prose-page">
+  <header class="prose-page__header">
+    <p class="eyebrow">Research</p>
+    <h1>Field notes</h1>
+    <p class="lede">
+      Reports from the road and the desk — open any note to read the full self-contained HTML document.
+    </p>
+    <p class="phase-banner">
+      Phase 1: sample notes only. Phase 2 will list everything under Research-Bot.
+    </p>
+  </header>
+
+  <ul class="note-list">
+    <% @notes.each_with_index do |note, index| %>
+      <li class="note-list__item" style="--i: <%= index %>">
+        <a href="<%= research_path(note.slug) %>">
+          <h2><%= note.title %></h2>
+          <p><%= note.teaser %></p>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</section>

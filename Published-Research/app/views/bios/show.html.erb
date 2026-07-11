@@ -1,0 +1,14 @@
+<%# Bio page — voice comes from bio.md so the story stays editable as plain text. %>
+<% content_for :title, "Bio" %>
+
+<article class="prose-page">
+  <header class="prose-page__header">
+    <p class="eyebrow">About</p>
+    <h1>Curtis Mortensen</h1>
+    <p class="lede">Travel, places lived, a restless itinerary — and work that keeps the adventure going.</p>
+  </header>
+
+  <div class="prose">
+    <%= simple_format(@bio_text.strip) %>
+  </div>
+</article>
