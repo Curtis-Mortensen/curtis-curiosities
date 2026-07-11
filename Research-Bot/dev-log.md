@@ -1,5 +1,47 @@
 # Research Bot — Dev Log
 
+## 2026-07-11 — Decker Lake / West Valley Housing Price Comparison (complete)
+
+### Plan summary
+User looking at SLC housing near a friend who works by Decker Lake Park (West Valley City). Requested: (1) cheapest whole apartments (not rooms) as close as possible to the park — studio or 2BR OK, duplex/split/multiplex OK; (2) compare with apartments within ~30 min driving distance and whether a larger radius finds better deals / cheapest rates. Delivered as Research-Bot self-contained HTML per README.
+
+### Precursor / subset questions identified
+1. Exact park location / ZIP / TRAX anchors for “near”?
+2. Whole unit vs room filter criteria?
+3. Studio / 1BR / 2BR and duplexes in scope?
+4. WVC market averages as “cheap” benchmark?
+5. Which cities fall inside ~30 min (Magna, Kearns, Taylorsville, etc.) vs outside (Tooele ~37 min)?
+6. Do concessions / included utilities change rankings?
+7. Are cheapest listings income-restricted?
+8. Is expanding radius worth the commute in $/month?
+
+### Key findings
+- **Closest reliable complexes:** Apartments at Decker Lake 1BR ~$1,062–$1,147 (promo effective sometimes ~$993); Decker Station studios ~$1,075+, 1BR ~$1,149–$1,445, 2BR ~$1,515+.
+- **Cheapest near-park whole units:** Parkway Blvd / Lake Park Dr multiplex 2BRs ~$835–$925 / $885 — scarce; several showed uncertain availability.
+- **Inside 30 min better deals:** Yes for studios/small 1BRs — Magna ~$800–$850; The Redwood studios ~$849–$899, 1BRs ~$949–$1,069.
+- **Absolute cheapest:** Tooele studios ~$650–$799, but ~37 min (outside strict 30-min ring).
+- **2BR trade-off:** Rare near-park outliers beat most expanded-radius 2BRs; otherwise Magna multiplex ~$1,175–$1,395 vs Decker Lake complex ~$1,315+.
+
+### Changes made
+- Created `Research-Bot/decker-lake-west-valley-housing-prices.html` — self-contained HTML with proximity tiers, 30-min comparison, ranked cheapest rates, decision tree, field history (HUD FMR), 41 references.
+- Updated this dev-log entry.
+
+### Assumptions
+- “Apartments, not rooms” = whole leased unit with private kitchen; duplex/4-plex/multiplex included.
+- Drive times from published city-pair estimates, not live rush-hour Google Maps from the park gate.
+- Income-restricted properties noted separately (Coppertree, Tuscany Cove).
+- One-time Research-Bot question (base folder HTML; no new docs/ subfolder).
+
+### Bugs / problems
+- apartments.com often blocked direct curl (Access Denied); recovered pricing via WebFetch / search snippets / property sites.
+- Some cheap Parkway listings showed “Check Back Soon for Upcoming Availability” while still displaying prices — flagged as availability-uncertain.
+- Cross-aggregator ranges for Decker Station disagreed by ~$50–$150; reported as ranges.
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-08 — CompTIA A+ Mesa, Arizona Research (complete)
 
 ### Plan summary

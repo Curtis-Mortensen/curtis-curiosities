@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Housing Near Decker Lake Park — Cheapest Whole Units vs 30-Minute Radius</title>
+<style>
+  :root {
+    --bg: #f3f6f8;
+    --paper: #ffffff;
+    --ink: #1a2330;
+    --muted: #5a6a78;
+    --accent: #1a4f6e;
+    --accent-light: #2a7a9e;
+    --border: #c5d2dc;
+    --callout: #e7f1f6;
+    --warn: #fff6e0;
+    --warn-border: #c9a227;
+    --best: #1b5e45;
+    --ok: #3d6b8a;
+    --avoid: #8a4a4a;
+    --near: #2d5a3d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  header {
+    background: linear-gradient(135deg, #0d2a3a 0%, #1a4f6e 45%, #1a3a4a 100%);
+    color: #eef6fa;
+    padding: 3rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+  header .container { padding: 0 1.5rem; }
+  h1 { font-size: 2rem; line-height: 1.25; margin-bottom: 0.75rem; font-weight: normal; }
+  .subtitle { font-size: 1.05rem; opacity: 0.9; font-style: italic; max-width: 760px; }
+  .meta { margin-top: 1.25rem; font-size: 0.85rem; opacity: 0.72; }
+  h2 {
+    font-size: 1.4rem;
+    color: var(--accent);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 0.4rem;
+    margin: 2.5rem 0 1rem;
+  }
+  h3 { font-size: 1.12rem; margin: 1.5rem 0 0.6rem; color: #2a3a48; }
+  h4 { font-size: 1rem; margin: 1rem 0 0.4rem; font-style: italic; }
+  p { margin-bottom: 0.85rem; }
+  a { color: var(--accent-light); }
+  a:hover { text-decoration: none; }
+  .callout {
+    background: var(--callout);
+    border-left: 4px solid var(--accent);
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+    font-size: 0.95rem;
+  }
+  .warn-box {
+    background: var(--warn);
+    border-left: 4px solid var(--warn-border);
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+    font-size: 0.95rem;
+  }
+  ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+  li { margin-bottom: 0.35rem; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0 1.5rem;
+    font-size: 0.88rem;
+    background: var(--paper);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.5rem 0.65rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: #d6e4ee; font-weight: bold; }
+  tr:nth-child(even) { background: #f6f9fb; }
+  .citation {
+    font-size: 0.78rem;
+    color: var(--muted);
+    vertical-align: super;
+  }
+  .refs { font-size: 0.82rem; }
+  .refs li { margin-bottom: 0.5rem; word-break: break-word; }
+  .toc { background: var(--paper); border: 1px solid var(--border); padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .toc ol { margin-bottom: 0; }
+  .badge {
+    display: inline-block;
+    padding: 0.12rem 0.45rem;
+    border-radius: 3px;
+    font-size: 0.72rem;
+    font-weight: bold;
+    color: white;
+    white-space: nowrap;
+  }
+  .b-best { background: var(--best); }
+  .b-ok { background: var(--ok); }
+  .b-avoid { background: var(--avoid); }
+  .b-near { background: var(--near); }
+  .option-card {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    padding: 1.25rem 1.5rem;
+    margin: 1.25rem 0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .option-card h3 { margin-top: 0; }
+  .price { font-size: 1.35rem; color: var(--accent); font-weight: bold; }
+  .price-note { font-size: 0.85rem; color: var(--muted); font-weight: normal; }
+  .diagram {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    padding: 1.25rem;
+    margin: 1.25rem 0;
+    font-family: ui-monospace, "Cascadia Code", Menlo, monospace;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    overflow-x: auto;
+    white-space: pre;
+  }
+  .conclusion-box {
+    background: linear-gradient(135deg, #0d2a3a 0%, #1a4f6e 100%);
+    color: #eef6fa;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-radius: 4px;
+  }
+  .conclusion-box h2 { color: #a8d4e8; border-color: rgba(255,255,255,0.2); }
+  .conclusion-box a { color: #9ecde0; }
+  .tier {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.35rem;
+  }
+  @media (max-width: 600px) {
+    h1 { font-size: 1.55rem; }
+    table { font-size: 0.78rem; }
+    th, td { padding: 0.35rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Housing Near Decker Lake Park: Cheapest Whole Apartments vs a 30-Minute Drive</h1>
+    <p class="subtitle">A practical rent comparison for someone looking at Salt Lake County housing near a friend who works by Decker Lake Park in West Valley City — prioritizing proximity first, then lowest price for whole units (studio through 2-bedroom; duplexes and multiplexes included; rooms excluded).</p>
+    <p class="meta">Research-Bot document · Researched July 11, 2026 · Snapshot of advertised asking rents; re-verify before applying</p>
+  </div>
+</header>
+
+<div class="container">
+
+<nav class="toc" aria-label="Table of contents">
+  <strong>Contents</strong>
+  <ol>
+    <li><a href="#aims">What this document is</a></li>
+    <li><a href="#limitations">Limitations</a></li>
+    <li><a href="#precursors">Precursor and subset questions</a></li>
+    <li><a href="#history">History of rental-market research as a field</a></li>
+    <li><a href="#geography">Geography: Decker Lake Park and commute rings</a></li>
+    <li><a href="#part1">Part 1 — Closest housing to Decker Lake (cheap whole units)</a></li>
+    <li><a href="#part2">Part 2 — Within ~30 minutes: better deals?</a></li>
+    <li><a href="#cheapest">Cheapest rates found (ranked)</a></li>
+    <li><a href="#verdict">Verdict and decision framework</a></li>
+    <li><a href="#further">Further research questions</a></li>
+    <li><a href="#refs">References</a></li>
+  </ol>
+</nav>
+
+<section id="aims">
+  <h2>1. What This Document Is</h2>
+  <p>This report answers two linked housing questions for a Salt Lake City–area apartment search:</p>
+  <ol>
+    <li><strong>Priority 1 — Proximity:</strong> What are the cheapest <em>whole</em> apartments (not rooms) as close as possible to Decker Lake Park in West Valley City, Utah — including studios, 1-bedrooms, 2-bedrooms, duplexes, multiplexes, and split homes?</li>
+    <li><strong>Priority 2 — Radius trade-off:</strong> How do those near-park prices compare with whole apartments within about a <strong>30-minute drive</strong> of the park? Does a larger radius unlock meaningfully better deals, and what are the cheapest rates that show up?</li>
+  </ol>
+  <p>It is written for a general audience. You do not need prior knowledge of this repository. Advertised rents change daily; every dollar figure here is a <strong>snapshot of asking rent from public listings and market reports as of mid-July 2026</strong>, not a locked lease quote.<a href="#ref-apartments-decker" class="citation">[1]</a></p>
+
+  <div class="callout">
+    <strong>Bottom line up front:</strong> The closest dedicated communities are <strong>Apartments at Decker Lake</strong> (1BR roughly <strong>$1,062–$1,147</strong> list; promotional effective rent sometimes near <strong>$993</strong>) and the newer <strong>Decker Station Apartments</strong> (studios from about <strong>$1,075</strong>, 1BR from about <strong>$1,149–$1,295</strong>).<a href="#ref-apartments-decker" class="citation">[1]</a><a href="#ref-rent-decker" class="citation">[2]</a><a href="#ref-decker-station" class="citation">[3]</a> The <em>cheapest whole units</em> within a few minutes of the park are older 2-bedroom multiplex / 4-plex listings on <strong>Parkway Boulevard</strong> and <strong>Lake Park Drive</strong> in the <strong>$835–$925</strong> band — but several showed “check back for availability,” so they are scarce and turn over fast.<a href="#ref-3524-parkway" class="citation">[4]</a><a href="#ref-3538-parkway" class="citation">[5]</a><a href="#ref-1881-lake" class="citation">[6]</a> Expanding to ~15–30 minutes <strong>does</strong> find cheaper floors: Magna studios/small 1BRs around <strong>$800–$850</strong>, and The Redwood (Redwood Rd / Taylorsville edge) studios from <strong>$849</strong>. Tooele studios from about <strong>$650–$799</strong> are cheaper still but sit around <strong>~37 minutes</strong> — outside a strict 30-minute ring under typical conditions.<a href="#ref-magna-800" class="citation">[7]</a><a href="#ref-redwood" class="citation">[8]</a><a href="#ref-kirk-tooele" class="citation">[9]</a><a href="#ref-tooele-drive" class="citation">[10]</a>
+  </div>
+</section>
+
+<section id="limitations">
+  <h2>2. Limitations of This Research</h2>
+
+  <h3>2.1 Theoretical / market limitations</h3>
+  <p>Local rental markets are thin, fast-moving inventories. A $835 2-bedroom that appears on Apartments.com today may be leased, bait-priced, or mis-categorized tomorrow. Asking rent is not effective rent: concessions (one month free, eight weeks free), admin fees, CAM fees, utility packages, and income restrictions change the true monthly cost.<a href="#ref-rent-decker" class="citation">[2]</a><a href="#ref-hud-fmr-overview" class="citation">[11]</a> Human search behavior also biases results — people overweight the first community they tour and underweight duplex inventory that does not look like a “complex.”</p>
+
+  <h3>2.2 Methodology limitations</h3>
+  <ul>
+    <li>This is a <strong>web-listing and market-report snapshot</strong> (Apartments.com, Rent.com, Rentler, KSL Homes, property sites, Rentometer, RentCafe, HUD FMR), not a complete census of every landlord in Salt Lake County.</li>
+    <li>Several apartments.com detail pages returned “Check Back Soon for Upcoming Availability” even while still showing a price — treated here as <strong>recently listed / availability uncertain</strong>.<a href="#ref-3524-parkway" class="citation">[4]</a><a href="#ref-3538-parkway" class="citation">[5]</a></li>
+    <li>Direct curl scrapes of apartments.com were often blocked; pricing was recovered via search-engine snippets, WebFetch markdown extracts, and property-manager pages. Cross-source ranges sometimes disagree by $50–$150 on the same building.<a href="#ref-decker-station" class="citation">[3]</a></li>
+    <li><strong>Drive times</strong> use published city-to-city estimates (MapSof, Travelmath, Uber route pages), not live Google Maps rush-hour routing from the park gate. Peak I-215 / SR-201 traffic can push a “20-minute” trip over 30 minutes.<a href="#ref-tooele-drive" class="citation">[10]</a><a href="#ref-uber-wvc" class="citation">[12]</a></li>
+    <li><strong>Rooms for rent</strong> were excluded by design. Aggregators sometimes mis-tag whole 4-plex units as “rooms”; listing text was checked for full-unit language (own kitchen, deposit, lease initiation).<a href="#ref-1881-lake" class="citation">[6]</a></li>
+    <li>Income-restricted / LIHTC properties (e.g., Coppertree Magna, Tuscany Cove) are noted separately — low sticker price only helps if the household qualifies.<a href="#ref-coppertree" class="citation">[13]</a><a href="#ref-tuscany" class="citation">[14]</a></li>
+  </ul>
+
+  <h3>2.3 Strength of evidence in this field</h3>
+  <p>Applied rental housing research sits between government statistics (ACS, HUD Fair Market Rents), commercial listing platforms, and private rent indexes (Zillow Observed Rent Index, Apartment List, CoStar, RealPage). Official FMRs are strong for <em>program payment standards</em> at the metro level and weaker as street-level shopping guides.<a href="#ref-hud-fmr-overview" class="citation">[11]</a><a href="#ref-hud-fmr-data" class="citation">[15]</a> Listing sites are strong for <em>what is advertised this week</em> and weak for bias (vacancy advertising, bait units, incomplete fee disclosure). The evidence quality here is therefore: <strong>good for ranking neighborhoods and spotting cheap floors; fair for exact unit availability; poor for predicting next month’s rents.</strong></p>
+</section>
+
+<section id="precursors">
+  <h2>3. Precursor and Subset Questions</h2>
+  <p>Before comparing prices, these precursor questions were identified and used to scope the search:</p>
+  <ol>
+    <li>Where exactly is Decker Lake Park, and which ZIP / TRAX stops define “near”?</li>
+    <li>What counts as a whole unit vs a room (kitchen, private lease, multiplex language)?</li>
+    <li>Which bedroom mixes are allowed — studio, 1BR, 2BR — and are duplexes in scope?</li>
+    <li>What are market averages for West Valley City so “cheap” has a benchmark?</li>
+    <li>Which cities sit inside a ~30-minute drive (Magna, Kearns, Taylorsville, Murray, South Salt Lake, parts of SLC / West Jordan)? Which sit just outside (Tooele)?</li>
+    <li>Do concessions or included utilities change the ranking of sticker prices?</li>
+    <li>Are the cheapest listings income-restricted?</li>
+    <li>Is expanding the radius worth the commute minutes saved in rent dollars?</li>
+  </ol>
+</section>
+
+<section id="history">
+  <h2>4. History of the Fields That Try to Answer “What Does Rent Cost Here?”</h2>
+  <p>Modern local rent comparison sits at the intersection of three research traditions.</p>
+
+  <h3>4.1 Government rent benchmarks (HUD Fair Market Rents)</h3>
+  <p>Congress created the Section 8 program in 1974; HUD published the first Fair Market Rent (FMR) schedules in <strong>1975</strong> from updated 1970 census data.<a href="#ref-hud-history" class="citation">[16]</a> Early FMRs used the American Housing Survey and a mid-distribution (50th percentile) of recent-mover rents for units meeting quality standards. Methodology later shifted to American Community Survey (ACS) bases, inflation adjustments, and — after heated debate about lagging rents during the COVID spike — incorporation of private rent data alongside CPI starting in FY 2023.<a href="#ref-hud-history" class="citation">[16]</a><a href="#ref-nlihc-fmr" class="citation">[17]</a> Today FMRs are generally defined as estimates of the <strong>40th percentile</strong> of gross rents (rent + utilities, excluding phone) for standard-quality units in a metro or nonmetro county.<a href="#ref-hud-fmr-data" class="citation">[15]</a> For FY 2026, the Salt Lake City HUD Metro FMR Area posts roughly <strong>$1,259 studio / $1,456 1BR / $1,747 2BR</strong> — useful as a metro ceiling for voucher math, not as Decker Lake street pricing.<a href="#ref-plainrent-fmr" class="citation">[18]</a></p>
+
+  <h3>4.2 Hedonic and commercial rent indexes</h3>
+  <p>Academic housing economists use hedonic models (controlling for bedrooms, quality, and location) to estimate pure rent inflation. Commercial firms (Zillow, Apartment List, CoStar, RealPage, Moody’s REIS) publish city-level indexes that HUD now partially blends into FMR inflation factors.<a href="#ref-nlihc-fmr" class="citation">[17]</a> Consumer portals (Apartments.com, Rent.com, Rentometer, RentCafe) publish city averages from their own listing samples — convenient but sample-dependent, which is why West Valley City “average 1BR” can read ~$1,168 on one site and ~$1,249 on another in the same season.<a href="#ref-rentometer-wvc" class="citation">[19]</a><a href="#ref-rent-trends-wvc" class="citation">[20]</a></p>
+
+  <h3>4.3 Consumer apartment search practice</h3>
+  <p>Post-2000 listing aggregators turned rent shopping into a map-filter problem. Utah’s local platforms (Rentler, KSL Classifieds Homes) still matter for small landlords and multiplexes that never appear on national “community” pages.<a href="#ref-rentler-magna" class="citation">[21]</a> The practical research method used here — proximity rings + whole-unit filter + market averages + fee caveats — is the everyday applied version of that mixed evidence base.</p>
+</section>
+
+<section id="geography">
+  <h2>5. Geography: Decker Lake Park and Commute Rings</h2>
+  <p>Decker Lake Park is a West Valley City district park of about <strong>51.8 acres</strong> at <strong>2300 Parkway Boulevard / Parkway Blvd, West Valley City, UT 84119</strong> (also associated with Decker Lane addresses in local guides).<a href="#ref-wvc-park" class="citation">[22]</a><a href="#ref-mapquest" class="citation">[23]</a> The surrounding Chesterfield / Decker Lake area has TRAX access via Decker Lake Station and Redwood Junction Station and quick freeway access toward the airport and downtown.<a href="#ref-homes-chesterfield" class="citation">[24]</a></p>
+
+  <div class="diagram">Approximate drive rings from Decker Lake Park (off-peak, city-center estimates)
+
+  RING A  (&lt; ~5 min)     Apartments at Decker Lake · Decker Station · Lake Park Dr 4-plexes · Parkway Blvd multiplexes
+  RING B  (~5–15 min)    Enclave / Shadowbrook on Redwood · central WVC · Kearns edge · Magna east side
+  RING C  (~15–30 min)   Taylorsville / The Redwood corridor · Murray · South Salt Lake · more of Magna · west Jordan fringe
+  RING D  (~30–40 min)   Tooele (often ~37 min from WVC) — cheapest studios, but outside strict 30-min goal
+
+  Freeway spine: I-215 · SR-201 · Redwood Rd (UT-68) · Bangerter Hwy</div>
+
+  <table>
+    <thead>
+      <tr><th>Destination (approx.)</th><th>Typical drive vs WVC / Decker area</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Magna</td><td>~10–15 min west via 201 / local roads</td><td>Inside 30 min; frequent cheap small units<a href="#ref-magna-slc-drive" class="citation">[25]</a></td></tr>
+      <tr><td>Kearns / Taylorsville</td><td>~10–20 min</td><td>Inside 30 min; Redwood Rd corridor deals<a href="#ref-redwood" class="citation">[8]</a></td></tr>
+      <tr><td>Downtown Salt Lake City</td><td>~14–20 min off-peak</td><td>Inside 30 min off-peak; peak can stretch<a href="#ref-uber-wvc" class="citation">[12]</a></td></tr>
+      <tr><td>Murray</td><td>~15–25 min</td><td>Inside 30 min typically<a href="#ref-murray-drive" class="citation">[26]</a></td></tr>
+      <tr><td>Tooele</td><td>~37 min / ~28.5 mi from WVC</td><td><strong>Usually outside</strong> a strict 30-min ring<a href="#ref-tooele-drive" class="citation">[10]</a></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="part1">
+  <h2>6. Part 1 — Closest Housing to Decker Lake (Cheap Whole Units)</h2>
+  <p>Part 1 is sorted primarily by <strong>proximity to the park</strong>, then by asking rent within that ring. Only whole units are included.</p>
+
+  <h3>6.1 Market benchmarks for West Valley City</h3>
+  <p>Before listing individual properties, “cheap” needs a yardstick. Mid-2026 commercial snapshots for West Valley City apartments cluster roughly as follows:</p>
+  <table>
+    <thead>
+      <tr><th>Source (approx. date)</th><th>Studio</th><th>1 bedroom</th><th>2 bedroom</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Rentometer (apartment sample)<a href="#ref-rentometer-wvc" class="citation">[19]</a></td><td>avg ~$1,214–$1,322</td><td>avg ~$1,168–$1,173</td><td>avg ~$1,452–$1,471</td></tr>
+      <tr><td>Rent.com market trends (updated ~May 2026)<a href="#ref-rent-trends-wvc" class="citation">[20]</a></td><td>~$1,439</td><td>~$1,249</td><td>~$1,599</td></tr>
+      <tr><td>Apartment Finder city averages<a href="#ref-aptfinder-wvc" class="citation">[27]</a></td><td>~$1,305</td><td>~$1,297</td><td>~$1,531</td></tr>
+      <tr><td>HUD SLC Metro FMR FY2026 (gross rent)<a href="#ref-plainrent-fmr" class="citation">[18]</a></td><td>$1,259</td><td>$1,456</td><td>$1,747</td></tr>
+    </tbody>
+  </table>
+  <p>So a whole unit under about <strong>$1,000</strong> in the Decker Lake neighborhood is meaningfully below typical complex averages — especially for 2-bedrooms, where multiplex inventory is the main path under $1,200.</p>
+
+  <h3>6.2 Tier A — Walking / few-minute drive of the park</h3>
+
+  <div class="option-card">
+    <div class="tier">Closest large community</div>
+    <h3>Apartments at Decker Lake — 2184 W 3100 S</h3>
+    <p class="price">1BR $1,062–$1,147 · 2BR $1,315–$1,435 <span class="price-note">list; concessions may lower effective rent</span></p>
+    <p>Purpose-built community immediately south of the lake area. Floor plans are mostly 550 sq ft 1BR / 750 sq ft 2BR with a $500 deposit on published sheets.<a href="#ref-apartments-decker" class="citation">[1]</a><a href="#ref-trulia-decker" class="citation">[28]</a> The property website and Rent.com have advertised promotions such as <strong>save up to 2 months</strong> / <strong>8 weeks free</strong> on select leases, with marketing language of effective 1BR rent near <strong>$993/month</strong> after concession on a longer lease.<a href="#ref-decker-site" class="citation">[29]</a><a href="#ref-rent-decker" class="citation">[2]</a> Best “easy lease” option if proximity + amenities matter more than absolute minimum rent.</p>
+  </div>
+
+  <div class="option-card">
+    <div class="tier">Closest new construction</div>
+    <h3>Decker Station Apartments — 3078 / 3058 Decker Lake Dr</h3>
+    <p class="price">Studio ~$1,075–$1,230 · 1BR ~$1,149–$1,445 · 2BR ~$1,515–$1,825</p>
+    <p>Built ~2024, ~219 units, TRAX-adjacent on Decker Lake Drive. Newer finishes and higher rents than Apartments at Decker Lake — studios undercut older 1BR averages slightly, but 2BRs are expensive for this neighborhood.<a href="#ref-decker-station" class="citation">[3]</a><a href="#ref-homes-chesterfield" class="citation">[24]</a> Choose only if new construction / transit adjacency is the priority.</p>
+  </div>
+
+  <div class="option-card">
+    <div class="tier">Cheapest near-park whole units (scarce)</div>
+    <h3>Parkway Boulevard multiplex corridor (~3500 W Parkway)</h3>
+    <p class="price">2BR examples: <span class="badge b-best">$835</span> and <span class="badge b-best">$925</span> <span class="price-note">availability uncertain at research time</span></p>
+    <ul>
+      <li><strong>3538 W Parkway Blvd Unit #1</strong> — 2BR / 1BA ~950 sq ft, asking <strong>$835</strong>, 4-unit building; listing noted water, heat, trash, sewer, and AC included; no pets / no smoking.<a href="#ref-3538-parkway" class="citation">[5]</a></li>
+      <li><strong>3524 Parkway Blvd</strong> — updated 2BR / 1BA ~850 sq ft, asking <strong>$925</strong>, covered parking, patio; deposit $700 + $200 lease initiation + $35 app; small dogs only.<a href="#ref-3524-parkway" class="citation">[4]</a></li>
+    </ul>
+    <p>These sit on the same Parkway Boulevard corridor as the park entrance — among the strongest proximity + price combinations found. Both listings showed “check back soon” availability language, so treat as <strong>hunt-immediately</strong> inventory, not a guaranteed open house.</p>
+  </div>
+
+  <div class="option-card">
+    <div class="tier">Lake Park Drive 4-plexes</div>
+    <h3>1881 / 1839 Lake Park Dr area</h3>
+    <p class="price">2BR examples: <span class="badge b-best">$885</span> (RPM listing) · ~$1,200 more typical</p>
+    <p><strong>1881 Lake Park Dr</strong> advertised a full 2BR / 1BA 4-plex unit at <strong>$885</strong> ($875 + $10 RPM management fee), first month free with an 18-month lease, no pets; Decker Lake Station about a 3-minute drive per the listing’s transit table.<a href="#ref-1881-lake" class="citation">[6]</a> Nearby Rentler multiplex listings at 1839 W Lake Park Dr and 2554 S Lake Park Cir show more typical 2BR asking rents around <strong>$1,200</strong> (+ CAM fees on some).<a href="#ref-rentler-1839" class="citation">[30]</a><a href="#ref-rentler-2554" class="citation">[31]</a> The $885 unit is an outlier bargain if still available; $1,200 is a more realistic “steady state” for this pocket.</p>
+  </div>
+
+  <h3>6.3 Tier B — Still West Valley City, short drive south / west of the lake</h3>
+  <table>
+    <thead>
+      <tr><th>Property</th><th>Address area</th><th>Beds</th><th>Asking rent</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Enclave at Redwood</td><td>3810 S Redwood Rd</td><td>1BR</td><td>$999–$1,249</td><td>1 month free promo observed; ~few miles south of Decker<a href="#ref-under1200" class="citation">[32]</a></td></tr>
+      <tr><td>Shadowbrook Apartments</td><td>3860 S Redwood Rd</td><td>mixed</td><td>$1,099–$1,399</td><td>Same Redwood corridor<a href="#ref-under1200" class="citation">[32]</a></td></tr>
+      <tr><td>1908 W 3395 S duplex</td><td>~1–2 mi south</td><td>2BR / 1BA</td><td>$1,395</td><td>Yard, W/D hookups; fees/deposit extra<a href="#ref-1908" class="citation">[33]</a></td></tr>
+      <tr><td>Riverside 1468-70</td><td>1468–70 W 2400 S</td><td>2BR duplex</td><td>~$1,350–$1,399</td><td>Remodeled duplex; utility / fee stack<a href="#ref-riverside" class="citation">[34]</a></td></tr>
+      <tr><td>Tuscany Cove</td><td>3856 W 3500 S</td><td>1–2BR</td><td>$1,109–$1,352</td><td><strong>Income-restricted</strong> affordable housing<a href="#ref-tuscany" class="citation">[14]</a></td></tr>
+    </tbody>
+  </table>
+
+  <div class="warn-box">
+    <strong>Rooms trap:</strong> Aggregator “under $1,000” filters for West Valley City mix rooms, shared houses, and whole units. For this report, listings that are clearly roommate-only were dropped. Always read the body text for “unit,” “4-plex,” “duplex,” and whether you get a private kitchen.<a href="#ref-under1000" class="citation">[35]</a>
+  </div>
+</section>
+
+<section id="part2">
+  <h2>7. Part 2 — Within ~30 Minutes: Are There Better Deals?</h2>
+  <p><strong>Short answer: yes, modestly for studios and small 1-bedrooms; sometimes for 2-bedrooms if you accept Magna / older multiplex inventory; dramatically only if you stretch past 30 minutes into Tooele.</strong></p>
+
+  <h3>7.1 Cities inside the 30-minute ring (practical shopping map)</h3>
+  <table>
+    <thead>
+      <tr><th>Area</th><th>Drive vs Decker / WVC</th><th>What “cheap” looked like (July 2026 snapshot)</th><th>Better than near-park?</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Magna</strong></td>
+        <td>~10–15 min</td>
+        <td>Studio ~$800; 1BR duplex ~$800–$850; market 1BR apt avg ~$1,200–$1,250; 2BR multiplex ~$1,175–$1,395; Coppertree LIHTC 2BR $913–$1,310 if income qualifies</td>
+        <td><span class="badge b-best">Yes for studios / small 1BR</span><a href="#ref-magna-800" class="citation">[7]</a><a href="#ref-magna-850" class="citation">[36]</a><a href="#ref-rentometer-magna" class="citation">[37]</a><a href="#ref-coppertree" class="citation">[13]</a><a href="#ref-rentler-magna" class="citation">[21]</a></td>
+      </tr>
+      <tr>
+        <td><strong>Redwood / Taylorsville edge (The Redwood)</strong></td>
+        <td>~10–20 min</td>
+        <td>Studio $849–$899; 1BR $949–$1,069; 2BR call/unavailable at snapshot; free-rent promo through mid-July 2026 on property site</td>
+        <td><span class="badge b-best">Yes for studios / 1BR</span><a href="#ref-redwood" class="citation">[8]</a><a href="#ref-redwood-site" class="citation">[38]</a></td>
+      </tr>
+      <tr>
+        <td><strong>Parkway Commons (Meadowbrook / Millcreek side)</strong></td>
+        <td>~15–25 min</td>
+        <td>Studio–3BR from ~$974–$1,499; income-restriction flag on some floor plans</td>
+        <td><span class="badge b-ok">Maybe</span> — check income rules<a href="#ref-parkway-commons" class="citation">[39]</a></td>
+      </tr>
+      <tr>
+        <td><strong>Kearns / central Taylorsville</strong></td>
+        <td>~10–20 min</td>
+        <td>Fewer sub-$900 whole units than Magna; citywide averages on RentCafe list Taylorsville among cheaper Salt Lake suburbs (~$1,309 all-rentals average in one table)</td>
+        <td><span class="badge b-ok">Sometimes</span><a href="#ref-rentcafe-magna" class="citation">[40]</a></td>
+      </tr>
+      <tr>
+        <td><strong>Downtown / South Salt Lake / Murray</strong></td>
+        <td>~15–25 min off-peak</td>
+        <td>More inventory, but cheap floors compete with Decker Lake only for older stock; downtown new product is usually higher</td>
+        <td><span class="badge b-ok">Rarely cheaper</span> for equivalent quality<a href="#ref-uber-wvc" class="citation">[12]</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>7.2 Just outside 30 minutes — Tooele (for context)</h3>
+  <p>Tooele regularly shows the Salt Lake west-side’s lowest large-community studio floors: <strong>The Kirk on Vine</strong> studios from <strong>$799</strong>, 1BR ~$999, 2BR ~$1,099–$1,199; other Tooele studios have listed near <strong>$650</strong> with utility fees on top.<a href="#ref-kirk-tooele" class="citation">[9]</a><a href="#ref-tooele-650" class="citation">[41]</a> Drive time Tooele ↔ West Valley City is about <strong>37 minutes / 28.5 miles</strong> under normal conditions — so it fails a strict “within 30 minutes of Decker Lake” filter, but it answers the broader “are there better deals if I expand the radius?” question with a clear yes for absolute cheapest rates.<a href="#ref-tooele-drive" class="citation">[10]</a></p>
+
+  <h3>7.3 Rent savings vs commute minutes (illustrative)</h3>
+  <div class="diagram">Illustrative monthly rent floors found (whole units only, asking rent)
+
+  Near park multiplex 2BR floor ........ $835 – $925   (scarce; availability risk)
+  Near park complex 1BR floor .......... ~$993 – $1,147 (with/without concession)
+  Near park new studio floor ........... ~$1,075+
+  Magna studio / small 1BR floor ....... ~$800 – $850   (+ ~10–15 min drive)
+  The Redwood studio floor ............. ~$849 – $899   (+ ~10–20 min drive)
+  Tooele studio floor .................. ~$650 – $799   (+ ~35–40 min; outside 30)
+
+  Rule of thumb from this snapshot:
+  - Expanding ~10–15 minutes west/south often saves $150–$300 vs new Decker Lake product.
+  - Beating a rare $835–$925 near-park 2BR is hard inside 30 minutes.
+  - Absolute cheapest studios require Magna (inside) or Tooele (outside).</div>
+
+  <p>RentCafe’s city-average table (all apartment sizes mixed) listed <strong>Taylorsville ~$1,309</strong> and <strong>West Valley City ~$1,541</strong> among Utah comparisons — consistent with the idea that sliding a few miles southeast/southwest of Decker Lake can beat WVC’s citywide mean even when Decker Lake itself is already one of WVC’s more convenient pockets.<a href="#ref-rentcafe-magna" class="citation">[40]</a></p>
+</section>
+
+<section id="cheapest">
+  <h2>8. Cheapest Rates Found (Ranked)</h2>
+  <p>Whole units only. Prices are advertised asking rents from the research window; confirm live availability.</p>
+
+  <h3>8.1 Absolute cheapest whole units observed (any radius considered)</h3>
+  <table>
+    <thead>
+      <tr><th>Rank</th><th>Asking rent</th><th>Beds</th><th>Location</th><th>~Drive to Decker Lake</th><th>Caveat</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td><span class="badge b-best">~$650–$700</span></td><td>Studio</td><td>Tooele (e.g. Vine St / Main St stock)</td><td>~35–40 min</td><td>Outside 30-min goal; watch utility fees<a href="#ref-tooele-650" class="citation">[41]</a></td></tr>
+      <tr><td>2</td><td><span class="badge b-best">$799</span></td><td>Studio</td><td>The Kirk on Vine, Tooele</td><td>~37 min</td><td>Outside 30-min goal<a href="#ref-kirk-tooele" class="citation">[9]</a></td></tr>
+      <tr><td>3</td><td><span class="badge b-best">$800</span></td><td>Studio / small 1BR</td><td>Magna (8850 W corridor examples)</td><td>~10–15 min</td><td><strong>Best cheap floor inside 30 min</strong><a href="#ref-magna-800" class="citation">[7]</a></td></tr>
+      <tr><td>4</td><td><span class="badge b-best">$835</span></td><td>2BR</td><td>3538 W Parkway Blvd</td><td>~few minutes</td><td>Near park; availability uncertain; utilities included claimed<a href="#ref-3538-parkway" class="citation">[5]</a></td></tr>
+      <tr><td>5</td><td><span class="badge b-best">$849+</span></td><td>Studio</td><td>The Redwood, 4000 S Redwood Rd</td><td>~10–20 min</td><td>Inside 30; many units available at snapshot<a href="#ref-redwood" class="citation">[8]</a></td></tr>
+      <tr><td>6</td><td><span class="badge b-best">$850</span></td><td>1BR duplex</td><td>Magna (~8850 W)</td><td>~10–15 min</td><td>KSL Homes listing class<a href="#ref-magna-850" class="citation">[36]</a></td></tr>
+      <tr><td>7</td><td><span class="badge b-best">$885</span></td><td>2BR 4-plex</td><td>1881 Lake Park Dr</td><td>~few minutes</td><td>Near park; first-month-free promo; no pets<a href="#ref-1881-lake" class="citation">[6]</a></td></tr>
+      <tr><td>8</td><td><span class="badge b-ok">$913+</span></td><td>2BR</td><td>Coppertree, Magna</td><td>~10–15 min</td><td>Income-restricted LIHTC<a href="#ref-coppertree" class="citation">[13]</a></td></tr>
+      <tr><td>9</td><td><span class="badge b-ok">$925</span></td><td>2BR</td><td>3524 Parkway Blvd</td><td>~few minutes</td><td>Near park; availability uncertain<a href="#ref-3524-parkway" class="citation">[4]</a></td></tr>
+      <tr><td>10</td><td><span class="badge b-ok">~$993–$1,062</span></td><td>1BR</td><td>Apartments at Decker Lake</td><td>~0.5 mi / walking-ish</td><td>Closest reliable complex; concession-dependent<a href="#ref-rent-decker" class="citation">[2]</a><a href="#ref-apartments-decker" class="citation">[1]</a></td></tr>
+    </tbody>
+  </table>
+
+  <h3>8.2 Cheapest <em>reliable</em> options by bedroom (inside ~30 minutes)</h3>
+  <table>
+    <thead>
+      <tr><th>Bedroom mix</th><th>Cheapest practical floor inside 30 min</th><th>Closest-to-park alternative</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Studio</td><td>Magna ~$800 or The Redwood ~$849</td><td>Decker Station ~$1,075+</td></tr>
+      <tr><td>1 bedroom</td><td>Magna duplex ~$800–$850; The Redwood ~$949+</td><td>Apartments at Decker Lake ~$993–$1,147 (w/ promo)</td></tr>
+      <tr><td>2 bedroom</td><td>Near-park multiplex $835–$925 if open; else Magna multiplex ~$1,175–$1,395 or Decker Lake complex ~$1,315+</td><td>Same near-park multiplexes, then Apartments at Decker Lake 2BR</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="verdict">
+  <h2>9. Verdict and Decision Framework</h2>
+
+  <div class="diagram">Decision tree (whole units only)
+
+  Need to be as close as possible to Decker Lake?
+    |
+    +-- YES, walking / &lt;5 min
+    |     1) Call Parkway Blvd + Lake Park Dr multiplexes first ($835–$925 / $885 outliers)
+    |     2) Tour Apartments at Decker Lake (ask for current concession math on 1BR)
+    |     3) Decker Station only if new/TRAX matters more than price
+    |
+    +-- NO, friend visit / commute within ~30 min is enough
+          1) Magna studios &amp; small 1BRs (~$800–$850) = best cheap floor inside the ring
+          2) The Redwood studios/1BRs (~$849–$1,069) = best large-community volume
+          3) Still watch Lake Park / Parkway for rare 2BR bargains near the friend
+          4) Coppertree / other LIHTC only if income qualifies
+          5) Tooele (~$650–$799 studios) only if you accept ~37 min drives</div>
+
+  <h3>9.1 Direct answers to the user’s two parts</h3>
+  <ol>
+    <li><strong>Closest + cheap:</strong> Hunt whole 2BR units on Parkway Blvd / Lake Park Dr first ($835–$925 / $885). If those are gone, Apartments at Decker Lake 1BR with concessions (~$993–$1,147 list) is the closest dependable community deal; Decker Station is closer in branding but usually costlier for the same bedrooms.</li>
+    <li><strong>30-minute radius:</strong> Yes — a larger radius finds better deals for studios and small 1-bedrooms, mainly in <strong>Magna</strong> and along the <strong>Redwood Rd</strong> corridor (The Redwood). For 2-bedrooms, expanding helps less unless you accept older multiplex stock around $1,175–$1,395 in Magna or catch another near-park outlier. The absolute cheapest rates (~$650–$799 studios) sit in <strong>Tooele</strong>, typically just beyond 30 minutes.</li>
+  </ol>
+
+  <div class="callout">
+    <strong>Practical next step:</strong> Same-day call / apply on any Parkway or Lake Park whole unit under $950; same week tour Magna + The Redwood for studios/1BRs; only then lock a Decker Lake complex if proximity outweighs $100–$250/month.
+  </div>
+</section>
+
+<section id="further">
+  <h2>10. Further Research Questions</h2>
+  <ul>
+    <li>What is the true all-in monthly cost (rent + utilities + CAM + renter insurance + parking) for the top five shortlist units?</li>
+    <li>How do rush-hour TRAX Green Line times from Decker Lake Station / Redwood Junction compare with driving to a friend’s workplace near the park?</li>
+    <li>What share of sub-$1,000 WVC listings are rooms mis-tagged as apartments over a 90-day scrape?</li>
+    <li>Do concession-adjusted effective rents at Apartments at Decker Lake beat Magna sticker prices after utility differences?</li>
+    <li>How many LIHTC / income-restricted units (Coppertree, Tuscany Cove, Parkway Commons) are actually open to a typical employed applicant?</li>
+    <li>Would expanding to 45 minutes (Tooele, Grantsville, parts of Davis County) change the Pareto frontier of rent vs commute enough to matter?</li>
+    <li>What does a 12-month forward rent forecast look like for 84119 vs 84044 (Magna) using ZORI / Apartment List indexes?</li>
+  </ul>
+</section>
+
+<section id="conclusion" class="conclusion-box">
+  <h2>11. Concise Conclusion</h2>
+  <p>For housing as close as possible to Decker Lake Park, the cheapest whole apartments in this snapshot are older multiplex 2-bedrooms on Parkway Boulevard and Lake Park Drive in the mid-$800s to low-$900s — rare, and possibly already pending. The closest large communities run roughly $1,000–$1,150 for 1-bedrooms (with concessions) and $1,300+ for 2-bedrooms at Apartments at Decker Lake, with newer Decker Station studios starting near $1,075.</p>
+  <p>Expanding to a ~30-minute drive <strong>does</strong> unlock better deals for studios and small one-bedrooms, especially in Magna (~$800–$850) and at The Redwood (~$849–$1,069). Absolute cheapest studios (~$650–$799) appear in Tooele, but that commute usually exceeds 30 minutes. If the friend’s workplace near Decker Lake is the anchor, prioritize near-park multiplex bargains first; if rent minimization is the anchor within a half-hour drive, start in Magna and on Redwood Road, then fall back to Decker Lake complexes for convenience.</p>
+</section>
+
+<section id="refs">
+  <h2>12. References</h2>
+  <ol class="refs">
+    <li id="ref-apartments-decker">Apartments.com — <em>Apartments at Decker Lake</em>, 2184 W 3100 S, West Valley City, UT (1–2 BR pricing ~$1,062–$1,400). <a href="https://www.apartments.com/apartments-at-decker-lake-west-valley-city-ut/w8lrngk/">https://www.apartments.com/apartments-at-decker-lake-west-valley-city-ut/w8lrngk/</a></li>
+    <li id="ref-rent-decker">Rent.com — <em>Apartments at Decker Lake Your Everyday Retreat</em> (promotional effective 1BR near $993; list from ~$1,147 / 2BR ~$1,392+). <a href="https://www.rent.com/apartment/apartments-at-decker-lake-your-everyday-retreat-west-valley-city-ut-lc5931650">https://www.rent.com/apartment/apartments-at-decker-lake-your-everyday-retreat-west-valley-city-ut-lc5931650</a></li>
+    <li id="ref-decker-station">Apartments.com / ApartmentHomeLiving — <em>Decker Station Apartments</em>, 3078 Decker Lake Dr (studio–2BR ~$1,075–$1,825). <a href="https://www.apartments.com/decker-station-apartments-salt-lake-city-ut/lqs96qd/">https://www.apartments.com/decker-station-apartments-salt-lake-city-ut/lqs96qd/</a></li>
+    <li id="ref-3524-parkway">Apartments.com — <em>3524 Parkway Blvd</em>, West Valley City (2BR ~$925). <a href="https://www.apartments.com/3524-parkway-blvd-west-valley-city-ut/6e6mmyt/">https://www.apartments.com/3524-parkway-blvd-west-valley-city-ut/6e6mmyt/</a></li>
+    <li id="ref-3538-parkway">Apartments.com — <em>3538 W Parkway Blvd Unit #1</em> (2BR ~$835; utilities included claimed). <a href="https://www.apartments.com/3538-w-parkway-blvd-salt-lake-city-ut/5f79hfq/">https://www.apartments.com/3538-w-parkway-blvd-salt-lake-city-ut/5f79hfq/</a></li>
+    <li id="ref-1881-lake">Apartments.com — <em>1881 Lake Park Dr</em>, West Valley City (2BR 4-plex ~$885; RPM Wasatch). <a href="https://www.apartments.com/1881-lake-park-dr-west-valley-city-ut/h0g0jw2/">https://www.apartments.com/1881-lake-park-dr-west-valley-city-ut/h0g0jw2/</a></li>
+    <li id="ref-magna-800">Apartments.com / Rentler — Magna small-unit listings near 8850 W (studio/1BR examples ~$800). <a href="https://www.apartments.com/2962-s-8850-w-magna-ut/1t3p715/">https://www.apartments.com/2962-s-8850-w-magna-ut/1t3p715/</a> · <a href="https://www.rentler.com/places-for-rent/ut/magna/2992-s-8850-w/1759062">https://www.rentler.com/places-for-rent/ut/magna/2992-s-8850-w/1759062</a></li>
+    <li id="ref-redwood">Apartments.com — <em>The Redwood</em>, 4000 S Redwood Rd (studio $849–$899; 1BR $949–$1,069). <a href="https://www.apartments.com/the-redwood-salt-lake-city-ut/pdm1y4t/">https://www.apartments.com/the-redwood-salt-lake-city-ut/pdm1y4t/</a></li>
+    <li id="ref-kirk-tooele">Apartments.com — <em>The Kirk on Vine</em>, Tooele (studio from $799; 1–2BR to ~$1,199). <a href="https://www.apartments.com/the-kirk-on-vine-tooele-ut/gcqeyzx/">https://www.apartments.com/the-kirk-on-vine-tooele-ut/gcqeyzx/</a></li>
+    <li id="ref-tooele-drive">MapSof.net — Driving distance Tooele to West Valley City (~28.5 mi / ~37 min). <a href="https://www.mapsof.net/distance/tooele-to-west-valley-city">https://www.mapsof.net/distance/tooele-to-west-valley-city</a></li>
+    <li id="ref-hud-fmr-overview">HUD USER — Fair Market Rents overview and program uses. <a href="https://www.huduser.gov/portal/datasets/fmr.html">https://www.huduser.gov/portal/datasets/fmr.html</a></li>
+    <li id="ref-uber-wvc">Uber Routes — West Valley City to Salt Lake City (~14 min average off-peak estimate). <a href="https://www.uber.com/global/en/r/routes/west-valley-city-ut-to-salt-lake-city-ut/">https://www.uber.com/global/en/r/routes/west-valley-city-ut-to-salt-lake-city-ut/</a></li>
+    <li id="ref-coppertree">American Housing Partners — <em>Coppertree Apartments at Magna</em> (income-restricted 2BR $913–$1,310). <a href="https://www.americanhousingpm.com/coppertree-magna/">https://www.americanhousingpm.com/coppertree-magna/</a></li>
+    <li id="ref-tuscany">HotPads — <em>Tuscany Cove</em>, West Valley City (income-restricted; 1BR from ~$1,109). <a href="https://hotpads.com/tuscany-cove-west-valley-city-ut-84120-ske4t5/pad">https://hotpads.com/tuscany-cove-west-valley-city-ut-84120-ske4t5/pad</a></li>
+    <li id="ref-hud-fmr-data">HUD — FY2026 Fair Market Rent methodology (40th-percentile gross rents; ACS + inflation). <a href="https://www.huduser.gov/portal/datasets/fmr/fmr2026/FY26-Public-FMR-Methodology.pdf">https://www.huduser.gov/portal/datasets/fmr/fmr2026/FY26-Public-FMR-Methodology.pdf</a></li>
+    <li id="ref-hud-history">HUD USER Edge — History of HUD Fair Market Rents and Income Limits (FMR schedules from 1975). <a href="https://www.huduser.gov/archives/portal/pdredge/pdr-edge-pdrat50-041823.html">https://www.huduser.gov/archives/portal/pdredge/pdr-edge-pdrat50-041823.html</a></li>
+    <li id="ref-nlihc-fmr">National Low Income Housing Coalition — HUD FY2023 FMR methodology incorporating private rent data. <a href="https://nlihc.org/resource/hud-publishes-fy2023-fair-market-rents-fmrs">https://nlihc.org/resource/hud-publishes-fy2023-fair-market-rents-fmrs</a></li>
+    <li id="ref-plainrent-fmr">PlainRent — Salt Lake City, UT HUD Metro FMR Area FY2026 (studio $1,259 / 1BR $1,456 / 2BR $1,747). <a href="https://plainrent.com/metros/salt-lake-city-ut-hud-metro-fmr-area">https://plainrent.com/metros/salt-lake-city-ut-hud-metro-fmr-area</a></li>
+    <li id="ref-rentometer-wvc">Rentometer — Average rent in West Valley City, UT (apartment bedroom averages). <a href="https://www.rentometer.com/average-rent-in/ut/west-valley-city-ut">https://www.rentometer.com/average-rent-in/ut/west-valley-city-ut</a></li>
+    <li id="ref-rent-trends-wvc">Rent.com — Rental market trends, West Valley City, UT (studio/1/2 averages; updated ~May 2026). <a href="https://www.rent.com/utah/west-valley-city-apartments/rent-trends">https://www.rent.com/utah/west-valley-city-apartments/rent-trends</a></li>
+    <li id="ref-rentler-magna">Rentler — Magna, UT rentals search (multiplex/house inventory snapshot). <a href="https://www.rentler.com/places-for-rent/ut/magna/">https://www.rentler.com/places-for-rent/ut/magna/</a></li>
+    <li id="ref-wvc-park">West Valley City — Facilities: Decker Lake Park (51.81 acres). <a href="https://www.wvc-ut.gov/facilities/facility/details/Decker-Lake-Park-34">https://www.wvc-ut.gov/facilities/facility/details/Decker-Lake-Park-34</a></li>
+    <li id="ref-mapquest">MapQuest — Decker Lake Park, 2300 W Parkway Blvd, West Valley City, UT 84119. <a href="https://www.mapquest.com/us/utah/decker-lake-park-752368622">https://www.mapquest.com/us/utah/decker-lake-park-752368622</a></li>
+    <li id="ref-homes-chesterfield">Homes.com — Chesterfield neighborhood guide (Decker Lake Park, TRAX, Decker Station rents). <a href="https://www.homes.com/local-guide/west-valley-ut/chesterfield-neighborhood/">https://www.homes.com/local-guide/west-valley-ut/chesterfield-neighborhood/</a></li>
+    <li id="ref-magna-slc-drive">MapSof.net / Travelmath — Magna to Salt Lake City ~19 min; WVC as midpoint. <a href="https://www.mapsof.net/distance/magna-to-salt-lake-city">https://www.mapsof.net/distance/magna-to-salt-lake-city</a></li>
+    <li id="ref-murray-drive">MapSof.net — Murray to Salt Lake City ~12 min (context for south-valley ring). <a href="https://www.mapsof.net/distance/murray-to-salt-lake-city">https://www.mapsof.net/distance/murray-to-salt-lake-city</a></li>
+    <li id="ref-aptfinder-wvc">Apartment Finder — West Valley City average rents by bedroom. <a href="https://www.apartmentfinder.com/Utah/West-Valley-City-Apartments">https://www.apartmentfinder.com/Utah/West-Valley-City-Apartments</a></li>
+    <li id="ref-trulia-decker">Trulia — Apartments at Decker Lake unit sheets (~$1,067–$1,435). <a href="https://www.trulia.com/building/apartments-at-decker-lake-2184-w-3100-s-west-valley-city-ut-84119-1031261458">https://www.trulia.com/building/apartments-at-decker-lake-2184-w-3100-s-west-valley-city-ut-84119-1031261458</a></li>
+    <li id="ref-decker-site">Apartments at Decker Lake official site — concession marketing (months free / effective rent claims). <a href="https://www.apartmentsatdeckerlake.com/">https://www.apartmentsatdeckerlake.com/</a></li>
+    <li id="ref-rentler-1839">Rentler — 1839 W Lake Park Dr multiplex (~$1,200 2BR). <a href="https://www.rentler.com/places-for-rent/ut/west-valley-city/1839-w-lake-park-dr/9015698">https://www.rentler.com/places-for-rent/ut/west-valley-city/1839-w-lake-park-dr/9015698</a></li>
+    <li id="ref-rentler-2554">Rentler — 2554 S Lake Park Cir multiplex (~$1,200 2BR + CAM). <a href="https://www.rentler.com/places-for-rent/ut/west-valley-city/2554-s-lake-park-cir/8941543">https://www.rentler.com/places-for-rent/ut/west-valley-city/2554-s-lake-park-cir/8941543</a></li>
+    <li id="ref-under1200">Apartments.com — West Valley City apartments under $1,200 (Enclave, Shadowbrook, Decker Station, etc.). <a href="https://www.apartments.com/west-valley-city-ut/under-1200/">https://www.apartments.com/west-valley-city-ut/under-1200/</a></li>
+    <li id="ref-1908">Zillow — 1908 W 3395 S, West Valley City (2BR duplex ~$1,395). <a href="https://www.zillow.com/homedetails/1908-W-3395-S-West-Valley-City-UT-84119/2082330745_zpid/">https://www.zillow.com/homedetails/1908-W-3395-S-West-Valley-City-UT-84119/2082330745_zpid/</a></li>
+    <li id="ref-riverside">Zillow — Riverside 1468-70, West Valley City (2BR duplex ~$1,350+). <a href="https://www.zillow.com/apartments/west-valley-city-ut/riverside-1468-70/CqBWyq/">https://www.zillow.com/apartments/west-valley-city-ut/riverside-1468-70/CqBWyq/</a></li>
+    <li id="ref-under1000">Apartments.com — West Valley City apartments under $1,000 (mixed rooms/units; filter caution). <a href="https://www.apartments.com/west-valley-city-ut/under-1000/">https://www.apartments.com/west-valley-city-ut/under-1000/</a></li>
+    <li id="ref-magna-850">KSL Homes (search synthesis) — Magna 1BR duplex listing class ~$850 near 8850 W. <a href="https://homes.ksl.com/rent/search/ut/magna">https://homes.ksl.com/rent/search/ut/magna</a></li>
+    <li id="ref-rentometer-magna">Rentometer — Average rent in Magna, UT. <a href="https://www.rentometer.com/average-rent-in/ut/magna-ut">https://www.rentometer.com/average-rent-in/ut/magna-ut</a></li>
+    <li id="ref-redwood-site">The Redwood apartments site — location/promo (free rent until July 15 marketing at research time). <a href="https://www.liveattheredwood.com/">https://www.liveattheredwood.com/</a></li>
+    <li id="ref-parkway-commons">ApartmentHomeLiving / Apartments.com — Parkway Commons, 875 W Meadowbrook Expy (~$974–$1,499). <a href="https://www.apartments.com/parkway-commons-salt-lake-city-ut/1dsfrm7/">https://www.apartments.com/parkway-commons-salt-lake-city-ut/1dsfrm7/</a></li>
+    <li id="ref-rentcafe-magna">RentCafe — Average rent market trends including Magna / WVC / Taylorsville comparison table. <a href="https://www.rentcafe.com/average-rent-market-trends/us/ut/magna/">https://www.rentcafe.com/average-rent-market-trends/us/ut/magna/</a></li>
+    <li id="ref-tooele-650">RentCafe / HotPads synthesis — Tooele studio stock near $650–$700 with utility fees (e.g. Vine / Main St buildings). <a href="https://www.apartments.com/tooele-ut/under-1000/">https://www.apartments.com/tooele-ut/under-1000/</a></li>
+  </ol>
+</section>
+
+</div>
+</body>
+</html>
