@@ -1,5 +1,31 @@
 # Published-Research — Dev Log
 
+## 2026-07-11 — Human decisions recorded (plan complete for approval→implement gate)
+
+### Plan summary
+User answered the hosting MCQs in chat. Environment refreshed from `main` after PR #40 merged and `bio.md` was added. Binding answers written to `dev-decisions.md`. No Rails/app code yet.
+
+### Changes made
+- Pulled latest `main` (plan folder + `bio.md` from human).
+- Created `Published-Research/dev-decisions.md` with locked MCQs and product framing.
+- Updated `README.md` to point at decisions + bio; clarify travel-log site role.
+- Marked draft plan as superseded where it conflicts with decisions (allowlist/copies → serve all from Research-Bot; Rails + merge-only auto-deploy).
+- This log entry.
+
+### Coding decisions and assumptions
+- **Q1=A** keep self-contained HTML; **Q2=minimal Rails**; **Q3=C** shared layout + field-notes framing; **Q4=A** publish all Research-Bot; **Q5=auto on merge to main only** (explicitly no unmerged PR production deploys, no manual steady-state); **Q6=C** serve from Research-Bot; **Q7** `throwingstarfish.studio/research/<report>`; **Q8** Rails OK / min surface.
+- Product: travel log + adventure artifacts; research is one section.
+- `bio.md` is the about/home voice source (places lived, mission, traveling IT tech, Questweight).
+- Earlier draft assumption that an allowlist was needed is **withdrawn** per human (repo already public).
+
+### Bugs / problems
+- Cloud agent checkout was behind `main` until fetch/pull after human merge + bio commits.
+
+### Status
+**Decisions recorded.** Ready for a later implementation pass against `dev-decisions.md` (still no app code in this PR).
+
+---
+
 ## 2026-07-11 — Draft hosting plan (plan only, no code)
 
 ### Plan summary

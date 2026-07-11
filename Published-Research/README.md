@@ -1,24 +1,27 @@
 # Published-Research
 
-This folder is the **publishing home** for Research-Bot reports you want on a public website.
+This folder is the **publishing / public-site home** for a travel-log blog that also surfaces Research-Bot reports as field notes.
 
 ## What this is (ELI5)
 
 `Research-Bot/` is where agents write long, self-contained HTML research papers (CSS baked into each file so one file opens in a browser offline).
 
-`Published-Research/` is *not* where research gets written. It is where we plan and later build the thin “storefront”: a public Ruby-hosted site on your VPS that lists chosen reports and serves them to anyone with a link.
+`Published-Research/` is *not* where research gets written. It holds the **public site plan**, **bio**, **binding decisions**, and (later) the thin Rails app that runs on the VPS at throwingstarfish.studio — travel log + adventure artifacts, with research as one section.
 
 ## Status
 
-**Plan only — no app code yet.** See the draft plan and answer the multiple-choice decisions before any implementation.
+**Decisions locked** in `dev-decisions.md`. Plan draft still in `.cursor/plans/` for history; implement only after / according to those decisions. No Rails app code in this folder yet.
 
 | Doc | Role |
 |-----|------|
-| [`.cursor/plans/published-research-hosting.plan.md`](.cursor/plans/published-research-hosting.plan.md) | Working draft: MCQs, recommended shape, VPS newbie path |
-| [`dev-log.md`](dev-log.md) | What was decided/assumed during planning |
+| [`dev-decisions.md`](dev-decisions.md) | Binding human answers (MCQs + product framing) |
+| [`bio.md`](bio.md) | Site bio / about voice |
+| [`.cursor/plans/published-research-hosting.plan.md`](.cursor/plans/published-research-hosting.plan.md) | Earlier draft plan (superseded where it conflicts with decisions) |
+| [`dev-log.md`](dev-log.md) | What changed during planning |
 
 ## Relationship to other folders
 
-- **Source of truth for content:** `Research-Bot/` (and topic subfolders like `Apocalypse-Story/`)
-- **This folder:** publish pipeline plan + (later) the site that hosts selected copies
-- Do not reinvent Research-Bot’s writing rules here; agents keep producing self-contained HTML there unless an approved plan says otherwise.
+- **Source of truth for report HTML:** `Research-Bot/` (served directly; no copies)
+- **This folder:** site identity, decisions, and later the Rails + deploy pieces
+- Do not reinvent Research-Bot’s writing rules here; agents keep producing self-contained HTML there
+- Do not pull stacks from other monorepo projects

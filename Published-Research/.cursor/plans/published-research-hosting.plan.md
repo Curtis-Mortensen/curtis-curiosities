@@ -1,15 +1,28 @@
 # Draft plan — Publish Research-Bot HTML on a public Ruby site (VPS)
 
-**Status:** Draft for human approval (no code in this pass)  
+**Status:** Decisions locked in `Published-Research/dev-decisions.md` (2026-07-11). This file is historical draft context; where it conflicts, **dev-decisions.md wins**.  
 **Folder:** `Published-Research/`  
 **Audience:** Coding newbie with a VPS who wants Research-Bot pages public and mostly automatic  
 **Related:** `Research-Bot/` (writers of self-contained HTML reports)
 
 ---
 
+## Locked direction (summary)
+
+See `dev-decisions.md` for the full board. Short version:
+
+- Self-contained Research-Bot HTML stays the report format (no ERB rewrite).
+- Minimal **Rails** travel-log / adventure-artifacts blog; research = **field notes** → full HTML view.
+- Publish **all** of `Research-Bot/`; **serve that folder** on the VPS (no copies).
+- URLs under `https://throwingstarfish.studio/research/<report>`.
+- Deploy **automatically on merge to `main` only** (no unmerged PR deploys, no manual steady-state steps).
+- Bio copy: `bio.md`.
+
+---
+
 ## Intent (one paragraph)
 
-Keep Research-Bot’s current workflow: agents ship **one self-contained `.html` file per report** (CSS inside the file, readable offline without the repo). Add a separate, thin **public site** under `Published-Research` that runs on your VPS with a small Ruby stack, lists the reports you choose to publish, and serves them at stable public URLs. Automation should mean: when you (or an agent) mark a report as publishable, the live site updates without hand-editing a server by SSH every time.
+Keep Research-Bot’s current workflow: agents ship **one self-contained `.html` file per report** (CSS inside the file, readable offline without the repo). Add a separate, thin **public Rails site** under `Published-Research` that runs on your VPS as a travel log / artifacts home, lists Research-Bot reports as field notes, and serves the HTML at stable public URLs under throwingstarfish.studio. Automation means: when a PR **merges to `main`**, the live site updates with whatever is now in `Research-Bot/` — no SSH publish ritual.
 
 ---
 
@@ -122,122 +135,116 @@ Pick the highest complexity you are willing to maintain yourself:
 
 ---
 
-## Sample plan (assumes recommended answers: Q1=A, Q2=A or C, Q3=B, Q4=B, Q5=B/C, Q6=A)
+## Sample plan (locked answers: see `dev-decisions.md`)
 
-This is the shape we would implement **after** you approve — still described as plan steps, not code.
+Shape for a later implementation pass — still described as plan steps, not code in this PR.
 
 ### Goals
 
-1. Public front door listing only allowlisted research reports.
-2. Each report URL serves self-contained HTML (same reading experience as opening the file locally).
+1. Public travel-log / adventure-artifacts home (bio + blog surface) on throwingstarfish.studio.
+2. Research section as field notes → full self-contained HTML reports.
 3. Research-Bot agents keep writing HTML the way they do today.
-4. Publishing is a deliberate step (manifest), then deploy is mostly automatic.
-5. VPS setup is documented in short “do these commands” form for a newbie.
+4. All `Research-Bot/**/*.html` served from the monorepo checkout (no copies, no allowlist).
+5. Auto-deploy on **merge to `main` only** (no unmerged PR production deploys, no manual steady-state).
 
 ### Non-goals (v1)
 
-- No user accounts, comments, search backend, or CMS.
+- No user accounts, comments, search backend, or CMS for reports.
 - No rewriting reports into ERB.
 - No redesign of every report’s internal CSS into one theme.
 - No tests/CI smoke scripts unless you explicitly ask later (per monorepo agent rules).
 - Do not pull architecture from other monorepo projects.
+- No production deploys from open/unmerged PRs.
 
 ### Proposed folder shape (later implementation)
 
 ```text
 Published-Research/
-  README.md                 # already started
+  README.md
+  bio.md
+  dev-decisions.md
+  master-plan.md
   dev-log.md
-  .cursor/plans/            # this draft
-  manifest.yml              # allowlist: slug, title, source path, date, series, public: true
-  public/                   # what the web server exposes
-    index.html              # catalog (generated)
-    reports/                # copies of allowlisted Research-Bot HTML
-  scripts/                  # (later) sync-from-manifest, build-index
-  app/                      # only if Q2=A: tiny Sinatra/Rack app
-  deploy/                   # nginx/Caddy snippet + systemd notes for the VPS
+  .cursor/plans/            # historical draft
+  # later: minimal Rails app (travel blog + /research routes)
+  # later: deploy/ (nginx + systemd + GitHub Action notes)
+Research-Bot/               # served as-is from VPS monorepo checkout
+  *.html
+  Apocalypse-Story/*.html
 ```
 
 ### Publish flow (happy path)
 
 ```text
-Research-Bot agent finishes report.html
+Research-Bot agent finishes report.html on a PR
         │
         ▼
-Human (or later a small checklist) adds an entry to manifest.yml
+PR merges to main
         │
         ▼
-sync script copies file → public/reports/<slug>.html
+GitHub Action / webhook: VPS git pull (+ Rails restart if needed)
         │
         ▼
-build-index writes public/index.html (title, date, series links)
-        │
-        ▼
-git commit + push
-        │
-        ▼
-VPS deploy hook: git pull → (optional) rebuild → reload nginx
-        │
-        ▼
-Public visitors see updated catalog + report URLs
+Rails scans Research-Bot/ and serves new file at
+throwingstarfish.studio/research/<slug>
 ```
 
-### Ruby’s job (thin)
+### Rails’ job (thin)
 
-- **If Sinatra/Rack (Q2=A):** routes for `/` (catalog from manifest) and `/reports/:slug` (send file). Static middleware for assets if any.
-- **If SSG (Q2=C):** a Rake task or Ruby script reads `manifest.yml`, copies HTML, writes `index.html`; process exits; nginx serves `public/`.
-- **Either way:** Research content stays HTML. Ruby is the librarian, not the author.
+- Home / travel-log chrome + bio.
+- Field-notes index from filesystem scan of Research-Bot HTML.
+- Report show: shared layout around the self-contained HTML (iframe or body extract — pick at implement time).
+- Research content stays HTML. Rails is the travel-site librarian, not the report author.
 
-### HTML “conversion” decision (locked in this sample)
+### HTML “conversion” decision
 
 - **Do not** convert reports to Ruby templates for v1.
-- **Do** optionally post-process a *published copy* only if needed (example: inject a single “← All research” link into `<body>`). Keep the Research-Bot original untouched.
-- **Do** keep originals in `Research-Bot/` as the editable source of truth.
+- **Do** keep originals in `Research-Bot/` as the editable source of truth and the live file source.
 
 ### VPS newbie path (ops sketch)
 
-1. Point a domain (or subdomain) DNS A-record at the VPS.
-2. Install nginx (or Caddy) + git.
-3. Clone this monorepo to e.g. `/var/www/curtis-curiosities` (or a sparse checkout of Published-Research if you prefer later).
-4. Web root = `Published-Research/public` (not the whole monorepo, so unpublished Research-Bot files are not web-visible).
-5. Deploy: `git pull` in a hook on push, or a 5-line cron.
-6. HTTPS via Let’s Encrypt (Certbot or Caddy automatic).
-7. If you chose a always-on Ruby app: one systemd unit running Puma/Rack behind nginx; if SSG/static, skip that unit entirely.
+1. Point throwingstarfish.studio (or confirm DNS) at the VPS.
+2. Install nginx (or Caddy) + git + Ruby/Rails runtime.
+3. Clone this monorepo; Rails app lives under Published-Research; reads sibling `Research-Bot/`.
+4. systemd unit for Puma; nginx terminates TLS and proxies.
+5. GitHub Action on `push` to `main`: SSH/`git pull` + restart — **only after merge**, never for open PR branches.
+6. HTTPS via Let’s Encrypt.
 
 ### Privacy / safety checklist before go-live
 
-- Review allowlist: exclude personal logistics (travel, local events, vehicle fitment) unless you want them public.
-- Confirm reports do not embed private emails, addresses, or credentials.
-- Robots: decide if the catalog should be indexed by Google (`robots.txt` / noindex) — separate small decision later.
+- Entire Research-Bot tree is intentional public surface (human accepted; repo already public).
+- Confirm reports do not embed private emails, addresses, or credentials beyond what is already in the public repo.
+- Robots / indexing policy — separate small decision later if needed.
 
-### Implementation phases (after approval — still no calendar estimates)
+### Implementation phases (after this plan PR — still no calendar estimates)
 
-1. **Manifest + sync design** — finalize `manifest.yml` fields; document “how to publish one report.”
-2. **Static catalog MVP** — generate `public/index.html` + copy allowlisted files; open locally in a browser.
-3. **VPS static serve** — nginx/Caddy serves `public/`; HTTPS; first 1–2 reports live.
-4. **Automation** — deploy hook on push; optional Ruby Sinatra only if you still want a dynamic Ruby process.
-5. **Polish (optional)** — series grouping, “updated at,” bare inject of back-link, custom domain branding on index only.
+1. Scaffold minimal Rails under Published-Research (home, bio, field-notes index, report show).
+2. Wire filesystem catalog of `Research-Bot/**/*.html` + slug rules for `/research/<report>`.
+3. VPS + nginx + Puma + TLS for throwingstarfish.studio.
+4. Merge-to-main auto-deploy Action/webhook.
+5. Optional polish: series grouping (Apocalypse-Story), travel post templates, field-notes card styling.
 
 ---
 
 ## Alternatives we considered and de-prioritized
 
-1. **Rails full app** — overkill for serving documents; more to break for a newbie.
-2. **Rewrite HTML → ERB as source of truth** — breaks Research-Bot agent contract (self-contained HTML) and dual-maintenance pain.
-3. **Auto HTML→ERB converter** — brittle on bespoke per-report CSS; little benefit over serving HTML.
-4. **Serving entire `Research-Bot/` tree from the web root** — easy, but publishes drafts and personal one-offs by accident.
+1. **Sinatra-only or static SSG** — dropped once human chose minimal Rails blog + research day one.
+2. **Rewrite HTML → ERB as source of truth** — breaks Research-Bot agent contract.
+3. **Auto HTML→ERB converter** — brittle on bespoke per-report CSS.
+4. **Allowlist + HTML copies** — superseded; publish all and serve from Research-Bot.
+5. **Deploy unmerged PR branches to production** — explicitly rejected.
+6. **Manual `bin/deploy` as steady state** — rejected; automation required.
 
 ---
 
-## Open questions (beyond the MCQs)
+## Remaining open questions (non-blocking)
 
-- Preferred domain / subdomain?
-- Should Apocalypse-Story be one public series page with child links?
-- Do you want a visible “Published-Research” brand name on the index, or your name / another project name?
-- Any reports that must stay private forever even if someone knows the path?
+- Exact slug scheme for nested paths (e.g. `Apocalypse-Story/...`).
+- Iframe vs body-extract for wrapping HTML in site chrome.
+- Whether Apocalypse-Story gets a dedicated series index page on day one.
 
 ---
 
 ## Approval gate
 
-Please reply with letters for **Q1–Q8** (and any overrides). After that, this draft can move toward `master-plan.md` in this folder and implementation can start in a later pass.
+**Closed 2026-07-11.** Answers live in `dev-decisions.md`; approved execution summary in `master-plan.md`.
