@@ -1,5 +1,26 @@
 # Research Bot — Dev Log
 
+## 2026-07-13 — Tour-day proximity map near Decker Lake (complete)
+
+### Plan summary
+User touring today; asked for next-closest housing after Decker Lake so they can hit multiple nearby stops. Added proximity-ranked tour map with addresses/phones and a suggested driving loop.
+
+### Key tour stops (nearest first)
+1. H2O Townhomes (2882 S Big Wave) — across street from park; premium ~$1,495+
+2. Decker Station (3058 Decker Lake Dr) — TRAX adjacent
+3. Apartments at Decker Lake (2184 W 3100 S) — booked tour likely
+4–8. Lakecrest / Lake Park / Parkway multiplexes — cheapest near-park whole units; Nestwell (801) 396-9288, RPM (801) 363-7368
+9–11. Enclave → Shadowbrook → The Redwood on Redwood Rd south
+
+### Changes made
+- Updated `decker-lake-west-valley-housing-prices.html` with §7A tour-day proximity map + phones + refs.
+- Dev-log entry.
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-11 — Decker Lake housing update: IF/Mesa trends + second deal pass (complete)
 
 ### Plan summary
