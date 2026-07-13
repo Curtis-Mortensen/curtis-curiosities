@@ -1,5 +1,25 @@
 # Research Bot — Dev Log
 
+## 2026-07-13 — $10k Compact SUV Years/Mileage Add-On (complete)
+
+### Plan summary
+User asked which compact SUVs are most popular in the ~$10k range and what years/mileage are reasonable. Added Section 5 to the $10k follow-up report.
+
+### Key findings
+- Popular names: CR-V, RAV4, Forester, Escape, Rogue, Equinox, Sportage/Tucson (Jeep Patriot/Cherokee common on budget lots).
+- Typical years: ~2008–2015 for Honda/Toyota/Subaru; Escape/Rogue often 2011–2016.
+- Reasonable miles: ~100k–140k sweet spot; 140k–180k OK with records+PPI; >180k budget-lot risk.
+- Local examples: Escape Titanium AWD ~$9,990/85k; Escape SE private $7,300/114k; Rogue $4k–$7k at Vectra with wide mileage spread.
+
+### Changes made
+- Expanded `Research-Bot/slc-10k-used-cars-mpg-loan-math.html` with compact SUV section, mileage bands, local snapshots, refs 19–28.
+- Updated aims, TOC, quick verdict, conclusion, further questions.
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-11 — $10k Band Follow-Up: Lots, MPG & Loan Math (complete)
 
 ### Plan summary
