@@ -1,5 +1,41 @@
 # Research Bot — Dev Log
 
+## 2026-07-13 — Utah credit unions vs MACU: out-of-state branches & everyday loans (complete)
+
+### Plan summary
+User asked for a good Utah credit union with coverage outside Utah, whether any beat MACU, with good willingness to finance everyday uses; branch locations prioritized over complex products. Followed Research-Bot instructions: precursor questions, web research, self-contained HTML with aims/limitations/history/citations/conclusion.
+
+### Precursor / subset questions
+1. Owned branches vs Shared Branch vs ATM networks
+2. MACU state-by-state footprint
+3. America First / Goldenwest / Chartway / mid-size CU comparison
+4. Which CUs still use CO-OP Shared Branching
+5. Everyday auto + personal loan willingness signals
+
+### Key findings
+- MACU ~109 branches (CREHQ): UT 78, ID 12, AZ 12, NV 5, MT 2 → ~31 outside Utah; still top-tier Intermountain owned footprint.
+- America First ~123 (CREHQ): UT 94, NV 18, AZ 7, ID 2, CA 1, NM 1 → ~29 outside Utah; beats MACU in Nevada; AZ expanding +8 through 2027.
+- MACU no longer participates in Shared Branching; Utah First, Goldenwest, Cyprus, Deseret First still market ~5,000–6,000 shared teller locations nationwide — those beat MACU on true national branch access.
+- Everyday lending: MACU + AFCU are regional auto heavyweights; Utah First markets personal loans with “strives to say yes.”
+
+### Changes made
+- Created `Research-Bot/utah-credit-unions-vs-macu-branch-coverage.html`
+- Dev-log entry
+
+### Assumptions
+- CREHQ mid-2026 counts preferred over marketing “100+” language when they conflict mildly.
+- AFCU does not clearly market Shared Branch for members (ATMs yes); treated like owned-branch model unless member services says otherwise.
+- “Willingness” inferred from products/marketing, not underwriting matrices.
+
+### Bugs / problems
+- Exact Shared Branch member-side status for AFCU not confirmed on a dedicated FAQ (unlike MACU’s explicit exit notice).
+- Branch counts can differ by a few depending on Walmart/ITM counting conventions.
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-13 — $10k Compact SUV Years/Mileage Add-On (complete)
 
 ### Plan summary
