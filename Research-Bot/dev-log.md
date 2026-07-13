@@ -1,5 +1,19 @@
 # Research Bot — Dev Log
 
+## 2026-07-13 — $10k Compact SUV Years/Mileage Add-On (complete)
+
+### Plan summary
+User asked which compact SUVs are most popular in the ~$10k range and what years/mileage are reasonable. Added Section 5 to the $10k follow-up report.
+
+### Key findings
+- Popular names: CR-V, RAV4, Forester, Escape, Rogue, Equinox, Sportage/Tucson (Jeep Patriot/Cherokee common on budget lots).
+- Typical years: ~2008–2015 for Honda/Toyota/Subaru; Escape/Rogue often 2011–2016.
+- Reasonable miles: ~100k–140k sweet spot; 140k–180k OK with records+PPI; >180k budget-lot risk.
+- Local examples: Escape Titanium AWD ~$9,990/85k; Escape SE private $7,300/114k; Rogue $4k–$7k at Vectra with wide mileage spread.
+
+### Changes made
+- Expanded `Research-Bot/slc-10k-used-cars-mpg-loan-math.html` with compact SUV section, mileage bands, local snapshots, refs 19–28.
+- Updated aims, TOC, quick verdict, conclusion, further questions.
 ## 2026-07-13 — Tour map under-$1k budget filter (complete)
 
 ### Plan summary
@@ -25,6 +39,36 @@ H2O (~$1,495+), Decker Station (~$1,075+), Lake Park Cir (~$1,200), 4168 W 3280 
 
 ---
 
+## 2026-07-11 — $10k Band Follow-Up: Lots, MPG & Loan Math (complete)
+
+### Plan summary
+Follow-up expansion to the first-time used-car survey: focus on ~$10k cars near West Jordan/West Valley—which lots have the best range/deals; which models win on gas mileage at that price; hypothetical monthly payments and lifetime interest at scores 600/650/700/750 comparing CU vs dealer rates and 0% vs 10% down across typical terms (~20-row table).
+
+### Precursor / subset questions
+1. Who actually stocks under-$12k inventory on Redwood Rd?
+2. How do Vectra / West Auto / Immaculate / franchise / KSL compare in that band?
+3. Which sedan/hatch models maximize EPA MPG near $10k?
+4. Which published CU sheet and dealer survey map cleanly onto scores 600/650/700/750?
+5. How much does 10% down change payment vs interest when APR is held constant?
+
+### Key findings
+- **Best $10k density:** Vectra Auto Sales (WVC) — iSeeCars avg price ~$8,231; high miles (~153k avg); examples Fiesta $5,499, Versa $5,500, Elantra Sport $6,999.
+- **West Auto** states ~$10k average but featured web inventory often sits mid-teens; still a key ask-for-budget-stock destination.
+- **MPG winners:** Prius (~48–50) ≫ Civic/Corolla (~33–36) ≫ Versa/Fiesta (~31) ≫ Elantra/Impreza (~28–32).
+- **Loan math on $10k / 60 mo:** Utah First–like CU at 750 + 10% down ≈ $164/mo and ~$824 interest; dealer-typical 15.93% at 600 + 0 down ≈ $243/mo and ~$4,569 interest; 72 mo at that dealer rate ≈ $5,590 interest.
+
+### Changes made
+- Created `Research-Bot/slc-10k-used-cars-mpg-loan-math.html`
+- Linked follow-up from parent `slc-west-jordan-first-time-used-car-buyer.html`
+
+### Assumptions
+- Utah First grade bands mapped 750→A+, 700→A, 650→B, 600→C.
+- Dealer APRs = MFP Utah used dealer averages by score (flat across terms).
+- 0% vs 10% down uses same APR (principal-only effect) unless underwriting overlays apply.
+
+### Bugs / problems
+- KSL zip search and Cars.com max-price search timed out; used iSeeCars dealer pages + individual KSL listing fetches.
+- Vectra own inventory URL returned empty “not found” shell; relied on iSeeCars + KSL.
 ## 2026-07-13 — Tour-day proximity map near Decker Lake (complete)
 
 ### Plan summary
@@ -65,6 +109,40 @@ Follow-up: rents feel high vs Idaho Falls and Mesa. Add lighter historical avera
 
 ---
 
+## 2026-07-11 — SLC West Jordan / West Valley First-Time Used Car Buyer Survey (complete)
+
+### Plan summary
+User researching first-time car buying near West Jordan / West Valley City: which businesses sell used cars; reputation for price vs reliability; middle options between dealership upcharge and junkyards; one popular sedan/compact-SUV price baseline per major location; financing (% down, rates, bank vs dealer credit) compared across 3–5 credit-score bands. Delivered as Research-Bot self-contained HTML per README.
+
+### Precursor / subset questions identified
+1. What seller tiers exist between franchise retail and as-is junkyards in Utah?
+2. Which named businesses sit in West Jordan, West Valley, and adjacent south-valley destinations first-time buyers actually use?
+3. How do review/aggregator signals (Google, iSeeCars, BBB) map to price vs reliability?
+4. What are Utah rebuilt/branded-title specialists (Prestman, Image Auto) vs salvage auctions vs private KSL?
+5. What sample non-truck listings exist right now as price baselines?
+6. What down-payment norms do local lots publish vs personal-finance guidance (10–20%)?
+7. How do Experian used-car APRs by credit tier compare to Utah CU sheets and MFP Utah dealer/CU/bank surveys?
+8. When must a buyer use their own bank/CU (private party) vs dealer F&I / BHPH?
+
+### Key findings
+- **Middle ground:** independent lots (West Auto Sales WVC, Immaculate WJ, Peterson Midvale) and licensed rebuilt/branded specialists (Prestman SLC, Image Auto WJ)—not DIY Copart bids or U-Pull yards.
+- **Reputation:** West Auto strong on price + review volume; CarMax strong on process predictability; Prestman strong branded-title track record; franchise Ken Garff/LHM stronger on CPO/service networks and often higher stickers/doc fees; BHPH easiest approval, highest effective cost risk.
+- **Utah doc fees:** no state cap; samples ~$299–$499 (avgs ~$424–$443); CarMax $499; Prestman $489.
+- **Baselines (2026-07-11 snapshots):** West Auto 2019 Corolla LE ~$18,207; Immaculate 2024 Outback Premium ~$24,345; LHM 2018 CR-V Touring ~$24,633; CarMax 2020 Escape SE ~$16,998; Prestman 2025 Civic Hybrid Sport Touring ~$25,489 (branded).
+- **Financing:** most lots finance; private KSL usually needs bank/CU; West Auto $0–$500 down by credit; BHPH often ~$500; aim 10–20% when possible.
+- **Rates:** Experian used APRs ~7.70% (781–850) → 21.85% (300–500); Utah First CU sheet 3.50%–16.75% by grade; America First / MACU as low as 4.99%; MFP Utah shows dealers cheapest at 750+ then worst below ~700—CUs more consistent.
+
+### Changes made
+- Created `Research-Bot/slc-west-jordan-first-time-used-car-buyer.html` — spectrum diagram, business survey, reputation matrix, baseline price table, financing + 5-tier rate comparison, first-time playbook, 35 references.
+
+### Assumptions
+- “Near West Jordan or West Valley” includes adjacent South Jordan (CarMax), Sandy Automall (LHM), Midvale (Peterson/Fast Start), and SLC Prestman as realistic west-side shopping destinations.
+- Baseline cars intentionally unmatched on year/miles to illustrate channel pricing, not identical comps.
+- Hard-pull personal APR quotes not obtained; used published Experian, MFP Utah, and CU rate sheets.
+
+### Bugs / problems
+- Ken Garff Used inventory URL 404/timeout; Image Auto homepage timed out—profiled from secondary sources and brand pages.
+- CarMax Utah search returned network-wide listings; used Escape/Camry as representative fixed-price samples and noted fee exclusions.
 ## 2026-07-11 — Decker Lake / West Valley Housing Price Comparison (complete)
 
 ### Plan summary

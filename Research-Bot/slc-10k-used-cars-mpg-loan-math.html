@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>$10k Used Cars Near West Jordan / West Valley — Best Lots, MPG Winners &amp; Loan Math (Follow-Up)</title>
+<style>
+  :root {
+    --bg: #f3f5f2;
+    --paper: #ffffff;
+    --ink: #1a221c;
+    --muted: #5a655c;
+    --accent: #1a4f3c;
+    --accent-light: #2a7a5c;
+    --border: #c5d0c8;
+    --callout: #e7f0ea;
+    --warn: #fff7e6;
+    --warn-border: #c9a227;
+    --good: #e6f3ea;
+    --good-border: #2d7a4a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+  }
+  .container { max-width: 980px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  header {
+    background: linear-gradient(135deg, #0e2a22 0%, #1a4f3c 48%, #3a4a1a 100%);
+    color: #eef6f1;
+    padding: 3rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+  header .container { padding: 0 1.5rem; }
+  h1 { font-size: 1.9rem; line-height: 1.25; margin-bottom: 0.75rem; font-weight: normal; }
+  .subtitle { font-size: 1.05rem; opacity: 0.9; font-style: italic; max-width: 780px; }
+  .meta { margin-top: 1.25rem; font-size: 0.85rem; opacity: 0.75; }
+  h2 {
+    font-size: 1.35rem;
+    color: var(--accent);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 0.4rem;
+    margin: 2.5rem 0 1rem;
+  }
+  h3 { font-size: 1.1rem; margin: 1.5rem 0 0.6rem; color: #2a3a32; }
+  p { margin-bottom: 0.85rem; }
+  a { color: var(--accent-light); }
+  .callout, .warn-box, .good-box {
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+    font-size: 0.95rem;
+    border-left: 4px solid;
+  }
+  .callout { background: var(--callout); border-color: var(--accent); }
+  .warn-box { background: var(--warn); border-color: var(--warn-border); }
+  .good-box { background: var(--good); border-color: var(--good-border); }
+  ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+  li { margin-bottom: 0.35rem; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0 1.5rem;
+    font-size: 0.82rem;
+    background: var(--paper);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.45rem 0.55rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: #dce8e1; font-weight: bold; }
+  tr:nth-child(even) { background: #f7faf8; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .citation { font-size: 0.78rem; color: var(--muted); vertical-align: super; }
+  .refs { font-size: 0.82rem; }
+  .refs li { margin-bottom: 0.5rem; word-break: break-word; }
+  .toc { background: var(--paper); border: 1px solid var(--border); padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .toc ol { margin-bottom: 0; }
+  .hl { background: #fff3cd; }
+  .cu { background: #e8f5ee; }
+  .dlr { background: #f8ecec; }
+  .conclusion-box {
+    background: var(--callout);
+    border: 2px solid var(--accent);
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+  .small { font-size: 0.88rem; color: var(--muted); }
+  .diagram {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    padding: 1.1rem;
+    margin: 1.25rem 0;
+    font-family: ui-monospace, Consolas, monospace;
+    font-size: 0.76rem;
+    line-height: 1.45;
+    overflow-x: auto;
+    white-space: pre;
+  }
+  @media (max-width: 640px) {
+    h1 { font-size: 1.45rem; }
+    table { font-size: 0.74rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>$10,000 Used Cars on the West Side — Lots, MPG &amp; Loan Math</h1>
+    <p class="subtitle">Follow-up expansion to the first-time buyer survey: which West Jordan / West Valley–area sellers stock the ~$10k band, which sedans and compact SUVs win on value/MPG, what years and mileage are realistic at that price, and how loan payments change at scores 600 / 650 / 700 / 750 with 0% vs 10% down.</p>
+    <p class="meta">Research Bot follow-up · Updated 2026-07-13 · Companion to <a href="slc-west-jordan-first-time-used-car-buyer.html" style="color:#b8e0cc;">slc-west-jordan-first-time-used-car-buyer.html</a></p>
+  </div>
+</header>
+
+<div class="container">
+
+<section id="aims">
+  <h2>1. Aims of This Follow-Up</h2>
+  <p>The parent report mapped the full seller ladder. This add-on zooms into one budget that matters for many first-time buyers: <strong>around $10,000</strong>. It answers:</p>
+  <ol>
+    <li>Which nearby lots have the deepest <em>range</em> and best deal density in the ~$8k–$12k band?</li>
+    <li>Among cars (sedans / small hatches) that trade near $10k, which models combine the best EPA MPG with realistic local prices?</li>
+    <li>What are the most popular <strong>compact SUV / crossover</strong> options at ~$10k, and what <strong>years and mileage</strong> are reasonable?</li>
+    <li>If you finance a $10,000 vehicle, what are realistic monthly payments and total interest at scores <strong>600, 650, 700, and 750</strong>, comparing <strong>credit-union vs dealer</strong> rates and <strong>0% vs 10% down</strong>?</li>
+  </ol>
+  <div class="callout">
+    <strong>Quick verdict:</strong> For sheer $10k selection on Redwood Road, <strong>Vectra Auto Sales</strong> (avg listing ~$8.2k) beats franchise and mid-price indie lots. For MPG-per-dollar in cars, hunt a <strong>Prius</strong>, then Civic / Corolla. For compact SUVs at $10k, expect mostly <strong>2010–2015</strong> CR-V / RAV4 / Forester / Escape / Rogue / Equinox with roughly <strong>100k–160k miles</strong> (Honda/Toyota hold value harder). For loan math, a <strong>Utah First–style CU rate at 750 with 10% down / 60 months</strong> can leave total interest under ~$825; a <strong>dealer-typical 15.9% with 0 down / 72 months at score 600</strong> can burn over <strong>$5,500</strong> in interest alone.<a href="#ref-vectra-isee" class="citation">[1]</a><a href="#ref-utahfirst" class="citation">[2]</a><a href="#ref-mfp-utah" class="citation">[3]</a><a href="#ref-askedcar-suv" class="citation">[19]</a>
+  </div>
+</section>
+
+<nav class="toc">
+  <strong>Contents</strong>
+  <ol>
+    <li><a href="#aims">Aims</a></li>
+    <li><a href="#limits">Limitations</a></li>
+    <li><a href="#lots">Which lots own the ~$10k band?</a></li>
+    <li><a href="#models">Sedans: price + MPG at ~$10k</a></li>
+    <li><a href="#suvs">Compact SUVs: popular options, years &amp; mileage</a></li>
+    <li><a href="#rates">Rate sources (CU vs lots)</a></li>
+    <li><a href="#table">Payment &amp; interest table (~20 rows)</a></li>
+    <li><a href="#read">How to read the hypothetials</a></li>
+    <li><a href="#further">Further questions</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#refs">References</a></li>
+  </ol>
+</nav>
+
+<section id="limits">
+  <h2>2. Limitations</h2>
+  <ul>
+    <li>Inventory turns daily; listings sampled 2026-07-11 are examples, not a guaranteed shelf.</li>
+    <li>A $10k sticker is not out-the-door (Utah doc fees, tax, title still apply).<a href="#ref-parent" class="citation">[4]</a></li>
+    <li>Published APRs by score are <em>population / rate-sheet</em> figures, not a hard quote for your file. Down payment rarely changes the published APR sheet—it mainly changes principal (and sometimes approval odds / LTV overlays that are not public).<a href="#ref-mfp-utah" class="citation">[3]</a></li>
+    <li>High-mileage budget lots (Vectra’s typical odometer band is very high) trade price for remaining mechanical life—always budget a pre-purchase inspection.<a href="#ref-vectra-isee" class="citation">[1]</a></li>
+    <li>MPG figures are EPA combined estimates; real Utah canyon / winter / I-15 commuting will differ.<a href="#ref-epa-prius" class="citation">[5]</a></li>
+  </ul>
+</section>
+
+<section id="lots">
+  <h2>3. Which Lots Own the ~$10k Band?</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Seller</th>
+        <th>~$10k range / density</th>
+        <th>Evidence (Jul 2026)</th>
+        <th>Deal quality note</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="hl">
+        <td><strong>Vectra Auto Sales</strong><br>3803 S Redwood Rd, WVC</td>
+        <td><strong>Best density</strong> — built for this band</td>
+        <td>iSeeCars: avg price <strong>$8,231</strong> (typical $3,999–$14,247); ~24 cars; avg miles ~153k; dealer rating ~4.4. KSL examples: 2017 Fiesta $5,499; 2016 Versa $5,500; 2015 Elantra Sport $6,999.<a href="#ref-vectra-isee" class="citation">[1]</a><a href="#ref-ksl-fiesta" class="citation">[6]</a><a href="#ref-ksl-elantra" class="citation">[7]</a></td>
+        <td>Deepest shelf under $10k; expect high miles; optional extended warranty marketing; multi-lender financing.</td>
+      </tr>
+      <tr>
+        <td><strong>West Auto Sales</strong><br>3777 S Redwood Rd, WVC</td>
+        <td>Strong <em>stated</em> average; featured web inventory often sits above $15k</td>
+        <td>FAQ: vehicles $3k–$30k, <strong>average ~$10k</strong>, 100–125 cars. Featured WVC page on research day skewed $15k–$19k (Corolla $18.2k, Malibu $15.1k).<a href="#ref-west-faq" class="citation">[8]</a><a href="#ref-west-inv" class="citation">[9]</a></td>
+        <td>Ask specifically for under-$12k / older stock; better review volume than Vectra; partners America First &amp; Cyprus CU.</td>
+      </tr>
+      <tr>
+        <td><strong>Immaculate Used Cars</strong><br>8921 S Redwood Rd, WJ</td>
+        <td>Some hits near $9k–$13k; overall avg much higher</td>
+        <td>Examples: 2016 Impreza ~$8,998; 2017 Altima ~$10,556; 2018 Encore ~$12,798. Dealer avg price previously cited ~$35k (luxury mix).<a href="#ref-immaculate" class="citation">[10]</a></td>
+        <td>Cherry-pick the few efficient sedans; not a dedicated $10k lot.</td>
+      </tr>
+      <tr>
+        <td>CarMax / LHM / Ken Garff Used</td>
+        <td>Thin at true $10k</td>
+        <td>Parent survey baselines clustered mid-teens+ for desirable sedans/crossovers.<a href="#ref-parent" class="citation">[4]</a></td>
+        <td>Better for $15k–$25k “safer” cars than bare $10k shopping.</td>
+      </tr>
+      <tr>
+        <td>Prestman / Image (branded)</td>
+        <td>Usually newer cars still above $10k</td>
+        <td>Near-new branded Civics/Crosstreks in $20k–$27k band in parent sample.<a href="#ref-parent" class="citation">[4]</a></td>
+        <td>Wrong tool for a hard $10k ceiling—unless a rare older branded unit appears.</td>
+      </tr>
+      <tr>
+        <td><strong>KSL private party</strong></td>
+        <td>Often cheapest stickers</td>
+        <td>Active under-$10k classifieds valley-wide; as-is.<a href="#ref-parent" class="citation">[4]</a></td>
+        <td>Best price if you bring CU loan + PPI; no lot financing.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="good-box">
+    <strong>Range ranking for a $10k shopper:</strong> (1) Vectra / similar budget Redwood lots, (2) KSL private, (3) West Auto if they pull older stock, (4) Immaculate’s occasional sub-$11k sedans, (5) franchise/national. “Best deals” ≠ “best cars”—Vectra’s value is selection and sticker; remaining life and repair risk need an independent inspection.
+  </div>
+</section>
+
+<section id="models">
+  <h2>4. Sedans: Best Gas Mileage + Price Near $10k</h2>
+  <p>KBB’s national “best used compact under $10k” list still points the way: <strong>Civic, Corolla, Prius</strong> lead for efficiency and durability; Fiesta, Cruze, Elantra, Sentra, Impreza fill the affordable shelf.<a href="#ref-kbb-10k" class="citation">[11]</a> Locally, budget lots more often stock Versa / Fiesta / older Hyundai / Nissan than pristine low-mile Priuses—so hunt both dealer and KSL.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Model (typical year in band)</th>
+        <th>EPA combined MPG (approx.)</th>
+        <th>Est. fuel $/yr*</th>
+        <th>Local ~$10k reality</th>
+        <th>First-car fit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="hl">
+        <td><strong>Toyota Prius</strong> (2010–2015)</td>
+        <td><strong>~48–50</strong></td>
+        <td><strong>~$840</strong></td>
+        <td>Worth hunting on KSL / West Auto / occasional indie; KBB staple under $10k.<a href="#ref-epa-prius" class="citation">[5]</a><a href="#ref-kbb-10k" class="citation">[11]</a></td>
+        <td>Best MPG winner if battery/hybrid health checks out</td>
+      </tr>
+      <tr>
+        <td>Toyota Prius c / Insight-class hybrids</td>
+        <td>~50</td>
+        <td>~$840</td>
+        <td>Less common but excellent when found.<a href="#ref-recharged" class="citation">[12]</a></td>
+        <td>Top tier efficiency</td>
+      </tr>
+      <tr>
+        <td><strong>Honda Civic</strong> (2014–2016)</td>
+        <td>~31–35 (1.8 / 2.0)</td>
+        <td>~$1,200–$1,270</td>
+        <td>Strong national under-$10k/$15k pick; local Civic LX examples appear on KSL/Garff channels.<a href="#ref-epa-civic" class="citation">[13]</a><a href="#ref-iseecars-small" class="citation">[14]</a></td>
+        <td>Best non-hybrid balance of MPG + reliability</td>
+      </tr>
+      <tr>
+        <td><strong>Toyota Corolla</strong> (2014–2017)</td>
+        <td>~32–36 (LE Eco higher)</td>
+        <td>~$1,170–$1,310</td>
+        <td>Always available in Utah; newer low-mile ones often creep over $10k (West Auto 2019 LE was ~$18k).<a href="#ref-west-inv" class="citation">[9]</a><a href="#ref-kbb-10k" class="citation">[11]</a></td>
+        <td>Safest “boring” daily</td>
+      </tr>
+      <tr>
+        <td>Nissan Versa (2012–2016)</td>
+        <td>~27–31</td>
+        <td>~$1,350–$1,560</td>
+        <td>Vectra: 2016 Versa SV $5,500; 2016 Versa 1.6 S $3,499; 2012 Versa $4,999.<a href="#ref-vectra-isee" class="citation">[1]</a><a href="#ref-ksl-versa" class="citation">[15]</a></td>
+        <td>Cheapest entry; check CVT history</td>
+      </tr>
+      <tr>
+        <td>Ford Fiesta (2014–2017)</td>
+        <td>~31</td>
+        <td>~$1,355</td>
+        <td>Vectra: 2017 Fiesta SE $5,499 / 98k miles.<a href="#ref-ksl-fiesta" class="citation">[6]</a></td>
+        <td>Good MPG; research dual-clutch auto issues if equipped</td>
+      </tr>
+      <tr>
+        <td>Hyundai Elantra (2013–2016)</td>
+        <td>~28–32</td>
+        <td>~$1,300–$1,500</td>
+        <td>Vectra: 2015 Elantra Sport $6,999 (~24/35 claimed in ad).<a href="#ref-ksl-elantra" class="citation">[7]</a></td>
+        <td>Common $6–8k sedan</td>
+      </tr>
+      <tr>
+        <td>Subaru Impreza (2015–2016)</td>
+        <td>~28</td>
+        <td>~$1,500</td>
+        <td>Immaculate: 2016 Impreza ~$8,998 / 133k.<a href="#ref-immaculate" class="citation">[10]</a></td>
+        <td>AWD useful in Utah; thirstier than Civic/Corolla</td>
+      </tr>
+      <tr>
+        <td>Nissan Altima / midsize sedans</td>
+        <td>~27–28</td>
+        <td>~$1,550</td>
+        <td>Vectra Altima $4,499; Immaculate 2017 Altima ~$10,556.<a href="#ref-vectra-isee" class="citation">[1]</a><a href="#ref-immaculate" class="citation">[10]</a></td>
+        <td>Roomy; CVT diligence required</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="small">*Fuel cost assumes 12,000 miles/year and $3.50/gal regular—illustrative Utah-ish pump price, not a forecast.</p>
+
+  <div class="diagram">MPG vs typical $10k-band shopping priority (cars only):
+
+  Prius ████████████████████  ~50 mpg   ← chase this if healthy hybrid
+  Civic/Corolla ████████████  ~33–36    ← best non-hybrid defaults
+  Versa/Fiesta ███████████    ~31       ← cheapest stickers on budget lots
+  Elantra/Impreza █████████   ~28–32    ← common; Impreza buys AWD
+  Older midsize ████████      ~27       ← roomy, watch CVTs
+  Compact SUVs ███            ~24       ← Cherokee etc. eat the gas budget
+</div>
+</section>
+
+<section id="suvs">
+  <h2>5. Compact SUVs / Crossovers at ~$10k — Popular Options, Years &amp; Mileage</h2>
+  <p>Utah buyers lean hard toward compact crossovers for canyon roads, winter storms, and cargo. At a hard <strong>$10,000</strong> ceiling in 2026, you are usually shopping <strong>10–15-year-old</strong> vehicles with <strong>six-figure miles</strong>—not a late-model Crosstrek or RAV4 Hybrid.<a href="#ref-askedcar-suv" class="citation">[19]</a><a href="#ref-usnews-crossover" class="citation">[20]</a> The parent market guide put 2020–2023 compact SUVs closer to <strong>$20k–$28k</strong>; the $10k band is a different animal.<a href="#ref-parent" class="citation">[4]</a></p>
+
+  <h3>5.1 Most popular / most recommended names in this band</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Model</th>
+        <th>Why it’s popular at ~$10k</th>
+        <th>Typical years that fit $10k</th>
+        <th>EPA combined (approx.)</th>
+        <th>Utah / local notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="hl">
+        <td><strong>Honda CR-V</strong></td>
+        <td>Reliability king; roomy; strong resale (harder to find cheap)</td>
+        <td><strong>2008–2014</strong> (2012–2015 often cited as sweet spot)</td>
+        <td>~23–26</td>
+        <td>Worth paying toward top of budget for lower miles; U.S. News ranks early-2010s CR-Vs among best under-$10k crossovers.<a href="#ref-usnews-crossover" class="citation">[20]</a><a href="#ref-epa-crv" class="citation">[21]</a></td>
+      </tr>
+      <tr class="hl">
+        <td><strong>Toyota RAV4</strong></td>
+        <td>“Toyota tax” but legendary longevity; optional V6 in some years</td>
+        <td><strong>2007–2012</strong> (2009–2012 often highlighted)</td>
+        <td>~22–24 (4-cyl); V6 thirstier</td>
+        <td>AWD examples prized in SLC winters; expect older years than Escape/Rogue at the same price.<a href="#ref-askedcar-suv" class="citation">[19]</a><a href="#ref-epa-rav4" class="citation">[22]</a></td>
+      </tr>
+      <tr class="hl">
+        <td><strong>Subaru Forester</strong></td>
+        <td>Standard AWD; Utah favorite; ground clearance</td>
+        <td><strong>2009–2014</strong> (2010 often on under-$10k lists)</td>
+        <td>~22–24 (older); later CVT models higher but usually &gt;$10k</td>
+        <td>Head-gasket / oil-consumption diligence on older flat-fours; still a top winter pick.<a href="#ref-torque-forester" class="citation">[23]</a></td>
+      </tr>
+      <tr>
+        <td><strong>Ford Escape</strong></td>
+        <td>Most common “newer feeling” SUV under $10k; lots of local inventory</td>
+        <td><strong>2010–2016</strong> (2013–2017 SE shows up on KSL)</td>
+        <td>~22–26 depending on engine / FWD vs AWD</td>
+        <td>Local examples: 2014 Escape SE WVC ~$2,950 / 187k; 2014 Titanium AWD SLC ~$9,990 / 85k; 2017 SE private South Jordan ~$7,300 / 114k.<a href="#ref-escape-wvc" class="citation">[24]</a><a href="#ref-escape-titanium" class="citation">[25]</a><a href="#ref-ksl-escape" class="citation">[26]</a></td>
+      </tr>
+      <tr>
+        <td><strong>Nissan Rogue</strong></td>
+        <td>Very common on budget lots; AWD available; cheap stickers</td>
+        <td><strong>2011–2015</strong></td>
+        <td>~24–26</td>
+        <td>Vectra examples: 2011 Rogue S AWD $5,999; 2013 Rogue SV $6,999 / 122k; 2013 Rogue S AWD $3,999 / 222k. <strong>CVT inspection is mandatory.</strong><a href="#ref-ksl-rogue" class="citation">[27]</a><a href="#ref-vectra-isee" class="citation">[1]</a></td>
+      </tr>
+      <tr>
+        <td><strong>Chevrolet Equinox</strong></td>
+        <td>Roomy for the class; cheap to buy; common nationally</td>
+        <td><strong>2011–2015</strong> (2014 retail often ~$6.7k–$8k range)</td>
+        <td>~20–26 (4-cyl better; V6 thirsty)</td>
+        <td>Prefer 4-cyl; check timing-chain / oil-consumption history on 2.4L.<a href="#ref-kbb-equinox" class="citation">[28]</a></td>
+      </tr>
+      <tr>
+        <td><strong>Kia Sportage / Hyundai Tucson</strong></td>
+        <td>Newer features for the money; long factory warranties on later years (may be expired)</td>
+        <td><strong>2011–2015</strong></td>
+        <td>~22–26</td>
+        <td>U.S. News lists early-2010s Sportage among under-$10k crossovers.<a href="#ref-usnews-crossover" class="citation">[20]</a></td>
+      </tr>
+      <tr>
+        <td><strong>Jeep Cherokee / Patriot / Compass</strong></td>
+        <td>Cheap AWD/4x4; plentiful on Redwood lots</td>
+        <td>Patriot/Compass <strong>2011–2016</strong>; Cherokee KL <strong>2014–2016</strong> (often high miles)</td>
+        <td>~19–25</td>
+        <td>Vectra: 2016 Patriot $3,999 / 200k; 2019 Cherokee $11,999 / 106k (slightly over $10k). Reliability uneven—PPI required.<a href="#ref-vectra-isee" class="citation">[1]</a></td>
+      </tr>
+      <tr>
+        <td>Mitsubishi Outlander Sport</td>
+        <td>Newer model years sometimes creep into low teens</td>
+        <td>Often <strong>2015–2018</strong> near or just above $10k</td>
+        <td>~24–26</td>
+        <td>Vectra had a 2020 Outlander Sport SE at $12,999 / 88k—illustrates how “almost $10k” newer crossovers sit just above the ceiling.<a href="#ref-vectra-isee" class="citation">[1]</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="warn-box">
+    <strong>What usually does <em>not</em> fit $10k cleanly:</strong> Subaru Crosstrek, late RAV4/CR-V (2016+), and most Tucson/Sportage with under ~80k miles. Those hold value into the mid-teens or higher unless salvage/rebuilt or very high miles.
+  </div>
+
+  <h3>5.2 What years and mileage are “reasonable”?</h3>
+  <p>Guides written for 2026 consistently describe the under-$10k SUV shopper as buying roughly <strong>100,000–150,000 miles</strong> on average, with well-maintained examples capable of more.<a href="#ref-askedcar-suv" class="citation">[19]</a> Local budget-lot data (Vectra) centers even higher—typical mileage band about <strong>83k–216k</strong>, average ~<strong>153k</strong>.<a href="#ref-vectra-isee" class="citation">[1]</a></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Mileage band</th>
+        <th>How to think about it at ~$10k</th>
+        <th>Best paired with…</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="hl">
+        <td><strong>Under ~100k</strong></td>
+        <td><strong>Win</strong> — uncommon for clean-title Honda/Toyota at $10k; more realistic on Escape / Rogue / Equinox / Jeep</td>
+        <td>2013–2016 Escape, 2011–2014 Rogue, well-kept Forester</td>
+      </tr>
+      <tr class="hl">
+        <td><strong>~100k–140k</strong></td>
+        <td><strong>Sweet spot</strong> for most first-time SUV buyers—still plenty of life if maintained</td>
+        <td>CR-V / RAV4 / Forester / Escape in the year ranges above</td>
+      </tr>
+      <tr>
+        <td><strong>~140k–180k</strong></td>
+        <td><strong>Acceptable with records + PPI</strong>; budget immediate maintenance ($800–$1,500)</td>
+        <td>Honda/Toyota preferred; avoid neglected CVT Nissans</td>
+      </tr>
+      <tr>
+        <td><strong>~180k–220k+</strong></td>
+        <td><strong>Budget-lot / project risk</strong> — only with strong PPI and cash reserve</td>
+        <td>Cheap stickers (Patriot $4k / 200k; Rogue $4k / 222k at Vectra)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="diagram">Reasonable $10k compact-SUV “boxes” (rule of thumb, clean title):
+
+  YEAR AXIS ──►
+  2008        2012        2015        2018
+    │           │           │           │
+    ├─ RAV4 / older CR-V ───┤           │   ← Toyota/Honda often stop here at $10k
+    │     ├─ Forester ──────┤           │
+    │           ├─ Escape / Rogue / Equinox / Sportage ──┤
+    │                       │  Crosstrek / late CR-V usually ABOVE $10k ──►
+
+  MILES (same budget):
+    &lt;100k   = chase this (harder on Honda/Toyota)
+    100–140k = most reasonable daily-driver target
+    140–180k = OK with service history + PPI
+    &gt;180k   = only if price is low and inspection is excellent
+</div>
+
+  <h3>5.3 Local snapshot examples (compact / small SUVs near the band)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Listing (approx.)</th>
+        <th>Price</th>
+        <th>Miles</th>
+        <th>Takeaway</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>2014 Ford Escape Titanium AWD (SLC lot)</td><td>$9,990</td><td>~85k</td><td>Near-ceiling price, strong mileage for the money.<a href="#ref-escape-titanium" class="citation">[25]</a></td></tr>
+      <tr><td>2017 Ford Escape SE (KSL private, South Jordan)</td><td>$7,300</td><td>~114k</td><td>Private-party mid-band; newer year than many lot Escapes.<a href="#ref-ksl-escape" class="citation">[26]</a></td></tr>
+      <tr><td>2011 Nissan Rogue S AWD (Vectra / KSL)</td><td>$5,999</td><td>—</td><td>Typical budget AWD crossover sticker.<a href="#ref-ksl-rogue" class="citation">[27]</a></td></tr>
+      <tr><td>2013 Nissan Rogue SV (Vectra)</td><td>$6,999</td><td>~122k</td><td>Right in the “reasonable miles” window—CVT check critical.<a href="#ref-vectra-isee" class="citation">[1]</a></td></tr>
+      <tr><td>2013 Nissan Rogue S AWD (Vectra)</td><td>$3,999</td><td>~222k</td><td>Cheap but past the comfort mileage band.<a href="#ref-vectra-isee" class="citation">[1]</a></td></tr>
+      <tr><td>2016 Jeep Patriot Sport (Vectra)</td><td>$3,999</td><td>~200k</td><td>Bottom-dollar small SUV; high wear expected.<a href="#ref-vectra-isee" class="citation">[1]</a></td></tr>
+      <tr><td>2019 Jeep Cherokee Latitude+ (Vectra)</td><td>$11,999</td><td>~106k</td><td>Just over $10k—shows how “newer Jeep” pricing sits.<a href="#ref-vectra-isee" class="citation">[1]</a></td></tr>
+      <tr><td>2014 Ford Escape SE (WVC budget lot)</td><td>$2,950</td><td>~187k</td><td>Very cheap / very high miles—inspection or walk.<a href="#ref-escape-wvc" class="citation">[24]</a></td></tr>
+    </tbody>
+  </table>
+
+  <div class="good-box">
+    <strong>Practical first-time SUV target at $10k in Utah:</strong> a <strong>2010–2014 Honda CR-V, Toyota RAV4, or Subaru Forester</strong> with <strong>~100k–140k miles</strong> and service records—or a <strong>2013–2016 Ford Escape</strong> with under ~120k miles if Honda/Toyota inventory is picked over. Prefer AWD for Wasatch winters. Skip 200k-mile CVT Rogues and Patriots unless you have mechanic skills and a repair budget.
+  </div>
+</section>
+
+<section id="rates">
+  <h2>6. Rate Sources Used (Lots vs Credit Unions)</h2>
+  <p>Lots rarely publish a public APR grid by FICO. For “real rates” this follow-up uses:</p>
+  <ul>
+    <li><strong>Credit union column — Utah First Credit Union published sheet</strong> (July 2026 promo grades, including checking discount): maps score 750→A+ (730+), 700→A (680–729), 650→B (640–679), 600→C (600–639).<a href="#ref-utahfirst" class="citation">[2]</a></li>
+    <li><strong>Dealer / lot column — MyFinancialPrograms Utah used-car dealer averages</strong> by the same score bands (community survey, July 2026): what Utah borrowers reported getting through dealers.<a href="#ref-mfp-utah" class="citation">[3]</a></li>
+    <li>West Auto partners with <strong>America First</strong> and Cyprus—excellent credit may see AFCU “as low as 4.99%” territory, close to the CU column’s spirit even when signed at the lot.<a href="#ref-west-faq" class="citation">[8]</a><a href="#ref-afcu" class="citation">[16]</a></li>
+  </ul>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Score</th>
+        <th>Utah First CU ≤60 mo</th>
+        <th>Utah First CU 61–72 mo</th>
+        <th>Utah dealer avg (MFP used)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>750</td><td class="cu">3.50%</td><td class="cu">4.00%</td><td class="dlr">7.83%</td></tr>
+      <tr><td>700</td><td class="cu">4.00%</td><td class="cu">4.50%</td><td class="dlr">9.93%</td></tr>
+      <tr><td>650</td><td class="cu">5.25%</td><td class="cu">5.75%</td><td class="dlr">13.39%</td></tr>
+      <tr><td>600</td><td class="cu">8.25%</td><td class="cu">8.75%</td><td class="dlr">15.93%</td></tr>
+    </tbody>
+  </table>
+  <p class="small">For the payment table, 48- and 60-month rows use the ≤60 mo CU rate; 72-month rows use the 61–72 mo CU rate. Dealer APR is held at the MFP band average across terms (term-specific dealer splits were not published in that survey column).</p>
+
+  <div class="warn-box">
+    <strong>0% vs 10% down:</strong> Neither Utah First’s public grid nor MFP’s dealer averages publish a separate APR for down-payment size. In the table below, <strong>APR is held constant within a score/lender/term</strong>; 10% down only reduces principal ($10,000 → $9,000). In real underwriting, 10% down can still improve approval odds and sometimes shave rate via lower LTV—especially near score 600—so treat the 10% rows as a <em>conservative</em> (principal-only) savings estimate.<a href="#ref-bankrate" class="citation">[17]</a>
+  </div>
+</section>
+
+<section id="table">
+  <h2>7. Hypothetical Loan Table — $10,000 Car (~20 Rows)</h2>
+  <p>Assumptions: purchase price <strong>$10,000</strong>; ignore tax/fees for clean comparison; fixed APR amortized fully; no prepayment. Monthly payment and total interest computed with standard amortization.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Score</th>
+        <th>Lender</th>
+        <th>Term</th>
+        <th>Down</th>
+        <th class="num">APR</th>
+        <th class="num">Amount financed</th>
+        <th class="num">Monthly</th>
+        <th class="num">Total interest</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="cu"><td>1</td><td>750</td><td>Utah First CU</td><td>60 mo</td><td>0%</td><td class="num">3.50%</td><td class="num">$10,000</td><td class="num">$181.92</td><td class="num">$915</td></tr>
+      <tr class="cu hl"><td>2</td><td>750</td><td>Utah First CU</td><td>60 mo</td><td>10%</td><td class="num">3.50%</td><td class="num">$9,000</td><td class="num">$163.73</td><td class="num">$824</td></tr>
+      <tr class="dlr"><td>3</td><td>750</td><td>Dealer (MFP UT)</td><td>60 mo</td><td>0%</td><td class="num">7.83%</td><td class="num">$10,000</td><td class="num">$201.95</td><td class="num">$2,117</td></tr>
+      <tr class="dlr"><td>4</td><td>750</td><td>Dealer (MFP UT)</td><td>60 mo</td><td>10%</td><td class="num">7.83%</td><td class="num">$9,000</td><td class="num">$181.76</td><td class="num">$1,905</td></tr>
+      <tr class="cu"><td>5</td><td>700</td><td>Utah First CU</td><td>60 mo</td><td>0%</td><td class="num">4.00%</td><td class="num">$10,000</td><td class="num">$184.17</td><td class="num">$1,050</td></tr>
+      <tr class="cu"><td>6</td><td>700</td><td>Utah First CU</td><td>60 mo</td><td>10%</td><td class="num">4.00%</td><td class="num">$9,000</td><td class="num">$165.75</td><td class="num">$945</td></tr>
+      <tr class="dlr"><td>7</td><td>700</td><td>Dealer (MFP UT)</td><td>60 mo</td><td>0%</td><td class="num">9.93%</td><td class="num">$10,000</td><td class="num">$212.13</td><td class="num">$2,728</td></tr>
+      <tr class="dlr"><td>8</td><td>700</td><td>Dealer (MFP UT)</td><td>60 mo</td><td>10%</td><td class="num">9.93%</td><td class="num">$9,000</td><td class="num">$190.91</td><td class="num">$2,455</td></tr>
+      <tr class="cu"><td>9</td><td>650</td><td>Utah First CU</td><td>60 mo</td><td>0%</td><td class="num">5.25%</td><td class="num">$10,000</td><td class="num">$189.86</td><td class="num">$1,392</td></tr>
+      <tr class="cu"><td>10</td><td>650</td><td>Utah First CU</td><td>60 mo</td><td>10%</td><td class="num">5.25%</td><td class="num">$9,000</td><td class="num">$170.87</td><td class="num">$1,252</td></tr>
+      <tr class="dlr"><td>11</td><td>650</td><td>Dealer (MFP UT)</td><td>60 mo</td><td>0%</td><td class="num">13.39%</td><td class="num">$10,000</td><td class="num">$229.53</td><td class="num">$3,772</td></tr>
+      <tr class="dlr"><td>12</td><td>650</td><td>Dealer (MFP UT)</td><td>60 mo</td><td>10%</td><td class="num">13.39%</td><td class="num">$9,000</td><td class="num">$206.58</td><td class="num">$3,395</td></tr>
+      <tr class="cu"><td>13</td><td>600</td><td>Utah First CU</td><td>60 mo</td><td>0%</td><td class="num">8.25%</td><td class="num">$10,000</td><td class="num">$203.96</td><td class="num">$2,238</td></tr>
+      <tr class="cu"><td>14</td><td>600</td><td>Utah First CU</td><td>60 mo</td><td>10%</td><td class="num">8.25%</td><td class="num">$9,000</td><td class="num">$183.57</td><td class="num">$2,014</td></tr>
+      <tr class="dlr"><td>15</td><td>600</td><td>Dealer (MFP UT)</td><td>60 mo</td><td>0%</td><td class="num">15.93%</td><td class="num">$10,000</td><td class="num">$242.81</td><td class="num">$4,569</td></tr>
+      <tr class="dlr"><td>16</td><td>600</td><td>Dealer (MFP UT)</td><td>60 mo</td><td>10%</td><td class="num">15.93%</td><td class="num">$9,000</td><td class="num">$218.53</td><td class="num">$4,112</td></tr>
+      <tr class="cu"><td>17</td><td>750</td><td>Utah First CU</td><td>48 mo</td><td>0%</td><td class="num">3.50%</td><td class="num">$10,000</td><td class="num">$223.56</td><td class="num">$731</td></tr>
+      <tr class="cu"><td>18</td><td>750</td><td>Utah First CU</td><td>72 mo</td><td>0%</td><td class="num">4.00%</td><td class="num">$10,000</td><td class="num">$156.45</td><td class="num">$1,265</td></tr>
+      <tr class="dlr"><td>19</td><td>600</td><td>Dealer (MFP UT)</td><td>48 mo</td><td>0%</td><td class="num">15.93%</td><td class="num">$10,000</td><td class="num">$283.04</td><td class="num">$3,586</td></tr>
+      <tr class="dlr hl"><td>20</td><td>600</td><td>Dealer (MFP UT)</td><td>72 mo</td><td>0%</td><td class="num">15.93%</td><td class="num">$10,000</td><td class="num">$216.53</td><td class="num">$5,590</td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.1 Extra term comparisons (same $10k, 0% down)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Score</th>
+        <th>Lender</th>
+        <th class="num">48 mo payment / interest</th>
+        <th class="num">60 mo payment / interest</th>
+        <th class="num">72 mo payment / interest</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="cu">
+        <td>750</td><td>Utah First CU</td>
+        <td class="num">$224 / $731</td>
+        <td class="num">$182 / $915</td>
+        <td class="num">$156 / $1,265</td>
+      </tr>
+      <tr class="cu">
+        <td>650</td><td>Utah First CU</td>
+        <td class="num">$231 / $1,109</td>
+        <td class="num">$190 / $1,392</td>
+        <td class="num">$165 / $1,848</td>
+      </tr>
+      <tr class="dlr">
+        <td>650</td><td>Dealer</td>
+        <td class="num">$270 / $2,970</td>
+        <td class="num">$230 / $3,772</td>
+        <td class="num">$203 / $4,602</td>
+      </tr>
+      <tr class="dlr">
+        <td>600</td><td>Dealer</td>
+        <td class="num">$283 / $3,586</td>
+        <td class="num">$243 / $4,569</td>
+        <td class="num">$217 / $5,590</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="read">
+  <h2>8. How to Read the Hypotheticals</h2>
+  <ul>
+    <li><strong>CU vs dealer gap widens as scores fall.</strong> At 750 / 60 mo / 0 down, CU interest ~$915 vs dealer ~$2,117. At 600, CU ~$2,238 vs dealer ~$4,569—dealer financing can cost <em>more than two extra years of gas</em> on a Prius.<a href="#ref-utahfirst" class="citation">[2]</a><a href="#ref-mfp-utah" class="citation">[3]</a></li>
+    <li><strong>10% down (~$1,000 cash)</strong> cuts monthly payment ~10% and interest ~10% in these fixed-APR scenarios (rows 1→2, 15→16). It also leaves a cash buffer for first repairs—critical on high-mile $10k cars.</li>
+    <li><strong>Longer terms shrink the payment and grow the interest.</strong> Score-600 dealer 48 mo (~$283/mo, $3.6k interest) vs 72 mo (~$217/mo, $5.6k interest): you “save” ~$66/month and pay ~$2,000 more overall.</li>
+    <li><strong>West Auto’s published down-payment floor</strong> ($0 good credit / ~$500 bad credit) aligns with getting into rows like #13–16 without a full 10%—but putting 10% still wins on total cost.<a href="#ref-west-faq" class="citation">[8]</a></li>
+  </ul>
+
+  <div class="diagram">Same $10k car, interest-only story (0% down, 60 months):
+
+  Score 750 CU ████ $915
+  Score 700 CU █████ $1,050
+  Score 650 CU ██████ $1,392
+  Score 600 CU ██████████ $2,238
+  Score 750 dealer ██████████ $2,117
+  Score 700 dealer ████████████ $2,728
+  Score 650 dealer █████████████████ $3,772
+  Score 600 dealer ████████████████████ $4,569
+
+  Takeaway: beating the dealer APR with a CU preapproval often saves more than haggling $500 off the car.
+</div>
+</section>
+
+<section id="further">
+  <h2>9. Further Research Questions</h2>
+  <ul>
+    <li>Live count of under-$10k sedans at West Auto Tooele vs West Valley on a given Saturday.</li>
+    <li>Hybrid battery quotes (Prius) from Salt Lake independent shops—adds to true ownership cost.</li>
+    <li>Hard-pull APR offers at Vectra vs America First for one 620 and one 720 profile on the same VIN.</li>
+    <li>Whether 10% down changes dealer buy-rate markups in Utah F&amp;I desks (contract-level study).</li>
+    <li>Weekend KSL census: how many clean-title CR-V / RAV4 / Forester under $10k within 25 miles of 84088, with mileage distribution.</li>
+    <li>Independent shop quotes for Nissan CVT fluid service / replacement on 2011–2015 Rogues (ownership-cost add-on).</li>
+  </ul>
+</section>
+
+<section id="conclusion" class="conclusion-box">
+  <h2>10. Conclusion</h2>
+  <p>In the ~$10k band near West Jordan / West Valley, <strong>Vectra Auto Sales</strong> currently offers the widest lot selection (average sticker ~$8.2k), with West Auto a strong alternative when older stock is on the lot and KSL the sticker-price floor. For efficient cars, prioritize a healthy <strong>Prius</strong>, then <strong>Civic / Corolla</strong>, then Versa / Fiesta / Elantra.</p>
+  <p>For <strong>compact SUVs</strong>, the popular $10k names are <strong>CR-V, RAV4, Forester, Escape, Rogue, Equinox, and Sportage/Tucson</strong>—typically <strong>model years ~2008–2015</strong> (Escapes/Rogues sometimes a bit newer) with <strong>~100k–160k miles</strong> as the reasonable daily-driver window. Honda and Toyota hold value harder, so they skew older; Escape and Rogue are easier to find under $10k but need sharper mechanical screening (especially Nissan CVTs).</p>
+  <p>Financing a $10,000 vehicle at Utah First–like CU rates can keep total interest near <strong>$800–$1,400</strong> for scores 650–750 on a 60-month loan (less with 10% down). The same principal through typical Utah dealer APRs at 600–650 can push interest toward <strong>$3,500–$5,600</strong> depending on term. Get the CU quote first; use the lot’s lenders only if they beat it.</p>
+</section>
+
+<section id="refs">
+  <h2>References</h2>
+  <ol class="refs">
+    <li id="ref-vectra-isee">iSeeCars. “Vectra Auto Sales in Salt Lake City, UT” dealer analysis — avg price $8,231, mileage band, sample listings. <a href="https://www.iseecars.com/dealer-1714400-vectra-auto-sales-in-salt-lake-city-ut">iseecars.com</a>. Accessed 2026-07-11.</li>
+    <li id="ref-utahfirst">Utah First Credit Union. “Utah Auto Loans For All Credit Types” — FICO grade rate table. <a href="https://utahfirst.com/auto-loans-all-credit-types/">utahfirst.com</a>. Accessed 2026-07-11.</li>
+    <li id="ref-mfp-utah">MyFinancialPrograms. “Utah New &amp; Used Car Loan Rates – July 2026” — used dealer/CU averages by score. <a href="https://www.myfinancialprograms.com/savings/loans/auto-loan-rates/utah/">myfinancialprograms.com</a>. Accessed 2026-07-11.</li>
+    <li id="ref-parent">Research Bot. “First-Time Used Car Buying Near West Jordan &amp; West Valley City.” <a href="slc-west-jordan-first-time-used-car-buyer.html">slc-west-jordan-first-time-used-car-buyer.html</a>.</li>
+    <li id="ref-epa-prius">U.S. DOE/EPA FuelEconomy.gov. 2015 Toyota Prius fuel economy (combined ~48 MPG configuration). <a href="https://fueleconomy.gov/feg/Find.do?action=sbs&amp;id=35556">fueleconomy.gov</a>.</li>
+    <li id="ref-ksl-fiesta">KSL Cars. “2017 Ford Fiesta SE” — Vectra Auto Sales, West Valley City, $5,499. <a href="https://cars.ksl.com/listing/10540180">cars.ksl.com</a>. Accessed 2026-07-11.</li>
+    <li id="ref-ksl-elantra">KSL Cars. “2015 Hyundai Elantra Sport” — Vectra Auto Sales, $6,999. <a href="https://cars.ksl.com/listing/10340800">cars.ksl.com</a>. Accessed 2026-07-11.</li>
+    <li id="ref-west-faq">West Auto Sales. FAQ — average vehicle ~$10k; down payment $0 / $500; lender partners. <a href="https://westautosales.com/faq">westautosales.com/faq</a>.</li>
+    <li id="ref-west-inv">West Auto Sales. West Valley inventory page (featured listings 2026-07-11). <a href="https://westautosales.com/valley-city-inv">westautosales.com</a>.</li>
+    <li id="ref-immaculate">iSeeCars. “Immaculate Used Cars in West Jordan, UT” — sample under-$13k listings (Impreza, Altima, Encore). <a href="https://www.iseecars.com/dealer-1809122-immaculate-used-cars-in-west-jordan-ut">iseecars.com</a>.</li>
+    <li id="ref-kbb-10k">Kelley Blue Book. “10 Best Used Compact Cars Under $10,000.” <a href="https://www.kbb.com/best-cars/best-used-compact-cars-under-10000/">kbb.com</a>.</li>
+    <li id="ref-recharged">Recharged. “Top MPG Used Cars” — Prius / Civic / Corolla MPG ranges. <a href="https://recharged.com/articles/top-mpg-used-cars">recharged.com</a>.</li>
+    <li id="ref-epa-civic">U.S. DOE/EPA FuelEconomy.gov. “Gas Mileage of 2015 Honda Civic.” <a href="https://www.fueleconomy.gov/feg/bymodel/2015_Honda_Civic.shtml">fueleconomy.gov</a>.</li>
+    <li id="ref-iseecars-small">iSeeCars. “Best Used Small Cars Under $15k for 2026.” <a href="https://www.iseecars.com/best-used-cars-under-15k/small-cars">iseecars.com</a>.</li>
+    <li id="ref-ksl-versa">KSL Cars. “2016 Nissan Versa SV” — Vectra Auto Sales, $5,500. <a href="https://cars.ksl.com/listing/9519742">cars.ksl.com</a>.</li>
+    <li id="ref-afcu">America First Credit Union. Auto loan rates as low as 4.99% APR (Utah, as of 2026-07-06). <a href="https://www.americafirst.com/loans/vehicle-loans/auto-loans.html">americafirst.com</a>.</li>
+    <li id="ref-bankrate">Bankrate. “Average Auto Loan Interest Rates By Credit Score” — down payment guidance; Experian used APR context. <a href="https://www.bankrate.com/loans/auto-loans/average-car-loan-interest-rates-by-credit-score/">bankrate.com</a>.</li>
+    <li id="ref-vectra-home">Vectra Auto Sales. Homepage / multi-location marketing (West Valley, Midvale, Bountiful). <a href="https://www.vectraautosales.com/">vectraautosales.com</a>.</li>
+    <li id="ref-askedcar-suv">AskedCar. “Most Used SUVs Under $10000 Near Me (2026 Guide)” — 100k–150k mile expectation; CR-V / RAV4 year guidance. <a href="https://askedcar.com/used-suvs-under-10000-near-me/">askedcar.com</a>. Accessed 2026-07-13.</li>
+    <li id="ref-usnews-crossover">U.S. News. “Best Used Crossover SUVs under $10K for 2026” — CR-V, RAV4, Forester, Sportage rankings. <a href="https://cars.usnews.com/cars-trucks/rankings/used/crossover-suvs-1">cars.usnews.com</a>. Accessed 2026-07-13.</li>
+    <li id="ref-epa-crv">U.S. DOE/EPA FuelEconomy.gov. “2012 Honda CR-V 2WD” — combined ~26 MPG. <a href="https://www.fueleconomy.gov/feg/Find.do?action=sbs&amp;id=32128">fueleconomy.gov</a>.</li>
+    <li id="ref-epa-rav4">U.S. DOE/EPA FuelEconomy.gov. “Gas Mileage of 2012 Toyota RAV4” — ~22–24 MPG combined by config. <a href="https://www.fueleconomy.gov/feg/bymodel/2012_Toyota_RAV4.shtml">fueleconomy.gov</a>.</li>
+    <li id="ref-torque-forester">Torque News. “The 10 Most Reliable Used SUVs Under $10K And Subaru Forester’s Full Report.” <a href="https://www.torquenews.com/1084/10-most-reliable-used-suvs-under-10k-and-subaru-forester-s-full-report">torquenews.com</a>.</li>
+    <li id="ref-escape-wvc">AutosToday. “2014 Ford Escape SE” — West Valley City listing ~$2,950 / 186,826 mi (Choice Motors). <a href="https://www.autostoday.com/cars-for-sale/used-cars/listing/1FMCU0GX5EUD37215-2e9684d9-00fc/2014-ford-escape-se-west-valley-city-ut">autostoday.com</a>. Accessed 2026-07-13.</li>
+    <li id="ref-escape-titanium">AutosToday. “2014 Ford Escape Titanium 4WD” — Salt Lake City ~$9,990 / 84,559 mi. <a href="https://www.autostoday.com/cars-for-sale/used-cars/listing/1FMCU9J96EUC56755-fb721c81-3b82/2014-ford-escape-titanium-4wd-salt-lake-city-ut">autostoday.com</a>. Accessed 2026-07-13.</li>
+    <li id="ref-ksl-escape">KSL Cars. “2017 Ford Escape SE” — South Jordan private listing $7,300 / 113,878 mi. <a href="https://cars.ksl.com/listing/10447805">cars.ksl.com</a>. Accessed 2026-07-13.</li>
+    <li id="ref-ksl-rogue">KSL Cars. “2011 Nissan Rogue S” — Vectra Auto Sales, West Valley City, $5,999. <a href="https://cars.ksl.com/listing/10336967">cars.ksl.com</a>. Accessed 2026-07-13.</li>
+    <li id="ref-kbb-equinox">Kelley Blue Book. “Used 2014 Chevrolet Equinox” — dealer price band context. <a href="https://www.kbb.com/chevrolet/equinox/2014/">kbb.com</a>.</li>
+  </ol>
+</section>
+
+</div>
+</body>
+</html>
