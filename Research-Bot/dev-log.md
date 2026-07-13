@@ -1,5 +1,30 @@
 # Research Bot — Dev Log
 
+## 2026-07-13 — Tour map under-$1k budget filter (complete)
+
+### Plan summary
+User asked for prices on the proximity tour stops; anything over $1,000 should be crossed out but kept for reference.
+
+### Under-$1k still live (tour priority)
+- Parkway multiplexes 2BR ~$835–$925
+- Lakecrest 2BR ~$950–$995
+- Lake Park ~$885 only if old RPM ad still live (current Nestwell ~$1,050+ struck)
+- Enclave 1BR from ~$999 (higher plans struck)
+- The Redwood studio ~$849–$899 / 1BR ~$949 (upper 1BR ~$1,069 struck)
+- Decker Lake complex: list rents struck; promo effective ~$993 only if still offered
+
+### Over $1k (kept, struck)
+H2O (~$1,495+), Decker Station (~$1,075+), Lake Park Cir (~$1,200), 4168 W 3280 S (~$1,095), Shadowbrook (~$1,099+)
+
+### Changes made
+- Tour §7A price column + strike-through CSS / over-budget rows; under-$1k loop callout; diagram + tip refreshed.
+- Dev-log entry.
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-13 — Tour-day proximity map near Decker Lake (complete)
 
 ### Plan summary
