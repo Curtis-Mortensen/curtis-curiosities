@@ -106,6 +106,21 @@
   .b-ok { background: var(--ok); }
   .b-avoid { background: var(--avoid); }
   .b-near { background: var(--near); }
+  /* Tour budget filter: keep over-$1k rows for reference, but strike them visually */
+  tr.over-budget { opacity: 0.72; background: #f0f0f0 !important; }
+  tr.over-budget td:first-child { text-decoration: line-through; }
+  .xout, s.xout {
+    text-decoration: line-through;
+    color: var(--muted);
+  }
+  .under-budget {
+    color: var(--best);
+    font-weight: bold;
+  }
+  .budget-legend {
+    font-size: 0.92rem;
+    margin: 0.75rem 0 1rem;
+  }
   .option-card {
     background: var(--paper);
     border: 1px solid var(--border);
@@ -158,7 +173,7 @@
   <div class="container">
     <h1>Housing Near Decker Lake Park: Cheapest Whole Apartments vs a ~20-Minute Drive</h1>
     <p class="subtitle">A practical rent comparison for someone looking at Salt Lake County housing near a friend who works by Decker Lake Park in West Valley City — prioritizing proximity first, then lowest price for whole units (studio through 2-bedroom; duplexes and multiplexes included; rooms excluded). Includes a lighter historical comparison with Idaho Falls and Mesa, plus a second deal-hunting pass.</p>
-    <p class="meta">Research-Bot document · Updated July 13, 2026 (tour-day proximity map) · Snapshot of advertised asking rents; re-verify before applying</p>
+    <p class="meta">Research-Bot document · Updated July 13, 2026 (tour map + under-$1k budget filter) · Snapshot of advertised asking rents; re-verify before applying</p>
   </div>
 </header>
 
@@ -413,8 +428,11 @@
   <h2>7A. Tour-Day Proximity Map — Next Closest After Decker Lake</h2>
   <p>For a same-day multi-stop tour. Ranked by approximate proximity to Decker Lake Park (<strong>2300 Parkway Blvd</strong>), not by price. Call ahead — multiplexes often use self-show apps (ShowMojo / Nestwell) and may need a same-morning booking.<a href="#ref-h2o" class="citation">[56]</a><a href="#ref-decker-station" class="citation">[3]</a></p>
 
+  <p class="budget-legend"><strong>Budget filter for today:</strong> asking rent <strong>over $1,000</strong> is <span class="xout">crossed out</span> but kept for reference. Green / bold = still in budget (≤ ~$1,000). Mixed rows keep under-$1k plans live and strike only the overages.</p>
+
   <div class="callout">
-    <strong>Suggested loop (tight cluster first):</strong> Decker Station → Apartments at Decker Lake (your booked tour) → Lake Park / Lakecrest 4-plexes (self-show) → optional H2O if you want new construction across the street → then south on Redwood (Enclave → Shadowbrook → The Redwood) if you still have time.
+    <strong>Under-$1k loop (priority):</strong> Parkway multiplexes ($835–$925) → Lakecrest ($950–$995) → Lake Park only if the old ~$885 is still live → Enclave only if a 1BR at ~$999 is open → The Redwood studios / 1BRs ($849–$949).<br>
+    <strong>Still stop for context (over budget):</strong> your booked tour at Apartments at Decker Lake, plus Decker Station / H2O / Shadowbrook if you want to see the neighborhood product — prices are struck below.
   </div>
 
   <h3>Ring 0 — On / across from the park (&lt; ~2–3 min)</h3>
@@ -423,26 +441,26 @@
       <tr><th>Stop</th><th>Address</th><th>Approx. rent</th><th>Call / book</th><th>Why stop</th></tr>
     </thead>
     <tbody>
-      <tr>
+      <tr class="over-budget">
         <td><strong>1. H2O Townhomes</strong></td>
         <td>2882 S Big Wave Dr</td>
-        <td>1BR ~$1,495–$1,700; 2BR ~$2,150+ (newer / premium)</td>
+        <td><span class="xout">1BR ~$1,495–$1,700; 2BR ~$2,150+</span> <em>(all over $1k)</em></td>
         <td>(833) 352-1061 · liveath2o.com</td>
-        <td>Marketing says <em>across the street</em> from Decker Lake Park; TRAX Decker Lake Station ~0.2 mi walk. Pricey vs budget hunt, but closest new product.<a href="#ref-h2o" class="citation">[56]</a></td>
+        <td>Across the street from the park; newest product, but over budget.<a href="#ref-h2o" class="citation">[56]</a></td>
       </tr>
-      <tr>
+      <tr class="over-budget">
         <td><strong>2. Decker Station Apartments</strong></td>
         <td>3058 / 3078 Decker Lake Dr</td>
-        <td>Studio ~$1,075+; 1BR ~$1,149–$1,445; 2BR ~$1,515+</td>
+        <td><span class="xout">Studio ~$1,075+; 1BR ~$1,149–$1,445; 2BR ~$1,515+</span> <em>(all over $1k)</em></td>
         <td>(385) 770-7189 · deckerstationapts.com</td>
-        <td>On Decker Lake Dr at TRAX; next natural stop after / before your booked tour.<a href="#ref-decker-site-station" class="citation">[57]</a></td>
+        <td>On Decker Lake Dr at TRAX — handy reference stop, not a budget hit.<a href="#ref-decker-site-station" class="citation">[57]</a></td>
       </tr>
       <tr>
         <td><strong>3. Apartments at Decker Lake</strong></td>
         <td>2184 W 3100 S</td>
-        <td>1BR ~$1,062–$1,158; 2BR ~$1,315–$1,435 (+ concessions)</td>
+        <td><span class="xout">1BR list ~$1,062–$1,158; 2BR ~$1,315–$1,435</span><br><span class="under-budget">promo effective 1BR sometimes ~$993</span> (only if that concession still applies)</td>
         <td>(385) 217-3650 · apartmentsatdeckerlake.com</td>
-        <td>Likely your scheduled tour; ~½ mile south of the lake.<a href="#ref-apartments-decker" class="citation">[1]</a></td>
+        <td>Likely your scheduled tour. List rents are over $1k; only the advertised concession brings a 1BR under.<a href="#ref-apartments-decker" class="citation">[1]</a><a href="#ref-rent-decker" class="citation">[2]</a></td>
       </tr>
     </tbody>
   </table>
@@ -457,37 +475,37 @@
       <tr>
         <td><strong>4. Lakecrest 4-plex</strong></td>
         <td>2523 S Lakecrest Dr (also watch 2517)</td>
-        <td>2BR ~$950–$995</td>
+        <td><span class="under-budget">2BR ~$950–$995</span></td>
         <td>Check current listing / ShowMojo on aggregator pages</td>
-        <td>Chesterfield; among the best price+proximity combos found.<a href="#ref-lakecrest" class="citation">[53]</a></td>
+        <td>In budget. Chesterfield; among the best price+proximity combos found.<a href="#ref-lakecrest" class="citation">[53]</a></td>
       </tr>
       <tr>
         <td><strong>5. Lake Park Dr 4-plex</strong></td>
         <td>1881 W Lake Park Dr (units 3 &amp; 4 recently listed)</td>
-        <td>2BR ~$1,050–$1,095 (older RPM ads as low as ~$885 if still live)</td>
+        <td><span class="under-budget">older RPM ad ~$885</span> if still live<br><span class="xout">current Nestwell asks ~$1,050–$1,095</span></td>
         <td>Nestwell showing desk <strong>(801) 396-9288</strong> · or RPM Wasatch <strong>(801) 363-7368</strong></td>
-        <td>Just off Redwood; Decker Lake Station ~3 min drive per listing transit tables.<a href="#ref-nestwell-1881" class="citation">[58]</a><a href="#ref-1881-lake" class="citation">[6]</a></td>
+        <td>Only chase if the ~$885 (or anything ≤$1k) is actually available today.<a href="#ref-nestwell-1881" class="citation">[58]</a><a href="#ref-1881-lake" class="citation">[6]</a></td>
       </tr>
-      <tr>
+      <tr class="over-budget">
         <td><strong>6. Lake Park Cir multiplex</strong></td>
         <td>2554 S Lake Park Cir</td>
-        <td>2BR ~$1,200 (+ CAM on some)</td>
+        <td><span class="xout">2BR ~$1,200 (+ CAM on some)</span> <em>(over $1k)</em></td>
         <td>Horizon Management via Rentler listing</td>
-        <td>Same pocket; slightly higher than 1881.<a href="#ref-rentler-2554" class="citation">[31]</a></td>
+        <td>Same pocket; kept for reference only.<a href="#ref-rentler-2554" class="citation">[31]</a></td>
       </tr>
       <tr>
         <td><strong>7. Parkway Blvd multiplexes</strong></td>
         <td>3524 &amp; 3538 W Parkway Blvd</td>
-        <td>2BR ~$835–$925 when listed</td>
+        <td><span class="under-budget">2BR ~$835–$925</span> when listed</td>
         <td>3524: Findrentutah / (801) 215-9755 (Gabby)</td>
-        <td>Same Parkway corridor as the park entrance — call to see if anything is open today.<a href="#ref-3524-parkway" class="citation">[4]</a><a href="#ref-3538-parkway" class="citation">[5]</a></td>
+        <td>Best under-$1k near-park floor if anything is open today.<a href="#ref-3524-parkway" class="citation">[4]</a><a href="#ref-3538-parkway" class="citation">[5]</a></td>
       </tr>
-      <tr>
+      <tr class="over-budget">
         <td><strong>8. 3280 S multiplex</strong></td>
         <td>4168 W 3280 S</td>
-        <td>2BR ~$1,095</td>
+        <td><span class="xout">2BR ~$1,095</span> <em>(over $1k)</em></td>
         <td>Via Rentler listing contact</td>
-        <td>Short hop west of the lake area.<a href="#ref-rentler-wvc" class="citation">[54]</a></td>
+        <td>Short hop west; reference only at this price.<a href="#ref-rentler-wvc" class="citation">[54]</a></td>
       </tr>
     </tbody>
   </table>
@@ -501,44 +519,43 @@
       <tr>
         <td><strong>9. Enclave at Redwood</strong></td>
         <td>3810 S Redwood Rd</td>
-        <td>1BR ~$999–$1,399; 2BR ~$1,249+</td>
+        <td><span class="under-budget">1BR from ~$999</span> (edge of budget)<br><span class="xout">1BR up to ~$1,399; 2BR ~$1,249+</span></td>
         <td>(801) 973-4250</td>
-        <td>Walk-in leasing office; ask about 1-month-free specials.<a href="#ref-enclave-site" class="citation">[59]</a></td>
+        <td>Ask only for the cheapest 1BR / 1-month-free special that nets ≤$1k.<a href="#ref-enclave-site" class="citation">[59]</a></td>
       </tr>
-      <tr>
+      <tr class="over-budget">
         <td><strong>10. Shadowbrook</strong></td>
         <td>3860 S Redwood Rd</td>
-        <td>~$1,099–$1,399 band (varies)</td>
+        <td><span class="xout">~$1,099–$1,399</span> <em>(all over $1k)</em></td>
         <td>(801) 972-6666</td>
-        <td>Next door south of Enclave — easy double-stop.<a href="#ref-shadowbrook-phone" class="citation">[60]</a></td>
+        <td>Next door south of Enclave — skip unless they have something ≤$1k today.<a href="#ref-shadowbrook-phone" class="citation">[60]</a></td>
       </tr>
       <tr>
         <td><strong>11. The Redwood</strong></td>
         <td>4000 S Redwood Rd</td>
-        <td>Studio ~$849–$899; 1BR ~$949–$1,069</td>
+        <td><span class="under-budget">Studio ~$849–$899; 1BR ~$949</span><br><span class="xout">1BR up to ~$1,069</span></td>
         <td>(877) 931-3659 · liveattheredwood.com</td>
-        <td>Best large-community budget floor near the Decker Lake side of the valley.<a href="#ref-redwood-site" class="citation">[38]</a></td>
+        <td>Best large-community under-$1k floor on this side of the valley.<a href="#ref-redwood-site" class="citation">[38]</a></td>
       </tr>
     </tbody>
   </table>
 
-  <div class="diagram">Driving sketch (not to scale)
+  <div class="diagram">Under-$1k driving sketch (struck stops = over budget, skip unless curious)
 
   Parkway Blvd ←→ Decker Lake Park
-         |                    \
-         |                     H2O Townhomes (Big Wave Dr)  [across street]
-         |                     Decker Station (Decker Lake Dr / TRAX)
+         |
+         |   <span class="xout">H2O (~$1,495+) · Decker Station (~$1,075+)</span>
          v
-      3100 S — Apartments at Decker Lake  ← your booked tour
+      3100 S — Apartments at Decker Lake  ← booked tour
+              <span class="xout">list ~$1,062+</span> / under only if promo ~$993 sticks
          |
-      Lake Park Dr / Lakecrest  — 4-plex cluster (Nestwell / RPM self-show)
+      ★ Parkway 3524/3538  ($835–$925)  ·  ★ Lakecrest ($950–$995)
+         |   Lake Park: chase ~$885 only; <span class="xout">~$1,050+</span> skip
          |
-      west → Parkway 3500s multiplexes · 4168 W 3280 S
-         |
-      south on Redwood Rd → Enclave → Shadowbrook → The Redwood</div>
+      south on Redwood → Enclave (~$999 1BR only) → <span class="xout">Shadowbrook</span> → ★ The Redwood ($849–$949)</div>
 
   <div class="warn-box">
-    <strong>Practical tip for today:</strong> Complexes (stops 1–3, 9–11) take walk-ins or same-day phone bookings. Multiplexes (stops 4–8) often require a ShowMojo / Nestwell slot — text Nestwell at (801) 396-9288 and RPM at (801) 363-7368 <em>before</em> you leave Apartments at Decker Lake so the codes are ready when you pull up.
+    <strong>Practical tip for today:</strong> Prioritize Nestwell (801) 396-9288, RPM (801) 363-7368, and Parkway Findrentutah (801) 215-9755 for under-$1k multiplex slots <em>before</em> you leave Apartments at Decker Lake. Complexes over $1k stay on the map only so you can skip them fast or use them as neighborhood context.
   </div>
 </section>
 
