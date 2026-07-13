@@ -1,0 +1,9 @@
+I tell people our family moved around growing up. It helps explain my restless soul. I followed where my parents went for medical school, in Kansas City, Missouri and then Michigan, residency in Cleveland, Ohio, and then moving back to be closer to family in Shelley, Idaho. I’ve also lived in Sacramento, California and now reside in Mesa, Arizona. 
+
+I did jazz band and marching band in High School. I moved high schools to go live with my father in my Sophomore year, going from being a North Olmsted Eagle to a Shelley Russet. Yes, the mascot is a potato. After moving I transformed from band nerd to a regular nerd, doing Academic Decatholons, NSDA Speech and Debate, and Computer Club. 
+
+I served a mission for two years for the Church of Jesus Christ of Latter-Day Saints in St. Petersburg, Russia. When I came back I attended BYU-Idaho for 5 years, and still couldn’t figure out what I wanted to do. I changed majors through Data Science, Sociology, Economics, and Entrepreneurship before leaving with 90 credits in 2024. I moved down to Mesa where I’ve been working happily ever since. 
+
+I love to travel. With friends, family, and on solo trips. For my senior trip I visited New Orleans, Louisiana. Our family took a cruise through Belize, Bolivia, Honduras, and Mexico. I’ve stopped by Toronto, and visited Estonia and Finland from Russia. I’ve climbed mountains in Honolulu, Hawaii, seen Hamilton live in Seattle, Washington, stayed with friends at Canessius College in Buffalo, New York, and done cross country road trips visiting 46 of the 50 states. I’m sure I’ll get to Maine, New Hampshire, Connecticut, and Rhode Island eventually. I currently work as a traveling IT technician, which perfectly combines my interest in technology and sense of adventure. I also co-founded a gaming company, Questweight Studios, with my business partner Jeremy Offutt. Go check it out! 
+
+Questweight.com
