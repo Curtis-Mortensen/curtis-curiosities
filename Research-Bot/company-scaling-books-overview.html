@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Company Scaling Books — Historical Overview, Chapters &amp; Consensus</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #21262d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #d4a853;
+    --accent2: #58a6ff;
+    --danger: #f85149;
+    --success: #3fb950;
+    --link: #79c0ff;
+    --border: #30363d;
+    --agree: #238636;
+    --disagree: #da3633;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  h1 { font-size: 2rem; line-height: 1.25; margin-bottom: 0.5rem; color: var(--accent); }
+  .subtitle { color: var(--muted); font-style: italic; font-size: 1.05rem; }
+  h2 {
+    font-size: 1.45rem;
+    color: var(--accent2);
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 { font-size: 1.15rem; color: var(--accent); margin: 1.5rem 0 0.75rem; }
+  h4 { font-size: 1rem; color: var(--muted); margin: 1rem 0 0.5rem; }
+  p { margin-bottom: 1rem; }
+  a { color: var(--link); }
+  a:hover { text-decoration: underline; }
+  .thesis-box {
+    background: var(--surface);
+    border-left: 4px solid var(--accent);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .limitation-box {
+    background: var(--surface);
+    border-left: 4px solid var(--danger);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .overview-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+  .overview-card h4 { color: var(--accent2); margin-top: 0; }
+  .book-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .book-card h3 { margin-top: 0; }
+  .diagram {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    white-space: pre;
+    color: var(--muted);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.84rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.55rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: var(--surface2); color: var(--accent2); font-weight: 600; }
+  tr:nth-child(even) { background: var(--surface); }
+  tr:nth-child(odd) { background: rgba(22,27,34,0.5); }
+  .cite { font-size: 0.82rem; color: var(--muted); }
+  .ref-list { font-size: 0.85rem; }
+  .ref-list li { margin-bottom: 0.6rem; }
+  .conclusion-box {
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+    border: 1px solid var(--accent2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--surface2);
+    color: var(--accent);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    margin-right: 0.3rem;
+    margin-bottom: 0.25rem;
+    font-family: sans-serif;
+  }
+  .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .toc ol { margin: 0.5rem 0 0 1.25rem; }
+  .toc a { text-decoration: none; }
+  .chapters { font-size: 0.92rem; background: var(--surface2); border-radius: 6px; padding: 1rem 1.25rem; margin: 0.75rem 0 1rem; }
+  .chapters ol, .chapters ul { margin: 0.35rem 0 0.35rem 1.25rem; }
+  .agree { border-left: 4px solid var(--agree); }
+  .disagree { border-left: 4px solid var(--disagree); }
+  ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  @media print {
+    body { background: white; color: black; }
+    .overview-card, .thesis-box, .book-card, table { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>Company Building &amp; Scaling Books</h1>
+  <p class="subtitle">A comparative research overview of nine canonical texts on building, hiring, operating, and scaling companies — with historical context, full chapter maps, early-hire advice, and agreement/disagreement analysis.</p>
+  <p class="cite">Research Bot report · Compiled July 2026 · Self-contained; no prior context required.</p>
+</header>
+
+<nav class="toc" aria-label="Table of contents">
+  <strong>Contents</strong>
+  <ol>
+    <li><a href="#aims">Introduction and Aims</a></li>
+    <li><a href="#limitations">Limitations and Evidence Strength</a></li>
+    <li><a href="#precursors">Precursor and Subset Questions</a></li>
+    <li><a href="#history">History of Scaling Philosophy</a></li>
+    <li><a href="#part1">Part 1 — Book Overviews by Era and Audience</a></li>
+    <li><a href="#part2">Part 2 — Full Chapter Lists and Coverage Commentary</a></li>
+    <li><a href="#part3">Part 3 — First Hires, Early Definition, Planning for Growth</a></li>
+    <li><a href="#part4">Part 4 — Where They Agree and Disagree</a></li>
+    <li><a href="#conclusion">Conclusion and Further Questions</a></li>
+    <li><a href="#references">References</a></li>
+  </ol>
+</nav>
+
+<!-- ========== AIMS ========== -->
+<section id="aims">
+  <h2>1. Introduction and Aims</h2>
+  <p>This document surveys nine widely cited books on company building and scaling. The books were selected by the researcher as a working set spanning small-business systems thinking, mid-market operating systems, Silicon Valley hypergrowth playbooks, hiring methodology, and modern org-design for software teams.<span class="cite"> [<a href="#ref-1">1</a>–<a href="#ref-9">9</a>]</span></p>
+
+  <div class="thesis-box">
+    <strong>Central thesis:</strong> Advice on “scaling” is not one tradition. It is at least <em>four overlapping lineages</em>: (1) manufacturing / managerial leverage (Grove), (2) franchise-style systems for owner-operated small business (Gerber), (3) entrepreneurial operating systems for SMBs and mid-market firms (Wickman, Harnish, Smart), and (4) venture-backed tech hypergrowth and platform-era people systems (Gil, Hughes Johnson, Skelton &amp; Pais). They agree that structure must precede personality, that hiring quality compounds, and that rhythm/metrics beat heroics — but they disagree sharply on <em>speed vs. systematization</em>, <em>whether founders should hire “novices for systems” or “A-player executives”</em>, and <em>whether the unit of design is the whole company OS, the executive seat, or the team</em>.
+  </div>
+
+  <p>The report follows four parts matching the research brief:</p>
+  <ol>
+    <li><strong>Part 1</strong> — publication dates, management-philosophy eras, target audiences, and a historical overview of scaling thought.</li>
+    <li><strong>Part 2</strong> — full chapter lists and commentary on what each book covers (and omits).</li>
+    <li><strong>Part 3</strong> — compiled advice on first hires, early company definition, and planning for growth.</li>
+    <li><strong>Part 4</strong> — consensus vs. disagreement across the set.</li>
+  </ol>
+</section>
+
+<!-- ========== LIMITATIONS ========== -->
+<section id="limitations">
+  <h2>2. Limitations and Evidence Strength</h2>
+
+  <div class="limitation-box">
+    <h3 style="margin-top:0;color:var(--danger);">Theoretical limitations</h3>
+    <p>Company growth is path-dependent. Founder psychology, capital markets, industry structure, regulation, and luck interact in ways that resist clean causal inference. A playbook that “worked” at Intel in the early 1980s, at a Midwest manufacturing firm under EOS, or at Stripe during a venture boom may fail when transferred without context.<span class="cite"> [<a href="#ref-10">10</a>][<a href="#ref-11">11</a>]</span></p>
+    <p>These books are mostly <em>prescriptive practitioner literature</em>, not randomized trials. Their claims rest on consulting case samples, author experience, interviews with CEOs, and survivor narratives. Survivorship bias is endemic: failed implementations rarely get chapters.<span class="cite"> [<a href="#ref-12">12</a>]</span></p>
+  </div>
+
+  <h3>Methodological and literature limitations</h3>
+  <ul>
+    <li>This report relies on publisher pages, author sites, archive metadata, book excerpts, reputable summaries, and secondary comparative articles — not a full page-by-page reread of every title in this session.<span class="cite"> [<a href="#ref-1">1</a>–<a href="#ref-9">9</a>]</span></li>
+    <li>Chapter lists are taken from editions commonly cited (e.g., <em>E-Myth Revisited</em> 1995; <em>Traction</em> BenBella trade edition; <em>Scaling Up</em> 2014; <em>Team Topologies</em> 1st ed. 2019). Later reprints may reorder front matter.<span class="cite"> [<a href="#ref-2">2</a>][<a href="#ref-3">3</a>][<a href="#ref-5">5</a>][<a href="#ref-8">8</a>]</span></li>
+    <li>ghSMART’s “90% success rate” claim for the A Method and EOS marketing figures (companies using the system) are author/firm-reported, not independently audited academic results.<span class="cite"> [<a href="#ref-4">4</a>][<a href="#ref-13">13</a>]</span></li>
+    <li>Silicon Valley books (Gil, Hughes Johnson) generalize from venture-backed software/platform firms with abundant capital; SMB books (Gerber, Wickman) generalize from owner-operated firms with constrained cash. Cross-application requires judgment.<span class="cite"> [<a href="#ref-6">6</a>][<a href="#ref-9">9</a>]</span></li>
+  </ul>
+
+  <h3>Strength of the field</h3>
+  <p>“Scaling” as a named management topic is younger than classical management theory. Academic organizational science (contingency theory, population ecology, resource dependence) long studied growth, but the popular “how to scale” bookshelf exploded from roughly 2002–2023 as entrepreneurship education, EO/YPO peer networks, EOS Implementers, and Stripe Press professionalized operator knowledge.<span class="cite"> [<a href="#ref-11">11</a>][<a href="#ref-14">14</a>][<a href="#ref-15">15</a>]</span> Evidence quality is strongest for <em>narrow operational claims</em> with measurable process (meeting cadence, interview structure, cognitive-load heuristics) and weakest for <em>grand causal claims</em> (“this OS causes 18% growth”).</p>
+</section>
+
+<!-- ========== PRECURSORS ========== -->
+<section id="precursors">
+  <h2>3. Precursor and Subset Questions</h2>
+  <div class="overview-grid">
+    <div class="overview-card">
+      <h4>What does “scale” mean?</h4>
+      <p>Headcount? Revenue? Geographic footprint? Software delivery throughput? Each book optimizes a different variable: Gerber wants a turnkey system; Grove wants managerial leverage; Gil wants 10→10,000 people; Skelton wants fast flow of value.</p>
+    </div>
+    <div class="overview-card">
+      <h4>Who is the reader?</h4>
+      <p>Owner-operator of a 10-person service firm vs. Series C CEO vs. engineering director. Audience mismatch explains many apparent “disagreements.”</p>
+    </div>
+    <div class="overview-card">
+      <h4>When does advice apply?</h4>
+      <p>Pre-product-market fit, post-PMF chaos, or mature mid-market. Gil explicitly warns not to apply hypergrowth overhead before PMF.<span class="cite"> [<a href="#ref-16">16</a>]</span></p>
+    </div>
+    <div class="overview-card">
+      <h4>Unit of design?</h4>
+      <p>Company operating system (EOS/Scaling Up), founder–operator dyad (Rocket Fuel), hire scorecard (Who), manager leverage (Grove), or team topology (Skelton).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== HISTORY ========== -->
+<section id="history">
+  <h2>4. History of Scaling Philosophy (Field Overview)</h2>
+  <p>A useful way to read these nine books is as successive answers to the same problem: <em>coordination costs rise faster than headcount if you only add people without redesigning how work is structured</em>. The answers change with industrial context.<span class="cite"> [<a href="#ref-10">10</a>][<a href="#ref-11">11</a>]</span></p>
+
+  <div class="diagram">SCALING PHILOSOPHY TIMELINE (selected)
+
+1983  Grove — High Output Management
+      |  Intel / semiconductor: production analogies, leverage,
+      |  meetings, OKRs-as-practice, hybrid orgs
+      v
+1986  Gerber — The E-Myth (Revisited 1995)
+      |  Small business: franchise prototype, work ON not IN,
+      |  org chart before personalities
+      v
+2002  Harnish — Mastering the Rockefeller Habits
+      |  Mid-market entrepreneurship education (EO / Birthing of Giants)
+      |  priorities + metrics + meeting rhythm
+      v
+2007  Wickman — Traction (EOS)
+      |  Closed, simple "operating system" for entrepreneurial firms
+      |  Vision/People/Data/Issues/Process/Traction
+      v
+2008  Smart &amp; Street — Who (A Method)
+      |  Hiring as the #1 problem; scorecard → source → select → sell
+      v
+2014  Harnish — Scaling Up (Rockefeller Habits 2.0)
+      |  People / Strategy / Execution / Cash + one-page tools
+      v
+2015  Wickman &amp; Winters — Rocket Fuel
+      |  Visionary + Integrator as complementary top seat design
+      v
+2018  Gil — High Growth Handbook
+      |  Stripe Press era: VC-backed hypergrowth operator playbook
+      |  CEO/board/execs/M&amp;A from ~10 to 10,000
+      v
+2019  Skelton &amp; Pais — Team Topologies
+      |  DevOps/platform era: teams as unit of delivery; Conway's Law
+      v
+2023  Hughes Johnson — Scaling People
+      |  Google→Stripe people OS: foundations, hiring, teams, feedback
+</div>
+
+  <h3>Four eras visible in this set</h3>
+  <ol>
+    <li><strong>Industrial / managerial science (early–mid 1980s):</strong> Grove treats the company like a production system. Managers exist to increase team output via leverage, indicators, and planning. This lineage feeds modern OKRs via John Doerr’s later popularization from Intel practice.<span class="cite"> [<a href="#ref-1">1</a>][<a href="#ref-17">17</a>]</span></li>
+    <li><strong>Franchise / systems small-business movement (mid-1980s–1990s):</strong> Gerber argues most “entrepreneurs” are technicians who built a job, not a business. The cure is to design the business as if it will be franchised — documented systems, position contracts, working <em>on</em> the business.<span class="cite"> [<a href="#ref-2">2</a>][<a href="#ref-18">18</a>]</span></li>
+    <li><strong>Entrepreneurial operating systems for SMBs/mid-market (2000s–2010s):</strong> Harnish (Rockefeller Habits → Scaling Up) and Wickman (EOS/Traction, later Rocket Fuel) package vision, people filters, scorecards/metrics, and meeting rhythms into teachable “operating systems,” delivered via coaches/implementers and peer networks like EO.<span class="cite"> [<a href="#ref-3">3</a>][<a href="#ref-5">5</a>][<a href="#ref-14">14</a>]</span> Smart &amp; Street’s <em>Who</em> supplies a specialized hiring OS that these communities often borrow (Topgrading/A-player language).<span class="cite"> [<a href="#ref-4">4</a>][<a href="#ref-19">19</a>]</span></li>
+    <li><strong>Platform / hypergrowth / team-flow era (late 2010s–2020s):</strong> Gil’s handbook and Hughes Johnson’s <em>Scaling People</em> (both Stripe Press) address venture-scale company building — boards, executive hiring, culture evolution, performance systems — while Team Topologies reframes scaling as <em>team cognitive load and value-stream topology</em> rather than classic hierarchy alone.<span class="cite"> [<a href="#ref-6">6</a>][<a href="#ref-8">8</a>][<a href="#ref-9">9</a>][<a href="#ref-15">15</a>]</span></li>
+  </ol>
+
+  <p>Parallel popular concepts outside this exact list (useful context, not primary sources here) include Collins’s “right people on the bus,” Hoffman/Yeh’s blitzscaling (speed over efficiency in winner-take-most markets), and DevOps/SRE literature that Team Topologies draws on.<span class="cite"> [<a href="#ref-20">20</a>][<a href="#ref-21">21</a>]</span></p>
+</section>
+
+<!-- ========== PART 1 ========== -->
+<section id="part1">
+  <h2>5. Part 1 — Book Overviews by Era and Audience</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Book</th>
+        <th>Author(s)</th>
+        <th>Published</th>
+        <th>Era / lineage</th>
+        <th>Primary audience</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><em>High Output Management</em></td>
+        <td>Andrew S. Grove</td>
+        <td>1983 (republished with Horowitz preface 2015)</td>
+        <td>Industrial managerial science; Intel production/OKR roots</td>
+        <td>Managers at all levels; later cult classic for tech founders/VCs</td>
+      </tr>
+      <tr>
+        <td><em>The E-Myth Revisited</em></td>
+        <td>Michael E. Gerber</td>
+        <td>1995 (original <em>E-Myth</em> 1986)</td>
+        <td>Franchise / systems small-business</td>
+        <td>Owner-operators of small businesses drowning in “technician” work</td>
+      </tr>
+      <tr>
+        <td><em>Traction</em></td>
+        <td>Gino Wickman</td>
+        <td>2007 hardcover; widely cited 2011/2012 BenBella editions</td>
+        <td>Entrepreneurial Operating System (EOS)</td>
+        <td>Leadership teams of entrepreneurial firms (~10–250 employees often cited)</td>
+      </tr>
+      <tr>
+        <td><em>Who: The A Method for Hiring</em></td>
+        <td>Geoff Smart &amp; Randy Street</td>
+        <td>2008</td>
+        <td>Evidence-informed hiring methodology (ghSMART / Topgrading-adjacent)</td>
+        <td>CEOs, boards, managers hiring at any level</td>
+      </tr>
+      <tr>
+        <td><em>Scaling Up</em></td>
+        <td>Verne Harnish</td>
+        <td>2014 (Rockefeller Habits 2.0; earlier Habits book 2002)</td>
+        <td>Mid-market scale-up OS; EO education lineage</td>
+        <td>Growth-company leaders from roughly $1M toward $100M+</td>
+      </tr>
+      <tr>
+        <td><em>Rocket Fuel</em></td>
+        <td>Gino Wickman &amp; Mark C. Winters</td>
+        <td>2015</td>
+        <td>EOS extension: Visionary/Integrator dyad</td>
+        <td>Founder-Visionaries who need an Integrator (and Integrators)</td>
+      </tr>
+      <tr>
+        <td><em>High Growth Handbook</em></td>
+        <td>Elad Gil</td>
+        <td>2018 (Stripe Press)</td>
+        <td>Silicon Valley hypergrowth operator playbook</td>
+        <td>Founders/CEOs scaling roughly 10→10,000 people post-traction</td>
+      </tr>
+      <tr>
+        <td><em>Team Topologies</em></td>
+        <td>Matthew Skelton &amp; Manuel Pais</td>
+        <td>2019 (2nd ed. 2025)</td>
+        <td>DevOps / platform org design; Conway’s Law</td>
+        <td>Tech leaders designing teams for fast flow of value</td>
+      </tr>
+      <tr>
+        <td><em>Scaling People</em></td>
+        <td>Claire Hughes Johnson</td>
+        <td>2023 (Stripe Press)</td>
+        <td>Modern people/ops systems for high-growth tech</td>
+        <td>Founders, COOs, managers building scalable people systems</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="cite">Sources: publisher/archive metadata and author sites [<a href="#ref-1">1</a>]–[<a href="#ref-9">9</a>][<a href="#ref-14">14</a>][<a href="#ref-17">17</a>][<a href="#ref-18">18</a>][<a href="#ref-22">22</a>].</p>
+
+  <div class="overview-grid">
+    <div class="overview-card">
+      <h4><span class="tag">1983</span> Grove</h4>
+      <p>Management as a production problem. Output of a manager = output of their organization. Meetings, planning, and task-relevant maturity are tools, not bureaucracy.</p>
+    </div>
+    <div class="overview-card">
+      <h4><span class="tag">1995</span> Gerber</h4>
+      <p>Most small businesses fail the “E-Myth”: technical skill ≠ business skill. Build a Franchise Prototype and free the owner via systems.</p>
+    </div>
+    <div class="overview-card">
+      <h4><span class="tag">2007–15</span> Wickman / Harnish / Smart</h4>
+      <p>Codify the “parenting manual” for scaling SMBs: one OS, right people/seats, A-player hiring, rocks/priorities, cash discipline.</p>
+    </div>
+    <div class="overview-card">
+      <h4><span class="tag">2018–23</span> Gil / Skelton / CHJ</h4>
+      <p>Hypergrowth and platform firms: executive scaffolding, team cognitive load, founding documents, hiring rubrics, feedback systems.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PART 2 ========== -->
+<section id="part2">
+  <h2>6. Part 2 — Full Chapter Lists and Coverage Commentary</h2>
+
+  <!-- GROVE -->
+  <article class="book-card" id="ch-grove">
+    <h3>6.1 High Output Management — Andrew S. Grove (1983)</h3>
+    <p><span class="tag">Managerial leverage</span><span class="tag">OKR ancestor</span><span class="tag">Intel</span></p>
+    <div class="chapters">
+      <strong>Part I — The Breakfast Factory</strong>
+      <ol>
+        <li>The Basics of Production: Delivering a Breakfast</li>
+        <li>Managing the Breakfast Factory</li>
+      </ol>
+      <strong>Part II — Management Is a Team Game</strong>
+      <ol start="3">
+        <li>Managerial Leverage</li>
+        <li>Meetings — The Medium of Managerial Work</li>
+        <li>Decisions, Decisions</li>
+        <li>Planning: Today’s Actions for Tomorrow’s Output</li>
+      </ol>
+      <strong>Part III — Team of Teams</strong>
+      <ol start="7">
+        <li>The Breakfast Factory Goes National</li>
+        <li>Hybrid Organizations</li>
+        <li>Dual Reporting</li>
+        <li>Modes of Control</li>
+      </ol>
+      <strong>Part IV — The Players</strong>
+      <ol start="11">
+        <li>The Sports Analogy</li>
+        <li>Task-Relevant Maturity</li>
+        <li>Performance Appraisal: Manager as Judge and Jury</li>
+        <li>Two Difficult Tasks</li>
+        <li>Compensation as Task-Relevant Feedback</li>
+        <li>Why Training Is the Boss’s Job</li>
+        <li>One More Thing (in some editions)</li>
+      </ol>
+    </div>
+    <p><strong>Coverage commentary:</strong> Deep on day-to-day managerial craft — indicators, meetings as work, decision processes, planning, hybrid org structures, supervision matched to task-relevant maturity, appraisal, compensation, and training. Light on brand/marketing, fundraising, founder psychology, and startup-specific hiring funnels. Its lasting influence is less “startup lore” than a reusable model of leverage and measurement that later Silicon Valley operators rediscovered.<span class="cite"> [<a href="#ref-1">1</a>][<a href="#ref-17">17</a>][<a href="#ref-23">23</a>]</span></p>
+  </article>
+
+  <!-- GERBER -->
+  <article class="book-card" id="ch-gerber">
+    <h3>6.2 The E-Myth Revisited — Michael E. Gerber (1995)</h3>
+    <p><span class="tag">Small business</span><span class="tag">Systems</span><span class="tag">Franchise prototype</span></p>
+    <div class="chapters">
+      <strong>Part I — The E-Myth and American Small Business</strong>
+      <ol>
+        <li>The Entrepreneurial Myth</li>
+        <li>The Entrepreneur, the Manager, and the Technician</li>
+        <li>Infancy: The Technician’s Phase</li>
+        <li>Adolescence: Getting Some Help</li>
+        <li>Beyond the Comfort Zone</li>
+        <li>Maturity and the Entrepreneurial Perspective</li>
+      </ol>
+      <strong>Part II — The Turn-Key Revolution</strong>
+      <ol start="7">
+        <li>The Turn-Key Revolution</li>
+        <li>The Franchise Prototype</li>
+        <li>Working On Your Business, Not In It</li>
+      </ol>
+      <strong>Part III — Building a Small Business That Works!</strong>
+      <ol start="10">
+        <li>The Business Development Process</li>
+        <li>Your Business Development Program</li>
+        <li>Your Primary Aim</li>
+        <li>Your Strategic Objective</li>
+        <li>Your Organizational Strategy</li>
+        <li>Your Management Strategy</li>
+        <li>Your People Strategy</li>
+        <li>Your Marketing Strategy</li>
+        <li>Your Systems Strategy</li>
+        <li>A Letter to Sarah</li>
+      </ol>
+      <p>Plus Epilogue / Afterword in standard editions.</p>
+    </div>
+    <p><strong>Coverage commentary:</strong> Narrative coaching (Sarah’s pie shop) plus a full “Business Development Program.” Strongest on mindset (Entrepreneur/Manager/Technician), lifecycle stages, org chart before personalities, position contracts, and systematizing work. Weak on venture capital, hypergrowth org design, software team topology, and modern talent markets. Foundational for later EOS/Scaling Up “systematize the business” rhetoric.<span class="cite"> [<a href="#ref-2">2</a>][<a href="#ref-18">18</a>][<a href="#ref-24">24</a>]</span></p>
+  </article>
+
+  <!-- TRACTION -->
+  <article class="book-card" id="ch-traction">
+    <h3>6.3 Traction — Gino Wickman (2007 / trade eds. ~2011–2012)</h3>
+    <p><span class="tag">EOS</span><span class="tag">Operating system</span><span class="tag">SMB leadership teams</span></p>
+    <div class="chapters">
+      <ol>
+        <li>The Entrepreneurial Operating System®: Strengthening the Six Key Components</li>
+        <li>Letting Go of the Vine</li>
+        <li>The Vision Component: Do They See What You Are Saying?</li>
+        <li>The People Component: Surround Yourself with Good People</li>
+        <li>The Data Component: Safety in Numbers</li>
+        <li>The Issues Component: Decide!</li>
+        <li>The Process Component: Finding Your Way</li>
+        <li>The Traction Component: From Luftmensch to Action!</li>
+        <li>Pulling It All Together: The Grand Journey</li>
+        <li>Getting Started</li>
+      </ol>
+      <p>Plus Afterword (The EOS Life) in later editions.</p>
+    </div>
+    <p><strong>Coverage commentary:</strong> A closed toolkit: Vision/Traction Organizer (V/TO), Accountability Chart, People Analyzer (core values + GWC), Scorecard, Rocks, IDS, Level 10 Meetings, process documentation. Excellent for leadership-team alignment in entrepreneurial firms. Intentionally simple; less detailed on cash engineering than Scaling Up, less deep on hiring interview craft than <em>Who</em>, and not aimed at VC board dynamics or platform team design.<span class="cite"> [<a href="#ref-3">3</a>][<a href="#ref-13">13</a>][<a href="#ref-25">25</a>]</span></p>
+  </article>
+
+  <!-- WHO -->
+  <article class="book-card" id="ch-who">
+    <h3>6.4 Who: The A Method for Hiring — Geoff Smart &amp; Randy Street (2008)</h3>
+    <p><span class="tag">Hiring</span><span class="tag">A Players</span><span class="tag">Scorecards</span></p>
+    <div class="chapters">
+      <p>Introduction: Who, Not What</p>
+      <ol>
+        <li>Your #1 Problem</li>
+        <li>Scorecard: A Blueprint for Success</li>
+        <li>Source: Generating a Flow of A Players</li>
+        <li>Select: The Four Interviews for Spotting A Players</li>
+        <li>Sell: The Top Five Ways to Seal the Deal</li>
+        <li>Your Greatest Opportunity</li>
+      </ol>
+    </div>
+    <p><strong>Coverage commentary:</strong> Narrow and deep. Argues “who” dominates “what.” Defines A Players via outcomes (≈90% chance of top-decile results), attacks “voodoo hiring,” and specifies Scorecard → Source → Select (screening, Topgrading chronological, focused, reference) → Sell (Fit, Family, Freedom, Fortune, Fun). Does not teach full company strategy, meeting systems, or org topology — it assumes those exist or will be built by the people you hire.<span class="cite"> [<a href="#ref-4">4</a>][<a href="#ref-26">26</a>]</span></p>
+  </article>
+
+  <!-- SCALING UP -->
+  <article class="book-card" id="ch-scalingup">
+    <h3>6.5 Scaling Up — Verne Harnish (2014)</h3>
+    <p><span class="tag">Rockefeller Habits 2.0</span><span class="tag">People/Strategy/Execution/Cash</span></p>
+    <div class="chapters">
+      <p><em>Introduction:</em> Tools for Scaling Up · Overview: People, Strategy, Execution, Cash · Barriers: Leadership, Infrastructure, Market Dynamics</p>
+      <strong>Scaling Up People</strong>
+      <ul>
+        <li>The Leaders: The FACe and the PACe of the Company</li>
+        <li>The Team: Attracting and Hiring</li>
+        <li>The Managers: Keeping and Growing (Educating) the Team</li>
+      </ul>
+      <strong>Scaling Up Strategy</strong>
+      <ul>
+        <li>The Core: Values, Purpose, and Competencies</li>
+        <li>The 7 Strata of Strategy</li>
+        <li>The One-Page Strategic Plan</li>
+      </ul>
+      <strong>Scaling Up Execution</strong>
+      <ul>
+        <li>The Priority: Focus, Finish Lines, and Fun</li>
+        <li>The Data: Powering Prediction</li>
+        <li>The Meeting Rhythm: The Heartbeat of the Organization</li>
+      </ul>
+      <strong>Scaling Up Cash</strong>
+      <ul>
+        <li>The Cash: Accelerating Cash Flow</li>
+        <li>The Accounting: Driving Profitability</li>
+        <li>The Power of One: 7 Key Financial Levers</li>
+      </ul>
+      <p>Next Steps: 5 Things to Do Now</p>
+    </div>
+    <p><strong>Coverage commentary:</strong> Broader than EOS: explicit Cash decision area, One-Page Strategic Plan, 7 Strata of Strategy, daily huddles in the Rockefeller Habits set, and Topgrading-flavored hiring. Aimed at firms climbing the S-curve toward industry domination. Heavier toolkit / more open architecture than EOS; less Silicon Valley–specific than Gil; less team-topology specific than Skelton.<span class="cite"> [<a href="#ref-5">5</a>][<a href="#ref-14">14</a>][<a href="#ref-19">19</a>][<a href="#ref-27">27</a>]</span></p>
+  </article>
+
+  <!-- ROCKET FUEL -->
+  <article class="book-card" id="ch-rocket">
+    <h3>6.6 Rocket Fuel — Gino Wickman &amp; Mark C. Winters (2015)</h3>
+    <p><span class="tag">Visionary</span><span class="tag">Integrator</span><span class="tag">EOS companion</span></p>
+    <div class="chapters">
+      <strong>Part One — The Context</strong>
+      <ol>
+        <li>The Visionary</li>
+        <li>The Integrator</li>
+        <li>The Relationship</li>
+      </ol>
+      <strong>Part Two — The How-To’s</strong>
+      <ol start="4">
+        <li>The Accountability Chart</li>
+        <li>The 5 Rules</li>
+        <li>Finding Each Other</li>
+        <li>Patience</li>
+      </ol>
+      <p>Bonus: The Icing on the Cake — 5 Tools</p>
+    </div>
+    <p><strong>Coverage commentary:</strong> Zoomed-in leadership-seat design. Visionaries generate ideas/relationships/culture energy; Integrators harmonize people, process, and issues into execution. Covers Accountability Chart placement, relationship rules, finding a counterpart, and patience. Complements <em>Traction</em>; does not replace a full OS, hiring method, or hypergrowth handbook.<span class="cite"> [<a href="#ref-7">7</a>][<a href="#ref-28">28</a>]</span></p>
+  </article>
+
+  <!-- HIGH GROWTH HANDBOOK -->
+  <article class="book-card" id="ch-gil">
+    <h3>6.7 High Growth Handbook — Elad Gil (2018)</h3>
+    <p><span class="tag">Hypergrowth</span><span class="tag">Stripe Press</span><span class="tag">10→10,000</span></p>
+    <div class="chapters">
+      <p>How to use this book · Welcome · Interview with Marc Andreessen</p>
+      <ol>
+        <li>The Role of the CEO (managing yourself/reports; co-founder dynamic; interview with Claire Hughes Johnson)</li>
+        <li>Managing the board (hiring board/VC partners/independents; evolution; interviews with Hoffman, Ravikant)</li>
+        <li>Recruiting, hiring, and managing talent (scaling recruiting; onboarding; old-timer syndrome; Altman interview)</li>
+        <li>Building the executive team (hiring/firing execs; COO debate; titles; BD hires; interviews)</li>
+        <li>Organizational structure and hypergrowth (re-orgs; culture; diversity; downturns)</li>
+        <li>Marketing and PR</li>
+        <li>Product Management</li>
+        <li>Financing and valuation (late-stage capital, secondaries, IPO themes)</li>
+        <li>Mergers &amp; acquisitions</li>
+      </ol>
+      <p>Appendix: Things to just say no to</p>
+    </div>
+    <p><strong>Coverage commentary:</strong> Operator anthology for post-product-market-fit venture companies. Strongest on CEO role evolution, boards, executive hiring, org pragmatism, late-stage finance, and M&amp;A. Interview-heavy. Lighter as a single closed “system” than EOS/Scaling Up; assumes access to capital and talent markets typical of tech hubs.<span class="cite"> [<a href="#ref-6">6</a>][<a href="#ref-15">15</a>][<a href="#ref-29">29</a>]</span></p>
+  </article>
+
+  <!-- TEAM TOPOLOGIES -->
+  <article class="book-card" id="ch-tt">
+    <h3>6.8 Team Topologies — Matthew Skelton &amp; Manuel Pais (2019)</h3>
+    <p><span class="tag">Org design</span><span class="tag">Cognitive load</span><span class="tag">Fast flow</span></p>
+    <div class="chapters">
+      <strong>Part I — Teams as the Means of Delivery</strong>
+      <ol>
+        <li>The Problem with Org Charts</li>
+        <li>Conway’s Law and Why It Matters</li>
+        <li>Team-First Thinking</li>
+      </ol>
+      <strong>Part II — Team Topologies that Work for Flow</strong>
+      <ol start="4">
+        <li>Static Team Topologies</li>
+        <li>The Four Fundamental Team Topologies</li>
+        <li>Choose Team-First Boundaries</li>
+      </ol>
+      <strong>Part III — Evolving Team Interactions</strong>
+      <ol start="7">
+        <li>Team Interaction Modes</li>
+        <li>Evolve Team Structures with Organizational Sensing</li>
+      </ol>
+      <p>Conclusion: The Next-Generation Digital Operating Model</p>
+    </div>
+    <p><strong>Coverage commentary:</strong> Four team types (stream-aligned, platform, enabling, complicated-subsystem) and three interaction modes (collaboration, X-as-a-service, facilitating). Centers cognitive load and Conway’s Law. Essential for software delivery orgs; does not teach founder Visionary/Integrator dynamics, cash levers, or classical hiring scorecards. Early startups often begin as one stream-aligned team and only later split topologies.<span class="cite"> [<a href="#ref-8">8</a>][<a href="#ref-30">30</a>][<a href="#ref-31">31</a>]</span></p>
+  </article>
+
+  <!-- SCALING PEOPLE -->
+  <article class="book-card" id="ch-chj">
+    <h3>6.9 Scaling People — Claire Hughes Johnson (2023)</h3>
+    <p><span class="tag">People systems</span><span class="tag">Stripe/Google</span><span class="tag">Templates</span></p>
+    <div class="chapters">
+      <p>Introduction</p>
+      <ol>
+        <li>Essential Operating Principles (self-awareness; say the thing you cannot say; distinguish management vs. leadership contexts — as presented in publisher/summary TOCs)</li>
+        <li>Core Framework 1: Foundations and Planning for Goals and Resources (founding documents, operating system, operating cadence)</li>
+        <li>Core Framework 2: A Comprehensive Hiring Approach (recruiting, hiring, onboarding, mistakes)</li>
+        <li>Core Framework 3: Intentional Team Development (structures, diagnosis, restructuring, diversity &amp; inclusion, communication)</li>
+        <li>Core Framework 4: Feedback and Performance Mechanisms</li>
+      </ol>
+      <p>Conclusion: You · extensive worksheets/templates</p>
+    </div>
+    <p><strong>Coverage commentary:</strong> The most “HR/ops systems engineering” book in the set. Mission, long-term goals, principles/values, team charters; planning cadence; rubric-based hiring; team development; feedback/performance. Written for high-growth environments but claims applicability beyond tech. Complements Gil (macro company building) with micro people process; overlaps EOS/Scaling Up on foundations and cadence while using Stripe/Google vocabulary.<span class="cite"> [<a href="#ref-9">9</a>][<a href="#ref-32">32</a>][<a href="#ref-33">33</a>]</span></p>
+  </article>
+</section>
+
+<!-- ========== PART 3 ========== -->
+<section id="part3">
+  <h2>7. Part 3 — First Hires, Early Definition, Planning for Growth</h2>
+
+  <h3>7.1 First hires — compiled advice</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Source</th>
+        <th>Core advice on early / critical hires</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Gerber</td>
+        <td>Design the org chart and <em>position contracts</em> first; hire into defined seats, not around personalities. Prefer people who will learn <em>your</em> systems over experts who import conflicting habits. Treat hiring as the first communication of “the Boss’s Idea.”<span class="cite"> [<a href="#ref-24">24</a>][<a href="#ref-34">34</a>]</span></td>
+      </tr>
+      <tr>
+        <td>Wickman (<em>Traction</em>)</td>
+        <td>Build the Accountability Chart (structure before people). Hire/retain Right People (core values) in Right Seats (GWC: Gets it, Wants it, Capacity). Use the People Analyzer; do not tolerate chronic misfits.<span class="cite"> [<a href="#ref-25">25</a>][<a href="#ref-35">35</a>]</span></td>
+      </tr>
+      <tr>
+        <td>Wickman &amp; Winters (<em>Rocket Fuel</em>)</td>
+        <td>For many founder-Visionaries, a pivotal “hire” (or partnership) is an <em>Integrator</em> who runs day-to-day cohesion/execution so the Visionary can do vision work. Structure the V/I relationship with explicit rules.<span class="cite"> [<a href="#ref-7">7</a>][<a href="#ref-28">28</a>]</span></td>
+      </tr>
+      <tr>
+        <td>Smart &amp; Street</td>
+        <td>Never hire without a Scorecard (mission, outcomes, competencies). Source continuously via referrals. Use structured multi-interview select process; only hire A grades. Sell throughout using the 5 Fs.<span class="cite"> [<a href="#ref-4">4</a>][<a href="#ref-26">26</a>]</span></td>
+      </tr>
+      <tr>
+        <td>Harnish</td>
+        <td>People is Decision #1. Clarify leadership FACe/PACe; attract and hire deliberately; then educate/keep managers. Often points readers toward rigorous A-player / Topgrading-style practices.<span class="cite"> [<a href="#ref-5">5</a>][<a href="#ref-19">19</a>][<a href="#ref-27">27</a>]</span></td>
+      </tr>
+      <tr>
+        <td>Gil</td>
+        <td>Post-PMF, hire functional leaders <em>to enable scale</em>, not after you “earn” them. COO is optional and timing depends on rate of change / founder time sink — not a magic headcount. Beware title lock-in; hire for complementary skills and chemistry.<span class="cite"> [<a href="#ref-16">16</a>][<a href="#ref-36">36</a>][<a href="#ref-37">37</a>]</span></td>
+      </tr>
+      <tr>
+        <td>Hughes Johnson</td>
+        <td>Build a consistent, rubric-based hiring and onboarding process early. Document norms by ~30–50 people so culture transmits. Head-of-People senior talent often arrives later; early people work is systems-building.<span class="cite"> [<a href="#ref-32">32</a>][<a href="#ref-38">38</a>]</span></td>
+      </tr>
+      <tr>
+        <td>Skelton &amp; Pais</td>
+        <td>Less “first hire persona,” more “first team shape”: start as one stream-aligned team owning end-to-end delivery; avoid premature frontend/backend/DevOps silos that create handoffs.<span class="cite"> [<a href="#ref-30">30</a>][<a href="#ref-31">31</a>]</span></td>
+      </tr>
+      <tr>
+        <td>Grove</td>
+        <td>Hire/train for output; match management style to task-relevant maturity; training is the boss’s job. Think in terms of leverage of each person’s work on group output.<span class="cite"> [<a href="#ref-1">1</a>][<a href="#ref-23">23</a>]</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>7.2 Early definition — what to write down first</h3>
+  <div class="overview-grid">
+    <div class="overview-card">
+      <h4>Gerber</h4>
+      <p>Primary Aim (life) → Strategic Objective (business) → Organizational Strategy (chart + contracts) → Management / People / Marketing / Systems strategies.<span class="cite"> [<a href="#ref-2">2</a>]</span></p>
+    </div>
+    <div class="overview-card">
+      <h4>EOS / Traction</h4>
+      <p>Core Values, Core Focus, 10-Year Target, Marketing Strategy, 3-Year Picture, 1-Year Plan, Rocks, Issues — captured in the V/TO; Accountability Chart for seats.<span class="cite"> [<a href="#ref-3">3</a>][<a href="#ref-13">13</a>]</span></p>
+    </div>
+    <div class="overview-card">
+      <h4>Scaling Up</h4>
+      <p>Core values/purpose/competencies; 7 Strata of Strategy; One-Page Strategic Plan; priorities and KPIs.<span class="cite"> [<a href="#ref-5">5</a>][<a href="#ref-27">27</a>]</span></p>
+    </div>
+    <div class="overview-card">
+      <h4>Who</h4>
+      <p>Company strategy/culture must cascade into role Scorecards before interviews begin.<span class="cite"> [<a href="#ref-26">26</a>]</span></p>
+    </div>
+    <div class="overview-card">
+      <h4>Scaling People</h4>
+      <p>Mission, long-term goals, principles/values, team charters; then operating cadence (planning, goals, communication norms).<span class="cite"> [<a href="#ref-32">32</a>][<a href="#ref-33">33</a>]</span></p>
+    </div>
+    <div class="overview-card">
+      <h4>Team Topologies</h4>
+      <p>Define value streams and team boundaries; make interaction modes explicit; monitor cognitive load as a first-class design constraint.<span class="cite"> [<a href="#ref-8">8</a>][<a href="#ref-30">30</a>]</span></p>
+    </div>
+  </div>
+
+  <h3>7.3 Planning for growth — operating rhythms and scaffolding</h3>
+  <ul>
+    <li><strong>Grove:</strong> Plan as today’s actions for tomorrow’s output; use indicators; run effective meetings; redesign structure (mission-oriented vs. functional hybrids) as complexity grows.<span class="cite"> [<a href="#ref-23">23</a>]</span></li>
+    <li><strong>Gerber:</strong> Continuously innovate, quantify, and orchestrate systems so growth does not recreate owner dependence.<span class="cite"> [<a href="#ref-24">24</a>]</span></li>
+    <li><strong>EOS:</strong> 90-day Rocks, weekly Level 10 Meetings, Scorecard metrics, IDS issue solving — “traction” as disciplined execution of vision.<span class="cite"> [<a href="#ref-3">3</a>][<a href="#ref-13">13</a>]</span></li>
+    <li><strong>Scaling Up:</strong> Rockefeller Habits checklist — priorities, data, meeting rhythm (often including daily huddle); Cash Acceleration Strategies and financial levers so growth does not starve the firm.<span class="cite"> [<a href="#ref-14">14</a>][<a href="#ref-19">19</a>]</span></li>
+    <li><strong>Gil:</strong> Expect CEO job to change with scale; evolve board; re-org pragmatically; build recruiting machine; say no to distracting side quests (appendix).<span class="cite"> [<a href="#ref-6">6</a>][<a href="#ref-29">29</a>]</span></li>
+    <li><strong>Hughes Johnson:</strong> Install lightweight but real operating systems before headcount outruns oral culture; performance/feedback mechanisms scale trust.<span class="cite"> [<a href="#ref-9">9</a>][<a href="#ref-38">38</a>]</span></li>
+    <li><strong>Team Topologies:</strong> Evolve topologies with organizational sensing; add platform/enabling/complicated-subsystem teams to protect stream-aligned cognitive load — don’t freeze the org chart.<span class="cite"> [<a href="#ref-8">8</a>][<a href="#ref-30">30</a>]</span></li>
+  </ul>
+
+  <div class="diagram">EARLY COMPANY DEFINITION STACK (synthesis of the set)
+
+  [ Life / Primary Aim ]          Gerber
+           |
+  [ Mission / Purpose / Values ]  Gerber, EOS, Scaling Up, CHJ
+           |
+  [ Strategy / Market / BHAG ]    Scaling Up 7 Strata, EOS 10-yr, Gil CEO focus
+           |
+  [ Seats / Scorecards ]          Gerber contracts, EOS Accountability Chart,
+  |                               Who Scorecards, Rocket Fuel V/I
+           |
+  [ Teams / Topology ]            Team Topologies (esp. software orgs)
+           |
+  [ Cadence / Metrics / Cash ]    Grove, EOS Rocks/Scorecard, Scaling Up,
+                                  CHJ operating cadence
+</div>
+</section>
+
+<!-- ========== PART 4 ========== -->
+<section id="part4">
+  <h2>8. Part 4 — Where They Agree and Disagree</h2>
+
+  <h3>8.1 Broad consensus</h3>
+  <div class="thesis-box agree">
+    <ol>
+      <li><strong>Structure before (or at least beside) personalities.</strong> Gerber’s org chart, EOS Accountability Chart, Who Scorecards, and Team Topologies boundaries all refuse “we’ll figure seats out after we hire friends.”</li>
+      <li><strong>People quality is a first-order constraint.</strong> Smart/Street make it the #1 problem; Wickman/Harnish put People as a core component/decision; Gil and CHJ spend major chapters on recruiting systems.</li>
+      <li><strong>Clarity of outcomes beats vague job descriptions.</strong> Position contracts, GWC seats, A-Method scorecards, and CHJ rubrics converge on measurable expectations.</li>
+      <li><strong>Cadence creates traction.</strong> Grove’s meetings/planning, EOS Level 10s, Scaling Up meeting rhythm, and CHJ operating cadence all treat rhythm as infrastructure.</li>
+      <li><strong>The founder’s job must change with scale.</strong> Gerber’s work-on-the-business, Wickman’s “let go of the vine,” Rocket Fuel’s Integrator, Gil’s CEO evolution, and Grove’s leverage model agree the owner cannot remain the perpetual bottleneck.</li>
+      <li><strong>One coherent system beats tool soup</strong> — stated most bluntly by Wickman (“you cannot build a great organization on multiple operating systems”), echoed in spirit by Scaling Up’s call to align on People/Strategy/Execution/Cash tools.<span class="cite"> [<a href="#ref-3">3</a>][<a href="#ref-14">14</a>]</span></li>
+    </ol>
+  </div>
+
+  <h3>8.2 Material disagreements / tensions</h3>
+  <div class="limitation-box disagree">
+    <ol>
+      <li><strong>Hire systems-learners vs. hire proven A-player experts.</strong> Gerber often prefers trainable people who adopt the Franchise Prototype; Smart/Street and much Scaling Up/EOS practice push hard for A Players with demonstrated outcome histories. Both can be true at different layers (frontline vs. executive), but the books’ tones conflict.<span class="cite"> [<a href="#ref-24">24</a>][<a href="#ref-26">26</a>]</span></li>
+      <li><strong>Simplicity (EOS) vs. comprehensiveness (Scaling Up).</strong> EOS is a closed, fixed toolset optimized for adoption; Scaling Up is a larger open toolkit with heavier strategy/cash modules. Practitioners and the authors’ networks often advise picking one rather than mixing.<span class="cite"> [<a href="#ref-14">14</a>][<a href="#ref-19">19</a>][<a href="#ref-25">25</a>]</span></li>
+      <li><strong>Integrator/COO as essential dyad vs. optional scaffold.</strong> Rocket Fuel presents Visionary+Integrator as the essential combination; Gil argues a COO is not always needed if a complementary executive team exists, and that COO timing depends on growth rate / founder focus — titles can reduce future flexibility.<span class="cite"> [<a href="#ref-7">7</a>][<a href="#ref-36">36</a>][<a href="#ref-37">37</a>]</span></li>
+      <li><strong>Company OS vs. team topology as the unit of design.</strong> EOS/Scaling Up design the leadership operating system; Team Topologies designs team interaction for delivery flow. They can nest, but neither book is a substitute for the other.</li>
+      <li><strong>Capital and speed assumptions.</strong> Gil’s post-PMF advice (“hire executives to scale”) assumes venture-style opportunity cost of moving slowly; Gerber/EOS/Scaling Up more often assume durable, cash-aware growth for owner-led firms. Applying Gil pre-PMF or Gerber to a blitzscaling marketplace can mis-fire.<span class="cite"> [<a href="#ref-16">16</a>][<a href="#ref-21">21</a>]</span></li>
+      <li><strong>What “process” means.</strong> Gerber’s franchise manuals and EOS Process Component emphasize documenting how the business runs; Grove emphasizes managerial process (meetings, planning); Team Topologies warns that adding process is the wrong response to cognitive overload — change boundaries/services instead.<span class="cite"> [<a href="#ref-23">23</a>][<a href="#ref-30">30</a>]</span></li>
+      <li><strong>Culture encoding.</strong> CHJ and Gil treat culture as evolving and needing intentional hiring/diversity practices in hypergrowth; EOS treats core values as a binary People Analyzer filter. Same word, different operationalizations.<span class="cite"> [<a href="#ref-9">9</a>][<a href="#ref-35">35</a>]</span></li>
+    </ol>
+  </div>
+
+  <h3>8.3 Consensus map (simplified)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Theme</th>
+        <th>Strong agreement</th>
+        <th>Split / contingent</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Define seats/outcomes before hiring</td>
+        <td>Gerber, EOS, Who, Scaling Up, CHJ</td>
+        <td>Gil more pragmatic/speed-sensitive post-PMF</td>
+      </tr>
+      <tr>
+        <td>Meeting/metric cadence</td>
+        <td>Grove, EOS, Scaling Up, CHJ</td>
+        <td>Team Topologies prioritizes flow signals over classic L10 form</td>
+      </tr>
+      <tr>
+        <td>Founder must stop doing all work</td>
+        <td>Nearly all</td>
+        <td>How: Integrator vs. multi-exec bench vs. systems</td>
+      </tr>
+      <tr>
+        <td>Documented processes</td>
+        <td>Gerber, EOS, Scaling Up</td>
+        <td>TT: process ≠ cure for overload; Gil: pragmatism over purity</td>
+      </tr>
+      <tr>
+        <td>A-player bar</td>
+        <td>Who, Scaling Up, EOS language</td>
+        <td>Gerber’s “train for the system”; early startup generalists</td>
+      </tr>
+      <tr>
+        <td>Cash as first-class</td>
+        <td>Scaling Up (explicit)</td>
+        <td>Others assume it or focus elsewhere (Gil: financing chapters; EOS lighter)</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ========== CONCLUSION ========== -->
+<section id="conclusion">
+  <h2>9. Conclusion and Further Research Questions</h2>
+  <div class="conclusion-box">
+    <p><strong>Conclusion.</strong> These nine books form a layered toolkit rather than a single doctrine. Read chronologically, they show scaling advice migrating from factory management (Grove) → franchise systems for small firms (Gerber) → teachable entrepreneurial OSs (Wickman, Harnish, Smart) → venture hypergrowth and team-flow design (Gil, Skelton, Hughes Johnson). The durable consensus is: <em>define the work, put the right people in clear seats, install a cadence, and redesign the founder’s role as coordination costs rise</em>. The durable conflicts are about <em>speed vs. systematization, closed simple OS vs. open comprehensive toolkit, Integrator essentialism vs. flexible exec benches, and company-level OS vs. team-level topology</em>.</p>
+    <p>For a researcher or builder: match book to stage and firm type first — a 12-person services company and a 200-person Series C SaaS firm should not start from the same chapter.</p>
+  </div>
+
+  <h3>Further research directions</h3>
+  <ol>
+    <li>Empirical comparison: survival/growth outcomes for EOS vs. Scaling Up adopters controlling for industry and starting size.</li>
+    <li>When Gerber-style “hire for system” outperforms A-Method Topgrading in early technical startups.</li>
+    <li>Mapping Team Topologies evolution onto EOS Accountability Charts in product companies.</li>
+    <li>Capital-regime sensitivity: which scaling playbooks fail when cheap growth capital disappears.</li>
+    <li>Cross-cultural transfer: how US-centric OS books perform in non-US mid-market firms.</li>
+  </ol>
+</section>
+
+<!-- ========== REFERENCES ========== -->
+<section id="references">
+  <h2>10. References</h2>
+  <ol class="ref-list">
+    <li id="ref-1">Grove, Andrew S. <em>High Output Management</em>. Random House, 1983. Archive/Open Library metadata; see also Wikipedia summary of reception and OKR link. <a href="https://archive.org/details/highoutputmanage00grov">archive.org</a>; <a href="https://en.wikipedia.org/wiki/High_Output_Management">Wikipedia</a>.</li>
+    <li id="ref-2">Gerber, Michael E. <em>The E-Myth Revisited: Why Most Small Businesses Don’t Work and What to Do About It</em>. Harper Business, 1995. HarperCollins product page; TOC via Archive.org text. <a href="https://www.harpercollins.com/products/the-e-myth-revisited-michael-e-gerber">harpercollins.com</a>.</li>
+    <li id="ref-3">Wickman, Gino. <em>Traction: Get a Grip on Your Business</em>. EOS, 2007; BenBella trade editions ~2011–2012. EOS Worldwide / Perlego TOC. <a href="https://www.eosworldwide.com/traction-book">eosworldwide.com</a>.</li>
+    <li id="ref-4">Smart, Geoff, and Randy Street. <em>Who: The A Method for Hiring</em>. Ballantine Books, 2008. Penguin Random House; TOC via bookseller listings. <a href="https://www.penguinrandomhouse.com/books/168637/who-by-geoff-smart-and-randy-street/">penguinrandomhouse.com</a>.</li>
+    <li id="ref-5">Harnish, Verne. <em>Scaling Up: How a Few Companies Make It… and Why the Rest Don’t</em>. Gazelles, 2014. Google Books / Internet Archive contents. <a href="https://scalingup.com/bookstore/">scalingup.com</a>.</li>
+    <li id="ref-6">Gil, Elad. <em>High Growth Handbook: Scaling Startups from 10 to 10,000 People</em>. Stripe Press, 2018. <a href="https://press.stripe.com/high-growth-handbook">press.stripe.com</a>; TOC <a href="https://growth.eladgil.com/table-of-contents/">growth.eladgil.com</a>.</li>
+    <li id="ref-7">Wickman, Gino, and Mark C. Winters. <em>Rocket Fuel</em>. BenBella Books, 2015. BenBella / WorldCat TOC. <a href="https://benbellabooks.com/shop/rocket-fuel/">benbellabooks.com</a>.</li>
+    <li id="ref-8">Skelton, Matthew, and Manuel Pais. <em>Team Topologies: Organizing Business and Technology Teams for Fast Flow</em>. IT Revolution, 2019. <a href="https://teamtopologies.com/book">teamtopologies.com</a>; excerpt TOC PDF via IT Revolution.</li>
+    <li id="ref-9">Hughes Johnson, Claire. <em>Scaling People: Tactics for Management and Company Building</em>. Stripe Press, 2023. <a href="https://press.stripe.com/scaling-people">press.stripe.com</a>; CBSD/Amazon TOC summaries.</li>
+    <li id="ref-10">Lawrence, Paul R., and Jay W. Lorsch. <em>Organization and Environment</em>. Harvard Business School Press, 1967 (contingency theory baseline for “no one best way”).</li>
+    <li id="ref-11">See companion Research Bot report: <em>Management Theory &amp; Organizational Science</em> (<a href="management-theory-research.html">management-theory-research.html</a>) for broader theory history.</li>
+    <li id="ref-12">Denrell, Jerker. “Vicarious Learning, Undersampling of Failure, and the Myths of Management.” <em>Organization Science</em> 14, no. 3 (2003) — on survivor bias in learning from success (methodological caution).</li>
+    <li id="ref-13">EOS Worldwide. Traction library diagrams / Six Key Components materials. <a href="https://www.eosworldwide.com/wp-content/uploads/2020/01/EOSWW.Traction.Diagrams.For_.Audiobook.Updated-1.pdf">eosworldwide.com PDF</a>.</li>
+    <li id="ref-14">Harnish / Scaling Up. “Scaling Up Vs EOS — Comparing Systems, Implementation and Costs.” <a href="https://scalingup.com/scalingup-vs-eos-comparing-systems-implementation-costs/">scalingup.com</a>.</li>
+    <li id="ref-15">Stripe Press catalog pages for <em>High Growth Handbook</em> and <em>Scaling People</em> (operator literature positioning). <a href="https://press.stripe.com/">press.stripe.com</a>.</li>
+    <li id="ref-16">Gil, Elad. “Hiring Executives &amp; Bad Advice.” Elad Blog. <a href="https://blog.eladgil.com/p/hiring-executives-bad-advice">blog.eladgil.com</a>.</li>
+    <li id="ref-17">“High Output Management.” Wikipedia; StartupBooks.com summary of OKR lineage and 2015 Horowitz republication. <a href="https://startupbooks.com/high-output-management">startupbooks.com</a>.</li>
+    <li id="ref-18">EMyth. “About Us” / history of 1986 <em>E-Myth</em> and 1995 <em>Revisited</em>. <a href="https://www.emyth.com/about-us">emyth.com</a>.</li>
+    <li id="ref-19">Goldhill Group. “Scaling Up’s Rockefeller Habits or EOS Traction?” <a href="https://www.thegoldhillgroup.com/scaling-ups-rockefeller-habits-or-eos-traction/">thegoldhillgroup.com</a>.</li>
+    <li id="ref-20">Collins, Jim. <em>Good to Great</em> (2001) — “right people on the bus” (adjacent influence often cited by EOS practitioners).</li>
+    <li id="ref-21">Hoffman, Reid, and Chris Yeh. <em>Blitzscaling</em> (2018) — speed-over-efficiency growth stages (context for SV hypergrowth assumptions).</li>
+    <li id="ref-22">Open Library / Goodreads publication records for Gil (2018) and Skelton/Pais (2019).</li>
+    <li id="ref-23">Kudija, Matthew; Dan Lebrero — reading notes confirming Grove chapter structure. <a href="https://matthewkudija.com/reading-notes/2021-04-11-High-Output-Management.html">matthewkudija.com</a>; <a href="https://danlebrero.com/2023/04/12/high-output-management-summary/">danlebrero.com</a>.</li>
+    <li id="ref-24">Sivers, Derek. Notes on <em>E-Myth Revisited</em> (org chart, position contracts, hiring process). <a href="https://sive.rs/book/EMythRevisited">sive.rs</a>; Process Hacker summary. <a href="https://theprocesshacker.com/blog/the-emyth-revisited-book-summary">theprocesshacker.com</a>.</li>
+    <li id="ref-25">EOS Worldwide. “EOS vs. Scaling Up (Rockefeller Habits).” <a href="https://www.eosworldwide.com/eos-vs-scaling-up">eosworldwide.com</a>; GWC explainer. <a href="https://www.eosworldwide.com/gwc">eosworldwide.com/gwc</a>.</li>
+    <li id="ref-26">ReadinGraphics. “Book Summary — Who: The A Method for Hiring.” <a href="https://readingraphics.com/book-summary-who-the-a-method-for-hiring/">readingraphics.com</a>; ghSMART notes PDF (webflow upload commonly circulated).</li>
+    <li id="ref-27">Internet Archive record for <em>Scaling Up</em> chapter listing; Scaling Up bookstore TOC. <a href="https://archive.org/details/scalinguphowfewc0000harn">archive.org</a>.</li>
+    <li id="ref-28">ReadinGraphics. “Book Summary — Rocket Fuel.” <a href="https://readingraphics.com/book-summary-rocket-fuel/">readingraphics.com</a>; chapter excerpt PDF (Global Cloud Consulting upload of Ch. 1 front matter).</li>
+    <li id="ref-29">Gil, Elad. High Growth Handbook online chapters / appendix. <a href="https://growth.eladgil.com/book/">growth.eladgil.com/book</a>.</li>
+    <li id="ref-30">Team Topologies. Key concepts (team types, interaction modes, cognitive load). <a href="https://teamtopologies.com/key-concepts">teamtopologies.com</a>.</li>
+    <li id="ref-31">Secondary applications of Team Topologies to early startups (single stream-aligned team). e.g., Tribesquare Insights; Aleix Morgadas essay. Used as interpretive aids, not substitutes for the book.</li>
+    <li id="ref-32">Principus. Summary of Hughes Johnson frameworks (founding documents, hiring, teams, feedback). <a href="https://principus.si/2023/10/25/claire-hughes-johnson-scaling-people-tactics-for-management-and-company-building/">principus.si</a>.</li>
+    <li id="ref-33">Shortform / Bookey chapter overviews of <em>Scaling People</em> (cross-checked against publisher descriptions).</li>
+    <li id="ref-34">EMyth. “The Importance of Your Organization Chart.” <a href="https://www.emyth.com/inside/the-importance-of-your-organization-chart">emyth.com</a>.</li>
+    <li id="ref-35">EOS Worldwide. “Using GWC to Get Team Alignment.” <a href="https://www.eosworldwide.com/blog/love-em-or-leave-em-using-gwc-to-get-team-alignment">eosworldwide.com</a>.</li>
+    <li id="ref-36">Gil, Elad. “Do you need a COO?” / “How do you choose a COO?” High Growth Handbook. <a href="https://growth.eladgil.com/book/chapter-4-building-the-executive-team/do-you-need-a-coo/">growth.eladgil.com</a>.</li>
+    <li id="ref-37">Gil, Elad. “Should You Hire A COO?” Elad Blog. <a href="https://blog.eladgil.com/p/should-you-hire-coo">blog.eladgil.com</a>; Aaron Levie interview on timing. <a href="https://growth.eladgil.com/book/chapter-4-building-the-executive-team/hiring-a-coo-an-interview-with-aaron-levie/">growth.eladgil.com</a>.</li>
+    <li id="ref-38">Avra Capital session notes / Notable Capital interview summarizing CHJ advice on documenting norms by ~30–50 employees and people-function timing. <a href="https://www.avracap.com/session-insights/stripe-on-scaling-people">avracap.com</a>; <a href="https://www.notablecap.com/blog/scaling-startups-with-stripes-claire-hughes-johnson">notablecap.com</a>.</li>
+  </ol>
+</section>
+
+<footer>
+  <p>Research Bot · Company scaling books overview · July 2026</p>
+  <p>Related: <a href="management-theory-research.html">Management Theory &amp; Organizational Science</a> · <a href="startup-accelerators-cofounder-paths.html">Startup Accelerators &amp; Co-Founder Paths</a></p>
+</footer>
+
+</div>
+</body>
+</html>
