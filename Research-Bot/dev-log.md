@@ -1,5 +1,35 @@
 # Research Bot — Dev Log
 
+## 2026-07-15 — Roomba Plus 505 Combo vs Dual Vac-Mop Competitors (complete)
+
+### Plan summary
+User shopping for dual vacuum+mop robots with Roomba Plus 505 Combo as default; asked for cheaper similar-performance competitors, more expensive options with feature/benefit deltas, “Best for:” tags, and personal Worth It rankings (5 stars). Followed Research-Bot README: precursor questions, web research, self-contained HTML with aims/limitations/history/citations/conclusion.
+
+### Precursor / subset questions
+1. What does “similar performance” mean at this tier (LiDAR + vac/mop + wash dock)?
+2. Street price vs MSRP for the 505 and peers?
+3. Spinning pads vs roller mop tradeoffs?
+4. How trustworthy are Pa claims vs lab pickup?
+5. iRobot post-Chapter 11 / Picea support risk?
+6. Hard-floor vs carpet fitness of the 505?
+
+### Key findings
+- **505 baseline:** ~$500–$600 street / $999 MSRP; 7,000 Pa; DualClean + PerfectEdge; AutoWash dock; LiDAR + PrecisionVision; strong hard-floor/edge mop; weaker carpet vs Chinese mid-tiers.
+- **Cheaper / value peers:** Dreame L10s Ultra Gen 2 (~$400), Eufy Omni C28 (~$450–500; VW Best Budget), Ecovacs T80S Omni (VW July Best Value), Roborock Q Revo sale/refurb, Eufy C20 (~$350 starter).
+- **Step-ups:** Curv 2 Flow (~$700–800, best under-$1k upgrade), Max 705 (~$800–900 Roomba path), Shark UV Reveal (~$950 niche), Narwal Flow 2 / Eufy S2 / Dreame X60 / Saros 10R–20 ($1.1k–$1.7k flagships).
+- **Worth It favorites vs defaulting to 505:** L10s Gen 2 ★★★★★, C28 ★★★★★, Curv 2 Flow ★★★★★; 505 itself ★★★★☆ for Roomba/Matter/edge mop buyers.
+
+### Changes made
+- Created `Research-Bot/roomba-505-dual-vac-mop-competitors.html`
+- Updated this dev-log
+
+### Assumptions
+- US Amazon/brand street prices mid-July 2026; bands ±$50–$100.
+- “Dual vacuum mop” = combo with real mop scrub + auto-maintain dock (not drag-pad-only).
+- Worth It stars are shopping opinion relative to keeping the 505, not Vacuum Wars lab ranks.
+
+### Bugs / problems
+- Some product pages/Amazon fetches timed out; relied on search snippets + Mashable/Vacuum Wars/Hook Up secondary sources + successful fetches of key brand pages.
 ## 2026-07-15 — Starlink Gen 3 Pivot Mount Roof Shopping List (complete)
 
 ### Plan summary
