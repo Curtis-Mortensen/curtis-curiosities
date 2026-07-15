@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Starlink Gen 3 Pivot Mount — Roof-Type Shopping List &amp; Fastener/Sealant Guide</title>
+<style>
+  :root {
+    --bg: #0f1419;
+    --surface: #1a2129;
+    --surface2: #242d38;
+    --text: #e8edf2;
+    --muted: #8b9aab;
+    --accent: #7ee787;
+    --accent2: #58a6ff;
+    --warning: #d4a853;
+    --danger: #f85149;
+    --link: #79c0ff;
+    --border: #303d4d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .container { max-width: 980px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  h1 { font-size: 2rem; line-height: 1.25; margin-bottom: 0.5rem; color: var(--accent); }
+  .subtitle { color: var(--muted); font-style: italic; font-size: 1.05rem; }
+  h2 {
+    font-size: 1.45rem;
+    color: var(--accent2);
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 { font-size: 1.15rem; color: var(--accent); margin: 1.5rem 0 0.75rem; }
+  h4 { font-size: 1rem; color: var(--muted); margin: 1rem 0 0.5rem; }
+  p { margin-bottom: 1rem; }
+  a { color: var(--link); }
+  .thesis-box, .limitation-box, .warn-box, .shop-box {
+    background: var(--surface);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .thesis-box { border-left: 4px solid var(--accent); }
+  .limitation-box { border-left: 4px solid var(--danger); }
+  .warn-box { border-left: 4px solid var(--warning); }
+  .shop-box { border-left: 4px solid var(--accent2); }
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .overview-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+  .overview-card h4 { color: var(--accent2); margin-top: 0; }
+  .diagram {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    font-family: "Courier New", monospace;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    white-space: pre;
+    color: var(--muted);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.84rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.55rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: var(--surface2); color: var(--accent2); font-weight: 600; }
+  tr:nth-child(even) { background: var(--surface); }
+  .tag {
+    display: inline-block;
+    background: var(--surface2);
+    color: var(--accent);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    margin-right: 0.3rem;
+    font-family: sans-serif;
+  }
+  .pro { color: var(--accent); }
+  .con { color: var(--danger); }
+  .ref-list { font-size: 0.85rem; }
+  .ref-list li { margin-bottom: 0.6rem; }
+  .conclusion-box {
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+    border: 1px solid var(--accent2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+  ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .toc ol { margin-bottom: 0; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>Starlink Gen 3 Pivot Mount: Roof-Type Shopping List</h1>
+  <p class="subtitle">A Research-Bot field guide to fasteners, sealants, drill bits, and mount strategy across asphalt shingles, metal, tile, flat commercial membranes, concrete, and wood — with historical context on how roofing and attachment hardware evolved.</p>
+  <p class="subtitle" style="margin-top:0.5rem;font-style:normal;">Compiled July 2026. US-centric (Home Depot / big-box availability). Self-contained; no prior context required.</p>
+</header>
+
+<nav class="toc">
+  <strong>Contents</strong>
+  <ol>
+    <li><a href="#introduction">Introduction &amp; aims</a></li>
+    <li><a href="#precursor">Precursor questions</a></li>
+    <li><a href="#limitations">Limitations</a></li>
+    <li><a href="#history">History of roofing &amp; fastening</a></li>
+    <li><a href="#starlink-kit">What Starlink ships in the Pivot Mount kit</a></li>
+    <li><a href="#universal">Universal “buy everything” list</a></li>
+    <li><a href="#matrix">Roof-type matrix (fasteners + sealants)</a></li>
+    <li><a href="#roof-types">Roof-type deep dives</a></li>
+    <li><a href="#alternatives">When not to use the Pivot Mount</a></li>
+    <li><a href="#workflow">Installation workflow</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#references">References</a></li>
+  </ol>
+</nav>
+
+<section id="introduction">
+  <h2>1. Introduction and Aims</h2>
+  <p>You are installing a <strong>Starlink Standard (Gen 3 / Standard 4)</strong> with the official <strong>Pivot Mount</strong> — a roof-penetrating bracket designed primarily for <strong>sloped asphalt-shingle roofs</strong>. Starlink’s kit includes two lag screws, butyl-style sealant tape squares/strips, a mast, adapter plate, and cable clips. It does <em>not</em> include every fastener or sealant you might need if your roof is metal, tile, membrane, concrete deck, or unusually thick.<sup class="cite">[1][2]</sup></p>
+
+  <p>This report aims to:</p>
+  <ol>
+    <li>Explain <strong>why</strong> roof type dictates fastener and sealant choice — not just <em>what</em> to buy.</li>
+    <li>Provide a <strong>Home Depot–style “buy everything”</strong> starter cart (drill bits, drivers, fastener options, sealant options) you can return unused.</li>
+    <li>Give <strong>roof-specific shopping lists</strong> with pros, cons, and common failure modes.</li>
+    <li>Situate modern choices in the <strong>history of roofing materials and attachment technology</strong>.</li>
+  </ol>
+
+  <div class="thesis-box">
+    <strong>Central thesis:</strong> The Pivot Mount is a <em>structural-wood penetration system</em> (lag into rafter) with <em>shingle-grade</em> weatherproofing tape — excellent on standard residential asphalt, risky or wrong on single-ply commercial membranes without changing both <strong>mount strategy</strong> and <strong>chemistry</strong>. For most homeowners who can avoid roof holes, Starlink’s <strong>Standard Wall Mount</strong> on fascia/gable is the lower-leak-risk default; the Pivot Mount wins when you need placement flexibility anywhere on the roof plane.<sup class="cite">[3][4]</sup>
+  </div>
+</section>
+
+<section id="precursor">
+  <h2>2. Precursor and Subset Questions</h2>
+  <div class="overview-grid">
+    <div class="overview-card">
+      <h4>What roof type do I actually have?</h4>
+      <p>“Shingle” can mean asphalt composite, architectural laminate, or synthetic composite. “Metal” splits into standing seam (vertical ribs) vs. screw-down corrugated. “Flat” often means TPO, EPDM, PVC, or modified bitumen — each with incompatible sealants.</p>
+    </div>
+    <div class="overview-card">
+      <h4>Must I hit a rafter?</h4>
+      <p>Yes for Pivot Mount per Starlink: pilot holes go through roofing into a <strong>structural beam/rafter</strong>, not just sheathing.<sup class="cite">[1]</sup> Solar and antenna industry practice similarly specifies ≥2″ wood embedment for lag screws.<sup class="cite">[5][6]</sup></p>
+    </div>
+    <div class="overview-card">
+      <h4>Is included sealant enough?</h4>
+      <p>Often adequate on asphalt if installed per guide (plug + tape). Many installers add tube sealant (Geocel 2300, etc.) for belt-and-suspenders. Membrane roofs need membrane-specific chemistry, not generic silicone.<sup class="cite">[7][8]</sup></p>
+    </div>
+    <div class="overview-card">
+      <h4>Can I use the Pivot Mount on metal/tile/flat?</h4>
+      <p>Starlink markets Pivot Mount for <strong>slanted shingled roofs</strong>.<sup class="cite">[2]</sup> Other roof types usually need a different Starlink mount (Ridgeline, Wall, Pipe Adapter) or third-party kit — see §9.</p>
+    </div>
+    <div class="overview-card">
+      <h4>What about wind?</h4>
+      <p>Starlink warns mounts are not hurricane/tornado rated; tethering advised in high-wind regions.<sup class="cite">[1]</sup> Ridgeline ballast mount is rated only to ~50 mph (80 kph).<sup class="cite">[2]</sup></p>
+    </div>
+    <div class="overview-card">
+      <h4>Warranty implications?</h4>
+      <p>Roof membrane manufacturers often void warranties if unapproved sealants or random fasteners penetrate the field. Commercial building owners should consult roofer-of-record before any penetration.<sup class="cite">[7]</sup></p>
+    </div>
+  </div>
+</section>
+
+<section id="limitations">
+  <h2>3. Limitations</h2>
+  <div class="limitation-box">
+    <p><strong>Theoretical:</strong> Every roof is a stack of layers (covering + underlayment + sheathing + structure). This report cannot see your attic, seam spacing, or local code. Pilot-hole depth, embedment, and sealant choice must be verified on site.</p>
+    <p><strong>Retail availability:</strong> Home Depot/Lowe’s stock varies by region. Brand names (Geocel, Sikaflex, Dicor, Sashco) are used as widely recognized examples; equivalent contractor-grade products from local roofing supply may be preferable for membrane work.</p>
+    <p><strong>Not professional engineering:</strong> This is research synthesis, not structural sign-off. Starlink’s install guide explicitly recommends hiring a professional if uncomfortable.<sup class="cite">[1]</sup></p>
+    <p><strong>Third-party mounts:</strong> Aftermarket tile/metal kits (e.g., international vendors) are noted for completeness but are not Starlink-official unless stated.</p>
+  </div>
+</section>
+
+<section id="history">
+  <h2>4. History of Roofing — and Why Fasteners Matter Today</h2>
+
+  <h3>4.1 From shedding water to engineered systems</h3>
+  <p>For most of human history, roofs were <strong>water-shedding</strong>: overlapping pieces (thatch, wood shakes, slate, clay tile) that let gravity carry water off. Mass-produced <strong>asphalt shingles</strong> (individual cut shingles ~1903; colored granules ~1904) made fire-resistant, affordable residential roofing dominant in North America by the mid-20th century.<sup class="cite">[9][10]</sup></p>
+
+  <p>Low-slope and commercial construction followed a different arc: <strong>built-up roofing (BUR)</strong> from tar and felt (1840s onward), evolving through coal-tar felts, glass-fiber reinforcements, and post–WWII <strong>modified bitumen</strong> (polymer-enhanced asphalt sheets).<sup class="cite">[11][12]</sup> The 1973 oil embargo accelerated <strong>single-ply membranes</strong> — EPDM (1960s), PVC, later TPO (1990s) — because quality roofing asphalt became scarce and labor-heavy BUR was expensive.<sup class="cite">[13][14]</sup></p>
+
+  <div class="diagram">ROOFING TIMELINE (simplified)
+
+Ancient ─────────► 1900 ─────────► 1960s ─────────► 1990s ─────────► Today
+  │                  │                │                 │                │
+Thatch, slate,    Asphalt         EPDM, PVC,        TPO boom,       Cool roofs,
+clay tile, wood   shingle mass    single-ply        factory seam    standing-seam
+shingles          production      membranes         tape, induction metal residential
+                                                     welding         renaissance
+
+Attachment: nails ─► wire nails ─► screws + plates ─► seam clamps ─► induction-welded
+           spikes     roofing         stress plates      (no hole)      attachments
+                            nails</div>
+
+  <h3>4.2 The fastener revolution</h3>
+  <p>Early attachments were simple: cut nails, spikes, and wire nails driven through wood. As roofs became layered systems, fasteners specialized:</p>
+  <ul>
+    <li><strong>Lag screws</strong> — heavy wood screws with hex heads; require pilot holes; excellent withdrawal resistance in solid lumber. Starlink Pivot Mount uses <strong>3/8″ × 3.5″</strong> lags.<sup class="cite">[1][2]</sup> Solar industry commonly specifies <strong>5/16″ stainless lags</strong> with ≥2″–2.5″ embedment in rafters.<sup class="cite">[5][6]</sup></li>
+    <li><strong>Self-drilling roofing screws</strong> — drill their own pilot hole; dominant on metal panels and some wood-to-metal connections; available with EPDM/neoprene washers for watertight compression.<sup class="cite">[15]</sup></li>
+    <li><strong>Mechanical seam clamps</strong> — non-penetrating attachments on standing-seam metal; setscrews bite the seam fold. Used for solar, antennas, snow retention (S-5!, SnapNrack, etc.).<sup class="cite">[16][17]</sup></li>
+    <li><strong>Adhesive &amp; tape evolution</strong> — EPDM seams moved from solvent cleaning + liquid adhesive to <strong>butyl tape</strong> (1980s) and <strong>factory-applied seam tape</strong> (~2005), dramatically reducing leak claims.<sup class="cite">[13]</sup> Butyl rubber tape (like Starlink’s included squares) remains a standard shingle penetration strategy.</li>
+    <li><strong>Chemistry specialization</strong> — Generic silicone or asphalt mastic that works on shingles can <strong>destroy</strong> TPO/PVC/EPDM. Modern roof sealants are formulated by polymer family (tripolymer, polyurethane, membrane-specific lap sealants).<sup class="cite">[7][8][18]</sup></li>
+  </ul>
+
+  <p><strong>Why this matters for Starlink:</strong> The Pivot Mount is essentially a miniature solar/antenna standoff — two lag penetrations, sealed with compressible tape — a pattern borrowed from decades of residential rooftop equipment installs. It fits the <em>asphalt + wood rafter</em> ecosystem. It does not fit the <em>membrane + mechanically attached insulation</em> ecosystem without redesign.</p>
+</section>
+
+<section id="starlink-kit">
+  <h2>5. What Starlink Ships in the Pivot Mount Kit</h2>
+  <table>
+    <thead>
+      <tr><th>Item</th><th>Spec</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Pivot Mount base + mast hardware</td><td>~90° adjustment</td><td>Arrow on base points upslope.<sup class="cite">[1]</sup></td></tr>
+      <tr><td>Lag screws</td><td>2× 3/8″ × 3.5″</td><td>Drive with 9/16″ hex socket.<sup class="cite">[1][2]</sup></td></tr>
+      <tr><td>Sealant tape squares</td><td>2×</td><td>Ball up; press into pilot holes before screws.<sup class="cite">[1]</sup></td></tr>
+      <tr><td>Sealant tape strips</td><td>2×</td><td>Cover holes over base footprint.<sup class="cite">[1]</sup></td></tr>
+      <tr><td>Cable routing clips</td><td>20×</td><td>Snap-on; screw to roof for cable path.<sup class="cite">[2]</sup></td></tr>
+      <tr><td>Mast + Gen 3 adapter</td><td>Included</td><td>Replaces kickstand; cable routes through mast.<sup class="cite">[3]</sup></td></tr>
+    </tbody>
+  </table>
+  <p><strong>Starlink-recommended tools:</strong> drill/impact driver, <strong>6 mm (1/4″) drill bit</strong>, <strong>9/16″ hex socket</strong>, marker, level.<sup class="cite">[1][2]</sup></p>
+
+  <div class="warn-box">
+    <strong>Install guide safety notes (paraphrased):</strong> Avoid electrical wiring and plumbing when drilling; drill at a slight downward angle from interior to exterior; apply sealant thoroughly; mounts not rated for hurricane/tornado loads — use tethering.<sup class="cite">[1]</sup>
+  </div>
+</section>
+
+<section id="universal">
+  <h2>6. Universal Home Depot “Buy Everything” Cart</h2>
+  <p>Buy a superset; return what your roof type does not need. This extends the list you started with AI chat guidance.</p>
+
+  <div class="shop-box">
+    <h3>Drill bits &amp; drivers</h3>
+    <ul>
+      <li>Assorted HSS drill bit set (1/16″–1/2″) — general piloting</li>
+      <li><strong>1/4″ (6 mm) bit</strong> — Starlink Pivot Mount pilot holes (required)<sup class="cite">[1]</sup></li>
+      <li>Masonry bits (3/16″, 1/4″, 3/8″) — concrete tile beds, CMU parapets, stucco+block</li>
+      <li>Metal step bit — enlarging screw-down metal panel holes without burrs</li>
+      <li>Tile/glass bit (1/2″ or 12 mm) — only if drilling clay/concrete tile</li>
+      <li>Phillips #2, Torx T25/T30 driver bits — roofing screws, seam clamps</li>
+      <li>1/4″, 5/16″, 3/8″ nut drivers + <strong>9/16″ socket</strong> (Pivot lags)</li>
+    </ul>
+
+    <h3>Fasteners (buy options; return unused)</h3>
+    <ul>
+      <li><strong>Stainless lag screws</strong> — 3/8″×3.5″ (matches kit); also 3/8″×4″ or 5″ if thick sheathing + shingles</li>
+      <li><strong>5/16″×3″ or 3.5″ SS lag screws</strong> — alternate rafter attach (solar-industry common size)<sup class="cite">[5][6]</sup></li>
+      <li><strong>#14 or #12 self-drilling metal roofing screws</strong> with bonded washers — screw-down metal only</li>
+      <li><strong>3/8″ wedge anchors</strong> + SS washers — concrete deck (if engineer/roofer approves)</li>
+      <li><strong>1/4″ wedge anchors</strong> — lighter concrete attachments</li>
+      <li><strong>Stainless flat washers</strong> — under lag heads on soft wood or oversized holes</li>
+      <li><strong>#10 or #12 wood screws</strong> — cable clip routing into sheathing between rafters</li>
+    </ul>
+
+    <h3>Sealants (buy 2–3 types max; membrane work needs the right one)</h3>
+    <ul>
+      <li><strong>Geocel 2300</strong> tripolymer — asphalt shingle, metal trim, mod-bit edges, general roof penetration backup<sup class="cite">[18][19]</sup></li>
+      <li><strong>Sikaflex-1a</strong> polyurethane — masonry, flashing, multi-substrate construction joints (not default for TPO/PVC field)<sup class="cite">[20]</sup></li>
+      <li><strong>Sashco Through the Roof!</strong> — clear repair sealant; good on metal, asphalt, many plastics; <em>not for TPO; EPDM may warp — test first</em><sup class="cite">[21][22]</sup></li>
+      <li><strong>Membrane lap sealant</strong> — match membrane: Dicor 501LSW (EPDM), Carlisle/Firestone membrane sealant, or TPO/PVC-specific tube from roofing supply<sup class="cite">[7][23]</sup></li>
+      <li><strong>Geocel 4500 + 45P primer</strong> — if EPDM/TPO/PVC penetration approved by roofer<sup class="cite">[24]</sup></li>
+      <li><strong>Roofing cement / plastic cement</strong> — emergency asphalt shingle tab sealing only; avoid on membranes<sup class="cite">[7]</sup></li>
+    </ul>
+
+    <h3>Layout, safety &amp; misc.</h3>
+    <ul>
+      <li>Stud finder (electronic) + <strong>attic verification</strong> (best practice)<sup class="cite">[3]</sup></li>
+      <li>Chalk line, tape measure, 4′ level</li>
+      <li>Work gloves, eye protection, roof harness / anchor if slope &gt;6/12 or &gt;2 stories</li>
+      <li>Caulk gun (for tube sealants)</li>
+      <li>Extra butyl flashing tape roll — supplements kit squares/strips</li>
+      <li>Denatured alcohol / membrane cleaner — only for membrane roofs per manufacturer</li>
+    </ul>
+  </div>
+</section>
+
+<section id="matrix">
+  <h2>7. Roof-Type Matrix — Fasteners, Sealants, Mount Choice</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Roof type</th>
+        <th>Pivot Mount fit?</th>
+        <th>Primary fastener</th>
+        <th>Primary sealant</th>
+        <th>Better Starlink alternative?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Asphalt shingle</strong> (3-tab / architectural)</td>
+        <td>✅ Designed for this</td>
+        <td>Kit 3/8″ lags into rafter; 1/4″ pilot</td>
+        <td>Kit tape + optional Geocel 2300</td>
+        <td>Wall mount if holes unwanted</td>
+      </tr>
+      <tr>
+        <td><strong>Synthetic composite shingle</strong></td>
+        <td>✅ Usually (treat like asphalt)</td>
+        <td>SS lags; confirm rafter depth</td>
+        <td>2300 or manufacturer-approved</td>
+        <td>Same</td>
+      </tr>
+      <tr>
+        <td><strong>Wood shake / cedar</strong></td>
+        <td>⚠️ Possible with care</td>
+        <td>SS lags; longer embedment</td>
+        <td>Polyurethane or 2300; avoid petroleum solvents</td>
+        <td>Wall / pipe on eave</td>
+      </tr>
+      <tr>
+        <td><strong>Standing seam metal</strong></td>
+        <td>❌ Poor default</td>
+        <td>S-5!-type seam clamp + rail, or approved wood block through ridge</td>
+        <td>Metal-rated (2300, manufacturer seam sealant)</td>
+        <td><strong>Ridgeline</strong> (no drill) or Pipe Adapter on ground pole</td>
+      </tr>
+      <tr>
+        <td><strong>Corrugated / screw-down metal</strong></td>
+        <td>❌ Poor default</td>
+        <td>#14 SS roofing screws into purlin/rafter OR clamp at ridge</td>
+        <td>Butyl washer + 2300 under bracket</td>
+        <td>Ridgeline, third-party non-penetrating ridge kit</td>
+      </tr>
+      <tr>
+        <td><strong>Clay / concrete tile</strong></td>
+        <td>❌ Not recommended</td>
+        <td>Tile hanger bolt through tile + hook to rafter; spare tiles on hand</td>
+        <td>Flexible polyurethane under flashing</td>
+        <td><strong>Wall mount</strong>; Ridgeline N/R for clay<sup class="cite">[2]</sup></td>
+      </tr>
+      <tr>
+        <td><strong>Slate</strong></td>
+        <td>❌ Specialist job</td>
+        <td>Hook / cant strip / side lap — do not crush slate</td>
+        <td>Traditional flashing + compatible sealant</td>
+        <td>Wall mount or ground pole</td>
+      </tr>
+      <tr>
+        <td><strong>EPDM (rubber membrane)</strong></td>
+        <td>❌ Wrong mount class</td>
+        <td>Mechanical curb + manufacturer flashing OR adhesive-mounted standoff</td>
+        <td>Dicor / Geocel 4500 (color-matched); <em>not</em> asphalt cement<sup class="cite">[7][24]</sup></td>
+        <td>Wall mount; professional curb</td>
+      </tr>
+      <tr>
+        <td><strong>TPO / PVC</strong></td>
+        <td>❌ Wrong mount class</td>
+        <td>Heat-welded boot / curb; rarely field lag</td>
+        <td>TPO/PVC lap sealant + <strong>45P primer</strong><sup class="cite">[24]</sup></td>
+        <td>Wall mount; roofer-installed curb</td>
+      </tr>
+      <tr>
+        <td><strong>Modified bitumen</strong></td>
+        <td>⚠️ Roofer discretion</td>
+        <td>Lags into deck if approved; prefer curb</td>
+        <td>Asphalt-compatible (2300, mod-bit mastic)</td>
+        <td>Wall / pipe</td>
+      </tr>
+      <tr>
+        <td><strong>BUR (tar &amp; gravel)</strong></td>
+        <td>❌ Legacy commercial</td>
+        <td>Embedded pitch pan / curb</td>
+        <td>Compatible asphalt mastic</td>
+        <td>Wall mount</td>
+      </tr>
+      <tr>
+        <td><strong>Concrete deck / rooftop</strong></td>
+        <td>❌</td>
+        <td>3/8″ SS wedge anchors into structural slab</td>
+        <td>Polyurethane or specified sealant</td>
+        <td>Pipe Adapter on strut/pole</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="roof-types">
+  <h2>8. Roof-Type Deep Dives — Shopping Lists, Pros &amp; Cons</h2>
+
+  <h3>8.1 Asphalt shingle (Pivot Mount sweet spot)</h3>
+  <p><span class="tag">Most common US residential</span></p>
+  <table>
+    <thead><tr><th>Buy</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>1/4″ drill bit, 9/16″ socket</td><td>Starlink spec<sup class="cite">[1]</sup></td></tr>
+      <tr><td>Kit lags OR spare 3/8″×3.5″ SS lags</td><td>2″+ embedment in rafter after penetrating sheathing + shingles</td></tr>
+      <tr><td>Kit sealant tape (included)</td><td>Primary waterproofing</td></tr>
+      <tr><td>Geocel 2300 (1 tube)</td><td>Extra bead under base + around screw heads<sup class="cite">[18]</sup></td></tr>
+      <tr><td>#10 SS wood screws + clips</td><td>Cable routing every 2–3 ft<sup class="cite">[3]</sup></td></tr>
+      <tr><td>Stud finder + attic check</td><td>Confirm rafter center; typical spacing 16″ or 24″ OC</td></tr>
+    </tbody>
+  </table>
+  <p><span class="pro">Pros:</span> Official mount + instructions; flexible roof placement; included hardware adequate.<br>
+  <span class="con">Cons:</span> Two permanent holes; leak risk if rafter missed or sealant skipped; shingle damage if removed later.<sup class="cite">[3][4]</sup></p>
+
+  <h3>8.2 Synthetic composite shingle (DaVinci, CeDUR, etc.)</h3>
+  <p>Treat as asphalt for fastening. Confirm thickness — may need <strong>longer lags (4″–5″)</strong> for full embedment.</p>
+  <p><span class="pro">Pros:</span> Often more impact-resistant than asphalt during install.<br>
+  <span class="con">Cons:</span> Manufacturer may specify approved sealants; verify before applying petroleum-heavy products.<sup class="cite">[7]</sup></p>
+
+  <h3>8.3 Wood shake / cedar shingle</h3>
+  <table>
+    <thead><tr><th>Buy</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>3/8″ or 5/16″ SS lags (longer length)</td><td>Thick courses; soft wood — avoid overtightening</td></tr>
+      <tr><td>Geocel 2300 or polyurethane flashing sealant</td><td>Flexible movement; no harsh solvents on wood<sup class="cite">[7][18]</sup></td></tr>
+      <tr><td>Lead or aluminum step flashing (optional)</td><td>Traditional watertight pattern around penetration</td></tr>
+    </tbody>
+  </table>
+  <p><span class="pro">Pros:</span> Pivot pattern can work on sloped wood roofs.<br>
+  <span class="con">Cons:</span> Splitting risk; many insurers frown on DIY penetrations; consider wall mount.</p>
+
+  <h3>8.4 Standing seam metal</h3>
+  <table>
+    <thead><tr><th>Buy</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>S-5! or SnapNrack <strong>seam clamp</strong> matched to panel profile</td><td>Zero penetration; setscrew torque per mfr (~15–16 ft-lb)<sup class="cite">[16][17]</sup></td></tr>
+      <tr><td>Short aluminum strut / uni-strut + Pipe Adapter</td><td>Starlink Pipe Adapter fits 1.25″–2.5″ metal pipe<sup class="cite">[2]</sup></td></tr>
+      <tr><td>Torx driver for clamp setscrews</td><td>Industry standard on S-5!<sup class="cite">[16]</sup></td></tr>
+      <tr><td>Geocel 2300 (metal colors)</td><td>Seal any minor trim joints — not clamp interface</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Do not</strong> lag through standing seam field — you defeat the floating clip system and void panel warranty.</p>
+  <p><span class="pro">Pros:</span> No leaks; clamp rated for antennas/solar.<br>
+  <span class="con">Cons:</span> Pivot Mount wrong tool; clamp + pole adds $100–300+; must match seam geometry.</p>
+
+  <h3>8.5 Corrugated / R-panel / screw-down metal</h3>
+  <table>
+    <thead><tr><th>Buy</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>#14×1.5″ or 2″ SS self-drilling screws w/ EPDM washer</td><td>Into purlin at ridge or wall transition — not thin pan only</td></tr>
+      <tr><td>Step bit</td><td>Clean holes if using bracket plate</td></tr>
+      <tr><td>Butyl tape + 2300 under L-bracket</td><td>Compression seal</td></tr>
+      <tr><td>OR Starlink <strong>Ridgeline Mount</strong> + ballast</td><td>No holes; metal + shingle, slope &lt;45°<sup class="cite">[2]</sup></td></tr>
+    </tbody>
+  </table>
+  <p><span class="pro">Pros:</span> Ridgeline is official no-drill path.<br>
+  <span class="con">Cons:</span> Ballast ~56 lb per weight set; 50 mph wind cap; awkward on low-slope metal.<sup class="cite">[2]</sup></p>
+
+  <h3>8.6 Clay / concrete tile</h3>
+  <table>
+    <thead><tr><th>Buy</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>12 mm diamond tile drill bit</td><td>Third-party tile kits often specify 12 mm holes<sup class="cite">[25]</sup></td></tr>
+      <tr><td>Tile roof hook / hanger + structural bar</td><td>Loads to rafter, not fragile tile cantilever</td></tr>
+      <tr><td>2–3 spare matching tiles</td><td>Breakage is common</td></tr>
+      <tr><td>Polyurethane sealant under hook</td><td>Flex for tile movement</td></tr>
+    </tbody>
+  </table>
+  <p>Starlink does <strong>not</strong> sell a tile kit in the US accessories guide. Official guidance: Ridgeline <em>not recommended for clay tile</em>.<sup class="cite">[2]</sup></p>
+  <p><span class="pro">Pros:</span> Third-party kits exist for Gen 3.<br>
+  <span class="con">Cons:</span> High skill; warranty risk; <strong>Wall Mount on fascia</strong> often smarter.<sup class="cite">[25]</sup></p>
+
+  <h3>8.7 Slate</h3>
+  <p>Specialist territory: hook systems, copper flashing, no crushing. Pivot Mount inappropriate.</p>
+  <p><span class="pro">Pros:</span> Century-scale roof if done right.<br>
+  <span class="con">Cons:</span> One wrong hole is expensive; hire slate roofer or use ground/wall mount.</p>
+
+  <h3>8.8 EPDM (rubber single-ply)</h3>
+  <table>
+    <thead><tr><th>Buy</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>Dicor 501LSW lap sealant OR Geocel 4500 (black on black / white on white)</td><td>Membrane chemistry match<sup class="cite">[7][24]</sup></td></tr>
+      <tr><td>Manufacturer pipe boot / curb flashing kit</td><td>Proper penetration assembly</td></tr>
+      <tr><td>Membrane cleaner + scrub pad</td><td>Adhesion prep</td></tr>
+      <tr><td><strong>Do NOT buy:</strong> asphalt roof cement, generic silicone, Through the Roof on field membrane</td><td>Chemical damage / warp risk<sup class="cite">[7][21][22]</sup></td></tr>
+    </tbody>
+  </table>
+  <p><span class="pro">Pros:</span> Excellent flat-roof waterproofing when detailed correctly.<br>
+  <span class="con">Cons:</span> Pivot Mount + shingle tape is wrong system; hire commercial roofer.</p>
+
+  <h3>8.9 TPO / PVC (thermoplastic single-ply)</h3>
+  <table>
+    <thead><tr><th>Buy</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>TPO- or PVC-specific lap sealant from membrane brand</td><td>Bitumen/asphalt products destroy TPO<sup class="cite">[7][8]</sup></td></tr>
+      <tr><td>Geocel 45P primer + 4500</td><td>Only on primed TPO/PVC per data sheet<sup class="cite">[24]</sup></td></tr>
+      <tr><td>Heat-welded pipe boot (contractor supply)</td><td>Correct penetration detail</td></tr>
+    </tbody>
+  </table>
+  <p><span class="pro">Pros:</span> Heat-welded seams are very reliable.<br>
+  <span class="con">Cons:</span> Zero tolerance for wrong sealant; DIY Pivot install is a leak lawsuit waiting to happen.</p>
+
+  <h3>8.10 Modified bitumen</h3>
+  <table>
+    <thead><tr><th>Buy</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>Geocel 2300 or cold-app mod-bit mastic</td><td>Asphalt-compatible<sup class="cite">[18][8]</sup></td></tr>
+      <tr><td>SS lags if roofer approves deck penetration</td><td>Often prefer wood curb screwed through membrane</td></tr>
+    </tbody>
+  </table>
+  <p><span class="pro">Pros:</span> 2300 explicitly lists mod-bit adhesion.<br>
+  <span class="con">Cons:</span> Multi-layer system; easy to seal surface but miss water path under membrane.</p>
+
+  <h3>8.11 Built-up roofing (BUR) / gravel surface</h3>
+  <p>Legacy commercial. Penetrations use pitch pans filled with hot or cold mastic. Pivot Mount not applicable.</p>
+
+  <h3>8.12 Concrete structural deck (parking garage, plaza roof)</h3>
+  <table>
+    <thead><tr><th>Buy</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>3/8″ stainless wedge anchors (length per slab thickness)</td><td>SnapNrack concrete detail uses 3/8″ wedge<sup class="cite">[5]</sup></td></tr>
+      <tr><td>Hammer drill + masonry bits</td><td>Correct anchor depth</td></tr>
+      <tr><td>Sikaflex-1a or epoxy-approved sealant</td><td>Concrete joint compatibility<sup class="cite">[20]</sup></td></tr>
+    </tbody>
+  </table>
+  <p>Usually better: <strong>Pipe Adapter</strong> on welded steel pole anchored separately.<sup class="cite">[2]</sup></p>
+</section>
+
+<section id="alternatives">
+  <h2>9. When Not to Use the Pivot Mount — Official Starlink Options</h2>
+  <table>
+    <thead>
+      <tr><th>Mount</th><th>Best for</th><th>Drills roof?</th><th>Kit sealant / fasteners</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Standard Wall Mount</strong></td>
+        <td>Fascia / gable; ≤4″ eave overhang</td>
+        <td>Usually wall only</td>
+        <td>2× lags, silicone, clips<sup class="cite">[2][26]</sup></td>
+      </tr>
+      <tr>
+        <td><strong>Ridgeline Mount</strong></td>
+        <td>Metal or shingle ridge; slope &lt;45°</td>
+        <td>No — ballast</td>
+        <td>4× ballast weights (~56 lb each set)<sup class="cite">[2]</sup></td>
+      </tr>
+      <tr>
+        <td><strong>Pipe Adapter</strong></td>
+        <td>Existing 1.25″–2.5″ <strong>metal</strong> pole</td>
+        <td>Pole base depends on install</td>
+        <td>Allen key, clips; no pipe included<sup class="cite">[2]</sup></td>
+      </tr>
+      <tr>
+        <td><strong>X-Frame Base</strong></td>
+        <td>Ground / temporary</td>
+        <td>No</td>
+        <td>Self-contained<sup class="cite">[2]</sup></td>
+      </tr>
+      <tr>
+        <td><strong>Mobility Mount</strong></td>
+        <td>RV, vehicle rack</td>
+        <td>Vehicle-dependent</td>
+        <td>4× lags, sealing washers<sup class="cite">[2]</sup></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Installer consensus (DISHYtech, 2025): most homeowners should prefer <strong>Wall Mount</strong> unless roof placement is required for obstruction clearance.<sup class="cite">[3][4]</sup></p>
+</section>
+
+<section id="workflow">
+  <h2>10. Installation Workflow (Asphalt + Pivot Mount)</h2>
+  <div class="diagram">1. App sky scan → pick highest clear location
+2. Attic / stud finder → mark RAFTERS (not just sheathing)
+3. Mark 2 pilot holes on mount base (arrow upslope)
+4. Drill 1/4" pilots at slight downward angle (outward)
+5. Ball sealant squares → push into holes
+6. Lay sealant strips over footprint
+7. Start 3/8" lags by hand → tighten w/ 9/16" socket (don't strip)
+8. Plumb mast with level → lock pivot
+9. Route cable through mast → snap adapter → install dish
+10. Power on → app alignment → tighten thumb screw
+11. Clip cable every 2-3 ft down to entry point</div>
+  <p>Typical tools on roof: impact driver (low torque for final lag seating), drill, level, marker.<sup class="cite">[1][3]</sup></p>
+</section>
+
+<section id="conclusion">
+  <h2>11. Conclusion</h2>
+  <div class="conclusion-box">
+    <p><strong>If you have a normal sloped asphalt shingle roof over wood rafters:</strong> Buy the Pivot Mount from Starlink, add a <strong>1/4″ bit</strong>, <strong>9/16″ socket</strong>, stud-finder discipline, and optionally one tube of <strong>Geocel 2300</strong>. The kit fasteners and tape are appropriate; longer lags only if your stack is unusually thick.</p>
+    <p><strong>If you have metal, tile, slate, or any single-ply flat membrane:</strong> Do not force the Pivot Mount. Change the <em>mount</em> (Ridgeline, Wall, Pipe Adapter, or professional curb) and change the <em>chemistry</em> (membrane-specific sealants with primers where required). The history of roofing since the 1960s is literally the story of specialized membranes outgrowing one-size-fits-all asphalt mastic — your shopping cart should reflect that split.</p>
+    <p><strong>Practical Home Depot strategy:</strong> Buy the universal bit/driver kit, two fastener families (lags + roofing screws), and two sealant families (2300 for shingle/metal + membrane-specific if needed). Return unused boxes after you identify your roof stack in the attic.</p>
+  </div>
+
+  <h3>Further research directions</h3>
+  <ul>
+    <li>Local building code wind uplift requirements for rooftop equipment in coastal counties</li>
+    <li>Homeowners insurance disclosure for roof penetrations</li>
+    <li>Long-term leak studies on butyl-tape vs tube-sealant-only pivot installs</li>
+    <li>Third-party Gen 3 mounts tested for standing seam profiles common in your region</li>
+    <li>Extended cable (45 m) routing and penetration boot details per roof type</li>
+  </ul>
+</section>
+
+<section id="references">
+  <h2>12. References</h2>
+  <ol class="ref-list">
+    <li>Starlink. <em>Standard Pivot Mount Install Guide</em> (PDF). <a href="https://starlink.com/public-files/installation_guide_standard_pivot_mount.pdf">starlink.com/public-files/installation_guide_standard_pivot_mount.pdf</a></li>
+    <li>Starlink. <em>Standard Accessories Guide</em> (PDF). <a href="https://starlink.com/public-files/accessories_guide_standard.pdf">starlink.com/public-files/accessories_guide_standard.pdf</a></li>
+    <li>DISHYtech. <em>Starlink Pivot Mount — Installation and Review</em> (2025). <a href="https://www.dishytech.com/starlink-pivot-mount-installation-and-review/">dishytech.com</a></li>
+    <li>DISHYtech. <em>Gen 3 Standard Wall Mount — Review and Installation Tutorial</em>. <a href="https://www.dishytech.com/gen-3-standard-wall-mount-review-and-installation-tutorial/">dishytech.com</a></li>
+    <li>SnapNrack. <em>Ultra Rail Installation Manual</em> (attachment details for wood, metal, concrete). <a href="https://www.solarflexion.com/v/vspfiles/files/pdfs/snapnrack/242-01223_Installation_Manual.pdf">solarflexion.com PDF</a></li>
+    <li>SnapNrack. <em>Series 100 Roof Mount Installation Manual</em>. <a href="https://www.solarelectricsupply.com/media/custom/upload/SnapNrack-S100_Install-Manual.pdf">solarelectricsupply.com PDF</a></li>
+    <li>Roofs Wiki. <em>Roofing Sealants &amp; Adhesives Guide</em>. <a href="https://roofs.wiki/Roofing_Sealants_and_Adhesives_Guide">roofs.wiki</a></li>
+    <li>Great Roofing LLC. <em>Roofing Compounds: Types, Applications &amp; Selection Guide</em>. <a href="https://greatroofingllc.com/roofing-compounds/">greatroofingllc.com</a></li>
+    <li>Continental Materials. <em>The Evolution of Roofing Materials</em>. <a href="https://www.continentalmaterials.com/the-evolution-of-roofing-materials-from-traditional-to-modern-innovations/">continentalmaterials.com</a></li>
+    <li>Renaissance Roofing. <em>A Brief History of Roofing Materials</em>. <a href="https://www.renaissanceroofinginc.com/a-brief-history-of-roofing-materials/">renaissanceroofinginc.com</a></li>
+    <li>IIBEC Western Canada. <em>History of Roofing</em> (RTQA presentation PDF). <a href="https://westerncanada.iibec.org/wp-content/uploads/sites/3/2020/03/09.19.01-RTQA-History-of-Roofing.pdf">iibec.org PDF</a></li>
+    <li>Standard Roofing OK. <em>The Evolution of Commercial Roofing: From 1898 to Today</em>. <a href="https://www.standardroofingok.com/blog/the-evolution-of-commercial-roofing-from-1898-to-today">standardroofingok.com</a></li>
+    <li><em>WATERPROOF! Magazine</em>. <em>How Single-Ply Roof Membranes Revolutionized the Low-Slope Market</em> (2018). <a href="https://www.waterproofmag.com/2018/10/how-single-ply-roof-membranes-revolutionized-the-low-slope-market/">waterproofmag.com</a></li>
+    <li>Standard Roofing OK (post-WWII single-ply context). Same as [12].</li>
+    <li>Industry practice: self-drilling roofing screws with neoprene/EPDM washers on metal panels — see roofing screw manufacturer data sheets (Henry, FastenMaster, etc.).</li>
+    <li>S-5!. <em>Roof Clamps product overview</em>. <a href="https://www.s-5.com/products/roof-clamps/">s-5.com</a></li>
+    <li>S-5!. <em>S-5-RC Clamp documentation</em>. <a href="https://www.s-5.com/products/s-5-rc-clamps/">s-5.com</a></li>
+    <li>Geocel. <em>2300 Roof Tripolymer Sealant</em> product page. <a href="https://www.geocelusa.com/product/geocel-2300-roof-tripolymer-sealant/">geocelusa.com</a></li>
+    <li>Geocel. <em>2300 Technical Data Sheet</em>. <a href="https://www.emisupply.com/media/document/file/g/e/geocel-2300techsheet.pdf">emisupply.com PDF</a></li>
+    <li>Sika. <em>Sikaflex-1a Product Data</em> (construction polyurethane sealant). <a href="https://usa.sika.com/">sika.com</a> — verify current PDS for substrate list.</li>
+    <li>Sashco. <em>Through the Roof! Product Page</em>. <a href="https://www.sashco.com/products/through-the-roof/">sashco.com</a></li>
+    <li>Sashco. <em>Through the Roof! Specification Sheet</em> (TPO/EPDM incompatibility notes). <a href="https://assets.unilogcorp.com/267/ITEM/DOC/Through_the_ROOF_14023_Specification_Sheet.pdf">unilogcorp.com PDF</a></li>
+    <li>Dicor Products. <em>501LSW Lap Sealant</em> (EPDM standard reference — verify at dicor.com).</li>
+    <li>Geocel. <em>4500 Roof Bonding Sealant + 45P primer requirements for TPO/PVC</em>. <a href="https://www.geocelusa.com/product/geocel-4500-roof-bonding-sealant/">geocelusa.com</a></li>
+    <li>SpaceTek. <em>Tile Roof Starlink Mount Roof Kit for Gen 3</em> (third-party example). <a href="https://spacetek.com.au/products/tile-roof-starlink-mount-roof-kit-for-gen-3-v4">spacetek.com.au</a></li>
+    <li>ShuttlePresskit. <em>Starlink Pivot Mount Installation And Review 2026</em>. <a href="https://shuttlepresskit.com/starlink-pivot-mount-installation-and-review/">shuttlepresskit.com</a></li>
+  </ol>
+</section>
+
+<footer>
+  <p>Research-Bot artifact — one-time question, base folder. Not professional roofing or structural advice. Verify all product labels and manufacturer instructions on site before purchase or penetration.</p>
+  <p>Document version: 2026-07-15.</p>
+</footer>
+
+</div>
+</body>
+</html>
