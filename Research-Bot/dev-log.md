@@ -1,5 +1,30 @@
 # Research Bot — Dev Log
 
+## 2026-07-13 — Edge / Outback / CX-50 Comps vs Vectra Edge (complete)
+
+### Plan summary
+User found a Ford Edge at Vectra (~$7k / ~137k miles) and asked for other Ford Edges, Subaru Outbacks, and Mazda CX-50s in the SLC valley from the used dealerships already researched.
+
+### Key findings
+- **Vectra Edge sticker:** Fair vs KBB/CarGurus (~$7k for older high-mile Edge); slightly cheaper than SSL peers (Drive In 2017 $8.6k/150k; Zamzam 2015 Titanium $9k/138k). Not a rare underpricing.
+- **West Auto Edges:** 2017 SEL $12,325/93k; 2022 SEL $19,407/64k — not $7k peers.
+- **Image Auto:** 2020 Edge SEL AWD $10,995/72k **rebuilt title**.
+- **Immaculate / Prestman:** No useful $7k Edge shelf in this scan.
+- **Outbacks:** West Auto cheapest ~$15.4k (2017); Prestman/Image branded newer $17k–$28k. Budget Outbacks exist at smaller indies: Wild House 2013 $4,899/183k; Auto Empire 2013 $4,988/177k; WVC 2016 Limited ~$8.2k–$8.4k/161k.
+- **CX-50:** Not in budget. CarGurus SLC avg ~$30.6k; range ~$20k–$42k. Tim Dahle used stock mid-$20ks+.
+- **Buy caveat:** AWD Edge PTU failures; PPI required before calling it a deal.
+
+### Changes made
+- Created `Research-Bot/slc-edge-outback-cx50-comps.html`
+- Linked from parent survey and $10k follow-up further-questions list
+- Updated this dev-log
+
+### Assumptions
+- User’s Vectra Edge year/trim/AWD not confirmed online; valuation framed as “older high-mile Edge” band.
+- Vectra website inventory filters often empty; relied on buyer report + peer aggregators.
+
+### Bugs / problems
+- Cars.com / KSL zip searches and CarGurus HTML often blocked or timed out; used dealer sites + KSL individual listings + AutosToday + CarGurus SERP snippets.
 ## 2026-07-13 — Utah credit unions vs MACU: out-of-state branches & everyday loans (complete)
 
 ### Plan summary
