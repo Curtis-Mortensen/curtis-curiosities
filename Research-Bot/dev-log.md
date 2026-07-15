@@ -1,5 +1,31 @@
 # Research Bot — Dev Log
 
+## 2026-07-15 — Starlink Gen 3 Pivot Mount Roof Shopping List (complete)
+
+### Plan summary
+User researching Starlink Gen 3 Pivot Mount installation; requested Research-Bot explainer with history of roofing/fastening advancements, Home Depot–style universal shopping list (drill bits, fasteners, sealants), and roof-type-specific options with pros/cons.
+
+### Precursor / subset questions
+1. What does Starlink ship in the Pivot Mount kit vs what must be bought locally?
+2. Which roof types is the Pivot Mount actually designed for?
+3. How do fastener choices differ (lag vs roofing screw vs wedge anchor vs seam clamp)?
+4. How do sealant chemistries differ by membrane (asphalt, metal, EPDM, TPO, PVC, mod-bit)?
+5. When should official alternatives (Wall, Ridgeline, Pipe Adapter) replace Pivot Mount?
+
+### Key findings
+- Pivot Mount is designed for **sloped asphalt shingle** roofs: 2× 3/8″×3.5″ lags, 1/4″ pilot, kit butyl tape squares/strips, 9/16″ socket.
+- Universal cart: bits (1/4″ required), SS lags, self-drilling metal screws, wedge anchors, Geocel 2300 (shingle/metal/mod-bit), membrane-specific lap sealants for EPDM/TPO/PVC (Geocel 4500 + 45P primer on TPO/PVC).
+- **Do not** use generic silicone/asphalt cement on single-ply membranes; Through the Roof! explicitly excludes TPO and warns on EPDM.
+- Standing seam: non-penetrating S-5!-type clamps + Pipe Adapter; Ridgeline for no-drill metal/shingle ridge (&lt;45°, ~50 mph wind cap).
+- Tile/clay: third-party kits exist; Starlink Ridgeline not recommended for clay; Wall Mount often better.
+
+### Changes made
+- Created `Research-Bot/starlink-gen3-pivot-mount-roof-shopping-list.html` — history section, universal buy list, 12-row roof matrix, 12 roof-type deep dives, Starlink mount alternatives, workflow diagram, 26 references.
+
+### Assumptions
+- US residential focus; Home Depot / big-box product names as examples.
+- User has Gen 3 Standard (Standard 4) dish; Pivot Mount ~$74 from Starlink.
+- No site visit; rafter confirmation via attic/stud finder assumed as best practice.
 ## 2026-07-13 — Edge / Outback / CX-50 Comps vs Vectra Edge (complete)
 
 ### Plan summary
