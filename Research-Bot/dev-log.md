@@ -1,5 +1,24 @@
 # Research Bot — Dev Log
 
+## 2026-07-15 — Tuba City Shopping Center case study add-on (complete)
+
+### Plan summary
+User provided Street View / satellite / historical context for Tuba City Shopping Center (~1983 Bashas’ Diné Market era): split-face CMU walls, flat reflective commercial roof (likely white TPO), red metal coping. Asked to update the Starlink shopping-list doc with site-specific options and a recommendation.
+
+### Key findings / recommendation
+- Walls: ribbed split-face CMU; hollow vs grout-filled cells — use sleeve anchors / Tapcon; avoid wedge anchors unless solid; avoid mortar joints for load attachments.
+- Roof: flat parapet commercial; white reflective membrane over likely polyiso + steel deck + bar joists — not a Pivot Mount substrate.
+- **Recommend Option A:** Starlink Standard Wall Mount on upper CMU with masonry sleeve anchors + Sikaflex-1a.
+- Second: Pipe Adapter on freestanding metal pole. Roof only via pro heat-welded TPO curb. Never DIY Pivot on membrane field.
+
+### Changes made
+- Expanded `Research-Bot/starlink-gen3-pivot-mount-roof-shopping-list.html` with §10 case study (site section, 6 options table, recommendation, CMU shopping cart, decision tree); renumbered later sections; updated aims/thesis/conclusion/refs.
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-15 — Starlink Gen 3 Pivot Mount Roof Shopping List (complete)
 
 ### Plan summary
