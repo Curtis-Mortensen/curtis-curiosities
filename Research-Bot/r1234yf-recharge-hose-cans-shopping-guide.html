@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R-1234yf Car A/C Recharge — History, Connectors, Cans, Hoses &amp; Shopping List</title>
+<style>
+  :root {
+    --bg: #0f1419;
+    --surface: #1a2129;
+    --surface2: #242d38;
+    --text: #e8edf2;
+    --muted: #8b9aab;
+    --accent: #7ee787;
+    --accent2: #58a6ff;
+    --warning: #d4a853;
+    --danger: #f85149;
+    --link: #79c0ff;
+    --border: #303d4d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .container { max-width: 980px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  h1 { font-size: 2rem; line-height: 1.25; margin-bottom: 0.5rem; color: var(--accent); }
+  .subtitle { color: var(--muted); font-style: italic; font-size: 1.05rem; }
+  h2 {
+    font-size: 1.45rem;
+    color: var(--accent2);
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 { font-size: 1.15rem; color: var(--accent); margin: 1.5rem 0 0.75rem; }
+  h4 { font-size: 1rem; color: var(--muted); margin: 1rem 0 0.5rem; }
+  p { margin-bottom: 1rem; }
+  a { color: var(--link); }
+  .thesis-box, .limitation-box, .warn-box, .shop-box, .success-box {
+    background: var(--surface);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .thesis-box { border-left: 4px solid var(--accent); }
+  .limitation-box { border-left: 4px solid var(--danger); }
+  .warn-box { border-left: 4px solid var(--warning); }
+  .shop-box { border-left: 4px solid var(--accent2); }
+  .success-box { border-left: 4px solid var(--accent); }
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .overview-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+  .overview-card h4 { color: var(--accent2); margin-top: 0; }
+  .diagram {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    font-family: "Courier New", monospace;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    white-space: pre;
+    color: var(--muted);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.84rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.55rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: var(--surface2); color: var(--accent2); font-weight: 600; }
+  tr:nth-child(even) { background: var(--surface); }
+  .pro { color: var(--accent); }
+  .con { color: var(--danger); }
+  .ref-list { font-size: 0.85rem; }
+  .ref-list li { margin-bottom: 0.6rem; }
+  .conclusion-box {
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+    border: 1px solid var(--accent2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+  ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .toc ol { margin-bottom: 0; }
+  code { font-family: "Courier New", monospace; font-size: 0.9em; color: var(--warning); }
+  .callout-answer {
+    background: var(--surface2);
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin: 1rem 0 1.5rem;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>R-1234yf Car A/C Recharge: History, Connectors, Cans, Hoses &amp; What to Buy</h1>
+  <p class="subtitle">A Research-Bot field guide to HFO-1234yf DIY top-offs — why fittings are reverse-threaded, how self-sealing cans differ from puncture cans, low-side vs high-side ports, and a concrete shopping list for ZeroR refrigerant plus compatible hose and leak-stop options with 2-day delivery constraints.</p>
+  <p class="subtitle" style="margin-top:0.5rem;font-style:normal;">Compiled July 2026. US DIY / Amazon-centric. Self-contained; no prior context required.</p>
+</header>
+
+<nav class="toc">
+  <strong>Contents</strong>
+  <ol>
+    <li><a href="#introduction">Introduction &amp; aims</a></li>
+    <li><a href="#precursor">Precursor questions</a></li>
+    <li><a href="#limitations">Limitations</a></li>
+    <li><a href="#history">History of automotive refrigerants &amp; fittings</a></li>
+    <li><a href="#car-ports">Connectors on the car (low vs high side)</a></li>
+    <li><a href="#cans">Can types: puncture vs self-sealing; LH vs RH threads</a></li>
+    <li><a href="#hoses">Hose kits: what each end does</a></li>
+    <li><a href="#verdict">Direct answers to the hose confusion</a></li>
+    <li><a href="#shopping">Specific products under consideration</a></li>
+    <li><a href="#buy-list">Recommended buy list (2-day delivery)</a></li>
+    <li><a href="#workflow">DIY workflow diagram</a></li>
+    <li><a href="#conclusion">Conclusion &amp; further questions</a></li>
+    <li><a href="#references">References</a></li>
+  </ol>
+</nav>
+
+<section id="introduction">
+  <h2>1. Introduction &amp; aims</h2>
+  <p>This document answers a practical shopping question that sits on top of a surprisingly dense standards history: if you are buying <a href="https://www.amazon.com/ZeroR%C2%AE-Genuine-R1234YF-ZeroR-Service/dp/B0DJ17MR7Q">ZeroR Genuine R1234YF</a> 8&nbsp;oz cans (SSV, reverse-thread), what hose do you need, how do self-sealing vs puncture can openers differ, what do “LH” and “RH” mean, and which leak-stop products make sense when 2-day delivery limits the catalog?</p>
+
+  <div class="thesis-box">
+    <strong>Thesis / bottom line up front.</strong>
+    <p style="margin-top:0.75rem;margin-bottom:0;">ZeroR’s cans are <em>self-sealing valve (SSV)</em> cans with <em>1/2″ ACME left-hand (LH)</em> threads. The dominant Amazon listing style — “R1234YF Refrigerant Charge Hose Kit … 1/2 Acme LH … Self-Sealing Can Opener Tap And R1234YF Low Side” — is the correct hose family for those cans. You do <em>not</em> want a puncture-style tap for ZeroR SSV cans, and you do <em>not</em> want an R-134a (right-hand) can tap. DIY charging attaches only to the car’s <em>low-side</em> quick-connect port (~14&nbsp;mm), never the high-side (~17&nbsp;mm).</p>
+  </div>
+
+  <div class="overview-grid">
+    <div class="overview-card">
+      <h4>What this doc is</h4>
+      <p>A researched buyer’s explainer: history → car ports → can types → hose anatomy → product match for your cart.</p>
+    </div>
+    <div class="overview-card">
+      <h4>Who it is for</h4>
+      <p>A DIY owner of an R-1234yf vehicle who wants to top off refrigerant and optionally add non-polymer leak stop / UV dye, with Amazon 2-day delivery.</p>
+    </div>
+    <div class="overview-card">
+      <h4>What it is not</h4>
+      <p>Not a shop vacuum/recovery procedure, not legal advice, and not a substitute for fixing a large mechanical leak.</p>
+    </div>
+  </div>
+</section>
+
+<section id="precursor">
+  <h2>2. Precursor / subset questions</h2>
+  <p>Before naming a SKU, the following questions have to be answered in order:</p>
+  <ol>
+    <li>Does the vehicle actually use R-1234yf (hood sticker / owner’s manual), not R-134a?</li>
+    <li>What is the difference between the car’s low-side and high-side service ports, and which one do consumer kits use?</li>
+    <li>Are ZeroR “SSV / reverse-thread” cans puncture-style or self-sealing?</li>
+    <li>What do “1/2″ ACME,” “LH,” “RH,” “can opener tap,” and “low-side coupler” each mean on a hose listing?</li>
+    <li>Can a puncture tap work on a self-sealing can (or vice versa)?</li>
+    <li>Does TSI Supercool 39241B-YF replace the need for a separate refrigerant hose?</li>
+    <li>Among 2-day BlueSeal options, which includes an applicator vs which is refill-only?</li>
+  </ol>
+</section>
+
+<section id="limitations">
+  <h2>3. Limitations</h2>
+  <div class="limitation-box">
+    <h3 style="margin-top:0;">Theoretical / practical limits</h3>
+    <ul>
+      <li><strong>DIY top-off is not diagnosis.</strong> Low refrigerant usually means a leak. Stop-leak products address small leaks; they do not replace a failed compressor, condenser, or evaporator.</li>
+      <li><strong>Mild flammability (A2L).</strong> R-1234yf is classified as mildly flammable. Work outdoors or in a well-ventilated space; keep ignition sources away; wear eye protection.<sup><a href="#ref-arctick">2</a></sup></li>
+      <li><strong>Overcharging risk.</strong> Consumer gauges are approximate. The correct charge is by weight from the under-hood label, not “until it feels cold.”</li>
+      <li><strong>Evidence strength for stop-leak claims.</strong> Vendor lab claims (e.g., “95%+ seal rate”) are manufacturer-reported; independent peer-reviewed field studies on any one brand’s DIY sealant are sparse. Treat them as conditional tools for small leaks, not guaranteed repairs.</li>
+      <li><strong>Amazon inventory churn.</strong> ASINs, Prime 2-day eligibility, and exact listing titles change. Match <em>functional specs</em> (SSV + 1/2″ ACME LH + 14&nbsp;mm YF low-side coupler), not a single product title.</li>
+      <li><strong>No vehicle inspection.</strong> This research does not know your car’s year/make; confirm refrigerant type on the under-hood A/C label before buying.</li>
+    </ul>
+  </div>
+  <p>As a field, automotive MVAC (motor vehicle air conditioning) refrigerant policy is mature and standards-driven (EPA SNAP, SAE J639 / J2844 / J2888). Consumer DIY tooling is a thinner, noisier layer on top of those standards — listings often misuse “self-sealing” vs “puncture,” which is exactly why matching ZeroR’s SSV designation matters.<sup><a href="#ref-fjc-ssv">8</a></sup><sup><a href="#ref-gpd">10</a></sup></p>
+</section>
+
+<section id="history">
+  <h2>4. History of automotive refrigerants &amp; why fittings got weird</h2>
+
+  <h3>4.1 Three refrigerant eras</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Era</th>
+        <th>Common name</th>
+        <th>Chemistry</th>
+        <th>Why it left / arrived</th>
+        <th>Approx. GWP*</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>~1930s–mid-1990s</td>
+        <td>R-12 (“Freon”)</td>
+        <td>CFC-12</td>
+        <td>Ozone-depleting; Montreal Protocol phase-out → gone from new cars mid-1990s<sup><a href="#ref-epa-accept">1</a></sup></td>
+        <td>~10,200–10,900</td>
+      </tr>
+      <tr>
+        <td>Mid-1990s–2010s (legacy fleet still)</td>
+        <td>R-134a</td>
+        <td>HFC-134a</td>
+        <td>Zero ODP, but high climate impact; still used to service older cars<sup><a href="#ref-epa-accept">1</a></sup></td>
+        <td>~1,300–1,430</td>
+      </tr>
+      <tr>
+        <td>~2013 onward (most new cars)</td>
+        <td>R-1234yf</td>
+        <td>HFO-1234yf</td>
+        <td>Ultra-low GWP response to EU MAC Directive &amp; US SNAP / GHG credits<sup><a href="#ref-epa-transition">3</a></sup><sup><a href="#ref-eu-mac">5</a></sup></td>
+        <td>&lt;1 to ~4 (source-dependent)</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.85rem;color:var(--muted);">*GWP = global warming potential relative to CO<sub>2</sub> over 100 years. Published values differ slightly by IPCC assessment report; the important point is the order-of-magnitude drop from R-134a to R-1234yf.<sup><a href="#ref-epa-pdf">4</a></sup><sup><a href="#ref-icct">6</a></sup></p>
+
+  <h3>4.2 Policy timeline that created today’s hose confusion</h3>
+  <ol>
+    <li><strong>1987–1989:</strong> Montreal Protocol adopted / enters force — drives CFC-12 out of new mobile A/C.<sup><a href="#ref-icct">6</a></sup></li>
+    <li><strong>Mid-1990s (US):</strong> New vehicles switch to HFC-134a; unique fittings and sky-blue labeling conventions develop so R-12 gear cannot cross-connect.<sup><a href="#ref-epa-fittings">7</a></sup></li>
+    <li><strong>2006:</strong> EU Directive 2006/40/EC (MAC Directive) requires refrigerants with GWP &lt; 150 in new vehicle types (phased: type approval then all new vehicles by 2017).<sup><a href="#ref-eu-mac">5</a></sup><sup><a href="#ref-eu-mac-page">16</a></sup></li>
+    <li><strong>~2006–2010:</strong> Chemical industry races to commercialize HFO-1234yf as a near drop-in thermodynamic replacement that meets GWP &lt; 150.<sup><a href="#ref-icct">6</a></sup></li>
+    <li><strong>2013 (US):</strong> First US models with R-1234yf appear (e.g., Cadillac XTS, Honda Fit EV).<sup><a href="#ref-epa-pdf">4</a></sup></li>
+    <li><strong>2017+:</strong> EU ban on high-GWP MACs in all new cars fully in force; US fleet adoption accelerates via SNAP and GHG credit incentives.<sup><a href="#ref-eu-mac-page">16</a></sup><sup><a href="#ref-epa-accept">1</a></sup></li>
+    <li><strong>~2018 (small cans):</strong> EPA Clean Air Act §608 / related rules push small consumer cans toward <em>self-sealing</em> valves so leftover refrigerant does not vent when the hose is removed.<sup><a href="#ref-fjc-ssv">8</a></sup><sup><a href="#ref-fjc-carb">9</a></sup></li>
+  </ol>
+
+  <h3>4.3 Why left-hand threads exist</h3>
+  <p>EPA requires a unique fitting set for each approved MVAC refrigerant so you cannot accidentally mix gases.<sup><a href="#ref-epa-fittings">7</a></sup> For small cans and cylinders:</p>
+  <ul>
+    <li><strong>R-134a</strong> small cans: 1/2″ (8/16″) × 16 ACME, <strong>right-hand (RH)</strong> thread.<sup><a href="#ref-epa-fittings">7</a></sup></li>
+    <li><strong>R-1234yf</strong> small cans: 1/2″ (8/16″) × 16 ACME, <strong>left-hand (LH)</strong> / reverse thread.<sup><a href="#ref-epa-fittings">7</a></sup></li>
+  </ul>
+  <p>FJC (a major can/tap maker) notes that R-1234yf cans and taps are “righty loosy, lefty tighty” — you screw the can on by turning <em>counterclockwise</em>. The reverse thread is intentional so an R-134a tap physically will not mate.<sup><a href="#ref-fjc-lh">11</a></sup></p>
+
+  <div class="diagram">HISTORY → FITTING DIVERGENCE
+
+  R-12 era          R-134a era              R-1234yf era
+  (flare threads)   (RH ACME cans +         (LH ACME cans +
+                     QC ports ~13/16mm)      QC ports 14/17mm)
+
+       |                  |                        |
+       v                  v                        v
+  Unique fittings   Unique fittings          Unique fittings
+  (EPA SNAP)        (cannot mix R-12)        (cannot mix R-134a)
+
+  Plus (2018+): self-sealing small-can valves (SSV)
+  so hose removal does not vent leftover gas.</div>
+</section>
+
+<section id="car-ports">
+  <h2>5. Connectors on the car: low side vs high side</h2>
+
+  <h3>5.1 What the two ports are</h3>
+  <p>A vapor-compression A/C loop has a suction (low-pressure) side and a discharge (high-pressure) side. Cars provide two capped <em>service ports</em> so shops can attach gauges / recovery machines:</p>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Low side (suction)</th>
+        <th>High side (discharge)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Where it sits</td>
+        <td>On the larger-diameter line between evaporator/accumulator and compressor<sup><a href="#ref-carparts">12</a></sup></td>
+        <td>On the smaller line between compressor and condenser</td>
+      </tr>
+      <tr>
+        <td>Typical DIY use</td>
+        <td><strong>Yes — this is where consumer recharge kits connect</strong><sup><a href="#ref-carparts">12</a></sup></td>
+        <td><strong>No — do not charge DIY cans here</strong> (can / hose rupture risk)<sup><a href="#ref-carparts">12</a></sup></td>
+      </tr>
+      <tr>
+        <td>R-1234yf quick-connect OD (SAE J639 / EPA)</td>
+        <td>~14&nbsp;mm (14 +0/−0.2&nbsp;mm)<sup><a href="#ref-epa-fittings">7</a></sup></td>
+        <td>~17&nbsp;mm (17 +0/−0.2&nbsp;mm)<sup><a href="#ref-epa-fittings">7</a></sup></td>
+      </tr>
+      <tr>
+        <td>R-134a (for contrast)</td>
+        <td>~13&nbsp;mm low / ~16&nbsp;mm high (different sizes on purpose)<sup><a href="#ref-keepincool">13</a></sup></td>
+        <td>Same idea — deliberately non-interchangeable</td>
+      </tr>
+      <tr>
+        <td>Hose color (shop manifold convention)</td>
+        <td>Blue<sup><a href="#ref-j2888">14</a></sup></td>
+        <td>Red<sup><a href="#ref-j2888">14</a></sup></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="warn-box">
+    <strong>Important clarification.</strong> “Low side” and “high side” are not two different “intake” styles for DIY cans. They are two pressure regions of the same loop. Consumer kits are built with a <em>low-side-only</em> quick coupler sized for ~14&nbsp;mm R-1234yf. The coupler is designed so it will not seat on the high-side port.<sup><a href="#ref-carparts">12</a></sup>
+  </div>
+
+  <h3>5.2 Car ports are quick-connects, not can threads</h3>
+  <p>The LH/RH ACME debate applies to the <em>can end</em> of the hose (and to bulk cylinders). The <em>car end</em> is a spring-collar quick coupler that snaps onto the vehicle service fitting per SAE J639 / J2888.<sup><a href="#ref-epa-fittings">7</a></sup><sup><a href="#ref-j2888">14</a></sup> Mastercool’s common DIY coupler is described as 12&nbsp;mm-F × 14&nbsp;mm for the low side.<sup><a href="#ref-mc-kit">15</a></sup></p>
+
+  <div class="diagram">CAR SERVICE PORTS (R-1234yf)
+
+   [Evaporator] ----large tube----(LOW 14mm QC)----> [Compressor]
+                                                         |
+                                                         v
+   [Condenser]  <---small tube----(HIGH 17mm QC)---------
+
+   DIY can hose:  ONLY attach to LOW 14mm
+   Shop gauges:   may attach both (red=high, blue=low)</div>
+</section>
+
+<section id="cans">
+  <h2>6. Can types: puncture vs self-sealing; LH vs RH</h2>
+
+  <h3>6.1 Puncture (piercing) cans — legacy</h3>
+  <p>Older small cans had a thin metal membrane in the center of the threaded neck. A piercing tap permanently punches through that membrane. Once pierced, leftover refrigerant vents if you remove the tap; the can is effectively single-use.<sup><a href="#ref-fjc-ssv">8</a></sup></p>
+  <ul>
+    <li>Tap body is typically hollow with a sharp pin.</li>
+    <li>Still appears in some import / older inventory; Mastercool still catalogs a piercing YF kit (<code>85525-YF</code>) separate from the self-sealing kit.<sup><a href="#ref-mc-pierce">17</a></sup></li>
+  </ul>
+
+  <h3>6.2 Self-sealing (SSV / resealable) cans — current US norm</h3>
+  <p>Modern cans replace the foil with an internal spring-loaded valve (Schrader-like). The tap’s actuator <em>depresses</em> that valve; when you remove the tap, the valve reseals so unused refrigerant stays in the can for later.<sup><a href="#ref-fjc-ssv">8</a></sup><sup><a href="#ref-fjc-carb">9</a></sup></p>
+  <ul>
+    <li>Driven by EPA Clean Air Act §608 small-can rules and related CARB-style requirements for higher-GWP products; industry practice migrated consumer cans to SSV broadly.<sup><a href="#ref-fjc-carb">9</a></sup><sup><a href="#ref-gpd">10</a></sup></li>
+    <li><strong>ZeroR’s product title literally says “SSV Can with Reverse-Thread Design”</strong> — SSV = self-sealing valve.<sup><a href="#ref-zeror">18</a></sup><sup><a href="#ref-carkart">19</a></sup></li>
+  </ul>
+
+  <div class="success-box">
+    <strong>Correction to the shopping assumption.</strong> The cans you linked are self-sealing, not puncture cans. A hose described as having a “self-sealing can opener tap” is the right <em>category</em> for ZeroR SSV — not a mismatch.
+  </div>
+
+  <h3>6.3 Why the wrong tap fails</h3>
+  <p>FJC and Global Parts (GPD) both stress that puncture taps and self-sealing taps look similar from the outside but have incompatible actuators. Using the wrong tap can fail to open the can, damage the seal, or leak.<sup><a href="#ref-fjc-ssv">8</a></sup><sup><a href="#ref-gpd">10</a></sup></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Can style</th>
+        <th>Correct tap</th>
+        <th>Wrong tap outcome</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Puncture / pierce</td>
+        <td>Piercing pin tap (e.g. Mastercool 85510-YF family)<sup><a href="#ref-mc-pierce">17</a></sup></td>
+        <td>Self-sealing depressor may not pierce membrane</td>
+      </tr>
+      <tr>
+        <td>Self-sealing / SSV / reusable</td>
+        <td>Depressor / self-sealing tap (e.g. Mastercool 85512-YF)<sup><a href="#ref-mc-tap">20</a></sup></td>
+        <td>Piercing tap can ruin the valve / leak</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>6.4 Left-hand vs right-hand tops</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Thread</th>
+        <th>Refrigerant cans</th>
+        <th>How you tighten</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>RH</strong> (right-hand / normal)</td>
+        <td>R-134a small cans &amp; taps<sup><a href="#ref-epa-fittings">7</a></sup><sup><a href="#ref-gpd">10</a></sup></td>
+        <td>Clockwise (“righty tighty”)</td>
+        <td>Will <em>not</em> screw onto R-1234yf cans<sup><a href="#ref-fjc-lh">11</a></sup></td>
+      </tr>
+      <tr>
+        <td><strong>LH</strong> (left-hand / reverse)</td>
+        <td>R-1234yf small cans &amp; taps<sup><a href="#ref-epa-fittings">7</a></sup></td>
+        <td>Counterclockwise to attach<sup><a href="#ref-mc-tap-inst">21</a></sup><sup><a href="#ref-fjc-lh">11</a></sup></td>
+        <td>Look for “LH” stamped on quality taps<sup><a href="#ref-fjc-lh">11</a></sup></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>When listings mention “RH couplings,” they are usually talking about <em>R-134a</em> gear, adapters for shop manifolds, or confused marketplace copy. For your ZeroR cans you want <strong>1/2″ ACME LH</strong> on the can end — period.<sup><a href="#ref-epa-fittings">7</a></sup><sup><a href="#ref-gpd">10</a></sup></p>
+</section>
+
+<section id="hoses">
+  <h2>7. Hose kits: anatomy of the dominant listing</h2>
+
+  <p>A typical consumer “R1234YF Refrigerant Charge Hose Kit with Gauge” is three ideas bolted together:</p>
+
+  <div class="diagram">TYPICAL DIY YF CHARGE HOSE
+
+  [ZeroR SSV can]
+         |
+         |  1/2" ACME  LEFT-HAND  thread
+         |  + self-sealing DEPRESSOR tap
+         |  (turn can on counterclockwise;
+         |   turn knob to open valve)
+         v
+  [Short hose + optional 0–200 PSI gauge]
+         |
+         |  blue hose (low-side convention)
+         v
+  [R-1234yf LOW-SIDE quick coupler ~14mm]
+         |
+         v
+  [Car low-side service port]
+
+  NOT included / NOT used for DIY can charging:
+  [High-side 17mm coupler]  ← shop diagnostics only</div>
+
+  <h3>7.1 Piece-by-piece</h3>
+  <ol>
+    <li><strong>Can tap (can opener).</strong> For ZeroR: self-sealing / depressor style, 1/2″ ACME LH, SAE J2844 family.<sup><a href="#ref-mc-tap">20</a></sup><sup><a href="#ref-mc-tap-inst">21</a></sup> Fanovo’s product notes explicitly: their 1/2″ ACME LH self-sealing tap is for self-sealing cans only — not puncture cans.<sup><a href="#ref-fanovo">22</a></sup></li>
+    <li><strong>Hose.</strong> Short (often ~15–24″) service hose rated for automotive AC pressure; consumer kits often quote 600–3000&nbsp;PSI burst ratings.<sup><a href="#ref-fanovo">22</a></sup><sup><a href="#ref-carparts">12</a></sup></li>
+    <li><strong>Gauge.</strong> Usually a low-side pressure gauge to stay in a “green” band. Useful as a rough guide; weight charge from the hood label is still the gold standard.</li>
+    <li><strong>Low-side coupler.</strong> 14&nbsp;mm R-1234yf quick connect with sliding collar / auto shutoff. This is the “R1234YF Low Side” half of the listing title.<sup><a href="#ref-mc-kit">15</a></sup></li>
+  </ol>
+
+  <h3>7.2 Reference professional kit (known-good anatomy)</h3>
+  <p>Mastercool <code>85535-YF</code> (self-sealing design recharge kit) packages exactly this pattern: 85512-YF self-sealing LH tap + 18″ blue hose + 67534 low-side 14&nbsp;mm coupler.<sup><a href="#ref-mc-kit">15</a></sup> Their piercing counterpart is <code>85525-YF</code> — same car coupler, different can tap.<sup><a href="#ref-mc-pierce">17</a></sup> If Amazon generic kits feel sketchy, buying the Mastercool self-sealing kit (or ZeroR’s own branded hose kit) is the lower-ambiguity path.</p>
+
+  <h3>7.3 What “seal sealing can opener” language means</h3>
+  <p>Marketplace English is messy. Phrases like “seal sealing,” “self sealing can opener tap,” or “SSV tap” all point at the <em>depressor</em> that opens a resealable can valve — not a rubber seal glued onto a puncture pin. For ZeroR SSV cans, that language is what you want.<sup><a href="#ref-fanovo">22</a></sup><sup><a href="#ref-zeror">18</a></sup></p>
+</section>
+
+<section id="verdict">
+  <h2>8. Direct answers to the hose confusion</h2>
+
+  <div class="callout-answer">
+    <p><strong>Q: Are ZeroR cans self-sealing?</strong><br>
+    <span class="pro">Yes.</span> The Amazon title and reseller specs call them SSV (self-sealing valve) with reverse thread.<sup><a href="#ref-zeror">18</a></sup><sup><a href="#ref-carkart">19</a></sup></p>
+  </div>
+  <div class="callout-answer">
+    <p><strong>Q: Is the dominant “1/2 Acme LH … Self-Sealing Can Tap + R1234YF Low Side” hose correct?</strong><br>
+    <span class="pro">Yes — that is the matching hose family.</span> Confirm the listing says self-sealing (not puncture/piercing) and LH (not RH / R134a).</p>
+  </div>
+  <div class="callout-answer">
+    <p><strong>Q: What about RH couplings?</strong><br>
+    RH ACME is the R-134a can standard.<sup><a href="#ref-epa-fittings">7</a></sup> Skip RH can taps for this job. Car ports themselves are quick-connects (14/17&nbsp;mm), not RH/LH ACME.</p>
+  </div>
+  <div class="callout-answer">
+    <p><strong>Q: Are low and high side two different “intakes” for cans?</strong><br>
+    No. DIY cans go on the <em>low</em> side only. High side is for professional diagnosis / recovery.<sup><a href="#ref-carparts">12</a></sup></p>
+  </div>
+  <div class="callout-answer">
+    <p><strong>Q: Does Supercool 39241B-YF replace the refrigerant hose?</strong><br>
+    It includes its <em>own</em> R-1234yf applicator hose for injecting leak stop + UV dye — it does <em>not</em> replace a refrigerant charge hose for ZeroR cans.<sup><a href="#ref-supercool">23</a></sup><sup><a href="#ref-autozone-sc">24</a></sup> You still need a separate SSV LH charge hose (unless you buy a combo kit that already includes one).</p>
+  </div>
+</section>
+
+<section id="shopping">
+  <h2>9. Specific products under consideration</h2>
+
+  <h3>9.1 Refrigerant — ZeroR Genuine R1234YF (planned)</h3>
+  <table>
+    <thead>
+      <tr><th>Field</th><th>Detail</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Listing</td><td><a href="https://www.amazon.com/ZeroR%C2%AE-Genuine-R1234YF-ZeroR-Service/dp/B0DJ17MR7Q">Amazon B0DJ17MR7Q</a> — ZeroR Genuine R1234YF, 8&nbsp;oz cans (often sold as multi-packs)<sup><a href="#ref-zeror">18</a></sup></td></tr>
+      <tr><td>Valve</td><td>SSV (self-sealing)<sup><a href="#ref-zeror">18</a></sup><sup><a href="#ref-carkart">19</a></sup></td></tr>
+      <tr><td>Thread</td><td>Reverse / LH 1/2″ ACME — attach counterclockwise<sup><a href="#ref-zeror">18</a></sup></td></tr>
+      <tr><td>Notes</td><td>Filled by weight; do not judge fullness by shake. Mildly flammable — store cool, away from ignition.<sup><a href="#ref-carkart">19</a></sup> Most cars need more than one 8&nbsp;oz can for a meaningful top-off; check hood label capacity.</td></tr>
+      <tr><td>Hose needed?</td><td><strong>Yes</strong> — separate self-sealing LH + low-side YF hose (unless you buy ZeroR’s kit that bundles a can tap/gauge).</td></tr>
+    </tbody>
+  </table>
+
+  <h3>9.2 Charge hose — dominant generic pattern (recommended category)</h3>
+  <table>
+    <thead>
+      <tr><th>Must-have specs</th><th>Why</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>R-1234yf only (not R-134a)</td><td>14&nbsp;mm coupler + LH can thread</td></tr>
+      <tr><td>1/2″ ACME <strong>LH</strong> can tap</td><td>Matches ZeroR / EPA YF can fitting<sup><a href="#ref-epa-fittings">7</a></sup></td></tr>
+      <tr><td><strong>Self-sealing / depressor</strong> tap (not puncture)</td><td>Matches SSV cans<sup><a href="#ref-fanovo">22</a></sup><sup><a href="#ref-mc-kit">15</a></sup></td></tr>
+      <tr><td>R-1234yf <strong>low-side</strong> quick coupler</td><td>Car connection<sup><a href="#ref-mc-kit">15</a></sup></td></tr>
+      <tr><td>Gauge (nice-to-have)</td><td>Rough pressure feedback</td></tr>
+    </tbody>
+  </table>
+  <p><span class="pro">Preferred known brand equivalent:</span> Mastercool <code>85535-YF</code> self-sealing recharge kit.<sup><a href="#ref-mc-kit">15</a></sup><br>
+  <span class="con">Avoid:</span> Mastercool <code>85525-YF</code> piercing kit (wrong tap for ZeroR SSV),<sup><a href="#ref-mc-pierce">17</a></sup> and any R-134a RH hose.</p>
+
+  <h3>9.3 Leak stop + UV dye options</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Delivery / form</th>
+        <th>Hose included?</th>
+        <th>Fit with your plan</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>TSI Supercool 39241B-YF</strong> Total Leak Stop + UV Dye<sup><a href="#ref-supercool">23</a></sup></td>
+        <td>~1&nbsp;oz BOV aerosol can; YF-only</td>
+        <td><span class="pro">Yes</span> — dedicated R-1234yf quick-connect applicator hose<sup><a href="#ref-autozone-sc">24</a></sup></td>
+        <td>Good if Prime/2-day available. Non-polymer claim; treats 1 vehicle; not for R-134a. Does <em>not</em> charge refrigerant.</td>
+      </tr>
+      <tr>
+        <td><strong>BlueSeal A/C Stop Leak for R-1234yf</strong> — 0.65&nbsp;oz syringe <em>with applicator</em><sup><a href="#ref-blueseal">25</a></sup></td>
+        <td>Syringe + YF applicator</td>
+        <td><span class="pro">Yes</span> (applicator included on this SKU)</td>
+        <td>Best BlueSeal pick under 2-day constraint if listed. Non-polymer; UV dye; Made in USA marketing.</td>
+      </tr>
+      <tr>
+        <td><strong>BlueSeal A/C Stop Leak</strong> — same chemistry, <em>no</em> applicator / refill syringe<sup><a href="#ref-blueseal">25</a></sup></td>
+        <td>0.65&nbsp;oz refill syringe</td>
+        <td><span class="con">No</span></td>
+        <td>Only buy if you already have (or simultaneously buy) the YF applicator. Refill alone cannot inject into the low-side port.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="warn-box">
+    <strong>Stop-leak realism.</strong> These products target small leaks in metal/rubber (O-rings, hoses, evaporator micro-leaks). If the system is empty, the compressor will not pull refrigerant, or pressures never stabilize, you likely need a shop vacuum / leak repair — not more cans.<sup><a href="#ref-carparts">12</a></sup>
+  </div>
+</section>
+
+<section id="buy-list">
+  <h2>10. Recommended buy list (within ~2-day delivery)</h2>
+
+  <div class="shop-box">
+    <h3 style="margin-top:0;">Cart A — Minimum that matches your cans</h3>
+    <ol>
+      <li><strong>ZeroR Genuine R1234YF</strong> SSV cans (your linked ASIN) — buy enough ounces for a partial top-off per hood label (often 2–3× 8&nbsp;oz for a weak system, but do not overcharge).<sup><a href="#ref-zeror">18</a></sup></li>
+      <li><strong>One</strong> R-1234yf charge hose kit: <em>1/2″ ACME LH + self-sealing tap + 14&nbsp;mm low-side coupler + gauge</em> — or Mastercool 85535-YF if available for 2-day.</li>
+    </ol>
+  </div>
+
+  <div class="shop-box">
+    <h3 style="margin-top:0;">Cart B — Add leak stop (pick one)</h3>
+    <ul>
+      <li><strong>Preferred if in stock for 2-day:</strong> TSI Supercool <code>39241B-YF</code> (hose included) <em>or</em> BlueSeal R-1234yf syringe <em>with applicator</em>.</li>
+      <li><strong>Avoid alone:</strong> BlueSeal refill syringe without applicator.</li>
+    </ul>
+  </div>
+
+  <div class="shop-box">
+    <h3 style="margin-top:0;">Optional convenience</h3>
+    <ul>
+      <li>ZeroR’s own “can + HD can tap gauge” bundle listings (if cheaper than buying hose separately) — still verify SSV + LH + YF low-side coupler in the description.</li>
+      <li>Nitrile gloves + safety glasses (A2L refrigerant; pressurized system).</li>
+    </ul>
+  </div>
+
+  <h3>Compatibility checklist before clicking Buy</h3>
+  <table>
+    <thead>
+      <tr><th>Check</th><th>Pass condition</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Hood sticker</td><td>Says R-1234yf / HFO-1234yf</td></tr>
+      <tr><td>Can</td><td>SSV / self-sealing + reverse/LH thread</td></tr>
+      <tr><td>Hose can end</td><td>1/2″ ACME LH self-sealing tap</td></tr>
+      <tr><td>Hose car end</td><td>R-1234yf low-side (~14&nbsp;mm) coupler</td></tr>
+      <tr><td>Leak stop</td><td>Explicitly R-1234yf (not R-134a-only)</td></tr>
+      <tr><td>Leak stop applicator</td><td>Included, or you already own YF coupler/hose</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="workflow">
+  <h2>11. DIY workflow (high level)</h2>
+  <div class="diagram">ORDER OF OPERATIONS (simplified)
+
+  1. Confirm hood label = R-1234yf
+  2. (Optional) Inject leak stop / dye first with its own YF hose
+       - engine on, A/C max cold / max fan, compressor clutched in
+       - low-side port only
+  3. Attach refrigerant hose tap to ZeroR can
+       - screw can ON counterclockwise (LH)
+       - open tap per instructions; purge air from hose once
+  4. Clip low-side coupler onto car low-side port
+  5. Meter in refrigerant (can upright or per can instructions;
+       watch gauge / weight — do not overfill)
+  6. Close tap, disconnect coupler, recap port
+  7. Remaining SSV can refrigerant stays sealed for later
+
+  STOP and go to a shop if:
+  - system is fully empty / compressor never engages
+  - you hear major hissing / visible oil stains at joints
+  - pressures never enter a normal band</div>
+
+  <div class="warn-box">
+    Mastercool’s self-sealing tap instructions are representative: connect tap to hose, attach can by turning counterclockwise, turn handle clockwise to depress the can valve, purge hose air on first use, then connect the low-side coupler.<sup><a href="#ref-mc-tap-inst">21</a></sup>
+  </div>
+</section>
+
+<section id="conclusion">
+  <h2>12. Conclusion</h2>
+  <div class="conclusion-box">
+    <p>Automotive A/C fittings are deliberately incompatible across refrigerant generations so that R-12, R-134a, and R-1234yf never mix. That history is why your ZeroR cans use <strong>left-hand 1/2″ ACME self-sealing (SSV)</strong> tops, why the car has a <strong>14&nbsp;mm low-side</strong> quick coupler, and why the “dominant” Amazon hose listing is not a random accessory — it is the consumer packaging of SAE/EPA unique-fitting rules.</p>
+    <p style="margin-bottom:0;"><strong>Buy:</strong> ZeroR SSV cans + one LH self-sealing YF low-side charge hose (gauge preferred) + one YF leak-stop product that includes its applicator (Supercool 39241B-YF or BlueSeal syringe-with-applicator). <strong>Skip:</strong> puncture taps, RH/R-134a hoses, BlueSeal refill-without-applicator as a standalone, and any plan to charge the high-side port.</p>
+  </div>
+
+  <h3>Further research questions</h3>
+  <ul>
+    <li>For a specific vehicle year/make/model: exact factory charge weight, oil type (PAG vs POE), and low-side pressure vs ambient temperature chart for R-1234yf.</li>
+    <li>When is vacuum + micron gauge + shop recovery legally/ practically required vs DIY top-off?</li>
+    <li>Comparative lab evidence among non-polymer stop-leaks (BlueSeal vs Supercool vs A/C Pro Super Seal) on evaporator micro-leaks.</li>
+    <li>Hybrid/electric compressor oil compatibility caveats for aftermarket additives.</li>
+  </ul>
+</section>
+
+<section id="references">
+  <h2>13. References</h2>
+  <ol class="ref-list">
+    <li id="ref-epa-accept">U.S. EPA. “Acceptable Refrigerants and their Impacts” (MVAC). <a href="https://www.epa.gov/mvac/acceptable-refrigerants-and-their-impacts">epa.gov/mvac/acceptable-refrigerants-and-their-impacts</a>.</li>
+    <li id="ref-arctick">Australian Refrigeration Council. “R1234yf Refrigerant.” <a href="http://www.arctick.org/information/autogas/r1234yf-refrigerant/">arctick.org</a>.</li>
+    <li id="ref-epa-transition">U.S. EPA. “Transitioning to Low-GWP Alternatives in Motor Vehicle Air Conditioning Systems.” <a href="https://www.epa.gov/sites/default/files/2015-07/documents/transitioning_to_low-gwp_alternatives_in_motor_vehicle_air_conditioning_systems.pdf">PDF</a>.</li>
+    <li id="ref-epa-pdf">U.S. EPA. “Transition to Low-GWP Alternatives in Passenger Vehicle Air Conditioners” (EPA 430-F-14-021, Sept 2015). <a href="https://www.epa.gov/sites/default/files/2015-09/documents/epa_hfc_passenger_vehicle_ac.pdf">PDF</a>.</li>
+    <li id="ref-eu-mac">Directive 2006/40/EC (MAC Directive). <a href="https://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2006:161:0012:0018:EN:PDF">EUR-Lex PDF</a>.</li>
+    <li id="ref-icct">ICCT. “Mobile air conditioning: life-cycle costs and greenhouse-gas benefits…” (2019). <a href="https://theicct.org/wp-content/uploads/2021/06/ICCT_mobile-air-cond_CBE_201903.pdf">PDF</a>.</li>
+    <li id="ref-epa-fittings">U.S. EPA. “Unique Fittings and Label Colors.” <a href="https://www.epa.gov/mvac/unique-fittings-and-label-colors">epa.gov/mvac/unique-fittings-and-label-colors</a>.</li>
+    <li id="ref-fjc-ssv">FJC Inc. “Self-Sealing vs Puncture Style Cans.” <a href="https://fjcinc.com/self-sealing-vs-puncture-style-refrigerant-cans-and-accessories/">fjcinc.com</a>.</li>
+    <li id="ref-fjc-carb">FJC Inc. “Understanding EPA-Mandated Self-Sealing Refrigerant Cans…” <a href="https://fjcinc.com/understanding-epa-mandated-self-sealing-refrigerant-cans-and-dispensing-equipment/">fjcinc.com</a>.</li>
+    <li id="ref-gpd">Global Parts Distributors. Tech Tip 109 — Refrigerant Can Taps, Sockets, and Adapters (notes LH for R-1234yf, RH for R-134a). <a href="https://www.gpdtechtips.com/uploads/8/2/8/2/82823116/gpd_tech_tip_109-tools-refrigerant-r12-r134a-r1234yf-can_tap_socket_adapters-gpd_solution.pdf">PDF</a>.</li>
+    <li id="ref-fjc-lh">FJC Inc. “Righty Tighty, Lefty Loosy? Not for R-1234yf!” <a href="https://fjcinc.com/righty-tighty-lefty-loosy-not-for-r-1234yf/">fjcinc.com</a>.</li>
+    <li id="ref-carparts">CarParts.com. “How to Connect a Refrigerant Hose to Your Car AC” (low-side only; YF vs 134a). <a href="https://www.carparts.com/blog/how-to-connect-a-refrigerant-hose-to-your-car-ac-a-diy-guide-quickref/">carparts.com</a>.</li>
+    <li id="ref-keepincool">Keepin Cool Auto Air. “R-134a vs R-1234yf Car Air Conditioning Fittings.” <a href="https://keepincool.com.au/r-134a-vs-r-1234yf-car-ac-fittings/">keepincool.com.au</a>.</li>
+    <li id="ref-j2888">SAE J2888 summary materials — HFO-1234yf service hose/fittings/couplers (blue low / red high / yellow supply with 1/2″ ACME LH). See also Mastercool coupler catalog notes citing J639 &amp; J2888.</li>
+    <li id="ref-mc-kit">Mastercool. Product 85535-YF — R1234yf self-sealing design recharge kit. <a href="https://mastercool.com/product/85535-yf-r1234yf-recharge-kit-depressor-design/">mastercool.com</a>.</li>
+    <li id="ref-eu-mac-page">European Commission. “Mobile air-conditioning systems (MACs).” <a href="https://single-market-economy.ec.europa.eu/sectors/automotive-industry/environmental-protection/mobile-air-conditioning-systems-macs_en">single-market-economy.ec.europa.eu</a>.</li>
+    <li id="ref-mc-pierce">Mastercool. Product 85525-YF — R1234yf piercing design recharge kit. <a href="https://mastercool.com/product/85525-yf-r1234yf-piercing-design-recharge-kit/">mastercool.com</a>.</li>
+    <li id="ref-zeror">Amazon listing: ZeroR Genuine R1234YF SSV Can with Reverse-Thread Design (ASIN B0DJ17MR7Q). <a href="https://www.amazon.com/ZeroR%C2%AE-Genuine-R1234YF-ZeroR-Service/dp/B0DJ17MR7Q">amazon.com</a>.</li>
+    <li id="ref-carkart">Carkart. “ZeroR R1234YF Refrigerant 8oz SSV Cans” product notes (self-sealing; reverse thread; counterclockwise). <a href="https://carkart.com/products/zeror-genuine-r1234yf-in-8oz-ssv-cans-cans-with-zeror-service-label-2-cans">carkart.com</a>.</li>
+    <li id="ref-mc-tap">Mastercool. Product 85512-YF — 1/2″ ACME-LH self-sealing can tap valve (SAE J2844). <a href="https://mastercool.com/product/85511-yf-r1234yf-1-2-inch-acme-lh-thread-self-sealing-can-tap-valve/">mastercool.com</a>.</li>
+    <li id="ref-mc-tap-inst">Mastercool. 85512-YF installation sheet (counterclockwise can attach). <a href="https://mastercool.com/wp-content/uploads/bsk-pdf-manager/2020/02/85512-YF-INST.pdf">PDF</a>.</li>
+    <li id="ref-fanovo">Fanovo. “R1234YF Refrigerant Charge Hose… 1/2″ Acme LH Self-Sealing Can Tap” (explicitly not for puncture cans). <a href="https://fanovo.com/products/r1234yf-refrigerant-charge-hose-with-gauge-kit-r1234yf-low-side-quick-coupler-adapter-1-2-acme-lh-self-sealing-can-tap-opener/">fanovo.com</a>.</li>
+    <li id="ref-supercool">TSI Supercool. “1234yf Total Leak Stop + UV Dye with Applicator Hose” PN 39241B-YF. <a href="https://supercool.ac/product/1234yf-total-leak-stop-uv-dye-with-applicator-hose-in-retail-box/">supercool.ac</a>.</li>
+    <li id="ref-autozone-sc">AutoZone. Supercool 1234yf Leak Stop with UV Dye 1oz (39241B-YF) — includes YF application hose. <a href="https://www.autozone.com/a-c-charging-and-refrigerant/a-c-stop-leak/p/supercool-1234yf-leak-stop-with-uv-dye-1oz/1052002_0_0">autozone.com</a>.</li>
+    <li id="ref-blueseal">BlueSeal Technologies product catalog — “A/C Stop Leak for 1234yf — Syringe w/Applicator” vs refill SKUs. <a href="https://www.goblueseal.com/">goblueseal.com</a>.</li>
+  </ol>
+</section>
+
+<footer>
+  <p>Research-Bot report — R-1234yf recharge hose &amp; cans shopping guide. Compiled July 2026 from EPA, SAE-facing manufacturer docs, EU MAC Directive materials, and vendor product specifications. Not professional A/C service advice.</p>
+</footer>
+
+</div>
+</body>
+</html>
