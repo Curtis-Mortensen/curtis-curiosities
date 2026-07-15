@@ -1,0 +1,13 @@
+source "https://rubygems.org"
+
+# Minimal Rails travel-log site (no DB for phase 1 — filesystem / stubs only).
+gem "rails", "~> 7.2.3", ">= 7.2.3.1"
+gem "sprockets-rails"
+gem "puma", ">= 5.0"
+gem "tzinfo-data", platforms: %i[ windows jruby ]
+gem "bootsnap", require: false
+
+group :development do
+  gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
+  gem "web-console"
+end

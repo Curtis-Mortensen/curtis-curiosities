@@ -25,6 +25,59 @@ User found a Ford Edge at Vectra (~$7k / ~137k miles) and asked for other Ford E
 
 ### Bugs / problems
 - Cars.com / KSL zip searches and CarGurus HTML often blocked or timed out; used dealer sites + KSL individual listings + AutosToday + CarGurus SERP snippets.
+## 2026-07-13 — Utah credit unions vs MACU: out-of-state branches & everyday loans (complete)
+
+### Plan summary
+User asked for a good Utah credit union with coverage outside Utah, whether any beat MACU, with good willingness to finance everyday uses; branch locations prioritized over complex products. Followed Research-Bot instructions: precursor questions, web research, self-contained HTML with aims/limitations/history/citations/conclusion.
+
+### Precursor / subset questions
+1. Owned branches vs Shared Branch vs ATM networks
+2. MACU state-by-state footprint
+3. America First / Goldenwest / Chartway / mid-size CU comparison
+4. Which CUs still use CO-OP Shared Branching
+5. Everyday auto + personal loan willingness signals
+
+### Key findings
+- MACU ~109 branches (CREHQ): UT 78, ID 12, AZ 12, NV 5, MT 2 → ~31 outside Utah; still top-tier Intermountain owned footprint.
+- America First ~123 (CREHQ): UT 94, NV 18, AZ 7, ID 2, CA 1, NM 1 → ~29 outside Utah; beats MACU in Nevada; AZ expanding +8 through 2027.
+- MACU no longer participates in Shared Branching; Utah First, Goldenwest, Cyprus, Deseret First still market ~5,000–6,000 shared teller locations nationwide — those beat MACU on true national branch access.
+- Everyday lending: MACU + AFCU are regional auto heavyweights; Utah First markets personal loans with “strives to say yes.”
+
+### Changes made
+- Created `Research-Bot/utah-credit-unions-vs-macu-branch-coverage.html`
+- Dev-log entry
+
+### Assumptions
+- CREHQ mid-2026 counts preferred over marketing “100+” language when they conflict mildly.
+- AFCU does not clearly market Shared Branch for members (ATMs yes); treated like owned-branch model unless member services says otherwise.
+- “Willingness” inferred from products/marketing, not underwriting matrices.
+
+### Bugs / problems
+- Exact Shared Branch member-side status for AFCU not confirmed on a dedicated FAQ (unlike MACU’s explicit exit notice).
+- Branch counts can differ by a few depending on Walmart/ITM counting conventions.
+## 2026-07-14 — Company Scaling Books Overview (complete)
+
+### Plan summary
+User asked for a four-part research overview of nine company-building/scaling books (Traction/Wickman, E-Myth/Gerber, Scaling Up/Harnish, High Growth Handbook/Gil, Scaling People/Johnson, Who/Smart, Team Topologies/Skelton, Rocket Fuel/Wickman, High Output Management/Grove), following Research Bot HTML report guidance.
+
+### Precursor / subset questions
+1. What lineages of “scaling” philosophy do these books represent historically?
+2. What is each book’s publication date, audience, and chapter coverage?
+3. What do they advise on first hires, early definition, and growth planning?
+4. Where is there consensus vs. disagreement across the set?
+
+### Key findings
+- Four lineages: industrial managerial leverage (Grove 1983) → franchise/systems SMB (Gerber 1986/1995) → entrepreneurial OSs for mid-market (Wickman/Harnish/Smart 2007–15) → SV hypergrowth + team-flow (Gil/Skelton/CHJ 2018–23).
+- Consensus: structure before personalities; people quality compounds; outcome clarity; cadence; founder role must change; pick one coherent OS.
+- Splits: systems-learners vs A-players; EOS simplicity vs Scaling Up breadth; Integrator essential vs optional COO bench; company OS vs team topology; cash/speed assumptions.
+
+### Changes made
+- Created `Research-Bot/company-scaling-books-overview.html` (aims, limitations, history, Parts 1–4, conclusion, references).
+- Dev-log entry.
+
+### Assumptions
+- Used commonly cited editions for chapter lists; relied on publisher pages, archive metadata, and reputable summaries rather than full page-by-page rereads in-session.
+- “Scaling People” detailed chapter subheads drawn from publisher/summary TOCs.
 
 ### Status
 **Complete**
@@ -45,6 +98,25 @@ User asked which compact SUVs are most popular in the ~$10k range and what years
 ### Changes made
 - Expanded `Research-Bot/slc-10k-used-cars-mpg-loan-math.html` with compact SUV section, mileage bands, local snapshots, refs 19–28.
 - Updated aims, TOC, quick verdict, conclusion, further questions.
+## 2026-07-13 — Tour map under-$1k budget filter (complete)
+
+### Plan summary
+User asked for prices on the proximity tour stops; anything over $1,000 should be crossed out but kept for reference.
+
+### Under-$1k still live (tour priority)
+- Parkway multiplexes 2BR ~$835–$925
+- Lakecrest 2BR ~$950–$995
+- Lake Park ~$885 only if old RPM ad still live (current Nestwell ~$1,050+ struck)
+- Enclave 1BR from ~$999 (higher plans struck)
+- The Redwood studio ~$849–$899 / 1BR ~$949 (upper 1BR ~$1,069 struck)
+- Decker Lake complex: list rents struck; promo effective ~$993 only if still offered
+
+### Over $1k (kept, struck)
+H2O (~$1,495+), Decker Station (~$1,075+), Lake Park Cir (~$1,200), 4168 W 3280 S (~$1,095), Shadowbrook (~$1,099+)
+
+### Changes made
+- Tour §7A price column + strike-through CSS / over-budget rows; under-$1k loop callout; diagram + tip refreshed.
+- Dev-log entry.
 
 ### Status
 **Complete**
@@ -81,6 +153,40 @@ Follow-up expansion to the first-time used-car survey: focus on ~$10k cars near 
 ### Bugs / problems
 - KSL zip search and Cars.com max-price search timed out; used iSeeCars dealer pages + individual KSL listing fetches.
 - Vectra own inventory URL returned empty “not found” shell; relied on iSeeCars + KSL.
+## 2026-07-13 — Tour-day proximity map near Decker Lake (complete)
+
+### Plan summary
+User touring today; asked for next-closest housing after Decker Lake so they can hit multiple nearby stops. Added proximity-ranked tour map with addresses/phones and a suggested driving loop.
+
+### Key tour stops (nearest first)
+1. H2O Townhomes (2882 S Big Wave) — across street from park; premium ~$1,495+
+2. Decker Station (3058 Decker Lake Dr) — TRAX adjacent
+3. Apartments at Decker Lake (2184 W 3100 S) — booked tour likely
+4–8. Lakecrest / Lake Park / Parkway multiplexes — cheapest near-park whole units; Nestwell (801) 396-9288, RPM (801) 363-7368
+9–11. Enclave → Shadowbrook → The Redwood on Redwood Rd south
+
+### Changes made
+- Updated `decker-lake-west-valley-housing-prices.html` with §7A tour-day proximity map + phones + refs.
+- Dev-log entry.
+
+### Status
+**Complete**
+
+---
+
+## 2026-07-11 — Decker Lake housing update: IF/Mesa trends + second deal pass (complete)
+
+### Plan summary
+Follow-up: rents feel high vs Idaho Falls and Mesa. Add lighter historical average-rent comparison across WVC/SLC, Idaho Falls, and Mesa; note SLC drivers. Second listing pass for better deals; Tooele too far; Magna/South Jordan etc OK; ~20 min acceptable, closer ideal. Update near + further sections in existing HTML.
+
+### Key findings (update)
+- **ZORI 2026:** WVC ~$1,575 ≈ Mesa ~$1,554; Idaho Falls ~$1,315 (~$260 cheaper). IF 1BR avg ~$850 vs WVC ~$1,150–$1,250.
+- **SLC drivers:** Silicon Slopes demand, structural shortage, 2022 spike, then multifamily oversupply cooling into 2025–26; pipeline shrinking → possible rent re-acceleration.
+- **Second-pass deals:** Lakecrest Chesterfield 2BR ~$950–$995 (near park); Magna 2BR duplex ~$1,095; Lake Park now ~$1,050–$1,095 (earlier $885 likely gone). Magna $800–$850 and The Redwood ~$849 still best expanded floors. South Jordan averages higher (ZORI ~$1,913) — not a bargain direction.
+
+### Changes made
+- Updated `Research-Bot/decker-lake-west-valley-housing-prices.html` — new §5 three-city trends, tightened to ~20 min, second-pass section, refreshed rankings/conclusion/refs.
+- Updated this dev-log.
 
 ### Status
 **Complete**
@@ -121,6 +227,42 @@ User researching first-time car buying near West Jordan / West Valley City: whic
 ### Bugs / problems
 - Ken Garff Used inventory URL 404/timeout; Image Auto homepage timed out—profiled from secondary sources and brand pages.
 - CarMax Utah search returned network-wide listings; used Escape/Camry as representative fixed-price samples and noted fee exclusions.
+## 2026-07-11 — Decker Lake / West Valley Housing Price Comparison (complete)
+
+### Plan summary
+User looking at SLC housing near a friend who works by Decker Lake Park (West Valley City). Requested: (1) cheapest whole apartments (not rooms) as close as possible to the park — studio or 2BR OK, duplex/split/multiplex OK; (2) compare with apartments within ~30 min driving distance and whether a larger radius finds better deals / cheapest rates. Delivered as Research-Bot self-contained HTML per README.
+
+### Precursor / subset questions identified
+1. Exact park location / ZIP / TRAX anchors for “near”?
+2. Whole unit vs room filter criteria?
+3. Studio / 1BR / 2BR and duplexes in scope?
+4. WVC market averages as “cheap” benchmark?
+5. Which cities fall inside ~30 min (Magna, Kearns, Taylorsville, etc.) vs outside (Tooele ~37 min)?
+6. Do concessions / included utilities change rankings?
+7. Are cheapest listings income-restricted?
+8. Is expanding radius worth the commute in $/month?
+
+### Key findings
+- **Closest reliable complexes:** Apartments at Decker Lake 1BR ~$1,062–$1,147 (promo effective sometimes ~$993); Decker Station studios ~$1,075+, 1BR ~$1,149–$1,445, 2BR ~$1,515+.
+- **Cheapest near-park whole units:** Parkway Blvd / Lake Park Dr multiplex 2BRs ~$835–$925 / $885 — scarce; several showed uncertain availability.
+- **Inside 30 min better deals:** Yes for studios/small 1BRs — Magna ~$800–$850; The Redwood studios ~$849–$899, 1BRs ~$949–$1,069.
+- **Absolute cheapest:** Tooele studios ~$650–$799, but ~37 min (outside strict 30-min ring).
+- **2BR trade-off:** Rare near-park outliers beat most expanded-radius 2BRs; otherwise Magna multiplex ~$1,175–$1,395 vs Decker Lake complex ~$1,315+.
+
+### Changes made
+- Created `Research-Bot/decker-lake-west-valley-housing-prices.html` — self-contained HTML with proximity tiers, 30-min comparison, ranked cheapest rates, decision tree, field history (HUD FMR), 41 references.
+- Updated this dev-log entry.
+
+### Assumptions
+- “Apartments, not rooms” = whole leased unit with private kitchen; duplex/4-plex/multiplex included.
+- Drive times from published city-pair estimates, not live rush-hour Google Maps from the park gate.
+- Income-restricted properties noted separately (Coppertree, Tuscany Cove).
+- One-time Research-Bot question (base folder HTML; no new docs/ subfolder).
+
+### Bugs / problems
+- apartments.com often blocked direct curl (Access Denied); recovered pricing via WebFetch / search snippets / property sites.
+- Some cheap Parkway listings showed “Check Back Soon for Upcoming Availability” while still displaying prices — flagged as availability-uncertain.
+- Cross-aggregator ranges for Decker Station disagreed by ~$50–$150; reported as ranges.
 
 ### Status
 **Complete**
