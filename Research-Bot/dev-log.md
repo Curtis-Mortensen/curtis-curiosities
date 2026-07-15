@@ -30,6 +30,29 @@ User asked for a good Utah credit union with coverage outside Utah, whether any 
 ### Bugs / problems
 - Exact Shared Branch member-side status for AFCU not confirmed on a dedicated FAQ (unlike MACU’s explicit exit notice).
 - Branch counts can differ by a few depending on Walmart/ITM counting conventions.
+## 2026-07-14 — Company Scaling Books Overview (complete)
+
+### Plan summary
+User asked for a four-part research overview of nine company-building/scaling books (Traction/Wickman, E-Myth/Gerber, Scaling Up/Harnish, High Growth Handbook/Gil, Scaling People/Johnson, Who/Smart, Team Topologies/Skelton, Rocket Fuel/Wickman, High Output Management/Grove), following Research Bot HTML report guidance.
+
+### Precursor / subset questions
+1. What lineages of “scaling” philosophy do these books represent historically?
+2. What is each book’s publication date, audience, and chapter coverage?
+3. What do they advise on first hires, early definition, and growth planning?
+4. Where is there consensus vs. disagreement across the set?
+
+### Key findings
+- Four lineages: industrial managerial leverage (Grove 1983) → franchise/systems SMB (Gerber 1986/1995) → entrepreneurial OSs for mid-market (Wickman/Harnish/Smart 2007–15) → SV hypergrowth + team-flow (Gil/Skelton/CHJ 2018–23).
+- Consensus: structure before personalities; people quality compounds; outcome clarity; cadence; founder role must change; pick one coherent OS.
+- Splits: systems-learners vs A-players; EOS simplicity vs Scaling Up breadth; Integrator essential vs optional COO bench; company OS vs team topology; cash/speed assumptions.
+
+### Changes made
+- Created `Research-Bot/company-scaling-books-overview.html` (aims, limitations, history, Parts 1–4, conclusion, references).
+- Dev-log entry.
+
+### Assumptions
+- Used commonly cited editions for chapter lists; relied on publisher pages, archive metadata, and reputable summaries rather than full page-by-page rereads in-session.
+- “Scaling People” detailed chapter subheads drawn from publisher/summary TOCs.
 
 ### Status
 **Complete**
