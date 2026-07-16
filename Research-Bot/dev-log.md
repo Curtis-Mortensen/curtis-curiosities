@@ -1,5 +1,37 @@
 # Research Bot — Dev Log
 
+## 2026-07-15 — R-1234yf recharge hose / cans shopping guide (complete)
+
+### Plan summary
+User planning DIY recharge with ZeroR Genuine R1234YF SSV cans (Amazon B0DJ17MR7Q); confused about hose type (self-sealing vs puncture, LH vs RH, low vs high side) and 2-day leak-stop options (Supercool 39241B-YF vs BlueSeal syringe w/ applicator vs refill-only).
+
+### Precursor / subset questions
+1. Are ZeroR SSV cans self-sealing or puncture?
+2. What do car low-side vs high-side ports mean for DIY?
+3. What does 1/2″ ACME LH / RH refer to on can taps?
+4. Does Supercool 39241B-YF replace a refrigerant charge hose?
+5. Which BlueSeal SKU includes an applicator?
+
+### Key findings
+- **ZeroR cans are self-sealing (SSV)** with reverse/LH 1/2″ ACME threads — attach counterclockwise.
+- Dominant Amazon hose (“1/2 Acme LH Self-Sealing Can Tap + R1234YF Low Side”) is the **correct category**; puncture taps are wrong for these cans.
+- RH ACME = R-134a cans; do not buy RH can taps for YF.
+- DIY charges **low side only** (~14 mm YF QC); high side (~17 mm) is shop diagnostics — not a second can intake.
+- Supercool 39241B-YF includes its own YF applicator hose for leak stop/dye but **does not** replace a refrigerant charge hose.
+- BlueSeal: buy syringe **with applicator**; refill-only needs a separate applicator.
+
+### Changes made
+- Created `Research-Bot/r1234yf-recharge-hose-cans-shopping-guide.html` — history (R-12→R-134a→R-1234yf), car ports, can types, hose anatomy, product match, buy lists, citations.
+- Updated this dev-log.
+
+### Assumptions
+- Vehicle is confirmed R-1234yf via hood sticker (user responsibility).
+- Amazon 2-day eligibility for specific ASINs may change; guide emphasizes functional specs over a single listing title.
+- Stop-leak “95%+” claims treated as manufacturer-reported, not independently verified here.
+
+### Bugs / problems
+- None blocking. Amazon page scrape was thin on long-form specs; cross-checked ZeroR SSV claims via Carkart reseller copy + product title.
+
 ## 2026-07-15 — Tuba City Shopping Center case study add-on (complete)
 
 ### Plan summary
