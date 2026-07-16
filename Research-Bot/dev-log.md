@@ -19,6 +19,36 @@ User provided Street View / satellite / historical context for Tuba City Shoppin
 
 ---
 
+## 2026-07-15 — Roomba Plus 505 Combo vs Dual Vac-Mop Competitors (complete)
+
+### Plan summary
+User shopping for dual vacuum+mop robots with Roomba Plus 505 Combo as default; asked for cheaper similar-performance competitors, more expensive options with feature/benefit deltas, “Best for:” tags, and personal Worth It rankings (5 stars). Followed Research-Bot README: precursor questions, web research, self-contained HTML with aims/limitations/history/citations/conclusion.
+
+### Precursor / subset questions
+1. What does “similar performance” mean at this tier (LiDAR + vac/mop + wash dock)?
+2. Street price vs MSRP for the 505 and peers?
+3. Spinning pads vs roller mop tradeoffs?
+4. How trustworthy are Pa claims vs lab pickup?
+5. iRobot post-Chapter 11 / Picea support risk?
+6. Hard-floor vs carpet fitness of the 505?
+
+### Key findings
+- **505 baseline:** ~$500–$600 street / $999 MSRP; 7,000 Pa; DualClean + PerfectEdge; AutoWash dock; LiDAR + PrecisionVision; strong hard-floor/edge mop; weaker carpet vs Chinese mid-tiers.
+- **Cheaper / value peers:** Dreame L10s Ultra Gen 2 (~$400), Eufy Omni C28 (~$450–500; VW Best Budget), Ecovacs T80S Omni (VW July Best Value), Roborock Q Revo sale/refurb, Eufy C20 (~$350 starter).
+- **Step-ups:** Curv 2 Flow (~$700–800, best under-$1k upgrade), Max 705 (~$800–900 Roomba path), Shark UV Reveal (~$950 niche), Narwal Flow 2 / Eufy S2 / Dreame X60 / Saros 10R–20 ($1.1k–$1.7k flagships).
+- **Worth It favorites vs defaulting to 505:** L10s Gen 2 ★★★★★, C28 ★★★★★, Curv 2 Flow ★★★★★; 505 itself ★★★★☆ for Roomba/Matter/edge mop buyers.
+
+### Changes made
+- Created `Research-Bot/roomba-505-dual-vac-mop-competitors.html`
+- Updated this dev-log
+
+### Assumptions
+- US Amazon/brand street prices mid-July 2026; bands ±$50–$100.
+- “Dual vacuum mop” = combo with real mop scrub + auto-maintain dock (not drag-pad-only).
+- Worth It stars are shopping opinion relative to keeping the 505, not Vacuum Wars lab ranks.
+
+### Bugs / problems
+- Some product pages/Amazon fetches timed out; relied on search snippets + Mashable/Vacuum Wars/Hook Up secondary sources + successful fetches of key brand pages.
 ## 2026-07-15 — Starlink Gen 3 Pivot Mount Roof Shopping List (complete)
 
 ### Plan summary
@@ -45,6 +75,84 @@ User researching Starlink Gen 3 Pivot Mount installation; requested Research-Bot
 - US residential focus; Home Depot / big-box product names as examples.
 - User has Gen 3 Standard (Standard 4) dish; Pivot Mount ~$74 from Starlink.
 - No site visit; rafter confirmation via attic/stud finder assumed as best practice.
+## 2026-07-13 — Edge / Outback / CX-50 Comps vs Vectra Edge (complete)
+
+### Plan summary
+User found a Ford Edge at Vectra (~$7k / ~137k miles) and asked for other Ford Edges, Subaru Outbacks, and Mazda CX-50s in the SLC valley from the used dealerships already researched.
+
+### Key findings
+- **Vectra Edge sticker:** Fair vs KBB/CarGurus (~$7k for older high-mile Edge); slightly cheaper than SSL peers (Drive In 2017 $8.6k/150k; Zamzam 2015 Titanium $9k/138k). Not a rare underpricing.
+- **West Auto Edges:** 2017 SEL $12,325/93k; 2022 SEL $19,407/64k — not $7k peers.
+- **Image Auto:** 2020 Edge SEL AWD $10,995/72k **rebuilt title**.
+- **Immaculate / Prestman:** No useful $7k Edge shelf in this scan.
+- **Outbacks:** West Auto cheapest ~$15.4k (2017); Prestman/Image branded newer $17k–$28k. Budget Outbacks exist at smaller indies: Wild House 2013 $4,899/183k; Auto Empire 2013 $4,988/177k; WVC 2016 Limited ~$8.2k–$8.4k/161k.
+- **CX-50:** Not in budget. CarGurus SLC avg ~$30.6k; range ~$20k–$42k. Tim Dahle used stock mid-$20ks+.
+- **Buy caveat:** AWD Edge PTU failures; PPI required before calling it a deal.
+
+### Changes made
+- Created `Research-Bot/slc-edge-outback-cx50-comps.html`
+- Linked from parent survey and $10k follow-up further-questions list
+- Updated this dev-log
+
+### Assumptions
+- User’s Vectra Edge year/trim/AWD not confirmed online; valuation framed as “older high-mile Edge” band.
+- Vectra website inventory filters often empty; relied on buyer report + peer aggregators.
+
+### Bugs / problems
+- Cars.com / KSL zip searches and CarGurus HTML often blocked or timed out; used dealer sites + KSL individual listings + AutosToday + CarGurus SERP snippets.
+## 2026-07-13 — Utah credit unions vs MACU: out-of-state branches & everyday loans (complete)
+
+### Plan summary
+User asked for a good Utah credit union with coverage outside Utah, whether any beat MACU, with good willingness to finance everyday uses; branch locations prioritized over complex products. Followed Research-Bot instructions: precursor questions, web research, self-contained HTML with aims/limitations/history/citations/conclusion.
+
+### Precursor / subset questions
+1. Owned branches vs Shared Branch vs ATM networks
+2. MACU state-by-state footprint
+3. America First / Goldenwest / Chartway / mid-size CU comparison
+4. Which CUs still use CO-OP Shared Branching
+5. Everyday auto + personal loan willingness signals
+
+### Key findings
+- MACU ~109 branches (CREHQ): UT 78, ID 12, AZ 12, NV 5, MT 2 → ~31 outside Utah; still top-tier Intermountain owned footprint.
+- America First ~123 (CREHQ): UT 94, NV 18, AZ 7, ID 2, CA 1, NM 1 → ~29 outside Utah; beats MACU in Nevada; AZ expanding +8 through 2027.
+- MACU no longer participates in Shared Branching; Utah First, Goldenwest, Cyprus, Deseret First still market ~5,000–6,000 shared teller locations nationwide — those beat MACU on true national branch access.
+- Everyday lending: MACU + AFCU are regional auto heavyweights; Utah First markets personal loans with “strives to say yes.”
+
+### Changes made
+- Created `Research-Bot/utah-credit-unions-vs-macu-branch-coverage.html`
+- Dev-log entry
+
+### Assumptions
+- CREHQ mid-2026 counts preferred over marketing “100+” language when they conflict mildly.
+- AFCU does not clearly market Shared Branch for members (ATMs yes); treated like owned-branch model unless member services says otherwise.
+- “Willingness” inferred from products/marketing, not underwriting matrices.
+
+### Bugs / problems
+- Exact Shared Branch member-side status for AFCU not confirmed on a dedicated FAQ (unlike MACU’s explicit exit notice).
+- Branch counts can differ by a few depending on Walmart/ITM counting conventions.
+## 2026-07-14 — Company Scaling Books Overview (complete)
+
+### Plan summary
+User asked for a four-part research overview of nine company-building/scaling books (Traction/Wickman, E-Myth/Gerber, Scaling Up/Harnish, High Growth Handbook/Gil, Scaling People/Johnson, Who/Smart, Team Topologies/Skelton, Rocket Fuel/Wickman, High Output Management/Grove), following Research Bot HTML report guidance.
+
+### Precursor / subset questions
+1. What lineages of “scaling” philosophy do these books represent historically?
+2. What is each book’s publication date, audience, and chapter coverage?
+3. What do they advise on first hires, early definition, and growth planning?
+4. Where is there consensus vs. disagreement across the set?
+
+### Key findings
+- Four lineages: industrial managerial leverage (Grove 1983) → franchise/systems SMB (Gerber 1986/1995) → entrepreneurial OSs for mid-market (Wickman/Harnish/Smart 2007–15) → SV hypergrowth + team-flow (Gil/Skelton/CHJ 2018–23).
+- Consensus: structure before personalities; people quality compounds; outcome clarity; cadence; founder role must change; pick one coherent OS.
+- Splits: systems-learners vs A-players; EOS simplicity vs Scaling Up breadth; Integrator essential vs optional COO bench; company OS vs team topology; cash/speed assumptions.
+
+### Changes made
+- Created `Research-Bot/company-scaling-books-overview.html` (aims, limitations, history, Parts 1–4, conclusion, references).
+- Dev-log entry.
+
+### Assumptions
+- Used commonly cited editions for chapter lists; relied on publisher pages, archive metadata, and reputable summaries rather than full page-by-page rereads in-session.
+- “Scaling People” detailed chapter subheads drawn from publisher/summary TOCs.
 
 ### Status
 **Complete**
