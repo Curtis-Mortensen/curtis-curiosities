@@ -2,7 +2,7 @@ UNIT = INCH
 
 CARDSIZE = 2.5, 3.5
 PAGE = 8.5, 11, PORTRAIT, HV
-LINK = ItemCards.xlsx
+LINK = Unified-Cards-Sheet.xlsx!Items
 
 [all] = 1-{(Name)}
 
@@ -30,7 +30,7 @@ LINK = ItemCards.xlsx
 [img_ice]          = ice.png
 [img_heavy_weapon] = heavy_weapon.png
 [img_instrument]   = instrument.png
-[img_med_armor]    = med_armor.png
+[img_armor]    = armor.png
 [img_light]        = light.png
 [img_shield]       = shield.png
 [img_pet]          = pet.png
@@ -41,9 +41,7 @@ LINK = ItemCards.xlsx
 ; ============================================================
 
 [label_Basic]   = Basic Item
-[label_Rare]    = Rare Item
 [label_Instant] = Instant Item
-[label_Rare-Instant] = Rare-Instant Item
 
 ; ============================================================
 ; CARD ILLUSTRATION
