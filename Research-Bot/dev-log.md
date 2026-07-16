@@ -32,6 +32,55 @@ User planning DIY recharge with ZeroR Genuine R1234YF SSV cans (Amazon B0DJ17MR7
 ### Bugs / problems
 - None blocking. Amazon page scrape was thin on long-form specs; cross-checked ZeroR SSV claims via Carkart reseller copy + product title.
 
+## 2026-07-15 — Tuba City Shopping Center case study add-on (complete)
+
+### Plan summary
+User provided Street View / satellite / historical context for Tuba City Shopping Center (~1983 Bashas’ Diné Market era): split-face CMU walls, flat reflective commercial roof (likely white TPO), red metal coping. Asked to update the Starlink shopping-list doc with site-specific options and a recommendation.
+
+### Key findings / recommendation
+- Walls: ribbed split-face CMU; hollow vs grout-filled cells — use sleeve anchors / Tapcon; avoid wedge anchors unless solid; avoid mortar joints for load attachments.
+- Roof: flat parapet commercial; white reflective membrane over likely polyiso + steel deck + bar joists — not a Pivot Mount substrate.
+- **Recommend Option A:** Starlink Standard Wall Mount on upper CMU with masonry sleeve anchors + Sikaflex-1a.
+- Second: Pipe Adapter on freestanding metal pole. Roof only via pro heat-welded TPO curb. Never DIY Pivot on membrane field.
+
+### Changes made
+- Expanded `Research-Bot/starlink-gen3-pivot-mount-roof-shopping-list.html` with §10 case study (site section, 6 options table, recommendation, CMU shopping cart, decision tree); renumbered later sections; updated aims/thesis/conclusion/refs.
+
+### Status
+**Complete**
+
+---
+
+## 2026-07-15 — Roomba Plus 505 Combo vs Dual Vac-Mop Competitors (complete)
+
+### Plan summary
+User shopping for dual vacuum+mop robots with Roomba Plus 505 Combo as default; asked for cheaper similar-performance competitors, more expensive options with feature/benefit deltas, “Best for:” tags, and personal Worth It rankings (5 stars). Followed Research-Bot README: precursor questions, web research, self-contained HTML with aims/limitations/history/citations/conclusion.
+
+### Precursor / subset questions
+1. What does “similar performance” mean at this tier (LiDAR + vac/mop + wash dock)?
+2. Street price vs MSRP for the 505 and peers?
+3. Spinning pads vs roller mop tradeoffs?
+4. How trustworthy are Pa claims vs lab pickup?
+5. iRobot post-Chapter 11 / Picea support risk?
+6. Hard-floor vs carpet fitness of the 505?
+
+### Key findings
+- **505 baseline:** ~$500–$600 street / $999 MSRP; 7,000 Pa; DualClean + PerfectEdge; AutoWash dock; LiDAR + PrecisionVision; strong hard-floor/edge mop; weaker carpet vs Chinese mid-tiers.
+- **Cheaper / value peers:** Dreame L10s Ultra Gen 2 (~$400), Eufy Omni C28 (~$450–500; VW Best Budget), Ecovacs T80S Omni (VW July Best Value), Roborock Q Revo sale/refurb, Eufy C20 (~$350 starter).
+- **Step-ups:** Curv 2 Flow (~$700–800, best under-$1k upgrade), Max 705 (~$800–900 Roomba path), Shark UV Reveal (~$950 niche), Narwal Flow 2 / Eufy S2 / Dreame X60 / Saros 10R–20 ($1.1k–$1.7k flagships).
+- **Worth It favorites vs defaulting to 505:** L10s Gen 2 ★★★★★, C28 ★★★★★, Curv 2 Flow ★★★★★; 505 itself ★★★★☆ for Roomba/Matter/edge mop buyers.
+
+### Changes made
+- Created `Research-Bot/roomba-505-dual-vac-mop-competitors.html`
+- Updated this dev-log
+
+### Assumptions
+- US Amazon/brand street prices mid-July 2026; bands ±$50–$100.
+- “Dual vacuum mop” = combo with real mop scrub + auto-maintain dock (not drag-pad-only).
+- Worth It stars are shopping opinion relative to keeping the 505, not Vacuum Wars lab ranks.
+
+### Bugs / problems
+- Some product pages/Amazon fetches timed out; relied on search snippets + Mashable/Vacuum Wars/Hook Up secondary sources + successful fetches of key brand pages.
 ## 2026-07-15 — Starlink Gen 3 Pivot Mount Roof Shopping List (complete)
 
 ### Plan summary
