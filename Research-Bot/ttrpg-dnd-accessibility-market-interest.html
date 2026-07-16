@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TTRPG / D&amp;D Market Interest — Accessibility Product Research</title>
+<style>
+  :root {
+    --bg: #0f1410;
+    --surface: #1a211c;
+    --surface2: #243028;
+    --text: #e8eee6;
+    --muted: #8fa393;
+    --accent: #c4a35a;
+    --accent2: #6db3a8;
+    --danger: #e06c75;
+    --success: #7ecf8a;
+    --link: #8ec8c0;
+    --border: #334038;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  h1 { font-size: 2rem; line-height: 1.25; margin-bottom: 0.5rem; color: var(--accent); }
+  .subtitle { color: var(--muted); font-style: italic; font-size: 1.05rem; }
+  .meta { color: var(--muted); font-size: 0.9rem; margin-top: 0.75rem; font-family: sans-serif; }
+  h2 {
+    font-size: 1.45rem;
+    color: var(--accent2);
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 { font-size: 1.15rem; color: var(--accent); margin: 1.5rem 0 0.75rem; }
+  h4 { font-size: 1rem; color: var(--muted); margin: 1rem 0 0.5rem; }
+  p { margin-bottom: 1rem; }
+  ul, ol { margin: 0 0 1rem 1.4rem; }
+  li { margin-bottom: 0.4rem; }
+  a { color: var(--link); }
+  a:hover { text-decoration: underline; }
+  .thesis-box {
+    background: var(--surface);
+    border-left: 4px solid var(--accent);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .limitation-box {
+    background: var(--surface);
+    border-left: 4px solid var(--danger);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .finding-box {
+    background: var(--surface);
+    border-left: 4px solid var(--success);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .gap-box {
+    background: var(--surface);
+    border-left: 4px solid var(--accent2);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .overview-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+  .overview-card h4 { color: var(--accent2); margin-top: 0; }
+  .stat-big {
+    font-size: 1.8rem;
+    color: var(--accent);
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 1.2;
+  }
+  .stat-label { font-size: 0.85rem; color: var(--muted); margin-top: 0.35rem; }
+  .diagram {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    line-height: 1.45;
+    white-space: pre;
+    color: var(--muted);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.84rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.55rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: var(--surface2); color: var(--accent2); font-weight: 600; }
+  tr:nth-child(even) { background: var(--surface); }
+  .tag {
+    display: inline-block;
+    background: var(--surface2);
+    color: var(--accent);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    margin-right: 0.3rem;
+    font-family: sans-serif;
+  }
+  .cite { font-size: 0.82rem; color: var(--muted); }
+  .ref-list { font-size: 0.85rem; }
+  .ref-list li { margin-bottom: 0.65rem; }
+  .conclusion-box {
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+    border: 1px solid var(--accent2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+  .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .toc ol { margin-bottom: 0; }
+  .strength { font-family: sans-serif; font-size: 0.78rem; }
+  .strength-strong { color: var(--success); }
+  .strength-mod { color: var(--accent); }
+  .strength-weak { color: var(--danger); }
+  @media (max-width: 640px) {
+    h1 { font-size: 1.5rem; }
+    body { font-size: 16px; }
+    .stat-big { font-size: 1.4rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>How Many People Want Accessible TTRPGs? Market Interest Numbers for D&amp;D and Tabletop Role-Playing</h1>
+  <p class="subtitle">A research brief on lifetime play rates, positive experience signals, the dungeon-master bottleneck, and system market share — written for founders building tools that make collaborative storytelling easier to start and keep going.</p>
+  <p class="meta">Research-Bot report · July 2026 · General-audience market research (not investment advice)</p>
+</header>
+
+<!-- ============================================================ -->
+<section id="aims">
+  <h2>1. What This Document Is (and Aims to Do)</h2>
+  <p>This report answers a practical product question: <em>Is there enough public interest in tabletop role-playing games (TTRPGs) — especially Dungeons &amp; Dragons — to justify a product that makes the hobby more accessible?</em> “Accessible” here means lowering the barriers that keep people from playing or from running games: finding a group, finding a Game Master / Dungeon Master (DM), learning rules, and turning a story idea into a playable session.</p>
+  <p>The document is written so a non-specialist can follow it. You do not need to know how D&amp;D works. Where numbers disagree, the report shows the range and explains why the sources differ. Almost every factual claim is tied to a cited source.</p>
+
+  <div class="thesis-box">
+    <strong>Working thesis.</strong> Roughly one-fifth to one-quarter of U.S. adults have tried a TTRPG at least once — close to the ~20% figure from early product surveys. Lifetime D&amp;D exposure alone is in the tens of millions in the U.S. and (by publisher claims) tens of millions worldwide. Direct population surveys of “I had a positive experience” are scarce, but clinical and qualitative research plus high return-to-play rates among past players suggest many tryers leave with goodwill. The clearest commercial bottleneck is not player curiosity — it is Dungeon Master supply: only about 15–20% of players ever run games, while healthy tables need closer to 20–25%, and looking-for-group boards show roughly 5 players hunting a DM for every DM offering seats. D&amp;D dominates market share by a wide margin; Pathfinder, Call of Cthulhu, and a rotating cast of licensed titles fill the next tier.
+  </div>
+
+  <div class="overview-grid">
+    <div class="overview-card">
+      <div class="stat-big">~16–28%</div>
+      <div class="stat-label">U.S. adults who have ever played a TTRPG or D&amp;D (survey range)</div>
+    </div>
+    <div class="overview-card">
+      <div class="stat-big">50–85M</div>
+      <div class="stat-label">Publisher-claimed lifetime / cumulative D&amp;D players worldwide</div>
+    </div>
+    <div class="overview-card">
+      <div class="stat-big">~15–20%</div>
+      <div class="stat-label">Players who have ever DMed (community / WotC-linked estimates)</div>
+    </div>
+    <div class="overview-card">
+      <div class="stat-big">~5:1</div>
+      <div class="stat-label">Player-seeking-DM vs DM-seeking-player posts (r/lfg analyses)</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section id="questions">
+  <h2>2. Precursor and Subset Questions</h2>
+  <p>Following Research-Bot practice, the big question was broken into smaller ones researched in order:</p>
+  <ol>
+    <li><strong>Penetration:</strong> What share of adults have played a TTRPG (or D&amp;D specifically) at least once? How do “ever played,” “rarely play,” and “actively play” differ?</li>
+    <li><strong>Absolute scale:</strong> What headcounts do publishers and independent surveys imply for the U.S. and the world?</li>
+    <li><strong>Sentiment:</strong> Among people who have tried the hobby, what evidence exists for positive vs. negative experiences?</li>
+    <li><strong>DM / storyteller gap:</strong> What percent of players DM? How many want to DM but do not? Is there quantified demand for more DMs?</li>
+    <li><strong>Competitive landscape:</strong> What is the market share of D&amp;D vs. other TTRPGs (sales and playtime)?</li>
+  </ol>
+  <div class="toc">
+    <strong>Jump to findings</strong>
+    <ol>
+      <li><a href="#limitations">Limitations &amp; evidence strength</a></li>
+      <li><a href="#history">History of measuring this market</a></li>
+      <li><a href="#penetration">Lifetime play rates</a></li>
+      <li><a href="#sentiment">Positive experience signals</a></li>
+      <li><a href="#dm-gap">DM shortage &amp; story ideas</a></li>
+      <li><a href="#share">Market share by system</a></li>
+      <li><a href="#funnel">Interest funnel diagram</a></li>
+      <li><a href="#conclusion">Conclusion &amp; further research</a></li>
+      <li><a href="#refs">Sources</a></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section id="limitations">
+  <h2>3. Limitations of This Research</h2>
+
+  <h3>3.1 Theoretical limitations</h3>
+  <div class="limitation-box">
+    <p><strong>Human hobbies are noisy.</strong> Whether someone “has played D&amp;D” depends on memory, social desirability, and what counts as play (one session at a friend’s house vs. a multi-year campaign). Interest in running a game can change with life stage, free time, and who is available to play. Market surveys freeze a moving target.</p>
+    <p><strong>Self-report ≠ behavior.</strong> Saying you like something, saying you would DM, and actually scheduling a session are three different acts. Products that reduce friction test revealed preference better than attitude surveys.</p>
+    <p><strong>Selection and survivorship.</strong> People still in the hobby are easier to survey than people who tried once and left. That biases hobby forums, playtest panels, and “player surveys” toward enthusiasts — and can overstate positivity and understate drop-off.</p>
+  </div>
+
+  <h3>3.2 Methodological &amp; literature limitations</h3>
+  <ul>
+    <li><strong>No single gold-standard census</strong> of TTRPG players exists. Figures come from (a) publisher / investor claims, (b) commercial omnibus polls, (c) virtual-tabletop telemetry, (d) specialty-store sales trackers, and (e) convenience samples on Reddit and Discord.</li>
+    <li><strong>“Players” is ambiguous.</strong> Hasbro and Wizards of the Coast (WotC) have used “players” for cumulative lifetime tryers, active franchise audiences, and digital-account goals in different contexts.<span class="cite"> [<a href="#r-hasbro-2023">Hasbro 2023</a>; <a href="#r-cnbc-2024">CNBC 2024</a>]</span></li>
+    <li><strong>The exact question “Had a story idea but never DMed?”</strong> does not appear to have been asked in a published, population-representative survey. Proxies (DM share, prep barriers, looking-for-group ratios, paid-DM markets) are used instead and labeled as such.</li>
+    <li><strong>Aggregator sites</strong> (e.g. Gitnux compilations) repeat industry stats with uneven verification. Where possible this report prefers primary or near-primary sources and treats aggregators as leads, not proof.<span class="cite"> [<a href="#r-gitnux">Gitnux 2026</a>]</span></li>
+    <li><strong>Paid market-research PDFs</strong> sometimes publish precise shares (e.g. “48% WotC”) without transparent sampling. Those figures are noted with a weak-evidence tag.</li>
+  </ul>
+
+  <h3>3.3 Strength of the field</h3>
+  <p>Hobby-games market tracking (ICv2 and trade press) is mature for <em>retail sales rankings</em> but weak for <em>household penetration</em>. Academic study of TTRPGs as leisure and as mental-health adjuncts has grown since the mid-2010s but still relies on small samples. Independent pollsters (YouGov, Researchscape/Troy Press, NPD-cited work) provide the best population baselines, yet questions are rarely repeated identically year to year. Overall: <span class="strength strength-mod">moderate evidence</span> for lifetime try rates; <span class="strength strength-weak">weak evidence</span> for a single positive-experience percentage; <span class="strength strength-mod">moderate-to-strong evidence</span> for a structural DM shortage via multiple converging indicators; <span class="strength strength-strong">strong evidence</span> that D&amp;D is the category leader.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="history">
+  <h2>4. History of the Fields That Try to Answer These Questions</h2>
+  <p><strong>Publisher headcounts (1970s–present).</strong> From the early days of D&amp;D, TSR and later WotC advertised player counts as marketing and investor narrative. Early 1980s claims put worldwide players in the low millions; modern Hasbro materials cite tens of millions.<span class="cite"> [<a href="#r-enworld-2023">EN World summary</a>; <a href="#r-hasbro-2023">Hasbro 2023</a>]</span> These numbers are useful as order-of-magnitude signals but are not independent audits.</p>
+  <p><strong>Hobby trade press &amp; ICv2 (1990s–present).</strong> Specialty-game retailers and distributors developed category sales tracking. ICv2’s annual hobby-game estimates and RPG top-title lists remain the standard industry snapshot for North American specialty retail (not Amazon or all DTC).<span class="cite"> [<a href="#r-bols-2024">BoLS / ICv2 2024</a>]</span></p>
+  <p><strong>Virtual tabletops &amp; the Orr Report (2014–2021).</strong> Roll20’s Orr Group Industry Report measured which systems people actually ran online — a playtime proxy rather than a sales proxy. It showed D&amp;D 5E usually above half of campaigns on that platform before the report was paused.<span class="cite"> [<a href="#r-orr-q2">Roll20 Orr Q2 2021</a>; <a href="#r-orr-wiki">Roll20 Wiki</a>]</span></p>
+  <p><strong>Population surveys (2010s–2020s).</strong> As D&amp;D entered mainstream culture (Critical Role, Stranger Things, Baldur’s Gate 3), pollsters began asking ordinary adults about TTRPG play — Researchscape (2019), NPD-cited work (~2022), YouGov frequency questions (mid-2020s), and Troy Press omnibus work (2026).<span class="cite"> [<a href="#r-researchscape">Researchscape 2019</a>; <a href="#r-gitnux">Gitnux citing NPD</a>; <a href="#r-yougov-pdf">YouGov crosstabs</a>; <a href="#r-troy">Troy Press 2026</a>]</span></p>
+  <p><strong>DM-shortage discourse.</strong> Community talk of “not enough DMs” is decades old; WotC staff publicly described a “rather desperate” need for more DMs around the 5e era, and 2020s product strategy (easier DMG tools, Adventurers League, digital builders) still targets the same bottleneck.<span class="cite"> [<a href="#r-dicebreaker">Dicebreaker</a>; <a href="#r-aidm">AIDungeonMaster analysis</a>]</span> Academic wellbeing research on D&amp;D is newer still (roughly 2020 onward).<span class="cite"> [<a href="#r-merrick">Merrick et al. 2024</a>]</span></p>
+</section>
+
+<!-- ============================================================ -->
+<section id="penetration">
+  <h2>5. Finding 1 — How Many People Have Played a TTRPG (1×+)?</h2>
+
+  <div class="finding-box">
+    <strong>Bottom line.</strong> Independent U.S. adult surveys cluster around <strong>~16% ever played D&amp;D</strong> and <strong>~23–28% ever played any TTRPG</strong>, depending on question wording and year. That matches the product team’s informal ~20% signal. Publisher lifetime totals (50M–85M worldwide for D&amp;D) are larger because they include non-U.S. players and multi-decade cumulative tryers.
+  </div>
+
+  <h3>5.1 Population surveys (best for “% of people”)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Source</th>
+        <th>Year / sample</th>
+        <th>Question / metric</th>
+        <th>Result</th>
+        <th>Evidence</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Researchscape (Jeffrey Henning)</td>
+        <td>Apr 2019; n=1,000 U.S. online adults</td>
+        <td>Ever played a TTRPG (D&amp;D, Pathfinder, GURPS, etc.)</td>
+        <td><strong>23%</strong> of online U.S. adults; ~52M extrapolated; ~62% of tryers had played D&amp;D → ~32M U.S. adults ever D&amp;D</td>
+        <td><span class="strength strength-mod">Moderate</span></td>
+      </tr>
+      <tr>
+        <td>NPD (as cited by Gitnux)</td>
+        <td>2022; n≈10,000 claimed</td>
+        <td>Played a TTRPG at least once</td>
+        <td><strong>28%</strong> of U.S. adults</td>
+        <td><span class="strength strength-weak">Weak–moderate</span> (secondary citation)</td>
+      </tr>
+      <tr>
+        <td>YouGov U.S. frequency crosstabs</td>
+        <td>~2024–2026 style board/game polls; n≈1,130–1,134</td>
+        <td>How often do you play tabletop roleplaying games?</td>
+        <td><strong>68% never</strong>; 18% rarely; 5% monthly; 4% weekly; 1% daily; 4% not sure → ~28% report some play (not “never”)</td>
+        <td><span class="strength strength-mod">Moderate</span></td>
+      </tr>
+      <tr>
+        <td>YouGov article on board games</td>
+        <td>May 2026; n=1,131</td>
+        <td>At least monthly play of TTRPGs</td>
+        <td><strong>12%</strong> play TTRPGs at least monthly (active-ish rate, not lifetime)</td>
+        <td><span class="strength strength-mod">Moderate</span></td>
+      </tr>
+      <tr>
+        <td>Troy Press omnibus</td>
+        <td>2026; n=1,253 U.S. adults</td>
+        <td>Ever played D&amp;D (among a list of common games)</td>
+        <td><strong>16%</strong> ever played D&amp;D (204 past players followed up)</td>
+        <td><span class="strength strength-mod">Moderate</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="cite">Sources: <a href="#r-researchscape">Researchscape</a>; <a href="#r-gitnux">Gitnux / NPD citation</a>; <a href="#r-yougov-pdf">YouGov crosstabs PDF</a>; <a href="#r-yougov-board">YouGov board-games article</a>; <a href="#r-troy">Troy Press</a>.</p>
+
+  <h3>5.2 What “~20%” means in practice</h3>
+  <p>If roughly 20–25% of U.S. adults have tried a TTRPG once, that is on the order of <strong>50–65 million adults</strong> in a ~260M adult population — before counting teens. Researchscape’s 2019 math (23% of ~225M online adults ≈ 52M) is a concrete illustration.<span class="cite"> [<a href="#r-researchscape">Researchscape</a>]</span> Troy Press’s stricter D&amp;D-only question (16%) implies a smaller but still large tryer base — tens of millions who know the brand from play, not just from media.<span class="cite"> [<a href="#r-troy">Troy Press</a>]</span></p>
+  <p>Age skew matters for a product pitch: Researchscape found 45% of men under 45 and 39% of women under 25 had played a TTRPG, vs. single-digit rates among many older cohorts.<span class="cite"> [<a href="#r-researchscape">Researchscape</a>]</span> YouGov’s never-play rate rises from 51% (18–29) to 85% (65+).<span class="cite"> [<a href="#r-yougov-pdf">YouGov crosstabs</a>]</span></p>
+
+  <h3>5.3 Publisher / investor headcounts (best for scale narrative)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Claim</th>
+        <th>Attributed source</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>D&amp;D and Magic each have <strong>over 50 million players</strong> worldwide</td>
+        <td>Hasbro / WotC Fast Company announcement, Mar 2023</td>
+        <td>Does not define active vs. lifetime</td>
+      </tr>
+      <tr>
+        <td><strong>85 million</strong> people have played D&amp;D since 1974</td>
+        <td>WotC estimate reported by CNBC, Dec 2024</td>
+        <td>Explicitly cumulative / historical</td>
+      </tr>
+      <tr>
+        <td>Earlier “over 40 million players each” for D&amp;D and Magic</td>
+        <td>Hasbro investor event remarks, 2021</td>
+        <td>Shows how the public number has stepped up over time</td>
+      </tr>
+      <tr>
+        <td>~50 million D&amp;D players worldwide (trade / press roundups)</td>
+        <td>NPR 50th-anniversary coverage; EN World summaries of WotC-linked figures</td>
+        <td>Often repeats the “50M have played” framing</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="cite">Sources: <a href="#r-hasbro-2023">Hasbro 2023</a>; <a href="#r-cnbc-2024">CNBC</a>; <a href="#r-hasbro-2021">Hasbro 2021 remarks</a>; <a href="#r-npr">NPR</a>; <a href="#r-enworld-2023">EN World</a>.</p>
+
+  <h3>5.4 Active play vs. lifetime try</h3>
+  <p>YouGov’s <strong>12% monthly+</strong> TTRPG rate is a much tighter “still in the habit” circle than the ~20–28% lifetime try rates.<span class="cite"> [<a href="#r-yougov-board">YouGov</a>]</span> Community and trade analyses often cite active D&amp;D player estimates in the low tens of millions globally (figures such as ~13.7M circulate in secondary blogs extrapolating older WotC data) — treat those as approximate, not census-grade.<span class="cite"> [<a href="#r-storyroll">StoryRoll synthesis</a>]</span> For an accessibility product, <em>both</em> layers matter: lifetime tryers are a reactivation pool; monthly players are the core demand for better tools.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="sentiment">
+  <h2>6. Finding 2 — How Many Had a Positive Experience?</h2>
+
+  <div class="gap-box">
+    <strong>Honest gap.</strong> No large, population-representative survey was found that asks past TTRPG players a clean “Was your experience positive?” and publishes the percentage. The product team should treat any single “X% loved it” claim with skepticism until it fields its own question. What follows are the best <em>proxies</em>.
+  </div>
+
+  <h3>6.1 Proxies from general-population and past-player work</h3>
+  <ul>
+    <li><strong>Many tryers are not “never again.”</strong> In Troy Press’s 2026 sample of past D&amp;D players, substantial shares reported play in the recent years (including 2024–2026), not only nostalgia play before 2020 — consistent with at least some positive or curiosity-driven return, though not a direct satisfaction score.<span class="cite"> [<a href="#r-troy">Troy Press</a>]</span></li>
+    <li><strong>Board-game enjoyment is high in the same culture,</strong> but that is adjacent entertainment, not TTRPG-specific: YouGov finds 65% of Americans love or like board games, with only 6% dislike/hate.<span class="cite"> [<a href="#r-yougov-board">YouGov</a>]</span> Useful for social-gaming climate; not a D&amp;D NPS.</li>
+    <li><strong>Engaged-player playtests score very high</strong> (often 80%+ satisfaction on Unearthed Arcana / One D&amp;D packets), but respondents are self-selected fans who opted into playtesting — upward bias is large.<span class="cite"> [<a href="#r-wargamer-ua">Wargamer / Crawford</a>]</span></li>
+  </ul>
+
+  <h3>6.2 Academic and clinical signals (positive effects among participants)</h3>
+  <p>A 2024 peer-reviewed study in <em>Games for Health Journal</em> (Merrick, Li, &amp; Miller) followed 25 community participants through eight weekly hours of D&amp;D. Researchers reported significant decreases in depression, stress, and anxiety and significant increases in self-esteem and self-efficacy over the study period, concluding D&amp;D “may have potential utility as a wellbeing intervention or prevention program.”<span class="cite"> [<a href="#r-merrick">Merrick et al.</a>; <a href="#r-jcu">JCU summary</a>]</span></p>
+  <p>Qualitative work (“Roll for Insight”) interviewing regular players found the experience described as primarily positive and rewarding, with themes of escapism, self-exploration, creative expression, social support, and routine.<span class="cite"> [<a href="#r-roll-insight">Baker et al. / ResearchGate</a>]</span> Scoping reviews of therapeutic RPG use similarly catalog growing case evidence, while cautioning that the research base is still early.<span class="cite"> [<a href="#r-arenas">Arenas et al. 2022</a>]</span></p>
+  <p><strong>Interpretation for product messaging:</strong> It is fair to say that <em>among people who stick with play long enough to be studied, experiences skew positive and can support wellbeing</em>. It is <em>not</em> yet fair to claim “X% of the 20% who tried D&amp;D had a great time” without new survey work. A defensible interim framing: <strong>large tryer base + strong enthusiast satisfaction + early clinical positives ⇒ substantial latent goodwill</strong>, with unknown drop-off among one-session tryers.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="dm-gap">
+  <h2>7. Finding 3 — Story Ideas, Interest in DMing, and the DM Shortage</h2>
+
+  <div class="finding-box">
+    <strong>Bottom line.</strong> Direct data on “I had my own story idea but never DMed” was not found in published surveys. The closest robust picture: <strong>~15–20% of players ever DM</strong> (WotC-linked “DMs are ~20% of customers”; community surveys in a similar band), while a typical table needs closer to <strong>1 DM per 4–5 players (~20–25%)</strong>. Multiple demand signals show the shortage is real: looking-for-group imbalances (~5:1), official acknowledgment of needing more DMs, rising paid-DM marketplaces, and prep/scheduling as top barriers.
+  </div>
+
+  <h3>7.1 How many players DM?</h3>
+  <ul>
+    <li>WotC commentary summarized in community analysis: <strong>DMs are about 20% of customers</strong> — roughly one DM per four players if tables average DM+4.<span class="cite"> [<a href="#r-seed">Seed of Worlds</a>]</span></li>
+    <li>Secondary industry analyses synthesizing community surveys put “ever DMed” around <strong>15–20%</strong>, with a smaller share DMing regularly.<span class="cite"> [<a href="#r-aidm">AIDungeonMaster</a>; <a href="#r-storyroll">StoryRoll</a>]</span></li>
+    <li>Hobby surveys of online communities often show ~50/50 DM/player respondents — a sampling bias (DMs hang out in DM spaces), not population truth.<span class="cite"> [<a href="#r-seed">Seed of Worlds</a>]</span></li>
+  </ul>
+
+  <h3>7.2 Interest in DMing vs. actually DMing</h3>
+  <p>Older survey archival notes (pulled together by Seed of Worlds) report a striking asymmetry: about <strong>12% of respondents were DMing though they would rather be players</strong>, versus only about <strong>3% who were players but preferred to DM</strong>. That pattern suggests many who want the DM seat already have it, while a chunk of current DMs are reluctant “forever DMs” — a supply problem driven by duty and scarcity, not by a huge idle queue of eager unused DMs.<span class="cite"> [<a href="#r-seed">Seed of Worlds</a>]</span></p>
+  <p>That does <em>not</em> kill the product thesis for accessibility tools. It reframes it: the opportunity may be less “millions secretly want to DM tomorrow” and more <strong>(a) reduce burnout among the 15–20% who already carry the hobby, (b) convert a larger share of story-interested players into first-time DMs by cutting prep and rules fear, and (c) serve groups that cannot find any DM at all</strong>.</p>
+
+  <h3>7.3 Demand for more DMs (converging evidence)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Signal</th>
+        <th>What it shows</th>
+        <th>Source type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Structural math</td>
+        <td>Need ~20–25% active DMs for 1:4–5 tables; observed ~16–20% ever-DM → gap on the order of hundreds of thousands of DMs at multi-million player scale</td>
+        <td>Derived from WotC/community ratios</td>
+      </tr>
+      <tr>
+        <td>r/lfg post ratio</td>
+        <td>~<strong>5:1</strong> player-seeking-DM posts vs. DM-seeking-player posts (2024 analyses)</td>
+        <td>Platform scrape / secondary analysis</td>
+      </tr>
+      <tr>
+        <td>Publisher acknowledgment</td>
+        <td>D&amp;D staff described needing more DMs “rather desperately”; 2024 DMG marketed as more new-DM friendly</td>
+        <td>Press / product strategy</td>
+      </tr>
+      <tr>
+        <td>Paid DM market</td>
+        <td>StartPlaying: thousands of pro GMs, tens of thousands of players, $15–25+/player/session typical; company reported $6.5M seed (2022) and later claimed $50M+ paid out to GMs</td>
+        <td>Marketplace / press</td>
+      </tr>
+      <tr>
+        <td>DM barrier surveys</td>
+        <td>Scheduling, organization, prep load, and confidence top complaint lists among DMs</td>
+        <td>Community surveys (e.g. Master the Dungeon)</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="cite">Sources: <a href="#r-aidm">AIDungeonMaster</a>; <a href="#r-storyroll">StoryRoll</a>; <a href="#r-dicebreaker">Dicebreaker</a>; <a href="#r-gamesbeat">GamesBeat / StartPlaying</a>; <a href="#r-ttrpg-insider">TTRPG Insider</a>; <a href="#r-mtd">Master the Dungeon</a>; <a href="#r-sly">Sly Flourish prep norms via secondary writeups</a>.</p>
+
+  <h3>7.4 Mapping to “had a story idea but didn’t DM”</h3>
+  <p>Without a direct survey item, the most honest statement for stakeholders is:</p>
+  <blockquote style="margin:1rem 0 1rem 1rem; padding-left:1rem; border-left:3px solid var(--border); color: var(--muted);">
+    A large majority of D&amp;D players (~80–85%) primarily experience the game as players, not as DMs. Storytelling interest is culturally central to the hobby (actual-play media, homebrew culture), but converting that interest into regular DMing is blocked by prep time, rules confidence, scheduling, and performance anxiety. Quantified “story idea → never DM” conversion rates remain an open research question the product should measure itself.
+  </blockquote>
+</section>
+
+<!-- ============================================================ -->
+<section id="share">
+  <h2>8. Finding 4 — Market Share of Different TTRPGs</h2>
+
+  <div class="finding-box">
+    <strong>Bottom line.</strong> Dungeons &amp; Dragons is the category gorilla across specialty retail sales and major VTT playshare. Pathfinder is the usual #2 in hobby-store RPG rankings. Call of Cthulhu often punches above its retail rank on virtual tabletops. Everything else is a long tail that reshuffles with new licensed releases.
+  </div>
+
+  <h3>8.1 Specialty retail rankings (ICv2 / trade press)</h3>
+  <p>For 2023, ICv2-linked reporting placed U.S./Canada hobby-game sales around <strong>$2.885 billion</strong> (+~1% YoY). RPGs as a category softened after COVID highs, but the top RPG titles were still led by <strong>D&amp;D, then Pathfinder, Cyberpunk RED, World of Darkness, and Starfinder</strong>.<span class="cite"> [<a href="#r-bols-2024">BoLS summarizing ICv2</a>; <a href="#r-rpgdrop">RPG Drop 2024 analysis</a>]</span></p>
+  <p>Industry commentators commonly estimate that D&amp;D products still represent on the order of <strong>~50% or more of RPG dollar sales</strong> in specialty channels in recent years — a dominance that survived the 2023 OGL controversy, even as some players temporarily explored alternatives.<span class="cite"> [<a href="#r-rpgdrop">RPG Drop</a>]</span></p>
+
+  <h3>8.2 Playshare on Roll20 (Orr Report — last detailed public window)</h3>
+  <p>Roll20’s Orr Report Q2 2021 (campaign share on that VTT) is one of the clearest public playtime snapshots before the report went on hold:</p>
+  <table>
+    <thead>
+      <tr>
+        <th>System (Roll20 campaigns)</th>
+        <th>Approx. share (Q2 2021)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>D&amp;D 5th Edition</td><td><strong>53.7%</strong></td></tr>
+      <tr><td>Uncategorized / no sheet</td><td>19.8%</td></tr>
+      <tr><td>Call of Cthulhu</td><td>16.3%</td></tr>
+      <tr><td>Pathfinder 1e</td><td>3.4%</td></tr>
+      <tr><td>Pathfinder 2e</td><td>1.8%</td></tr>
+      <tr><td>Warhammer / World of Darkness</td><td>~1.2% each</td></tr>
+      <tr><td>Other (Starfinder, Star Wars, etc.)</td><td>&lt;1% each in top tier</td></tr>
+    </tbody>
+  </table>
+  <p class="cite">Source: <a href="#r-orr-q2">Roll20 Orr Report Q2 2021</a>. Caveat: Pathfinder 2e is widely believed to be under-counted on Roll20 because many PF2 tables prefer Foundry VTT.<span class="cite"> [<a href="#r-rpgnet">RPGnet discussion</a>]</span></p>
+
+  <h3>8.3 Researchscape system mix among U.S. tryers (2019)</h3>
+  <p>Among Americans who had ever played a TTRPG, Researchscape found roughly <strong>six in ten had played D&amp;D</strong>, with notable shares also reporting Star Wars RPG (25%) and Star Trek Adventures (17%) — a reminder that licensed games matter in awareness even when they do not lead ongoing sales charts.<span class="cite"> [<a href="#r-researchscape">Researchscape</a>]</span></p>
+
+  <h3>8.4 Vendor market-share claims (use carefully)</h3>
+  <p>Some commercial market reports assign WotC roughly <strong>~48%</strong> of player-engagement share and Paizo ~<strong>12%</strong>, with the rest fragmented.<span class="cite"> [<a href="#r-iri-share">IndustryResearch.biz claim</a>]</span> Treat these as directional, not audited. They align qualitatively with ICv2 and Orr (D&amp;D first, Paizo second tier) but the precision is not independently verified here.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="funnel">
+  <h2>9. Putting It Together — An Interest Funnel for an Accessibility Product</h2>
+  <div class="diagram">┌─────────────────────────────────────────────────────────────┐
+│  U.S. adults                                                │
+│                                                             │
+│  ~68% never play TTRPGs (YouGov frequency)                  │
+│  ~16–28% ever tried TTRPG / D&amp;D (survey band)               │
+│       │                                                     │
+│       ├─~12% play TTRPGs monthly+ (YouGov active-ish)       │
+│       │                                                     │
+│       └─ among players:                                     │
+│            ~15–20% have ever DMed                           │
+│            ~80–85% primarily players                        │
+│                 │                                           │
+│                 └─ DM demand still exceeds supply           │
+│                    (r/lfg ~5:1; paid DM markets;            │
+│                     WotC “need more DMs”)                   │
+└─────────────────────────────────────────────────────────────┘
+
+Product-relevant layers
+  1. Reactivation: tens of millions of past tryers
+  2. Active play: roughly low-teens % monthly TTRPG habit
+  3. Bottleneck: DM supply / prep / confidence / scheduling
+  4. Category entry: D&amp;D-first; Pathfinder &amp; CoC next</div>
+  <p>For a product that “makes TTRPGs more accessible,” the numbers argue that <strong>awareness and trial are already mainstream enough</strong>; the scarce resource is the ability to <em>start and sustain</em> games — especially the DM role and the logistics around it.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="conclusion">
+  <h2>10. Conclusion</h2>
+  <div class="conclusion-box">
+    <p><strong>Interest is real and large.</strong> Multiple independent U.S. surveys put lifetime TTRPG exposure near the team’s ~20% intuition (roughly 16% for D&amp;D-only; low-to-high 20s for any TTRPG). Publisher cumulative figures (50M–85M D&amp;D players worldwide) reinforce that this is a mass-culture franchise, not a niche basement hobby.</p>
+    <p><strong>Positive experience is plausible but under-measured.</strong> Clinical and qualitative research finds benefits and predominantly rewarding play among participants who stick with the game; enthusiast playtests are highly positive. A clean population percentage of “positive first experiences” is still missing.</p>
+    <p><strong>The DM bottleneck is the strongest demand story for accessibility tools.</strong> Only about one in five to one in six players ever DM, looking-for-group markets are chronically one-sided, and players pay real money ($15–25+ per seat) for professional GMs. Whether millions of non-DMs specifically “have a story ready” is unproven in published data — but the structural shortage of facilitators is well supported.</p>
+    <p><strong>D&amp;D owns the category;</strong> Pathfinder and Call of Cthulhu are the main secondary gravity wells, with licensed and indie games rotating through the charts.</p>
+  </div>
+
+  <h3>Further research questions</h3>
+  <ol>
+    <li>Field a population-representative item: “Have you ever played a TTRPG?” → “How positive was it?” → “Have you ever wanted to run a game / tell your own story as DM?” → “What stopped you?”</li>
+    <li>Measure conversion: among people who consume actual-play media (Critical Role, Dimension 20, etc.), what share have never sat at a table?</li>
+    <li>Quantify prep-time elasticity: how much does DM willingness rise if prep falls from ~2–3 hours per play hour to &lt;30 minutes?</li>
+    <li>Segment the 80% non-DM players: forever-players by preference vs. blocked aspirants vs. burned-out ex-DMs.</li>
+    <li>Compare accessibility tools’ willingness-to-pay against StartPlaying seat prices as a revealed-preference benchmark.</li>
+    <li>Track system loyalty after OGL / ORC / 2024 rules turmoil — does D&amp;D’s share erode for new cohorts?</li>
+  </ol>
+</section>
+
+<!-- ============================================================ -->
+<section id="refs">
+  <h2>11. Sources &amp; References</h2>
+  <ol class="ref-list">
+    <li id="r-researchscape">Henning, J. / Researchscape. “TTRPG, Gamebook, and Interactive Fiction Survey” (fielded Apr 22–23, 2019; n=1,000 U.S. adults). <a href="https://researchscape.com/consumer-research-2/ttrpg-gamebook-interactive-fiction-survey">https://researchscape.com/consumer-research-2/ttrpg-gamebook-interactive-fiction-survey</a></li>
+    <li id="r-troy">Troy Press. “D&amp;D Rules, According to Past Players” (omnibus survey of 1,253 U.S. adults; 16% ever played D&amp;D). Apr 25, 2026. <a href="https://troypress.com/dd-rules-according-to-past-players/">https://troypress.com/dd-rules-according-to-past-players/</a></li>
+    <li id="r-yougov-pdf">YouGov. Survey crosstabs including “Frequency Playing Types of Games — Tabletop roleplaying games” (Never 68%, Rarely 18%, Monthly 5%, Weekly 4%, Daily 1%). PDF: <a href="https://ygo-assets-websites-editorial-emea.yougov.net/documents/2024_Crosstabs_poll_results.pdf">2024_Crosstabs_poll_results.pdf</a></li>
+    <li id="r-yougov-board">YouGov. “What Americans think about board games” (May 6–10, 2026; n=1,131; 12% play TTRPGs at least monthly). <a href="https://yougov.com/en-us/articles/54943-what-americans-think-about-board-games">https://yougov.com/en-us/articles/54943-what-americans-think-about-board-games</a></li>
+    <li id="r-gitnux">Bauer, L. et al. / Gitnux. “TTRPG Industry Statistics” (cites 2022 NPD: 28% of U.S. adults played a TTRPG at least once; also aggregates other industry figures — verify before relying on any single row). <a href="https://gitnux.org/ttrpg-industry-statistics/">https://gitnux.org/ttrpg-industry-statistics/</a></li>
+    <li id="r-hasbro-2023">Hasbro, Inc. “Hasbro’s Wizards of the Coast Named to Fast Company’s… Most Innovative Companies for 2023” (D&amp;D and Magic “each with over 50 million players worldwide”). Mar 2, 2023. <a href="https://investor.hasbro.com/news-releases/news-release-details/hasbros-wizards-coast-named-fast-companys-annual-list-worlds">investor.hasbro.com</a></li>
+    <li id="r-cnbc-2024">CNBC Make It. “50 years in, Dungeons &amp; Dragons is still popular—and profitable” (WotC estimate: 85 million have played since 1974; WotC revenue context). Dec 28, 2024. <a href="https://www.cnbc.com/2024/12/28/50-years-in-dungeons-dragons-is-still-popular-and-profitable.html">cnbc.com</a></li>
+    <li id="r-hasbro-2021">Hasbro Investor Event remarks (2021): Magics and D&amp;D “enjoyed by over 40 million players each worldwide.” <a href="https://investor.hasbro.com/static-files/de97af26-93c3-4bfe-92d6-fbc9e0196fe1">investor.hasbro.com static file</a></li>
+    <li id="r-npr">NPR. Coverage noting WotC estimates that over 50 million people have played (50th anniversary listener stories). Sep 20, 2024. <a href="https://www.npr.org/2024/09/20/g-s1-23824/as-dungeons-dragons-turns-50-this-year-we-asked-listeners-for-their-stories-about-the-game-here-are-5">npr.org</a></li>
+    <li id="r-enworld-2023">EN World. “D&amp;D Statistics by State (March 2023)” thread summarizing WotC/press figures including ~50 million players worldwide and active-vs-lifetime caveats. <a href="https://www.enworld.org/threads/d-d-statistics-by-state-march-2023.699530/">enworld.org</a></li>
+    <li id="r-merrick">Merrick, A., Li, W. W., &amp; Miller, D. J. “A Study on the Efficacy of the Tabletop Roleplaying Game Dungeons &amp; Dragons for Improving Mental Health and Self-Concepts in a Community Sample.” <em>Games for Health Journal</em>, 2024. DOI: <a href="https://doi.org/10.1089/g4h.2023.0158">10.1089/g4h.2023.0158</a></li>
+    <li id="r-jcu">James Cook University. “Dungeons and Dragons may improve mental health” (public summary of Merrick-led study). Apr 2024. <a href="https://www.jcu.edu.au/news/releases/2024/april/dungeons-and-dragons-may-improve-mental-health">jcu.edu.au</a></li>
+    <li id="r-roll-insight">Baker, I. S., Turner, I. J., &amp; Kotera, Y. “Roll for Insight: Understanding How the Experience of Playing Dungeons &amp; Dragons Impacts the Mental Health of an Average Player” (qualitative thematic analysis). Available via ResearchGate / related publications, 2024.</li>
+    <li id="r-arenas">Arenas, D. L., Viduani, A., &amp; Araújo, R. B. “Therapeutic Use of Role-Playing Game (RPG) in Mental Health: A Scoping Review.” <em>Simulation &amp; Gaming</em>, 53(3), 2022. <a href="https://doi.org/10.1177/10468781211073720">DOI</a></li>
+    <li id="r-wargamer-ua">Wargamer. “Critical hit - DnD playtest satisfaction scores around 80%” (Crawford on UA / One D&amp;D survey thresholds). <a href="https://www.wargamer.com/dnd/one-dnd-playtest-satisfaction-scores">wargamer.com</a></li>
+    <li id="r-seed">Seed of Worlds. “What fraction of us are DMs” (WotC ~20% DM customers; archival 12% reluctant DMs vs 3% aspiring DMs). Dec 2022. <a href="https://seedofworlds.blogspot.com/2022/12/what-fraction-of-us-are-dms.html">seedofworlds.blogspot.com</a></li>
+    <li id="r-aidm">AIDungeonMaster.ai. “The DM Shortage Is Real — Here’s the Data” (15–20% ever DM; ~5:1 r/lfg; paid DM pricing). <a href="https://aidungeonmaster.ai/blog/dm-shortage-data/">aidungeonmaster.ai</a></li>
+    <li id="r-storyroll">StoryRoll. “The DM Shortage Is Real - And the Data Proves It” (1-in-6 DM estimate; structural gap math). <a href="https://storyroll.app/blog/dm-shortage-is-real">storyroll.app</a></li>
+    <li id="r-dicebreaker">Dicebreaker. “D&amp;D created its own ‘rather desperate’ need for more dungeon masters…” (WotC staff comments on DM supply). <a href="https://www.dicebreaker.com/categories/roleplaying-game/news/dungeons-and-dragons-dmg-history">dicebreaker.com</a></li>
+    <li id="r-mtd">Master the Dungeon. “Dungeon Master Survey Results” (scheduling/organization as top DM pain points; n&gt;200 convenience sample). <a href="https://www.masterthedungeon.com/survey-results/">masterthedungeon.com</a></li>
+    <li id="r-gamesbeat">GamesBeat. “StartPlaying raises $6.5M so tabletop players can rent Dungeon Masters” (100k+ games, 1,000+ GMs at time of raise; ~half of new users never played). <a href="https://gamesbeat.com/startplaying-raises-6-5m-so-tabletop-players-can-rent-dungeon-masters/">gamesbeat.com</a></li>
+    <li id="r-ttrpg-insider">TTRPG Insider. “Pay-to-Play: The Business of the Professional Dungeon Master” (≈5,000 pro DMs, ≈80,000 players, $50M+ GM payouts claimed). <a href="https://www.ttrpginsider.news/p/pay-to-play-the-business-of-the-professional-dungeon-master">ttrpginsider.news</a></li>
+    <li id="r-bols-2024">Bell of Lost Souls. “D&amp;D Tops The 2023 Sales Charts, Despite 30% Decline” (ICv2 hobby sales; RPG top five: D&amp;D, Pathfinder, Cyberpunk RED, WoD, Starfinder). Mar 29, 2024. <a href="https://www.belloflostsouls.net/2024/03/dd-tops-the-2023-sales-charts-despite-30-decline.html">belloflostsouls.net</a></li>
+    <li id="r-rpgdrop">RPG Drop. “Worldwide TTRPG Market in 2024 – Industry Analysis” (D&amp;D ~50%+ sales share commentary; ICv2 ranking context). <a href="https://www.rpgdrop.com/worldwide-ttrpg-market-in-2024-industry-analysis/">rpgdrop.com</a></li>
+    <li id="r-orr-q2">Roll20 Blog. “The Orr Report Q2 2021” (D&amp;D 5E 53.7% of campaigns; Call of Cthulhu 16.3%; Pathfinder editions ~5% combined). Sep 23, 2021. <a href="https://blog.roll20.net/posts/the-orr-report-q2-2021/">blog.roll20.net</a></li>
+    <li id="r-orr-wiki">Roll20 Wiki. “Orr Industry Report” (history; report on hold after 2021). <a href="https://wiki.roll20.net/Orr_Industry_Report">wiki.roll20.net</a></li>
+    <li id="r-rpgnet">RPGnet forums. “Do we have any idea of what the most popular TTRPGs are beyond D&amp;D?” (practitioner discussion of Orr vs Foundry bias). <a href="https://forum.rpg.net/index.php?threads/do-we-have-any-idea-of-what-the-most-popular-ttrpgs-are-beyond-d-d.907630/">forum.rpg.net</a></li>
+    <li id="r-iri-share">IndustryResearch.biz (commercial). TTRPG market report summary claiming WotC ~48% player-engagement share / Paizo ~12% — directional only. <a href="https://www.industryresearch.biz/market-reports/tabletop-role-playing-game-ttrpg-market-105312">industryresearch.biz</a></li>
+    <li id="r-sly">Secondary discussions of Sly Flourish GM prep surveys (multi-hour prep norms) as cited in DM-shortage explainers such as Dungeons Deep / AIDungeonMaster — original Sly Flourish survey posts should be consulted for primary numbers when designing follow-up research.</li>
+  </ol>
+</section>
+
+<footer style="margin-top:3rem; padding-top:1.5rem; border-top:1px solid var(--border); color:var(--muted); font-size:0.85rem;">
+  <p>Prepared as a Research-Bot one-shot report. Figures mixed primary surveys, publisher claims, trade press, VTT telemetry, and secondary syntheses; conflicting numbers are retained on purpose. Not financial advice.</p>
+</footer>
+
+</div>
+</body>
+</html>
