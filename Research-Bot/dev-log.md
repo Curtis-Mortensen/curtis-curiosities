@@ -1,5 +1,41 @@
 # Research Bot — Dev Log
 
+## 2026-07-16 — TTRPG / D&D accessibility market interest (complete)
+
+### Plan summary
+User asked for market-research numbers for a D&D/TTRPG product that aims to make tabletop RPGs more accessible: lifetime play rates (~20% from initial surveys), positive experience rates, DM / story-idea interest among non-DMs, DM shortage / demand signals, and TTRPG market share. Followed Research-Bot README: precursor questions, step-by-step web research, self-contained HTML with aims/limitations/history/citations/conclusion.
+
+### Precursor / subset questions
+1. What % of adults have ever played a TTRPG vs D&D specifically vs play monthly?
+2. What absolute headcounts do publishers claim (lifetime vs active)?
+3. Is there a published “positive experience” % among tryers?
+4. What % of players DM; how many want to DM but don’t; is DM demand > supply?
+5. What is D&D’s share vs Pathfinder, Call of Cthulhu, and others (sales + playtime)?
+
+### Key findings
+- **Lifetime try:** U.S. surveys cluster ~16% ever D&D (Troy Press 2026) and ~23–28% ever any TTRPG (Researchscape 2019; YouGov never=68% ⇒ ~28% some play; NPD-cited 28%). Matches user’s ~20% intuition.
+- **Publisher scale:** Hasbro/WotC 50M+ players (2023); CNBC reports WotC 85M cumulative since 1974.
+- **Positive experience:** No clean population % found. Proxies: Merrick et al. wellbeing gains (n=25); qualitative “primarily positive”; UA playtest 80%+ (biased). Flagged as research gap.
+- **DM gap:** ~15–20% ever DM; need ~20–25% for healthy tables; r/lfg ~5:1; paid DM markets (StartPlaying) as revealed demand. No direct “had story idea but never DMed” survey item found.
+- **Share:** ICv2 top RPGs D&D → Pathfinder → Cyberpunk RED → WoD → Starfinder; Roll20 Orr Q2 2021 D&D 5E ~53.7% campaigns.
+
+### Changes made
+- Created `Research-Bot/ttrpg-dnd-accessibility-market-interest.html`
+- Updated this dev-log
+
+### Assumptions
+- “Accessible” = lower barriers to play and especially to running games (DM supply/prep/confidence).
+- Gitnux/commercial market-report rows treated as leads; primary surveys and ICv2/Orr preferred.
+- Dicebreaker page fetch timed out; DM-need quote retained via secondary coverage already in the literature trail.
+
+### Bugs / problems
+- Exact “story idea but never DMed” statistic unavailable in published sources — documented as open question for product-owned survey.
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-15 — R-1234yf recharge hose / cans shopping guide (complete)
 
 ### Plan summary
