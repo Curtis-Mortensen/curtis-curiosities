@@ -1,5 +1,41 @@
 # Research Bot — Dev Log
 
+## 2026-07-17 — Follow-up: ASU/BYUI, gaming fit, angel matching (complete)
+
+### Plan summary
+User clarified: cofounder is ASU, user is BYUI; sector is entertainment gaming (maybe SaaS?); also want angel investor matching. Continued Research-Bot digging as a companion follow-up to the parent grants/competitions report.
+
+### Precursor / subset questions
+1. Is ASU cofounder still enrolled? (gates Venture Devils)
+2. Does entertainment gaming count as SaaS for AIC?
+3. What BYUI alumni capital gravity exists in Mountain West?
+4. Which Phoenix angel groups accept founder applications?
+5. Which gaming grants are LGBTQ- or engine-gated?
+
+### Key findings
+- **SaaS:** Traditional entertainment titles ≠ SaaS; live-service MRR or B2B game tooling can be framed as SaaS. Fall 2025 AIC was SaaS+$5K MRR — don’t assume fit.
+- **ASU:** Venture Devils = current student lead only (as of Aug 2024). Alumni → Edson community / Pitch In / InvestU ($6.5M+ direct to ASU-affiliated cos; portfolio includes learning games).
+- **BYUI:** Campus prize comps are student-forward; alumni value is network → Kickstart-class Mountain West + Entrepreneurship Society contacts.
+- **Gaming adds:** Epic MegaGrants (Cycle 2 through Sep 4, 2026), GLAAD QED, Draknek puzzle (closed—watch next), IdeaFunding Creative/Tech.
+- **Angel matching stack:** Canyon Angels (Dealum) + Desert Angels (no SAFEs) + ATI/PHX Angels + Venture Madness + Venture Café; certify for AZ Angel Tax Credit if 2 AZ FTEs.
+
+### Changes made
+- Created `Research-Bot/phoenix-gaming-asu-byui-angel-matching-followup.html`
+- Linked follow-up from parent report
+- Updated this dev-log
+
+### Assumptions
+- ASU enrollment status unknown — both student and alumni paths documented.
+- Monetization model unknown — SaaS vs entertainment framing table is conditional.
+
+### Bugs / problems
+- None blocking. ACA Angel Tax Credit page fetch timed out; used ACA program summary + statute/secondary explainers.
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-17 — Phoenix LGBTQ tech startup grants & competitions (complete)
 
 ### Plan summary

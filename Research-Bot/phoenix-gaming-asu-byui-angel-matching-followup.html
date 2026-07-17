@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Follow-Up: ASU/BYUI Paths, Gaming Fit &amp; Angel Matching — Research Bot</title>
+<style>
+  :root {
+    --bg: #0f1419;
+    --surface: #1a2332;
+    --surface2: #243044;
+    --text: #e8eef4;
+    --muted: #9aabbd;
+    --accent: #5ec8a5;
+    --accent2: #6eb5e7;
+    --danger: #e07a7a;
+    --warning: #d4a853;
+    --link: #7ec4f0;
+    --border: #2e3d52;
+    --asu: #8c1d40;
+    --byui: #006eb6;
+    --game: #e8a87c;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .container { max-width: 980px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  header {
+    border-bottom: 2px solid var(--game);
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  h1 { font-size: 1.9rem; line-height: 1.25; margin-bottom: 0.5rem; color: var(--game); }
+  .subtitle { color: var(--muted); font-style: italic; font-size: 1.05rem; }
+  h2 {
+    font-size: 1.45rem;
+    color: var(--accent2);
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 { font-size: 1.15rem; color: var(--accent); margin: 1.5rem 0 0.75rem; }
+  h4 { font-size: 1rem; color: var(--muted); margin: 1rem 0 0.5rem; }
+  p { margin-bottom: 1rem; }
+  a { color: var(--link); }
+  .thesis-box, .limitation-box, .action-box, .callout {
+    background: var(--surface);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .thesis-box { border-left: 4px solid var(--accent); }
+  .limitation-box { border-left: 4px solid var(--danger); }
+  .action-box { border-left: 4px solid var(--warning); }
+  .callout { border-left: 4px solid var(--game); }
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .overview-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+  .overview-card h4 { color: var(--accent2); margin-top: 0; }
+  .diagram {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    white-space: pre;
+    color: var(--muted);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.84rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.55rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: var(--surface2); color: var(--accent2); font-weight: 600; }
+  tr:nth-child(even) { background: var(--surface); }
+  .tag {
+    display: inline-block;
+    background: var(--surface2);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    margin-right: 0.25rem;
+    font-family: sans-serif;
+  }
+  .tag.asu { color: #f5a3b8; }
+  .tag.byui { color: #7ec4f0; }
+  .tag.game { color: var(--game); }
+  .tag.angel { color: var(--warning); }
+  .cite { font-size: 0.82rem; color: var(--muted); }
+  .ref-list { font-size: 0.85rem; }
+  .ref-list li { margin-bottom: 0.6rem; }
+  .conclusion-box {
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+    border: 1px solid var(--accent2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+  ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  .prog-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.1rem 1.25rem;
+    margin: 1rem 0;
+  }
+  .prog-block h4 {
+    color: var(--text);
+    margin-top: 0;
+    margin-bottom: 0.4rem;
+    font-size: 1.05rem;
+  }
+  .meta-line { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.6rem; font-family: sans-serif; }
+  .fit-high { color: var(--accent); font-weight: 600; }
+  .fit-med { color: var(--warning); }
+  .fit-low { color: var(--muted); }
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>Follow-Up: ASU &amp; BYU-Idaho Paths, Entertainment Gaming Fit, and Angel Matching</h1>
+  <p class="subtitle">Companion to the Phoenix LGBTQ tech grants/competitions brief. Adds university-specific doors, clarifies whether entertainment gaming counts as SaaS, and maps angel-investor matching routes in Arizona and the Mountain West. Compiled July 17, 2026.</p>
+  <p class="cite">Research Bot follow-up · Parent report: <a href="phoenix-lgbtq-tech-startup-grants-competitions.html">phoenix-lgbtq-tech-startup-grants-competitions.html</a> · Verify deadlines on official sites before applying.</p>
+</header>
+
+<nav class="toc" aria-label="Table of contents">
+  <h3 style="margin-top:0;color:var(--accent2);">Contents</h3>
+  <ol>
+    <li><a href="#aims">Aims and updated profile</a></li>
+    <li><a href="#precursor">Precursor questions</a></li>
+    <li><a href="#limitations">Limitations</a></li>
+    <li><a href="#saas">Does entertainment gaming count as SaaS?</a></li>
+    <li><a href="#asu">ASU cofounder pathways</a></li>
+    <li><a href="#byui">BYU-Idaho / Mountain West pathways</a></li>
+    <li><a href="#gaming">Gaming-specific grants &amp; comps</a></li>
+    <li><a href="#angels">Angel investor matching map</a></li>
+    <li><a href="#priority">Revised priority stack</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#refs">References</a></li>
+  </ol>
+</nav>
+
+<section id="aims">
+  <h2>1. Aims and Updated Profile</h2>
+  <p>The parent report assumed a generic Phoenix tech startup. This follow-up updates the profile with three new facts and re-ranks opportunities:</p>
+  <ul>
+    <li>Cofounder affiliation: <strong>Arizona State University (ASU)</strong></li>
+    <li>Founder affiliation: <strong>BYU-Idaho (BYUI)</strong></li>
+    <li>Sector: <strong>entertainment gaming</strong> (with an open question about SaaS framing)</li>
+    <li>New ask: <strong>angel investor matching</strong>, not only grants/competitions</li>
+  </ul>
+
+  <div class="thesis-box">
+    <strong>Updated thesis:</strong> Entertainment gaming is usually <em>not</em> treated as classic B2B SaaS by Arizona’s SaaS-themed AIC cohorts — unless the product is a subscription platform (tools, live-service game with clear MRR, B2B game-tech). University doors split hard on enrollment: <strong>Venture Devils funding requires a current ASU/Maricopa student lead</strong>; alumni use Edson community programs + InvestU for investor matching. BYUI’s strongest cash comps are student-era; as alumni, the BYUI/BYU/Mountain West value is mostly <strong>network → Kickstart-class Mountain West capital and alumni angels</strong>. For angels in Phoenix, the practical matching stack is Canyon Angels + Desert Angels + Arizona Technology Investors / PHX Angels + Venture Madness + Venture Café, greased by Arizona’s Angel Investment Tax Credit if you certify as a Qualified Small Business.<sup><a href="#ref-1">1</a></sup><sup><a href="#ref-2">2</a></sup><sup><a href="#ref-3">3</a></sup>
+  </div>
+</section>
+
+<section id="precursor">
+  <h2>2. Precursor and Subset Questions</h2>
+  <div class="overview-grid">
+    <div class="overview-card">
+      <h4>Is the ASU cofounder still enrolled?</h4>
+      <p>Venture Devils (and its Demo Day grants) require at least one <em>current</em> ASU or Maricopa CC student as lead founder. Alumni are explicitly routed to other Edson programs as of August 2024.<sup><a href="#ref-1">1</a></sup></p>
+    </div>
+    <div class="overview-card">
+      <h4>Game product vs. game platform?</h4>
+      <p>A shippable entertainment title ≠ SaaS. A live-service game with subscriptions, a B2B game-ops tool, or a creator platform with recurring fees can be framed as software/SaaS for AIC and PHX FWD.<sup><a href="#ref-4">4</a></sup></p>
+    </div>
+    <div class="overview-card">
+      <h4>Angel “matching” means what?</h4>
+      <p>Three different things get called matching: (1) pitch-to-angel-group application funnels, (2) warm intros via university/alumni/LGBTQ networks, (3) state tax-credit programs that make angels more willing to write checks. This report covers all three.<sup><a href="#ref-3">3</a></sup></p>
+    </div>
+    <div class="overview-card">
+      <h4>BYUI student vs. alumni?</h4>
+      <p>Vision-to-Venture and Idaho Entrepreneur Challenge pathways are student-forward. Alumni leverage Entrepreneurship Society contacts, IBC culture, and Utah/Idaho/Mountain West investor gravity more than campus prize money.<sup><a href="#ref-5">5</a></sup><sup><a href="#ref-6">6</a></sup></p>
+    </div>
+  </div>
+</section>
+
+<section id="limitations">
+  <h2>3. Limitations</h2>
+  <div class="limitation-box">
+    <p><strong>Enrollment unknown.</strong> Whether the ASU cofounder can unlock Venture Devils hinges on current credit-bearing enrollment — not confirmed in the prompt.</p>
+    <p><strong>Game business model unknown.</strong> Premium one-time sales, free-to-play UA-heavy mobile, subscription live service, and B2B game tooling have radically different fundability and AIC fit.</p>
+    <p><strong>Angel groups are selective and opaque.</strong> Published portfolio stats and “apply for funding” pages exist; acceptance rates and check sizes for entertainment gaming specifically are thin in public sources.</p>
+    <p><strong>Gaming grants are genre/engine gated.</strong> Epic MegaGrants favor Unreal; Draknek is puzzle-only; GLAAD QED is mentorship + GDC stipend, not studio seed capital.<sup><a href="#ref-7">7</a></sup><sup><a href="#ref-8">8</a></sup><sup><a href="#ref-9">9</a></sup></p>
+  </div>
+</section>
+
+<section id="saas">
+  <h2>4. Does Entertainment Gaming Count as SaaS?</h2>
+  <div class="callout">
+    <p><strong>Short answer:</strong> Sometimes — but do not assume Fall-2025-style AIC SaaS rules cover a traditional entertainment game. Frame carefully.</p>
+  </div>
+
+  <table>
+    <tr><th>Business shape</th><th>Likely AIC / PHX FWD framing</th><th>Notes</th></tr>
+    <tr>
+      <td>One-time premium game (Steam/console)</td>
+      <td class="fit-low">Weak as “SaaS”</td>
+      <td>Still tech/software for broader AIC cycles historically; Fall 2025 SaaS+MRR cohort would be a stretch unless you invent recurring revenue.<sup><a href="#ref-4">4</a></sup></td>
+    </tr>
+    <tr>
+      <td>Live-service / battle pass / subscription game with measurable MRR</td>
+      <td class="fit-med">Possible SaaS-like</td>
+      <td>If ≥~$5K MRR and founder-led sales/GTM story, you can argue recurring software revenue. Confirm each cohort’s written rules.<sup><a href="#ref-4">4</a></sup></td>
+    </tr>
+    <tr>
+      <td>B2B game tooling, backend, analytics, UGC platform sold on subscriptions</td>
+      <td class="fit-high">Strong SaaS</td>
+      <td>Closest to what PHX FWD and SaaS-themed AIC want.<sup><a href="#ref-10">10</a></sup></td>
+    </tr>
+    <tr>
+      <td>Edu / serious games with institutional licenses</td>
+      <td class="fit-high">Often SaaS/edtech</td>
+      <td>InvestU portfolio already includes learning games (e.g., immersionEd).<sup><a href="#ref-2">2</a></sup></td>
+    </tr>
+    <tr>
+      <td>Content studio / work-for-hire</td>
+      <td class="fit-low">Poor venture/SaaS fit</td>
+      <td>Better for grants, publisher deals, or services revenue — not angel SaaS theses.</td>
+    </tr>
+  </table>
+
+  <p><strong>Practical advice:</strong> For IdeaFunding’s Tech track, Venture Madness, and non-SaaS AIC cycles, lead with “entertainment software / interactive entertainment tech.” For SaaS-themed AIC or PHX FWD, lead with recurring revenue mechanics (subscriptions, seats, live-service ARPU) — or wait until those exist.</p>
+</section>
+
+<section id="asu">
+  <h2>5. ASU Cofounder Pathways</h2>
+
+  <div class="prog-block">
+    <h4>1. Venture Devils (Demo Day / Pitch Playoffs)</h4>
+    <p class="meta-line"><span class="tag asu">ASU</span> · Fit: <span class="fit-high">HIGH if currently enrolled</span> / <span class="fit-low">LOW if alumni-only</span></p>
+    <p>ASU’s flagship student venture program via Edson E+I. Mentorship, workshops, and competition for seed grants commonly cited in the <strong>$1K–$50K</strong> range; institute materials also reference <strong>$400K–$450K+</strong> in annual startup funding across Demo Day tracks. Demo Days run roughly December and April (Fall 2026 Demo Day listed for Nov 14, 2026).<sup><a href="#ref-1">1</a></sup><sup><a href="#ref-11">11</a></sup><sup><a href="#ref-12">12</a></sup></p>
+    <p><strong>Hard gate:</strong> At least one lead founding team member must be a <em>current</em> ASU or Maricopa Community College student in a degree-seeking program taking ≥1 credit course (undergrad, grad, postdoc, or part-time/online OK). As of August 2024, alumni/community founders are directed away from Venture Devils to other Edson programs.<sup><a href="#ref-1">1</a></sup></p>
+    <p><strong>Action:</strong> If the ASU cofounder can enroll in even one credit, this becomes one of the highest-ROI local grant competitions available. If not, skip to community programs below.</p>
+  </div>
+
+  <div class="prog-block">
+    <h4>2. Edson Community Entrepreneurship / Pitch In / Prototyping Venture Boost</h4>
+    <p class="meta-line"><span class="tag asu">ASU</span> · Fit: <span class="fit-high">HIGH for alumni</span></p>
+    <p>Pitch In is an open community pitch/feedback event (historically 2nd &amp; 4th Wednesdays). Prototyping Venture Boost and Chandler Endeavor / community incubator partnerships help alumni and non-student founders without Venture Devils eligibility. Email <code>entrepreneurship@asu.edu</code> for routing.<sup><a href="#ref-13">13</a></sup><sup><a href="#ref-14">14</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>3. InvestU (ASU-affiliated investor matching)</h4>
+    <p class="meta-line"><span class="tag asu">ASU</span> <span class="tag angel">Angel/investor</span> · Fit: <span class="fit-high">HIGH for ASU-affiliated raise</span></p>
+    <p>InvestU connects accredited investors to ASU-affiliated startups. Public stats: 31 portfolio companies, &gt;$6.5M direct investment, &gt;$200M follow-on, 480+ jobs. Portfolio already includes a learning-games company (immersionEd) plus software/SaaS names — useful social proof that interactive media is not alien to this network.<sup><a href="#ref-2">2</a></sup></p>
+    <p><strong>This is one of your best “angel matching” levers tied to the ASU cofounder.</strong> Treat it as a raise-path, not a grant.</p>
+  </div>
+
+  <div class="prog-block">
+    <h4>4. New Venture Challenge / W. P. Carey accelerator paths</h4>
+    <p class="meta-line"><span class="tag asu">ASU</span> · Fit: <span class="fit-med">MEDIUM</span> if grad-student path available</p>
+    <p>Course + competition for ASU graduate students and co-founders advancing a venture; W. P. Carey also describes accelerator support for ASU-affiliated founders preparing larger pre-seed/seed raises.<sup><a href="#ref-15">15</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>5. Skysong Innovations Startup Challenge</h4>
+    <p class="meta-line"><span class="tag asu">ASU</span> · Fit: <span class="fit-low">LOW</span> unless licensing ASU IP</p>
+    <p>Still ASU-invention / option-license gated. Entertainment games created outside ASU tech transfer usually do not qualify.<sup><a href="#ref-16">16</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>6. ACA Venture Start @ ASU 850PBC (shared with parent report)</h4>
+    <p class="meta-line"><span class="tag asu">ASU</span> · Fit: <span class="fit-high">HIGH</span></p>
+    <p>Hybrid early accelerator co-hosted with Edson; open community path that does not require Venture Devils student status. Good bridge for alumni teams into the AIC pipeline.<sup><a href="#ref-17">17</a></sup></p>
+  </div>
+</section>
+
+<section id="byui">
+  <h2>6. BYU-Idaho / Mountain West Pathways</h2>
+
+  <div class="prog-block">
+    <h4>7. BYUI Entrepreneurship Society / Vision-to-Venture pitches</h4>
+    <p class="meta-line"><span class="tag byui">BYUI</span> · Fit: <span class="fit-med">MEDIUM if still student</span> / <span class="fit-low">LOW cash if alumni</span></p>
+    <p>Campus Shark-Tank-style competitions with small cash prizes (example: ~$4K total pool; $2K first). Judges often include alumni entrepreneurs and regional business owners — network value can exceed prize size.<sup><a href="#ref-5">5</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>8. Idaho Entrepreneur Challenge (Boise) — society pipeline</h4>
+    <p class="meta-line"><span class="tag byui">BYUI</span> · Fit: <span class="fit-med">MEDIUM</span> for students; alumni case-by-case</p>
+    <p>Statewide challenge where BYUI teams have historically won substantial prize money (society coverage cited ~$34K sweep in one year). Confirm current eligibility if you are alumni living in Phoenix.<sup><a href="#ref-6">6</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>9. Integrated Business Core (IBC) alumni identity</h4>
+    <p class="meta-line"><span class="tag byui">BYUI</span> · Fit: <span class="fit-med">MEDIUM</span> as story/network</p>
+    <p>IBC is a real-company sandbox (150+ student startups, ~$2M cumulative revenue claimed). Even if you are not currently in IBC, the “we already shipped a product / ran a company” narrative fits angel diligence culture in the BYU corridor.<sup><a href="#ref-18">18</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>10. Mountain West / BYU-corridor capital (Kickstart and peers)</h4>
+    <p class="meta-line"><span class="tag byui">BYUI</span> <span class="tag angel">Angel/VC</span> · Fit: <span class="fit-med">MEDIUM–HIGH</span> for warm outreach</p>
+    <p>Kickstart Fund explicitly targets overlooked Mountain West founders including Arizona and Idaho; Album VC / Peak-origin networks and Utah Angels 2 sit in the same corridor often staffed by BYU alumni operators.<sup><a href="#ref-19">19</a></sup><sup><a href="#ref-20">20</a></sup> This is not a formal “BYUI matching program,” but it is the realistic alumni capital gravity field. Pair with Gaingels (parent report) if you want LGBTQ-aligned syndicate capital on the same raise.</p>
+  </div>
+</section>
+
+<section id="gaming">
+  <h2>7. Entertainment Gaming Grants &amp; Competitions (Add-Ons)</h2>
+  <p>These sit beside the parent report’s general tech list. Genre, engine, and LGBTQ identity matter more here than Arizona residency.</p>
+
+  <table>
+    <tr><th>#</th><th>Program</th><th>Type</th><th>Typical value</th><th>Gate</th><th>Fit for you</th></tr>
+    <tr>
+      <td>1</td><td>Epic MegaGrants</td><td>Grant</td><td>Avg ~$5K–$75K; exceptional higher</td><td>Unreal / UEFN / open-source 3D; unreleased projects. Cycle 2 2026 apps through Sep 4, 2026</td>
+      <td class="fit-high">HIGH if on Unreal</td>
+    </tr>
+    <tr>
+      <td>2</td><td>Draknek New Voices Puzzle Grant</td><td>Grant</td><td>5 × $15K + mentorship</td><td>Puzzle games; underrepresented creators (explicitly includes LGBTQIA). 2025/26 cycle closed — watch next</td>
+      <td class="fit-med">MEDIUM if puzzle genre</td>
+    </tr>
+    <tr>
+      <td>3</td><td>GLAAD Queer Emerging Developers (QED)</td><td>Mentorship</td><td>GDC pass + $2K travel stipend</td><td>Emerging LGBTQ game developers; cohort + workshops</td>
+      <td class="fit-high">HIGH for industry access</td>
+    </tr>
+    <tr>
+      <td>4</td><td>Apollo Studios Creator Partnership</td><td>Partnership</td><td>Mentorship / collab (selective)</td><td>LGBTQ+ narrative / VN / story games</td>
+      <td class="fit-med">MEDIUM if narrative-led</td>
+    </tr>
+    <tr>
+      <td>5</td><td>Unity for Humanity</td><td>Impact grant</td><td>Share of large pool (2026 ~$600K across winners)</td><td>Impact / SDG-aligned Unity projects — not pure entertainment</td>
+      <td class="fit-low">LOW unless impact angle</td>
+    </tr>
+    <tr>
+      <td>6</td><td>IdeaFunding Creative + Tech tracks</td><td>AZ pitch</td><td>$50K+ pool</td><td>Arizona early-stage; Creative track may fit entertainment better than SaaS AIC</td>
+      <td class="fit-high">HIGH statewide stage</td>
+    </tr>
+    <tr>
+      <td>7</td><td>SXSW Pitch (Entertainment / Media category)</td><td>National pitch</td><td>Cash + exposure</td><td>Category fit; annual</td>
+      <td class="fit-med">MEDIUM</td>
+    </tr>
+    <tr>
+      <td>8</td><td>City of Phoenix entertainment / future-tech ecosystem contacts</td><td>Ecosystem</td><td>Intros, not cash</td><td>Gaming/XR/esports economic development staff exist in Phoenix</td>
+      <td class="fit-med">MEDIUM networking</td>
+    </tr>
+  </table>
+
+  <p>Epic MegaGrants remain one of the largest pure-gaming non-dilutive programs globally for Unreal teams; Cycle 2 2026 is open through September 4, 2026 at research time.<sup><a href="#ref-7">7</a></sup> GLAAD’s QED program is the clearest LGBTQ+ <em>games-industry</em> on-ramp (mentorship + GDC), distinct from general LGBTQ small-business grants in the parent report.<sup><a href="#ref-9">9</a></sup></p>
+</section>
+
+<section id="angels">
+  <h2>8. Angel Investor Matching Map (Phoenix + Adjacent)</h2>
+
+  <div class="diagram">MATCHING FUNNEL (practical order)
+  1. Get "pitch ready": deck, demo, metrics, ask amount, use of funds
+  2. Certify for AZ Angel Tax Credit (Qualified Small Business) if you have 2 AZ FTEs
+  3. Apply in parallel to angel GROUP funnels (not random LinkedIn)
+        |-- Canyon Angels (Dealum app) -------- Phoenix, GCU-powered DD
+        |-- Desert Angels (Apply for Funding) - AZ network, pref equity / notes
+        |-- Arizona Technology Investors ------ AZ tech angels
+        |-- PHX Angels / PHX FWD orbit -------- software-forward
+  4. University matching
+        |-- InvestU (ASU-affiliated)
+        |-- Pitch In / Venture Café Thursday Gathering (warm intros)
+  5. Identity / corridor matching
+        |-- Gaingels (LGBTQ+/allies syndicate) when you have a lead
+        |-- Kickstart / Mountain West (BYUI-BYU corridor gravity)
+  6. Stage events
+        |-- Venture Madness Conference (Invest Southwest)
+        |-- IdeaFunding / AIC as credibility signals angels notice</div>
+
+  <h3>8.1 Structured angel groups (apply-to-pitch)</h3>
+
+  <div class="prog-block">
+    <h4>Canyon Angels (Phoenix / GCU)</h4>
+    <p class="meta-line"><span class="tag angel">Angel</span> · Fit: <span class="fit-high">HIGH</span> first local application</p>
+    <p>Student-powered diligence + accredited member pitches. Public claims: 40+ angels per event, 70+ companies funded, $7.5M+ committed since founding. Apply via Dealum at canyonangels.org/pitch. They look for high-growth, product-market-fit companies aiming for &gt;5x in 3–7 years.<sup><a href="#ref-21">21</a></sup><sup><a href="#ref-22">22</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>Desert Angels</h4>
+    <p class="meta-line"><span class="tag angel">Angel</span> · Fit: <span class="fit-high">HIGH</span></p>
+    <p>Long-running AZ angel network (since ~2000). Founders apply separately from investor membership. Invests in preferred equity and convertible notes — <strong>not SAFEs</strong>. Review meetings monthly+. Strong process brand; gaming must still clear tech/scale diligence.<sup><a href="#ref-23">23</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>Arizona Technology Investors (ATI)</h4>
+    <p class="meta-line"><span class="tag angel">Angel</span> · Fit: <span class="fit-med">MEDIUM–HIGH</span></p>
+    <p>Positions as Arizona’s large tech-focused angel org; sectors include software/SaaS, consumer tech with growth potential. Screening → pitch → diligence → decision process.<sup><a href="#ref-24">24</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>PHX Angels (+ PHX FWD adjacency)</h4>
+    <p class="meta-line"><span class="tag angel">Angel</span> · Fit: <span class="fit-med">MEDIUM</span> (stronger if software/MRR story)</p>
+    <p>Software-startup-forward angel community partnered with PHX FWD. More natural if you can tell a recurring-revenue software story; less natural for pure content entertainment without metrics.<sup><a href="#ref-25">25</a></sup></p>
+  </div>
+
+  <h3>8.2 Matching venues &amp; conferences</h3>
+  <ul>
+    <li><strong>Venture Madness</strong> (Invest Southwest) — apply to present; investor-dense Arizona Tech Week stage (parent report).<sup><a href="#ref-26">26</a></sup></li>
+    <li><strong>Venture Café Phoenix Thursday Gathering</strong> — weekly ecosystem room (850 N 5th St) that regularly programs angel/investor education and founder networking; low-friction intro surface.<sup><a href="#ref-27">27</a></sup></li>
+    <li><strong>InvestU</strong> — ASU-affiliated investor community (Section 5).<sup><a href="#ref-2">2</a></sup></li>
+    <li><strong>Gaingels</strong> — LGBTQ+/allies co-invest syndicate when a lead is in place (parent report).<sup><a href="#ref-28">28</a></sup></li>
+  </ul>
+
+  <h3>8.3 Arizona Angel Investment Tax Credit (makes angels say yes easier)</h3>
+  <p>This is not a grant to you — it is a <strong>matching incentive for your investors</strong>. ACA can authorize up to <strong>$2.5M in tax credits per fiscal year</strong> (extended through the decade under current framing). Businesses certify as a Qualified Small Business; investors claim credits after investing.<sup><a href="#ref-3">3</a></sup></p>
+  <p>Basic QSB pattern (verify current ACA guidelines): Arizona entity (not sole prop), AZ ops, ≥2 principal non-administrative AZ-resident FTEs, assets under ~$10M (excl. IP/qualified investments), not in prohibited activities. Getting certified before or during a raise is a concrete “matching” advantage in angel conversations.<sup><a href="#ref-3">3</a></sup></p>
+
+  <h3>8.4 What angels usually need from a gaming company</h3>
+  <table>
+    <tr><th>Signal</th><th>Why it matters</th></tr>
+    <tr><td>Playable demo + retention/fun metrics</td><td>Entertainment is taste-risk; proof beats pitch poetry</td></tr>
+    <tr><td>Clear business model (premium / F2P / sub / B2B)</td><td>Determines whether you look like venture or lifestyle</td></tr>
+    <tr><td>Capital ask + milestone map</td><td>Canyon Angels explicitly want action-based use of funds<sup><a href="#ref-21">21</a></sup></td></tr>
+    <tr><td>Team that shipped before</td><td>Your prior product launch is a real diligence asset</td></tr>
+    <tr><td>Arizona jobs / tax-credit readiness</td><td>Local angels + ACA credit stack</td></tr>
+  </table>
+</section>
+
+<section id="priority">
+  <h2>9. Revised Priority Stack (This Profile)</h2>
+  <div class="action-box">
+    <p><strong>Profile:</strong> Phoenix entertainment-gaming startup · LGBTQ co-founders · ASU + BYUI · first company · prior product launched · want grants/comps <em>and</em> angel matching.</p>
+  </div>
+
+  <h3>This month</h3>
+  <ol>
+    <li><strong>Decide the SaaS question in writing:</strong> Is revenue recurring? If yes, keep AIC/PHX FWD on the board. If no, prioritize IdeaFunding Tech/Creative, Venture Madness, Epic (if Unreal), and angel groups with consumer/entertainment appetite.</li>
+    <li><strong>Confirm ASU enrollment status.</strong> If the cofounder can take one credit → apply to Venture Devils immediately for next Demo Day cycle.<sup><a href="#ref-1">1</a></sup></li>
+    <li><strong>Email Edson</strong> (<code>entrepreneurship@asu.edu</code>) for alumni routing + ask how to engage <strong>InvestU</strong>.<sup><a href="#ref-1">1</a></sup><sup><a href="#ref-2">2</a></sup></li>
+    <li><strong>Submit Canyon Angels + Desert Angels funding applications</strong> with the same core deck/demo package.<sup><a href="#ref-21">21</a></sup><sup><a href="#ref-23">23</a></sup></li>
+    <li><strong>Start ACA Qualified Small Business / Angel Tax Credit certification</strong> if you have (or will soon have) 2 AZ FTEs.<sup><a href="#ref-3">3</a></sup></li>
+    <li><strong>If Unreal:</strong> Epic MegaGrants Cycle 2 before Sep 4, 2026.<sup><a href="#ref-7">7</a></sup></li>
+    <li><strong>GLAAD QED / StartOut Spark</strong> for LGBTQ games + founder networks (QED for industry; Spark for business ops).<sup><a href="#ref-9">9</a></sup></li>
+    <li><strong>Show up at Venture Café Thursday Gathering</strong> and ASU Pitch In — matching is often room-based.<sup><a href="#ref-27">27</a></sup><sup><a href="#ref-13">13</a></sup></li>
+  </ol>
+
+  <h3>This quarter</h3>
+  <ol>
+    <li>IdeaFunding next cycle (entertainment may fit Creative or Tech — pick one).<sup><a href="#ref-29">29</a></sup></li>
+    <li>Venture Madness presenter application.<sup><a href="#ref-26">26</a></sup></li>
+    <li>Warm BYUI/BYU corridor outreach (Entrepreneurship Society contacts → Kickstart-class Mountain West intros) in parallel with Phoenix angels.<sup><a href="#ref-19">19</a></sup></li>
+    <li>Keep parent-report staples: GPECC/LGBTBE, Verizon Digital Ready, ACA Venture Start.</li>
+  </ol>
+
+  <h3>What to deprioritize (for now)</h3>
+  <ul>
+    <li>SaaS-only AIC cohorts until MRR story is real.</li>
+    <li>Skysong Challenge unless ASU IP is in play.</li>
+    <li>Flinn bioscience / food-only NGLCC–Grubhub grants.</li>
+    <li>Student-only BYUI prize comps if you are fully alumni and not traveling back for eligibility.</li>
+  </ul>
+</section>
+
+<section id="conclusion">
+  <h2>10. Conclusion</h2>
+  <div class="conclusion-box">
+    <p>With ASU + BYUI + entertainment gaming in the picture, the strategy shifts from “find LGBTQ grants” to a three-lane race:</p>
+    <ol>
+      <li><strong>University lane:</strong> Venture Devils <em>only if enrolled</em>; otherwise Edson community + InvestU matching.</li>
+      <li><strong>Gaming lane:</strong> Epic (engine-gated), LGBTQ games mentorship (GLAAD QED), genre grants (Draknek when open), IdeaFunding for Arizona stage time.</li>
+      <li><strong>Angel lane:</strong> Canyon + Desert + ATI/PHX Angels applications, tax-credit certification, Venture Café / Venture Madness rooms, Gaingels + Mountain West corridor for identity and alumni gravity.</li>
+    </ol>
+    <p>Entertainment gaming is venture-fundable, but angels will underwrite <em>business model and traction</em> more than “we’re making a cool game.” Your prior shipped product is the wedge — lead with that.</p>
+    <p><strong>Further research worth doing next:</strong> (a) exact engine/genre and monetization; (b) ASU enrollment confirmation; (c) whether either founder wants a publisher path vs. venture path; (d) interviews with 2–3 Arizona gaming studios on which angel groups actually wrote entertainment checks; (e) City of Phoenix entertainment/future-tech office intro path.</p>
+  </div>
+</section>
+
+<section id="refs">
+  <h2>11. References</h2>
+  <ol class="ref-list">
+    <li id="ref-1">ASU Edson E+I. “Venture Devils” eligibility (current ASU/Maricopa student lead; alumni routed elsewhere as of Aug 2024). <a href="https://entrepreneurship.asu.edu/programs/venture-devils/">entrepreneurship.asu.edu</a>.</li>
+    <li id="ref-2">InvestU. Portfolio impact stats and sector list (incl. immersionEd learning games). <a href="https://investu.org/">investu.org</a>.</li>
+    <li id="ref-3">Arizona Commerce Authority. “Angel Investment Tax Credit” / A.R.S. § 41-1518 program overview. <a href="https://www.azcommerce.com/incentives/angel-investment-tax-credit/">azcommerce.com</a>.</li>
+    <li id="ref-4">Arizona Commerce Authority / AZBio / fundsforNGOs. Fall 2025 AIC SaaS cohort materials (MRR, SaaS MVP framing). <a href="https://www.azcommerce.com/news-events/news/2025/7/arizona-commerce-authority-accepting-applications-for-2025-arizona-innovation-challenge/">azcommerce.com</a>.</li>
+    <li id="ref-5">BYU-Idaho Scroll. “Students receive thousands of dollars in competition…” (Vision to Venture pitch). <a href="https://byuiscroll.org/students-receive-thousands-of-dollars-in-competion-to-help-fund-their-businesses/">byuiscroll.org</a>.</li>
+    <li id="ref-6">BYU-Idaho Scroll. “BYUI Entrepreneurship Society wins big at events” (Idaho Entrepreneur Challenge). <a href="https://byuiscroll.org/byui-entrepreneurship-society-wins-big-at-events/">byuiscroll.org</a>.</li>
+    <li id="ref-7">Epic Games. “Epic MegaGrants” 2026 cycles and award ranges. <a href="https://www.unrealengine.com/megagrants">unrealengine.com</a>.</li>
+    <li id="ref-8">Draknek &amp; Friends. “New Voices Puzzle Grant” ($15K × 5; LGBTQIA eligible). <a href="https://grants.draknek.org/">grants.draknek.org</a>.</li>
+    <li id="ref-9">GLAAD. “Queer Emerging Developers (QED) Program.” <a href="https://glaad.org/qed/">glaad.org</a>.</li>
+    <li id="ref-10">PHX FWD. “Fast FWD Accelerator” (software / ARR framing). <a href="https://www.phxfwd.org/fast-fwd-accelerator">phxfwd.org</a>.</li>
+    <li id="ref-11">ASU Edson E+I. “Funding resources” / Venture Devils funding amounts. <a href="https://entrepreneurship.asu.edu/funding-resources/">entrepreneurship.asu.edu</a>.</li>
+    <li id="ref-12">ASU Edson E+I. “Venture Devils Demo Day” (Fall 2026 date Nov 14). <a href="https://entrepreneurship.asu.edu/funding-resources/venture-devils-demo-day/">entrepreneurship.asu.edu</a>.</li>
+    <li id="ref-13">ASU Edson E+I. Programs directory / Pitch In community events. <a href="https://entrepreneurship.asu.edu/programs/">entrepreneurship.asu.edu</a>.</li>
+    <li id="ref-14">ASU News. Prototyping Venture Boost / Chandler Endeavor community incubator coverage (2026). <a href="https://news.asu.edu/b/20260205-edson-entrepreneurship-innovation-institute-gives-entrepreneurs-lift-needed-success">news.asu.edu</a>.</li>
+    <li id="ref-15">W. P. Carey Entrepreneurship. Venture / New Venture Challenge pages. <a href="https://entrepreneurship.wpcarey.asu.edu/venture">wpcarey.asu.edu</a>.</li>
+    <li id="ref-16">Skysong Innovations. “Startup Challenge” eligibility. <a href="https://skysonginnovations.com/skysong-innovations-startup-challenge/">skysonginnovations.com</a>.</li>
+    <li id="ref-17">Arizona Commerce Authority. “Venture Start.” <a href="https://www.azcommerce.com/start-up/venture-programs/venture-start/">azcommerce.com</a>.</li>
+    <li id="ref-18">BYU-Idaho IBC. Program about page (revenue/startup counts). <a href="https://ibcprogram.com/about-byui-ibc/">ibcprogram.com</a>.</li>
+    <li id="ref-19">Kickstart Fund. About / Mountain West thesis including AZ &amp; ID. <a href="https://kickstart.com/about">kickstart.com</a>.</li>
+    <li id="ref-20">Grow Utah. “Utah Startup Funding” directory (Kickstart, Album/Peak lineage, Utah Angels 2, Cougar Capital). <a href="https://growutah.com/funding">growutah.com</a>.</li>
+    <li id="ref-21">Canyon Angels. “Pitch Your Company” / Dealum apply flow. <a href="https://canyonangels.org/pitch">canyonangels.org</a>.</li>
+    <li id="ref-22">Canyon Angels. Home / about stats ($7.5M+, 70 companies). <a href="https://canyonangels.org/">canyonangels.org</a>.</li>
+    <li id="ref-23">Desert Angels. Membership and “Apply for Funding” (preferred equity / notes, not SAFEs). <a href="https://desertangels.org/">desertangels.org</a>.</li>
+    <li id="ref-24">Arizona Technology Investors. Organization site. <a href="https://arizonatechinvestors.com/">arizonatechinvestors.com</a>.</li>
+    <li id="ref-25">PHX Angels. Membership / software focus. <a href="https://www.phxangels.com/membership">phxangels.com</a>.</li>
+    <li id="ref-26">Venture Madness / Invest Southwest. <a href="https://venturemadness.com/">venturemadness.com</a>.</li>
+    <li id="ref-27">Venture Café Phoenix. “Thursday Gathering.” <a href="https://venturecafephoenix.org/programs/thursday-gathering/">venturecafephoenix.org</a>.</li>
+    <li id="ref-28">Gaingels. About. <a href="https://gaingels.com/about">gaingels.com</a>.</li>
+    <li id="ref-29">Startup Tucson. “IdeaFunding.” <a href="https://www.startuptucson.com/ideafunding">startuptucson.com</a>.</li>
+    <li id="ref-30">Apollo Studios. Creator Partnership Program (itch.io / Patreon announcements, 2026). <a href="https://itch.io/blog/1558413/apollo-studios-creator-partnership-program">itch.io</a>.</li>
+    <li id="ref-31">Unity. “Unity for Humanity 2026 Winner Announcement.” <a href="https://unity.com/blog/unity-for-humanity-2026-winner-announcement">unity.com</a>.</li>
+    <li id="ref-32">State Press. Venture Devils Demo Day coverage (Apr 2026; funding/mentorship framing). <a href="https://www.statepress.com/article/2026/04/scitech-az-tech-week-2026">statepress.com</a>.</li>
+  </ol>
+</section>
+
+<footer>
+  <p>Research Bot follow-up · Companion to phoenix-lgbtq-tech-startup-grants-competitions.html · July 17, 2026</p>
+  <p>Not legal, tax, or investment advice. Angel groups and university eligibility change; re-verify before applying.</p>
+</footer>
+
+</div>
+</body>
+</html>
