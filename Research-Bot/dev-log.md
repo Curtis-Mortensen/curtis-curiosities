@@ -1,5 +1,42 @@
 # Research Bot — Dev Log
 
+## 2026-07-17 — Phoenix LGBTQ tech startup grants & competitions (complete)
+
+### Plan summary
+User (and cofounder) starting a tech-based startup in Phoenix; both LGBTQ; first business but previous product launched. Asked to search for grants and competitions locally and federally/nationally. Followed Research-Bot README: precursor questions, web research, self-contained HTML with aims/limitations/history/40-example catalog/citations/conclusion.
+
+### Precursor / subset questions
+1. Grant vs competition vs accelerator vs loan — what counts?
+2. What traction gates ($5K MRR, $50K/$100K/$200K ARR) block which programs?
+3. Does “tech” mean SaaS vs deep R&D (changes AIC vs SBIR fit)?
+4. Does LGBTQ identity unlock cash, network, or both?
+5. Which Arizona programs require in-state ops (already satisfied for Phoenix founders)?
+
+### Key findings
+- **Best local non-dilutive bet:** Arizona Innovation Challenge (≥$50K + EIR; Fall 2025 SaaS cohort from 67 apps → 10 awardees). Stack with Venture Start → Raise → Scale.
+- **Best early statewide pitch stage:** IdeaFunding ($50K+ pool; Tucson TENWEST).
+- **LGBTQ cash is real but small nationally:** Pride Grant $1K (next cycle 2027; needs 2–100 employees); StartOut Spark/Growth are equity-free network accelerators, not big checks. LGBTBE via Greater Phoenix Equality Chamber is infrastructure, not cash.
+- **Federal SBIR:** Powerful (NSF Phase I ~$305K) only for high-risk R&D; AZ FAST (~$3K) helps proposal prep.
+- **Easy parallel:** Verizon Digital Ready $10K (2 courses + apply once for 2026 monthly draws); cloud credits.
+
+### Changes made
+- Created `Research-Bot/phoenix-lgbtq-tech-startup-grants-competitions.html`
+- Updated this dev-log
+
+### Assumptions
+- Prior product launched ⇒ some traction possible, but MRR/ARR unknown — fit ratings marked conditional.
+- Prefer non-dilutive over equity accelerators unless noted (Backstage/YC flagged separately).
+- Official ACA/StartOut/Founders First pages preferred over aggregators when they conflicted.
+
+### Bugs / problems
+- ACA AIC page fetch timed out once; used ACA press + eligibility pages + AZBio awardee release instead.
+- Exact Spring 2026 AIC theme/MRR gates not fully published at research time — report instructs re-verify each cycle.
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-16 — TTRPG / D&D accessibility market interest (complete)
 
 ### Plan summary
