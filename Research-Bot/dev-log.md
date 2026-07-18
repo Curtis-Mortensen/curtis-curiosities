@@ -1,5 +1,78 @@
 # Research Bot — Dev Log
 
+## 2026-07-17 — Follow-up: ASU/BYUI, gaming fit, angel matching (complete)
+
+### Plan summary
+User clarified: cofounder is ASU, user is BYUI; sector is entertainment gaming (maybe SaaS?); also want angel investor matching. Continued Research-Bot digging as a companion follow-up to the parent grants/competitions report.
+
+### Precursor / subset questions
+1. Is ASU cofounder still enrolled? (gates Venture Devils)
+2. Does entertainment gaming count as SaaS for AIC?
+3. What BYUI alumni capital gravity exists in Mountain West?
+4. Which Phoenix angel groups accept founder applications?
+5. Which gaming grants are LGBTQ- or engine-gated?
+
+### Key findings
+- **SaaS:** Traditional entertainment titles ≠ SaaS; live-service MRR or B2B game tooling can be framed as SaaS. Fall 2025 AIC was SaaS+$5K MRR — don’t assume fit.
+- **ASU:** Venture Devils = current student lead only (as of Aug 2024). Alumni → Edson community / Pitch In / InvestU ($6.5M+ direct to ASU-affiliated cos; portfolio includes learning games).
+- **BYUI:** Campus prize comps are student-forward; alumni value is network → Kickstart-class Mountain West + Entrepreneurship Society contacts.
+- **Gaming adds:** Epic MegaGrants (Cycle 2 through Sep 4, 2026), GLAAD QED, Draknek puzzle (closed—watch next), IdeaFunding Creative/Tech.
+- **Angel matching stack:** Canyon Angels (Dealum) + Desert Angels (no SAFEs) + ATI/PHX Angels + Venture Madness + Venture Café; certify for AZ Angel Tax Credit if 2 AZ FTEs.
+
+### Changes made
+- Created `Research-Bot/phoenix-gaming-asu-byui-angel-matching-followup.html`
+- Linked follow-up from parent report
+- Updated this dev-log
+
+### Assumptions
+- ASU enrollment status unknown — both student and alumni paths documented.
+- Monetization model unknown — SaaS vs entertainment framing table is conditional.
+
+### Bugs / problems
+- None blocking. ACA Angel Tax Credit page fetch timed out; used ACA program summary + statute/secondary explainers.
+
+### Status
+**Complete**
+
+---
+
+## 2026-07-17 — Phoenix LGBTQ tech startup grants & competitions (complete)
+
+### Plan summary
+User (and cofounder) starting a tech-based startup in Phoenix; both LGBTQ; first business but previous product launched. Asked to search for grants and competitions locally and federally/nationally. Followed Research-Bot README: precursor questions, web research, self-contained HTML with aims/limitations/history/40-example catalog/citations/conclusion.
+
+### Precursor / subset questions
+1. Grant vs competition vs accelerator vs loan — what counts?
+2. What traction gates ($5K MRR, $50K/$100K/$200K ARR) block which programs?
+3. Does “tech” mean SaaS vs deep R&D (changes AIC vs SBIR fit)?
+4. Does LGBTQ identity unlock cash, network, or both?
+5. Which Arizona programs require in-state ops (already satisfied for Phoenix founders)?
+
+### Key findings
+- **Best local non-dilutive bet:** Arizona Innovation Challenge (≥$50K + EIR; Fall 2025 SaaS cohort from 67 apps → 10 awardees). Stack with Venture Start → Raise → Scale.
+- **Best early statewide pitch stage:** IdeaFunding ($50K+ pool; Tucson TENWEST).
+- **LGBTQ cash is real but small nationally:** Pride Grant $1K (next cycle 2027; needs 2–100 employees); StartOut Spark/Growth are equity-free network accelerators, not big checks. LGBTBE via Greater Phoenix Equality Chamber is infrastructure, not cash.
+- **Federal SBIR:** Powerful (NSF Phase I ~$305K) only for high-risk R&D; AZ FAST (~$3K) helps proposal prep.
+- **Easy parallel:** Verizon Digital Ready $10K (2 courses + apply once for 2026 monthly draws); cloud credits.
+
+### Changes made
+- Created `Research-Bot/phoenix-lgbtq-tech-startup-grants-competitions.html`
+- Updated this dev-log
+
+### Assumptions
+- Prior product launched ⇒ some traction possible, but MRR/ARR unknown — fit ratings marked conditional.
+- Prefer non-dilutive over equity accelerators unless noted (Backstage/YC flagged separately).
+- Official ACA/StartOut/Founders First pages preferred over aggregators when they conflicted.
+
+### Bugs / problems
+- ACA AIC page fetch timed out once; used ACA press + eligibility pages + AZBio awardee release instead.
+- Exact Spring 2026 AIC theme/MRR gates not fully published at research time — report instructs re-verify each cycle.
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-16 — TTRPG / D&D accessibility market interest (complete)
 
 ### Plan summary

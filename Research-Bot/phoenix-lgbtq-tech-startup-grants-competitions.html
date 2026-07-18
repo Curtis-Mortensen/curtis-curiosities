@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phoenix LGBTQ Tech Startup Grants &amp; Competitions — Research Bot</title>
+<style>
+  :root {
+    --bg: #0f1419;
+    --surface: #1a2332;
+    --surface2: #243044;
+    --text: #e8eef4;
+    --muted: #9aabbd;
+    --accent: #5ec8a5;
+    --accent2: #6eb5e7;
+    --danger: #e07a7a;
+    --warning: #d4a853;
+    --link: #7ec4f0;
+    --border: #2e3d52;
+    --local: #5ec8a5;
+    --national: #6eb5e7;
+    --lgbtq: #c9a0e8;
+    --federal: #e8b86d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .container { max-width: 980px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  h1 { font-size: 2rem; line-height: 1.25; margin-bottom: 0.5rem; color: var(--accent); }
+  .subtitle { color: var(--muted); font-style: italic; font-size: 1.05rem; }
+  h2 {
+    font-size: 1.45rem;
+    color: var(--accent2);
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 { font-size: 1.15rem; color: var(--accent); margin: 1.5rem 0 0.75rem; }
+  h4 { font-size: 1rem; color: var(--muted); margin: 1rem 0 0.5rem; }
+  p { margin-bottom: 1rem; }
+  a { color: var(--link); }
+  .thesis-box {
+    background: var(--surface);
+    border-left: 4px solid var(--accent);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .limitation-box {
+    background: var(--surface);
+    border-left: 4px solid var(--danger);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .action-box {
+    background: var(--surface);
+    border-left: 4px solid var(--warning);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .overview-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+  .overview-card h4 { color: var(--accent2); margin-top: 0; }
+  .diagram {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    line-height: 1.45;
+    white-space: pre;
+    color: var(--muted);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.84rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.55rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: var(--surface2); color: var(--accent2); font-weight: 600; }
+  tr:nth-child(even) { background: var(--surface); }
+  .tag {
+    display: inline-block;
+    background: var(--surface2);
+    color: var(--accent);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    margin-right: 0.25rem;
+    font-family: sans-serif;
+  }
+  .tag.local { color: var(--local); }
+  .tag.national { color: var(--national); }
+  .tag.lgbtq { color: var(--lgbtq); }
+  .tag.federal { color: var(--federal); }
+  .tag.comp { color: var(--warning); }
+  .cite { font-size: 0.82rem; color: var(--muted); }
+  .ref-list { font-size: 0.85rem; }
+  .ref-list li { margin-bottom: 0.6rem; }
+  .conclusion-box {
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+    border: 1px solid var(--accent2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+  ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  .fit-high { color: var(--accent); font-weight: 600; }
+  .fit-med { color: var(--warning); }
+  .fit-low { color: var(--muted); }
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .toc ol { margin-bottom: 0; }
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  .prog-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.1rem 1.25rem;
+    margin: 1rem 0;
+  }
+  .prog-block h4 {
+    color: var(--text);
+    margin-top: 0;
+    margin-bottom: 0.4rem;
+    font-size: 1.05rem;
+  }
+  .meta-line { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.6rem; font-family: sans-serif; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>Grants &amp; Competitions for a Phoenix Tech Startup with LGBTQ Co-Founders</h1>
+  <p class="subtitle">A field research brief for first-time business owners who have already launched a prior product — covering local Arizona programs, national LGBTQ+-focused opportunities, and federal / national tech competitions. Compiled July 2026.</p>
+  <p class="cite">Research Bot report · Self-contained · Not legal, tax, or investment advice · Verify every deadline and eligibility rule on the program’s official site before applying.</p>
+  <p class="cite" style="margin-top:0.75rem;"><strong>Follow-up (July 17, 2026):</strong> ASU + BYU-Idaho pathways, entertainment-gaming vs SaaS framing, and angel-investor matching — see <a href="phoenix-gaming-asu-byui-angel-matching-followup.html">phoenix-gaming-asu-byui-angel-matching-followup.html</a>.</p>
+</header>
+
+<nav class="toc" aria-label="Table of contents">
+  <h3 style="margin-top:0;color:var(--accent2);">Contents</h3>
+  <ol>
+    <li><a href="#aims">Introduction and aims</a></li>
+    <li><a href="#precursor">Precursor and subset questions</a></li>
+    <li><a href="#limitations">Limitations and evidence strength</a></li>
+    <li><a href="#history">History of the funding landscape</a></li>
+    <li><a href="#map">How to read this map (fit matrix)</a></li>
+    <li><a href="#local">Arizona / Phoenix programs (examples)</a></li>
+    <li><a href="#lgbtq">LGBTQ+-focused national programs</a></li>
+    <li><a href="#federal">Federal R&amp;D and national competitions</a></li>
+    <li><a href="#catalog">Master catalog (35+ opportunities)</a></li>
+    <li><a href="#priority">Priority action plan for this founder profile</a></li>
+    <li><a href="#conclusion">Conclusion and further questions</a></li>
+    <li><a href="#refs">References</a></li>
+  </ol>
+</nav>
+
+<section id="aims">
+  <h2>1. Introduction and Aims</h2>
+  <p>This document answers one practical research question: <strong>Where can two LGBTQ co-founders starting a tech-based company in Phoenix find grants and competitions — locally, federally, and nationally — given that this is their first formal business but they already have a previous product launched?</strong></p>
+
+  <div class="thesis-box">
+    <strong>Central thesis:</strong> For Phoenix tech founders at this stage, the highest-leverage path is rarely a single “magic LGBTQ grant.” It is a <em>stack</em>: (1) Arizona’s non-dilutive competitions and free ecosystem programs (especially the Arizona Innovation Challenge pipeline and IdeaFunding), (2) national LGBTQ+ accelerators and micro-grants that improve network access more than cash size, and (3) federal SBIR/STTR only if the product involves genuine high-risk R&amp;D. Pure cash grants for tech startups are scarce; pitch competitions, equity-free accelerators, supplier-diversity certification, and corporate micro-grants fill most of the gap.<sup><a href="#ref-1">1</a></sup><sup><a href="#ref-2">2</a></sup><sup><a href="#ref-3">3</a></sup>
+  </div>
+
+  <p>The report aims to be usable without prior knowledge of this repository. It names concrete programs, typical award sizes, eligibility patterns, and timing signals as of mid-2026, and it ranks near-term actions for this specific founder profile.</p>
+</section>
+
+<section id="precursor">
+  <h2>2. Precursor and Subset Questions</h2>
+  <div class="overview-grid">
+    <div class="overview-card">
+      <h4>Grant vs. competition vs. accelerator?</h4>
+      <p><strong>Grant:</strong> money you usually do not repay and that does not buy equity. <strong>Competition:</strong> judged pitch/business-plan contest that may award cash or services. <strong>Accelerator:</strong> time-boxed program with mentorship; may be free, paid, or equity-taking. Many “grants” are actually competitions with grant-like prizes.<sup><a href="#ref-4">4</a></sup></p>
+    </div>
+    <div class="overview-card">
+      <h4>What stage are they?</h4>
+      <p>“First business” + “previous product launched” usually means pre-seed / early traction: MVP exists, formal company may be new. Programs split hard on revenue floors ($5K MRR, $50K ARR, $100K ARR, $200K ARR).<sup><a href="#ref-5">5</a></sup><sup><a href="#ref-6">6</a></sup></p>
+    </div>
+    <div class="overview-card">
+      <h4>Does “tech” mean SaaS, deep tech, or consumer app?</h4>
+      <p>Arizona’s flagship AIC Fall 2025 cohort was SaaS-focused with MRR requirements; SBIR favors deep/high-risk R&amp;D, not incremental software. Sector fit changes which doors open.<sup><a href="#ref-1">1</a></sup><sup><a href="#ref-7">7</a></sup></p>
+    </div>
+    <div class="overview-card">
+      <h4>Does LGBTQ identity unlock cash?</h4>
+      <p>Sometimes (Pride Grant, some diversity grants). More often it unlocks networks (StartOut, Gaingels, NGLCC LGBTBE certification) rather than large checks. National LGBTQ+-specific cash pools remain relatively small.<sup><a href="#ref-2">2</a></sup><sup><a href="#ref-3">3</a></sup></p>
+    </div>
+    <div class="overview-card">
+      <h4>Local vs. relocate-to-AZ rules?</h4>
+      <p>AIC and many ACA programs require Arizona operations (or a firm commitment to build them). Phoenix-based founders are already correctly situated for most state pathways.<sup><a href="#ref-8">8</a></sup></p>
+    </div>
+    <div class="overview-card">
+      <h4>Loans vs. grants?</h4>
+      <p>SBA Community Advantage, microloans, and Local First Arizona loan programs are capital, but they are debt. This report flags them separately so they are not mistaken for free money.<sup><a href="#ref-9">9</a></sup><sup><a href="#ref-10">10</a></sup></p>
+    </div>
+  </div>
+</section>
+
+<section id="limitations">
+  <h2>3. Limitations and Evidence Strength</h2>
+  <div class="limitation-box">
+    <p><strong>Theoretical / structural limits.</strong> Startup funding markets are noisy and path-dependent: the same application can win or lose based on cohort theme, judge composition, and timing. Identity-based programs can also shift or pause with sponsor budgets and politics. No catalog can guarantee a win.</p>
+    <p><strong>Method limits.</strong> This report relies on public program pages, press releases, and secondary grant aggregators (GrantCompass, Hello Alice, GrantAura) researched in July 2026. Aggregators sometimes lag official sites on eligibility (especially AIC MRR / sector themes). Where secondary sources conflicted with official ACA/StartOut/Founders First pages, official pages were preferred.</p>
+    <p><strong>Product unknowns.</strong> The founders did not specify sector (SaaS vs. hardware vs. biotech), revenue, or incorporation status. Fit ratings below are therefore <em>conditional</em>.</p>
+    <p><strong>Not exhaustive of every federal agency topic.</strong> SBIR/STTR spans 11+ agencies; only the major pathways are detailed. Topic-specific DoD/NIH/DOE solicitations change continuously on <a href="https://www.sbir.gov">sbir.gov</a>.</p>
+  </div>
+
+  <h3>Evidence strength by claim type</h3>
+  <table>
+    <tr><th>Claim type</th><th>Evidence base</th><th>Strength</th></tr>
+    <tr><td>Existence and structure of named AZ programs</td><td>ACA, Startup Tucson, PHX FWD, Flinn, Skysong official pages / press</td><td>Strong</td></tr>
+    <tr><td>Exact AIC eligibility for next cohort</td><td>Fall 2025 rules published; Spring 2026 may change</td><td>Moderate — verify each cycle</td></tr>
+    <tr><td>Size of LGBTQ+-specific national cash pools</td><td>GrantCompass 2026 catalog; Founders First; NGLCC</td><td>Moderate-Strong for listed programs</td></tr>
+    <tr><td>SBIR Phase I amounts / NSF process</td><td>NSF solicitations NSF 26-510 / agency pages</td><td>Strong for current cycle</td></tr>
+    <tr><td>“Best next step” ranking for this duo</td><td>Inference from stage + location + identity</td><td>Moderate — judgment call</td></tr>
+  </table>
+</section>
+
+<section id="history">
+  <h2>4. History of the Fields That Answer This Question</h2>
+
+  <h3>4.1 Federal “America’s Seed Fund” (SBIR/STTR)</h3>
+  <p>Concern in the 1970s that the United States was losing industrial competitiveness — and evidence that small firms punch above their weight in innovation — led NSF’s Roland Tibbetts to pilot SBIR inside NSF in 1977. Congress then created the government-wide Small Business Innovation Research program via the Small Business Innovation Development Act of 1982.<sup><a href="#ref-11">11</a></sup><sup><a href="#ref-12">12</a></sup> Agencies with large extramural R&amp;D budgets must set aside a percentage for competitive small-business awards. STTR (1992) added a university/lab partner track.<sup><a href="#ref-11">11</a></sup> Today NSF and peer agencies still describe SBIR/STTR as non-dilutive capital for high-risk, high-impact technology — not for routine product polish.<sup><a href="#ref-7">7</a></sup></p>
+
+  <h3>4.2 Business-plan and pitch competitions</h3>
+  <p>University business-plan contests (for example Rice’s long-running competition) professionalized judged entrepreneurship in the late 20th century; SXSW Pitch (since ~2009) and TechCrunch Startup Battlefield later made media-facing pitch stages a national ritual.<sup><a href="#ref-13">13</a></sup><sup><a href="#ref-14">14</a></sup> At the state level, Arizona’s Innovation Challenge launched in 2011 and has since selected on the order of 150–160 awardees from thousands of applicants, with a reported combined portfolio value above $6 billion.<sup><a href="#ref-1">1</a></sup><sup><a href="#ref-15">15</a></sup> IdeaFunding in Tucson claims more than two decades as Arizona’s longest-running early-stage pitch competition.<sup><a href="#ref-16">16</a></sup></p>
+
+  <h3>4.3 LGBTQ+ economic infrastructure</h3>
+  <p>The National LGBT Chamber of Commerce (NGLCC, founded 2002) built the LGBTBE® certification used in corporate supplier-diversity programs.<sup><a href="#ref-3">3</a></sup><sup><a href="#ref-17">17</a></sup> StartOut (2009) grew into a large LGBTQ+ founder network and later launched Growth Lab (from a 2017 napkin sketch into a JPMorgan-sponsored accelerator model).<sup><a href="#ref-6">6</a></sup> Gaingels (2014) evolved from an LGBTQ+ angel group into a broader diversity-focused co-investment syndicate.<sup><a href="#ref-18">18</a></sup> Phoenix’s local affiliate — the Greater Phoenix Equality Chamber of Commerce — now helps members obtain LGBTBE certification, often with fee waivers via local membership.<sup><a href="#ref-19">19</a></sup></p>
+
+  <h3>4.4 Arizona’s modern venture stack</h3>
+  <p>Beyond AIC, the Arizona Commerce Authority expanded a staged Venture Start → Venture Raise → Venture Scale ladder (Scale reserved for AIC awardees) and partners with ASU’s Edson E+I Institute for early founder education — including small seed-grant pitch showcases sponsored by partners such as GoDaddy.<sup><a href="#ref-20">20</a></sup><sup><a href="#ref-21">21</a></sup> Separately, Invest Southwest’s Venture Madness conference (roots back to 1992 capital conferences) remains a regional investor-facing stage, while PHX FWD (founder-led SaaS community) built paid growth programs for software companies already at ~$100K ARR.<sup><a href="#ref-22">22</a></sup><sup><a href="#ref-5">5</a></sup></p>
+</section>
+
+<section id="map">
+  <h2>5. How to Read This Map</h2>
+  <div class="diagram">YOUR PROFILE (assumed)
+  Phoenix HQ · Tech product · LGBTQ co-founders · First company · Prior product launched
+           |
+           v
+  +------------------+     +------------------------+     +------------------+
+  | LOCAL AZ STACK   | --> | LGBTQ+ NETWORK STACK   | --> | FEDERAL / NAT'L  |
+  | AIC, IdeaFunding |     | StartOut, Pride Grant, |     | SBIR if deep R&D |
+  | Venture Start,   |     | LGBTBE cert, Gaingels  |     | Verizon $10K,    |
+  | Venture Madness  |     | DivInc / diversity     |     | Battlefield, SXSW |
+  +------------------+     +------------------------+     +------------------+
+           |
+           v
+  Decide by TRACTION GATE:
+    &lt; $50K ARR ........ IdeaFunding, Venture Start, Verizon, Pride (if 2+ employees)
+    $50K–$200K ARR .... StartOut Spark, AIC (if MRR/theme fit), DivInc
+    $100K+ ARR SaaS ... PHX FWD Fast FWD, AIC growth paths, StartOut Growth later
+    Deep-tech R&amp;D ..... AZ FAST → NSF/NIH/DoD SBIR Phase I</div>
+
+  <p>Tags used below: <span class="tag local">Local/AZ</span> <span class="tag lgbtq">LGBTQ+</span> <span class="tag federal">Federal</span> <span class="tag national">National</span> <span class="tag comp">Competition</span></p>
+</section>
+
+<section id="local">
+  <h2>6. Arizona / Phoenix Programs (Detailed Examples)</h2>
+
+  <div class="prog-block" id="p-aic">
+    <h4>1. Arizona Innovation Challenge (AIC) — Arizona Commerce Authority</h4>
+    <p class="meta-line"><span class="tag local">Local/AZ</span> <span class="tag comp">Competition</span> · Fit: <span class="fit-high">HIGH</span> if SaaS/tech with traction</p>
+    <p>One of the country’s larger state business-plan competitions. Awardees receive a <strong>minimum $50,000 non-dilutive</strong> award plus Entrepreneur-in-Residence support; Fall 2025 selected 10 SaaS/AI companies from 67 applicants (25 semis, 15 finals). Non-awardee semis/finals are invited into Venture Raise. Historical framing: launched 2011; ~160 awardees; &gt;$6B combined portfolio value cited by ACA/AZBio.<sup><a href="#ref-1">1</a></sup><sup><a href="#ref-15">15</a></sup><sup><a href="#ref-8">8</a></sup></p>
+    <p><strong>Watch:</strong> Fall 2025 required for-profit SaaS with MVP, 2–29 employees, &lt;$10M net assets, and (for that cohort) ~$5K MRR plus Arizona ops commitment. Spring 2026 rules may differ — always re-read the cycle brief.<sup><a href="#ref-23">23</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>2. IdeaFunding — Startup Tucson / UACI / TENWEST</h4>
+    <p class="meta-line"><span class="tag local">Local/AZ</span> <span class="tag comp">Competition</span> · Fit: <span class="fit-high">HIGH</span> for early-stage statewide founders</p>
+    <p>Arizona’s longest-running early-stage pitch competition; 2026 awarded $50,000+ across Tech and Creative tracks as part of TENWEST. Applications opened January 2026; Main Stage at Tucson’s Rialto. Includes specialty prizes such as a diverse-founders Adalante Arizona prize. Phoenix teams may apply; travel to Tucson for required sessions is part of the cost of entry.<sup><a href="#ref-16">16</a></sup><sup><a href="#ref-24">24</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>3. Venture Start — ACA + ASU Edson E+I</h4>
+    <p class="meta-line"><span class="tag local">Local/AZ</span> · Fit: <span class="fit-high">HIGH</span> for first-business founders polishing GTM</p>
+    <p>Six-session hybrid accelerator for early-stage validation, customer discovery, and pitch prep. Spring 2026 cohort offered certificates for full attendance and a chance to pitch for seed grant funding (partner-sponsored; recent cycles cited $5K–$10K showcase prizes). Low barrier relative to AIC.<sup><a href="#ref-20">20</a></sup><sup><a href="#ref-21">21</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>4. Venture Raise — Arizona Commerce Authority</h4>
+    <p class="meta-line"><span class="tag local">Local/AZ</span> · Fit: <span class="fit-med">MEDIUM–HIGH</span> once product is in market</p>
+    <p>Fundraising-readiness path for startups with a product and early users. Explore sessions feed invite-only Build / Raise intensives. AIC semis/finals who do not win still get a structured on-ramp here.<sup><a href="#ref-25">25</a></sup><sup><a href="#ref-1">1</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>5. Venture Scale (ex–Venture Ready) — ACA</h4>
+    <p class="meta-line"><span class="tag local">Local/AZ</span> · Fit: <span class="fit-med">MEDIUM</span> (AIC winners only)</p>
+    <p>Six-month flagship accelerator reserved for AIC awardees; pairs founders with senior EIRs for scaling work. Treat as the prize <em>behind</em> the AIC grant, not a separate open application.<sup><a href="#ref-20">20</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>6. AZ FAST Grant — ACA / SBA FAST Partnership</h4>
+    <p class="meta-line"><span class="tag local">Local/AZ</span> <span class="tag federal">Federal prep</span> · Fit: <span class="fit-high">HIGH</span> if pursuing SBIR</p>
+    <p>Awards on the order of <strong>up to $3,000</strong> to Arizona small businesses to hire approved SBIR/STTR proposal consultants. Rounds are periodic (examples: Nov 2025; March 2026 windows selecting ~6–8 companies). Only useful if you actually intend to submit a Phase I proposal soon.<sup><a href="#ref-26">26</a></sup><sup><a href="#ref-27">27</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>7. Venture Madness Conference — Invest Southwest</h4>
+    <p class="meta-line"><span class="tag local">Local/AZ</span> <span class="tag comp">Competition / showcase</span> · Fit: <span class="fit-med">MEDIUM</span></p>
+    <p>Arizona’s long-running investor conference/expo. Startups can apply to present (application free; travel on the company). 2026 conference dated April 9 during Arizona Tech Week. Stronger as visibility + investor intros than as a pure cash grant.<sup><a href="#ref-22">22</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>8. PHX FWD Fast FWD Accelerator</h4>
+    <p class="meta-line"><span class="tag local">Local/AZ</span> · Fit: <span class="fit-med">MEDIUM</span> if ≥$100K ARR SaaS</p>
+    <p>12-month Phoenix software growth program aimed at Stage 2 companies moving from ~$100K to ~$300K ARR. Cost: <strong>$7,500</strong> (paid program — not a grant). Useful when coaching/community beat another pitch deck.<sup><a href="#ref-5">5</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>9. Skysong Innovations Startup Challenge (ASU)</h4>
+    <p class="meta-line"><span class="tag local">Local/AZ</span> <span class="tag comp">Competition</span> · Fit: <span class="fit-low">LOW</span> unless licensing ASU IP</p>
+    <p>Pitch competition for companies commercializing ASU-owned inventions with recent option/license agreements. 2026 pool up to $175,000 across awardees (grand prize historically ~$50K). Irrelevant if you are not an ASU tech-transfer spinout.<sup><a href="#ref-28">28</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>10. Flinn Foundation Bioscience Entrepreneurship Program</h4>
+    <p class="meta-line"><span class="tag local">Local/AZ</span> · Fit: <span class="fit-low">LOW</span> unless bioscience</p>
+    <p>Selects Arizona early-stage bioscience companies; 2025 funded two companies at <strong>$100,000</strong> each via AZBio, plus network seats for a broader cohort. Wrong vertical for pure software unless you are truly bio/health tech.<sup><a href="#ref-29">29</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>11. Greater Phoenix Equality Chamber + NGLCC LGBTBE® Certification</h4>
+    <p class="meta-line"><span class="tag local">Local/AZ</span> <span class="tag lgbtq">LGBTQ+</span> · Fit: <span class="fit-high">HIGH</span> as infrastructure</p>
+    <p>Not a cash grant. Certification (51%+ LGBTQ ownership/control) places you in corporate supplier-diversity databases. GPECC, as the Phoenix NGLCC affiliate, can certify members — often with national fee waived via affiliate membership. Scholarships (Wells Fargo/NGLCC TGX and Communities of Color; Walmart retail track) can cover first-year dues in some cases.<sup><a href="#ref-19">19</a></sup><sup><a href="#ref-17">17</a></sup><sup><a href="#ref-30">30</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>12. Maricopa SBDC Technology Commercialization Services</h4>
+    <p class="meta-line"><span class="tag local">Local/AZ</span> · Fit: <span class="fit-high">HIGH</span> as free coaching</p>
+    <p>No-cost counseling for tech commercialization and SBIR navigation; offices at GateWay, Paradise Valley, and South Mountain community colleges in Phoenix. Best used as a prep partner before AIC/SBIR applications.<sup><a href="#ref-31">31</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>13. SCORE Greater Phoenix</h4>
+    <p class="meta-line"><span class="tag local">Local/AZ</span> · Fit: <span class="fit-med">MEDIUM</span></p>
+    <p>Free mentoring network across Maricopa County. Complements, does not replace, competitive grant applications.<sup><a href="#ref-32">32</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>14. Local First Arizona / Arizona Microbusiness Loan Program</h4>
+    <p class="meta-line"><span class="tag local">Local/AZ</span> · Fit: <span class="fit-med">MEDIUM</span> if you will take debt</p>
+    <p>Education, community lending partnerships, and microloan channels (including state OEO microbusiness lending via CDFI partners). These are loans/support services, not equity-free tech grants.<sup><a href="#ref-10">10</a></sup><sup><a href="#ref-33">33</a></sup></p>
+  </div>
+</section>
+
+<section id="lgbtq">
+  <h2>7. LGBTQ+-Focused National Programs (Detailed Examples)</h2>
+
+  <div class="prog-block">
+    <h4>15. StartOut Spark Lab</h4>
+    <p class="meta-line"><span class="tag lgbtq">LGBTQ+</span> <span class="tag national">National</span> · Fit: <span class="fit-high">HIGH</span> if ≥~$50K ARR or raise</p>
+    <p>Virtual incubator (documented as ~6–8 weeks) for early LGBTQ+ founders with an MVP and marketplace presence. Target: &gt;$50,000 ARR and/or raise; deliverable is a sharpened business plan. Cohort 4 applications noted as opening July 27 (year per StartOut page). Zero equity; mentorship-heavy rather than cash-heavy.<sup><a href="#ref-6">6</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>16. StartOut Growth Lab</h4>
+    <p class="meta-line"><span class="tag lgbtq">LGBTQ+</span> <span class="tag national">National</span> · Fit: <span class="fit-med">MEDIUM</span> later (≥~$200K ARR/raise)</p>
+    <p>Six-month equity-free accelerator for seed–Series A LGBTQ+ companies. Secondary sources cite Cohort 18 applications closing June 26, 2026, with program start September 2026; alumni fundraising figures commonly cited (~$900M+ cumulative across graduated companies in program marketing). Apply when scaling, not at idea stage.<sup><a href="#ref-2">2</a></sup><sup><a href="#ref-34">34</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>17. Founders First CDC — LGBTQIA+ National Pride Grant</h4>
+    <p class="meta-line"><span class="tag lgbtq">LGBTQ+</span> <span class="tag national">National</span> · Fit: <span class="fit-med">MEDIUM</span> if 2–100 employees + ≥1 year</p>
+    <p>Micro-grant of <strong>$1,000</strong> plus free accelerator-style program access (Passport Community or Zebra Leadership) for ~20 finalists. 2026 cycle closed; next cycle pre-registration opens Jan 1, 2027, applications Apr 27–Jun 1, 2027 per Founders First. Requires 2–100 employees — solo co-founder pairs with no staff may not qualify yet.<sup><a href="#ref-35">35</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>18. NGLCC–Grubhub Community Impact Grant</h4>
+    <p class="meta-line"><span class="tag lgbtq">LGBTQ+</span> · Fit: <span class="fit-low">LOW</span> for most tech startups</p>
+    <p>$5,000–$25,000 for LGBTQ+-owned / ally restaurants, cafes, and bars. Important in the LGBTQ+ grant landscape, but sector-mismatched for a software company.<sup><a href="#ref-2">2</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>19. DivInc Startup Accelerator</h4>
+    <p class="meta-line"><span class="tag lgbtq">LGBTQ+</span> <span class="tag national">National</span> · Fit: <span class="fit-med">MEDIUM–HIGH</span></p>
+    <p>Nonprofit accelerator serving LGBTQ+, women, and POC founders; GrantCompass lists ~$10,000 equity-free support for companies with a built product/MVP. Confirm current cohort geography and terms on divinc.org before planning around the cash figure.<sup><a href="#ref-2">2</a></sup><sup><a href="#ref-36">36</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>20. Antares REACH Grant &amp; Boost Camp (via Hello Alice)</h4>
+    <p class="meta-line"><span class="tag national">National</span> · Fit: <span class="fit-med">MEDIUM</span></p>
+    <p>Up to ~$20,000 for underrepresented founders with product/market fit; rolling cohorts per 2026 catalog summaries. Good “always check Hello Alice” item rather than a Phoenix-only play.<sup><a href="#ref-2">2</a></sup><sup><a href="#ref-37">37</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>21. Backstage Capital Accelerator</h4>
+    <p class="meta-line"><span class="tag lgbtq">LGBTQ+</span> <span class="tag national">National</span> · Fit: <span class="fit-med">MEDIUM</span> (equity, not a grant)</p>
+    <p>~$100,000 for ~5% equity for founders who are women, POC, and/or LGBTQ+. Treat as venture financing. Cohort windows have been intermittent; verify live status.<sup><a href="#ref-2">2</a></sup><sup><a href="#ref-38">38</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>22. Gaingels</h4>
+    <p class="meta-line"><span class="tag lgbtq">LGBTQ+</span> <span class="tag national">National</span> · Fit: <span class="fit-med">MEDIUM</span> when raising a round</p>
+    <p>Large LGBTQIA+/allies-focused co-investment syndicate. Not a grant competition; relevant when you have a lead investor and want diversity-aligned capital on the cap table.<sup><a href="#ref-18">18</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>23. Illinois OE3 / Sephora Beauty Grant</h4>
+    <p class="meta-line"><span class="tag national">National (restricted)</span> · Fit: <span class="fit-low">LOW</span> for Phoenix tech</p>
+    <p>Listed here only to show the shape of the broader LGBTQ+/diversity grant market: OE3 can be large but Illinois-restricted; Sephora targets beauty brands. Neither is a Phoenix software fit.<sup><a href="#ref-2">2</a></sup></p>
+  </div>
+</section>
+
+<section id="federal">
+  <h2>8. Federal R&amp;D and Broader National Competitions</h2>
+
+  <div class="prog-block">
+    <h4>24. NSF SBIR/STTR (“America’s Seed Fund”)</h4>
+    <p class="meta-line"><span class="tag federal">Federal</span> · Fit: <span class="fit-high">HIGH</span> only for deep/high-risk R&amp;D</p>
+    <p>Phase I up to ~$305,000; Phase II up to ~$1.25M; Fast-Track options higher. Requires Project Pitch → invitation → full proposal. NSF emphasizes deep technologies, not incremental engineering. Historical Phase I success rates often cited in the 10–20% range. NSF relaunched with substantial 2026 funding after legislative restart activity.<sup><a href="#ref-7">7</a></sup><sup><a href="#ref-39">39</a></sup><sup><a href="#ref-40">40</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>25–28. Other major SBIR agencies (NIH, DoD, DOE, others)</h4>
+    <p class="meta-line"><span class="tag federal">Federal</span> · Fit: sector-dependent</p>
+    <p>Eleven agencies run SBIR programs; five run STTR. Topics are solicitation-specific — you cannot send an unsolicited “fund my app” proposal. Use <a href="https://www.sbir.gov">sbir.gov</a> topic search; Maricopa SBDC / AZ FAST help with packaging.<sup><a href="#ref-11">11</a></sup><sup><a href="#ref-41">41</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>29. Verizon Small Business Digital Ready Grant</h4>
+    <p class="meta-line"><span class="tag national">National</span> · Fit: <span class="fit-high">HIGH</span> (easy entry, lottery-ish)</p>
+    <p>$10,000 grants; complete two eligible courses/events, apply once, remain eligible for monthly selections through 2026 (10 awards/month June–December per program FAQ). Priority tilt toward LMI / under-resourced communities. Low time cost relative to AIC.<sup><a href="#ref-42">42</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>30. TechCrunch Startup Battlefield</h4>
+    <p class="meta-line"><span class="tag national">National</span> <span class="tag comp">Competition</span> · Fit: <span class="fit-med">MEDIUM</span></p>
+    <p>Selects ~200 companies for Disrupt; ~20 finalists; <strong>$100,000 equity-free</strong> prize for the champion. 2026 applications closed by mid-year; plan for the next cycle. Value is press + investor attention as much as cash.<sup><a href="#ref-14">14</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>31. SXSW Pitch</h4>
+    <p class="meta-line"><span class="tag national">National</span> <span class="tag comp">Competition</span> · Fit: <span class="fit-med">MEDIUM</span></p>
+    <p>2026: 45 finalists from ~600 applications across nine categories; winners receive cash + exposure (alumni collectively cited as raising large follow-on sums). Apply in the fall/winter window for the next March event.<sup><a href="#ref-13">13</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>32. MassChallenge (global equity-free accelerator)</h4>
+    <p class="meta-line"><span class="tag national">National/Global</span> · Fit: <span class="fit-med">MEDIUM</span></p>
+    <p>Equity-free accelerator model with large zero-equity prize pools in some hubs (2026 Switzerland/UK cohorts competed for up to CHF 1M across awards). US founders can apply to international hubs when eligible; check masschallenge.org for US-facing programs each year.<sup><a href="#ref-43">43</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>33. Rice Business Plan Competition</h4>
+    <p class="meta-line"><span class="tag national">National</span> <span class="tag comp">Competition</span> · Fit: <span class="fit-low">LOW</span> unless student-led</p>
+    <p>One of the richest student startup competitions (~$1.35M+ cash/investment prizes in 2026). Only relevant if a co-founder is a current student on an eligible team.<sup><a href="#ref-44">44</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>34. Hello Alice Funding Center / Alibaba CoCreate Pitch (example partner comps)</h4>
+    <p class="meta-line"><span class="tag national">National</span> · Fit: <span class="fit-med">MEDIUM</span> as a radar</p>
+    <p>Hello Alice aggregates rotating grants and partner competitions (including large product-pitch prize pools when active). Worth a standing profile even when no single grant is open.<sup><a href="#ref-37">37</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>35. SBA Community Advantage / Microloans (debt track)</h4>
+    <p class="meta-line"><span class="tag federal">Federal</span> · Fit: <span class="fit-med">MEDIUM</span> if you will borrow</p>
+    <p>Community Advantage SBLCs make 7(a)-backed loans up to $350,000 focused on underserved markets. Useful bridge capital; not a grant. Pair with SBDC counseling.<sup><a href="#ref-9">9</a></sup></p>
+  </div>
+
+  <div class="prog-block">
+    <h4>36. Cloud / in-kind “grants” (AWS Activate, Google for Startups, Microsoft for Startups)</h4>
+    <p class="meta-line"><span class="tag national">National</span> · Fit: <span class="fit-high">HIGH</span> for burn reduction</p>
+    <p>Not cash, but often $25K–$200K+ in credits via accelerators or partner paths. For a tech MVP, credits can matter more than a $1K pride micro-grant. Apply through each vendor’s startup portal; accelerator participation often unlocks higher tiers.<sup><a href="#ref-45">45</a></sup></p>
+  </div>
+</section>
+
+<section id="catalog">
+  <h2>9. Master Catalog (35+ Opportunities at a Glance)</h2>
+  <p>Research Bot guidance favors many concrete examples. The table below consolidates the programs above plus near-neighbor options founders in this profile commonly evaluate. Amounts are typical/advertised ceilings and can change by cohort.</p>
+
+  <table>
+    <tr>
+      <th>#</th><th>Program</th><th>Where</th><th>Type</th><th>Typical $ / value</th><th>Gate</th>
+    </tr>
+    <tr><td>1</td><td>Arizona Innovation Challenge</td><td>AZ</td><td>Grant + comp</td><td>≥$50K non-dilutive</td><td>Tech/SaaS; AZ ops; often MRR</td></tr>
+    <tr><td>2</td><td>IdeaFunding</td><td>AZ</td><td>Pitch comp</td><td>$50K+ prize pool</td><td>AZ early-stage; Tucson sessions</td></tr>
+    <tr><td>3</td><td>Venture Start showcase</td><td>AZ</td><td>Program + pitch</td><td>~$5–10K seed prizes</td><td>Early-stage attendance</td></tr>
+    <tr><td>4</td><td>Venture Raise</td><td>AZ</td><td>Accelerator</td><td>Non-cash / readiness</td><td>Product + users</td></tr>
+    <tr><td>5</td><td>Venture Scale</td><td>AZ</td><td>Accelerator</td><td>With AIC award</td><td>AIC winners</td></tr>
+    <tr><td>6</td><td>AZ FAST</td><td>AZ</td><td>Grant (prep)</td><td>Up to $3K</td><td>SBIR-bound AZ firms</td></tr>
+    <tr><td>7</td><td>Venture Madness</td><td>AZ</td><td>Investor showcase</td><td>Visibility</td><td>Scalable tech</td></tr>
+    <tr><td>8</td><td>PHX FWD Fast FWD</td><td>PHX</td><td>Paid accelerator</td><td>$7.5K cost</td><td>≥$100K ARR SaaS</td></tr>
+    <tr><td>9</td><td>Skysong Startup Challenge</td><td>PHX/Scottsdale</td><td>Invest/comp</td><td>Up to $175K pool</td><td>ASU IP licensees</td></tr>
+    <tr><td>10</td><td>Flinn Bio Entrepreneurship</td><td>AZ</td><td>Grant</td><td>$100K (selectees)</td><td>Bioscience</td></tr>
+    <tr><td>11</td><td>GPECC / LGBTBE cert</td><td>PHX</td><td>Certification</td><td>Supplier access</td><td>51% LGBTQ-owned</td></tr>
+    <tr><td>12</td><td>Maricopa SBDC Tech</td><td>PHX</td><td>Counseling</td><td>Free</td><td>Small biz</td></tr>
+    <tr><td>13</td><td>SCORE Greater Phoenix</td><td>PHX</td><td>Mentoring</td><td>Free</td><td>Any stage</td></tr>
+    <tr><td>14</td><td>Local First / Microloans</td><td>AZ</td><td>Debt/support</td><td>Loan amounts vary</td><td>Local small biz</td></tr>
+    <tr><td>15</td><td>StartOut Spark Lab</td><td>US virtual</td><td>Incubator</td><td>Equity-free</td><td>~$50K ARR/raise</td></tr>
+    <tr><td>16</td><td>StartOut Growth Lab</td><td>US/CA virtual</td><td>Accelerator</td><td>Equity-free</td><td>~$200K ARR/raise</td></tr>
+    <tr><td>17</td><td>National Pride Grant</td><td>US</td><td>Micro-grant</td><td>$1K + program</td><td>2–100 employees; 1 yr</td></tr>
+    <tr><td>18</td><td>NGLCC–Grubhub Grant</td><td>US</td><td>Grant</td><td>$5–25K</td><td>Food service</td></tr>
+    <tr><td>19</td><td>DivInc</td><td>US</td><td>Accel + grant</td><td>~$10K equity-free</td><td>Diverse founders + MVP</td></tr>
+    <tr><td>20</td><td>Antares REACH</td><td>US</td><td>Grant</td><td>Up to ~$20K</td><td>Underrep. + traction</td></tr>
+    <tr><td>21</td><td>Backstage Capital</td><td>US</td><td>Equity</td><td>$100K for ~5%</td><td>Women/POC/LGBTQ</td></tr>
+    <tr><td>22</td><td>Gaingels</td><td>US</td><td>VC syndicate</td><td>Round-dependent</td><td>Raising with a lead</td></tr>
+    <tr><td>23</td><td>NSF SBIR Phase I</td><td>Federal</td><td>R&amp;D grant</td><td>Up to ~$305K</td><td>Deep tech R&amp;D</td></tr>
+    <tr><td>24</td><td>NSF SBIR Phase II</td><td>Federal</td><td>R&amp;D grant</td><td>Up to ~$1.25M</td><td>Phase I graduates</td></tr>
+    <tr><td>25</td><td>NIH SBIR</td><td>Federal</td><td>R&amp;D grant</td><td>Agency schedule</td><td>Biomed topics</td></tr>
+    <tr><td>26</td><td>DoD SBIR</td><td>Federal</td><td>R&amp;D / contract</td><td>Topic-specific</td><td>Defense topics</td></tr>
+    <tr><td>27</td><td>DOE SBIR</td><td>Federal</td><td>R&amp;D grant</td><td>Topic-specific</td><td>Energy topics</td></tr>
+    <tr><td>28</td><td>Verizon Digital Ready</td><td>US</td><td>Grant</td><td>$10K</td><td>2 courses + apply</td></tr>
+    <tr><td>29</td><td>TechCrunch Battlefield</td><td>US</td><td>Pitch comp</td><td>$100K equity-free</td><td>Early tech; annual</td></tr>
+    <tr><td>30</td><td>SXSW Pitch</td><td>US</td><td>Pitch comp</td><td>Cash + exposure</td><td>Category fit</td></tr>
+    <tr><td>31</td><td>MassChallenge hubs</td><td>Global</td><td>Equity-free accel</td><td>Prize pools vary</td><td>Early impact/tech</td></tr>
+    <tr><td>32</td><td>Rice RBPC</td><td>US</td><td>Student comp</td><td>$1M+ pool</td><td>Student founders</td></tr>
+    <tr><td>33</td><td>Hello Alice matches</td><td>US</td><td>Aggregator</td><td>Varies</td><td>Profile-based</td></tr>
+    <tr><td>34</td><td>SBA Community Advantage</td><td>Federal/AZ</td><td>Loan</td><td>Up to $350K</td><td>Underserved markets</td></tr>
+    <tr><td>35</td><td>AWS / Google / MSFT credits</td><td>Global</td><td>In-kind</td><td>$25K–$200K+ credits</td><td>Startup status</td></tr>
+    <tr><td>36</td><td>City of Phoenix EO certifications</td><td>PHX</td><td>SBE/DBE etc.</td><td>Procurement access</td><td>City contracting</td></tr>
+    <tr><td>37</td><td>Y Combinator / Techstars (context)</td><td>National</td><td>Equity accel</td><td>Standard SAFE/equity</td><td>Venture track — not grants</td></tr>
+    <tr><td>38</td><td>Cartier Women’s Initiative</td><td>Global</td><td>Fellowship/grant</td><td>Tens of thousands</td><td>Women-led impact cos.</td></tr>
+    <tr><td>39</td><td>FedEx Small Business Grant Challenge</td><td>US</td><td>Grant challenge</td><td>Often $20–50K tier</td><td>Shippers; cyclical</td></tr>
+    <tr><td>40</td><td>CES Innovation Awards</td><td>US</td><td>Recognition</td><td>Marketing value</td><td>Hardware/consumer tech</td></tr>
+  </table>
+</section>
+
+<section id="priority">
+  <h2>10. Priority Action Plan for This Founder Profile</h2>
+  <div class="action-box">
+    <p><strong>Assumption used for ranking:</strong> Phoenix-based tech product company, LGBTQ co-founders, first formal business entity, prior product already launched, seeking mostly non-dilutive capital and competitive visibility.</p>
+  </div>
+
+  <h3>Do in the next 30 days</h3>
+  <ol>
+    <li><strong>Join Greater Phoenix Equality Chamber and start LGBTBE certification</strong> — unlocks supplier-diversity path and local queer business network; fee often waived via affiliate membership.<sup><a href="#ref-19">19</a></sup></li>
+    <li><strong>Create StartOut account; watch Spark Lab Cohort 4 window</strong> (applications noted opening July 27) if you clear ~$50K ARR/raise.<sup><a href="#ref-6">6</a></sup></li>
+    <li><strong>Register for Verizon Digital Ready, finish two courses, submit the $10K grant application</strong> — highest effort-to-optional-upside ratio on this list.<sup><a href="#ref-42">42</a></sup></li>
+    <li><strong>Book Maricopa SBDC tech counseling</strong> and ask them to pressure-test AIC vs. SBIR fit for your specific product.<sup><a href="#ref-31">31</a></sup></li>
+    <li><strong>Join ACA Venture Start community / next cohort</strong> if you still need sharper customer discovery and pitch muscle before AIC.<sup><a href="#ref-21">21</a></sup></li>
+  </ol>
+
+  <h3>Do this quarter / next cycle</h3>
+  <ol>
+    <li><strong>Prepare a standing AIC application package</strong> (deck, financials, MRR proof, Arizona jobs narrative). Re-check Spring/Fall 2026 theme and gates the day applications open.<sup><a href="#ref-1">1</a></sup></li>
+    <li><strong>Calendar IdeaFunding 2027</strong> if you missed 2026 — still one of the best statewide early-stage stages.<sup><a href="#ref-16">16</a></sup></li>
+    <li><strong>If deep tech:</strong> pick a federal agency topic on sbir.gov → apply to the next AZ FAST round → submit NSF/agency Phase I.<sup><a href="#ref-26">26</a></sup><sup><a href="#ref-7">7</a></sup></li>
+    <li><strong>Apply to cloud credit programs</strong> immediately after incorporation and product hosting choices stabilize.<sup><a href="#ref-45">45</a></sup></li>
+    <li><strong>Pre-register for Founders First Pride Grant 2027</strong> if you will have 2+ employees and ≥1 year in business by then.<sup><a href="#ref-35">35</a></sup></li>
+  </ol>
+
+  <h3>Park until traction grows</h3>
+  <ul>
+    <li>StartOut Growth Lab (~$200K ARR/raise gate).<sup><a href="#ref-2">2</a></sup></li>
+    <li>PHX FWD Fast FWD (≥$100K ARR + paid tuition).<sup><a href="#ref-5">5</a></sup></li>
+    <li>Gaingels / Backstage (need a fundraising process, not a first grant hunt).<sup><a href="#ref-18">18</a></sup><sup><a href="#ref-38">38</a></sup></li>
+    <li>TechCrunch Battlefield / SXSW Pitch (annual prestige comps — apply when demo and story are crisp).<sup><a href="#ref-14">14</a></sup><sup><a href="#ref-13">13</a></sup></li>
+  </ul>
+
+  <h3>Honest expectations</h3>
+  <p>GrantCompass’s mid-2026 LGBTQ+ catalog shows that <em>exclusive</em> national LGBTQ+ cash programs are few, and the median checks are modest compared with state tech competitions or SBIR Phase I.<sup><a href="#ref-2">2</a></sup> Your comparative advantage in Phoenix is geographic: AIC-scale non-dilutive awards and a dense free public accelerator ladder that many coastal founders lack. LGBTQ identity is a powerful network key (StartOut, GPECC, Gaingels) and a secondary cash key — not a substitute for traction metrics judges use for tech competitions.</p>
+</section>
+
+<section id="conclusion">
+  <h2>11. Conclusion</h2>
+  <div class="conclusion-box">
+    <p>For LGBTQ co-founders launching a tech company in Phoenix with a prior product already in the world, the evidence-backed playbook is:</p>
+    <ol>
+      <li><strong>Compete locally for real non-dilutive dollars</strong> — Arizona Innovation Challenge first among equals; IdeaFunding and Venture Start as earlier rungs.</li>
+      <li><strong>Use LGBTQ infrastructure for network and procurement</strong> — StartOut + GPECC/LGBTBE now; Pride Grant and Growth Lab when employee/revenue gates clear.</li>
+      <li><strong>Treat federal SBIR as a specialized weapon</strong> — powerful if you have high-risk R&amp;D; wrong if you only need go-to-market cash for a conventional SaaS MVP.</li>
+      <li><strong>Collect easy national options in parallel</strong> — Verizon Digital Ready and cloud credits while the bigger packets cook.</li>
+    </ol>
+    <p>Further research that would sharpen this brief: (a) exact product category and current MRR/ARR; (b) whether either co-founder is a current student (unlocks Rice-class comps); (c) willingness to take equity accelerators vs. staying non-dilutive; (d) a living calendar scrape of ACA + StartOut + AIC deadlines each quarter; (e) Arizona angel groups’ LGBTQ+ founder outcomes (interview study).</p>
+  </div>
+</section>
+
+<section id="refs">
+  <h2>12. References</h2>
+  <ol class="ref-list">
+    <li id="ref-1">Arizona Commerce Authority. “Arizona Commerce Authority Accepting Applications For 2025 Arizona Innovation Challenge.” July 29, 2025. <a href="https://www.azcommerce.com/news-events/news/2025/7/arizona-commerce-authority-accepting-applications-for-2025-arizona-innovation-challenge/">azcommerce.com</a>.</li>
+    <li id="ref-2">GrantCompass. “LGBTQ+ Business Grants 2026: 8 Programs Compared.” Updated July 2026. <a href="https://grantcompass.co/lgbtq-business-grants">grantcompass.co</a>.</li>
+    <li id="ref-3">NGLCC. “Certification Criteria &amp; Process.” <a href="https://nglcc.org/lgbtbe-certification/certification-criteria-process/">nglcc.org</a>.</li>
+    <li id="ref-4">Arizona Commerce Authority. “Arizona Innovation Challenge.” Program overview (award structure, Venture Raise path). <a href="https://www.azcommerce.com/start-up/arizona-innovation-challenge/">azcommerce.com</a>.</li>
+    <li id="ref-5">PHX FWD. “Fast FWD Accelerator.” <a href="https://www.phxfwd.org/fast-fwd-accelerator">phxfwd.org</a>.</li>
+    <li id="ref-6">StartOut. “Spark Lab.” Eligibility table and Cohort 4 timing. <a href="https://startout.org/spark-lab/">startout.org</a>.</li>
+    <li id="ref-7">U.S. National Science Foundation. “NSF 26-510: SBIR/STTR Phase I, Phase II, Fast-Track.” <a href="https://www.nsf.gov/funding/opportunities/small-business-innovation-research-small-business-technology/nsf26-510/solicitation">nsf.gov</a>.</li>
+    <li id="ref-8">Arizona Commerce Authority. “Arizona Innovation Challenge Eligibility.” <a href="https://www.azcommerce.com/start-up/arizona-innovation-challenge/eligibility/">azcommerce.com</a>.</li>
+    <li id="ref-9">U.S. Small Business Administration / secondary guides on Community Advantage SBLC lending (up to $350,000; underserved markets). See SBA Community Advantage program materials and 2026 explainers.</li>
+    <li id="ref-10">Local First Arizona. “Business Loan Programs.” <a href="https://localfirstaz.com/loan-programs">localfirstaz.com</a>.</li>
+    <li id="ref-11">Congressional Research Service. “Small Business Research Programs: SBIR and STTR” (R43695). <a href="https://www.congress.gov/crs-product/R43695">congress.gov</a>.</li>
+    <li id="ref-12">SBIR.gov tutorial. “The History of the SBIR and STTR Programs.” <a href="https://www.sbir.gov/tutorials/program-basics/tutorial-5">sbir.gov</a>.</li>
+    <li id="ref-13">SXSW. “2026 SXSW Pitch” finalist and winners materials. <a href="https://sxsw.com/news/2026/sxsw-pitch-winners-announced/">sxsw.com</a>.</li>
+    <li id="ref-14">TechCrunch. “Startup Battlefield.” <a href="https://techcrunch.com/startup-battlefield/">techcrunch.com</a>.</li>
+    <li id="ref-15">AZBio. “Arizona Commerce Authority Announces Awardees For Fall 2025 Arizona Innovation Challenge.” Aug 27, 2025. <a href="https://www.azbio.org/arizona-commerce-authority-announces-awardees-for-fall-2025-arizona-innovation-challenge">azbio.org</a>.</li>
+    <li id="ref-16">Startup Tucson. “IdeaFunding.” <a href="https://www.startuptucson.com/ideafunding">startuptucson.com</a>.</li>
+    <li id="ref-17">Greater Phoenix Equality Chamber of Commerce. “LGBTBE Certification.” <a href="https://www.equalitychamber.org/lgbtbe-certification">equalitychamber.org</a>.</li>
+    <li id="ref-18">Gaingels. “Who We Are.” <a href="https://gaingels.com/about">gaingels.com</a>.</li>
+    <li id="ref-19">Greater Phoenix Equality Chamber of Commerce. “FAQs” and “Scholarships.” <a href="https://www.equalitychamber.org/faqs">equalitychamber.org</a>.</li>
+    <li id="ref-20">Arizona Commerce Authority. “Venture Programs.” <a href="https://www.azcommerce.com/start-up/venture-programs/">azcommerce.com</a>.</li>
+    <li id="ref-21">Arizona Commerce Authority. “Venture Start” (Spring 2026 cohort / showcase prize notes). <a href="https://www.azcommerce.com/start-up/venture-programs/venture-start/">azcommerce.com</a>.</li>
+    <li id="ref-22">Venture Madness / Invest Southwest. Conference and startup program pages. <a href="https://venturemadness.com/">venturemadness.com</a>.</li>
+    <li id="ref-23">fundsforNGOs / GrantAura summaries of Fall 2025 AIC SaaS eligibility (cross-check against ACA each cycle). <a href="https://us.fundsforngos.org/type-of-grantprogram/arizona-innovation-challenge-2025/">us.fundsforngos.org</a>.</li>
+    <li id="ref-24">TENWEST / Startup Tucson. “From Pitch to Prize: Over $50,000 Awarded… IdeaFunding 2026.” <a href="https://www.tenwest.com/post/from-pitch-to-prize-over-50-000-awareded-to-arizona-startups-at-ideafunding-2026">tenwest.com</a>.</li>
+    <li id="ref-25">Arizona Commerce Authority. “Venture Raise.” <a href="https://www.azcommerce.com/start-up/venture-programs/venture-raise/">azcommerce.com</a>.</li>
+    <li id="ref-26">AZBio. “Applications are Open for Arizona FAST Grants.” <a href="https://www.azbio.org/applications-are-open-for-arizona-fast-grants">azbio.org</a>.</li>
+    <li id="ref-27">Arizona Commerce Authority SBIR/STTR Resource Center. “About &amp; Eligibility” / FAST materials. <a href="https://www.azcommerce.com/programs/sbir-sttr-resource-center/about-eligibility/">azcommerce.com</a>.</li>
+    <li id="ref-28">Skysong Innovations. “Skysong Innovations Startup Challenge.” <a href="https://skysonginnovations.com/skysong-innovations-startup-challenge/">skysonginnovations.com</a>.</li>
+    <li id="ref-29">Flinn Foundation. “Bioscience Entrepreneurship Program.” <a href="https://www.flinn.org/bioscience/bioscience-grantmaking/entrepreneurship-program/">flinn.org</a>.</li>
+    <li id="ref-30">Greater Phoenix Equality Chamber. “Scholarships.” <a href="https://www.equalitychamber.org/scholarships">equalitychamber.org</a>.</li>
+    <li id="ref-31">Maricopa SBDC. “Technology Based Companies.” <a href="https://www.maricopa-sbdc.com/services/technology-based-companies/">maricopa-sbdc.com</a>.</li>
+    <li id="ref-32">SCORE. “Greater Phoenix.” <a href="https://www.score.org/az/greater-phoenix/">score.org</a>.</li>
+    <li id="ref-33">Arizona Office of Economic Opportunity. “Arizona Microbusiness Loan Program.” <a href="https://oeo.az.gov/microbiz">oeo.az.gov</a>.</li>
+    <li id="ref-34">StartOut. “Growth Lab.” <a href="https://startout.org/growth-lab/">startout.org</a>.</li>
+    <li id="ref-35">Founders First CDC. “National Pride Grant / Pride Fund.” <a href="https://foundersfirstcdc.org/pride-grant">foundersfirstcdc.org</a>.</li>
+    <li id="ref-36">DivInc. Organization site. <a href="https://divinc.org/">divinc.org</a>.</li>
+    <li id="ref-37">Hello Alice. “Small Business Grants and Funding.” <a href="https://helloalice.com/small-business-grants-and-funding">helloalice.com</a>.</li>
+    <li id="ref-38">Backstage Capital. “About Backstage Accelerator.” <a href="https://backstagecapital.com/accelerator/about/">backstagecapital.com</a>.</li>
+    <li id="ref-39">NSF News. “NSF deploys $250 million to restart SBIR &amp; STTR programs…” <a href="https://www.nsf.gov/news/nsf-deploys-250-million-restart-small-business-innovation">nsf.gov</a>.</li>
+    <li id="ref-40">BW&amp;CO Consulting. “NSF SBIR 2026: Funding Amounts, Deadlines &amp; Startup Eligibility Guide.” <a href="https://www.bwcoconsulting.com/fod/nsfsbir">bwcoconsulting.com</a>.</li>
+    <li id="ref-41">SBIR.gov. Program basics and agency solicitations portal. <a href="https://www.sbir.gov">sbir.gov</a>.</li>
+    <li id="ref-42">Verizon Small Business Digital Ready. Grant details / FAQs (2026 $10,000 national grant). <a href="https://digitalready.verizonwireless.com/funding/details">digitalready.verizonwireless.com</a>.</li>
+    <li id="ref-43">MassChallenge. Switzerland &amp; UK 2026 cohort announcements. <a href="https://masschallenge.org/news/switzerland-uk-2026-cohort/">masschallenge.org</a>.</li>
+    <li id="ref-44">Rice Business Plan Competition. “2026” and results pages. <a href="https://rbpc.rice.edu/2026">rbpc.rice.edu</a>.</li>
+    <li id="ref-45">AWS Activate / Google for Startups / Microsoft for Startups public program pages (credit tiers vary by partner path; verify current offers).</li>
+    <li id="ref-46">City of Phoenix. “Business Assistance and Support” (certifications and grant pointers). <a href="https://www.phoenix.gov/business/business-assistance.html">phoenix.gov</a>.</li>
+    <li id="ref-47">Bipartisan Policy Center. “Turbocharging Small Business Innovation” (SBIR process evolution, pitch/LOI practices). <a href="https://bipartisanpolicy.org/report/turbocharging-small-business/">bipartisanpolicy.org</a>.</li>
+  </ol>
+</section>
+
+<footer>
+  <p>Research Bot · Independent silo · Compiled July 17, 2026 · One-time question stored in Research-Bot base folder per README instructions.</p>
+  <p>Deadlines, award amounts, and eligibility change. Re-verify on official program sites before investing application time. This document is research synthesis, not an offer of funding or professional financial advice.</p>
+</footer>
+
+</div>
+</body>
+</html>
