@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML to PDF Conversion Options — Research Bot Report</title>
+<style>
+  /*
+    This file is a Research-Bot research brief.
+    It exists so a human can compare ways to turn the folder's self-contained
+    HTML reports into reliable PDFs — without needing the rest of the repo.
+    Style and section shape follow other reports like management-theory-research.html.
+  */
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #21262d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #d4a853;
+    --accent2: #58a6ff;
+    --danger: #f85149;
+    --success: #3fb950;
+    --warn: #d29922;
+    --link: #79c0ff;
+    --border: #30363d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  h1 { font-size: 2rem; line-height: 1.25; margin-bottom: 0.5rem; color: var(--accent); }
+  .subtitle { color: var(--muted); font-style: italic; font-size: 1.05rem; }
+  h2 {
+    font-size: 1.45rem;
+    color: var(--accent2);
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 { font-size: 1.15rem; color: var(--accent); margin: 1.5rem 0 0.75rem; }
+  h4 { font-size: 1rem; color: var(--muted); margin: 1rem 0 0.5rem; }
+  p { margin-bottom: 1rem; }
+  a { color: var(--link); }
+  a:hover { text-decoration: underline; }
+  .thesis-box {
+    background: var(--surface);
+    border-left: 4px solid var(--accent);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .limitation-box {
+    background: var(--surface);
+    border-left: 4px solid var(--danger);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .recommend-box {
+    background: var(--surface);
+    border-left: 4px solid var(--success);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .overview-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+  .overview-card h4 { color: var(--accent2); margin-top: 0; }
+  .diagram {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    white-space: pre;
+    color: var(--muted);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.86rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.55rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: var(--surface2); color: var(--accent2); font-weight: 600; }
+  tr:nth-child(even) { background: var(--surface); }
+  tr:nth-child(odd) { background: rgba(22,27,34,0.5); }
+  .cite { font-size: 0.82rem; color: var(--muted); }
+  .ref-list { font-size: 0.85rem; }
+  .ref-list li { margin-bottom: 0.6rem; }
+  .conclusion-box {
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+    border: 1px solid var(--accent2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--surface2);
+    color: var(--accent);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    margin-right: 0.3rem;
+    font-family: sans-serif;
+  }
+  .tag-good { color: var(--success); }
+  .tag-bad { color: var(--danger); }
+  .tag-mid { color: var(--warn); }
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .toc ol { margin: 0.5rem 0 0 1.25rem; }
+  .toc li { margin-bottom: 0.25rem; }
+  ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  code, .path {
+    font-family: 'Courier New', monospace;
+    font-size: 0.88em;
+    background: var(--surface2);
+    padding: 0.05rem 0.35rem;
+    border-radius: 3px;
+  }
+  pre.cmd {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin: 1rem 0 1.5rem;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 0.84rem;
+    color: var(--text);
+    white-space: pre-wrap;
+  }
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  @media print {
+    body { background: white; color: black; }
+    .overview-card, .thesis-box, .limitation-box, .recommend-box, table, .conclusion-box { break-inside: avoid; }
+    a { color: #0645ad; }
+    header { border-bottom-color: #333; }
+    h1, h3 { color: #222; }
+    h2 { color: #0645ad; border-bottom-color: #ccc; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>HTML to PDF Conversion Options</h1>
+  <p class="subtitle">A practical research brief on reliable ways to turn Research-Bot’s self-contained HTML reports into PDFs — comparing browser print, Chromium automation, custom CSS engines, cloud APIs, and tools that should be avoided.</p>
+  <p class="cite">Research-Bot report · Compiled July 2026 · Self-contained; no prior context required.</p>
+</header>
+
+<nav class="toc" aria-label="Table of contents">
+  <strong>Contents</strong>
+  <ol>
+    <li><a href="#aims">Introduction and Aims</a></li>
+    <li><a href="#limitations">Limitations and Evidence Strength</a></li>
+    <li><a href="#precursors">Precursor and Subset Questions</a></li>
+    <li><a href="#corpus">What These HTML Reports Actually Are</a></li>
+    <li><a href="#history">History of HTML-to-PDF as a Field</a></li>
+    <li><a href="#families">Five Families of Conversion Approaches</a></li>
+    <li><a href="#catalog">Catalog of Options (30+ examples)</a></li>
+    <li><a href="#comparison">Side-by-Side Comparison</a></li>
+    <li><a href="#probe">Local Probe on a Research-Bot Report</a></li>
+    <li><a href="#recommendation">Recommendation for This Folder</a></li>
+    <li><a href="#conclusion">Conclusion and Further Research</a></li>
+    <li><a href="#references">References</a></li>
+  </ol>
+</nav>
+
+<!-- ========== INTRODUCTION ========== -->
+<section id="aims">
+  <h2>1. Introduction and Aims</h2>
+  <p>Research-Bot agents produce long, self-contained HTML research reports with embedded CSS. Those files are easy to open in a browser, but sharing, archiving, printing, and attaching them often wants a PDF. This document answers one question:</p>
+  <blockquote style="border-left:3px solid var(--border);padding-left:1rem;margin:1rem 0;color:var(--muted);font-style:italic;">
+    What are the reliable options for converting Research-Bot HTML reports into PDF, and which approach best fits this corpus?
+  </blockquote>
+
+  <div class="thesis-box">
+    <strong>Central thesis:</strong> For these reports — static, self-contained HTML with modern CSS (custom properties, grid, tables, occasional SVG), almost no JavaScript, and mostly dark on-screen themes — a <em>Chromium print pipeline</em> is the most reliable default. That covers ordinary browser “Print → Save as PDF,” Chrome/Chromium’s <code>--print-to-pdf</code> CLI, Playwright/Puppeteer, and self-hosted services such as Gotenberg. Custom CSS engines (WeasyPrint, Prince, Vivliostyle) can produce nicer <em>pagination</em>, but they are a different rendering engine than the browser the reports were designed in. Archived tools built on old WebKit or PhantomJS (especially <code>wkhtmltopdf</code> and the npm <code>html-pdf</code> package) should not be used for new work.<a href="#ref-pdf4-wk" class="citation">[1]</a><a href="#ref-iron-23" class="citation">[2]</a><a href="#ref-chrome-headless" class="citation">[3]</a>
+  </div>
+
+  <p>Aims of this brief:</p>
+  <ul>
+    <li>Map the main technical families of HTML→PDF conversion and what each is good at.</li>
+    <li>Ground recommendations in how Research-Bot HTML files are actually built.</li>
+    <li>Give a concrete catalog of tools (commercial and open source) with trade-offs.</li>
+    <li>Recommend a lean “reliable enough” path for batch conversion without building a product.</li>
+  </ul>
+</section>
+
+<!-- ========== LIMITATIONS ========== -->
+<section id="limitations">
+  <h2>2. Limitations and Evidence Strength</h2>
+
+  <div class="limitation-box">
+    <p><strong>Theoretical limitations first.</strong> “Look the same as the browser” and “look like a printed book” are different goals. Web layout is continuous and interactive; PDF is discrete pages. No converter can perfectly satisfy both without trade-offs around page breaks, headers/footers, dark themes, and ink-friendly print CSS. Human taste (“good enough PDF”) is partly subjective.<a href="#ref-prince-paged" class="citation">[4]</a></p>
+    <p><strong>Method / evidence limitations.</strong> This report synthesizes vendor docs, comparison articles, GitHub/project status pages, W3C/Chrome documentation, and one local Chrome headless probe of a Research-Bot file. It is not a controlled multi-engine visual regression suite across all 29 reports. Vendor comparison posts (Apryse, Iron Software, PDF4.dev, DocRaptor) are useful for catalogs and dates but are commercially interested; claims about “fastest” or “best” were cross-checked against primary project pages where possible.<a href="#ref-apryse" class="citation">[5]</a><a href="#ref-iron-23" class="citation">[2]</a></p>
+    <p><strong>Field maturity.</strong> HTML-to-PDF is a mature, crowded niche with recurring tool death (PhantomJS, wkhtmltopdf) and a durable architectural split between “run a real browser” and “implement CSS for print.” CSS Paged Media support in browsers improved sharply around Chrome 131 / Safari 18.2 (late 2024), so older advice that “browsers cannot do margin boxes” is partly outdated for Chromium.<a href="#ref-chrome-margins" class="citation">[6]</a><a href="#ref-doppio-paged" class="citation">[7]</a></p>
+  </div>
+</section>
+
+<!-- ========== PRECURSORS ========== -->
+<section id="precursors">
+  <h2>3. Precursor and Subset Questions</h2>
+  <p>Before picking a tool, smaller questions decide the answer:</p>
+
+  <div class="overview-grid">
+    <div class="overview-card">
+      <h4>1. Fidelity vs. pagination</h4>
+      <p>Do you want the PDF to match Chrome’s on-screen/print layout, or book-style footnotes, running headers, and strict page models? Chromium wins the first; Prince/WeasyPrint/Vivliostyle lean toward the second.<a href="#ref-pdf4-wk" class="citation">[1]</a><a href="#ref-prince-paged" class="citation">[4]</a></p>
+    </div>
+    <div class="overview-card">
+      <h4>2. One-off vs. batch</h4>
+      <p>Manual Print-to-PDF is enough for occasional exports. Batch conversion of dozens of reports wants a CLI or small script (Chrome headless, Playwright, or Gotenberg).<a href="#ref-chrome-headless" class="citation">[3]</a></p>
+    </div>
+    <div class="overview-card">
+      <h4>3. JavaScript required?</h4>
+      <p>If charts or frameworks render only after JS, you need a browser engine. Research-Bot reports surveyed here have <strong>zero</strong> <code>&lt;script&gt;</code> tags, so JS execution is optional — but Chromium still helps for CSS fidelity.</p>
+    </div>
+    <div class="overview-card">
+      <h4>4. Dark theme → paper</h4>
+      <p>Most reports use a dark GitHub-like theme. Without <code>@media print</code> rules (or <code>printBackground</code> choices), PDFs can be ink-heavy black pages or lose intended colors. Only a minority of reports already ship print CSS.</p>
+    </div>
+    <div class="overview-card">
+      <h4>5. Who operates the renderer?</h4>
+      <p>Self-host Chromium (CLI / Playwright / Gotenberg) vs. pay a managed API (DocRaptor, Browserless, PDFShift, etc.). For a personal research folder, self-host is usually enough.<a href="#ref-pdf4-wk" class="citation">[1]</a><a href="#ref-gotenberg" class="citation">[8]</a></p>
+    </div>
+    <div class="overview-card">
+      <h4>6. Security surface</h4>
+      <p>Archived engines with unpatched CVEs are unacceptable if HTML is ever untrusted. Even for trusted local files, dead tooling is a maintenance trap.<a href="#ref-pdf4-wk" class="citation">[1]</a><a href="#ref-cve-wk" class="citation">[9]</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CORPUS ========== -->
+<section id="corpus">
+  <h2>4. What These HTML Reports Actually Are</h2>
+  <p>Recommendations should fit the corpus, not a generic SaaS invoice template. As of this research day, Research-Bot held <strong>29 HTML reports</strong> (base folder + <code>Apocalypse-Story/</code>). A quick structural scan found:</p>
+
+  <table>
+    <thead>
+      <tr><th>Trait</th><th>Observed pattern</th><th>Why it matters for PDF</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Self-contained CSS</td>
+        <td>Inline <code>&lt;style&gt;</code>; no CDN/Google Fonts links in the sampled set</td>
+        <td>Offline conversion works; no network needed for layout</td>
+      </tr>
+      <tr>
+        <td>CSS custom properties</td>
+        <td>Present in all 29 files (<code>:root { --bg: … }</code>)</td>
+        <td>Old WebKit (<code>wkhtmltopdf</code>) is a poor match<a href="#ref-pdf4-pup-wk" class="citation">[10]</a></td>
+      </tr>
+      <tr>
+        <td>CSS Grid</td>
+        <td>~19 files use grid / overview-card grids</td>
+        <td>Needs a modern engine; WeasyPrint grid support exists but still has gaps<a href="#ref-weasy-grid" class="citation">[11]</a></td>
+      </tr>
+      <tr>
+        <td>JavaScript</td>
+        <td>0 files with <code>&lt;script&gt;</code></td>
+        <td>Non-browser engines are <em>possible</em>; not required</td>
+      </tr>
+      <tr>
+        <td>SVG diagrams</td>
+        <td>At least 2 files embed SVG</td>
+        <td>Browser engines handle SVG well; screenshot-style converters may rasterize poorly</td>
+      </tr>
+      <tr>
+        <td><code>@media print</code></td>
+        <td>Only ~5 of 29 files define print styles (white background, avoid breaks)</td>
+        <td>Most reports will print as dark pages unless print CSS is added or backgrounds are disabled carefully</td>
+      </tr>
+      <tr>
+        <td>Length</td>
+        <td>Tens of KB of HTML; long tables; multi-section papers</td>
+        <td>Expect multi-dozen page PDFs; page-break control matters</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Research-Bot’s own instructions ask agents for self-contained HTML with contained CSS, diagrams, overviews, aims, limitations, history, citations, and a conclusion — i.e., document-shaped content, not an SPA.<a href="#ref-readme" class="citation">[12]</a> That is a favorable case for print pipelines.</p>
+</section>
+
+<!-- ========== HISTORY ========== -->
+<section id="history">
+  <h2>5. History of HTML-to-PDF as a Field</h2>
+
+  <h3>5.1 From print stylesheets to dedicated engines</h3>
+  <p>Browsers have long supported “print this page,” and CSS evolved print-oriented modules (Paged Media, Generated Content for Paged Media). In practice, browser support for advanced pagination lagged for years, so specialized engines filled the gap.<a href="#ref-chrome-margins" class="citation">[6]</a></p>
+  <p><strong>PrinceXML</strong> (YesLogic, first release 2003) became the reference commercial CSS-to-PDF engine; CSS co-creator Håkon Wium Lie has been associated with the project. DocRaptor later productized Prince as a hosted API.<a href="#ref-docraptor" class="citation">[13]</a><a href="#ref-docraptor-prince" class="citation">[14]</a> Other commercial print engines include <strong>PDFreactor</strong> and <strong>Antenna House Formatter</strong>.<a href="#ref-iron-23" class="citation">[2]</a></p>
+
+  <h3>5.2 The “embed a browser” era</h3>
+  <p>On the open-source side, <strong>wkhtmltopdf</strong> (wrapping Qt WebKit) became the default CLI for a decade of Rails/PHP/Node apps. Parallel paths included PhantomJS-based Node packages such as <code>html-pdf</code>. Both underlying engines were eventually abandoned: PhantomJS (announced 2018), wkhtmltopdf (GitHub archive early 2023; last stable 0.12.6 in 2020), with critical unpatched issues such as CVE-2022-35583 (SSRF, CVSS 9.8).<a href="#ref-pdf4-wk" class="citation">[1]</a><a href="#ref-html-pdf-npm" class="citation">[15]</a><a href="#ref-cve-wk" class="citation">[9]</a></p>
+  <p>Headless Chrome, then <strong>Puppeteer</strong> (Google) and <strong>Playwright</strong> (Microsoft), became the modern replacements: drive a current Chromium and call the same print-to-PDF path the browser uses.<a href="#ref-pdf4-pw-pup" class="citation">[16]</a><a href="#ref-chrome-headless" class="citation">[3]</a> <strong>Gotenberg</strong> packaged Chromium (plus LibreOffice) as a Docker HTTP microservice for language-agnostic conversion.<a href="#ref-gotenberg" class="citation">[8]</a></p>
+
+  <h3>5.3 Lightweight CSS engines and publishing tools</h3>
+  <p><strong>WeasyPrint</strong> (Python, Cairo/Pango) implements its own layout engine aimed at print CSS without shipping a browser. Pandoc has moved HTML→PDF defaults away from wkhtmltopdf toward WeasyPrint for installability.<a href="#ref-weasy-home" class="citation">[17]</a><a href="#ref-pandoc-weasy" class="citation">[18]</a> Open publishing stacks such as <strong>Vivliostyle</strong> and the <strong>Paged.js</strong> polyfill target book/magazine pagination on top of web tech.<a href="#ref-vivlio" class="citation">[19]</a><a href="#ref-doppio-paged" class="citation">[7]</a></p>
+
+  <h3>5.4 Recent browser catch-up</h3>
+  <p>Chrome 131 (November 2024) added CSS page margin boxes for print; Safari 18.2 followed. That narrows — but does not eliminate — the gap with Prince-class engines for headers, footers, and page counters. Firefox still lagged on margin boxes as of early 2026 commentary.<a href="#ref-chrome-margins" class="citation">[6]</a><a href="#ref-doppio-margins" class="citation">[20]</a></p>
+
+  <div class="diagram">HTML → PDF timeline (simplified)
+
+2003     PrinceXML commercial CSS→PDF
+~2010s   wkhtmltopdf becomes default OSS CLI (Qt WebKit)
+2018     PhantomJS abandoned; Puppeteer rises with Headless Chrome
+2020     wkhtmltopdf 0.12.6 (last stable)
+2023     wkhtmltopdf GitHub archived; CVE debt remains
+2024–25  Chrome/Safari ship more CSS Paged Media (margin boxes)
+2026     Practical default for modern HTML: Chromium print path
+         (Playwright / Puppeteer / Gotenberg / chrome --print-to-pdf)</div>
+</section>
+
+<!-- ========== FAMILIES ========== -->
+<section id="families">
+  <h2>6. Five Families of Conversion Approaches</h2>
+
+  <div class="overview-grid">
+    <div class="overview-card">
+      <h4>A. Interactive browser print</h4>
+      <p>Open the HTML, Print, “Save as PDF.” Zero setup. Quality depends on the browser’s print dialog and your <code>@media print</code> CSS. Best for one-offs.<a href="#ref-chrome-margins" class="citation">[6]</a></p>
+    </div>
+    <div class="overview-card">
+      <h4>B. Headless Chromium automation</h4>
+      <p>Same engine as Chrome, scripted: CLI <code>--print-to-pdf</code>, Puppeteer, Playwright, Selenium+CDP, Gotenberg. Highest fidelity to how the report looks in Chrome.<a href="#ref-chrome-headless" class="citation">[3]</a><a href="#ref-pdf4-pw-pup" class="citation">[16]</a></p>
+    </div>
+    <div class="overview-card">
+      <h4>C. Custom CSS print engines</h4>
+      <p>WeasyPrint, Prince, PDFreactor, Antenna House, Vivliostyle. Stronger pagination features; layout may diverge from Blink/WebKit. License cost varies from free to thousands/year.<a href="#ref-iron-23" class="citation">[2]</a></p>
+    </div>
+    <div class="overview-card">
+      <h4>D. Managed APIs</h4>
+      <p>DocRaptor (Prince), Browserless, PDFShift, PDFCrowd, PDF4.dev, etc. You POST HTML/URL; they return PDF. Good when you refuse to run Chromium yourself.<a href="#ref-docraptor" class="citation">[13]</a><a href="#ref-browserless" class="citation">[21]</a></p>
+    </div>
+    <div class="overview-card">
+      <h4>E. Non-HTML rebuilders</h4>
+      <p>Pandoc→LaTeX, pdfmake, PDFKit, jsPDF/html2pdf.js. Either rewrite content into another format or screenshot the DOM. Usually a poor fit for preserving existing Research-Bot HTML as-is.<a href="#ref-iron-23" class="citation">[2]</a></p>
+    </div>
+  </div>
+
+  <div class="diagram">Decision sketch for Research-Bot reports
+
+Need PDF of existing .html ?
+        |
+        +-- Occasional / one file -----------> Browser Print → Save as PDF
+        |                                      (+ improve @media print)
+        |
+        +-- Batch many local files ----------> Chromium CLI or Playwright
+        |                                      (printBackground + print CSS)
+        |
+        +-- Shared service for many apps ----> Gotenberg (Docker)
+        |
+        +-- Book-grade footnotes / TOC pages -> Prince / DocRaptor / Vivliostyle
+        |
+        +-- Avoid ----------------------------> wkhtmltopdf, PhantomJS, html-pdf</div>
+</section>
+
+<!-- ========== CATALOG ========== -->
+<section id="catalog">
+  <h2>7. Catalog of Options (30+ examples)</h2>
+  <p>Examples are grouped by family. Ratings below are relative to <em>this</em> use case (batch PDF of static Research-Bot HTML), not universal scores.</p>
+
+  <h3>7.1 Browser / Chromium family</h3>
+  <table>
+    <thead>
+      <tr><th>#</th><th>Option</th><th>Notes</th><th>Fit</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Chrome / Edge / Brave Print dialog</td><td>Manual; respects print CSS; easy preview</td><td><span class="tag tag-good">Strong</span></td></tr>
+      <tr><td>2</td><td>Safari Print → PDF</td><td>Fine on macOS; WebKit pagination differs slightly from Chromium</td><td><span class="tag tag-mid">OK</span></td></tr>
+      <tr><td>3</td><td>Firefox Print → PDF</td><td>Works; weaker CSS margin-box support historically<a href="#ref-doppio-margins" class="citation">[20]</a></td><td><span class="tag tag-mid">OK</span></td></tr>
+      <tr><td>4</td><td>Chrome headless <code>--print-to-pdf</code></td><td>Official CLI; great for shell loops; few knobs vs CDP<a href="#ref-chrome-headless" class="citation">[3]</a></td><td><span class="tag tag-good">Strong</span></td></tr>
+      <tr><td>5</td><td>Chrome Headless Shell</td><td>Smaller/faster headless binary for automation pipelines</td><td><span class="tag tag-good">Strong</span></td></tr>
+      <tr><td>6</td><td>Puppeteer</td><td>Node API over Chromium; mature <code>page.pdf()</code><a href="#ref-pdf4-pw-pup" class="citation">[16]</a></td><td><span class="tag tag-good">Strong</span></td></tr>
+      <tr><td>7</td><td>Playwright</td><td>Multi-language; often preferred for new automation in 2026 writeups<a href="#ref-pdf4-bench" class="citation">[22]</a></td><td><span class="tag tag-good">Strong</span></td></tr>
+      <tr><td>8</td><td>Gotenberg</td><td>Docker HTTP API; Chromium + LibreOffice + PDF post-tools<a href="#ref-gotenberg" class="citation">[8]</a></td><td><span class="tag tag-good">Strong</span></td></tr>
+      <tr><td>9</td><td>Selenium + CDP print</td><td>Possible but awkward; not PDF-first<a href="#ref-iron-23" class="citation">[2]</a></td><td><span class="tag tag-mid">Weak</span></td></tr>
+      <tr><td>10</td><td>IronPDF / similar SDKs</td><td>Commercial Chromium wrappers with PDF toolkit extras</td><td><span class="tag tag-mid">Overkill</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.2 Custom CSS / publishing engines</h3>
+  <table>
+    <thead>
+      <tr><th>#</th><th>Option</th><th>Notes</th><th>Fit</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>11</td><td>WeasyPrint</td><td>Free Python engine; good paged media; no JS; grid still limited in places<a href="#ref-weasy-grid" class="citation">[11]</a></td><td><span class="tag tag-mid">Possible</span></td></tr>
+      <tr><td>12</td><td>PrinceXML</td><td>Print-gold standard; server license is expensive<a href="#ref-docraptor-prince" class="citation">[14]</a></td><td><span class="tag tag-mid">Overkill $</span></td></tr>
+      <tr><td>13</td><td>DocRaptor</td><td>Hosted Prince; plans from ~$15/mo<a href="#ref-docraptor-plans" class="citation">[23]</a></td><td><span class="tag tag-mid">If hosted</span></td></tr>
+      <tr><td>14</td><td>PDFreactor</td><td>Commercial; strong JS among custom engines<a href="#ref-iron-23" class="citation">[2]</a></td><td><span class="tag tag-mid">Overkill $</span></td></tr>
+      <tr><td>15</td><td>Antenna House</td><td>Commercial; strong i18n / publishing<a href="#ref-iron-23" class="citation">[2]</a></td><td><span class="tag tag-mid">Overkill $</span></td></tr>
+      <tr><td>16</td><td>Vivliostyle CLI</td><td>Open publishing toolchain; <code>vivliostyle build</code><a href="#ref-vivlio" class="citation">[19]</a></td><td><span class="tag tag-mid">If bookish</span></td></tr>
+      <tr><td>17</td><td>Paged.js (+ pagedjs-cli)</td><td>Browser polyfill for paged media; heavier stack<a href="#ref-doppio-paged" class="citation">[7]</a></td><td><span class="tag tag-mid">If needed</span></td></tr>
+      <tr><td>18</td><td>iText pdfHTML</td><td>Java/.NET HTML subset → PDF; AGPL/commercial</td><td><span class="tag tag-mid">Stack-bound</span></td></tr>
+      <tr><td>19</td><td>OpenHTMLtoPDF / Flying Saucer</td><td>Older Java HTML/CSS→PDF; limited modern CSS<a href="#ref-iron-23" class="citation">[2]</a></td><td><span class="tag tag-bad">Poor</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.3 Managed Chromium / SaaS APIs</h3>
+  <table>
+    <thead>
+      <tr><th>#</th><th>Option</th><th>Notes</th><th>Fit</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>20</td><td>Browserless</td><td>Hosted Chrome REST <code>/pdf</code><a href="#ref-browserless" class="citation">[21]</a></td><td><span class="tag tag-mid">If cloud</span></td></tr>
+      <tr><td>21</td><td>PDFShift</td><td>Chromium API; freemium tiers cited in 2026 roundups<a href="#ref-iron-23" class="citation">[2]</a></td><td><span class="tag tag-mid">If cloud</span></td></tr>
+      <tr><td>22</td><td>PDFCrowd</td><td>Long-running HTML→PDF API</td><td><span class="tag tag-mid">If cloud</span></td></tr>
+      <tr><td>23</td><td>PDF4.dev / similar</td><td>Managed Chromium pitched as wkhtmltopdf escape hatch<a href="#ref-pdf4-wk" class="citation">[1]</a></td><td><span class="tag tag-mid">If cloud</span></td></tr>
+      <tr><td>24</td><td>ApiTemplate / Nutrient cloud</td><td>Template-centric or SDK+cloud mixes<a href="#ref-iron-23" class="citation">[2]</a></td><td><span class="tag tag-mid">Product use</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.4 Format converters and rebuilders</h3>
+  <table>
+    <thead>
+      <tr><th>#</th><th>Option</th><th>Notes</th><th>Fit</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>25</td><td>Pandoc → WeasyPrint/LaTeX</td><td>Great for Markdown→PDF; for existing rich HTML it reinterprets content<a href="#ref-pandoc-weasy" class="citation">[18]</a></td><td><span class="tag tag-mid">Indirect</span></td></tr>
+      <tr><td>26</td><td>LibreOffice draw/writer import</td><td>Gotenberg can route Office paths; HTML fidelity varies<a href="#ref-gotenberg" class="citation">[8]</a></td><td><span class="tag tag-bad">Poor</span></td></tr>
+      <tr><td>27</td><td>pdfmake / PDFKit</td><td>Programmatic PDF, not “render this HTML”</td><td><span class="tag tag-bad">Wrong tool</span></td></tr>
+      <tr><td>28</td><td>html2pdf.js / jsPDF.html()</td><td>Often canvas/raster; weak for long searchable reports<a href="#ref-iron-23" class="citation">[2]</a></td><td><span class="tag tag-bad">Poor</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.5 Deprecated / avoid</h3>
+  <table>
+    <thead>
+      <tr><th>#</th><th>Option</th><th>Why avoid</th><th>Fit</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>29</td><td>wkhtmltopdf</td><td>Archived; ancient WebKit; CVE-2022-35583<a href="#ref-pdf4-wk" class="citation">[1]</a><a href="#ref-cve-wk" class="citation">[9]</a></td><td><span class="tag tag-bad">Do not use</span></td></tr>
+      <tr><td>30</td><td>PhantomJS</td><td>Abandoned 2018</td><td><span class="tag tag-bad">Do not use</span></td></tr>
+      <tr><td>31</td><td>npm <code>html-pdf</code> (Phantom)</td><td>Unmaintained; breaks on modern Node<a href="#ref-html-pdf-npm" class="citation">[15]</a></td><td><span class="tag tag-bad">Do not use</span></td></tr>
+      <tr><td>32</td><td>Old Qt WebKit wrappers generally</td><td>Same engine generation as wkhtmltopdf</td><td><span class="tag tag-bad">Do not use</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ========== COMPARISON ========== -->
+<section id="comparison">
+  <h2>8. Side-by-Side Comparison</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Approach</th>
+        <th>CSS fidelity to reports</th>
+        <th>Paged-media / headers</th>
+        <th>Ops burden</th>
+        <th>Cost</th>
+        <th>Best when…</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Browser Print</td>
+        <td>Excellent (same engine)</td>
+        <td>Improving in Chromium</td>
+        <td>None</td>
+        <td>Free</td>
+        <td>Occasional exports</td>
+      </tr>
+      <tr>
+        <td>Chrome <code>--print-to-pdf</code></td>
+        <td>Excellent</td>
+        <td>Basic; CLI flags limited</td>
+        <td>Need Chrome installed</td>
+        <td>Free</td>
+        <td>Shell batch of local files</td>
+      </tr>
+      <tr>
+        <td>Playwright / Puppeteer</td>
+        <td>Excellent</td>
+        <td>Header/footer templates + print CSS</td>
+        <td>Node/Python + Chromium ~300MB</td>
+        <td>Free</td>
+        <td>Repeatable scripts, CI, options</td>
+      </tr>
+      <tr>
+        <td>Gotenberg</td>
+        <td>Excellent</td>
+        <td>Good via Chromium forms</td>
+        <td>Docker service</td>
+        <td>Free (self-host)</td>
+        <td>HTTP API shared by tools</td>
+      </tr>
+      <tr>
+        <td>WeasyPrint</td>
+        <td>Good / imperfect for grid+theme</td>
+        <td>Strong for open-source</td>
+        <td>Python + system libs</td>
+        <td>Free</td>
+        <td>Print-first static docs, Python stack</td>
+      </tr>
+      <tr>
+        <td>Prince / DocRaptor</td>
+        <td>High, but not Blink</td>
+        <td>Best-in-class</td>
+        <td>License or API</td>
+        <td>$$–$$$</td>
+        <td>Publication-quality books</td>
+      </tr>
+      <tr>
+        <td>Managed Chromium API</td>
+        <td>Excellent</td>
+        <td>Depends on product</td>
+        <td>Low (vendor)</td>
+        <td>$</td>
+        <td>No local browser ops</td>
+      </tr>
+      <tr>
+        <td>wkhtmltopdf / Phantom</td>
+        <td>Poor on modern CSS</td>
+        <td>Legacy flags</td>
+        <td>Security liability</td>
+        <td>“Free”</td>
+        <td>Never for new work</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>8.1 Practical Chromium knobs that matter</h3>
+  <ul>
+    <li><strong><code>printBackground</code> / background graphics:</strong> needed if you want dark theme cards and colored table headers in the PDF; for paper printing you usually want print CSS that forces light backgrounds instead.<a href="#ref-pdf4-pw-pup" class="citation">[16]</a></li>
+    <li><strong><code>preferCSSPageSize</code> / <code>@page</code>:</strong> lets CSS control paper size when present.</li>
+    <li><strong><code>--no-pdf-header-footer</code>:</strong> strips Chrome’s default date/URL chrome from CLI PDFs.<a href="#ref-chrome-headless" class="citation">[3]</a></li>
+    <li><strong>Margins &amp; page numbers:</strong> either CSS margin boxes (Chromium 131+) or Playwright/Puppeteer header/footer HTML templates.<a href="#ref-chrome-margins" class="citation">[6]</a></li>
+  </ul>
+</section>
+
+<!-- ========== PROBE ========== -->
+<section id="probe">
+  <h2>9. Local Probe on a Research-Bot Report</h2>
+  <p>To sanity-check the Chromium path against a real report (not a vendor demo), this research run converted <code>management-theory-research.html</code> (~84&nbsp;KB, includes <code>@media print</code>) with Google Chrome headless on Linux:</p>
+
+  <pre class="cmd">google-chrome-stable --headless=new --disable-gpu --no-sandbox \
+  --no-pdf-header-footer \
+  --print-to-pdf=management-theory.pdf \
+  "file:///…/Research-Bot/management-theory-research.html"</pre>
+
+  <table>
+    <thead>
+      <tr><th>Metric</th><th>Result</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Exit status</td><td>Success</td></tr>
+      <tr><td>Wall time</td><td>~0.8 seconds (warm machine; includes process start)</td></tr>
+      <tr><td>Output size</td><td>~608 KB</td></tr>
+      <tr><td>Page count (PDF object count heuristic)</td><td>~35 pages</td></tr>
+    </tbody>
+  </table>
+
+  <p>A second file without print CSS (<code>ttrpg-dnd-accessibility-market-interest.html</code>) also converted cleanly (~306&nbsp;KB). That does <em>not</em> prove the dark theme is pleasant on paper — only that Chromium can ingest the corpus without JS or network. Treat visual QA (light print stylesheet, page breaks around tables) as a separate step from “will it convert?”</p>
+</section>
+
+<!-- ========== RECOMMENDATION ========== -->
+<section id="recommendation">
+  <h2>10. Recommendation for This Folder</h2>
+
+  <div class="recommend-box">
+    <p><strong>Reliable default:</strong> use a Chromium print pipeline, and invest a little in shared <code>@media print</code> CSS so PDFs are readable on paper.</p>
+    <ol>
+      <li><strong>Day-to-day / one file:</strong> open in Chrome → Print → Save as PDF (disable browser headers/footers; enable or disable background graphics intentionally).</li>
+      <li><strong>Batch / repeatable:</strong> Chrome <code>--print-to-pdf</code> in a small shell loop, <em>or</em> a short Playwright script if you want margins, <code>printBackground</code>, and waiting hooks.</li>
+      <li><strong>If you later want a service:</strong> Gotenberg in Docker — same Chromium fidelity, HTTP for any language.<a href="#ref-gotenberg" class="citation">[8]</a></li>
+      <li><strong>Skip for now:</strong> wkhtmltopdf, Phantom-based packages, and paid Prince/DocRaptor unless you decide these reports should become publication-layout books.</li>
+      <li><strong>Optional experiment:</strong> WeasyPrint on one report to compare pagination — keep Chromium if layout diverges on grid/cards.</li>
+    </ol>
+  </div>
+
+  <h3>10.1 Suggested print-CSS baseline for future reports</h3>
+  <p>Most reports still lack print rules. A minimal pattern already used in a few files:</p>
+  <pre class="cmd">@media print {
+  body { background: white; color: black; }
+  .overview-card, .thesis-box, table { break-inside: avoid; }
+  a { color: #0645ad; }
+}</pre>
+  <p>Stronger future variants can set <code>@page { margin: 18mm; }</code>, lighten borders, and force link URLs to appear after citations if you care about print-only bibliography UX. Chrome’s newer margin boxes can add page numbers without Playwright templates once you standardize on Chromium.<a href="#ref-chrome-margins" class="citation">[6]</a></p>
+
+  <h3>10.2 Example batch loop (Chrome CLI)</h3>
+  <pre class="cmd"># Convert every report in the Research-Bot tree into ./pdf-out/
+mkdir -p pdf-out
+find . -name '*.html' -print0 | while IFS= read -r -d '' f; do
+  out="pdf-out/${f#./}"
+  mkdir -p "$(dirname "$out")"
+  google-chrome-stable --headless=new --disable-gpu --no-sandbox \
+    --no-pdf-header-footer \
+    --print-to-pdf="$PWD/${out%.html}.pdf" \
+    "file://$PWD/$f"
+done</pre>
+  <p class="cite">Note: flags like <code>--no-sandbox</code> are environment-specific (containers/CI). On a normal desktop install they are often unnecessary. Prefer absolute <code>file://</code> URLs and absolute PDF output paths.<a href="#ref-chrome-headless" class="citation">[3]</a></p>
+</section>
+
+<!-- ========== CONCLUSION ========== -->
+<section id="conclusion">
+  <h2>11. Conclusion and Further Research</h2>
+
+  <div class="conclusion-box">
+    <p>HTML→PDF is no longer a “pick wkhtmltopdf” problem. The reliable path for modern, self-contained research HTML is the same engine that already displays the reports: Chromium’s print stack — manually, via CLI, via Playwright/Puppeteer, or via Gotenberg. Custom engines still win when you are typesetting a book; managed APIs win when you refuse to operate a browser. Archived WebKit/Phantom tooling is a dead end.</p>
+    <p>For Research-Bot specifically, reliability is less about finding exotic software and more about (1) standardizing print CSS across reports and (2) picking one Chromium automation path for batch exports.</p>
+  </div>
+
+  <h3>Further research questions</h3>
+  <ul>
+    <li>Should Research-Bot adopt a shared print stylesheet snippet as part of the agent instructions in <code>README.md</code>?</li>
+    <li>Do authors want PDFs to preserve the dark theme (screen archive) or force a light theme (paper/share)?</li>
+    <li>Is clickable link preservation and PDF outline/bookmarks (from <code>h1</code>/<code>h2</code>) worth requiring Playwright over raw CLI?</li>
+    <li>How do SVG diagrams and wide tables fragment across page breaks in Chromium vs WeasyPrint on the Apocalypse-Story set?</li>
+    <li>If reports are ever published publicly, do PDF/A or PDF/UA requirements appear (favoring Prince/WeasyPrint/commercial toolkits)?</li>
+    <li>Should PDFs be committed next to HTML, gitignored, or generated only on demand?</li>
+  </ul>
+</section>
+
+<!-- ========== REFERENCES ========== -->
+<section id="references">
+  <h2>12. References</h2>
+  <ol class="ref-list">
+    <li id="ref-pdf4-wk">PDF4.dev. “wkhtmltopdf alternatives in 2026: the migration guide.” <a href="https://pdf4.dev/blog/wkhtmltopdf-alternatives-2026">pdf4.dev/blog/wkhtmltopdf-alternatives-2026</a>. Accessed 2026-07-20.</li>
+    <li id="ref-iron-23">Iron Software. “Top 23 HTML to PDF Conversion Tools: A Complete 2026 Comparison.” <a href="https://ironsoftware.com/suite/blog/comparison/html-to-pdf-2026-guide/">ironsoftware.com</a>. Updated 2026-05-03. Accessed 2026-07-20.</li>
+    <li id="ref-chrome-headless">Chrome for Developers. “Headless” (including <code>--print-to-pdf</code>, <code>--no-pdf-header-footer</code>). <a href="https://developer.chrome.com/docs/chromium/headless">developer.chrome.com/docs/chromium/headless</a>. Accessed 2026-07-20.</li>
+    <li id="ref-prince-paged">Prince XML documentation. “Paged Media.” <a href="https://www.princexml.com/doc/paged/">princexml.com/doc/paged</a>. Accessed 2026-07-20.</li>
+    <li id="ref-apryse">Apryse. “HTML to PDF Methods Compared 2026.” <a href="https://apryse.com/blog/html-to-pdf-conversion-methods">apryse.com</a>. Accessed 2026-07-20.</li>
+    <li id="ref-chrome-margins">Chrome for Developers. “Add content to the margins of web pages when printed using CSS.” <a href="https://developer.chrome.com/blog/print-margins">developer.chrome.com/blog/print-margins</a>. Accessed 2026-07-20.</li>
+    <li id="ref-doppio-paged">Doppio. “CSS Paged Media vs Paged.js: When You Need a Polyfill and When You Don't.” <a href="https://doppio.sh/guide/css-paged-media-vs-pagedjs">doppio.sh</a>. Accessed 2026-07-20.</li>
+    <li id="ref-gotenberg">Gotenberg. Project homepage / docs. <a href="https://gotenberg.dev/">gotenberg.dev</a>. Accessed 2026-07-20.</li>
+    <li id="ref-cve-wk">NVD / secondary reporting on CVE-2022-35583 (wkhtmltopdf SSRF). Summarized in migration guides such as <a href="https://pdf4.dev/blog/wkhtmltopdf-alternatives-2026">PDF4.dev 2026 migration guide</a>. Accessed 2026-07-20.</li>
+    <li id="ref-pdf4-pup-wk">PDF4.dev. “Puppeteer vs wkhtmltopdf: which to use in 2026.” <a href="https://pdf4.dev/blog/puppeteer-vs-wkhtmltopdf">pdf4.dev</a>. Accessed 2026-07-20.</li>
+    <li id="ref-weasy-grid">WeasyPrint documentation. API reference — CSS Grid support and limitations. <a href="https://doc.courtbouillon.org/weasyprint/stable/api_reference.html">doc.courtbouillon.org/weasyprint</a>. Accessed 2026-07-20.</li>
+    <li id="ref-readme">Research-Bot. <code>README.md</code> — research instructions for agents (self-contained HTML reports). Local repository file.</li>
+    <li id="ref-docraptor">DocRaptor. “HTML to PDF API — High-Quality PDF Conversion with PrinceXML.” <a href="https://docraptor.com/">docraptor.com</a>. Accessed 2026-07-20.</li>
+    <li id="ref-docraptor-prince">DocRaptor. “Easy and Affordable Prince API Access with DocRaptor.” <a href="https://docraptor.com/prince">docraptor.com/prince</a>. Accessed 2026-07-20.</li>
+    <li id="ref-html-pdf-npm">npm / migration writeups on <code>html-pdf</code> (PhantomJS). e.g. <a href="https://www.npmjs.com/package/html-pdf">npmjs.com/package/html-pdf</a>; PageBolt “html-pdf npm is Abandoned.” Accessed 2026-07-20.</li>
+    <li id="ref-pdf4-pw-pup">PDF4.dev. “Playwright vs Puppeteer for PDF generation: a practical comparison (2026).” <a href="https://pdf4.dev/blog/playwright-vs-puppeteer-pdf">pdf4.dev</a>. Accessed 2026-07-20.</li>
+    <li id="ref-weasy-home">CourtBouillon / WeasyPrint. Project site and release notes (incl. Grid in v62). <a href="https://weasyprint.org/">weasyprint.org</a>; <a href="https://www.courtbouillon.org/blog/00051-weasyprint-62/">WeasyPrint v62 announcement</a>. Accessed 2026-07-20.</li>
+    <li id="ref-pandoc-weasy">Pandoc issue/discussion on changing default HTML PDF engine from wkhtmltopdf to WeasyPrint / pagedjs-cli. <a href="https://github.com/jgm/pandoc/issues/10142">github.com/jgm/pandoc/issues/10142</a>. Accessed 2026-07-20.</li>
+    <li id="ref-vivlio">Vivliostyle documentation. “Getting Started” (CLI). <a href="https://docs.vivliostyle.org/en/cli/getting-started/">docs.vivliostyle.org</a>. Accessed 2026-07-20.</li>
+    <li id="ref-doppio-margins">Doppio. “CSS Page Margin Boxes &amp; Page Numbers — Complete Reference.” <a href="https://doppio.sh/guide/css-page-margin-boxes">doppio.sh</a>. Accessed 2026-07-20.</li>
+    <li id="ref-browserless">Browserless. PDF endpoint documentation / blog. <a href="https://www.browserless.io/blog/how-browserless-makes-pdf-generation-and-screenshots-simple-with-api-endpoints">browserless.io</a>. Accessed 2026-07-20.</li>
+    <li id="ref-pdf4-bench">PDF4.dev. “HTML to PDF benchmark 2026 (Playwright vs Puppeteer vs WeasyPrint).” <a href="https://pdf4.dev/blog/html-to-pdf-benchmark-2026">pdf4.dev</a>. Accessed 2026-07-20.</li>
+    <li id="ref-docraptor-plans">DocRaptor. Pricing plans. <a href="https://docraptor.com/plans">docraptor.com/plans</a>. Accessed 2026-07-20.</li>
+  </ol>
+</section>
+
+<footer>
+  <p><em>Research-Bot</em> — HTML to PDF conversion options. Compiled July 2026 for choosing a reliable export path for agent-written HTML reports. Not a product endorsement; tool status and pricing change — re-verify before production use.</p>
+</footer>
+
+</div>
+</body>
+</html>

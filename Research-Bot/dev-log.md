@@ -1,5 +1,43 @@
 # Research Bot — Dev Log
 
+## 2026-07-20 — HTML to PDF conversion options (complete)
+
+### Plan summary
+User asked for a reliable way to convert the many Research-Bot HTML research reports into PDF. Followed Research-Bot README: one question, precursor/subset questions, web research across tool families, self-contained HTML with aims/limitations/history/catalog/citations/conclusion. Grounded recommendations in a corpus scan of the folder’s HTML files plus a local Chrome headless probe.
+
+### Precursor / subset questions
+1. Fidelity to Chrome vs book-style pagination?
+2. One-off vs batch conversion?
+3. Is JavaScript required? (corpus: no)
+4. Dark theme vs paper-friendly print CSS?
+5. Who operates the renderer (local vs Docker vs SaaS)?
+6. Security / dead tooling risk (wkhtmltopdf, PhantomJS)?
+
+### Key findings
+- **Best fit for this corpus:** Chromium print path — browser Print → Save as PDF; Chrome `--print-to-pdf`; Playwright/Puppeteer; or Gotenberg if an HTTP service is wanted.
+- **Avoid:** wkhtmltopdf (archived, CVE debt, ancient WebKit) and PhantomJS/`html-pdf`.
+- **Corpus traits:** 29 HTML reports; all self-contained CSS with custom properties; ~19 use grid; 0 `<script>`; only ~5 have `@media print` — print CSS standardization matters as much as tool choice.
+- **Local probe:** `management-theory-research.html` → ~608 KB / ~35-page PDF via Chrome headless in under a second.
+- **Prince/DocRaptor/WeasyPrint:** useful for publication pagination; usually overkill or a secondary experiment here because reports were designed in browser CSS.
+
+### Changes made
+- Created `Research-Bot/html-to-pdf-conversion-options.html`
+- Updated this dev-log
+
+### Assumptions
+- Goal is reliable export of existing HTML, not building a SaaS PDF product.
+- Preference for lean, maintainable tooling over commercial print engines unless book layout is later requested.
+- Vendor comparison articles used for catalogs/dates; cross-checked against primary docs (Chrome, Gotenberg, WeasyPrint, DocRaptor, etc.).
+
+### Bugs / problems
+- First Chrome headless invoke failed to spawn in this environment; retry with `--headless=new --no-sandbox` succeeded (container/CI-style constraint, not a report defect).
+- D-Bus noise in Chrome logs on the probe machine; did not block PDF output.
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-17 — Follow-up: ASU/BYUI, gaming fit, angel matching (complete)
 
 ### Plan summary
