@@ -1,5 +1,27 @@
 # Research Bot — Dev Log
 
+## 2026-07-21 — SBBC Session 2 transcript summary (complete)
+
+### Plan summary
+User asked for a ~2-page summary at the top of the SBBC Session 2 transcript (`Research-Bot/SBBC Session 2 - Sources of Quick Cash.md`): structured overview of everything discussed, with about half the summary spent on unique advice, case studies, and valuable insights, preferring original words/phrases from the transcript.
+
+### Changes made
+- Pulled latest `main` (transcript had just been uploaded: `98b463c`).
+- Prepended a `## Two-Page Summary` with two halves: structured overview (boot camp logistics, PPP round-two flash, Mountain Mojo agenda, Q&A/PPP highlights) and keepers (neighbors-not-customers framing, offer adaptations, branding/ad ROI, named pivots like LJ Steakhouse / Hownd / Shake Shack DIY kit / cache-bag→PPE, travel & cost levers).
+- Aimed ~1,000–1,100 words (~2 pages at transcript density); kept speaker phrasing where possible.
+
+### Assumptions
+- “2 pages” ≈ ~1,050–1,100 words given the transcript’s ~17 pages / ~8,900 words density.
+- Summary is editorial front matter only; full transcript left intact below.
+
+### Bugs / problems
+- Local `main` was behind `origin/main`; file missing until pull.
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-20 — HTML to PDF conversion options (complete)
 
 ### Plan summary
