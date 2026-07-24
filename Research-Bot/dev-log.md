@@ -60,6 +60,65 @@ User asked for a reliable way to convert the many Research-Bot HTML research rep
 
 ---
 
+## 2026-07-17 — Light-up epoxy tree product plan (complete)
+
+### Plan summary
+User is developing a product: light-up tree encased in epoxy. Research-Bot shopping list + make steps; yellowing brands from YouTube deep-pour comparison + screenshot.
+
+### Precursor / subset questions
+1. Full encasement vs base-only vs lit pedestal?
+2. Wire tree vs botanical?
+3. LEDs in canopy vs light-from-below base?
+4. Indoor vs sunny-window (yellowing constraint)?
+5. Battery vs USB power path?
+6. Which deep-pour brands survive UV (and what do they cost)?
+
+### Key findings
+- Recommended MVP: Architecture A — copper wire mini-tree + micro-LED fairy strand, deep-pour cast in silicone cylinder/cube, power pack outside.
+- Primary UV source: https://www.youtube.com/watch?v=aEoMvZe8KQ8 (~23:00). User top 5 clear survivors: **Wisebond, Superclear 2.0** (top 2), Incredible Solutions, Alumilite, Ecopoxy. Yellowed: Chemtec, MAS, Ryver, River Table Epoxy, Total Boat, UltraClear.
+- Price snapshot (~1.5 gal): Wisebond $145; Superclear $94–$140 (dealer spread); Promise/IS ~$109; Alumilite $193 (but 24 oz starter $52); EcoPoxy FlowCast 6L ~$150 (max pour only ~1.5").
+- Buy path: Alumilite 24 oz for first prototype; Wisebond or deal Superclear for ongoing clear SKUs.
+
+### Changes made
+- Created then updated `light-up-epoxy-tree-product-plan.html` (§6 screenshot + rankings, §7 price table, shopping/conclusion lock)
+- Copied screenshot to `resin-comparison-uv-14-days.png` (also `Resin Comparison.png`)
+- Updated this dev-log
+
+### Assumptions
+- Desk-scale indoor gift/product (~2–3″ mold) until user specifies size/price.
+- “Tree” means copper-wire sculpture by default (most repeatable for a product).
+- “Incredible Solutions” in the video ≈ Promise Epoxy Pourable Plastic (rebrand).
+
+### Bugs / problems
+- Superclear manufacturer site did not expose clean kit-size prices via store API; used dealer/Home Depot snapshots with a range.
+- None blocking.
+
+### Status
+**Complete** (form-factor / Tree of Life mockups added in follow-up entry below)
+
+---
+
+## 2026-07-17 — Tree of Life slab vs cylinder mockups (complete)
+
+### Plan summary
+User wants to compare slab (“stab”) vs circle/centerpiece for a Book of Mormon Tree of Life light-up epoxy piece; mock both; prefers slab but will try both. Asked for SVGs / reference images.
+
+### Key findings / decisions recorded
+- Interpreted “stab” as **slab** (rectangular plaque).
+- Slab better for full dream scene (path, iron rod, tree, fruit LEDs); cylinder better as glowing centerpiece (tree + fruit).
+- MVP symbolism: tree + white fruit LEDs + (slab) iron rod/path; river/building optional v2.
+- Original schematic SVGs only — not Church copyrighted art reproductions.
+
+### Changes made
+- `tree-of-life-slab-mockup.svg`, `tree-of-life-cylinder-mockup.svg`, `tree-of-life-wire-elevation.svg`
+- `tree-of-life-form-comparison.html` (full comparison + physical mockup steps)
+- Linked §5b from `light-up-epoxy-tree-product-plan.html`
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-17 — Follow-up: ASU/BYUI, gaming fit, angel matching (complete)
 
 ### Plan summary
@@ -913,8 +972,6 @@ Research Question 4 from README: How quickly does law and order break down after
 
 ### Status
 Complete
-
----
 
 ---
 
