@@ -1,0 +1,28 @@
+% This is the build entry point for the Dragons & Dice rulebook proof of concept.
+% It loads the existing D&D-inspired class, then assembles independent rules files
+% in reading order. The original example.tex remains untouched beside this file.
+\documentclass[letterpaper,openany,nodeprecatedcode,bg=full]{dndbook}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{dndr-rulebook}
+\geometry{margin=0.48in,top=0.43in,bottom=0.48in}
+
+\title{Dragons \& Dice Rolls}
+\author{Jeremy Offutt \& Curtis Mortensen}
+\date{}
+
+\begin{document}
+\fontsize{10.5}{12.4}\selectfont
+
+\input{sections/quickstart}
+\clearpage
+\input{sections/player-reference}
+\clearpage
+\input{sections/architect-scroll}
+\clearpage
+\input{sections/puzzle-vault}
+\clearpage
+\input{sections/monster-manual}
+
+\end{document}

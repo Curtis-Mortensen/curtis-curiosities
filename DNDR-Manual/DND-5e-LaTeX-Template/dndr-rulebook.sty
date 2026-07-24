@@ -1,0 +1,76 @@
+% This file contains the small visual vocabulary used only by the Dragons & Dice
+% proof of concept. Keeping these styles here lets the section files read like
+% rulebook content and makes future visual changes happen in one predictable place.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{dndr-rulebook}[2026/07/21 Dragons and Dice proof-of-concept styles]
+
+\RequirePackage{multicol}
+\RequirePackage{enumitem}
+\RequirePackage{tabularx}
+\RequirePackage{tikz}
+\RequirePackage{xcolor}
+\RequirePackage{array}
+\RequirePackage{graphicx}
+\RequirePackage{ragged2e}
+
+% The original uses black text with restrained teal-blue accents and occasional
+% colored table headers. These colors are close visual stand-ins.
+\definecolor{DndrBlue}{HTML}{0F6882}
+\definecolor{DndrBlueLight}{HTML}{DCEEF2}
+\definecolor{DndrGold}{HTML}{D7A513}
+\definecolor{DndrPurple}{HTML}{A83BAE}
+\definecolor{DndrGreen}{HTML}{4C9A45}
+\definecolor{DndrRed}{HTML}{A53131}
+\definecolor{DndrGray}{HTML}{E8E8E8}
+
+% The source is dense and uses very small margins. These settings deliberately
+% reproduce that compact reference-manual feel while keeping the text readable.
+\setlength{\columnsep}{16pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3.5pt}
+\setlist[itemize]{leftmargin=13pt,itemsep=1pt,topsep=2pt}
+\setlist[enumerate]{leftmargin=16pt,itemsep=2pt,topsep=2pt}
+
+% A graphic placeholder reserves the same kind of space that a future logo,
+% photo, card image, or illustration will occupy without pretending the art exists.
+\newcommand{\DndrGraphicPlaceholder}[2][\linewidth]{%
+  \begin{center}
+    \fcolorbox{DndrBlue}{DndrBlueLight}{%
+      \begin{minipage}[c][#2][c]{\dimexpr#1-2\fboxsep-2\fboxrule\relax}
+        \centering\sffamily\bfseries\color{DndrBlue}GRAPHIC PLACEHOLDER
+      \end{minipage}}
+  \end{center}}
+
+% These compact colored cards echo the blue teaching notes scattered throughout
+% the source PDF. The optional width supports narrow callouts beside body text.
+\newcommand{\DndrCallout}[3][\linewidth]{%
+  \begin{center}
+  \fcolorbox{DndrBlue}{DndrBlueLight}{%
+    \begin{minipage}{\dimexpr#1-2\fboxsep-2\fboxrule\relax}
+      \centering\sffamily\bfseries\color{DndrBlue}#2\par
+      \vspace{2pt}\normalfont\rmfamily\color{black}\raggedright #3
+    \end{minipage}}
+  \end{center}}
+
+% Numbered rules use a bold lead phrase, matching the original's quick scanning
+% pattern while avoiding a more elaborate custom list implementation.
+\newcommand{\DndrStep}[2]{\item \textbf{#1} #2}
+
+% The section banners are intentionally direct: the source uses uppercase centered
+% headings rather than chapter-opening ornaments for these compact reference pages.
+\newcommand{\DndrSectionBanner}[1]{%
+  \begin{center}\Large\bfseries\MakeUppercase{#1}\end{center}\vspace{-4pt}}
+
+% Monster groups share one small table style. A single macro keeps all eight tables
+% aligned and leaves the underlying values visible to future editors.
+\newcommand{\DndrMonsterTable}[3]{%
+  \begingroup
+  \fontsize{9.6}{11.3}\selectfont
+  \setlength{\tabcolsep}{2pt}\renewcommand{\arraystretch}{1.55}
+  \colorbox{#2}{\parbox{\linewidth}{\centering\bfseries #1}}\par
+  \begin{tabularx}{\linewidth}{>{\bfseries}c X >{\centering\arraybackslash}p{0.34in}}
+    \multicolumn{2}{l}{\textbf{Rating and statistics}} & \textbf{Count}\\
+    #3
+  \end{tabularx}
+  \vspace{7pt}
+  \endgroup}

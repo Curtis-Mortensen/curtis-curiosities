@@ -1,0 +1,56 @@
+% This file recreates the Knucklebones puzzle page. The diagram is built from simple
+% LaTeX shapes so the proof remains complete even without the original board image.
+\begin{multicols}{2}
+\DndrSectionBanner{5.0 The Puzzle Minigame Vault}
+When players choose a puzzle resolution path, the Architect operates as the obstacle and uses the standard cooperative game format.
+
+\subsection*{Knucklebones}
+Knucklebones resolves Puzzle Quests. It can represent picking a lock, disabling a magical trap, unraveling an ancient ritual, or overcoming any obstacle requiring wit rather than force.
+
+The Architect plays against the party. If the party wins every active Knucklebones board, the Quest succeeds. If the Architect wins even one board, the Quest fails.
+
+\subsection*{Setup}
+Each side receives a board of 3 columns with 3 spaces each. The Architect starts with a 6 in the center square. All participants use standard d6s.
+
+For groups of 4 or more players, the Architect assigns a helper and runs a second board simultaneously. The party must win both boards.
+
+Before play, cover Class Powers equal to the current Challenge Rating. Covered powers cannot be used during the puzzle.
+
+\subsection*{Taking Turns}
+The Architect takes the first turn. On your turn:
+\begin{enumerate}
+  \item Roll a d6.
+  \item Place the die into any column on your board.
+  \item Optionally use an Item or Class Ability.
+\end{enumerate}
+Any player may spend Applause Tokens, activate Items, or use available Class Abilities to assist any party board.
+
+\DndrCallout{Keep the Puzzle Alive}{Describe the puzzle as the board changes. A removed die can be a lock tumbler clicking into place, a rune fading, or part of a ritual circle collapsing.}
+
+\begin{center}
+\begin{tikzpicture}[x=0.42in,y=0.42in]
+  \foreach \x in {0,1,2}{\foreach \y in {0,1,2}{\draw[fill=DndrBlueLight,draw=DndrBlue] (\x,\y) rectangle +(1,1);}}
+  \node[fill=DndrBlue,text=white,font=\bfseries] at (1.5,1.5) {4};
+  \node[fill=DndrBlue,text=white,font=\bfseries] at (1.5,0.5) {4};
+  \node[fill=DndrBlue,text=white,font=\bfseries] at (1.5,2.5) {4};
+  \node[rotate=90,font=\bfseries\scriptsize,DndrBlue] at (-0.25,1.5) {KNUCKLEBONES};
+\end{tikzpicture}
+\end{center}
+
+\subsection*{Scoring}
+When the game ends, each die is worth its face value. Matching dice in the same column multiply their value:
+\begin{itemize}
+  \item Two matching dice are worth double each die's value.
+  \item Three matching dice are worth triple each die's value.
+\end{itemize}
+A column containing 5, 5 is worth 20 points. A column containing 4, 4, 4 is worth 24 points.
+
+\subsection*{Removing Opponent Dice}
+When you place a die into a column, remove one matching die from the same column on your opponent's board.
+
+\DndrCallout{Knucklebones Tip}{Removing an opponent's high-value dice is often more powerful than adding points to your own board.}
+
+\subsection*{Winning the Puzzle}
+The game ends when either side fills all 9 spaces. Calculate both scores. Higher score wins; ties favor the Architect. The party must win every active board. Resolve success, failure, and rewards as described in Section 4.2.
+\end{multicols}
+
