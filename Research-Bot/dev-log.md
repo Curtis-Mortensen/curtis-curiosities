@@ -1,5 +1,41 @@
 # Research Bot — Dev Log
 
+## 2026-07-25 — Sedona summer shade / wind / cave trails (complete)
+
+### Plan summary
+User asked, for first-time Sedona summer visitors: which trails offer the most shade and most likely winds/cooler temperatures, with a dive into caves nearby as an ideal. Followed Research-Bot README: one assigned question, precursor/subset questions, web research, self-contained HTML with aims/limitations/history/catalog/citations/conclusion. Kept the report in the Research-Bot base folder (no new docs/ folder).
+
+### Precursor / subset questions
+1. How hot is Sedona vs Phoenix, and what does Oak Creek Canyon elevation/shade do?
+2. What mechanisms cool a trail (timing, water, canopy/topographic shade, wind)?
+3. Are Sedona “caves” true caves or alcoves/arches/tunnels?
+4. Which named trails are repeatedly recommended for summer shade?
+5. Which combine shade + water (strongest cooling stack)?
+6. Which have canyon breeze / cold-air drainage odds?
+7. Which cave destinations sit on cooler corridors?
+8. Which famous exposed classics should first-timers avoid midday?
+9. What is open in July 2026 given Pocket Fire / monsoon burn-scar closures?
+
+### Key findings
+- **Cooling stack (strongest→weakest for planning):** dawn timing → creek water → canopy + canyon-wall shade → breeze (helpful but not schedulable).
+- **#1 summer trail when open:** West Fork of Oak Creek (shade + cold creek + walls; alcoves/“subway” farther in).
+- **Best shade + real cave combo:** Boynton Canyon → Subway Cave (forest deepens after Enchantment; start early).
+- **Best short first-timer canyon:** Fay Canyon (+ optional Arch alcove).
+- **Wind realism:** morning cold-air drainage and monsoon outflow/post-storm cool-downs; do not chase wind into afternoon canyon flood risk.
+- **July 2026 constraint:** Pocket Fire / flood closures have intermittently blocked West Fork, Fay, Soldier Pass, and other northwest/canyon day-use sites — verify official alerts; Templeton/Baldwin/Red Rock Crossing creek shade is a resilient open-pattern alternative.
+
+### Changes made
+- Created `Research-Bot/sedona-summer-shade-wind-cave-trails.html` (aims, limitations, field history, climate/cooling physics, ranked profiles, 35-option trail catalog, cave catalog, closure snapshot, itineraries, 46 citations)
+- Updated this dev-log
+
+### Assumptions
+- “Caves nearby = ideal” means alcoves/tunnels reachable by day hikers, not technical caving.
+- First-timer priority is heat safety and easy grades over Instagram difficulty.
+- Closure lists from Visit Sedona / Chamber / local blogs are a time-stamped snapshot (compiled 2026-07-25), not permanent geography.
+
+### Bugs / problems
+- No Sedona-specific peer-reviewed shade-cover ranking exists; scores are synthesized from convergent guide/agency/local sources.
+- Exact open/closed status for every west-side trailhead can change faster than secondary blogs; report points readers to official Coconino NF / Visit Sedona checks.
 ## 2026-07-25 — Shark Tank outcomes meta-analysis (complete)
 
 ### Plan summary
