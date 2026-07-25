@@ -1,5 +1,45 @@
 # Research Bot — Dev Log
 
+## 2026-07-25 — Shark Tank outcomes meta-analysis (complete)
+
+### Plan summary
+User asked how Shark Tank businesses have fared after ~10 seasons (~20 per season guess), specifically via existing meta-analyses — success rates and breakout winners — without building a new company-by-company tracker. Followed Research-Bot README: precursor/subset questions, web research across trackers/journalism/academia, self-contained HTML with aims/limitations/history/citations/conclusion.
+
+### Precursor / subset questions
+1. Is “10 × ~20 ≈ 200” the right sample size?
+2. On-air deal rate vs. closed-deal rate?
+3. Survival of aired companies (deal vs. no deal)?
+4. Does a closed shark check beat exposure alone?
+5. Who are the breakouts, including rejection wins?
+6. Differences by shark / industry / season?
+7. Comparison to BLS small-business survival baselines?
+
+### Key findings
+- First 10 seasons: ~895 aired pitches (The Hustle / Tecco; Sharkary), not ~200; ~56% on-air deals.
+- Only ~45–50% of handshakes close (Forbes 2016/2023; HumbleRise ~48% confirmed).
+- SharkTankInsights S1–16 census: ~71.6% still in business (active/rebranded/acquired); ~28% closed; closed-deal cohort ~83% vs no-deal ~65%.
+- Beware recycled “94% success” claims — usually a closed-deal subset, not all aired companies.
+- Academia: ITF amount predicts survival (Smith & Viceisza); sharks are weak stock-pickers on average but venue reputation matters (Chincarini et al.).
+- Breakout tail: Bombas, Scrub Daddy, Everlywell, Ring (no deal / Amazon ~$1B), Poppi (PepsiCo $1.95B), Cousins Maine Lobster, Kodiak, The Comfy, DUDE Wipes, plus ~30 other cited successes.
+
+### Changes made
+- Created `Research-Bot/shark-tank-outcomes-meta-analysis.html`
+- Updated this dev-log
+
+### Assumptions
+- User’s “10 seasons” is the primary scope; later-season tracker totals included for context.
+- Did not re-verify each company’s live website status (per user: find others’ meta-analyses).
+- Private-company sales figures treated as order-of-magnitude from secondary sources.
+
+### Bugs / problems
+- Tracker denominators disagree (Hustle/Sharkary ~895 S1–10 vs SharkTankInsights season sums lower) — documented as a limitation rather than forced-reconciled.
+- Investopedia page returned an access/challenge page on direct fetch; used search-result excerpts + other roundups for sales rankings.
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-21 — SBBC Session 2 transcript summary (complete)
 
 ### Plan summary
