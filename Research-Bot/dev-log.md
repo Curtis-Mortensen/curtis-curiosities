@@ -1,5 +1,27 @@
 # Research Bot — Dev Log
 
+## 2026-07-25 — Sedona open short trails follow-up (post–Chapel Rock) (complete)
+
+### Plan summary
+Same-day follow-up: party finished Chapel Rock, wants a different area, ≤4 mi RT, best views, any caves still open, with Fay/Boynton/Soldier Pass closed; overcast + light drizzle (shade less relevant; slick rock matters).
+
+### Key findings
+- **Go-now #1:** Airport Mesa Loop (~3.3–3.5 mi) — different area, strongest open panoramic views under the mile cap.
+- **Easy drizzle alternative:** Crescent Moon / Buddha Beach (Cathedral-from-creek; no mandatory scramble).
+- **Only realistic open cave ≤4 mi:** Raven Caves (~0.5 mi) on south 179 — accept proximity to Chapel corridor; wet ledge caution.
+- **Main caves still out:** Subway, Birthing, Soldier Pass, Keyhole tied to closed trailheads.
+- Cathedral Rock is open and short but demoted in drizzle due to slick sandstone.
+
+### Changes made
+- Created `Research-Bot/sedona-summer-open-short-trails-followup.html`
+- Linked follow-up from parent summer shade/cave report
+- Updated this dev-log
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-25 — Sedona summer shade / wind / cave trails (complete)
 
 ### Plan summary
