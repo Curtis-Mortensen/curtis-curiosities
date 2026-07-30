@@ -1,5 +1,19 @@
 # Research Bot — Dev Log
 
+## 2026-07-30 — TTS report: clarify Qwen-Audio-3.0 still closed (complete)
+
+### Note from user
+Qwen-Audio-3.0 was very recently released and is closed for now; weights hopefully coming soon. Do not imply Audio-3.0 weights are already open (distinct from older Apache 2.0 Qwen3-TTS).
+
+### Changes made
+- Updated Qwen card, licensing table, quick verdict, cost box, conclusion, further questions in `tts-emotion-sound-tags-api-comparison.html`
+- Updated this dev-log
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-30 — TTS report: chat follow-ups (Simba, Realtime, licensing, shopping notes) (complete)
 
 ### Plan summary

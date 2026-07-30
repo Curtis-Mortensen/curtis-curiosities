@@ -228,7 +228,7 @@
     <li>Give a practical recommendation for cost-sensitive personal projects that refuse to give up laughs and emotion cues.</li>
   </ol>
   <div class="thesis-box">
-    <strong>Quick verdict (after a broader market sweep + follow-up chat):</strong> The first pass understated the market. Counting distinct product lines that meet the emotion + laugh/sound-tag filter across ~12 months yields roughly <strong>9–11 hosted/closed APIs</strong> and roughly <strong>6–8 open-source / open-weight systems</strong> (plus Step-Audio-EditX as a tag-based post-editor) — about <strong>~15–18 named systems</strong>.<a href="#ref-inworld-steering" class="citation">[36]</a><a href="#ref-maya1" class="citation">[37]</a><a href="#ref-orpheus" class="citation">[38]</a><a href="#ref-cosyvoice3" class="citation">[39]</a><a href="#ref-dia" class="citation">[40]</a> AA top 5 Elo (2026-07-30): Simba 1,229 · Qwen Plus 1,227 · Gemini 3.1 1,213 · Luna 1,203 · Sonic 3.5 1,202. <strong>Qwen is worth exploring</strong> (arena-tied leader among tagged systems + Apache-2.0 open <code>Qwen3-TTS</code> weights for community hacks). <strong>Simba may be cheaper and faster than Gemini</strong> (~$6–10/1M, sub-300&nbsp;ms first byte, Elo #1) <em>at the expense of customization and control</em> — SSML emotions, no laugh/sound tags, closed API-only. Fish is open-<em>weights</em> under a research license (commercial needs a separate deal), not OSI open source. OpenAI steers with <code>instructions</code> / Realtime prompts, not native <code>[laughs]</code> tags.
+    <strong>Quick verdict (after a broader market sweep + follow-up chat):</strong> The first pass understated the market. Counting distinct product lines that meet the emotion + laugh/sound-tag filter across ~12 months yields roughly <strong>9–11 hosted/closed APIs</strong> and roughly <strong>6–8 open-source / open-weight systems</strong> (plus Step-Audio-EditX as a tag-based post-editor) — about <strong>~15–18 named systems</strong>.<a href="#ref-inworld-steering" class="citation">[36]</a><a href="#ref-maya1" class="citation">[37]</a><a href="#ref-orpheus" class="citation">[38]</a><a href="#ref-cosyvoice3" class="citation">[39]</a><a href="#ref-dia" class="citation">[40]</a> AA top 5 Elo (2026-07-30): Simba 1,229 · Qwen Plus 1,227 · Gemini 3.1 1,213 · Luna 1,203 · Sonic 3.5 1,202. <strong>Qwen-Audio-3.0 is worth exploring</strong> (tagged arena co-leader, ~Jul 20 2026) but is <strong>hosted/closed today</strong> — weights hopefully follow the usual Qwen pattern; older open <code>Qwen3-TTS</code> (Apache 2.0) is a separate line. <strong>Simba may be cheaper and faster than Gemini</strong> (~$6–10/1M, sub-300&nbsp;ms first byte, Elo #1) <em>at the expense of customization and control</em> — SSML emotions, no laugh/sound tags, closed API-only. Fish is open-<em>weights</em> under a research license (commercial needs a separate deal), not OSI open source. OpenAI steers with <code>instructions</code> / Realtime prompts, not native <code>[laughs]</code> tags.
   </div>
 </section>
 
@@ -247,7 +247,7 @@
     <li>How does GPT Realtime steer voice/emotion, and what is the OpenAI audio release timeline?</li>
     <li>What are the Artificial Analysis Speech Arena top-five Elo scores today?</li>
     <li>Does Simba steer at all (SSML), and is the Elo/#1 win worth losing laugh tags vs Gemini?</li>
-    <li>Are Simba / Fish / Qwen open source — and will Qwen see community optimizations?</li>
+    <li>Are Simba / Fish / Qwen open source — and will Qwen-Audio-3.0 weights drop for community optimizations?</li>
   </ol>
 </section>
 
@@ -798,7 +798,7 @@
   </table>
   <p class="small">*Gemini 2.5 Flash TTS (Dec 2025) Elo 1,037 on AA — not the same as 3.1. AA’s $18.3/1M for Gemini 3.1 is their conversion of token pricing; this report’s ~$33–37 estimate uses Google’s $20/1M audio-token list math — both are shown so you can see the range.<a href="#ref-aa-leaderboard" class="citation">[51]</a><a href="#ref-gcp-tts-pricing" class="citation">[13]</a></p>
   <div class="recommend-box">
-    <strong>Quality × tags × cost:</strong> Among models that clear the laugh+emotion tag filter, <strong>Qwen-Audio-3.0-TTS-Plus (Elo 1,227)</strong> and <strong>Gemini 3.1 (Elo 1,213)</strong> lead the arena — <strong>Qwen is worth exploring</strong> as the tagged co-leader with a clear $/char list price. <strong>Fish S2.1 (Elo 1,138 @ ~$15)</strong> and <strong>Grok (Elo 1,096 @ $15)</strong> trade Elo for price; <strong>Inworld TTS-2 (Elo 1,189)</strong> sits in a strong middle. Outside the tag club, <strong>Simba (~$6–10, Elo #1)</strong> can be cheaper/faster than Gemini if you accept weaker customization.
+    <strong>Quality × tags × cost:</strong> Among models that clear the laugh+emotion tag filter, <strong>Qwen-Audio-3.0-TTS-Plus (Elo 1,227)</strong> and <strong>Gemini 3.1 (Elo 1,213)</strong> lead the arena — <strong>Qwen-Audio-3.0 is worth exploring</strong> as the tagged co-leader with a clear $/char list price, while remembering it is <strong>hosted/closed for now</strong> (weights hoped for soon). <strong>Fish S2.1 (Elo 1,138 @ ~$15)</strong> and <strong>Grok (Elo 1,096 @ $15)</strong> trade Elo for price; <strong>Inworld TTS-2 (Elo 1,189)</strong> sits in a strong middle. Outside the tag club, <strong>Simba (~$6–10, Elo #1)</strong> can be cheaper/faster than Gemini if you accept weaker customization.
   </div>
 </section>
 
@@ -834,15 +834,15 @@
   </article>
 
   <article class="model-card" id="qwen">
-    <h3>12.4 Qwen-Audio-3.0-TTS <span class="tag">new</span> <span class="tag">worth exploring</span></h3>
+    <h3>12.4 Qwen-Audio-3.0-TTS <span class="tag">new</span> <span class="tag">worth exploring</span> <span class="tag">closed for now</span></h3>
     <div class="recommend-box" style="margin-top:0">
-      <strong>Worth exploring:</strong> among tagged systems, Qwen Plus is essentially the arena co-leader with Gemini (Elo <strong>1,227</strong> vs 1,213) at a clearer character list price (~$27.60/1M). Separately, Alibaba’s open <strong>Qwen3-TTS</strong> line (Apache 2.0, Jan 2026) is the kind of drop that historically attracts community quantizations, fine-tunes, and tooling — expect that hacking curve to keep compounding.
+      <strong>Worth exploring — but closed today:</strong> among tagged systems, Qwen Plus is essentially the arena co-leader with Gemini (Elo <strong>1,227</strong> vs 1,213) at a clearer character list price (~$27.60/1M). <strong>Qwen-Audio-3.0 was released very recently (~2026-07-20) and is hosted/closed right now</strong> (Model Studio Flash/Plus; no public weight download for this line yet). Hopeful path: Alibaba often follows API launches with open weights — if/when Audio-3.0 weights land, expect the usual community quantization / fine-tune / tooling wave. Do not confuse this with the older open <strong>Qwen3-TTS</strong> family (Jan 2026, Apache 2.0), which is a separate product line.<a href="#ref-qwen3-tts" class="citation">[63]</a>
     </div>
-    <p><strong>Qwen-Audio-3.0-TTS</strong> launched around <strong>2026-07-20</strong> as hosted <strong>Flash</strong> (~300 ms first-packet positioning) and <strong>Plus</strong> (quality) on Alibaba Cloud Model Studio.<a href="#ref-qwen-blog" class="citation">[7]</a><a href="#ref-qwen-kiadev" class="citation">[32]</a></p>
+    <p><strong>Qwen-Audio-3.0-TTS</strong> launched around <strong>2026-07-20</strong> as hosted <strong>Flash</strong> (~300 ms first-packet positioning) and <strong>Plus</strong> (quality) on Alibaba Cloud Model Studio — <strong>API-only as of this report</strong>.<a href="#ref-qwen-blog" class="citation">[7]</a><a href="#ref-qwen-kiadev" class="citation">[32]</a></p>
     <p>Controllability is dual-track: free-style natural-language style instructions <em>plus</em> <strong>86 fine-grained inline tags</strong> for localized emotion/style and non-verbal events (laughter, breathing, coughing, sighing, etc.).<a href="#ref-qwen-arxiv" class="citation">[10]</a> Examples include <code>[angry]</code>, <code>[giggles]</code>, <code>[laughing]</code>, <code>[gasp]</code>.<a href="#ref-qwen-blog" class="citation">[7]</a></p>
     <p><strong>Billing:</strong> about <strong>$27.59–$27.60 per million characters</strong> via Model Studio — between Gemini 2.5 Flash’s effective rate and Gemini 3.1’s token-math band, far below ElevenLabs/MiniMax HD.<a href="#ref-qwen-decoder" class="citation">[17]</a><a href="#ref-qwen-buildfast" class="citation">[25]</a></p>
-    <p><strong>Open weights path:</strong> <strong>Qwen3-TTS</strong> (0.6B/1.7B family, Jan 2026) ships tokenizers + models under <strong>Apache 2.0</strong> on GitHub/HF — true open source for self-host, voice clone, and community forks.<a href="#ref-qwen3-tts" class="citation">[63]</a> The hosted Audio-3.0 Plus SKU can still outpace local forks for a while; the open models are what get hacked.</p>
-    <p><strong>Trade-offs:</strong> slower throughput in some reports (~16 chars/sec for Plus), 16 languages on the hosted line (strong Chinese dialect coverage), and some streaming-mode caveats for tag support in secondary guides.<a href="#ref-qwen-kiadev" class="citation">[32]</a></p>
+    <p><strong>Related open line (not Audio-3.0):</strong> <strong>Qwen3-TTS</strong> (0.6B/1.7B, Jan 2026, Apache 2.0) already has public weights for self-host/community forks.<a href="#ref-qwen3-tts" class="citation">[63]</a> Useful now; not a substitute for hoping Audio-3.0 Plus-class weights appear later.</p>
+    <p><strong>Trade-offs:</strong> closed hosted-only for Audio-3.0 today; slower throughput in some reports (~16 chars/sec for Plus); 16 languages (strong Chinese dialect coverage); some streaming-mode caveats for tag support in secondary guides.<a href="#ref-qwen-kiadev" class="citation">[32]</a></p>
   </article>
 
   <article class="model-card" id="eleven">
@@ -910,14 +910,14 @@
   </article>
 
   <article class="model-card">
-    <h3>13.7 Qwen3-TTS (open weights) <span class="tag">worth exploring</span></h3>
-    <p>Distinct from hosted <strong>Qwen-Audio-3.0-TTS</strong>: the <strong>Qwen3-TTS</strong> series (Jan 2026, 0.6B/1.7B, Apache 2.0) is the open-weight family with voice clone / voice design / streaming claims and public GitHub + Hugging Face releases.<a href="#ref-qwen3-tts" class="citation">[63]</a> Expect the usual community optimization wave (quantization, ComfyUI nodes, fine-tunes, latency hacks) after a high-profile Qwen drop — that is the historic pattern, not a guarantee on any single fork’s quality.</p>
+    <h3>13.7 Qwen3-TTS (open weights) — not Audio-3.0</h3>
+    <p><strong>Do not confuse with Qwen-Audio-3.0:</strong> the <strong>Qwen3-TTS</strong> series (Jan 2026, 0.6B/1.7B, Apache 2.0) is an earlier open-weight family with voice clone / voice design / streaming claims and public GitHub + Hugging Face releases.<a href="#ref-qwen3-tts" class="citation">[63]</a> <strong>Qwen-Audio-3.0</strong> (Jul 2026) is the newer hosted tag leader and is <em>still closed</em> as of this report — weights hopefully coming soon, after which the community optimization wave (quants, fine-tunes, tooling) becomes realistic for that class of model.</p>
   </article>
 </section>
 
 <section id="licensing">
   <h2>14. Open vs closed: Simba, Fish, Qwen</h2>
-  <p>Follow-up chat clarified a common confusion: “open” in TTS marketing often means <em>weights downloadable</em>, not OSI open source. For shopping:</p>
+  <p>Follow-up chat clarified a common confusion: “open” in TTS marketing often means <em>weights downloadable</em>, not OSI open source — and Qwen’s product names are easy to mix up. For shopping:</p>
   <table>
     <thead>
       <tr>
@@ -937,20 +937,25 @@
         <td><strong>Open weights</strong>, not OSI open source</td>
         <td>Weights + code under <strong>Fish Audio Research License</strong>: research/non-commercial free; commercial needs a separate license from Fish.<a href="#ref-fish-license" class="citation">[62]</a> Hosted API is the frictionless path.</td>
       </tr>
+      <tr class="exclude">
+        <td><strong>Qwen-Audio-3.0-TTS</strong></td>
+        <td><strong>No (for now)</strong> — hosted/closed</td>
+        <td>Very recent (~2026-07-20) Flash/Plus on Model Studio. <strong>No public weights yet.</strong> Worth exploring via API; hopeful that weights follow soon (historic Qwen pattern — not a promise).</td>
+      </tr>
       <tr class="cheap">
-        <td><strong>Qwen3-TTS</strong> (open)</td>
+        <td><strong>Qwen3-TTS</strong> (older open line)</td>
         <td><strong>Yes</strong> — Apache 2.0</td>
-        <td>True open source weights/code. Community hacking (quants, fine-tunes, tooling) is a reasonable expectation. Hosted <strong>Qwen-Audio-3.0</strong> is a separate paid SKU.</td>
+        <td>Separate Jan 2026 open family. Community hacking already possible. <em>Not</em> the same as Audio-3.0 Plus.</td>
       </tr>
       <tr>
-        <td><strong>Gemini / Grok / Eleven / Simba / OpenAI</strong></td>
+        <td><strong>Gemini / Grok / Eleven / OpenAI</strong></td>
         <td>Closed hosted</td>
         <td>API (and sometimes limited enterprise options) only.</td>
       </tr>
     </tbody>
   </table>
   <div class="thesis-box">
-    <strong>Implication:</strong> If you want tag control <em>and</em> community-driven local optimization, prioritize <strong>Qwen3-TTS</strong> (and peers like Maya1 / CosyVoice / Orpheus / Dia). If you want cheapest hosted tags today, try <strong>Fish</strong> (license permitting). If you want cheapest/fastest hosted <em>naturalness</em> and can drop laugh tags, try <strong>Simba</strong>. Gemini remains the customization baseline.
+    <strong>Implication:</strong> Explore <strong>Qwen-Audio-3.0</strong> on the API now for tag quality; watch for a weight drop before planning local hacks around that SKU. For self-host today, use <strong>Qwen3-TTS</strong> / Maya1 / CosyVoice / Orpheus / Dia. Cheapest hosted tags: <strong>Fish</strong> (license permitting). Cheapest/fastest naturalness without laugh tags: <strong>Simba</strong>. Gemini remains the customization baseline.
   </div>
 </section>
 
@@ -1116,7 +1121,7 @@
     <p><strong>Did the first pass miss market options?</strong> Yes. A Gemini/Grok/Fish/Qwen/Eleven-centric shortlist understated the field. A last-year sweep finds roughly <strong>9–11 hosted/closed</strong> and <strong>6–8 open</strong> systems that clear (or nearly clear) emotion + laugh/sound tags — about <strong>15–18 named systems</strong>.</p>
     <p><strong>Practical shopping notes (from follow-up review):</strong></p>
     <ul>
-      <li><strong>Qwen is worth exploring</strong> — hosted Plus is the tagged arena co-leader (Elo 1,227) at ~$27.60/1M; open <strong>Qwen3-TTS</strong> (Apache 2.0) is the community-hack path.</li>
+      <li><strong>Qwen-Audio-3.0 is worth exploring</strong> — tagged arena co-leader (Elo 1,227) at ~$27.60/1M — but it is <strong>very recent and closed/hosted today</strong>; weights hopefully coming soon. Older open <strong>Qwen3-TTS</strong> (Apache 2.0) is a separate self-host path, not Audio-3.0.</li>
       <li><strong>Simba might be cheaper and faster than Gemini</strong> (~$6–10/1M, sub-300&nbsp;ms, Elo #1) <strong>at the expense of customization and control</strong> (SSML emotions, no laugh/sound tags, closed API-only).</li>
       <li><strong>Fish</strong> is open <em>weights</em> under a research license (commercial needs a deal), not OSI open source — still a strong cheap tagged hosted option.</li>
     </ul>
@@ -1130,8 +1135,8 @@
   <ul>
     <li>Blind A/B: Qwen-Audio-3.0-Plus vs Gemini 3.1 vs Fish S2.1 on the same laugh+emotion script (tag obedience + naturalness).</li>
     <li>Simba SSML vs Gemini tags on the same non-laugh emotional script — is Elo #1 audible in your domain?</li>
-    <li>Qwen3-TTS community forks six months out: do quants/fine-tunes close the gap to hosted Plus?</li>
-    <li>True all-in cost of self-hosting Orpheus/Maya1/Qwen3-TTS including idle GPU vs Fish free/paid.</li>
+    <li>If/when Qwen-Audio-3.0 weights drop: do community quants/fine-tunes close the gap to hosted Plus?</li>
+    <li>True all-in cost of self-hosting Orpheus/Maya1/Qwen3-TTS (today) including idle GPU vs Fish free/paid vs Audio-3.0 API.</li>
     <li>Whether Realtime-2.1 Personality prompts can fake mid-script laughs well enough for light drama (still not native tags).</li>
   </ul>
 </section>
