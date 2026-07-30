@@ -219,6 +219,8 @@
     <li>Produce a <strong>fairly comprehensive catalog of releases from roughly the last year</strong> (≈ Jul 2025–Jul 2026) that meet that filter — hosted <em>and</em> open-source/open-weight.</li>
     <li>Normalize published pricing for billable APIs so Gemini, Grok, Fish, Qwen, ElevenLabs, Inworld, MiniMax, Cartesia, and peers can be compared on cost.</li>
     <li>Check whether the newest releases actually ship tag support — or whether new models are “dumb voices” again.</li>
+    <li>Cover OpenAI’s recent voice/TTS updates against the laugh-tag filter.</li>
+    <li>Pull Artificial Analysis Speech Arena Elo for the top five models and weave Elo into comparisons.</li>
     <li>Give a practical recommendation for cost-sensitive personal projects that refuse to give up laughs and emotion cues.</li>
   </ol>
   <div class="thesis-box">
@@ -838,8 +840,8 @@
         <th>Release</th>
         <th>Approx. timing</th>
         <th>Tags?</th>
+        <th>AA Elo</th>
         <th>Cost vs Gemini 3.1</th>
-        <th>Cost vs ElevenLabs v3</th>
       </tr>
     </thead>
     <tbody>
@@ -847,55 +849,76 @@
         <td>Gemini 3.1 Flash TTS</td>
         <td>~Apr 2026</td>
         <td>Strong (200+ + scene)</td>
+        <td>1,213 (#3)</td>
         <td>baseline</td>
-        <td>~⅓ list</td>
+      </tr>
+      <tr>
+        <td>Qwen-Audio-3.0-TTS-Plus</td>
+        <td>Jul 20, 2026</td>
+        <td>Yes (86 tags + NL)</td>
+        <td>1,227 (#2)</td>
+        <td>Similar / slightly cheaper list</td>
+      </tr>
+      <tr>
+        <td>Cartesia Sonic 3.5</td>
+        <td>May 2026</td>
+        <td>Yes (emotion + laughter)</td>
+        <td>1,202 (#5)</td>
+        <td>More expensive</td>
       </tr>
       <tr>
         <td>Fish S2.1 Pro</td>
         <td>~Jun 2026</td>
         <td>Strong (open-domain)</td>
+        <td>1,138</td>
         <td>Cheaper (~½ or less)</td>
-        <td>~1/6.7</td>
       </tr>
       <tr>
-        <td>Grok TTS + flagship voices</td>
+        <td>Grok / SpaceXAI TTS</td>
         <td>2026; voices Jul 6</td>
         <td>Yes (speech tags)</td>
+        <td>1,096</td>
         <td>Cheaper (~½)</td>
-        <td>~1/6.7</td>
       </tr>
       <tr>
         <td>Inworld TTS-2</td>
         <td>May 5, 2026</td>
         <td>Yes (NL steer + laugh)</td>
+        <td>1,189</td>
         <td>Often cheaper / similar</td>
-        <td>~1/3–1/8 by plan</td>
       </tr>
       <tr>
-        <td>Qwen-Audio-3.0-TTS</td>
-        <td>Jul 20, 2026</td>
-        <td>Yes (86 tags + NL)</td>
-        <td>Similar / slightly cheaper</td>
-        <td>~1/3.6</td>
+        <td>ElevenLabs Eleven v3</td>
+        <td>~Mar 2026</td>
+        <td>Yes (audio tags)</td>
+        <td>1,173</td>
+        <td>More expensive ($100/M)</td>
       </tr>
       <tr>
-        <td>MiniMax Speech 2.8</td>
+        <td>MiniMax Speech 2.8 HD</td>
         <td>2026</td>
         <td>Yes</td>
+        <td>1,174</td>
         <td>More expensive</td>
-        <td>Similar (HD $100)</td>
+      </tr>
+      <tr class="exclude">
+        <td>OpenAI gpt-4o-mini-tts</td>
+        <td>2025 + Dec snapshot</td>
+        <td>Instructions only (no native laughs)</td>
+        <td>TTS-1 HD 1,102</td>
+        <td>Cheaper list; fails tag filter</td>
       </tr>
       <tr>
         <td>Maya1 / Orpheus / CosyVoice 3 / Dia</td>
         <td>2025–early 2026</td>
         <td>Yes (varies)</td>
+        <td>Maya1 1,041</td>
         <td>Self-host ≈ GPU cost</td>
-        <td>Self-host ≪ API</td>
       </tr>
     </tbody>
   </table>
   <div class="thesis-box">
-    <strong>On “I’ll be disappointed if new releases don’t support tags”:</strong> Across the broader last-year market, tag support is the <em>norm for expressive launches</em>, not the exception. Grok, Fish S2.1, Qwen-Audio-3.0, Inworld TTS-2, Eleven v3, Gemini 3.1, Maya1, CosyVoice 3, Dia, and Orpheus all document laugh/non-verbal cues and some form of emotion or delivery control.<a href="#ref-xai-tts-docs" class="citation">[8]</a><a href="#ref-fish-models" class="citation">[6]</a><a href="#ref-qwen-arxiv" class="citation">[10]</a><a href="#ref-inworld-steering" class="citation">[36]</a><a href="#ref-maya1" class="citation">[37]</a> The competitive story is a <strong>price + openness war inside the tag club</strong>, not a retreat from tags.
+    <strong>On “I’ll be disappointed if new releases don’t support tags”:</strong> Across the broader last-year market, tag support is the <em>norm for expressive launches</em>, not the exception. Grok, Fish S2.1, Qwen-Audio-3.0, Inworld TTS-2, Eleven v3, Gemini 3.1, Maya1, CosyVoice 3, Dia, and Orpheus all document laugh/non-verbal cues and some form of emotion or delivery control.<a href="#ref-xai-tts-docs" class="citation">[8]</a><a href="#ref-fish-models" class="citation">[6]</a><a href="#ref-qwen-arxiv" class="citation">[10]</a><a href="#ref-inworld-steering" class="citation">[36]</a><a href="#ref-maya1" class="citation">[37]</a> OpenAI’s update is the notable expressive launch that <em>doesn’t</em> join the laugh-tag club — it uses <code>instructions</code> instead.<a href="#ref-openai-tts" class="citation">[52]</a> The competitive story is a <strong>price + openness + Elo war inside the tag club</strong>, not a retreat from tags.
   </div>
 </section>
 
