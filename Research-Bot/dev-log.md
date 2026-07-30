@@ -1,5 +1,25 @@
 # Research Bot — Dev Log
 
+## 2026-07-30 — TTS tagged APIs: expanded last-year market sweep (complete)
+
+### Plan summary
+User follow-up: first report understated the market; wanted a fairly comprehensive list of models released in the last year (hosted + open-source) that meet emotion tags + sound tags (laughs) criteria.
+
+### Added / corrected
+- Hosted additions: Inworld TTS-2, MyVocal v3; Doubao Seed-TTS 2.0 as conditional; broader cost ladder.
+- Open-source catalog: Orpheus, Maya1, CosyVoice 2/3, Dia, Step-Audio-EditX, provisional Chatterbox, Fish S1-mini.
+- Near-misses documented: IndexTTS-2, Zonos, PlayDialog, VibeVoice, Spark/FireRed/MaskGCT/F5, Hume, Speechify, Aura-2.
+- Recount: ~9–11 hosted + ~6–8 open ≈ **15–18 named systems** (not 7).
+
+### Changes made
+- Expanded `Research-Bot/tts-emotion-sound-tags-api-comparison.html` (year catalog, open-source deep-dives, exclusions, refs 36–50)
+- Updated this dev-log
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-30 — TTS APIs with emotion & sound tags comparison (complete)
 
 ### Plan summary
