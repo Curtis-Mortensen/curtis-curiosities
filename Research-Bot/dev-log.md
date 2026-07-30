@@ -1,5 +1,25 @@
 # Research Bot — Dev Log
 
+## 2026-07-30 — TTS report: chat follow-ups (Simba, Realtime, licensing, shopping notes) (complete)
+
+### Plan summary
+User asked to fold chat topics into the HTML report: GPT Realtime steering + OpenAI audio timeline; Simba/Fish/Qwen openness; shopping notes that **Qwen is worth exploring** and **Simba might be cheaper/faster than Gemini at the expense of customization/control**.
+
+### Key findings folded in
+- **Simba 3.2:** closed API-only; SSML ~13 emotions; Elo #1 / ~$6–10/1M / sub-300ms — cheaper/faster than Gemini possible, weaker control (no laugh tags).
+- **Fish:** open *weights* under Fish Audio Research License (not OSI); commercial needs separate license.
+- **Qwen:** hosted Audio-3.0 Plus worth exploring (tagged Elo co-leader); open **Qwen3-TTS** Apache 2.0 → community hacks expected.
+- **OpenAI Realtime:** session `instructions` / Personality & Tone (not `[laughs]` tags); voice lock; `reasoning.effort` on Realtime-2; timeline Oct 2024 → Jul 2026 (2.1).
+
+### Changes made
+- Updated `Research-Bot/tts-emotion-sound-tags-api-comparison.html` (new §8 Simba, expanded §9 OpenAI/Realtime/timeline, §14 licensing, Qwen/Fish cards, conclusion, refs 57–63)
+- Updated this dev-log
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-30 — TTS report: OpenAI updates + Artificial Analysis Elo (complete)
 
 ### Plan summary
