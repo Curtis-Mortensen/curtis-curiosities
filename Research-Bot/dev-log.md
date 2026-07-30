@@ -1,5 +1,24 @@
 # Research Bot — Dev Log
 
+## 2026-07-30 — TTS report: OpenAI updates + Artificial Analysis Elo (complete)
+
+### Plan summary
+User asked about OpenAI’s recent voice/TTS updates, and to pull Artificial Analysis voice ranking Elo — top five with Elo woven into comparisons.
+
+### Key findings
+- **OpenAI:** `gpt-4o-mini-tts` adds steerable `instructions` (emotion, tone, whisper, etc.) and later snapshots (incl. community reports on 2025-12-15); custom voices + Realtime path exist. **Does not** document native inline laugh/sound tags → near-miss for dual filter. AA Elo: TTS-1 HD 1,102; TTS-1 1,083; GPT-Realtime-2 1,064.
+- **AA top 5 (2026-07-30 provider-voice):** 1 Simba 3.2 **1,229** · 2 Qwen-Audio-3.0-Plus **1,227** · 3 Gemini 3.1 Flash **1,213** · 4 Luna **1,203** · 5 Sonic 3.5 **1,202**. Three of five are tag-capable (Qwen, Gemini, Sonic).
+- Elo also added for Fish 1,138 · Eleven v3 1,173 · MiniMax 2.8 HD 1,174 · Inworld TTS-2 1,189 · SpaceXAI/Grok 1,096 · Maya1 1,041.
+
+### Changes made
+- Expanded `Research-Bot/tts-emotion-sound-tags-api-comparison.html` (sections Elo + OpenAI; Elo in cost/new-release tables; exclusions; refs 51–56)
+- Updated this dev-log
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-30 — TTS tagged APIs: expanded last-year market sweep (complete)
 
 ### Plan summary
