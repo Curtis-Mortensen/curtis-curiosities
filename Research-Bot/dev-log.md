@@ -1,5 +1,42 @@
 # Research Bot — Dev Log
 
+## 2026-07-30 — TTS APIs with emotion & sound tags comparison (complete)
+
+### Plan summary
+User asked for a Research-Bot comparison of TTS APIs that support emotion tags *and* sound tags like laughs, focused on Gemini TTS (current), Grok, Fish 2.1, Qwen audio, cost vs ElevenLabs, and whether new releases support tags. Followed Research-Bot README: precursor questions, web research from vendor docs/pricing, self-contained HTML in base folder (no new docs/ folder).
+
+### Precursor / subset questions
+1. What counts as emotion tags + sound tags (laughs) vs exclusions (Hume acting descriptions, SSML-emotion-only)?
+2. How many hosted product lines meet the filter?
+3. Gemini tag/voice/pricing details (30 voices, scene direction, token billing).
+4. Grok / Fish S2.1 / Qwen-Audio-3.0 tag support and list prices.
+5. Is Gemini still cheaper than ElevenLabs?
+6. How do new releases compare on cost once units are normalized?
+
+### Key findings
+- **~7 commercial hosted product lines** clearly document both emotion/delivery tags and laugh/non-verbal sound tags: Gemini TTS, Grok TTS, Fish Audio, Eleven v3, Qwen-Audio-3.0-TTS, MiniMax Speech 2.8, Cartesia Sonic.
+- **New releases all support tags:** Grok (`[laugh]` + wrapping styles), Fish S2.1 (open-domain `[brackets]`), Qwen-Audio-3.0 (86 inline tags including laughter).
+- **Cost ladder (approx. $ / 1M EN chars):** Fish free → Fish/Grok ~$15 → Gemini 2.5 Flash ~$17 equiv → Qwen ~$28 → Gemini 3.1 ~$33–37 equiv → Cartesia ~$50 → MiniMax Turbo $60 → MiniMax HD / ElevenLabs v3 $100.
+- **Yes, Gemini is still cheaper than ElevenLabs** on the tag-capable Multilingual v2/v3 list rate ($100/1M). Pressure is from cheaper tagged peers (Fish, Grok, Qwen), not from ElevenLabs.
+
+### Changes made
+- Created `Research-Bot/tts-emotion-sound-tags-api-comparison.html`
+- Updated this dev-log
+
+### Assumptions
+- Filter requires documented emotion/delivery tags *and* laugh/non-verbal sound tags; Hume Octave and Speechify Simba excluded as adjacent-but-not-matching.
+- Gemini character-equivalent costs estimated from audio-token math (25 tokens/sec) plus common ~54k chars/hour planning assumptions; character/byte vendors use list prices.
+- “Fish 2.1” interpreted as Fish Audio S2.1 Pro (vendor naming).
+
+### Bugs / problems
+- x.ai marketing page for new voices returned Cloudflare block on direct fetch; used search snippets + official docs.x.ai TTS/pricing pages instead.
+- Some third-party HTML strips angle-bracket wrapping tags in Grok examples; Telnyx + docs.x.ai used as cross-check.
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-25 — Sedona open short trails follow-up (post–Chapel Rock) (complete)
 
 ### Plan summary
