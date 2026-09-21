@@ -1,5 +1,115 @@
 # Research Bot — Dev Log
 
+## 2026-07-30 — TTS report: clarify Qwen-Audio-3.0 still closed (complete)
+
+### Note from user
+Qwen-Audio-3.0 was very recently released and is closed for now; weights hopefully coming soon. Do not imply Audio-3.0 weights are already open (distinct from older Apache 2.0 Qwen3-TTS).
+
+### Changes made
+- Updated Qwen card, licensing table, quick verdict, cost box, conclusion, further questions in `tts-emotion-sound-tags-api-comparison.html`
+- Updated this dev-log
+
+### Status
+**Complete**
+
+---
+
+## 2026-07-30 — TTS report: chat follow-ups (Simba, Realtime, licensing, shopping notes) (complete)
+
+### Plan summary
+User asked to fold chat topics into the HTML report: GPT Realtime steering + OpenAI audio timeline; Simba/Fish/Qwen openness; shopping notes that **Qwen is worth exploring** and **Simba might be cheaper/faster than Gemini at the expense of customization/control**.
+
+### Key findings folded in
+- **Simba 3.2:** closed API-only; SSML ~13 emotions; Elo #1 / ~$6–10/1M / sub-300ms — cheaper/faster than Gemini possible, weaker control (no laugh tags).
+- **Fish:** open *weights* under Fish Audio Research License (not OSI); commercial needs separate license.
+- **Qwen:** hosted Audio-3.0 Plus worth exploring (tagged Elo co-leader); open **Qwen3-TTS** Apache 2.0 → community hacks expected.
+- **OpenAI Realtime:** session `instructions` / Personality & Tone (not `[laughs]` tags); voice lock; `reasoning.effort` on Realtime-2; timeline Oct 2024 → Jul 2026 (2.1).
+
+### Changes made
+- Updated `Research-Bot/tts-emotion-sound-tags-api-comparison.html` (new §8 Simba, expanded §9 OpenAI/Realtime/timeline, §14 licensing, Qwen/Fish cards, conclusion, refs 57–63)
+- Updated this dev-log
+
+### Status
+**Complete**
+
+---
+
+## 2026-07-30 — TTS report: OpenAI updates + Artificial Analysis Elo (complete)
+
+### Plan summary
+User asked about OpenAI’s recent voice/TTS updates, and to pull Artificial Analysis voice ranking Elo — top five with Elo woven into comparisons.
+
+### Key findings
+- **OpenAI:** `gpt-4o-mini-tts` adds steerable `instructions` (emotion, tone, whisper, etc.) and later snapshots (incl. community reports on 2025-12-15); custom voices + Realtime path exist. **Does not** document native inline laugh/sound tags → near-miss for dual filter. AA Elo: TTS-1 HD 1,102; TTS-1 1,083; GPT-Realtime-2 1,064.
+- **AA top 5 (2026-07-30 provider-voice):** 1 Simba 3.2 **1,229** · 2 Qwen-Audio-3.0-Plus **1,227** · 3 Gemini 3.1 Flash **1,213** · 4 Luna **1,203** · 5 Sonic 3.5 **1,202**. Three of five are tag-capable (Qwen, Gemini, Sonic).
+- Elo also added for Fish 1,138 · Eleven v3 1,173 · MiniMax 2.8 HD 1,174 · Inworld TTS-2 1,189 · SpaceXAI/Grok 1,096 · Maya1 1,041.
+
+### Changes made
+- Expanded `Research-Bot/tts-emotion-sound-tags-api-comparison.html` (sections Elo + OpenAI; Elo in cost/new-release tables; exclusions; refs 51–56)
+- Updated this dev-log
+
+### Status
+**Complete**
+
+---
+
+## 2026-07-30 — TTS tagged APIs: expanded last-year market sweep (complete)
+
+### Plan summary
+User follow-up: first report understated the market; wanted a fairly comprehensive list of models released in the last year (hosted + open-source) that meet emotion tags + sound tags (laughs) criteria.
+
+### Added / corrected
+- Hosted additions: Inworld TTS-2, MyVocal v3; Doubao Seed-TTS 2.0 as conditional; broader cost ladder.
+- Open-source catalog: Orpheus, Maya1, CosyVoice 2/3, Dia, Step-Audio-EditX, provisional Chatterbox, Fish S1-mini.
+- Near-misses documented: IndexTTS-2, Zonos, PlayDialog, VibeVoice, Spark/FireRed/MaskGCT/F5, Hume, Speechify, Aura-2.
+- Recount: ~9–11 hosted + ~6–8 open ≈ **15–18 named systems** (not 7).
+
+### Changes made
+- Expanded `Research-Bot/tts-emotion-sound-tags-api-comparison.html` (year catalog, open-source deep-dives, exclusions, refs 36–50)
+- Updated this dev-log
+
+### Status
+**Complete**
+
+---
+
+## 2026-07-30 — TTS APIs with emotion & sound tags comparison (complete)
+
+### Plan summary
+User asked for a Research-Bot comparison of TTS APIs that support emotion tags *and* sound tags like laughs, focused on Gemini TTS (current), Grok, Fish 2.1, Qwen audio, cost vs ElevenLabs, and whether new releases support tags. Followed Research-Bot README: precursor questions, web research from vendor docs/pricing, self-contained HTML in base folder (no new docs/ folder).
+
+### Precursor / subset questions
+1. What counts as emotion tags + sound tags (laughs) vs exclusions (Hume acting descriptions, SSML-emotion-only)?
+2. How many hosted product lines meet the filter?
+3. Gemini tag/voice/pricing details (30 voices, scene direction, token billing).
+4. Grok / Fish S2.1 / Qwen-Audio-3.0 tag support and list prices.
+5. Is Gemini still cheaper than ElevenLabs?
+6. How do new releases compare on cost once units are normalized?
+
+### Key findings
+- **~7 commercial hosted product lines** clearly document both emotion/delivery tags and laugh/non-verbal sound tags: Gemini TTS, Grok TTS, Fish Audio, Eleven v3, Qwen-Audio-3.0-TTS, MiniMax Speech 2.8, Cartesia Sonic.
+- **New releases all support tags:** Grok (`[laugh]` + wrapping styles), Fish S2.1 (open-domain `[brackets]`), Qwen-Audio-3.0 (86 inline tags including laughter).
+- **Cost ladder (approx. $ / 1M EN chars):** Fish free → Fish/Grok ~$15 → Gemini 2.5 Flash ~$17 equiv → Qwen ~$28 → Gemini 3.1 ~$33–37 equiv → Cartesia ~$50 → MiniMax Turbo $60 → MiniMax HD / ElevenLabs v3 $100.
+- **Yes, Gemini is still cheaper than ElevenLabs** on the tag-capable Multilingual v2/v3 list rate ($100/1M). Pressure is from cheaper tagged peers (Fish, Grok, Qwen), not from ElevenLabs.
+
+### Changes made
+- Created `Research-Bot/tts-emotion-sound-tags-api-comparison.html`
+- Updated this dev-log
+
+### Assumptions
+- Filter requires documented emotion/delivery tags *and* laugh/non-verbal sound tags; Hume Octave and Speechify Simba excluded as adjacent-but-not-matching.
+- Gemini character-equivalent costs estimated from audio-token math (25 tokens/sec) plus common ~54k chars/hour planning assumptions; character/byte vendors use list prices.
+- “Fish 2.1” interpreted as Fish Audio S2.1 Pro (vendor naming).
+
+### Bugs / problems
+- x.ai marketing page for new voices returned Cloudflare block on direct fetch; used search snippets + official docs.x.ai TTS/pricing pages instead.
+- Some third-party HTML strips angle-bracket wrapping tags in Grok examples; Telnyx + docs.x.ai used as cross-check.
+
+### Status
+**Complete**
+
+---
+
 ## 2026-07-25 — Sedona open short trails follow-up (post–Chapel Rock) (complete)
 
 ### Plan summary
