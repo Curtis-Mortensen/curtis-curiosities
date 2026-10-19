@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parents[2]
 DATA_PATH = ROOT / "tier-list" / "data" / "tier-lists.json"
 OUT_PATH = ROOT / "tier-list" / "data" / "card-metadata.json"
 SPIRE_CODEX_URL = "https://spire-codex.com/api/cards"
-USER_AGENT = "Scrape-Ventures/STS2-tier-list (offline viewer)"
+USER_AGENT = "STS2-Tier-List (offline viewer)"
 
 
 def load_tier_lists(path: Path) -> dict:

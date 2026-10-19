@@ -4,7 +4,7 @@
  * Usage:
  * 1. Open https://mobalytics.gg/slay-the-spire-2/tier-lists/cards
  * 2. Run this script from the console (or save as a bookmarklet).
- * 3. Save the downloaded tier-lists-raw.json to Scrape-Ventures/STS2/
+ * 3. Save the downloaded tier-lists-raw.json to STS2-Tier-List/STS2/
  * 4. Run: python tier-list/scrape/fetch-tier-lists.py --raw
  */
 (async () => {

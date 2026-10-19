@@ -20,7 +20,7 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-# Paths relative to Scrape-Ventures/
+# Paths relative to STS2-Tier-List/
 ROOT = Path(__file__).resolve().parents[2]
 RAW_PATH = ROOT / "STS2" / "tier-lists-raw.json"
 OUT_PATH = ROOT / "tier-list" / "data" / "tier-lists.json"

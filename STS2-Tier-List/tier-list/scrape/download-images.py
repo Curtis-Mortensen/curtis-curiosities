@@ -22,7 +22,7 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-# Paths relative to Scrape-Ventures/
+# Paths relative to STS2-Tier-List/
 ROOT = Path(__file__).resolve().parents[2]
 DATA_PATH = ROOT / "tier-list" / "data" / "tier-lists.json"
 STS2_DIR = ROOT / "STS2"
@@ -32,7 +32,7 @@ FULL_DIR = ASSETS_DIR / "full"
 MANIFEST_PATH = ASSETS_DIR / "manifest.json"
 
 SPIRE_CODEX_URL = "https://cdn.spire-codex.com/cards-full/stable/{slug}.webp"
-USER_AGENT = "Scrape-Ventures/STS2-tier-list (offline viewer)"
+USER_AGENT = "STS2-Tier-List (offline viewer)"
 
 
 def load_tier_lists(path: Path) -> dict:
@@ -101,7 +101,7 @@ def copy_thumb(slug: str, *, use_symlink: bool) -> str:
     dest.parent.mkdir(parents=True, exist_ok=True)
 
     if use_symlink:
-        # Relative link keeps the manifest portable inside Scrape-Ventures/.
+        # Relative link keeps the manifest portable inside STS2-Tier-List/.
         relative_source = Path("../../../STS2") / source.name
         dest.symlink_to(relative_source)
         return "linked"

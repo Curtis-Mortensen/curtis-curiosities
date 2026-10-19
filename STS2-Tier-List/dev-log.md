@@ -1,4 +1,4 @@
-# Scrape-Ventures dev log
+# STS2 Tier List dev log
 
 ## 2026-07-08 — STS2 tier list Phase 1 (Stage 1: scrape tier list data)
 
@@ -21,7 +21,7 @@ Fetch Mobalytics card tier rankings (S/A/B/C/D per character) into normalized JS
 ### Run
 
 ```bash
-cd Scrape-Ventures
+cd STS2-Tier-List
 pip install -r requirements.txt
 python tier-list/scrape/fetch-tier-lists.py
 ```
@@ -70,7 +70,7 @@ Give every ranked card a local thumbnail and full hover image, plus a manifest f
 ### Run
 
 ```bash
-cd Scrape-Ventures
+cd STS2-Tier-List
 python3 tier-list/scrape/download-images.py
 ```
 
@@ -112,7 +112,7 @@ Offline searchable tier-list page: 5 characters, S–D tier rows, hover full-car
 ### Run
 
 ```bash
-cd Scrape-Ventures
+cd STS2-Tier-List
 python3 tier-list/scrape/build-viewer.py
 # open tier-list/index.html in a browser
 ```
@@ -159,7 +159,7 @@ Open `tier-list/index.html` directly without running a local HTTP server.
 ### Run
 
 ```bash
-cd Scrape-Ventures
+cd STS2-Tier-List
 python3 tier-list/scrape/build-viewer.py
 # open tier-list/index.html in a browser
 ```
@@ -269,7 +269,7 @@ Single-command refresh when Mobalytics updates rankings, plus tier-change diff b
 ### Run
 
 ```bash
-cd Scrape-Ventures
+cd STS2-Tier-List
 python3 tier-list/scrape/refresh-tier-list.py          # live Mobalytics fetch
 python3 tier-list/scrape/refresh-tier-list.py --raw    # offline from STS2/tier-lists-raw.json
 python3 tier-list/scrape/diff-tier-lists.py            # manual diff (previous vs current)
@@ -336,3 +336,9 @@ cd tier-list && python3 -m http.server 8080
 ## 2026-07-08 — Search scroll restore
 
 Clearing the search box restores scroll position from before the search started. Uses the visible section as an anchor so restore still works after filtered rows expand the page again. Also listens for the `search` event (clear button on `type="search"` inputs).
+
+## 2026-10-18 — Separate STS2 tier-list project
+
+Moved the STS2 tier-list viewer, scrape pipeline, Mobalytics capture, original plan, dependency list, and project history out of `archive/Scrape-Ventures/` into the repository-root `STS2-Tier-List/` folder. Updated the project scripts and documentation to use the new folder name. The viewer thumbnail symlinks remain relative to the moved `STS2/` capture folder.
+
+The Scrape Ventures folder now contains only the Airtable venture extractor and its input/output files. Added separate project READMEs and updated the root archive index.

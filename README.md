@@ -17,6 +17,7 @@ A collection of independent projects and experiments, grouped by topic. Each pro
 
 | Project | Description |
 |---|---|
+| [STS2 Tier List](STS2-Tier-List/) | Offline Slay the Spire 2 card tier-list viewer and refresh tools. |
 | [Cleveland Justice Site](Cleveland-Justice-Site/) | Archived static site concept about justice statistics in Cleveland. |
 | [D&D Manual](DNDR-Manual/) | LaTeX recreation and development files for a D&D rules manual. |
 | [DriveThruCards Deck Automator](DriveThruCards-Deck-Automator/) | Playwright helper and plan for organizing and uploading card art to DriveThruCards. |
@@ -29,4 +30,4 @@ A collection of independent projects and experiments, grouped by topic. Each pro
 
 | Project | Description |
 |---|---|
-| [Scrape Ventures](archive/Scrape-Ventures/) | Archived venture-name extraction tools and a Slay the Spire 2 tier-list viewer. |
+| [Scrape Ventures](archive/Scrape-Ventures/) | Archived venture-name extraction tools. |
