@@ -1,14 +1,109 @@
 # Calendar Bot Development Log
 
-This document records project work, decisions, and verification results.
-The implementation plan lives in `plan.md`; saving it does not implement it.
+This file records implementation decisions, problems, and actual verification results. Earlier planning notes are in `archive/dev-log.md`.
 
-## 2026-10-18 — Save the implementation plan
+## 2026-10-18 — Implement approved threaded MVP
 
-- Saved the discussed threaded Python MVP plan to `plan.md` at the user's request.
-- Recorded the user's choices: OpenAI API with Luna 6 High, real Google Calendar, local substitutes for Docs and Drive, grouped job inputs, outbound drive time, and the approved city estimates.
-- Included the user's correction: insufficient information must produce an error and log entry, without partial destination entries or a paused-job workflow.
-- Retained the explicit prohibition on future agents automatically improving the drive-time lookup.
-- This change only saves documentation. Archiving files and implementing the scripts remain future work; `AGENTS.md` was not changed.
-- Verification: reviewed the saved plan and checked the documentation diff for whitespace errors. No code tests are needed for this documentation-only change.
-- Existing untracked research and the Markdown example are outside this commit. No implementation bugs or new runtime errors were encountered.
+- User authorized completing `archive/plan.md`, reusing Hermes Google credentials and any available OpenAI API key from the VPS, and parallel implementation with GPT-6 Luna agents at high effort followed by primary-agent review.
+- Archived all three items present at implementation start: plan, prior development log, and calendar sample. The research and Markdown example mentioned in the plan are absent from this checkout; use the specified headings and labeled fields and document that limitation.
+- The initial Hermes search at depth three found nothing; a full filename search found Hermes page files under `/srv/my_site`, but no standalone Google credential JSON or `.env`. Credential discovery continues without printing secrets.
+- No tests, smoke scripts, or CI will be committed. Verification will use disposable manual exercises as the approved plan requests.
+
+### Implementation and credential setup
+
+- Three GPT-6 Luna agents at high effort implemented extraction, destinations, and the threaded pipeline in parallel. After a session restart, three Luna High agents reviewed those areas, and the primary agent reviewed and integrated their code and manually checked the Calendar payload and missing-token behavior.
+- Added the CLI, grouped-file discovery, per-page PDF/OCR extraction, strict Luna event extraction, required-field validation, fixed drive estimates, Google OAuth helper and Calendar writer, chronological Markdown insertion, original-file copying, processed-source tracking, and locked atomic YAML checkpoints/logs.
+- Added setup/run instructions, dependency list, private-file ignores, example environment settings, approved-plan documentation, and design decisions. Existing root development-log changes were preserved, and `AGENTS.md` was left untouched.
+- The reachable VPS contains Hermes public website pages, but a full filename search found no Hermes installation or Google JSON. Its running website container exposes Rails configuration and no OpenAI/Google environment variables; only the names of encrypted configuration keys were inspected, without printing values.
+- Found an existing OpenAI key in the local `my-site` environment file and an installed-app Google OAuth client JSON in the user's home directory. Copied only credential material into ignored project `.env` and `credentials.json`, both with permissions 0600. Credential values were never printed. No OpenAI key needs to be pasted.
+- Installed project Python packages in `.venv` and Tesseract/English data/Poppler through Fedora's package manager. A temporary repository mirror connection reset was reported; installation completed successfully.
+- Started a standalone Google sign-in helper and sent its authorization URL to the user. No saved Google token was found. This interactive sign-in is the outstanding setup step.
+
+### Review fixes and troubleshooting
+
+- Fixed a Markdown insertion bug that could cross the next month's heading, and replaced a Python 3.14-only date parser so the project supports Python 3.11 and later.
+- Made Markdown and processed-file replacement atomic, retaining existing content if an interruption happens before replacement. Normalized city/store filename pieces, and removed dangling arrival-range separators when the optional latest time is blank.
+- Kept OAuth consent in its explicit helper so an unattended pipeline reports a sign-in command rather than waiting indefinitely for a browser. New token files are created with private permissions before writing their content.
+- Corrected Luna request metadata: `response_id` and the actual API `request_id` are separate values. Added a prompt instruction to leave dates without a supported year blank.
+- Improved errors to retain local validation details and Google sign-in guidance while omitting arbitrary provider exception text. Errors identify their pipeline stage in the terminal and YAML log.
+- An initial synthetic API-plus-validation exercise returned ValueError without sufficient detail to diagnose the original response. Later real extraction and validation exercises passed; that first failure is not treated as a successful verification.
+- Some first manual commands used the system Python, which lacks project libraries, or referenced a nonexistent font. They were rerun successfully with `.venv/bin/python` and an installed font. The session restart interrupted review; saved files were inspected before work resumed.
+
+### Actual manual verification
+
+- Passed discovery of nested grouped inputs and separate loose files, with unsupported files excluded.
+- Passed real Tesseract OCR of a generated screenshot, OCR of an image-only PDF rendered through Poppler, and embedded-text extraction from a searchable PDF. Grouped extraction preserved all source sections.
+- Passed live `gpt-6-luna` high-effort structured extraction of a synthetic work order. A full OCR-to-Luna-to-validation exercise produced an explicit 2026 date, 10:00 arrival, 90-minute work estimate, Mesa, 15-minute drive estimate, store, and WO number. A separate live call with a missing year returned a blank date. No actual customer input was sent.
+- Passed blank date, blank time, zero-duration, and unsupported-city validation errors, plus city and time normalization.
+- Passed concurrent valid jobs, one failed job continuing alongside others, no destination outputs/checkpoint event for an invalid extraction, complete-event recovery after a simulated Calendar success before checkpoint completion, and processed-source skips on rerun. Those pipeline exercises used fake extraction and Calendar services.
+- Passed month/year/date and same-day arrival ordering, preserved human notes, duplicate Markdown reruns, blank After-Action Review labels, atomic Markdown replacement interruption, nested source filename collisions, safe output folder names, and retention of later photos.
+- Primary-agent Calendar checks passed with a fake Google service: lazy authentication, stable IDs, one insertion across duplicate calls, 404 insert and 409 recovery, Phoenix timezone, start at 09:45 for a 10:00 Mesa arrival, and end at 11:00 for 60 minutes onsite. These checks did not write to Google Calendar.
+- Primary-agent missing-token pipeline check passed: useful sign-in instruction, complete validated checkpoint, local destination completion retained, and no processed-file entry until Calendar succeeds. No network call occurred in this check.
+- CLI help, an empty-upload run, Python compilation of all 13 modules, ignored-private-file checks, and whitespace review passed. A final scan found no credential values in versioned or unignored project files. No test files, smoke scripts, or CI were added.
+
+### Completion review
+
+- Implementation and local/manual verification are complete. Google Calendar integration is implemented, but the planned labeled live Calendar event and read-back remain unverified until Google sign-in creates `token.json`.
+- There were no VPS file or service changes and no live Calendar changes during this work. A later run can resume unfinished destinations after authorization.
+
+## 2026-10-18 — Follow-up review and local NAS correction
+
+- User requested continuing with GPT-6 Luna High subagents and corrected the Hermes host to the local NAS at `192.168.1.83`. Three Luna High agents reviewed pipeline/runtime/discovery, models/extraction/drive estimates, and destination writers. The primary agent reviewed the combined implementation and repeated integration checks with the actual project dependencies.
+- The review clarified required date/arrival validation and its error messages, checked stale destination-error cleanup after recovery, and checked that discovery failures close their stage and receive a run-level YAML error. Removed an unused date import. No drive estimates or scope were expanded.
+- All 44 installed packages passed `uv pip check`. CLI help, Python compilation, Git whitespace checks, and ignored private-file paths passed. No tests, smoke scripts, or CI were added.
+- Extraction agent manually verified searchable PDF text, scanned PDF OCR, a valid event, missing date/arrival, malformed date, zero duration, and an unknown city.
+- Output agent manually verified chronological month/date/arrival insertion, preserved notes, all four blank review labels, identical Markdown reruns, nested copies with duplicate basenames, `Unknown-Store`, and preservation of a later photo. A local Google service double verified stable event IDs, request details, and Phoenix start/end calculations. These checks did not contact Google.
+- Pipeline agent manually verified overlapping workers, recovery after a Markdown write, invalid input isolation, and discovery-error logging. Its system-Python exercise lacked dependencies and used a YAML-compatible JSON stand-in; the primary integration below used real PyYAML and the project environment.
+- Primary integration used real screenshot OCR, discovery, three concurrent jobs, real YAML checkpoints, actual Markdown/FieldNation/processed writers, and local Luna/Google replies. A grouped two-screenshot job and a loose screenshot completed while an insufficient-information job failed. The invalid job had no event checkpoint, processed record, Calendar entry, Markdown entry, or FieldNation job folder. A rerun skipped completed sources and retried only the invalid extraction. All assertions passed.
+- Primary interruption exercise raised an error immediately after the real Markdown write. The rerun loaded the validated checkpoint, reused completed destinations, kept one Markdown block, cleared the old destination error, and marked the source processed. It made no new extraction call or Calendar insertion. A synthetic secret in the thrown error was absent from YAML. All assertions passed.
+- Live OpenAI verification passed with an invented work order: `gpt-6-luna`, high reasoning effort, strict structured JSON, correct date/arrival window/duration, blank missing optional details, and approved Mesa drive estimate. Safe metadata: request ID `req_a8d11eff818f4549a79f7a4b08abb62e`, 394 input tokens, 157 output tokens. Settings were checked against the official [Luna model page](https://developers.openai.com/api/docs/models/gpt-6-luna) and [Structured Outputs guide](https://developers.openai.com/api/docs/guides/structured-outputs).
+- The default SSH configuration failed its local ownership check; an explicit empty SSH config resolved that. The sandbox initially blocked SSH/network access; authorized elevated access reached the NAS. Both user-suggested accounts, `fin` and `curtis`, rejected the supplied password over SSH on port 22. Asked the user for working SSH access or the Google credential-file location. No remote files were changed and no credential values were logged.
+- Live OpenAI first failed in the network-restricted sandbox; the authorized elevated run passed. The `.venv` has no `pip` module, so dependency verification used `uv pip check`. Its default cache was read-only; an explicit `/tmp` cache resolved that. The primary disposable integration exercise initially referenced an unavailable font; using Pillow's bundled default font fixed it, and the rerun passed.
+- **Implementation and local/manual verification complete; the approved plan remains in progress.** Outstanding: obtain a valid authorized Google token, create the clearly labeled Calendar verification event, and read it back from Google. No live Calendar verification has been claimed.
+- Final credential scan passed for versioned/unignored project files. Removed the private temporary NAS password file after the unsuccessful access attempts. `AGENTS.md` remains unchanged.
+
+## 2026-10-18 — Complete live Google Calendar verification
+
+- User supplied the corrected NAS password for `fin`. SSH succeeded and confirmed Hermes under `/home/fin/.hermes/` on `192.168.1.83`. Found its Google client and authorized token with Calendar access. Copied them directly into ignored project `credentials.json` and `token.json` with permissions 0600, without printing credential values or changing remote files.
+- Initial Calendar authorization failed with Google's `invalid_scope`: the helper replaced the saved token's original scopes with its fresh-sign-in `calendar.events` scope. Independently refreshing with the original saved scopes succeeded. A Luna High agent changed only `google_auth.py` to preserve existing token scopes; new interactive consent still requests Calendar events only. Local-double checks verified both paths. This agrees with [Google's credential documentation](https://googleapis.dev/python/google-auth/latest/reference/google.oauth2.credentials.html), which describes scopes as part of the original token grant.
+- The first disposable full-pipeline attempt reached Calendar but failed on that scope mismatch; it did not create a Calendar event. After the helper fix, the full live run passed using an invented screenshot: real Tesseract OCR, live Luna 6 High structured extraction, event validation, real Google Calendar insertion, real Markdown with blank review labels, original-file copying, processed-file tracking, and YAML checkpoints.
+- Read the labeled `Calendar Bot LIVE VERIFICATION TEST` event back from Google. Verified November 2, 2026, `America/Phoenix`, start `08:45:00-07:00`, end `10:00:00-07:00`, arrival window 09:00–10:00, 60 minutes onsite, and the approved 15-minute drive from Mesa Temple. Event ID: `cb62353a16a69c19a334483c5efef24d4f4677b544b9f8f2c8fab82a1207ffc08d`.
+- [Open the verification event](https://www.google.com/calendar/event?eid=Y2I2MjM1M2ExNmE2OWMxOWEzMzQ0ODNjNWVmZWYyNGQ0ZjQ2NzdiNTQ0YjlmOGYyYzhmYWI4MmExMjA3ZmZjMDhkIG1vcnRlbnNlbmN1cnRpc0Bt). It remains on the primary calendar for user review. No other Calendar entries were inspected or modified.
+- A duplicate live-pipeline rerun passed: it skipped the completed input, kept the Markdown unchanged, and recorded only one extraction start and one Calendar destination start across both runs. Local manual inputs/outputs and their temporary credential copies were removed automatically.
+- Independently forced an expired token in a private disposable copy and ran the actual updated authorization helper against Google. Refresh succeeded, saved scopes stayed unchanged, and permissions remained 0600. Final credential scan, helper compilation, and Git whitespace checks passed. Removed the temporary NAS password file; configured project credentials remain private and ignored.
+- **Approved threaded MVP plan complete.** The previously outstanding live Google Calendar write/readback is now verified. Setup and run instructions reflect the configured workspace. No tests, smoke scripts, or CI were added, and `AGENTS.md` remains unchanged.
+
+## 2026-10-18 — Connect fixed real Docs and Drive destinations (in progress)
+
+- User requested finding the annual FieldNation work log, always writing to that fixed destination using ignored configuration, and connecting the real FieldNation Drive folder.
+- Drive discovery found the original annual document and two `.md` copies. User selected the original. Verified with both the connector and the bot's credentials that the selected artifact is a native Google Doc and that the folder is a writable Drive folder.
+- Saved the selected IDs in ignored `.env` and clickable links in ignored `local/destinations.md`. No personal destination IDs/URLs are added to tracked configuration, source code, or documentation.
+- Reused the Luna High agents for the native Docs writer, real Drive writer, and pipeline/CLI integration. Primary agent owns shared auth, configuration, documentation, existing-doc link insertion, and final integration/live checks.
+- Expanded fresh Google sign-in to Calendar events, Docs, and Drive, while preserving existing token grants. The working Hermes token already permits all three destinations.
+
+### Changes and review
+
+- Added `docs_writer.py` for scoped native document insertion, native month/date headings, bold job/review titles, blank review fields, and a hyperlink to the real job folder. Uses the current tab's named-range map, UTF-16 offsets, and a required revision ID. Existing work-order labels prevent reinserting jobs already in the annual log.
+- Added `drive_writer.py` for real uploads, nested folders, safe City-Date-Store naming, actual metadata links, and reuse of completed uploads. Pre-generated IDs are stored in the existing YAML notebook before creation. This preserves recovery even if a successful cloud response was lost or an upload search has not found the item yet. Existing folders and later photos are retained.
+- Replaced local pipeline destinations with Calendar, Drive, and Docs. The Docs step waits for a successful Drive result so its folder link is real. All three remain under the common write lock; source processing finishes only after all succeed. Pending checkpoints bind all destination IDs, and older pending local-output checkpoints gain cloud statuses while retaining their saved event/Calendar work. Completed sources are skipped without historical backfill.
+- The CLI requires private `GOOGLE_DOC_ID` and `GOOGLE_DRIVE_FOLDER_ID` settings and explains missing configuration. No local-output fallback or annual-document creation path was added. Earlier local files remain untouched.
+- Added the requested clickable FieldNation link near the original document title. Connector readback confirmed the original text is otherwise identical and the full label is linked. An initial hyperlink range missed the final letter; readback caught it and a scoped style update corrected it.
+- Primary review corrected the first Docs draft's assumptions about tab-level named ranges, yearless month headings, old `Work Order #...` labels, inline-dated job boundaries, final-newline insertion, and inherited text styles. Kept only the observed tabbed document shape. The final writer also orders no-WO jobs and understands the observed arrival/service-window labels and a.m./p.m. times.
+
+### Actual verification
+
+- Luna High agents used disposable local service doubles to verify Docs revision guards, UTF-16/emoji indexes, chronology, missing-year month handling, native link requests, blank review fields, marker/WO duplication checks, notes preservation; Drive IDs saved before create, nested uploads, saved-ID recovery and photos; and pipeline concurrency, Drive failure with Calendar completion, Docs dependency/retry, unchanged Calendar work on resume, invalid-input isolation, old checkpoint migration, changed-ID refusal, and CLI settings. No committed tests or smoke scripts were added.
+- CLI help and an empty production-configured upload run passed. Confirmed `.env`, local destination links, and OAuth token remain Git-ignored.
+- Live Drive checks passed for real nested uploads, actual folder URLs, byte-for-byte original download readback, repeated writes, persisted generated IDs, saved-ID recovery with source search deliberately hidden, and preservation of a later photo placeholder. All synthetic data was inside a dedicated temporary verification folder under the real FieldNation folder.
+- Copied the selected annual Doc natively into that temporary folder for live insertion checks. The production annual log received only the requested main-folder link, never synthetic jobs.
+- Full live pipeline passed using two grouped invented screenshots: real OCR, Luna High extraction, validation, Calendar, Drive, Docs, processed records, and real YAML. Reused the earlier labeled Calendar verification event by its stable key. Verified nested Drive input paths and downloaded the uploaded original bytes; verified the Doc's native folder hyperlink and preserved existing review notes.
+- A duplicate full-pipeline run recorded only one start for extraction and each destination across both runs. Direct writer reruns also passed, including a no-WO job that could only be deduplicated by its named range, an already-present original work-order label, reuse of the original October heading, same-day and cross-date ordering, emoji title ranges, and blank review fields.
+- An orchestration expression errored after a successful connector read; this did not change document content. The returned readback verified the corrected full folder-link label. All application checks described above completed successfully.
+- Final real-API checks passed for the simplified tab-level named-range lookup and plain blank review paragraphs. Moved only the dedicated verification folder and its synthetic artifacts to Drive trash. Production Doc/FieldNation targets and the earlier Calendar verification event remain in place.
+- Compilation, Git whitespace checks, ignored-file checks, and a private-value scan passed. Actual destination IDs and credential values are absent from versioned/unignored project files; `.env`, client JSON, and token remain 0600. `AGENTS.md` is unchanged.
+- **Real Docs/Drive destination step complete.** Normal `python run.py` uses the selected original annual document and existing FieldNation Drive folder from ignored configuration, with real job-folder links and verified interruption recovery.
+
+## 2026-10-18 — Commit and push
+
+- User requested committing and pushing the completed Calendar Bot work. Include the implementation, archived originals, configuration example, and project documentation; leave the unrelated root development-log change unstaged.
+- Staged-content and whitespace checks passed: only Calendar Bot project files are included; private credentials, pinned destination IDs, inputs, outputs, and runtime state are excluded. The earlier manual and live verification results remain recorded above.

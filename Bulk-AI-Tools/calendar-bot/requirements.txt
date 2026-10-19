@@ -1,0 +1,12 @@
+# These libraries read uploads, ask Luna for job details, and write Calendar events.
+# Poppler and Tesseract are separate system tools; see README.md for installation.
+openai>=2.0
+pypdf>=6.0
+Pillow>=11.0
+pdf2image>=1.17
+pytesseract>=0.3.13
+google-api-python-client>=2.0
+google-auth-httplib2>=0.2
+google-auth-oauthlib>=1.2
+python-dotenv>=1.0
+PyYAML>=6.0
