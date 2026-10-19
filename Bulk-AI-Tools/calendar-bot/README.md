@@ -51,6 +51,26 @@ Every job must have a readable date, earliest arrival, positive work duration, a
 
 Calendar times use `America/Phoenix`. The appointment starts at the earliest arrival minus the outbound drive estimate and ends at the earliest arrival plus the estimated onsite work duration. The description contains the arrival window and extracted work details. Travel home is outside the appointment.
 
+## Concurrent threads
+
+The bot uses a `ThreadPoolExecutor` with **four worker threads by default**. Each worker handles one work order through extraction, validation, and destination writes. With four workers, up to four jobs can be in progress at once; additional jobs wait for a worker to become available. All PDFs and screenshots inside one upload subfolder stay together in one job and are read in sequence by its worker.
+
+Text extraction, OCR, and Luna requests can overlap across jobs. While one worker waits for Luna to respond, another can extract a different work order. Workers may finish in a different order than the files were discovered; the Docs writer places new entries in date and arrival order.
+
+**Shared writes happen one at a time.** One lock protects Calendar, Drive, and Docs writes, as well as YAML checkpoints/logs and processed-source records. A worker waits for that lock before writing, so increasing the worker count does not make Google destination writes run in parallel.
+
+Set the worker count for each run:
+
+```bash
+python run.py --workers 4  # Default: up to four jobs in progress
+python run.py --workers 1  # Process one job at a time
+python run.py --workers 8  # Allow up to eight jobs in progress
+```
+
+More workers allow more simultaneous extraction work and Luna requests, which can increase CPU/memory use and API demand. The shared write lock can still limit throughput. A failed job is logged while other jobs continue, and the run exits nonzero if any job fails.
+
+Run only one bot instance at a time. The lock coordinates threads inside that process; it does not coordinate separate bot processes.
+
 ## Files and recovery
 
 | Location | Contents |
@@ -65,7 +85,7 @@ The FieldNation job folder uses `Unknown-Store` when no store abbreviation is av
 
 Rerun the same command after an interruption. A validated checkpoint resumes unfinished destinations without another extraction call. Calendar uses a [stable client-supplied event ID](https://developers.google.com/workspace/calendar/api/guides/create-events) derived from the job’s upload-relative path. Docs records a named range with its insertion so a repeated write recognizes the job; an existing matching work-order label also avoids duplication. Drive IDs are saved in YAML before creation so an interrupted response can be recovered without uploading another copy. The Docs step waits for the Drive job-folder URL. A source is marked processed only after all three Google destinations succeed.
 
-Keep job paths stable and treat completed uploads as immutable. Reusing a path represents the same Calendar event. A pending checkpoint is bound to its original calendar, document, and parent folder IDs; resume with those destinations. The bot is a command-line batch tool: run one instance at a time. Its lock coordinates worker threads within that instance.
+Keep job paths stable and treat completed uploads as immutable. Reusing a path represents the same Calendar event. A pending checkpoint is bound to its original calendar, document, and parent folder IDs; resume with those destinations.
 
 Earlier local Markdown/FieldNation outputs are retained. Completed source records keep their completed status; this destination change does not backfill historical jobs. Pending validated checkpoints can finish the new cloud destinations while retaining completed Calendar work.
 

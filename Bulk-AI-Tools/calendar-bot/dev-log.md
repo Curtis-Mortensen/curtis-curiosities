@@ -107,3 +107,8 @@ This file records implementation decisions, problems, and actual verification re
 
 - User requested committing and pushing the completed Calendar Bot work. Include the implementation, archived originals, configuration example, and project documentation; leave the unrelated root development-log change unstaged.
 - Staged-content and whitespace checks passed: only Calendar Bot project files are included; private credentials, pinned destination IDs, inputs, outputs, and runtime state are excluded. The earlier manual and live verification results remain recorded above.
+
+## 2026-10-18 — Document concurrent threads
+
+- Added a README section covering the default four-worker pool, one work order per worker, sequential files within grouped jobs, overlapping extraction/OCR/Luna calls, serialized Google and shared-state writes, completion order, worker-count examples, resource tradeoffs, failure isolation, and the one-process limit.
+- Checked the description against the CLI, pipeline, extraction code, and common lock. This documentation-only change does not alter runtime behavior or require new tests. Whitespace review passed; no implementation bugs were encountered.
