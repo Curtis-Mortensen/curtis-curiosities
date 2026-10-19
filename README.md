@@ -1,19 +1,32 @@
 # Curtis Curiosities
 
-A monorepo of independent small projects.
+A collection of independent projects and experiments, grouped by topic. Each project has its own folder and README where available.
 
-## Projects
+## Current projects
+
+### Bulk AI Tools
 
 | Project | Description |
 |---|---|
-| [BOI-Combat-System](BOI-Combat-System/) | Python audit tools for Binding of Isaac–style combat balance in an HTML guide |
-| [Bulk-Image-Gen](Bulk-Image-Gen/) | Batch image generation from YAML prompts via Google AI Studio (Gemini) |
-| [Cleveland-Justice-Site](Cleveland-Justice-Site/) | Archived static site about justice statistics in Cleveland |
-| [DriveThruCards-Deck-Automator](DriveThruCards-Deck-Automator/) | Playwright plan + skeleton to batch-upload card art into DTC’s poker deck builder |
-| [MTG-Benchmark](MTG-Benchmark/) | Open-source, auditable LLM evaluation question sets and scoring |
-| [NanDeck-Scripts](NanDeck-Scripts/) | nanDeck card layout workflow and pixel-to-coordinate conversion tools |
-| [One-Deck-Dungeons](One-Deck-Dungeons/) | Transcribe, rate, and rank one-page D&D dungeon maps (OPDC) |
-| [Quote-Wallpapers](Quote-Wallpapers/) | Generate wallpaper images from a SQLite quotes database |
-| [Scrape-Ventures](Scrape-Ventures/) | Extract venture names from Airtable JSON into CSV |
-| [Web-Design-And-Dev](Web-Design-And-Dev/) | Next.js marketing site and Sanity band portfolio |
-| [Win-Install](Win-Install/) | PowerShell + winget setup for a fresh Windows machine |
+| [Bulk Image Gen](Bulk-AI-Tools/Bulk-Image-Gen/) | Generate batches of images from YAML prompts using Google AI Studio. |
+| [Grade Report (MTG Benchmark)](Bulk-AI-Tools/MTG-Benchmark/) | Auditable question sets and scoring tools for evaluating language models. |
+| [One-Deck-Dungeons](Bulk-AI-Tools/One-Deck-Dungeons/) | Transcribe, rate, and rank one-page D&D dungeon maps. |
+| [Calendar Bot](Bulk-AI-Tools/calendar-bot/) | Calendar bot project files; currently contains a Battle of the Bands calendar. |
+
+### Other projects
+
+| Project | Description |
+|---|---|
+| [Cleveland Justice Site](Cleveland-Justice-Site/) | Archived static site concept about justice statistics in Cleveland. |
+| [D&D Manual](DNDR-Manual/) | LaTeX recreation and development files for a D&D rules manual. |
+| [DriveThruCards Deck Automator](DriveThruCards-Deck-Automator/) | Playwright helper and plan for organizing and uploading card art to DriveThruCards. |
+| [nanDECK Scripts](NanDeck-Scripts/) | Card layout tools, including the current Python/PIL rendering workflow and original nanDECK files. |
+| [Quote Wallpapers](Quote-Wallpapers/) | Generate wallpaper images from quotes stored in SQLite. |
+| [Web Design & Dev](Web-Design-And-Dev/) | Web projects, including a Next.js marketing site and a band portfolio. |
+| [Win Install](Win-Install/) | PowerShell and winget setup scripts for a fresh Windows machine. |
+
+## Archive
+
+| Project | Description |
+|---|---|
+| [Scrape Ventures](archive/Scrape-Ventures/) | Archived venture-name extraction tools and a Slay the Spire 2 tier-list viewer. |
