@@ -2,6 +2,11 @@
 
 This log records changes to the workspace index and the choices made while keeping it aligned with the folders in this repository.
 
+## 2026-11-05 — Archive Research Bot leftovers
+
+- Moved `Research-Bot/dev-log.md` and the TTS emotion/sound-tag comparison report (merged via PR #57) into `archive/Research-Bot/`, since `Research-Bot/` was retired in the reorganization.
+- Added Research Bot to the README's archive table.
+
 ## 2026-10-18 — Update project index
 
 - Reorganized the root README into current projects and archived projects, with the existing `Bulk-AI-Tools/` grouping shown as a section.

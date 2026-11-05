@@ -31,3 +31,4 @@ A collection of independent projects and experiments, grouped by topic. Each pro
 | Project | Description |
 |---|---|
 | [Scrape Ventures](archive/Scrape-Ventures/) | Archived venture-name extraction tools. |
+| [Research Bot](archive/Research-Bot/) | Archived research reports and dev log, including the TTS emotion/sound-tag API comparison. |
