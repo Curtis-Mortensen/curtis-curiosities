@@ -1,0 +1,106 @@
+; DriveThruCards US Poker production geometry
+; Proposed five-card proof variant; do not run for the full deck until proofed.
+;
+; DriveThruCards requirements:
+; - finished trim: 2.5 x 3.5 inches
+; - submitted page including bleed: 2.75 x 3.75 inches
+; - 0.125 inch bleed on every side
+; - important text/art at least 0.125 inch inside the finished trim
+; - final delivery is a multi-page PDF/X-1a:2003 in CMYK, not PNG
+;
+; This file uses the bleed canvas as the nanDECK card size. The trim box
+; begins at (0.125, 0.125) and ends at (2.625, 3.625). The white field
+; deliberately bleeds to the page edge; the frame and all important text
+; remain inside the trim/safe area.
+UNIT = INCH
+DPI = 300
+CARDSIZE = 2.75, 3.75
+PAGE = 8.5, 11, PORTRAIT, HV
+LINK = Unified-Cards-Sheet.xlsx!Items
+[all] = 1-5
+
+; Full-page white bleed. A non-bleeding white background is allowed.
+RECT = [all], 0, 0, 2.75, 3.75, #FFFFFF
+
+; Pre-assign spaced column names to space-free labels.
+[tag1] = [Tag 1]
+[tag2] = [Tag 2]
+[tag3] = [Tag 3]
+[tag4] = [Tag 4]
+
+; Tag image lookup table.
+[img_]             = blank.png
+[img_bow]          = bow.png
+[img_finesse]      = finesse.png
+[img_fire]         = fire.png
+[img_healing]      = healing.png
+[img_ice]          = ice.png
+[img_heavy_weapon] = heavy_weapon.png
+[img_instrument]   = instrument.png
+[img_armor]        = armor.png
+[img_light]        = light.png
+[img_shield]       = shield.png
+[img_pet]          = pet.png
+[img_theft]        = theft.png
+
+[label_Basic]   = Basic Item
+[label_Instant] = Instant Item
+
+; Card illustration: shifted by the 0.125 inch bleed offset so its
+; original trim-relative placement is preserved.
+IMAGE = [all], [Hyperlink], 0.175, 0.475, 2.4, 1.75, 0, CN
+
+; Frame is trim-sized and begins at the trim edge, not the bleed edge.
+IF = [Type] = Basic
+  IMAGE = [all], frame_basic.png, 0.125, 0.125, 2.5, 3.5, 0, N
+ENDIF
+IF = [Type] = Rare
+  IMAGE = [all], frame_rare.png, 0.125, 0.125, 2.5, 3.5, 0, N
+ENDIF
+IF = [Type] = Instant
+  IMAGE = [all], frame_instant.png, 0.125, 0.125, 2.5, 3.5, 0, N
+ENDIF
+IF = [Type] = Rare-Instant
+  IMAGE = [all], frame_rare.png, 0.125, 0.125, 2.5, 3.5, 0, N
+ENDIF
+
+; Important text is kept at least 0.125 inch inside the finished trim.
+FONT = Bahnschrift SemiBold, 11, BT, #FFFFFF
+TEXT = [all], [Name], 0.325, 0.25, 2.26, 0.22, left, center
+
+FONT = Bahnschrift Light, 10, T, #FFFFFF
+TEXT = [all], [Game Text], 0.425, 2.275, 2, 1, left, wordwrap
+
+IF = [Flavor Text] <> ""
+  FONT = Arial, 9, IT, #CCCCCC
+  TEXT = [all], [Flavor Text], 0.305, 2.955, 2.14, 0.26, left, wordwrap
+ENDIF
+
+FONT = Bahnschrift SemiBold, 9, BT, #FFFFFF
+TEXT = [all], [label_[Type]], 0.125, 3.25, 2.5, 0.22, center, center
+
+; Icons are shifted down and left enough to remain in the safe area.
+[tag_y]  = 0.25
+[tag_w]  = 0.3
+[tag_h]  = 0.3
+[tag_x1] = 2.15
+[tag_x2] = 1.82
+[tag_x3] = 1.49
+[tag_x4] = 1.16
+
+IF = [tag1] <> ""
+  IMAGE = [all], [img_[tag1]], [tag_x1], [tag_y], [tag_w], [tag_h], 0, CP
+ENDIF
+IF = [tag2] <> ""
+  IMAGE = [all], [img_[tag2]], [tag_x2], [tag_y], [tag_w], [tag_h], 0, CP
+ENDIF
+IF = [tag3] <> ""
+  IMAGE = [all], [img_[tag3]], [tag_x3], [tag_y], [tag_w], [tag_h], 0, CP
+ENDIF
+IF = [tag4] <> ""
+  IMAGE = [all], [img_[tag4]], [tag_x4], [tag_y], [tag_w], [tag_h], 0, CP
+ENDIF
+
+; Raster proof export only. The final delivery must be converted to a
+; CMYK PDF/X-1a:2003 and preflighted before upload.
+SAVE = 1-5, "cards-drivethrucards-proof_{§}.png", 0, 0, 2.75, 3.75

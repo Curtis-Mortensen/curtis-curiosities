@@ -1,0 +1,14 @@
+# Private inputs, generated outputs, credentials, and Python setup stay on this machine.
+.env
+credentials.json
+token.json
+*credentials*.json
+*token*.json
+uploads/
+local/
+processed.md
+runtime.yaml
+runtime.yaml.*
+.venv/
+__pycache__/
+*.pyc
