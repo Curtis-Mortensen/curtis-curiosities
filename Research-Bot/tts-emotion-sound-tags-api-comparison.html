@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TTS APIs with Emotion &amp; Sound Tags — Cost &amp; Capability Comparison</title>
+<style>
+  /*
+    This file is a Research-Bot research brief.
+    It exists so a human can compare hosted and open text-to-speech systems that
+    support emotion tags and non-verbal sound tags (laughs, sighs, etc.) —
+    especially Gemini TTS vs Grok, Fish S2.1, Qwen, ElevenLabs, plus Elo leaders
+    (Simba), OpenAI/Realtime steering, and open-vs-closed notes.
+    Style follows other reports in this folder (aims → limitations → history → catalog → citations).
+  */
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #21262d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #d4a853;
+    --accent2: #58a6ff;
+    --danger: #f85149;
+    --success: #3fb950;
+    --warn: #d29922;
+    --link: #79c0ff;
+    --border: #30363d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .container { max-width: 980px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  h1 { font-size: 2rem; line-height: 1.25; margin-bottom: 0.5rem; color: var(--accent); }
+  .subtitle { color: var(--muted); font-style: italic; font-size: 1.05rem; }
+  .meta { margin-top: 1rem; color: var(--muted); font-size: 0.88rem; }
+  h2 {
+    font-size: 1.45rem;
+    color: var(--accent2);
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 { font-size: 1.15rem; color: var(--accent); margin: 1.5rem 0 0.75rem; }
+  h4 { font-size: 1rem; color: var(--muted); margin: 1rem 0 0.5rem; }
+  p { margin-bottom: 1rem; }
+  a { color: var(--link); }
+  a:hover { text-decoration: underline; }
+  ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  .thesis-box, .limitation-box, .recommend-box, .warn-box {
+    background: var(--surface);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+    border-left: 4px solid var(--accent);
+  }
+  .limitation-box { border-left-color: var(--danger); }
+  .recommend-box { border-left-color: var(--success); }
+  .warn-box { border-left-color: var(--warn); }
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .overview-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.15rem;
+  }
+  .overview-card h4 { color: var(--accent2); margin-top: 0; }
+  .big-num {
+    font-size: 2.2rem;
+    color: var(--accent);
+    font-family: 'Courier New', monospace;
+    line-height: 1.1;
+  }
+  .diagram {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.4rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    line-height: 1.45;
+    white-space: pre;
+    color: #b8c8d4;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0 1.5rem;
+    font-size: 0.84rem;
+    background: var(--surface);
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.55rem 0.65rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: var(--surface2); color: var(--accent); }
+  tr:nth-child(even) { background: #131820; }
+  tr.baseline { background: #2a2416 !important; }
+  tr.cheap { background: #13241a !important; }
+  tr.exclude { opacity: 0.72; }
+  .tag {
+    display: inline-block;
+    background: var(--surface2);
+    color: var(--accent2);
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-family: 'Courier New', monospace;
+    margin: 0.1rem 0.15rem 0.1rem 0;
+  }
+  .citation { font-size: 0.78rem; color: var(--muted); vertical-align: super; }
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+  }
+  .toc ol { margin-bottom: 0; }
+  .model-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem 1.4rem;
+    margin: 1.25rem 0;
+  }
+  .model-card h3 { margin-top: 0; }
+  .small { font-size: 0.88rem; color: var(--muted); }
+  .refs { font-size: 0.86rem; }
+  .refs li { margin-bottom: 0.55rem; word-break: break-word; }
+  .conclusion-box {
+    background: var(--surface);
+    border: 2px solid var(--accent);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+  }
+  code {
+    font-family: 'Courier New', monospace;
+    background: var(--surface2);
+    padding: 0.05rem 0.35rem;
+    border-radius: 3px;
+    font-size: 0.88em;
+  }
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  @media (max-width: 640px) {
+    h1 { font-size: 1.45rem; }
+    table { font-size: 0.74rem; }
+  }
+  @media print {
+    body { background: #fff; color: #111; }
+    .diagram { background: #f4f4f4; color: #222; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>TTS APIs That Support Emotion Tags <em>and</em> Sound Tags</h1>
+  <p class="subtitle">A Research-Bot survey of hosted <em>and</em> open-source text-to-speech models released (or prominently upgraded) roughly July 2025–July 2026 that support emotion/delivery tags <em>and</em> non-verbal sound tags like laughs — with cost notes for the APIs you can actually bill against.</p>
+  <p class="meta">Research Bot · first pass 2026-07-30 · expanded same day (market sweep, Elo, OpenAI/Realtime, licensing, shopping notes) · not financial or procurement advice</p>
+</header>
+
+<nav class="toc" aria-label="Table of contents">
+  <strong>Contents</strong>
+  <ol>
+    <li><a href="#aims">Introduction &amp; aims</a></li>
+    <li><a href="#precursors">Precursor / subset questions</a></li>
+    <li><a href="#limitations">Limitations &amp; strength of evidence</a></li>
+    <li><a href="#history">History of expressive TTS control</a></li>
+    <li><a href="#filter">Inclusion filter: what “tags” means here</a></li>
+    <li><a href="#how-many">How many models qualify?</a></li>
+    <li><a href="#elo">Artificial Analysis Speech Arena Elo (top 5)</a></li>
+    <li><a href="#simba">Simba 3.2 — cheaper/faster, less control</a></li>
+    <li><a href="#openai">OpenAI voice updates, Realtime steering &amp; timeline</a></li>
+    <li><a href="#year-catalog">Last ~12 months: comprehensive catalog</a></li>
+    <li><a href="#cost">Normalized cost comparison (hosted)</a></li>
+    <li><a href="#catalog">Hosted API deep-dives</a></li>
+    <li><a href="#opensource">Open-source / open-weight deep-dives</a></li>
+    <li><a href="#licensing">Open vs closed: Simba, Fish, Qwen</a></li>
+    <li><a href="#new-releases">How new releases compare on cost</a></li>
+    <li><a href="#excluded">Notable exclusions &amp; near-misses</a></li>
+    <li><a href="#conclusion">Conclusion &amp; further questions</a></li>
+    <li><a href="#refs">Sources</a></li>
+  </ol>
+</nav>
+
+<section id="aims">
+  <h2>1. Introduction &amp; aims</h2>
+  <p>Modern neural text-to-speech (TTS) no longer only “reads the words.” A growing set of APIs let you write <em>stage directions</em> into the script — emotion words, delivery cues, and non-verbal sounds such as laughs, sighs, gasps, or breaths — so a single generation pass can sound acted rather than flat.<a href="#ref-gemini-speech" class="citation">[1]</a><a href="#ref-eleven-v3-tags" class="citation">[2]</a></p>
+  <p>This report starts from a practical baseline: personal projects currently using <strong>Gemini TTS</strong>, which supports scene direction, voice/audio tags, noises, and about <strong>30</strong> prebuilt voices, but costs more than desired.<a href="#ref-gemini-cloud-blog" class="citation">[3]</a><a href="#ref-gemini-voices" class="citation">[4]</a> Recent alternatives of interest include <strong>xAI Grok TTS / flagship voices</strong>, <strong>Fish Audio S2.1</strong>, and <strong>Qwen-Audio-3.0-TTS</strong>, with <strong>ElevenLabs</strong> as the familiar premium foil.<a href="#ref-xai-voices" class="citation">[5]</a><a href="#ref-fish-models" class="citation">[6]</a><a href="#ref-qwen-blog" class="citation">[7]</a></p>
+  <p>The document aims to:</p>
+  <ol>
+    <li>Define a strict filter: models that support <strong>emotion/delivery tags</strong> <em>and</em> <strong>sound tags like laughs</strong>.</li>
+    <li>Produce a <strong>fairly comprehensive catalog of releases from roughly the last year</strong> (≈ Jul 2025–Jul 2026) that meet that filter — hosted <em>and</em> open-source/open-weight.</li>
+    <li>Normalize published pricing for billable APIs so Gemini, Grok, Fish, Qwen, ElevenLabs, Inworld, MiniMax, Cartesia, and peers can be compared on cost.</li>
+    <li>Check whether the newest releases actually ship tag support — or whether new models are “dumb voices” again.</li>
+    <li>Cover OpenAI’s TTS <code>instructions</code>, Realtime session steering, and audio-release timeline against the laugh-tag filter.</li>
+    <li>Pull Artificial Analysis Speech Arena Elo for the top five models and weave Elo into comparisons.</li>
+    <li>Clarify open/closed status for Simba, Fish, and Qwen — and whether community hacking is likely.</li>
+    <li>Give a practical recommendation for cost-sensitive personal projects that refuse to give up laughs and emotion cues.</li>
+  </ol>
+  <div class="thesis-box">
+    <strong>Quick verdict (after a broader market sweep + follow-up chat):</strong> The first pass understated the market. Counting distinct product lines that meet the emotion + laugh/sound-tag filter across ~12 months yields roughly <strong>9–11 hosted/closed APIs</strong> and roughly <strong>6–8 open-source / open-weight systems</strong> (plus Step-Audio-EditX as a tag-based post-editor) — about <strong>~15–18 named systems</strong>.<a href="#ref-inworld-steering" class="citation">[36]</a><a href="#ref-maya1" class="citation">[37]</a><a href="#ref-orpheus" class="citation">[38]</a><a href="#ref-cosyvoice3" class="citation">[39]</a><a href="#ref-dia" class="citation">[40]</a> AA top 5 Elo (2026-07-30): Simba 1,229 · Qwen Plus 1,227 · Gemini 3.1 1,213 · Luna 1,203 · Sonic 3.5 1,202. <strong>Qwen-Audio-3.0 is worth exploring</strong> (tagged arena co-leader, ~Jul 20 2026) but is <strong>hosted/closed today</strong> — weights hopefully follow the usual Qwen pattern; older open <code>Qwen3-TTS</code> (Apache 2.0) is a separate line. <strong>Simba may be cheaper and faster than Gemini</strong> (~$6–10/1M, sub-300&nbsp;ms first byte, Elo #1) <em>at the expense of customization and control</em> — SSML emotions, no laugh/sound tags, closed API-only. Fish is open-<em>weights</em> under a research license (commercial needs a separate deal), not OSI open source. OpenAI steers with <code>instructions</code> / Realtime prompts, not native <code>[laughs]</code> tags.
+  </div>
+</section>
+
+<section id="precursors">
+  <h2>2. Precursor / subset questions</h2>
+  <p>Following Research-Bot practice, the big shopping question was broken into smaller ones researched in order:</p>
+  <ol>
+    <li>What counts as an “emotion tag” vs a “sound tag,” and what gets excluded?</li>
+    <li>Which <em>hosted</em> APIs document both — beyond the Gemini/Grok/Fish/Qwen/Eleven shortlist?</li>
+    <li>Which <em>open-source / open-weight</em> models released in the last year document both?</li>
+    <li>How many distinct product lines is that (families, not every SKU)?</li>
+    <li>What did Gemini, Grok, Fish S2.1, Qwen-Audio-3.0, Inworld TTS-2, Maya1, Orpheus, CosyVoice 3, Dia, etc. actually ship?</li>
+    <li>Is Gemini still cheaper than ElevenLabs on the tag-capable tier?</li>
+    <li>How do new releases line up on cost once units are normalized?</li>
+    <li>What did OpenAI’s recent voice/TTS updates actually add — and do they clear the laugh-tag bar?</li>
+    <li>How does GPT Realtime steer voice/emotion, and what is the OpenAI audio release timeline?</li>
+    <li>What are the Artificial Analysis Speech Arena top-five Elo scores today?</li>
+    <li>Does Simba steer at all (SSML), and is the Elo/#1 win worth losing laugh tags vs Gemini?</li>
+    <li>Are Simba / Fish / Qwen open source — and will Qwen-Audio-3.0 weights drop for community optimizations?</li>
+  </ol>
+</section>
+
+<section id="limitations">
+  <h2>3. Limitations &amp; strength of evidence</h2>
+  <div class="limitation-box">
+    <h3>Theoretical / market limitations</h3>
+    <p>TTS quality is partly subjective: “sounds human” and “the laugh landed” are listener judgments, not single lab metrics. Vendor demos cherry-pick good takes; tag obedience varies by voice, language, and how crowded the script is with cues.<a href="#ref-cartesia-emotion" class="citation">[16]</a> Pricing pages change without academic archival discipline — a July 2026 snapshot can be wrong by September.</p>
+    <h3>Methodology limitations</h3>
+    <ul>
+      <li>This report relies on <strong>vendor documentation, pricing pages, launch blogs, HF cards, papers, and secondary roundups</strong>. It does not run a blind listening study or burn real API spend across every vendor.</li>
+      <li>The first draft under-counted open-source and some hosted peers; this revision widens the sweep but the market still moves weekly — treat the catalog as a July 2026 snapshot, not a permanent census.</li>
+      <li>Billing units differ (characters vs UTF-8 bytes vs audio tokens). Normalized “$ per 1M English characters” and “$ per audio minute” are <em>estimates</em> using published conversion assumptions (e.g., Google’s ~25 audio tokens/second).<a href="#ref-gcp-tts-pricing" class="citation">[13]</a></li>
+      <li>Some tag lists are incomplete in third-party mirrors (HTML stripping of angle-bracket wrapping tags). Prefer primary docs when integrating.</li>
+      <li>Open-source / self-hosted models are cataloged for capability; cost ranks GPU/ops separately from hosted $/character ladders.</li>
+    </ul>
+    <h3>Field maturity</h3>
+    <p>Expressive neural TTS with inline performance tags is a young product category (roughly 2024–2026 for the current “audio tag” wave). Independent comparative science is thinner than for ASR word-error-rate. Treat Elo leaderboards and marketing “#1” claims as useful signals, not final truth.<a href="#ref-qwen-decoder" class="citation">[17]</a></p>
+  </div>
+</section>
+
+<section id="history">
+  <h2>4. History of the fields that try to answer this</h2>
+  <p>Speech synthesis has cycled through control paradigms for decades:</p>
+  <div class="diagram">Timeline (simplified)
+
+  1990s–2000s   Concatenative / formant TTS
+                Control = pitch/duration params, limited expressivity
+
+  ~2004–2015    SSML (W3C) becomes the enterprise "tag language"
+                &lt;break&gt;, &lt;prosody&gt;, &lt;emphasis&gt; — emotion often vendor-specific
+
+  ~2016–2020    Neural WaveNet / Tacotron era
+                Better naturalness; control often via style tokens / embeddings
+                (not friendly inline script tags for hobbyists)
+
+  ~2021–2024    Voice cloning APIs (ElevenLabs et al.)
+                Emotion often "hope the model infers it" or separate emotion enums
+
+  ~2024–2026   "Audio tags" / "speech tags" / "sound tags" product wave
+                Bracket cues like [laughs] [whisper] [angry] written into the script
+                Gemini 3.1, Eleven v3, Fish S2/S2.1, Grok TTS, Qwen-Audio-3.0, MiniMax 2.8
+  </div>
+  <p>SSML taught the industry that markup belongs next to the words.<a href="#ref-speechify-ssml" class="citation">[18]</a> The 2025–2026 wave replaces much of that XML with natural-language brackets that models learned from training data — sometimes as free-form text (Fish S2.1) rather than a closed enum.<a href="#ref-fish-models" class="citation">[6]</a> That is why “does the new model support tags?” became a buyer question overnight: without tags, expressive pipelines regress to regenerate-and-pray.</p>
+</section>
+
+<section id="filter">
+  <h2>5. Inclusion filter: what “tags” means here</h2>
+  <p>To match the user’s requirement — <strong>emotion tags and sound tags like laughs</strong> — a model must document <em>both</em> of the following in primary or close-secondary docs:</p>
+  <ol>
+    <li><strong>Emotion / delivery tags</strong> — inline or SSML markers that steer mood or delivery (e.g., <code>[angry]</code>, <code>[excited]</code>, <code>&lt;emotion value="sad"/&gt;</code>, wrapping <code>&lt;whisper&gt;…&lt;/whisper&gt;</code>).</li>
+    <li><strong>Non-verbal sound tags</strong> — cues that produce or strongly trigger vocal sounds such as laughs, chuckles, sighs, gasps, breaths, coughs (e.g., <code>[laughs]</code>, <code>[laugh]</code>, <code>(laughs)</code>, <code>[laughter]</code>).</li>
+  </ol>
+  <div class="warn-box">
+    <strong>Excluded by design:</strong> APIs that only offer a separate “emotion” API parameter with no laugh/sound cues; APIs that only take a free-text “acting description” field without documented inline laugh tags (notably Hume Octave’s description-based acting instructions); plain TTS with no documented tag vocabulary (classic OpenAI TTS tiers without audio tags).<a href="#ref-hume-acting" class="citation">[19]</a>
+  </div>
+</section>
+
+<section id="how-many">
+  <h2>6. How many models qualify?</h2>
+  <div class="overview-grid">
+    <div class="overview-card">
+      <h4>Hosted / closed lines</h4>
+      <div class="big-num">~9–11</div>
+      <p class="small">APIs with documented emotion/delivery tags + laugh/non-verbal sound tags (Jul 2025–Jul 2026 window).</p>
+    </div>
+    <div class="overview-card">
+      <h4>Open-source / weights</h4>
+      <div class="big-num">~6–8</div>
+      <p class="small">Self-hostable systems with native (or first-class edit) tag vocabularies meeting the same bar.</p>
+    </div>
+    <div class="overview-card">
+      <h4>Named systems total</h4>
+      <div class="big-num">~15–18</div>
+      <p class="small">Order-of-magnitude answer to “how many models do this?” — a small club, but larger than the Gemini/Grok/Fish/Qwen shortlist.</p>
+    </div>
+  </div>
+  <p>The first draft of this report answered “about seven commercial product lines.” That was true for a <em>short</em> shortlist, but it omitted several real market options — notably <strong>Inworld TTS-2</strong>, <strong>MyVocal v3</strong>, and a whole open-source wave (<strong>Orpheus</strong>, <strong>Maya1</strong>, <strong>CosyVoice 3</strong>, <strong>Dia</strong>, <strong>Step-Audio-EditX</strong>, experimental <strong>Chatterbox</strong> tokens).<a href="#ref-inworld-steering" class="citation">[36]</a><a href="#ref-maya1" class="citation">[37]</a><a href="#ref-orpheus" class="citation">[38]</a><a href="#ref-dia" class="citation">[40]</a><a href="#ref-step-editx" class="citation">[41]</a></p>
+  <p>Still: this is not “dozens of interchangeable APIs.” Most commodity TTS (Polly baselines, plain OpenAI TTS, Deepgram Aura-2, PlayDialog, Zonos’s parameter-style emotion, IndexTTS-2’s vector/NL emotion without laugh tags) still fail the dual bar.</p>
+</section>
+
+<section id="elo">
+  <h2>7. Artificial Analysis Speech Arena Elo (top 5)</h2>
+  <p>Artificial Analysis ranks provider TTS voices with an <strong>Elo</strong> from blind pairwise listener votes in Speech Arena (same text, two models, pick which sounds more natural). Scores move as votes arrive; overlapping 95% CIs mean #1/#2 often trade places.<a href="#ref-aa-leaderboard" class="citation">[51]</a></p>
+  <p class="small">Snapshot below is from the live provider-voice leaderboard fetched <strong>2026-07-30</strong>. API pricing column is Artificial Analysis’s own $/1M chars figure for that model.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Model</th>
+        <th>Creator</th>
+        <th>Elo</th>
+        <th>95% CI</th>
+        <th>AA $/1M chars</th>
+        <th>Emotion + laugh tags?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Simba 3.2</td>
+        <td>SpeechifyAI</td>
+        <td><strong>1,229</strong></td>
+        <td>±16</td>
+        <td>$10.0</td>
+        <td>SSML emotion only — no laugh/sound tags (see <a href="#simba">§8</a>)</td>
+      </tr>
+      <tr class="cheap">
+        <td>2</td>
+        <td>Qwen-Audio-3.0-TTS-Plus</td>
+        <td>Alibaba</td>
+        <td><strong>1,227</strong></td>
+        <td>±16</td>
+        <td>$27.6</td>
+        <td>Yes — 86 inline tags</td>
+      </tr>
+      <tr class="baseline">
+        <td>3</td>
+        <td>Gemini 3.1 Flash TTS</td>
+        <td>Google</td>
+        <td><strong>1,213</strong></td>
+        <td>±13</td>
+        <td>$18.3</td>
+        <td>Yes — 200+ tags + scene</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Luna TTS</td>
+        <td>VUI Labs</td>
+        <td><strong>1,203</strong></td>
+        <td>±15</td>
+        <td>$80.0</td>
+        <td>Not established in this report’s tag survey</td>
+      </tr>
+      <tr class="cheap">
+        <td>5</td>
+        <td>Sonic 3.5</td>
+        <td>Cartesia</td>
+        <td><strong>1,202</strong></td>
+        <td>±14</td>
+        <td>$49.0</td>
+        <td>Yes — emotion + <code>[laughter]</code></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="diagram">Top 5 Elo (AA provider-voice, 2026-07-30)
+
+  1229  Simba 3.2          ████████████████████  (no laugh tags)
+  1227  Qwen-Audio-3.0+    ███████████████████▉  ★ tags
+  1213  Gemini 3.1 Flash   ██████████████████▊   ★ tags (your baseline)
+  1203  Luna TTS           █████████████████▉
+  1202  Sonic 3.5          █████████████████▉   ★ tags
+
+  Nearby tagged peers on the same board (not top 5):
+  1197 StepAudio 2.5 · 1189 Inworld TTS-2 · 1174 MiniMax 2.8 HD
+  1173 Eleven v3 · 1138 Fish S2.1 Pro · 1096 SpaceXAI TTS (Grok)
+  </div>
+  <p><strong>Takeaway for tag shoppers:</strong> three of the top five (#2 Qwen, #3 Gemini, #5 Sonic) are in the emotion+laugh tag club. #1 Simba wins raw preference Elo without that control surface. Your Gemini baseline sits <strong>3rd at Elo 1,213</strong> — strong quality for a tagged model, with <strong>Qwen Plus essentially tied for the tagged lead</strong> and worth a serious trial. If you can live without mid-script laughs/noises, Simba’s AA price (~$10/1M) and latency pitch undercut Gemini’s effective cost while matching or beating arena preference — see the dedicated Simba section below.<a href="#ref-aa-leaderboard" class="citation">[51]</a></p>
+  <h3>Elo for other models in this report</h3>
+  <table>
+    <thead>
+      <tr><th>Model</th><th>Elo</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>StepAudio 2.5 TTS</td><td>1,197</td><td>NL + parenthetical inline direction (incl. gasp/laughing cues)</td></tr>
+      <tr><td>Inworld Realtime TTS-2</td><td>1,189</td><td>Tagged; research preview</td></tr>
+      <tr><td>Inworld Realtime TTS 1.5 Max</td><td>1,196</td><td>Partial tags on 1.5</td></tr>
+      <tr><td>MiniMax Speech 2.8 HD</td><td>1,174</td><td>Sound Tags</td></tr>
+      <tr><td>ElevenLabs Eleven v3</td><td>1,173</td><td>Full audio tags; expensive</td></tr>
+      <tr><td>Fish Audio S2.1 Pro</td><td>1,138</td><td>Strong tags; cost leader</td></tr>
+      <tr><td>SpaceXAI TTS (Grok)</td><td>1,096</td><td>Speech tags; wide CI (±20), fewer samples</td></tr>
+      <tr><td>OpenAI TTS-1 HD</td><td>1,102</td><td>No native laugh tags</td></tr>
+      <tr><td>OpenAI TTS-1</td><td>1,083</td><td>No native laugh tags</td></tr>
+      <tr><td>OpenAI GPT-Realtime-2</td><td>1,064</td><td>Realtime speech path; not tag TTS</td></tr>
+      <tr><td>Maya1 (open weights)</td><td>1,041</td><td>20+ emotion tags</td></tr>
+      <tr><td>Step Audio EditX (open)</td><td>1,109</td><td>Edit-layer tags</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="simba">
+  <h2>8. Simba 3.2 — cheaper and faster than Gemini, less customization</h2>
+  <div class="recommend-box">
+    <strong>Shopping note from follow-up review:</strong> Simba is <em>not</em> open source (Speechify closed weights, API-only).<a href="#ref-speechify-api" class="citation">[35]</a> It <strong>might be cheaper and faster than Gemini</strong> — AA ~$10/1M chars (Speechify plans from about $6–10/1M), sub-300&nbsp;ms first-byte claims, Elo <strong>#1 at 1,229</strong> — <strong>at the expense of customization and control</strong>. You get SSML-style emotion/prosody, not Gemini’s scene direction + 200+ audio tags + mid-script laughs/noises.
+  </div>
+  <article class="model-card">
+    <h3>What you do get (steering without laugh tags)</h3>
+    <ul>
+      <li><strong>SSML emotion:</strong> about <strong>13</strong> emotion values plus prosody, breaks, and related markup — real delivery control, just a different dialect than bracket tags.<a href="#ref-speechify-ssml" class="citation">[18]</a><a href="#ref-speechify-api" class="citation">[35]</a></li>
+      <li><strong>Streaming-native API</strong> (<code>/v1/audio/speech</code> and stream endpoints); English-only called out at the 3.2 API launch window (~early July 2026).</li>
+      <li><strong>Voice cloning</strong> available with approval — not a free-for-all clone playground like some peers.</li>
+      <li><strong>Not in the laugh-tag club:</strong> no documented <code>[laughs]</code> / sound-tag vocabulary that inserts non-verbals mid-script the way Gemini, Fish, Qwen, Eleven v3, or Sonic do.</li>
+    </ul>
+    <h3>Vs Gemini (for this user’s baseline)</h3>
+    <table>
+      <thead>
+        <tr><th></th><th>Simba 3.2</th><th>Gemini 3.1 Flash TTS</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>AA Elo</td><td>1,229 (#1)</td><td>1,213 (#3)</td></tr>
+        <tr><td>AA / list cost</td><td>~$6–10/1M chars</td><td>AA $18.3; token math often ~$33–37 equiv</td></tr>
+        <tr><td>Latency pitch</td><td>Sub-300&nbsp;ms first byte</td><td>Strong, but not the “cheap+fast” story</td></tr>
+        <tr><td>Emotion control</td><td>SSML (~13 emotions + prosody)</td><td>Scene + Audio Profile + 200+ inline tags</td></tr>
+        <tr><td>Laughs / noises</td><td>No documented sound tags</td><td>Yes (<code>[laughs]</code>, sighs, coughs…)</td></tr>
+        <tr><td>Openness</td><td>Closed, API-only</td><td>Hosted (Google); not open weights</td></tr>
+      </tbody>
+    </table>
+    <p><strong>When Simba wins:</strong> narration, agents, or apps that need natural speech + a handful of emotions, and you care more about $/char and first-byte latency than theatrical mid-line laughs. <strong>When Gemini (or Qwen/Fish) wins:</strong> scripts that need scene direction, dense inline performance tags, or non-verbal sound events as first-class script syntax.</p>
+  </article>
+</section>
+
+<section id="openai">
+  <h2>9. OpenAI voice updates, Realtime steering &amp; timeline</h2>
+  <div class="warn-box">
+    <strong>Short answer:</strong> OpenAI <em>did</em> ship meaningful audio upgrades — steerable <code>gpt-4o-mini-tts</code>, Realtime speech-to-speech agents, custom voices, and a long 2024–2026 release train.<a href="#ref-openai-tts" class="citation">[52]</a><a href="#ref-openai-audio-launch" class="citation">[53]</a><a href="#ref-openai-realtime-ga" class="citation">[57]</a> Steering is natural-language <strong>instructions / session prompts</strong>, not Gemini/Fish-style inline sound tags. OpenAI stays in the <strong>near-miss / adjacent</strong> bucket for this report’s dual filter — important for voice <em>agents</em>, not a drop-in tagged-narration replacement.
+  </div>
+
+  <article class="model-card">
+    <h3>9.1 Batch TTS: <code>gpt-4o-mini-tts</code></h3>
+    <ul>
+      <li>Steerable via free-form <code>instructions</code> (accent, emotional range, intonation, impressions, speed, tone, whispering).<a href="#ref-openai-tts" class="citation">[52]</a></li>
+      <li>~13 built-in voices (docs highlight <code>marin</code>/<code>cedar</code>); older <code>tts-1</code> / <code>tts-1-hd</code> remain and <em>lack</em> instructions.</li>
+      <li>Custom voices (eligible customers) via consent + sample for Speech / Realtime / Chat audio.</li>
+      <li>Snapshot <code>…-2025-12-15</code> vs <code>…-2025-03-20</code>: community reports quality vs instruction-following trade-offs.<a href="#ref-openai-instructions-bug" class="citation">[54]</a></li>
+    </ul>
+    <p>Official examples use whole-utterance direction (<em>“Speak in a cheerful and positive tone”</em>). There is no documented vocabulary of inline non-verbals that insert audio events mid-script. Third-party SDKs that map <code>[cheerfully]</code> → <code>instructions</code> are app-layer workarounds.<a href="#ref-openai-sdk-tags" class="citation">[55]</a></p>
+  </article>
+
+  <article class="model-card">
+    <h3>9.2 GPT Realtime — how steering works</h3>
+    <p>Realtime is a <strong>native speech-to-speech</strong> path (audio in → audio out over WebRTC/WebSocket), not a tagged TTS renderer. You steer with:</p>
+    <ul>
+      <li><strong><code>session.instructions</code></strong> (and/or stored prompts) — free-form Personality &amp; Tone, pacing, emotion switches mid-turn, language, filler words; OpenAI’s prompting guide shows multi-emotion adherence in one response.<a href="#ref-openai-realtime-prompting" class="citation">[58]</a><a href="#ref-openai-realtime-conversations" class="citation">[59]</a></li>
+      <li><strong>Voice picker</strong> — e.g. <code>alloy</code>, <code>ash</code>, <code>ballad</code>, <code>coral</code>, <code>echo</code>, <code>sage</code>, <code>shimmer</code>, <code>verse</code>, <code>marin</code>, <code>cedar</code>; voice locks after the first audio in a session.</li>
+      <li><strong><code>reasoning.effort</code></strong> on Realtime-2 family — trade think-time vs latency for agent workflows.<a href="#ref-openai-realtime-2" class="citation">[60]</a></li>
+      <li>Mid-session <code>session.update</code> for instructions/tools; max session length currently ~60 minutes.</li>
+    </ul>
+    <p>AA lists <strong>GPT-Realtime-2 at Elo 1,064</strong> (~$191.6/1M chars equivalent on their board) — useful as an agent quality signal, not as a cheap tag-TTS peer.<a href="#ref-aa-leaderboard" class="citation">[51]</a> Docs now point voice agents at newer slugs such as <code>gpt-realtime-2.1</code>.</p>
+    <p><strong>Bottom line:</strong> same family of control as <code>gpt-4o-mini-tts</code> (natural-language “how to speak”), different product job (live agents). Still not a substitute for Gemini/Fish/Qwen laugh tags in scripted narration.</p>
+  </article>
+
+  <article class="model-card">
+    <h3>9.3 OpenAI audio release timeline (API-focused)</h3>
+    <table>
+      <thead>
+        <tr><th>When</th><th>What shipped</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Pre-2024</td><td>Classic <code>tts-1</code> / <code>tts-1-hd</code> + Whisper</td></tr>
+        <tr><td>Oct 1, 2024</td><td>Realtime API <strong>beta</strong> + <code>gpt-4o-realtime-preview</code></td></tr>
+        <tr><td>Oct 17, 2024</td><td><code>gpt-4o-audio-preview</code> on Chat Completions (async audio I/O)</td></tr>
+        <tr><td>Dec 2024</td><td>WebRTC for Realtime</td></tr>
+        <tr><td>Mar 20, 2025</td><td><code>gpt-4o-mini-tts</code> (<code>instructions</code> steering), <code>gpt-4o-transcribe</code> / mini-transcribe<a href="#ref-openai-audio-launch" class="citation">[53]</a></td></tr>
+        <tr><td>Aug 28, 2025</td><td>Realtime <strong>GA</strong> + <code>gpt-realtime</code>; voices Cedar &amp; Marin<a href="#ref-openai-realtime-ga" class="citation">[57]</a></td></tr>
+        <tr><td>Oct 2025</td><td><code>gpt-realtime-mini</code>, <code>gpt-audio-mini</code></td></tr>
+        <tr><td>Dec 15, 2025</td><td>Stronger audio snapshots (mini-tts, realtime-mini, etc.)</td></tr>
+        <tr><td>Feb 23, 2026</td><td><code>gpt-realtime-1.5</code>, <code>gpt-audio-1.5</code></td></tr>
+        <tr><td>May 7, 2026</td><td><code>gpt-realtime-2</code>, Translate, Whisper streaming; beta interface removed ~May 12<a href="#ref-openai-changelog" class="citation">[61]</a></td></tr>
+        <tr><td>Jul 2026</td><td><code>gpt-realtime-2.1</code> (+ mini); <code>gpt-transcribe</code> / <code>gpt-live-transcribe</code></td></tr>
+      </tbody>
+    </table>
+    <p class="small">Dates from OpenAI product posts and the public API changelog. Product ChatGPT Voice / Advanced Voice Mode is a parallel consumer track, not covered in depth here.<a href="#ref-openai-changelog" class="citation">[61]</a></p>
+    <h3>Elo vs your tagged shortlist</h3>
+    <p>On the AA board: <strong>TTS-1 HD Elo 1,102</strong>, <strong>TTS-1 Elo 1,083</strong>, <strong>GPT-Realtime-2 Elo 1,064</strong> — well below Gemini 3.1 (1,213) and Qwen Plus (1,227). OpenAI’s advantage is ecosystem + instruction/Realtime steerability for agents, not arena-top narration quality or laugh tags.<a href="#ref-aa-leaderboard" class="citation">[51]</a></p>
+  </article>
+</section>
+
+<section id="year-catalog">
+  <h2>10. Last ~12 months: comprehensive catalog</h2>
+  <p>Window: roughly <strong>July 2025 – July 2026</strong>. “Release” here means a public model launch, major version, or first clear documentation of emotion + sound tags in that period. Dates are approximate from vendor posts, HF cards, and papers.</p>
+
+  <h3>10.1 Hosted / closed APIs</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>System</th>
+        <th>≈ when</th>
+        <th>Emotion / delivery tags</th>
+        <th>Laugh / sound tags</th>
+        <th>List cost (order of mag.)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Fish Audio S1 → S2 / S2.1 Pro</td>
+        <td>S1 Oct 2025; S2.1 2026</td>
+        <td>Yes — open-domain <code>[brackets]</code> / S1 parentheses</td>
+        <td>Yes — laughing, chuckling, audience laughs, etc.</td>
+        <td>~$15/M UTF-8 bytes; free tier</td>
+      </tr>
+      <tr>
+        <td>ElevenLabs Eleven v3</td>
+        <td>~Mar 2026</td>
+        <td>Yes — audio tags</td>
+        <td>Yes — <code>[laughs]</code>, sighs, clears throat, SFX</td>
+        <td>$100/M chars (v2/v3)</td>
+      </tr>
+      <tr class="baseline">
+        <td>Google Gemini 3.1 Flash TTS</td>
+        <td>~Apr 2026</td>
+        <td>Yes — 200+ tags + scene/director</td>
+        <td>Yes — <code>[laughs]</code>, gasp, cough, sigh</td>
+        <td>~$33–37/M equiv (tokens)</td>
+      </tr>
+      <tr>
+        <td>Inworld Realtime TTS-2</td>
+        <td>May 5, 2026</td>
+        <td>Yes — NL steering in <code>[…]</code></td>
+        <td>Yes — <code>[laugh]</code>, sigh, breathe, cough, yawn</td>
+        <td>~$12.50–$35/M chars by plan</td>
+      </tr>
+      <tr>
+        <td>xAI Grok TTS + flagship voices</td>
+        <td>TTS API 2026; 21 voices Jul 6, 2026</td>
+        <td>Yes — wrapping style tags</td>
+        <td>Yes — <code>[laugh]</code>, chuckle, giggle, sigh…</td>
+        <td>$15/M chars</td>
+      </tr>
+      <tr>
+        <td>Qwen-Audio-3.0-TTS Flash/Plus</td>
+        <td>Jul 20, 2026 (hosted/closed; weights TBD)</td>
+        <td>Yes — NL style + control tags</td>
+        <td>Yes — 86 tags incl. laughing/breathing</td>
+        <td>~$27.60/M chars</td>
+      </tr>
+      <tr>
+        <td>MiniMax Speech 2.8</td>
+        <td>2026 Sound Tags gen</td>
+        <td>Yes — emotion presets + tone</td>
+        <td>Yes — <code>(laughs)</code>, sighs, gasps…</td>
+        <td>$60 Turbo / $100 HD per 1M</td>
+      </tr>
+      <tr>
+        <td>Cartesia Sonic 3 / 3.5</td>
+        <td>ongoing 2025–26</td>
+        <td>Yes — SSML / generation_config emotion</td>
+        <td>Yes — <code>[laughter]</code></td>
+        <td>~$50/M credits/chars PAYG-ish</td>
+      </tr>
+      <tr>
+        <td>MyVocal v3</td>
+        <td>documented 2026</td>
+        <td>Yes — <code>[happy]</code>, angry, etc.</td>
+        <td>Yes — <code>[laughter]</code>, sighing, gasping…</td>
+        <td>Vendor API (check console)</td>
+      </tr>
+      <tr>
+        <td>StepAudio 2.5 TTS (StepFun)</td>
+        <td>Jun 2026</td>
+        <td>Yes — NL instruction + parenthetical inline</td>
+        <td>Yes — e.g. (laughing), (short gasp) as direction</td>
+        <td>~$85/M (AA); Elo 1,197</td>
+      </tr>
+
+      <tr>
+        <td>Gemini 2.5 Flash/Pro TTS</td>
+        <td>2025–26 preview family</td>
+        <td>Steerable prompts; weaker tag story than 3.1</td>
+        <td>Some bracket cues in Cloud examples</td>
+        <td>~$17/M equiv (2.5 Flash)</td>
+      </tr>
+      <tr>
+        <td>Doubao / Seed-TTS 2.0 (ByteDance)</td>
+        <td>2025–26 expressive line</td>
+        <td>NL <code>context_texts</code>; optional COT tag parser on clones</td>
+        <td>Tag parser path exists for expressive clones (verify per voice)</td>
+        <td>Volcengine regional pricing</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="small">Doubao is included as a <em>conditional</em> member: expressive control is real, but the laugh-tag story is thinner / more COT-parser-dependent than Gemini/Fish/Eleven. Treat it as “in the market, verify before relying on laughs.”<a href="#ref-doubao" class="citation">[42]</a></p>
+
+  <h3>10.2 Open-source / open-weight systems</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>System</th>
+        <th>≈ when</th>
+        <th>Emotion / delivery</th>
+        <th>Laugh / sound tags</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="cheap">
+        <td>Orpheus TTS (Canopy)</td>
+        <td>Mar 2025; multilingual Apr 2025</td>
+        <td>“Guided emotion” via emotive tags + voice</td>
+        <td>Yes — <code>&lt;laugh&gt;</code>, chuckle, sigh, cough, gasp…</td>
+        <td>Llama-3B speech-LLM; Apache-ish ecosystem; ~200ms stream claims</td>
+      </tr>
+      <tr class="cheap">
+        <td>Maya1 (Maya Research)</td>
+        <td>~Nov 2025</td>
+        <td>Yes — 20+ inline emotion tags</td>
+        <td>Yes — laugh, cry, whisper, sigh, gasp, rage…</td>
+        <td>3B + SNAC; NL voice design; Apache 2.0</td>
+      </tr>
+      <tr class="cheap">
+        <td>CosyVoice 2 / CosyVoice 3</td>
+        <td>CV2 earlier; CV3 paper ~May 2025, OSS ~Dec 2025</td>
+        <td>NL instruct + fine-grained tags</td>
+        <td>Yes — <code>[laughter]</code>, <code>[breath]</code>, wrap laughing</td>
+        <td>FunAudioLLM / Alibaba lineage; strong CN+multilingual</td>
+      </tr>
+      <tr>
+        <td>Dia 1.6B (Nari Labs)</td>
+        <td>~2025 (HF Transformers Jun 2025)</td>
+        <td>Emotion/tone via audio conditioning</td>
+        <td>Yes — rich <code>(laughs)</code>, coughs, sighs…</td>
+        <td>Dialogue-first; speaker tags <code>[S1]</code>/<code>[S2]</code>; EN-focused</td>
+      </tr>
+      <tr>
+        <td>Step-Audio-EditX</td>
+        <td>Nov 2025+ updates into 2026</td>
+        <td>Yes — 14 emotions as edit tags</td>
+        <td>Yes — laughter, sigh, breath, etc.</td>
+        <td>Post-processor over many TTS engines (not a TTS alone)</td>
+      </tr>
+      <tr>
+        <td>Chatterbox (Resemble)</td>
+        <td>May 2025; 23-lang later 2025</td>
+        <td>Emotion exaggeration control</td>
+        <td>Experimental native <code>&lt;laughter&gt;</code>-style tokens</td>
+        <td>Include as provisional — community reports limited native-tag fidelity</td>
+      </tr>
+      <tr>
+        <td>Fish S1-mini (open weights)</td>
+        <td>with S1 Oct 2025</td>
+        <td>Same marker family as S1</td>
+        <td>Yes (parentheses / markers)</td>
+        <td>Distilled open companion to hosted S1</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="diagram">Last-year tag-capable TTS landscape (simplified)
+
+  HOSTED / CLOSED                         OPEN / SELF-HOST
+  -----------------------                 -----------------------
+  Fish S1→S2.1 ★ cost                     Orpheus ★ laughs tags
+  Eleven v3 ★ premium tags                Maya1 ★ 20+ emotions+laughs
+  Gemini 3.1 ★ scene+200 tags             CosyVoice 3 ★ [laughter]+instruct
+  Inworld TTS-2 ★ NL steer+laugh          Dia ★ (laughs) dialogue-native
+  Grok TTS ★ $15 + speech tags            Step-Audio-EditX ★ edit layer
+  Qwen-Audio-3.0 ★ 86 tags                Chatterbox △ experimental tags
+  MiniMax 2.8 ★ Sound Tags                Fish S1-mini ★ open weights
+  Cartesia ★ emotion+[laughter]
+  MyVocal v3 ★ [laughter]+emotion
+  Doubao Seed-TTS 2.0 △ verify tags
+
+  ★ = clear dual support    △ = partial / verify / experimental
+  </div>
+</section>
+
+<section id="cost">
+  <h2>11. Normalized cost comparison (hosted)</h2>
+  <p>Vendors bill differently. Elo column uses Artificial Analysis provider-voice Arena scores from the <strong>2026-07-30</strong> snapshot (higher = more often preferred in blind listens).<a href="#ref-aa-leaderboard" class="citation">[51]</a></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Model / tier</th>
+        <th>AA Elo</th>
+        <th>List / equiv $ / 1M EN</th>
+        <th>Emotion + laugh tags?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="cheap">
+        <td>Fish <code>s2.1-pro-free</code></td>
+        <td>—</td>
+        <td>~$0 (fair use)</td>
+        <td>Yes</td>
+      </tr>
+      <tr class="cheap">
+        <td>Fish S2.1 Pro</td>
+        <td>1,138</td>
+        <td>~$15</td>
+        <td>Yes</td>
+      </tr>
+      <tr class="cheap">
+        <td>xAI Grok / SpaceXAI TTS</td>
+        <td>1,096</td>
+        <td>$15</td>
+        <td>Yes</td>
+      </tr>
+      <tr class="cheap">
+        <td>Inworld TTS-2 (plan-dependent)</td>
+        <td>1,189</td>
+        <td>~$12.50–$35</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Gemini 2.5 Flash TTS (equiv.)</td>
+        <td>1,037*</td>
+        <td>~$17</td>
+        <td>Weaker than 3.1</td>
+      </tr>
+      <tr class="cheap">
+        <td>Qwen-Audio-3.0-TTS-Plus</td>
+        <td><strong>1,227</strong> (#2)</td>
+        <td>~$27.60</td>
+        <td>Yes</td>
+      </tr>
+      <tr class="baseline">
+        <td>Gemini 3.1 Flash TTS</td>
+        <td><strong>1,213</strong> (#3)</td>
+        <td>~$33–37 equiv (AA lists $18.3)</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Cartesia Sonic 3.5</td>
+        <td><strong>1,202</strong> (#5)</td>
+        <td>~$49</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>StepAudio 2.5 TTS</td>
+        <td>1,197</td>
+        <td>~$85 (AA)</td>
+        <td>Yes — NL + <code>()</code> inline</td>
+      </tr>
+      <tr>
+        <td>MiniMax Speech 2.8 Turbo / HD</td>
+        <td>1,147 / 1,174</td>
+        <td>$60 / $100</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>ElevenLabs Eleven v3</td>
+        <td>1,173</td>
+        <td>$100</td>
+        <td>Yes</td>
+      </tr>
+      <tr class="exclude">
+        <td>Speechify Simba 3.2</td>
+        <td><strong>1,229</strong> (#1)</td>
+        <td>$6–10 (AA $10)</td>
+        <td>SSML only — cheaper/faster than Gemini, less control</td>
+      </tr>
+      <tr class="exclude">
+        <td>OpenAI gpt-4o-mini-tts / TTS-1 HD</td>
+        <td>TTS-1 HD 1,102</td>
+        <td>token / ~$15–30 char-ish</td>
+        <td>No native laugh tags</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="small">*Gemini 2.5 Flash TTS (Dec 2025) Elo 1,037 on AA — not the same as 3.1. AA’s $18.3/1M for Gemini 3.1 is their conversion of token pricing; this report’s ~$33–37 estimate uses Google’s $20/1M audio-token list math — both are shown so you can see the range.<a href="#ref-aa-leaderboard" class="citation">[51]</a><a href="#ref-gcp-tts-pricing" class="citation">[13]</a></p>
+  <div class="recommend-box">
+    <strong>Quality × tags × cost:</strong> Among models that clear the laugh+emotion tag filter, <strong>Qwen-Audio-3.0-TTS-Plus (Elo 1,227)</strong> and <strong>Gemini 3.1 (Elo 1,213)</strong> lead the arena — <strong>Qwen-Audio-3.0 is worth exploring</strong> as the tagged co-leader with a clear $/char list price, while remembering it is <strong>hosted/closed for now</strong> (weights hoped for soon). <strong>Fish S2.1 (Elo 1,138 @ ~$15)</strong> and <strong>Grok (Elo 1,096 @ $15)</strong> trade Elo for price; <strong>Inworld TTS-2 (Elo 1,189)</strong> sits in a strong middle. Outside the tag club, <strong>Simba (~$6–10, Elo #1)</strong> can be cheaper/faster than Gemini if you accept weaker customization.
+  </div>
+</section>
+
+<section id="catalog">
+  <h2>12. Hosted API deep-dives</h2>
+
+  <article class="model-card" id="gemini">
+    <h3>12.1 Google Gemini TTS <span class="tag">baseline</span> <span class="tag">30 voices</span></h3>
+    <p>Gemini TTS is the user’s current stack: prebuilt voice library of <strong>30</strong> voices, multi-speaker dialogue, natural-language <strong>Audio Profile / Scene / Director’s Notes</strong>, and — especially on <strong>Gemini 3.1 Flash TTS</strong> — a large vocabulary of inline <strong>audio tags</strong> (Google Cloud materials cite <strong>200+</strong>).<a href="#ref-gemini-speech" class="citation">[1]</a><a href="#ref-gemini-cloud-blog" class="citation">[3]</a><a href="#ref-gemini-voices" class="citation">[4]</a></p>
+    <p>Common tags documented in the speech-generation guide include emotion and delivery markers plus non-verbals:</p>
+    <p>
+      <span class="tag">[laughs]</span><span class="tag">[giggles]</span><span class="tag">[sighs]</span><span class="tag">[gasp]</span><span class="tag">[cough]</span>
+      <span class="tag">[whispers]</span><span class="tag">[excited]</span><span class="tag">[sarcastic]</span><span class="tag">[shouting]</span>
+    </p>
+    <p><strong>Billing:</strong> not per character. Paid Gemini 3.1 Flash TTS is <strong>$1 / 1M text input tokens</strong> and <strong>$20 / 1M audio output tokens</strong>, with audio metered at <strong>25 tokens per second</strong> (≈ $0.03 per second-minute of audio before text input).<a href="#ref-gcp-tts-pricing" class="citation">[13]</a> Gemini 2.5 Flash TTS is half that on both sides ($0.50 / $10).<a href="#ref-gcp-tts-pricing" class="citation">[13]</a> Batch API discounts apply on some surfaces.<a href="#ref-gemini-pricing-page" class="citation">[28]</a></p>
+    <p><strong>Best for:</strong> scene-level direction + multi-speaker scenes when you already live in Google’s ecosystem. <strong>Pain point:</strong> 3.1’s expressivity tier is the one that matches “tags + noises,” and it costs roughly 2× 2.5 Flash on audio tokens.</p>
+  </article>
+
+  <article class="model-card" id="grok">
+    <h3>12.2 xAI Grok TTS / flagship voices <span class="tag">new</span></h3>
+    <p>xAI’s Text-to-Speech API converts text to audio with built-in and custom voices, streaming options, and explicit <strong>speech tags</strong>. Official docs show inline cues such as <code>[pause]</code>, <code>[laugh]</code>, and wrapping delivery tags such as <code>&lt;whisper&gt;…&lt;/whisper&gt;</code>.<a href="#ref-xai-tts-docs" class="citation">[8]</a> Telnyx’s mirror of the tag set lists laughs/chuckles/giggles, sighs/breaths, and wrapping volume/pitch/pace controls.<a href="#ref-telnyx-xai" class="citation">[29]</a></p>
+    <p>On 2026-07-06, xAI announced <strong>21 new flagship multilingual voices</strong> joining the original five (Ara, Eve, Leo, Rex, Sal), with speech tags called out for delivery control — about <strong>26</strong> built-in voices in the marketing lineup, plus cloning from ~1 minute of audio.<a href="#ref-xai-voices" class="citation">[5]</a></p>
+    <p><strong>Billing:</strong> <strong>$15.00 per 1 million characters</strong> on the Voice pricing table.<a href="#ref-xai-pricing" class="citation">[12]</a><a href="#ref-xai-tts-news" class="citation">[30]</a> That is roughly half Gemini 3.1’s effective character-equivalent cost and about <strong>1/6.7</strong> of ElevenLabs v3 list price.</p>
+    <p><strong>Caveat:</strong> Tag vocabulary looks smaller/more fixed than Gemini’s 200+ or Fish’s open-domain brackets. Scene-level “director worldbuilding” is weaker than Gemini’s Scene + Audio Profile stack. Still clearly meets emotion + laugh requirements.</p>
+  </article>
+
+  <article class="model-card" id="fish">
+    <h3>12.3 Fish Audio S2.1 Pro <span class="tag">new</span> <span class="tag">cost leader</span></h3>
+    <p>Fish positions <strong>S2.1-Pro</strong> as the production model: ~100 ms time-to-first-audio claims, 83 languages, multi-speaker, and <strong>open-domain bracket tags</strong> learned as natural language — not a closed enum — e.g. <code>[whispers sweetly]</code>, <code>[laughing nervously]</code>.<a href="#ref-fish-models" class="citation">[6]</a><a href="#ref-fish-tts-page" class="citation">[31]</a> Emotion docs enumerate laughs, chuckles, sobs, sighs, audience laughter, and many emotion words.<a href="#ref-fish-emotions" class="citation">[9]</a></p>
+    <p><strong>Billing:</strong> <strong>$15 / million UTF-8 bytes</strong> for <code>s2.1-pro</code> (and prior S2/S1 paid strings); <code>s2.1-pro-free</code> is <strong>$0</strong> under fair-use, without TTFA/DPA guarantees, with free-window messaging evolving through mid/late 2026.<a href="#ref-fish-pricing" class="citation">[11]</a><a href="#ref-fish-free" class="citation">[15]</a></p>
+    <p><strong>Openness:</strong> open <em>weights</em> + inference/fine-tune code under the <strong>Fish Audio Research License</strong> — research/non-commercial free; <strong>commercial use needs a separate paid license</strong>. Not OSI “open source,” despite marketing that uses that phrase.<a href="#ref-fish-license" class="citation">[62]</a> Hosted API remains the easy path; self-host is allowed under those terms.</p>
+    <p><strong>Best for:</strong> personal projects that want Gemini-like bracket directionality at Fish/Grok price points — especially while the free model string remains usable. <strong>Watch:</strong> fair-use / commercial ARR clauses on the free tier; UTF-8 byte billing bites harder on non-Latin scripts.</p>
+  </article>
+
+  <article class="model-card" id="qwen">
+    <h3>12.4 Qwen-Audio-3.0-TTS <span class="tag">new</span> <span class="tag">worth exploring</span> <span class="tag">closed for now</span></h3>
+    <div class="recommend-box" style="margin-top:0">
+      <strong>Worth exploring — but closed today:</strong> among tagged systems, Qwen Plus is essentially the arena co-leader with Gemini (Elo <strong>1,227</strong> vs 1,213) at a clearer character list price (~$27.60/1M). <strong>Qwen-Audio-3.0 was released very recently (~2026-07-20) and is hosted/closed right now</strong> (Model Studio Flash/Plus; no public weight download for this line yet). Hopeful path: Alibaba often follows API launches with open weights — if/when Audio-3.0 weights land, expect the usual community quantization / fine-tune / tooling wave. Do not confuse this with the older open <strong>Qwen3-TTS</strong> family (Jan 2026, Apache 2.0), which is a separate product line.<a href="#ref-qwen3-tts" class="citation">[63]</a>
+    </div>
+    <p><strong>Qwen-Audio-3.0-TTS</strong> launched around <strong>2026-07-20</strong> as hosted <strong>Flash</strong> (~300 ms first-packet positioning) and <strong>Plus</strong> (quality) on Alibaba Cloud Model Studio — <strong>API-only as of this report</strong>.<a href="#ref-qwen-blog" class="citation">[7]</a><a href="#ref-qwen-kiadev" class="citation">[32]</a></p>
+    <p>Controllability is dual-track: free-style natural-language style instructions <em>plus</em> <strong>86 fine-grained inline tags</strong> for localized emotion/style and non-verbal events (laughter, breathing, coughing, sighing, etc.).<a href="#ref-qwen-arxiv" class="citation">[10]</a> Examples include <code>[angry]</code>, <code>[giggles]</code>, <code>[laughing]</code>, <code>[gasp]</code>.<a href="#ref-qwen-blog" class="citation">[7]</a></p>
+    <p><strong>Billing:</strong> about <strong>$27.59–$27.60 per million characters</strong> via Model Studio — between Gemini 2.5 Flash’s effective rate and Gemini 3.1’s token-math band, far below ElevenLabs/MiniMax HD.<a href="#ref-qwen-decoder" class="citation">[17]</a><a href="#ref-qwen-buildfast" class="citation">[25]</a></p>
+    <p><strong>Related open line (not Audio-3.0):</strong> <strong>Qwen3-TTS</strong> (0.6B/1.7B, Jan 2026, Apache 2.0) already has public weights for self-host/community forks.<a href="#ref-qwen3-tts" class="citation">[63]</a> Useful now; not a substitute for hoping Audio-3.0 Plus-class weights appear later.</p>
+    <p><strong>Trade-offs:</strong> closed hosted-only for Audio-3.0 today; slower throughput in some reports (~16 chars/sec for Plus); 16 languages (strong Chinese dialect coverage); some streaming-mode caveats for tag support in secondary guides.<a href="#ref-qwen-kiadev" class="citation">[32]</a></p>
+  </article>
+
+  <article class="model-card" id="eleven">
+    <h3>12.5 ElevenLabs Eleven v3 <span class="tag">premium</span></h3>
+    <p>Eleven v3 is the tag-capable ElevenLabs tier: bracket audio tags for emotions (<code>[curious]</code>, <code>[crying]</code>), delivery (<code>[whispers]</code>, <code>[shouts]</code>), and human reactions (<code>[laughs]</code>, <code>[clears throat]</code>, <code>[sighs]</code>), plus dialogue APIs.<a href="#ref-eleven-v3-tags" class="citation">[2]</a><a href="#ref-eleven-v3-page" class="citation">[33]</a></p>
+    <p><strong>Billing:</strong> Multilingual v2/v3 API list rate <strong>$0.10 per 1,000 characters</strong> (= <strong>$100 / 1M</strong>), with Flash/Turbo at $0.05 / 1K for the low-latency non-v3 path.<a href="#ref-eleven-pricing" class="citation">[14]</a> This is the expensive end of the tag club — and the reference that makes Gemini look “cheap” by comparison.</p>
+  </article>
+
+  <article class="model-card" id="minimax">
+    <h3>12.6 MiniMax Speech 2.8</h3>
+    <p>Speech 2.8 adds <strong>Sound Tags</strong> injected in parentheses — <code>(laughs)</code>, <code>(chuckle)</code>, <code>(sighs)</code>, <code>(gasps)</code>, breathing and articulations — alongside emotion presets.<a href="#ref-minimax-together" class="citation">[21]</a> Official pay-as-you-go lists <strong>speech-2.8-turbo at $60 / 1M characters</strong> and <strong>speech-2.8-hd at $100 / 1M</strong>.<a href="#ref-minimax-pricing" class="citation">[22]</a></p>
+    <p>Functionally in the club; commercially closer to ElevenLabs than to Fish/Grok/Gemini.</p>
+  </article>
+
+  <article class="model-card" id="cartesia">
+    <h3>12.7 Cartesia Sonic</h3>
+    <p>Sonic supports emotion via <code>generation_config.emotion</code> or SSML <code>&lt;emotion value="…"/&gt;</code>, and nonverbal laughter via inserting <code>[laughter]</code> in the transcript.<a href="#ref-cartesia-emotion" class="citation">[16]</a><a href="#ref-cartesia-ssml" class="citation">[23]</a> Emotion control is documented as beta/experimental for mid-utterance shifts. Pricing is credit-based (~1 credit per character); secondary guides place PAYG near <strong>~$50 / 1M characters</strong>.<a href="#ref-cartesia-pricing" class="citation">[26]</a><a href="#ref-cartesia-cloudtalk" class="citation">[27]</a></p>
+    <p>Qualifies under the filter, but the laugh vocabulary is thinner than Gemini/Fish/Eleven/Qwen.</p>
+  </article>
+
+  <article class="model-card" id="inworld">
+    <h3>12.8 Inworld Realtime TTS-2 <span class="tag">new</span></h3>
+    <p>Inworld’s <strong>Realtime TTS-2</strong> (research preview, <strong>2026-05-05</strong>) treats delivery like an LLM prompt: natural-language steering instructions in square brackets, plus inline non-verbals <code>[laugh]</code>, <code>[sigh]</code>, <code>[breathe]</code>, <code>[cough]</code>, <code>[yawn]</code>, <code>[clear throat]</code>.<a href="#ref-inworld-steering" class="citation">[36]</a><a href="#ref-inworld-blog" class="citation">[43]</a> Prior TTS 1.5 models had a smaller experimental emotion markup set; full steering is TTS-2-only.</p>
+    <p><strong>Billing:</strong> plan-tiered per million characters (published bands roughly <strong>$12.50–$35 / 1M</strong> depending on commitment).<a href="#ref-inworld-pricing" class="citation">[44]</a> Competes with Fish/Grok on the cheap-expressive band for agent workloads.</p>
+  </article>
+
+  <article class="model-card" id="myvocal">
+    <h3>12.9 MyVocal v3</h3>
+    <p>MyVocal’s v3 path documents prompt control via <code>[tag]</code> syntax covering emotions (<code>happy</code>, <code>excited</code>, <code>sad</code>, <code>angry</code>…) and non-speech sounds (<code>laughter</code>, throat clearing, yawning, sighing, gasping, crying…).<a href="#ref-myvocal" class="citation">[45]</a> Include it in a comprehensive market list; verify current retail pricing in their console before budgeting.</p>
+  </article>
+</section>
+
+<section id="opensource">
+  <h2>13. Open-source / open-weight deep-dives</h2>
+  <p>These are the self-host options that meet (or nearly meet) the dual tag bar. Marginal cost is GPU/ops rather than $/character — which is why personal projects often end here once scripts get long. Also see <a href="#licensing">§14</a> for Simba / Fish / Qwen openness (they are <em>not</em> the same kind of “open”).</p>
+
+  <article class="model-card">
+    <h3>13.1 Orpheus TTS (Canopy Labs)</h3>
+    <p>Released <strong>March 2025</strong> (multilingual research family April 2025). Llama-3B speech-LLM with inline emotive tags: laugh, chuckle, sigh, cough, sniffle, groan, yawn, gasp.<a href="#ref-orpheus" class="citation">[38]</a> Emotion is primarily expressed through those paralinguistic tags plus voice choice rather than a huge <code>[angry]</code>/<code>[sarcastic]</code> lexicon like Gemini 3.1 — but the product explicitly markets “guided emotion and intonation,” and the laugh/sigh path is first-class.</p>
+  </article>
+
+  <article class="model-card">
+    <h3>13.2 Maya1 (Maya Research)</h3>
+    <p>Production-ready positioning around <strong>November 2025</strong>. 3B Llama-style + SNAC codec; natural-language voice design; <strong>20+ inline emotion tags</strong> including laugh, cry, whisper, sigh, gasp, rage.<a href="#ref-maya1" class="citation">[37]</a> Among open models, this is one of the closest philosophical matches to Gemini/Eleven-style bracket directionality.</p>
+  </article>
+
+  <article class="model-card">
+    <h3>13.3 CosyVoice 2 / CosyVoice 3 (FunAudioLLM)</h3>
+    <p>CosyVoice 2 already demonstrated <code>[laughter]</code> fine-grained control and instruct prompts; CosyVoice 3 scales instruction types (100+) and keeps vocal-burst markers such as <code>[laughter]</code> / <code>[breath]</code> plus emphasis wraps.<a href="#ref-cosyvoice3" class="citation">[39]</a><a href="#ref-cosyvoice2" class="citation">[46]</a> Open-sourced CosyVoice 3 weights landed later in 2025. Strong choice if you want open weights with Chinese dialect depth plus laugh tags.</p>
+  </article>
+
+  <article class="model-card">
+    <h3>13.4 Dia 1.6B (Nari Labs)</h3>
+    <p>Dialogue-native open TTS with speaker tags <code>[S1]</code>/<code>[S2]</code> and a long parenthetical nonverbal list: <code>(laughs)</code>, <code>(sighs)</code>, <code>(coughs)</code>, <code>(gasps)</code>, etc.<a href="#ref-dia" class="citation">[40]</a> Emotion/tone steering is primarily via <strong>audio conditioning / cloning</strong>, not a large text emotion lexicon — so it is a <em>strong sound-tag model</em> and a partial emotion-tag model. Still essential on any “last year” list for podcasts/sketches that need real laughs.</p>
+  </article>
+
+  <article class="model-card">
+    <h3>13.5 Step-Audio-EditX</h3>
+    <p>Not a TTS by itself: a <strong>3B audio editing LLM</strong> (StepFun) that applies emotion, style, and paralinguistic tags — including laughter — as a second pass over audio from many engines.<a href="#ref-step-editx" class="citation">[41]</a> Important because it brings tag-like control to engines that lack native laughs (F5-TTS, etc.). Released/updated late 2025 into 2026.</p>
+  </article>
+
+  <article class="model-card">
+    <h3>13.6 Chatterbox (Resemble AI) — provisional</h3>
+    <p>Open-sourced May 2025 with emotion exaggeration controls; later multilingual. Community tooling documents experimental native sound/emotion tokens, but also warns they can be incomplete versus Step-Audio-EditX post-edits.<a href="#ref-chatterbox" class="citation">[47]</a> Keep on the radar; do not plan a production laugh pipeline on undocumented tokens alone.</p>
+  </article>
+
+  <article class="model-card">
+    <h3>13.7 Qwen3-TTS (open weights) — not Audio-3.0</h3>
+    <p><strong>Do not confuse with Qwen-Audio-3.0:</strong> the <strong>Qwen3-TTS</strong> series (Jan 2026, 0.6B/1.7B, Apache 2.0) is an earlier open-weight family with voice clone / voice design / streaming claims and public GitHub + Hugging Face releases.<a href="#ref-qwen3-tts" class="citation">[63]</a> <strong>Qwen-Audio-3.0</strong> (Jul 2026) is the newer hosted tag leader and is <em>still closed</em> as of this report — weights hopefully coming soon, after which the community optimization wave (quants, fine-tunes, tooling) becomes realistic for that class of model.</p>
+  </article>
+</section>
+
+<section id="licensing">
+  <h2>14. Open vs closed: Simba, Fish, Qwen</h2>
+  <p>Follow-up chat clarified a common confusion: “open” in TTS marketing often means <em>weights downloadable</em>, not OSI open source — and Qwen’s product names are easy to mix up. For shopping:</p>
+  <table>
+    <thead>
+      <tr>
+        <th>System</th>
+        <th>Open?</th>
+        <th>What that means in practice</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="exclude">
+        <td><strong>Speechify Simba 3.2</strong></td>
+        <td><strong>No</strong> — closed weights, API-only</td>
+        <td>Buy API access. No local weights, no community fine-tunes of Simba itself. (Unrelated MIT “Simba” embedded OS projects are a name collision.)</td>
+      </tr>
+      <tr>
+        <td><strong>Fish Audio S2 / S2.1</strong></td>
+        <td><strong>Open weights</strong>, not OSI open source</td>
+        <td>Weights + code under <strong>Fish Audio Research License</strong>: research/non-commercial free; commercial needs a separate license from Fish.<a href="#ref-fish-license" class="citation">[62]</a> Hosted API is the frictionless path.</td>
+      </tr>
+      <tr class="exclude">
+        <td><strong>Qwen-Audio-3.0-TTS</strong></td>
+        <td><strong>No (for now)</strong> — hosted/closed</td>
+        <td>Very recent (~2026-07-20) Flash/Plus on Model Studio. <strong>No public weights yet.</strong> Worth exploring via API; hopeful that weights follow soon (historic Qwen pattern — not a promise).</td>
+      </tr>
+      <tr class="cheap">
+        <td><strong>Qwen3-TTS</strong> (older open line)</td>
+        <td><strong>Yes</strong> — Apache 2.0</td>
+        <td>Separate Jan 2026 open family. Community hacking already possible. <em>Not</em> the same as Audio-3.0 Plus.</td>
+      </tr>
+      <tr>
+        <td><strong>Gemini / Grok / Eleven / OpenAI</strong></td>
+        <td>Closed hosted</td>
+        <td>API (and sometimes limited enterprise options) only.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="thesis-box">
+    <strong>Implication:</strong> Explore <strong>Qwen-Audio-3.0</strong> on the API now for tag quality; watch for a weight drop before planning local hacks around that SKU. For self-host today, use <strong>Qwen3-TTS</strong> / Maya1 / CosyVoice / Orpheus / Dia. Cheapest hosted tags: <strong>Fish</strong> (license permitting). Cheapest/fastest naturalness without laugh tags: <strong>Simba</strong>. Gemini remains the customization baseline.
+  </div>
+</section>
+
+<section id="new-releases">
+  <h2>15. How new model releases compare on cost (and tags)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Release</th>
+        <th>Approx. timing</th>
+        <th>Tags?</th>
+        <th>AA Elo</th>
+        <th>Cost vs Gemini 3.1</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Gemini 3.1 Flash TTS</td>
+        <td>~Apr 2026</td>
+        <td>Strong (200+ + scene)</td>
+        <td>1,213 (#3)</td>
+        <td>baseline</td>
+      </tr>
+      <tr>
+        <td>Qwen-Audio-3.0-TTS-Plus</td>
+        <td>Jul 20, 2026</td>
+        <td>Yes (86 tags + NL); closed hosted</td>
+        <td>1,227 (#2)</td>
+        <td>Similar / slightly cheaper list; weights hoped soon</td>
+      </tr>
+      <tr>
+        <td>Cartesia Sonic 3.5</td>
+        <td>May 2026</td>
+        <td>Yes (emotion + laughter)</td>
+        <td>1,202 (#5)</td>
+        <td>More expensive</td>
+      </tr>
+      <tr>
+        <td>Fish S2.1 Pro</td>
+        <td>~Jun 2026</td>
+        <td>Strong (open-domain)</td>
+        <td>1,138</td>
+        <td>Cheaper (~½ or less)</td>
+      </tr>
+      <tr>
+        <td>Grok / SpaceXAI TTS</td>
+        <td>2026; voices Jul 6</td>
+        <td>Yes (speech tags)</td>
+        <td>1,096</td>
+        <td>Cheaper (~½)</td>
+      </tr>
+      <tr>
+        <td>Inworld TTS-2</td>
+        <td>May 5, 2026</td>
+        <td>Yes (NL steer + laugh)</td>
+        <td>1,189</td>
+        <td>Often cheaper / similar</td>
+      </tr>
+      <tr>
+        <td>ElevenLabs Eleven v3</td>
+        <td>~Mar 2026</td>
+        <td>Yes (audio tags)</td>
+        <td>1,173</td>
+        <td>More expensive ($100/M)</td>
+      </tr>
+      <tr>
+        <td>MiniMax Speech 2.8 HD</td>
+        <td>2026</td>
+        <td>Yes</td>
+        <td>1,174</td>
+        <td>More expensive</td>
+      </tr>
+      <tr class="exclude">
+        <td>Speechify Simba 3.2</td>
+        <td>~Jul 2026 API</td>
+        <td>SSML emotion; no laugh tags</td>
+        <td>1,229 (#1)</td>
+        <td>Cheaper/faster than Gemini; less control</td>
+      </tr>
+      <tr class="exclude">
+        <td>OpenAI gpt-4o-mini-tts / Realtime</td>
+        <td>2025–2026 train</td>
+        <td>Instructions / session prompts only</td>
+        <td>TTS-1 HD 1,102; RT-2 1,064</td>
+        <td>Agent stack; fails laugh-tag filter</td>
+      </tr>
+      <tr>
+        <td>Maya1 / Orpheus / CosyVoice 3 / Dia / Qwen3-TTS</td>
+        <td>2025–early 2026</td>
+        <td>Yes (varies; Qwen3 Apache 2.0)</td>
+        <td>Maya1 1,041</td>
+        <td>Self-host ≈ GPU cost; community hacks expected on Qwen</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="thesis-box">
+    <strong>On “I’ll be disappointed if new releases don’t support tags”:</strong> Across the broader last-year market, tag support is the <em>norm for expressive launches</em>, not the exception. Grok, Fish S2.1, Qwen-Audio-3.0, Inworld TTS-2, Eleven v3, Gemini 3.1, Maya1, CosyVoice 3, Dia, and Orpheus all document laugh/non-verbal cues and some form of emotion or delivery control.<a href="#ref-xai-tts-docs" class="citation">[8]</a><a href="#ref-fish-models" class="citation">[6]</a><a href="#ref-qwen-arxiv" class="citation">[10]</a><a href="#ref-inworld-steering" class="citation">[36]</a><a href="#ref-maya1" class="citation">[37]</a> OpenAI and Simba are the notable high-profile paths that steer without joining the laugh-tag club (instructions / SSML). The competitive story is a <strong>price + openness + Elo war inside the tag club</strong>, not a retreat from tags.
+  </div>
+</section>
+
+<section id="excluded">
+  <h2>16. Notable exclusions &amp; near-misses</h2>
+  <p>These matter for a comprehensive market scan because they are expressive or popular — but they fail the dual “emotion tags + laugh/sound tags” bar as documented.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>System</th>
+        <th>Why it failed the filter (or sits adjacent)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="exclude">
+        <td>OpenAI gpt-4o-mini-tts / TTS-1 / Realtime</td>
+        <td>Steerable via <code>instructions</code> / Realtime session prompts (Personality &amp; Tone, multi-emotion mid-turn, <code>reasoning.effort</code>) — <strong>no native inline laugh/sound tags</strong>. Voice-agent stack (Realtime-2 / 2.1), not tagged narration. Elo: TTS-1 HD 1,102; GPT-Realtime-2 1,064.<a href="#ref-openai-tts" class="citation">[52]</a><a href="#ref-openai-realtime-prompting" class="citation">[58]</a><a href="#ref-aa-leaderboard" class="citation">[51]</a></td>
+      </tr>
+      <tr class="exclude">
+        <td>Speechify Simba 3.2</td>
+        <td><strong>Elo #1 (1,229)</strong>; closed API-only; SSML ~13 emotions + prosody; sub-300&nbsp;ms / ~$6–10/1M pitch. <strong>Cheaper/faster than Gemini possible, at the expense of customization</strong> (no laugh/sound tags, no Gemini-style scene tags).<a href="#ref-aa-leaderboard" class="citation">[51]</a><a href="#ref-speechify-api" class="citation">[35]</a> See <a href="#simba">§8</a>.</td>
+      </tr>
+      <tr class="exclude">
+        <td>VUI Labs Luna TTS</td>
+        <td><strong>Elo #4 (1,203)</strong>; not verified for dual emotion+laugh tags in this pass.<a href="#ref-aa-leaderboard" class="citation">[51]</a></td>
+      </tr>
+      <tr class="exclude">
+        <td>Hume Octave</td>
+        <td>Strong natural-language <em>acting instructions</em>; not documented inline <code>[laughs]</code>-style sound tags. Elo Octave 2: 1,054.<a href="#ref-hume-acting" class="citation">[19]</a></td>
+      </tr>
+      <tr class="exclude">
+        <td>IndexTTS-2</td>
+        <td>Excellent emotion via vectors / NL / emotion audio prompts (Sep 2025); no first-class laugh sound-tag set found.<a href="#ref-indextts2" class="citation">[48]</a></td>
+      </tr>
+      <tr class="exclude">
+        <td>Zyphra Zonos</td>
+        <td>Open-weight emotion <em>parameters</em> (happy/fear/sad/anger) + prefix tricks; not inline emotion+laugh script tags.<a href="#ref-zonos" class="citation">[49]</a></td>
+      </tr>
+      <tr class="exclude">
+        <td>PlayAI PlayDialog</td>
+        <td>Context-driven emotive dialogue; no documented laugh/sound-tag lexicon in API docs reviewed.<a href="#ref-playdialog" class="citation">[50]</a></td>
+      </tr>
+      <tr class="exclude">
+        <td>Microsoft VibeVoice</td>
+        <td>Long multi-speaker open TTS; emergent expressivity, not a published laugh-tag vocabulary.</td>
+      </tr>
+      <tr class="exclude">
+        <td>Spark-TTS / FireRedTTS / MaskGCT / F5-TTS</td>
+        <td>Important open TTS releases; controllability ≠ documented dual emotion+laugh tags (unless paired with Step-Audio-EditX).</td>
+      </tr>
+      <tr class="exclude">
+        <td>Amazon Polly / Azure Neural baselines</td>
+        <td>Mature SSML; not treated as first-class laugh-tag peers here.</td>
+      </tr>
+      <tr class="exclude">
+        <td>Deepgram Aura-2</td>
+        <td>Realtime agent voice; professional consistency over theatrical tag direction.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="conclusion">
+  <h2>17. Conclusion</h2>
+  <div class="conclusion-box">
+    <p><strong>Did the first pass miss market options?</strong> Yes. A Gemini/Grok/Fish/Qwen/Eleven-centric shortlist understated the field. A last-year sweep finds roughly <strong>9–11 hosted/closed</strong> and <strong>6–8 open</strong> systems that clear (or nearly clear) emotion + laugh/sound tags — about <strong>15–18 named systems</strong>.</p>
+    <p><strong>Practical shopping notes (from follow-up review):</strong></p>
+    <ul>
+      <li><strong>Qwen-Audio-3.0 is worth exploring</strong> — tagged arena co-leader (Elo 1,227) at ~$27.60/1M — but it is <strong>very recent and closed/hosted today</strong>; weights hopefully coming soon. Older open <strong>Qwen3-TTS</strong> (Apache 2.0) is a separate self-host path, not Audio-3.0.</li>
+      <li><strong>Simba might be cheaper and faster than Gemini</strong> (~$6–10/1M, sub-300&nbsp;ms, Elo #1) <strong>at the expense of customization and control</strong> (SSML emotions, no laugh/sound tags, closed API-only).</li>
+      <li><strong>Fish</strong> is open <em>weights</em> under a research license (commercial needs a deal), not OSI open source — still a strong cheap tagged hosted option.</li>
+    </ul>
+    <p><strong>OpenAI?</strong> Steerable TTS via <code>instructions</code>; Realtime via session Personality &amp; Tone prompts + voice pick + <code>reasoning.effort</code>. Long audio timeline from Oct 2024 Realtime beta through Jul 2026 Realtime-2.1. Still <strong>no native <code>[laughs]</code> tags</strong> — agent stack, not tagged narration. Elo sits well below tagged leaders.</p>
+    <p><strong>Arena top 5 Elo (2026-07-30):</strong> Simba 3.2 <strong>1,229</strong> · Qwen-Audio-3.0-Plus <strong>1,227</strong> · Gemini 3.1 Flash <strong>1,213</strong> · Luna <strong>1,203</strong> · Sonic 3.5 <strong>1,202</strong>. Three of five are tag-capable.</p>
+    <p><strong>Tags on new releases:</strong> Still good news for the expressive launches that cared about script direction. OpenAI and Simba are the high-profile “steer without laugh tags” alternatives.</p>
+    <p><strong>Cost:</strong> Gemini remains cheaper than ElevenLabs v3. Fish/Grok (~$15) and often Inworld undercut Gemini 3.1. Simba undercuts further if tags are optional. Self-host Qwen3-TTS / Maya1 / Orpheus / CosyVoice / Dia can beat API fees on volume.</p>
+  </div>
+
+  <h3>Further research questions</h3>
+  <ul>
+    <li>Blind A/B: Qwen-Audio-3.0-Plus vs Gemini 3.1 vs Fish S2.1 on the same laugh+emotion script (tag obedience + naturalness).</li>
+    <li>Simba SSML vs Gemini tags on the same non-laugh emotional script — is Elo #1 audible in your domain?</li>
+    <li>If/when Qwen-Audio-3.0 weights drop: do community quants/fine-tunes close the gap to hosted Plus?</li>
+    <li>True all-in cost of self-hosting Orpheus/Maya1/Qwen3-TTS (today) including idle GPU vs Fish free/paid vs Audio-3.0 API.</li>
+    <li>Whether Realtime-2.1 Personality prompts can fake mid-script laughs well enough for light drama (still not native tags).</li>
+  </ul>
+</section>
+
+<section id="refs">
+  <h2>18. Sources</h2>
+  <ol class="refs">
+    <li id="ref-gemini-speech">Google AI for Developers. “Text-to-speech generation (TTS).” Gemini API docs — scene direction, director’s notes, audio tags including <code>[laughs]</code>. <a href="https://ai.google.dev/gemini-api/docs/speech-generation">https://ai.google.dev/gemini-api/docs/speech-generation</a>. Accessed 2026-07-30.</li>
+    <li id="ref-eleven-v3-tags">ElevenLabs Help Center. “How do audio tags work with Eleven v3?” — emotions, delivery, human reactions including laughs. <a href="https://help.elevenlabs.io/hc/en-us/articles/35869142561297-How-do-audio-tags-work-with-Eleven-v3">https://help.elevenlabs.io/hc/en-us/articles/35869142561297-How-do-audio-tags-work-with-Eleven-v3</a>. Accessed 2026-07-30.</li>
+    <li id="ref-gemini-cloud-blog">Google Cloud Blog. “Gemini 3.1 Flash TTS on Google Cloud” — 200+ audio tags, 30 voices framing. <a href="https://cloud.google.com/blog/products/ai-machine-learning/gemini-3-1-flash-tts-on-google-cloud">https://cloud.google.com/blog/products/ai-machine-learning/gemini-3-1-flash-tts-on-google-cloud</a>. Accessed 2026-07-30.</li>
+    <li id="ref-gemini-voices">Google AI for Developers / Cloud TTS materials describing 30 prebuilt Gemini TTS voices (speech-generation + Gemini-TTS docs). <a href="https://ai.google.dev/gemini-api/docs/speech-generation">speech-generation</a>; <a href="https://docs.cloud.google.com/text-to-speech/docs/gemini-tts">Cloud Gemini-TTS</a>. Accessed 2026-07-30.</li>
+    <li id="ref-xai-voices">xAI. “21 New Flagship Grok Voices” (2026-07-06) — new voices + speech tags mention. <a href="https://x.ai/news/new-flagship-voices">https://x.ai/news/new-flagship-voices</a>. Accessed 2026-07-30.</li>
+    <li id="ref-fish-models">Fish Audio Docs. “Models Overview” — S2.1-Pro free-form <code>[bracket]</code> control, languages, prior S1 parenthesis emotions. <a href="https://docs.fish.audio/developer-guide/models-pricing/models-overview">https://docs.fish.audio/developer-guide/models-pricing/models-overview</a>. Accessed 2026-07-30.</li>
+    <li id="ref-qwen-blog">Alibaba Cloud Community / Tongyi Lab. “Qwen-Audio-3.0-TTS: More Multilingual, Easier to Direct” — NL style control + inline tags like <code>[giggles]</code>. <a href="https://www.alibabacloud.com/blog/qwen-audio-3-0-tts-more-multilingual-easier-to-direct_603379">https://www.alibabacloud.com/blog/qwen-audio-3-0-tts-more-multilingual-easier-to-direct_603379</a>. Accessed 2026-07-30.</li>
+    <li id="ref-xai-tts-docs">xAI Docs. “Text to Speech” — speech tags examples with <code>[laugh]</code> and wrapping tags. <a href="https://docs.x.ai/developers/model-capabilities/audio/text-to-speech">https://docs.x.ai/developers/model-capabilities/audio/text-to-speech</a>. Accessed 2026-07-30.</li>
+    <li id="ref-fish-emotions">Fish Audio Docs. “Emotions” — audio effects including laughing, chuckling, audience laughter. <a href="https://docs.fish.audio/developer-guide/core-features/emotions">https://docs.fish.audio/developer-guide/core-features/emotions</a>. Accessed 2026-07-30.</li>
+    <li id="ref-qwen-arxiv">Tongyi Lab. “Qwen-Audio-3.0-TTS: Freely Controllable…” arXiv HTML — 86 fine-grained inline tags including laughter/breathing/coughing/sighing. <a href="https://arxiv.org/html/2607.23938">https://arxiv.org/html/2607.23938</a>. Accessed 2026-07-30.</li>
+    <li id="ref-fish-pricing">Fish Audio Docs. “Pricing and Rate Limits” — $15 / M UTF-8 bytes; free model $0. <a href="https://docs.fish.audio/developer-guide/models-pricing/pricing-and-rate-limits">https://docs.fish.audio/developer-guide/models-pricing/pricing-and-rate-limits</a>. Accessed 2026-07-30.</li>
+    <li id="ref-xai-pricing">xAI Docs. “Pricing” — Text to Speech $15.00 / 1M chars. <a href="https://docs.x.ai/developers/pricing">https://docs.x.ai/developers/pricing</a>. Accessed 2026-07-30.</li>
+    <li id="ref-gcp-tts-pricing">Google Cloud. “Text-to-Speech pricing” — Gemini-TTS token rates and 25 audio tokens/second. <a href="https://cloud.google.com/text-to-speech/pricing">https://cloud.google.com/text-to-speech/pricing</a>. Accessed 2026-07-30.</li>
+    <li id="ref-eleven-pricing">ElevenLabs. “ElevenAPI Pricing” — Multilingual v2/v3 $0.10 / 1K characters. <a href="https://elevenlabs.io/pricing/api?price.platform=api">https://elevenlabs.io/pricing/api?price.platform=api</a>. Accessed 2026-07-30.</li>
+    <li id="ref-fish-free">Fish Audio Blog. “Fish Audio S2.1 Pro: Free Text-to-Speech API for Developers.” <a href="https://fish.audio/blog/s2-1-pro-free-api/">https://fish.audio/blog/s2-1-pro-free-api/</a>. Accessed 2026-07-30.</li>
+    <li id="ref-cartesia-emotion">Cartesia Docs. “Volume, Speed, and Emotion” — emotion controls + <code>[laughter]</code> nonverbalism. <a href="https://docs.cartesia.ai/build-with-cartesia/capability-guides/volume-speed-emotion">https://docs.cartesia.ai/build-with-cartesia/capability-guides/volume-speed-emotion</a>. Accessed 2026-07-30.</li>
+    <li id="ref-qwen-decoder">THE DECODER. “Alibaba's Qwen Audio 3.0 TTS Plus tops…” — Elo ~1,236; price ~$27.60 / 1M chars. <a href="https://the-decoder.com/alibabas-qwen-audio-3-0-tts-plus-tops-the-competition-in-the-text-to-speech-rankings/">https://the-decoder.com/alibabas-qwen-audio-3-0-tts-plus-tops-the-competition-in-the-text-to-speech-rankings/</a>. Accessed 2026-07-30.</li>
+    <li id="ref-speechify-ssml">SpeechifyAI. “Controlling Emotion and Timing in TTS with SSML.” <a href="https://speechify.ai/blog/controlling-emotion-and-timing-in-tts-with-ssml">https://speechify.ai/blog/controlling-emotion-and-timing-in-tts-with-ssml</a>. Accessed 2026-07-30.</li>
+    <li id="ref-hume-acting">Hume Docs. “Acting instructions” — natural-language description field (Octave). <a href="https://dev.hume.ai/docs/text-to-speech-tts/acting-instructions">https://dev.hume.ai/docs/text-to-speech-tts/acting-instructions</a>. Accessed 2026-07-30.</li>
+    <li id="ref-gcp-gemini-tts">Google Cloud Documentation. “Gemini-TTS” — model IDs, examples with bracket cues. <a href="https://docs.cloud.google.com/text-to-speech/docs/gemini-tts">https://docs.cloud.google.com/text-to-speech/docs/gemini-tts</a>. Accessed 2026-07-30.</li>
+    <li id="ref-minimax-together">Together AI model card. “minimax-speech-28” — Sound Tags list including laughs/sighs. <a href="https://www.together.ai/models/minimax-speech-28">https://www.together.ai/models/minimax-speech-28</a>. Accessed 2026-07-30.</li>
+    <li id="ref-minimax-pricing">MiniMax Platform. “Pricing (Paygo)” — speech-2.8-turbo $60/M chars; speech-2.8-hd $100/M chars. <a href="https://platform.minimax.io/docs/guides/pricing-paygo">https://platform.minimax.io/docs/guides/pricing-paygo</a>. Accessed 2026-07-30.</li>
+    <li id="ref-cartesia-ssml">Cartesia Docs. “SSML Tags” — emotion, break, nonverbalisms. <a href="https://docs.cartesia.ai/build-with-cartesia/capability-guides/ssml-tags">https://docs.cartesia.ai/build-with-cartesia/capability-guides/ssml-tags</a>. Accessed 2026-07-30.</li>
+    <li id="ref-diyai-gcp">Diyai.io summary of Google Cloud TTS 2026 pricing conversions (Gemini token → per-hour approximations). <a href="https://diyai.io/ai-tools/audio-generation/google-cloud-text-to-speech-pricing/">https://diyai.io/ai-tools/audio-generation/google-cloud-text-to-speech-pricing/</a>. Used only for conversion context; prefer [13] for list rates. Accessed 2026-07-30.</li>
+    <li id="ref-qwen-buildfast">BuildFastWithAI. “Qwen-Audio-3.0-TTS: Pricing, Languages &amp; Benchmarks” — ~$27.59 / 1M chars. <a href="https://www.buildfastwithai.com/blogs/qwen-audio-3-tts">https://www.buildfastwithai.com/blogs/qwen-audio-3-tts</a>. Accessed 2026-07-30.</li>
+    <li id="ref-cartesia-pricing">Cartesia Docs. “Pricing” — ~1 credit per character for TTS. <a href="https://docs.cartesia.ai/pricing">https://docs.cartesia.ai/pricing</a>. Accessed 2026-07-30.</li>
+    <li id="ref-cartesia-cloudtalk">CloudTalk. “Cartesia Pricing &amp; Plans” — PAYG ~$50 per 1M characters interpretation. <a href="https://www.cloudtalk.io/blog/cartesia-pricing/">https://www.cloudtalk.io/blog/cartesia-pricing/</a>. Accessed 2026-07-30.</li>
+    <li id="ref-gemini-pricing-page">Google AI for Developers. “Gemini Developer API pricing” — TTS model rows. <a href="https://ai.google.dev/gemini-api/docs/pricing">https://ai.google.dev/gemini-api/docs/pricing</a>. Accessed 2026-07-30.</li>
+    <li id="ref-telnyx-xai">Telnyx Docs. “xAI” TTS provider — expressive speech tag table. <a href="https://developers.telnyx.com/docs/voice/tts/providers/xai">https://developers.telnyx.com/docs/voice/tts/providers/xai</a>. Accessed 2026-07-30.</li>
+    <li id="ref-xai-tts-news">xAI. “Grok Speech to Text and Text to Speech APIs” — TTS $15 / 1M characters. <a href="https://x.ai/news/grok-stt-and-tts-apis">https://x.ai/news/grok-stt-and-tts-apis</a>. Accessed 2026-07-30.</li>
+    <li id="ref-fish-tts-page">Fish Audio. “Text to Speech API” product page — S2.1 Pro pricing &amp; tag demo. <a href="https://fish.audio/text-to-speech-api/">https://fish.audio/text-to-speech-api/</a>. Accessed 2026-07-30.</li>
+    <li id="ref-qwen-kiadev">KiaDev. “Alibaba's Qwen-Audio-3.0-TTS: Flash and Plus” — model IDs, 86 tags, streaming notes. <a href="https://kiadev.net/news/2026-07-20-qwen-audio-3-0-tts-release">https://kiadev.net/news/2026-07-20-qwen-audio-3-0-tts-release</a>. Accessed 2026-07-30.</li>
+    <li id="ref-eleven-v3-page">ElevenLabs. “Eleven v3” product page — audio tag positioning. <a href="https://elevenlabs.io/v3">https://elevenlabs.io/v3</a>. Accessed 2026-07-30.</li>
+    <li id="ref-speechify-api">SpeechifyAI. “Text-to-Speech API” — Simba 3.2 marketing (SSML/emotions; excluded from tag club). <a href="https://speechify.ai/text-to-speech-api">https://speechify.ai/text-to-speech-api</a>. Accessed 2026-07-30.</li>
+    <li id="ref-google-blog-tts">Google Blog. “Gemini 3.1 Flash TTS: New text-to-speech AI model.” <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-tts/">https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-tts/</a>. Accessed 2026-07-30.</li>
+    <li id="ref-inworld-steering">Inworld Docs. “Steering” — NL delivery instructions + non-verbals (<code>[laugh]</code>, sigh, breathe, cough, yawn, clear throat). <a href="https://docs.inworld.ai/tts/capabilities/steering">https://docs.inworld.ai/tts/capabilities/steering</a>. Accessed 2026-07-30.</li>
+    <li id="ref-maya1">Maya Research. “maya-research/maya1” Hugging Face model card — 20+ inline emotion tags including laugh/cry/whisper. <a href="https://huggingface.co/maya-research/maya1">https://huggingface.co/maya-research/maya1</a>. Accessed 2026-07-30.</li>
+    <li id="ref-orpheus">Canopy AI. “Orpheus-TTS” GitHub README — guided emotion/intonation via emotive tags. <a href="https://github.com/canopyai/Orpheus-TTS">https://github.com/canopyai/Orpheus-TTS</a>. Accessed 2026-07-30.</li>
+    <li id="ref-cosyvoice3">Du et al. “CosyVoice 3: Towards In-the-wild Speech Generation…” arXiv — instruction types + <code>[laughter]</code>/<code>[breath]</code> fine-grained markers. <a href="https://arxiv.org/html/2505.17589v2">https://arxiv.org/html/2505.17589v2</a>. Accessed 2026-07-30.</li>
+    <li id="ref-dia">Nari Labs. “Dia” GitHub / HF — dialogue TTS with <code>(laughs)</code> and other nonverbals. <a href="https://github.com/nari-labs/dia">https://github.com/nari-labs/dia</a>. Accessed 2026-07-30.</li>
+    <li id="ref-step-editx">StepFun. “stepfun-ai/Step-Audio-EditX” Hugging Face — emotion + paralinguistic editing tags including laughter. <a href="https://huggingface.co/stepfun-ai/Step-Audio-EditX">https://huggingface.co/stepfun-ai/Step-Audio-EditX</a>. Accessed 2026-07-30.</li>
+    <li id="ref-doubao">Secondary Doubao/Seed-TTS 2.0 integration notes on <code>context_texts</code> and <code>use_tag_parser</code> (e.g. ax0x / community docs). Verify against Volcengine console. Accessed 2026-07-30.</li>
+    <li id="ref-inworld-blog">Inworld. “Realtime TTS-2…” launch post (2026-05-05). <a href="https://inworld.ai/blog/realtime-tts-2">https://inworld.ai/blog/realtime-tts-2</a>. Accessed 2026-07-30.</li>
+    <li id="ref-inworld-pricing">Inworld. “Pricing” — TTS-2 per-million-character plan tiers. <a href="https://inworld.ai/pricing">https://inworld.ai/pricing</a>. Accessed 2026-07-30.</li>
+    <li id="ref-myvocal">MyVocal Docs. “TTS” API — v3 prompt control tags for emotion and non-speech sounds. <a href="https://docs.myvocal.ai/api-reference/tts/tts">https://docs.myvocal.ai/api-reference/tts/tts</a>. Accessed 2026-07-30.</li>
+    <li id="ref-cosyvoice2">FunAudioLLM. “CosyVoice2.0” demo page — fine-grained <code>[laughter]</code> control examples. <a href="https://funaudiollm.github.io/cosyvoice2">https://funaudiollm.github.io/cosyvoice2</a>. Accessed 2026-07-30.</li>
+    <li id="ref-chatterbox">TTS Wiki / community guides on Resemble Chatterbox (May 2025) and experimental v2 special tokens vs Step-Audio-EditX. <a href="https://www.tts.wiki/index.php?title=Chatterbox">https://www.tts.wiki/index.php?title=Chatterbox</a>. Accessed 2026-07-30.</li>
+    <li id="ref-indextts2">Index Team. “IndexTTS2” paper/repo — emotion via vectors/NL/audio prompts (Sep 2025 release notes). <a href="https://github.com/index-tts/index-tts/">https://github.com/index-tts/index-tts/</a>. Accessed 2026-07-30.</li>
+    <li id="ref-zonos">Zyphra. “Zonos” GitHub — emotion parameters (happiness/fear/sadness/anger), not inline laugh tags. <a href="https://github.com/Zyphra/Zonos">https://github.com/Zyphra/Zonos</a>. Accessed 2026-07-30.</li>
+    <li id="ref-playdialog">Play.ai. “Introducing PlayDialog” — context-driven emotive conversation model. <a href="https://blog.play.ai/blog/introducing-playdialog">https://blog.play.ai/blog/introducing-playdialog</a>. Accessed 2026-07-30.</li>
+    <li id="ref-aa-leaderboard">Artificial Analysis. “Text to Speech Leaderboard” (provider-voice). Snapshot Elo: Simba 3.2 1,229; Qwen-Audio-3.0-TTS-Plus 1,227; Gemini 3.1 Flash TTS 1,213; Luna TTS 1,203; Sonic 3.5 1,202. <a href="https://artificialanalysis.ai/text-to-speech/leaderboard/provider-voice?tab=leaderboard">https://artificialanalysis.ai/text-to-speech/leaderboard/provider-voice</a>. Accessed 2026-07-30.</li>
+    <li id="ref-openai-tts">OpenAI Docs. “Text to speech” — <code>gpt-4o-mini-tts</code>, <code>instructions</code> for emotional range/tone/whispering; voice list. <a href="https://developers.openai.com/api/docs/guides/text-to-speech">https://developers.openai.com/api/docs/guides/text-to-speech</a>. Accessed 2026-07-30.</li>
+    <li id="ref-openai-audio-launch">OpenAI. “Introducing next-generation audio models in the API” — steerable <code>gpt-4o-mini-tts</code>. <a href="https://openai.com/index/introducing-our-next-generation-audio-models/">https://openai.com/index/introducing-our-next-generation-audio-models/</a>. Accessed 2026-07-30.</li>
+    <li id="ref-openai-instructions-bug">OpenAI Developer Community. “TTS no longer follows instructions parameter” — snapshot differences (2025-12-15 vs 2025-03-20). <a href="https://community.openai.com/t/tts-no-longer-follows-instructions-parameter/1371743">https://community.openai.com/t/tts-no-longer-follows-instructions-parameter/1371743</a>. Accessed 2026-07-30.</li>
+    <li id="ref-openai-sdk-tags">Jellypod speech-sdk PR #18 — maps bracket tags to OpenAI <code>instructions</code> (workaround, not native tags). <a href="https://github.com/Jellypod-Inc/speech-sdk/pull/18">https://github.com/Jellypod-Inc/speech-sdk/pull/18</a>. Accessed 2026-07-30.</li>
+    <li id="ref-stepaudio25">StepFun Docs. “StepAudio 2.5 TTS” — global instruction + parenthetical inline context (e.g. short gasp / laughing). <a href="https://platform.stepfun.ai/docs/en/guides/models/stepaudio-2.5-tts">https://platform.stepfun.ai/docs/en/guides/models/stepaudio-2.5-tts</a>. Accessed 2026-07-30.</li>
+    <li id="ref-openai-realtime-ga">OpenAI. “Introducing gpt-realtime and Realtime API updates for production voice agents” (2025-08-28) — Realtime GA, <code>gpt-realtime</code>, Cedar/Marin. <a href="https://openai.com/index/introducing-gpt-realtime/">https://openai.com/index/introducing-gpt-realtime/</a>. Accessed 2026-07-30.</li>
+    <li id="ref-openai-realtime-prompting">OpenAI Cookbook / Docs. “Realtime Prompting Guide” / “Using realtime models” — Personality &amp; Tone, multi-emotion instruction following, reasoning effort. <a href="https://developers.openai.com/cookbook/examples/realtime_prompting_guide">https://developers.openai.com/cookbook/examples/realtime_prompting_guide</a>; <a href="https://developers.openai.com/api/docs/guides/realtime-models-prompting">realtime-models-prompting</a>. Accessed 2026-07-30.</li>
+    <li id="ref-openai-realtime-conversations">OpenAI Docs. “Realtime conversations” — <code>session.update</code>, voice options, voice lock after first audio. <a href="https://developers.openai.com/api/docs/guides/realtime-conversations">https://developers.openai.com/api/docs/guides/realtime-conversations</a>. Accessed 2026-07-30.</li>
+    <li id="ref-openai-realtime-2">OpenAI Docs. “GPT-Realtime-2” model page — reasoning voice model, configurable effort. <a href="https://developers.openai.com/api/docs/models/gpt-realtime-2">https://developers.openai.com/api/docs/models/gpt-realtime-2</a>. Accessed 2026-07-30.</li>
+    <li id="ref-openai-changelog">OpenAI Docs. “Changelog” — audio/Realtime entries Oct 2024 through Jul 2026 (Realtime beta/GA, mini-tts, realtime-1.5/2/2.1, transcribe). <a href="https://developers.openai.com/api/docs/changelog">https://developers.openai.com/api/docs/changelog</a>. Accessed 2026-07-30.</li>
+    <li id="ref-fish-license">Fish Audio. “What We Mean by Open Source, and Why It Matters for S2” + Research License — research/non-commercial free; commercial requires separate license. <a href="https://fish.audio/blog/what-we-mean-by-open-source-for-s2/">https://fish.audio/blog/what-we-mean-by-open-source-for-s2/</a>; <a href="https://github.com/fishaudio/fish-speech/blob/main/LICENSE">LICENSE</a>. Accessed 2026-07-30.</li>
+    <li id="ref-qwen3-tts">QwenLM. “Qwen3-TTS” GitHub — Apache 2.0 open TTS series (0.6B/1.7B), voice clone/design/streaming. <a href="https://github.com/QwenLM/Qwen3-TTS">https://github.com/QwenLM/Qwen3-TTS</a>. Accessed 2026-07-30.</li>
+  </ol>
+</section>
+
+<footer>
+  <p>Research-Bot artifact — kept in the Research-Bot base folder. Expanded 2026-07-30: last-year market sweep, AA Elo, OpenAI/Realtime timeline, Simba tradeoff, Fish/Qwen licensing, shopping notes (Qwen worth exploring; Simba cheaper/faster vs Gemini with less control). Prices and model IDs change; re-check vendor consoles / HF cards before committing a production stack.</p>
+</footer>
+
+</div>
+</body>
+</html>
